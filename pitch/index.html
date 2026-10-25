@@ -776,9 +776,25 @@ ol.decisions .fill{border-bottom-color:currentColor}
 [data-layout="closing"] h2{font-size:104px;max-width:1280px;letter-spacing:-0.02em;line-height:1.08}
 .tagline{font-size:64px;margin-bottom:40px;color:var(--hero-brand)}
 
+/* slide 3: the live website */
+.site-demo{gap:48px}
+.browser{flex:none;width:900px;border-radius:20px;overflow:hidden;border:3px solid var(--rule);background:#fff;box-shadow:0 18px 40px rgba(11,53,64,.18)}
+.bbar{display:flex;align-items:center;gap:20px;height:56px;padding:0 20px;background:var(--bg2);border-bottom:3px solid var(--rule)}
+.dots{display:flex;gap:8px}.dots i{width:16px;height:16px;border-radius:50%;background:var(--hot)}.dots i:nth-child(2){background:#FFC94A}.dots i:nth-child(3){background:var(--brand)}
+.addr{flex:1;background:#fff;border:2px solid var(--rule);border-radius:999px;padding:4px 22px;font:500 28px/1.3 var(--f-body);color:#0B3540}
+.sframe{position:relative;width:900px;height:562px;overflow:hidden}
+.sframe iframe{position:absolute;top:0;left:0;width:1280px;height:800px;border:0;transform:scale(.703125);transform-origin:0 0;pointer-events:auto}
+.sctl{flex:1;min-width:0;display:flex;flex-direction:column;gap:34px}
+.call{margin:0;border:4px solid var(--hot);border-radius:20px;padding:22px 26px;font-size:30px;line-height:1.3;color:var(--ink2)}
+.call b{display:block;font:700 44px/1.2 var(--f-display);color:var(--ink)}
+.call .arr{float:inline-start;font-size:56px;line-height:1;color:var(--hot-text);margin-inline-end:16px}
+.call span:not(.arr){display:block;margin-top:8px}
+a.pbtn.big{display:inline-block;font-size:40px;padding:18px 36px}
+.shint{margin:0;font-size:28px;color:var(--ink2)}
+.repo{font-size:max(26px,calc(30px*var(--fit)))}.repo small{font-size:.8em}.repo a{color:inherit}
 /* slide 4: logo switcher */
 .demo{display:flex;gap:56px;align-items:flex-start;margin-block:auto;padding-block-end:20px}
-.lstage{flex:none;width:560px;height:600px;border-radius:24px;border:3px solid var(--rule);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;transition:background .2s}
+.lstage{flex:none;width:560px;height:562px;border-radius:24px;border:3px solid var(--rule);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;transition:background .2s}
 .lstage[data-bg="dark"]{background:#0B3540;border-color:#0B3540}
 .lstage img{width:380px;height:380px;object-fit:contain}
 .lstage .wordmark{font-size:96px;line-height:1.3;margin:0;color:#0B3540}
@@ -849,6 +865,19 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <aside class="notes"><p>Our students live in English, and at home in a dialect. Fusha, the language of the Qur'an, gets only the hours they spend with us. So those hours must be joyful. Let me ask you, as parents: when your own child comes to Arabic class, do they run in, or drag their feet? Here is our idea. We write a lesson once, carefully, in correct Fusha. The child gets it four ways: on a screen at home, on the classroom television with the teacher, in a printed book they write in, and read aloud in their ears. Teachers teach; Nawras makes it joyful.</p><p>— مصري —</p><p>ولادنا عايشين بالإنجليزي، وفي البيت بلهجة. والفصحى، لغة القرآن، مالهاش غير الساعات اللي معانا. يعني الساعات دي لازم تبقى فرحة. خلّوني أسألكم كأهالي: لما ابنكم أو بنتكم بييجوا حصة العربي، بيجروا على الفصل ولا بيتسحبوا؟ فكرتنا بسيطة. بنكتب الدرس مرة واحدة، بعناية، وبفصحى سليمة. والطفل ياخده بأربع طرق: على الشاشة في البيت، وعلى شاشة الفصل مع المدرّس، وفي كتاب مطبوع يكتب فيه، ومسموع في ودانه. المدرّسين بيعلّموا، ونَوْرَس بيخلّي التعليم فرحة.</p><p>Sources: BRIEF.md (one spec feeds the web book, the Lulu PDFs and the narration); lessons/presentation/PLAN.md audience line (many pupils speak English or a dialect at home). No statistics: the owners know their children.</p></aside>
 </section>
 
+<section class="slide" data-layout="two-column" data-id="site">
+<h2>This is the Nawras website: scroll it, then open it on your own phone</h2>
+<div class="demo site-demo bx-ui">
+<div class="browser"><div class="bbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="addr">hisham-abuella.github.io/Madrasa</span></div>
+<div class="sframe"><iframe id="siteframe" src="../mockups/02-pacific.html" title="The Nawras homepage, live: scroll inside" loading="lazy"></iframe></div></div>
+<div class="sctl">
+<p class="call"><span class="arr" aria-hidden="true">&#8592;</span> <b>Book a free trial class</b><span>The one action for parents, on every page</span></p>
+<p class="open"><a class="pbtn big" href="../mockups/02-pacific.html" target="_blank" rel="noopener">Open the website &#8599;</a></p>
+<p class="shint">scroll inside &middot; click outside to continue</p>
+</div></div>
+<aside class="notes"><p>This is the website itself, the real homepage, not a picture. Scroll inside the frame and look around. Parents see Noori, the colours, and Arabic words with an English line underneath. And they see one thing to do: Book a free trial class. Press the button to open it in its own tab, then try it on your own phone.</p><p>— مصري —</p><p>ده الموقع نفسه، الصفحة الرئيسية الحقيقية، مش صورة. اسحبوا جوّه الإطار وشوفوا براحتكم. ولي الأمر هيشوف نوري والألوان، وكلمات عربي وتحتها سطر إنجليزي. وهيشوف حاجة واحدة يعملها: احجز حصة تجريبية مجانية. دوسوا على الزرار يفتح في تبويب لوحده، وجرّبوه على موبايلكم.</p><p>Sources: BRIEF.md (one action per page for parents: Book a free trial class); mockups/02-pacific.html (the flagship homepage, live). The address bar shows the public address of the site.</p></aside>
+</section>
+
 <section class="slide" data-layout="image-right" data-id="name">
 <figure><img src="img/noori-happy.webp" alt="Noori the young seagull, smiling (نُورِي)"></figure>
 <h2>The seagull flies far and comes home, like our children returning to the language of the Qur'an</h2>
@@ -873,7 +902,7 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <button type="button" class="lbg on" data-bg="light" aria-pressed="true">Light</button><button type="button" class="lbg" data-bg="dark" aria-pressed="false">Dark</button></p>
 <p class="lsmall"><a href="../logos/index.html" target="_blank" rel="noopener">All six on one page →</a></p>
 </div></div>
-<aside class="notes"><p>We drew six logo ideas, and you can try them yourselves: tap a number. None of the drawings has letters in it; the name is set in real Arabic type underneath. Switch the background to see it on light and on dark. Our recommendation is number one, the Gull and Crescent: the crescent says Islamic, the wave says San Diego, and Noori says children. For small places, like a phone icon, we pair it with number six, Noori's face. The tiny one shows how it looks on a phone.</p><p>— مصري —</p><p>رسمنا ست أفكار للشعار، وتقدروا تجرّبوهم بنفسكم: دوسوا على أي رقم. مفيش حرف جوّه الرسمة، والاسم مكتوب تحتها بخط عربي حقيقي. غيّروا الخلفية تشوفوه فاتح وغامق. ترشيحنا رقم واحد: النورس والهلال. الهلال بيقول إسلامي، والموجة بتقول سان دييجو، ونوري بيقول أطفال. وللأماكن الصغيرة، زي أيقونة الموبايل، معاه رقم ستة: وش نوري. والصورة الصغيرة بتوريكم شكله على الموبايل.</p><p>Sources: logos/index.html (names, reasons, "Recommended" on concept 1, pair with concept 6); logos/source/gen-logos.sh (28 versions tried; no text in the emblems; 2 vector SVGs, for 1 and 6).</p></aside>
+<aside class="notes"><p>We drew six logo ideas, and you can try them yourselves: tap a number. None of the drawings has letters in it; the name is set in real Arabic type underneath. Switch the background to see it on light and on dark. Our recommendation is number one, the Gull and Crescent: the crescent says Islamic, the wave says San Diego, and Noori says children. For small places, like a phone icon, we pair it with number six, Noori's face. The tiny one shows how it looks on a phone.</p><p>— مصري —</p><p>رسمنا ست أفكار للشعار، وتقدروا تجرّبوهم بنفسكم: دوسوا على أي رقم. مفيش حرف جوّه الرسمة، والاسم مكتوب تحتها بخط عربي حقيقي. غيّروا الخلفية تشوفوه فاتح وغامق. ترشيحنا رقم واحد: النورس والهلال. الهلال بيقول إسلامي، والموجة بتقول سان دييجو، ونوري بيقول أطفال. وللأماكن الصغيرة، زي الصورة الصغيرة اللي على شاشة الموبايل، معاه رقم ستة: وش نوري. والدايرة الصغيرة بتوريكم شكله على الموبايل.</p><p>Sources: logos/index.html (names, reasons, "Recommended" on concept 1, pair with concept 6); logos/source/gen-logos.sh (28 versions tried; no text in the emblems; 2 vector SVGs, for 1 and 6).</p></aside>
 </section>
 
 <section class="slide" data-layout="two-column" data-id="look">
@@ -954,14 +983,14 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <li><b>Printing budget</b> <span>Lulu about $8–15 a copy: $160–300 for a class of 20</span></li>
 </ol>
 <p class="strip cost"><span class="chip">Proof copy first: 5–10 days</span> <span class="chip">Website: $0 extra</span> <span class="chip">Home booklet: $1–3</span> <span class="chip">Estimates, Oct 2026</span></p>
-<aside class="notes"><p>So here are the five decisions. One: the look, one of the six; the choice is yours. Two: the logo; we recommend the Gull and Crescent, with Noori's face as the icon. Three: a pilot class, which grade and which teacher, and from when; let us fill that in together. Four: one teacher who proofreads the Fusha, every vowel mark, before anything is printed. This one matters most, because children copy exactly what they see. Five: a printing budget. A Lulu paperback is about eight to fifteen dollars a copy, so a class of twenty is about one hundred and sixty to three hundred dollars; these are October estimates. We print one proof copy first, which takes five to ten days. The website costs nothing extra, and a home booklet costs one to three dollars. Which of these can we decide today?</p><p>— مصري —</p><p>يبقى دي الخمس قرارات. واحد: الشكل، واحد من الستة، والقرار قراركم. اتنين: الشعار، وترشيحنا النورس والهلال، ووش نوري للأيقونة. تلاتة: فصل للتجربة، أنهي سنة وأنهي مدرّس، وإمتى نبدأ؛ نملّيها سوا. أربعة: مدرّس يراجع الفصحى، كل حركة وكل تشكيلة، قبل ما أي حاجة تتطبع. ودي أهم واحدة، لأن الأطفال بينقلوا بالظبط اللي بيشوفوه. خمسة: ميزانية للطباعة. نسخة الكتاب من لولو تقديرها من تمانية لخمستاشر دولار، يعني فصل فيه عشرين طفل من مية وستين لتلتمية دولار، وده تقدير شهر أكتوبر. وبنطبع نسخة تجربة الأول، بتاخد من خمس لعشر أيام. والموقع مش هيكلّفنا حاجة زيادة، وكتيّب البيت بدولار لتلاتة. أنهي واحدة فيهم نقدر نقرّرها النهارده؟</p><p>Sources: book/README.md cost estimate; PRINTING-GUIDE.md section 4 (Lulu paperback about $8–15 plus shipping about $5–10; Lulu 5–10 days; home booklet about $1–3). Class of 20 = 20 × $8 = $160 to 20 × $15 = $300, books only, shipping extra; confirm in Lulu's calculator before ordering. Hosting: $0 extra, GitHub Pages on the existing account (decision 2026-10-25). No Lulu proof copy has been printed yet. The pilot blanks are decisions for the owners in the meeting.</p></aside>
+<aside class="notes"><p>So here are the five decisions. One: the look, one of the six; the choice is yours. Two: the logo; we recommend the Gull and Crescent, with Noori's face as the icon. Three: a pilot class, which grade and which teacher, and from when; let us fill that in together. Four: one teacher who proofreads the Fusha, every vowel mark, before anything is printed. This one matters most, because children copy exactly what they see. Five: a printing budget. A Lulu paperback is about eight to fifteen dollars a copy, so a class of twenty is about one hundred and sixty to three hundred dollars; these are October estimates. We print one proof copy first, which takes five to ten days. The website costs nothing extra, and a home booklet costs one to three dollars. Which of these can we decide today?</p><p>— مصري —</p><p>يبقى دي الخمس قرارات. واحد: الشكل، واحد من الستة، والقرار قراركم. اتنين: الشعار، وترشيحنا النورس والهلال، ووش نوري للصورة الصغيرة على الموبايل. تلاتة: فصل للتجربة، أنهي سنة وأنهي مدرّس، وإمتى نبدأ؛ نملّيها سوا. أربعة: مدرّس يراجع الفصحى، كل حركة وكل تشكيلة، قبل ما أي حاجة تتطبع. ودي أهم واحدة، لأن الأطفال بينقلوا بالظبط اللي بيشوفوه. خمسة: ميزانية للطباعة. نسخة الكتاب من لولو تقديرها من تمانية لخمستاشر دولار، يعني فصل فيه عشرين طفل من مية وستين لتلتمية دولار، وده تقدير شهر أكتوبر. وبنطبع نسخة تجربة الأول، بتاخد من خمس لعشر أيام. والموقع مش هيكلّفنا حاجة زيادة، وكتيّب البيت بدولار لتلاتة. أنهي واحدة فيهم نقدر نقرّرها النهارده؟</p><p>Sources: book/README.md cost estimate; PRINTING-GUIDE.md section 4 (Lulu paperback about $8–15 plus shipping about $5–10; Lulu 5–10 days; home booklet about $1–3). Class of 20 = 20 × $8 = $160 to 20 × $15 = $300, books only, shipping extra; confirm in Lulu's calculator before ordering. Hosting: $0 extra, GitHub Pages on the existing account (decision 2026-10-25). No Lulu proof copy has been printed yet. The pilot blanks are decisions for the owners in the meeting.</p></aside>
 </section>
 
 <section class="slide" data-layout="closing" data-id="close">
 <img class="cheer" src="img/noori-cheer.webp" alt="Noori the seagull cheering (نُورِي)">
 <h2>Your school now has a name, a look, a lesson and a book, ready for one class to try</h2>
 <p class="tagline"><span class="ar" lang="ar">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</span></p>
-<p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span></p>
+<p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> <a href="https://github.com/hisham-abuella/Madrasa" target="_blank" rel="noopener">github.com/hisham-abuella/Madrasa</a> <small>(private: ask Hisham for access)</small></span></p>
 <aside class="notes"><p>[warmly] Here is what your school has today: a name, a look, a logo, one lesson in three forms, and a book with its own voice. One lesson, written once in careful Fusha, reaching each child on a screen, in class, on paper and in their ears. With your five decisions, it reaches your students next. May Allah bless your school, your teachers and your children.</p><p>— مصري —</p><p>[warmly] ده اللي عند مدرستكم النهارده: اسم، وشكل، وشعار، ودرس واحد بتلات طرق، وكتاب بصوته. درس واحد، مكتوب مرة واحدة بفصحى سليمة، بيوصل لكل طفل على الشاشة، وفي الفصل، وعلى الورق، وفي ودانه. وبالخمس قرارات بتوعكم، يوصل لتلاميذكم. ربنا يبارك في مدرستكم، وفي المدرّسين، وفي الولاد.</p><p>Sources: Restates the story as what the owners now have.</p></aside>
 </section>
 <!-- SLIDES:END -->

@@ -17,7 +17,7 @@ plan = open(P + 'PLAN.md', encoding='utf-8').read()
 scripts = {}
 for m in re.finditer(r'### \d+ · (\w+)\n\*\*EN\*\*: (.*?)\n\n\*\*EG\*\*: (.*?)\n', plan, re.S):
     scripts[m.group(1)] = {'en': m.group(2).strip(), 'eg': m.group(3).strip()}
-assert len(scripts) == 12, len(scripts)
+assert len(scripts) == 13, len(scripts)
 for k in scripts:
     e = scripts[k]['en']
     e = e.replace('classroom TV', 'classroom television').replace('QR code', 'Q R code').replace('an AI model', 'an artificial intelligence model')
@@ -29,6 +29,7 @@ for k in ('start', 'close'):
 TITLES = {
  'start': 'Nawras: Fusha for little hearts, by the Pacific',
  'idea': 'Fusha has our hours: one lesson, four ways',
+ 'site': 'The Nawras website, live',
  'name': 'The name: the seagull and Noori',
  'logo': 'Six logo ideas, one recommended',
  'look': 'Six layouts and six themes',
@@ -43,6 +44,7 @@ TITLES = {
 TITLES_AR = {
  'start': 'نَوْرَس: الفصحى لقلوب صغيرة، على المحيط الهادي',
  'idea': 'الفصحى ليها ساعاتنا: درس واحد بأربع طرق',
+ 'site': 'موقع نَوْرَس، على الهواء',
  'name': 'الاسم: النورس ونوري',
  'logo': 'ست أفكار للشعار، وواحدة مرشّحة',
  'look': 'ست تصاميم وست ألوان',
@@ -105,7 +107,19 @@ slide('idea', 'statement', '''<p class="label">The idea</p>
 <p class="close-line">Teachers teach. Nawras makes it joyful.</p>''',
  'BRIEF.md (one spec feeds the web book, the Lulu PDFs and the narration); lessons/presentation/PLAN.md audience line (many pupils speak English or a dialect at home). No statistics: the owners know their children.')
 
-# 3 name
+# 3 site (live, scrollable homepage)
+slide('site', 'two-column', f'''<h2>This is the Nawras website: scroll it, then open it on your own phone</h2>
+<div class="demo site-demo bx-ui">
+<div class="browser"><div class="bbar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="addr">hisham-abuella.github.io/Madrasa</span></div>
+<div class="sframe"><iframe id="siteframe" src="../mockups/02-pacific.html" title="The Nawras homepage, live: scroll inside" loading="lazy"></iframe></div></div>
+<div class="sctl">
+<p class="call"><span class="arr" aria-hidden="true">&#8592;</span> <b>Book a free trial class</b><span>The one action for parents, on every page</span></p>
+<p class="open">{a("../mockups/02-pacific.html", "Open the website &#8599;", "pbtn big")}</p>
+<p class="shint">scroll inside &middot; click outside to continue</p>
+</div></div>''',
+ 'BRIEF.md (one action per page for parents: Book a free trial class); mockups/02-pacific.html (the flagship homepage, live). The address bar shows the public address of the site.')
+
+# 4 name
 slide('name', 'image-right', f'''<figure><img src="img/noori-happy.webp" alt="Noori the young seagull, smiling (نُورِي)"></figure>
 <h2>The seagull flies far and comes home, like our children returning to the language of the Qur'an</h2>
 <ul data-build="list">
@@ -238,7 +252,7 @@ slide('ask', 'ask', f'''<h2>Five decisions today let one class start</h2>
 slide('close', 'closing', f'''<img class="cheer" src="img/noori-cheer.webp" alt="Noori the seagull cheering (نُورِي)">
 <h2>Your school now has a name, a look, a lesson and a book, ready for one class to try</h2>
 <p class="tagline">{A("نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ")}</p>
-<p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span></p>''',
+<p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> {a("https://github.com/hisham-abuella/Madrasa", "github.com/hisham-abuella/Madrasa")} <small>(private: ask Hisham for access)</small></span></p>''',
  'Restates the story as what the owners now have.')
 
 # ---------- CSS ----------
@@ -298,9 +312,25 @@ ol.decisions .fill{border-bottom-color:currentColor}
 [data-layout="closing"] h2{font-size:104px;max-width:1280px;letter-spacing:-0.02em;line-height:1.08}
 .tagline{font-size:64px;margin-bottom:40px;color:var(--hero-brand)}
 
+/* slide 3: the live website */
+.site-demo{gap:48px}
+.browser{flex:none;width:900px;border-radius:20px;overflow:hidden;border:3px solid var(--rule);background:#fff;box-shadow:0 18px 40px rgba(11,53,64,.18)}
+.bbar{display:flex;align-items:center;gap:20px;height:56px;padding:0 20px;background:var(--bg2);border-bottom:3px solid var(--rule)}
+.dots{display:flex;gap:8px}.dots i{width:16px;height:16px;border-radius:50%;background:var(--hot)}.dots i:nth-child(2){background:#FFC94A}.dots i:nth-child(3){background:var(--brand)}
+.addr{flex:1;background:#fff;border:2px solid var(--rule);border-radius:999px;padding:4px 22px;font:500 28px/1.3 var(--f-body);color:#0B3540}
+.sframe{position:relative;width:900px;height:562px;overflow:hidden}
+.sframe iframe{position:absolute;top:0;left:0;width:1280px;height:800px;border:0;transform:scale(.703125);transform-origin:0 0;pointer-events:auto}
+.sctl{flex:1;min-width:0;display:flex;flex-direction:column;gap:34px}
+.call{margin:0;border:4px solid var(--hot);border-radius:20px;padding:22px 26px;font-size:30px;line-height:1.3;color:var(--ink2)}
+.call b{display:block;font:700 44px/1.2 var(--f-display);color:var(--ink)}
+.call .arr{float:inline-start;font-size:56px;line-height:1;color:var(--hot-text);margin-inline-end:16px}
+.call span:not(.arr){display:block;margin-top:8px}
+a.pbtn.big{display:inline-block;font-size:40px;padding:18px 36px}
+.shint{margin:0;font-size:28px;color:var(--ink2)}
+.repo{font-size:max(26px,calc(30px*var(--fit)))}.repo small{font-size:.8em}.repo a{color:inherit}
 /* slide 4: logo switcher */
 .demo{display:flex;gap:56px;align-items:flex-start;margin-block:auto;padding-block-end:20px}
-.lstage{flex:none;width:560px;height:600px;border-radius:24px;border:3px solid var(--rule);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;transition:background .2s}
+.lstage{flex:none;width:560px;height:562px;border-radius:24px;border:3px solid var(--rule);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#fff;transition:background .2s}
 .lstage[data-bg="dark"]{background:#0B3540;border-color:#0B3540}
 .lstage img{width:380px;height:380px;object-fit:contain}
 .lstage .wordmark{font-size:96px;line-height:1.3;margin:0;color:#0B3540}
