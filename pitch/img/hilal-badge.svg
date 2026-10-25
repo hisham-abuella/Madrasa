@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="نَوْرَس — Noori the seagull flying through a crescent over a Pacific wave">
+  <!-- Concept 1 · Seagull + crescent. Hand-built vector for print (scales to any size).
+       Palette: ink #0B3540 · ocean teal #0B7A7E · sea foam #8ED8E6 · crescent #FFC94A · coral #FF7A5C · white -->
+  <defs>
+    <clipPath id="hb"><circle cx="120" cy="120" r="108"/></clipPath>
+    <mask id="hm"><rect width="240" height="240" fill="#000"/><circle cx="98" cy="110" r="80" fill="#fff"/><circle cx="138" cy="84" r="66" fill="#000"/></mask>
+  </defs>
+  <circle cx="120" cy="120" r="108" fill="#FFF4E6"/>
+  <g clip-path="url(#hb)">
+    <circle cx="190" cy="62" r="7" fill="#FF7A5C"/><circle cx="58" cy="52" r="4" fill="#FFC94A"/><circle cx="206" cy="112" r="3.5" fill="#FFC94A"/>
+    <!-- crescent -->
+    <rect width="240" height="240" fill="#FFC94A" mask="url(#hm)"/>
+    <!-- sea -->
+    <path fill="#8ED8E6" d="M0 176 C30 160 52 160 78 172 C104 184 130 184 156 170 C182 156 210 158 240 172 V240 H0 Z"/>
+    <path fill="#0B7A7E" d="M0 196 C26 184 46 184 66 194 C78 200 92 200 98 190 C104 178 94 168 84 172 C92 160 116 164 120 182 C126 204 160 204 184 192 C206 182 224 184 240 192 V240 H0 Z"/>
+    <path fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" d="M30 214 C44 208 56 208 68 214 M150 220 C164 214 178 214 190 220"/>
+  </g>
+  <!-- Noori flying -->
+  <g stroke="#0B3540" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" transform="translate(120 120) scale(1.2)">
+    <path fill="#FFFFFF" d="M-24 -8 C-36 -30 -54 -40 -72 -40 C-66 -28 -60 -12 -50 0 C-42 10 -32 12 -22 10 Z"/>
+    <path fill="#3E5763" stroke="none" d="M-72 -40 C-67 -40 -62 -39 -58 -37 C-60 -32 -62 -28 -64 -25 C-67 -30 -70 -35 -72 -40 Z"/>
+    <path fill="#FFFFFF" d="M24 -8 C36 -30 54 -40 72 -40 C66 -28 60 -12 50 0 C42 10 32 12 22 10 Z"/>
+    <path fill="#3E5763" stroke="none" d="M72 -40 C67 -40 62 -39 58 -37 C60 -32 62 -28 64 -25 C67 -30 70 -35 72 -40 Z"/>
+    <path fill="#FFFFFF" d="M0 -38 C22 -38 32 -20 32 0 C32 22 18 34 0 34 C-18 34 -32 22 -32 0 C-32 -20 -22 -38 0 -38 Z"/>
+    <path fill="#11A5A9" d="M-29 10 C-14 19 14 19 29 10 L29 18 C14 28 -14 28 -29 18 Z"/>
+    <path fill="#11A5A9" d="M14 22 L22 36 L14 35 L9 24 Z"/>
+    <ellipse cx="-19" cy="-2" rx="5" ry="3" fill="#FF9E8A" stroke="none"/>
+    <ellipse cx="19" cy="-2" rx="5" ry="3" fill="#FF9E8A" stroke="none"/>
+    <circle cx="-11" cy="-11" r="5.5" fill="#0B3540" stroke="none"/><circle cx="11" cy="-11" r="5.5" fill="#0B3540" stroke="none"/>
+    <circle cx="-9" cy="-13" r="2" fill="#fff" stroke="none"/><circle cx="13" cy="-13" r="2" fill="#fff" stroke="none"/>
+    <path fill="#FFA726" stroke-width="3.5" d="M-7 -3 Q0 -6.5 7 -3 Q3.5 6 0 7 Q-3.5 6 -7 -3 Z"/>
+  </g>
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#0B3540" stroke-width="8"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="نُورِي — Noori, the Nawras seagull (app icon)">
+  <!-- Concept 6 · Noori mascot mark. Hand-built vector, geometry from KS.gull (assets/kids.js).
+       Palette: ocean teal #0B7A7E · ink #0B3540 · cream #FFFFFF · beak #FFA726 · cheek #FF9E8A · scarf #5FD6CF -->
+  <defs><clipPath id="nc"><circle cx="60" cy="60" r="56"/></clipPath></defs>
+  <circle cx="60" cy="60" r="56" fill="#0B7A7E"/>
+  <g clip-path="url(#nc)">
+    <circle cx="60" cy="132" r="56" fill="#FF7A5C" opacity=".9"/>
+    <g transform="translate(0 10)" stroke="#0B3540" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round">
+      <path fill="#FFFFFF" d="M60 16 C86 16 98 40 97 66 C96 94 80 108 60 108 C40 108 24 94 23 66 C22 40 34 16 60 16 Z"/>
+      <path fill="#FFFFFF" d="M56 18 C52 9 58 4 66 6 C61 8.5 61 13 63 17.5"/>
+      <path fill="#5FD6CF" d="M29 72 C45 82 75 82 91 72 L92 81 C75 92 45 92 28 81 Z"/>
+      <ellipse cx="37" cy="61" rx="6" ry="3.6" fill="#FF9E8A" stroke="none"/>
+      <ellipse cx="83" cy="61" rx="6" ry="3.6" fill="#FF9E8A" stroke="none"/>
+      <circle cx="46" cy="50" r="7.5" fill="#0B3540" stroke="none"/>
+      <circle cx="74" cy="50" r="7.5" fill="#0B3540" stroke="none"/>
+      <circle cx="48.8" cy="47.2" r="2.8" fill="#fff" stroke="none"/>
+      <circle cx="76.8" cy="47.2" r="2.8" fill="#fff" stroke="none"/>
+      <path fill="#FFA726" d="M51 58 Q60 53.5 69 58 Q64.5 70 60 71.5 Q55.5 70 51 58 Z"/>
+      <circle cx="63.2" cy="64" r="1.7" fill="#E4572E" stroke="none"/>
+    </g>
+  </g>
+  <circle cx="60" cy="60" r="56" fill="none" stroke="#0B3540" stroke-width="5"/>
+</svg>

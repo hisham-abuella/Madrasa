@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="pacific">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem('nawras-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<title>Nawras art &amp; motion guide</title>
+<meta name="description" content="How to make kid-friendly pictures, animations and narration for Nawras Fusha School so every new lesson looks and sounds like the rest: characters, prompts, seeds, motion rules, sound and print.">
+<meta property="og:title" content="نَوْرَس — art &amp; motion guide">
+<meta property="og:image" content="assets/og-nawras.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/kids.css">
+<style>
+/* guide.html — page layout only; every colour is a kids.css token */
+:root { --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+body { font-family: var(--f-latin); font-size: 18px; line-height: 1.7; }
+.ar { font-family: var(--f-word); font-weight: 700; direction: rtl; unicode-bidi: isolate; line-height: 1.9; letter-spacing: 0; }
+.topbar .logo small { text-align: left; }
+.g-hero { background: var(--hero-bg); padding: clamp(36px, 6vw, 72px) 0 clamp(30px, 5vw, 56px); }
+.g-hero .wrap { display: grid; grid-template-columns: auto 1fr; gap: clamp(18px, 4vw, 40px); align-items: center; }
+.g-hero .noori { width: clamp(120px, 16vw, 180px); }
+.g-hero .noori .gull { width: 100%; height: auto; }
+.g-hero h1 { margin: 0; color: var(--hero-ink); font-size: clamp(2rem, 5.4vw, 3.3rem); line-height: 1.2; }
+.g-hero .ar-sub { margin: 4px 0 8px; font-size: clamp(1.3rem, 3vw, 1.7rem); color: var(--brand-text); display: block; }
+.g-hero p { color: var(--hero-ink2); max-width: 46em; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+.toc a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 4px 14px; border-radius: 999px; background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); text-decoration: none; font-weight: 700; font-size: .95rem; }
+.toc a:hover { background: var(--surface2); }
+.toc a b { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: var(--on-brand); font-size: .8rem; }
+
+.g-sec { padding-block: clamp(40px, 6vw, 72px); scroll-margin-top: 80px; }
+.g-sec + .g-sec { border-top: 2px dashed var(--line); }
+.g-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
+.g-head .n { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--brand); color: var(--on-brand); font: 800 1.3rem/1 var(--f-latin); }
+.g-head h2 { margin: 0; line-height: 1.2; }
+.g-head .ar { font-size: 1.3rem; color: var(--brand-text); margin-inline-start: auto; }
+.lede { font-size: 1.08rem; color: var(--ink2); max-width: 52em; }
+h3 { margin-top: 1.4em; }
+.src { font-size: .82rem; color: var(--ink2); }
+code, kbd { font-family: var(--f-mono); font-size: .86em; background: var(--surface2); padding: 1px 6px; border-radius: 6px; overflow-wrap: anywhere; }
+
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); }
+.grid--2 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+.card h3 { margin: 0 0 6px; font-size: 1.15rem; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+.card ul { padding-inline-start: 1.2em; margin: 0 0 .6em; }
+.rule-list { padding-inline-start: 1.2em; }
+.rule-list li { margin-bottom: 6px; }
+.do, .dont { list-style: none; padding: 0 !important; }
+.do li, .dont li { position: relative; padding-inline-start: 26px; margin-bottom: 4px; }
+.do li::before, .dont li::before { position: absolute; inset-inline-start: 0; top: 0; font-weight: 800; }
+.do li::before { content: "✓"; color: var(--good-text); }
+.dont li::before { content: "✕"; color: var(--bad-text); }
+
+/* code blocks with a copy button */
+.code { position: relative; margin: 10px 0 16px; }
+.code pre { margin: 0; padding: 16px 18px; padding-top: 44px; border-radius: var(--radius-sm); background: var(--surface2); color: var(--ink); border: var(--border-w) solid var(--border-c);
+  font: 400 .8rem/1.6 var(--f-mono); white-space: pre-wrap; overflow-wrap: anywhere; direction: ltr; text-align: left; max-width: 100%; }
+.code .label { position: absolute; top: 10px; left: 16px; font: 700 .72rem/1 var(--f-latin); letter-spacing: .06em; text-transform: uppercase; color: var(--ink2); }
+.copy { position: absolute; top: 6px; right: 6px; min-height: 32px; padding: 2px 12px; border-radius: 999px; cursor: pointer; font: 700 .78rem/1 var(--f-latin);
+  background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); }
+.copy:hover { background: var(--brand); color: var(--on-brand); }
+.copy:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+
+/* tables */
+.tbl { width: 100%; overflow-x: auto; margin: 10px 0 18px; border-radius: var(--radius-sm); border: var(--border-w) solid var(--border-c); background: var(--surface); }
+.tbl table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 560px; }
+.tbl th, .tbl td { padding: 9px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.tbl th { background: var(--surface2); font-weight: 800; }
+.tbl tr:last-child td { border-bottom: 0; }
+
+/* character cards */
+.char { display: grid; grid-template-columns: 150px 1fr; gap: 20px; align-items: start; }
+.char .pics { display: grid; gap: 12px; justify-items: center; }
+.char .pv { display: grid; justify-items: center; gap: 2px; }
+.char .pics img { width: 150px; height: 170px; object-fit: contain; }
+.char .pics .gull, .char .pics .svgtwin { width: 84px; height: 84px; }
+.char .pics small { font-size: .72rem; color: var(--ink2); text-align: center; line-height: 1.3; }
+.char h3 { margin: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 1.4rem; }
+.char h3 .ar { font-size: 1.6rem; color: var(--brand-text); }
+.char .dd { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px) { .char { grid-template-columns: 1fr; } .char .pics { grid-auto-flow: column; justify-content: start; align-items: end; } .char .pics img { width: 120px; height: 140px; } .char .dd { grid-template-columns: 1fr; } }
+
+/* before / after gallery */
+.ba { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
+.ba figure { margin: 0; background: var(--surface); border: var(--border-w) solid var(--border-c); border-radius: var(--radius-sm); padding: 12px; box-shadow: var(--shadow); }
+.ba .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ba .pair div { position: relative; }
+.ba img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+.ba .tag { position: absolute; top: 6px; left: 6px; padding: 0 8px; border-radius: 999px; font: 800 .7rem/1.7 var(--f-latin); }
+.ba .tag.no { background: var(--bad-bg); color: var(--bad-text); border: 1.5px solid var(--bad); }
+.ba .tag.yes { background: var(--good-bg); color: var(--good-text); border: 1.5px solid var(--good); }
+.ba figcaption { font-size: .86rem; margin-top: 8px; line-height: 1.5; }
+.sheet { margin: 10px 0; border-radius: var(--radius-sm); overflow: hidden; border: var(--border-w) solid var(--border-c); background: #fff; }
+.sheet img { width: 100%; height: auto; }
+
+/* steps */
+.steps { counter-reset: st; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.steps > li { counter-increment: st; position: relative; padding: 16px 18px 6px 62px; background: var(--surface); border: var(--border-w) solid var(--border-c); border-radius: var(--radius-sm); }
+.steps > li::before { content: counter(st); position: absolute; left: 14px; top: 14px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--on-accent); font-weight: 800; }
+.steps > li > b:first-child { display: block; font-size: 1.08rem; }
+@media (max-width: 520px) { .steps > li { padding-left: 16px; padding-top: 56px; } }
+
+/* demos */
+.demo { display: flex; flex-direction: column; gap: 10px; }
+.stage { min-height: 150px; display: grid; place-items: center; background: var(--surface2); border-radius: var(--radius-sm); border: 1px solid var(--line); padding: 12px; overflow: hidden; position: relative; }
+.stage .gull { width: 110px; height: 110px; }
+.stage .pic { width: 90px; }
+.demo .btn { align-self: flex-start; }
+.spec { font: 400 .78rem/1.5 var(--f-mono); color: var(--ink2); margin: 0; }
+.job { font-size: .88rem; margin: 0; }
+.big-word { font-size: clamp(2.4rem, 7vw, 3.4rem); line-height: 1.7; color: var(--ink); }
+.moods { display: flex; flex-wrap: wrap; gap: 6px; }
+.moods .btn { align-self: auto; }
+.ans-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.ans { min-width: 110px; min-height: 56px; font: 700 1.5rem/1.6 var(--f-word); color: var(--ink); background: var(--surface); border: 3px solid var(--border-c); border-radius: var(--btn-radius); cursor: pointer; }
+.ans:focus-visible { outline: 4px solid var(--brand); outline-offset: 3px; }
+.fb { min-height: 2.4em; text-align: center; font-weight: 700; margin: 0; }
+.fb.good { color: var(--good-text); } .fb.soft { color: var(--ink); }
+.qline { font-size: 1.7rem; margin: 0; text-align: center; }
+.mini-star svg { width: 54px; height: 54px; }
+.ease-track { position: relative; height: 34px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); margin: 6px 0; }
+.ease-track i { position: absolute; top: 5px; left: 6px; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); }
+.ease-track.go i { left: calc(100% - 28px); }
+.ease-track[data-e="pop"] i { transition: left var(--t-move) var(--ease-pop); background: var(--brand); }
+.ease-track[data-e="out"] i { transition: left var(--t-move) var(--ease-out); }
+.ease-track[data-e="lin"] i { transition: left var(--t-move) linear; background: var(--ink2); }
+.ease-label { font: 600 .74rem/1.2 var(--f-mono); color: var(--ink2); }
+.toggle { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 6px 16px; border-radius: 999px; cursor: pointer; font: 700 .95rem/1.2 var(--f-latin);
+  background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); }
+.toggle .sw { width: 40px; height: 22px; border-radius: 999px; background: var(--line); position: relative; transition: background .2s; }
+.toggle .sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 2px rgba(0,0,0,.3); transition: left .2s var(--ease-out); }
+.toggle[aria-pressed="true"] .sw { background: var(--brand); }
+.toggle[aria-pressed="true"] .sw::after { left: 21px; }
+.toggle:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.rm-note { display: none; }
+.rm-sim .rm-note { display: block; }
+/* reduced-motion preview: the same rules kids.css applies under prefers-reduced-motion */
+.rm-sim *, .rm-sim *::before, .rm-sim *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+.rm-sim .ks-w { opacity: 1; transform: none; animation: none; }
+.motion-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 12px 0 18px; }
+
+/* typography demo */
+.zwj { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 14px; }
+.zwj .card { text-align: center; }
+.zwj .big-word { display: block; }
+.ta-in { width: 100%; min-height: 56px; padding: 6px 16px; font: 700 1.6rem/1.6 var(--f-word); direction: rtl; border-radius: var(--radius-sm); border: var(--border-w) solid var(--border-c); background: var(--surface); color: var(--ink); }
+.ta-in:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.sizes .word { color: var(--ink); }
+
+/* svg + art demos */
+.swap { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; justify-content: center; }
+.swap > div { text-align: center; }
+.swap .pic, .swap img.pic { width: 96px; height: 110px; margin: 0 auto; }
+.swap .gull { width: 96px; height: 96px; margin: 0 auto; }
+.swap small { display: block; font-size: .72rem; color: var(--ink2); }
+.theme-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.theme-row .btn { flex: 0 0 auto; }
+
+/* print preview */
+.paper { background: #fff; color: #1E2A4A; border-radius: 6px; border: 1px solid var(--line); padding: 16px; box-shadow: var(--shadow); }
+.paper .write-lines { margin-top: 10px; border: 0; }
+.paper p { margin: 0; font-size: .85rem; color: #4A5675; }
+.trace-svg { max-width: 560px; margin: 0 auto; }
+
+/* checklist */
+.check { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
+.check fieldset { margin: 0; border: var(--border-w) solid var(--border-c); border-radius: var(--radius-sm); background: var(--surface); padding: 12px 16px 14px; min-width: 0; }
+.check legend { font-weight: 800; padding: 0 6px; }
+.check label { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; cursor: pointer; font-size: .92rem; line-height: 1.45; }
+.check input { width: 22px; height: 22px; flex: none; margin-top: 1px; accent-color: var(--brand); }
+.tally { font-weight: 800; }
+@media (max-width: 640px) {
+  .g-hero .wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .g-hero p { text-align: center; }
+  .toc { justify-content: center; }
+  .g-head .ar { margin-inline-start: 0; width: 100%; }
+}
+@media print { .copy, .ks-fab, .motion-bar { display: none !important; } .code pre { white-space: pre-wrap; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content · تَخَطَّ إِلَى الْمُحْتَوَى</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="نَوْرَس — back to the Nawras demo hub">
+      <span data-gull="happy"></span>
+      <span><b>نَوْرَس</b><small>Art &amp; motion guide</small></span>
+    </a>
+    <nav class="nav" aria-label="Guide sections">
+      <a href="#characters">Characters</a>
+      <a href="#generate">Images</a>
+      <a href="#motion">Motion</a>
+      <a href="#sound">Sound</a>
+      <a href="#checklist">Checklist</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="g-hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="noori" data-gull="wave" data-gull-label="نُورِي — Noori waving"></div>
+    <div>
+      <h1 id="h1">Making pictures &amp; motion for Nawras</h1>
+      <span class="ar ar-sub" lang="ar">دَلِيلُ الرُّسُومِ وَالْحَرَكَةِ</span>
+      <p>For any teacher, designer or agent adding a new lesson. Everything here comes from what we actually built: the prompts, seeds and redraws in <code>book/source/gen-noori-shell.sh</code> and <code>assets/art/source/gen-art.sh</code>, the tokens and keyframes in <code>assets/kids.css</code>, and the components in <code>assets/kids.js</code>. The buttons run the real code. Try another theme with the palette button (bottom-left).</p>
+      <ul class="toc" aria-label="Contents">
+        <li><a href="#principles"><b>1</b>Principles</a></li>
+        <li><a href="#characters"><b>2</b>Characters</a></li>
+        <li><a href="#generate"><b>3</b>Generating images</a></li>
+        <li><a href="#svg"><b>4</b>Drawing in code</a></li>
+        <li><a href="#type"><b>5</b>Type + images</a></li>
+        <li><a href="#motion"><b>6</b>Animation</a></li>
+        <li><a href="#sound"><b>7</b>Sound</a></li>
+        <li><a href="#writing"><b>8</b>Writing + print</a></li>
+        <li><a href="#checklist"><b>9</b>Checklist</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 1 · PRINCIPLES ═══════════════════════════════════════════════════ -->
+<section class="g-sec" id="principles" aria-labelledby="h-1">
+  <div class="wrap">
+    <div class="g-head"><span class="n">1</span><h2 id="h-1">Principles for kids’ art</h2><span class="ar" lang="ar">مَبَادِئُ</span></div>
+    <p class="lede">Grade 1–2 children read the picture before the word. The picture must be friendly, simple and true to the sentence under it, and it must never carry the Arabic itself.</p>
+    <div class="grid">
+      <div class="card" data-reveal style="--i:0"><h3>Shape</h3><p>Round, chubby, simple shapes. Bold clean dark navy outlines. One subject in the middle with room around it. No clutter, no crowds, no photo-like texture.</p></div>
+      <div class="card" data-reveal style="--i:1"><h3>Colour</h3><p>Flat, bright colours, no gradients in stickers. Pictures use the San Diego palette: ocean teal, warm sand, sunset coral, sky blue. UI colour comes from theme tokens (<code>--brand</code>, <code>--accent</code>), never hard-coded.</p></div>
+      <div class="card" data-reveal style="--i:2"><h3>Faces</h3><p>Big kind round dark eyes with a white sparkle, rosy cheeks, a small smile. Never scary: <code>scary, angry, sharp teeth</code> are in every negative prompt. One expression per picture.</p></div>
+      <div class="card" data-reveal style="--i:3"><h3>One character family</h3><p>Noori, Sami and Salma look the same on every page because their descriptions are pasted, never retyped (section 2). New pictures reuse the book’s <code>STYLE</code> and <code>NEG</code> strings word for word.</p></div>
+      <div class="card" data-reveal style="--i:4"><h3>No text inside images</h3><p>The model cannot write: text comes out as nonsense, and Arabic is the worst. Every Arabic word is typeset in HTML in Naskh with full tashkeel. Ask for “a plain blank book”, “a completely plain cover”.</p></div>
+      <div class="card" data-reveal style="--i:5"><h3>San Diego + Islamic, softened</h3><p>Ocean, palms, mission arches, seagulls; 8-point stars, zellige, arches, lanterns, crescent and stars. All rounded and bright for kids. Islamic greetings are welcome: <span class="ar" lang="ar">السَّلَامُ عَلَيْكُمْ</span>.</p></div>
+    </div>
+    <div class="callout callout--warn" style="margin-top:24px">
+      <p class="callout__label">Content rules: never break these</p>
+      <ul class="rule-list">
+        <li><b>No depictions of prophets or angels.</b> Show what the story is about instead (a place, an object, the children).</li>
+        <li><b>No Qur’an verses as decoration</b>, inside games, on backgrounds or in generated images.</li>
+        <li><b>Modest dress on every person:</b> long sleeves, long trousers or a long dress, socks and shoes; girls and women in a headscarf that covers all the hair and neck. Negatives always carry <code>revealing clothing, bare shoulders, bare legs, shorts, swimsuit, bikini, sleeveless, short skirt</code>.</li>
+        <li><b>No grown-ups in story pictures.</b> The model mangles adult arms and hands. Grown-ups live in the words (the mother on the book’s “fence” page). Only the word pictures <code>teacher-m</code>, <code>teacher-f</code>, <code>mother</code> show adults, modest and kind.</li>
+        <li><b>Never in a picture:</b> crosses, churches, steeples, temples, idols or statues, pigs, alcohol or bottles, musical instruments. Sound effects are soft tones only; we make no music.</li>
+        <li><b>No look-alikes of famous characters.</b> The book’s white cat with a pink bow was too close to a famous one, so she became a calico with a pink collar.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2 · CHARACTERS ═══════════════════════════════════════════════════ -->
+<section class="g-sec" id="characters" aria-labelledby="h-2">
+  <div class="wrap">
+    <div class="g-head"><span class="n">2</span><h2 id="h-2">The characters</h2><span class="ar" lang="ar">الشَّخْصِيَّاتُ</span></div>
+    <p class="lede">A local model has no memory of a character. It is held <b>by words alone</b>: one fixed description per character, kept as a shell variable and pasted into every prompt. These are the exact strings from <code>book/source/gen-noori-shell.sh</code>, copied verbatim into <code>assets/art/source/gen-art.sh</code>. Expression and pose go <em>after</em> the variable, never inside it.</p>
+
+    <div class="card char" style="margin-top:18px">
+      <div class="pics">
+        <div class="pv"><img src="assets/art/noori/happy.webp" alt="Noori, the generated sticker: a round white baby seagull with a teal scarf" width="150" height="170" loading="lazy"><small>Generated · <code>noori/happy</code> seed 1100</small></div>
+        <div class="pv"><span class="svgtwin" data-gull="happy" data-art-svg data-gull-label="Noori, the inline SVG twin"></span><small>SVG twin · <code>KS.gull()</code></small></div>
+      </div>
+      <div>
+        <h3><span class="ar" lang="ar">نُورِي</span> Noori <span class="chip chip--brand">mascot</span></h3>
+        <p>A young seagull, from <span class="ar" lang="ar">نُور</span> (light). In every story picture, the logo, the stickers and the SVG.</p>
+        <div class="code"><span class="label">$NOORI</span><button type="button" class="copy">Copy</button><pre>NOORI="a cute round chubby cartoon baby seagull named Noori with a round white and cream body, a small orange beak, big kind round dark eyes with a white sparkle, rosy pink cheeks, soft grey wings with grey wing tips, small orange feet, and a tiny teal scarf around his neck"</pre></div>
+        <div class="dd">
+          <ul class="do"><li>Repeat “his teal scarf clearly visible” when a pose could hide it (seed 611 dropped it).</li><li>Spell out poses: “raises one wing and touches his chin with the wing tip”.</li><li>Asleep: “both eyes fully closed drawn as two soft curved lines” + <code>open eyes</code> in NEG.</li></ul>
+          <ul class="dont"><li>No text or letters on him, no kufi or hat.</li><li>Never let him become <code>black bird, crow, duck, chicken, penguin, pelican, long neck</code> (all in NEG).</li><li>Never retype or “simplify” the description.</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card char" style="margin-top:18px">
+      <div class="pics">
+        <div class="pv"><img src="assets/art/pic/boy.webp" alt="Sami, generated: a boy with short black curly hair, blue long-sleeved t-shirt, navy trousers, white sneakers" width="150" height="170" loading="lazy"><small>Generated · <code>pic/boy</code> seed 1100</small></div>
+      </div>
+      <div>
+        <h3><span class="ar" lang="ar">سَامِي</span> Sami <span class="chip chip--masc">هَذَا</span></h3>
+        <p>Six years old. One fixed outfit, always the same.</p>
+        <div class="code"><span class="label">$SAMI</span><button type="button" class="copy">Copy</button><pre>SAMI="a cheerful six-year-old cartoon boy with short black curly hair, warm light-brown skin, round soft face, small thin eyebrows, wearing a long-sleeved blue t-shirt, long navy trousers and white sneakers"</pre></div>
+        <div class="dd">
+          <ul class="do"><li>With Salma in the picture, add “with his short black curly hair uncovered” (seed 610 gave him a headscarf).</li><li>Ask for “his blue t-shirt completely plain” (seed 1000 printed a little cat on it).</li></ul>
+          <ul class="dont"><li>Accepted drift to avoid next time: short sleeves on book page <code>nashit</code> (613).</li><li>No new outfit: a new outfit is a new character to the model.</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card char" style="margin-top:18px">
+      <div class="pics">
+        <div class="pv"><img src="assets/art/pic/girl.webp" alt="Salma, generated: a girl in a pink headscarf, long-sleeved yellow dress over white trousers, pink shoes" width="150" height="170" loading="lazy"><small>Generated · <code>pic/girl</code> seed 1001</small></div>
+      </div>
+      <div>
+        <h3><span class="ar" lang="ar">سَلْمَى</span> Salma <span class="chip chip--fem">هَذِهِ</span></h3>
+        <p>Six years old. The trousers, socks and shoes are there on purpose.</p>
+        <div class="code"><span class="label">$SALMA</span><button type="button" class="copy">Copy</button><pre>SALMA="a cheerful six-year-old cartoon girl wearing a soft pink headscarf that covers all her hair and neck, warm light-brown skin, round soft face, small thin eyebrows, wearing a long-sleeved yellow dress with long white trousers underneath that cover her legs, white socks and pink shoes"</pre></div>
+        <div class="dd">
+          <ul class="do"><li>Keep “long white trousers underneath … white socks and pink shoes”: the first tests (seeds 602–604, 611) showed bare shins.</li><li>Check the hairline at full size: the scarf should cover all the hair.</li></ul>
+          <ul class="dont"><li>Don’t “simplify” the outfit away.</li><li>Don’t put both children in one clause: the model drew only Salma (seeds 602–603, 704–706).</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:22px">
+      <p class="callout__label">Two or three characters in one picture</p>
+      <p>Name the positions. The book page <code>friends</code> only worked (seed 804) after: <code>three friends standing in a row on a sunny beach, full body view: on the left $SAMI waving, in the middle $NOORI, on the right $SALMA waving, …</code>. Props have fixed words too: <code>SHELL="a small pale pink scallop seashell"</code>; the cats are “a big orange striped tabby tomcat” and “a smaller calico she-cat with white, orange and grey patches and a little pink collar”.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3 · GENERATING ═══════════════════════════════════════════════════ -->
+<section class="g-sec" id="generate" aria-labelledby="h-3">
+  <div class="wrap">
+    <div class="g-head"><span class="n">3</span><h2 id="h-3">Generating images locally</h2><span class="ar" lang="ar">صُنْعُ الصُّوَرِ</span></div>
+    <p class="lede">All artwork is drawn on the Mac by <b>Z-Image Turbo</b> through <code>draw-things-cli</code>. Nothing goes to a cloud service. About 90 seconds a picture at 1536px, <b>one at a time</b> (the GPU is shared, so never run two batches together; long batches run in the background).</p>
+
+    <ol class="steps">
+      <li><b>Check the model is there</b>
+        <div class="code"><button type="button" class="copy">Copy</button><pre>draw-things-cli models list --downloaded-only     # z_image_turbo_1.0_q8p.ckpt must be listed</pre></div></li>
+      <li><b>Add one <code>gen</code> line to the script</b> Book pages go in <code>book/source/gen-&lt;slug&gt;.sh</code>, site pictures in <code>assets/art/source/gen-art.sh</code>. Build the prompt from the variables and end it with the style string. Comment the line if it needed help, so nobody “simplifies” it later.
+        <div class="code"><span class="label">Command template</span><button type="button" class="copy">Copy</button><pre>CLI=/opt/homebrew/bin/draw-things-cli
+$CLI generate --model z_image_turbo_1.0_q8p.ckpt \
+  --prompt "$NOORI &lt;doing what&gt;, &lt;where&gt;, $STYLE" \
+  --negative-prompt "$NEG" \
+  --width 1536 --height 1536 --seed &lt;seed&gt; --disable-preview \
+  --output assets/art/hi/&lt;group&gt;/&lt;name&gt;.png</pre></div>
+        <div class="code"><span class="label">$STYLE (story pictures)</span><button type="button" class="copy">Copy</button><pre>STYLE="bright cartoon children's book illustration, bold clean dark navy outlines, flat vibrant colours, simple rounded shapes, soft San Diego beach palette of ocean teal, warm sand, sunset coral and sky blue, gentle and cheerful, simple uncluttered background"</pre></div>
+        <div class="code"><span class="label">$PSTYLE2 (one object / sticker on white)</span><button type="button" class="copy">Copy</button><pre>PSTYLE2="bright cartoon children's book illustration, bold clean dark navy outlines, flat vibrant colours, simple rounded shapes, gentle and cheerful, one single object in the centre with empty white space all around it, isolated on a plain solid white background, nothing else in the picture"</pre></div>
+        <div class="code"><span class="label">$NEG (every picture)</span><button type="button" class="copy">Copy</button><pre>NEG="text, letters, words, numbers, arabic script, arabic calligraphy, writing, signs, logo, label, caption, watermark, \
+adult, grown-up, man, woman, adult arms, adult hands, extra arms, extra hands, extra fingers, extra limbs, extra wings, extra legs, extra eyes, deformed, \
+black bird, crow, duck, chicken, penguin, pelican, long neck, \
+idol, statue, cross, church, steeple, temple, pig, alcohol, wine, beer, bottle, revealing clothing, bare shoulders, bare legs, shorts, swimsuit, bikini, sleeveless, short skirt, \
+musical instrument, scary, angry, sharp teeth, crowd, cluttered, blurry, photorealistic, photograph, 3d render, painterly, gouache, watercolour texture"</pre></div>
+        <p class="src">Add-ons in <code>gen-art.sh</code>: <code>NEG_OBJ</code> (<code>sticker, decal, emoji, badge, teddy bear, bear, bunny, small extra character, tiny person, mascot, speech bubble, face on object, …</code>) for objects; <code>SCN</code> (<code>background scenery, landscape, beach, sea, …</code>) is appended automatically to <code>pic/*</code>, <code>noori/*</code>, levels and word-of-the-day; <code>NEG_BG</code> adds <code>person, people, child, … animal, bird, seagull, face</code> for empty backgrounds; <code>NEG_ADULT</code> removes only the adult words, for the teacher and mother pictures.</p></li>
+      <li><b>Try 3–4 seeds before the batch</b>
+        <div class="code"><button type="button" class="copy">Copy</button><pre># book page: draws build/&lt;slug&gt;-try/&lt;page&gt;-&lt;seed&gt;.png + a sheet to pick from
+cd book &amp;&amp; zsh tools/try-seeds.sh noori-shell &lt;page&gt; &lt;first-seed&gt; 4
+# site picture: redraw with the next seed block, into assets/art/hi/tries/
+SEED_ADD=100 ONLY="pic/cat" zsh assets/art/source/gen-art.sh</pre></div>
+        If the same drift shows on every seed, <b>change the words, not the seed</b>.</li>
+      <li><b>Review on a contact sheet</b> Then open anything suspicious at full size (count limbs on the full picture, never on a 300px tile).
+        <div class="code"><button type="button" class="copy">Copy</button><pre>python3 book/tools/contact-sheet.py build/sheet.png assets/art/hi/pic/*.png   # --cols 4 --tile 300</pre></div>
+        <figure class="sheet" style="margin:10px 0 6px"><img src="assets/art/guide/contact-sheet.webp" alt="The book's contact sheet: all 16 pictures of Noori and the Little Shell side by side, each with its page name" width="1000" height="276" loading="lazy"></figure>
+        <p class="src">The book’s sheet (<code>book/build/noori-shell-sheet.png</code>). Side by side, a changed face or a missing scarf jumps out.</p></li>
+      <li><b>Eye-check every picture</b> The list the book and site pictures were checked against:
+        <ul class="rule-list">
+          <li>Same face, hair colour and cut, same outfit; Noori’s teal scarf is there.</li>
+          <li>Modest dress: no bare shins, shoulders or arms; headscarf covers all the hair and neck.</li>
+          <li>No text, letters, numbers or logo-like squiggles anywhere (book covers, signs, shirts).</li>
+          <li>No extra characters: a bear, a bunny, a sticker boy, a speech bubble with a face.</li>
+          <li>Limbs and wings counted; no merged characters (seed 609 merged the she-cat into Noori).</li>
+          <li>The picture matches the words (seed 606: Noori hugging the trunk, the text says he sits on top).</li>
+          <li>No grown-ups (except the three word pictures), nothing from the content rules.</li>
+          <li>Style matches: flat cartoon, not photo-like (story <code>s05-dusk</code> seed 1205 was rejected for a realistic pier).</li>
+          <li>Empty space is where the page needs it (sand for stickers, sky for a headline).</li>
+        </ul></li>
+      <li><b>Log it</b> Put the winning seed on the <code>gen</code> line, a comment above it saying what the rejected seed did wrong, and a line in the script’s <code>REVIEW LOG</code>. Rejected tries go to <code>hi/tries/&lt;group&gt;-&lt;name&gt;-&lt;seed&gt;.png</code> (site) or <code>build/&lt;slug&gt;-try/</code> (book).</li>
+      <li><b>Make the web copies</b> Pages never reference a master.
+        <div class="code"><button type="button" class="copy">Copy</button><pre>python3 assets/art/source/make-web.py          # site: WebP, stickers cut out to transparent
+cd book &amp;&amp; bash tools/web-art.sh noori-shell    # book: 1024px copies of the 1536px masters</pre></div></li>
+    </ol>
+
+    <h3>Sizes, seeds, names and budget</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>What</th><th>Master (draw at)</th><th>Web copy</th><th>Print</th></tr></thead>
+      <tbody>
+        <tr><td>Book page / story picture</td><td>1536 × 1536</td><td>1024px (<code>sips -Z 1024</code>, <code>web-art.sh</code>)</td><td>the 1536px master itself, never a re-render. At ≥300 ppi it prints at most 5.1 in (13 cm) wide; the book’s pictures measured 374–592 ppi.</td></tr>
+        <tr><td>Word picture / Noori sticker (<code>pic/</code>, <code>noori/</code>)</td><td>1536 × 1536 on white</td><td>white cut to transparent, cropped, on a 640 × 640 canvas (people 480 × 640, standing on the floor line), transparent WebP</td><td>use the SVG on print pages</td></tr>
+        <tr><td>Story slide background (<code>story/</code>)</td><td>1536 × 1024</td><td>1200px wide WebP</td><td>–</td></tr>
+        <tr><td>Hero, wide (pacific, fanous)</td><td>1536 × 768</td><td>up to 1536 wide WebP</td><td>–</td></tr>
+        <tr><td>Hero, portrait (andalus, mihrab)</td><td>1152 × 1536</td><td>900 wide WebP</td><td>–</td></tr>
+        <tr><td>Logo emblem</td><td>1024 × 1024 (<code>gen-logos.sh</code>)</td><td><code>logos/img/cN.webp</code> + transparent PNG</td><td>vector rebuild in <code>logos/svg/</code></td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">Sizes are multiples of 64. The seed is the picture: same prompt + seed + size gives the same picture again; changing the size or even a comma gives a different one.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>Seed blocks</h3><ul>
+        <li>Book <code>noori-shell</code>: 600 + page order; each redraw adds 100 (7xx, 8xx).</li>
+        <li>Site <code>gen-art.sh</code>: <code>pic</code> 1000+, <code>noori</code> 1100+, <code>story</code> 1200+, <code>site</code> 1300+; redraw +100.</li>
+        <li>Logos: concept × 100 + 1…4 (c2 = 201–204); a reworded redraw jumps to 251–254.</li>
+        <li>The number tells the history: <code>friends 804</code> means two redraws.</li></ul></div>
+      <div class="card"><h3>Folders and names</h3><ul>
+        <li>Masters: <code>assets/art/hi/&lt;group&gt;/&lt;name&gt;.png</code> (89 MB, never linked).</li>
+        <li>Web: <code>assets/art/&lt;group&gt;/&lt;name&gt;.webp</code>; groups <code>pic noori story site</code>.</li>
+        <li>The file name <b>is</b> the API name: <code>KS.pic('cat-f')</code> loads <code>pic/cat-f.webp</code>; <code>KS.gull('wave')</code> loads <code>noori/wave.webp</code>.</li>
+        <li>Lowercase, hyphens, English keys; story slides <code>s04-wall</code>.</li>
+        <li>Book: <code>book/art-hi/images-&lt;slug&gt;/&lt;page&gt;.png</code> → <code>book/images-&lt;slug&gt;/</code>.</li></ul></div>
+      <div class="card"><h3>Size budget</h3><ul>
+        <li>Every site WebP ≤ 150 KB (<code>make-web.py</code> steps quality 86 → 44 until it fits). Real files: stickers 15–30 KB, story 25–65 KB, heroes 42–75 KB.</li>
+        <li>The book’s web copies are 1024px PNGs, about 1 MB each (17 MB for 16): fine for the book, too heavy for a lesson page. Use WebP for anything new.</li>
+        <li><code>loading="lazy"</code>, <code>decoding="async"</code>, width and height on every <code>&lt;img&gt;</code>.</li></ul></div>
+    </div>
+
+    <h3>Ready prompt templates</h3>
+    <p>Paste into the right script, replace the <code>&lt;…&gt;</code> parts, pick a seed from the next free block. Each one is a real line that worked.</p>
+    <div class="grid grid--2">
+      <div><b>A · Noun flashcard object</b> <span class="src">(<code>KS.pic</code>, transparent sticker)</span>
+        <div class="code"><button type="button" class="copy">Copy</button><pre># pic/apple: first draw (1018) rejected — a bunny face on the apple
+gen pic/&lt;name&gt; "a shiny red apple with one green leaf on its brown stem, $PSTYLE2" &lt;seed&gt; 1536 1536 "$NEG$NEG_OBJ"</pre></div></div>
+      <div><b>B · Scene with characters</b> <span class="src">(book page / story slide)</span>
+        <div class="code"><button type="button" class="copy">Copy</button><pre>gen &lt;page&gt; "a happy little orange fish jumping out of a curling teal wave, and $NOORI watching it with delight from the shore, $STYLE" &lt;seed&gt;
+# two children: positions + the slipping feature repeated
+gen &lt;page&gt; "on the left $SAMI with his short black curly hair uncovered, on the right $SALMA, &lt;doing what&gt;, full body view, $STYLE" &lt;seed&gt;</pre></div></div>
+      <div><b>C · Mascot sticker</b> <span class="src">(<code>noori/&lt;mood&gt;</code>)</span>
+        <div class="code"><button type="button" class="copy">Copy</button><pre>gen noori/&lt;mood&gt; "$NOORI standing and thinking, he raises one wing and touches his chin with the wing tip, eyes looking up to the side, a curious little smile, his teal scarf clearly visible, full body front view, $PSTYLE2" &lt;seed&gt; 1536 1536 "$NEG$NEG_OBJ"</pre></div></div>
+      <div><b>D · Hero background with empty space for the headline</b>
+        <div class="code"><button type="button" class="copy">Copy</button><pre>BSTYLE="$STYLE, no people, no animals, no birds, no characters"
+gen site/hero-&lt;theme&gt; "a wide panoramic San Diego beach at golden sunset, a big soft round sun low on the calm sea horizon in the centre, a tall palm tree at the far left edge and another at the far right edge, gentle teal waves and warm sand along the bottom, a large calm empty pale peach sky across the whole upper middle, $BSTYLE" &lt;seed&gt; 1536 768 "$NEG_BG"</pre></div></div>
+      <div><b>E · Print page</b> <span class="src">(Lulu book, 8.5″ square; room left for the typeset Arabic)</span>
+        <div class="code"><button type="button" class="copy">Copy</button><pre>SIZE=1536
+gen &lt;page&gt; "close-up of $SHELL resting on smooth sand, and $NOORI peeking at it with big amazed eyes, lots of plain empty sand around, $STYLE" &lt;seed&gt;
+# then: bash tools/web-art.sh &lt;slug&gt; &lt;page&gt;; print uses the master, not the 1024px copy</pre></div></div>
+    </div>
+
+    <h3>Regeneration log: what went wrong and the words that fixed it</h3>
+    <div class="callout callout--fem">
+      <p class="callout__label">The horseshoe-arch lesson (logos)</p>
+      <p>“An emblem shaped like an Andalusian horseshoe arch” drew a <b>literal horseshoe</b> on all four seeds (201–204). The model takes the common meaning of a word. The fix was to <b>describe the shape, not name it</b>: “a Moorish arched window like the Alhambra: a tall pointed keyhole-shaped arch with a rounded top, standing on two slim columns and a flat base”, plus <code>horseshoe, horse, magnet, lucky charm, U shape</code> in NEG. Seed 253 won. The script says: do not “simplify” this back to “horseshoe arch”.</p>
+    </div>
+    <div class="ba">
+      <figure><div class="pair"><div><img src="assets/art/guide/logo-c2-201.webp" alt="Rejected: a literal horseshoe around a sunset" width="360" height="360" loading="lazy"><span class="tag no">201</span></div><div><img src="assets/art/guide/logo-c2-253.webp" alt="Chosen: a Moorish keyhole arch window on two columns" width="360" height="360" loading="lazy"><span class="tag yes">253</span></div></div>
+        <figcaption><b>Logo c2.</b> “horseshoe arch” → a horseshoe. Describe the building instead.</figcaption></figure>
+      <figure><div class="pair"><div><img src="assets/art/guide/friends-602.webp" alt="Rejected: only Noori and Salma, Sami missing" width="360" height="360" loading="lazy"><span class="tag no">602</span></div><div><img src="assets/art/guide/friends-804.webp" alt="Chosen: Sami, Noori and Salma in a row" width="360" height="360" loading="lazy"><span class="tag yes">804</span></div></div>
+        <figcaption><b>Book <code>friends</code>.</b> Both children in one clause → Sami dropped, bare shins. Fixed with left / middle / right.</figcaption></figure>
+      <figure><div class="pair"><div><img src="assets/art/guide/bint-611.webp" alt="Rejected: Noori without his scarf, Salma with bare legs" width="360" height="360" loading="lazy"><span class="tag no">611</span></div><div><img src="assets/art/guide/bint-711.webp" alt="Chosen: Salma thinking, Noori with his teal scarf" width="360" height="360" loading="lazy"><span class="tag yes">711</span></div></div>
+        <figcaption><b>Book <code>bint</code>.</b> Noori lost his scarf; the scarf is repeated on that line.</figcaption></figure>
+      <figure><div class="pair"><div><img src="assets/art/guide/qitt-709.webp" alt="Rejected: a white cat with a pink bow next to a tabby" width="360" height="360" loading="lazy"><span class="tag no">709</span></div><div><img src="assets/art/guide/qitt-810.webp" alt="Chosen: a tabby tomcat and a calico she-cat with a pink collar" width="360" height="360" loading="lazy"><span class="tag yes">810</span></div></div>
+        <figcaption><b>Book <code>qitt</code>.</b> 609 merged the she-cat into Noori; 709 was too close to a famous white cat with a bow. Now a calico, no bird on the page.</figcaption></figure>
+      <figure><div class="pair"><div><img src="assets/art/guide/boy-1000.webp" alt="Rejected: Sami with a small cat print on his shirt" width="360" height="360" loading="lazy"><span class="tag no">1000</span></div><div><img src="assets/art/guide/boy-1100.webp" alt="Chosen: Sami with a plain blue t-shirt" width="360" height="360" loading="lazy"><span class="tag yes">1100</span></div></div>
+        <figcaption><b>Site <code>pic/boy</code>.</b> A little cat print on the shirt. “his blue t-shirt completely plain”.</figcaption></figure>
+      <figure><div class="pair"><div><img src="assets/art/guide/book-1009.webp" alt="Rejected: a blue book with a little boy sticker on the cover" width="360" height="360" loading="lazy"><span class="tag no">1009</span></div><div><img src="assets/art/guide/book-1109.webp" alt="Chosen: a plain blue hardcover book" width="360" height="360" loading="lazy"><span class="tag yes">1109</span></div></div>
+        <figcaption><b>Site <code>pic/book</code>.</b> The word “sticker” in the style added sticker characters. <code>PSTYLE2</code> + <code>NEG_OBJ</code>.</figcaption></figure>
+      <figure><div class="pair"><div><img src="assets/art/guide/shell-1021.webp" alt="Rejected: the shell on a whole beach scene" width="360" height="360" loading="lazy"><span class="tag no">1021</span></div><div><img src="assets/art/guide/shell-final.webp" alt="Chosen: the shell alone on white" width="360" height="360" loading="lazy"><span class="tag yes">final</span></div></div>
+        <figcaption><b>Site <code>pic/shell</code>.</b> “San Diego beach palette” painted a beach behind a lone shell. Stickers drop it; <code>SCN</code> negatives.</figcaption></figure>
+    </div>
+    <p class="src">Also redrawn: <code>nakhla</code> 606 → 706 (spelled “sitting among the green leaves at the very top”), <code>sadiq</code> 610 → 710 (Sami got a headscarf), <code>noori/fly</code> 1102 (stood on the ground), <code>noori/think</code> 1103 (no wing on the chin), <code>noori/sleep</code> 1105 (eyes open), <code>pic/sea</code> 1020 (a bear in the sea), <code>pic/door</code> 1010 (a bear by the door), <code>level-kg</code> 1310 (a speech bubble with a face). The full reasons are comments in the two scripts.</p>
+  </div>
+</section>
+
+<!-- ═══ 4 · SVG ══════════════════════════════════════════════════════════ -->
+<section class="g-sec" id="svg" aria-labelledby="h-4">
+  <div class="wrap">
+    <div class="g-head"><span class="n">4</span><h2 id="h-4">Drawing in code (inline SVG)</h2><span class="ar" lang="ar">الرَّسْمُ بِالْبَرْمَجَةِ</span></div>
+    <p class="lede">The site started 100% inline SVG: no broken images, no emoji. The generated set sits on top of it with an artwork switch, and the SVG is always the fallback.</p>
+    <div class="grid grid--2">
+      <div class="card"><h3>Use SVG for</h3><ul>
+        <li>The logo in the top bar (<code>.logo</code> always gets the SVG gull), icons, ornaments, patterns.</li>
+        <li>Anything that animates by its parts: Noori’s eyes blink, wings flap, head tilts.</li>
+        <li>Small sizes (under ~64px) and the theme-coloured UI.</li>
+        <li>Print pages: pin them with <code>&lt;html data-art-fixed data-art="svg"&gt;</code>.</li>
+        <li>The fallback when a picture is missing.</li></ul></div>
+      <div class="card"><h3>Use generated art for</h3><ul>
+        <li>Word pictures in cards and quizzes (<code>KS.pic</code>).</li>
+        <li>Story scenes, book pages, heroes, level cards, word of the day.</li>
+        <li>The Noori sticker set (<code>KS.gull</code> in illustrated mode).</li>
+        <li>Anywhere a child should feel “this is a real picture book”.</li></ul></div>
+    </div>
+
+    <h3>Colour with CSS variables so themes swap</h3>
+    <p>SVG parts carry a class, the class reads a token, every theme sets the token. Press a theme and watch the same drawing change.</p>
+    <div class="code"><span class="label">kids.css</span><button type="button" class="copy">Copy</button><pre>.gull .g-scarf { fill: var(--gull-scarf); }   /* pacific #11A5A9 · andalus #3B7A4C · mosaic #2450D8 */
+.gull .g-line  { stroke: var(--gull-line); stroke-width: 2.6; }
+.pic .f-fem    { fill: var(--fem); }          /* clothes follow the theme's feminine colour */
+.pic .f-hijab  { fill: color-mix(in srgb, var(--fem) 40%, #FFFFFF); }</pre></div>
+    <div class="card">
+      <div class="swap" id="svg-swap" aria-live="polite">
+        <div><span data-gull="happy" data-art-svg data-gull-label="Noori, SVG"></span><small>KS.gull('happy', {svg:true})</small></div>
+        <div id="sv-girl"></div>
+        <div id="sv-catf"></div>
+        <div id="sv-boy"></div>
+      </div>
+      <div class="theme-row" style="margin-top:14px" role="group" aria-label="Try the drawing in another theme">
+        <button type="button" class="btn btn--sm btn--ghost" data-demo-theme="pacific">Pacific</button>
+        <button type="button" class="btn btn--sm btn--ghost" data-demo-theme="andalus">Andalus</button>
+        <button type="button" class="btn btn--sm btn--ghost" data-demo-theme="fanous">Fanous</button>
+        <button type="button" class="btn btn--sm btn--ghost" data-demo-theme="kurrasa">Kurrasa</button>
+        <button type="button" class="btn btn--sm btn--ghost" data-demo-theme="mosaic">Mosaic</button>
+        <button type="button" class="btn btn--sm btn--ghost" data-demo-theme="mihrab">Mihrab</button>
+      </div>
+    </div>
+
+    <h3>The artwork switch and the fallback</h3>
+    <p><span class="ar" lang="ar">رُسُومٌ بَسِيطَةٌ</span> (simple, SVG) ↔ <span class="ar" lang="ar">رُسُومٌ مُلَوَّنَةٌ</span> (illustrated, the default). It lives in the theme picker; <code>KS.art()</code> reads it, <code>KS.art('svg'|'ill')</code> sets it and saves it in <code>localStorage['nawras-art']</code>. In illustrated mode <code>KS.pic</code> / <code>KS.gull</code> return an <code>&lt;img&gt;</code> whose <code>onerror</code> calls <code>KS.artFallback(this)</code> and swaps in the SVG, so a missing file never shows a broken image.</p>
+    <div class="grid grid--2">
+      <div class="card demo">
+        <div class="swap" style="min-height:140px">
+          <div><span data-pic="cat-f" data-pic-label="قِطَّةٌ — follows the switch"></span><small>data-pic="cat-f"</small></div>
+          <div><span data-gull="wave" data-gull-label="Noori waving — follows the switch"></span><small>data-gull="wave"</small></div>
+        </div>
+        <div class="theme-row">
+          <button type="button" class="btn btn--sm" data-demo="art-svg">رُسُومٌ بَسِيطَةٌ <span class="en">Simple</span></button>
+          <button type="button" class="btn btn--sm btn--accent" data-demo="art-ill">رُسُومٌ مُلَوَّنَةٌ <span class="en">Illustrated</span></button>
+        </div>
+        <p class="job" id="art-state" aria-live="polite"></p>
+      </div>
+      <div class="card demo">
+        <div class="swap" style="min-height:140px">
+          <div><span id="fb-demo"></span><small>src is a broken file</small></div>
+        </div>
+        <p class="job">This <code>&lt;img&gt;</code> was given a broken file. <code>onerror</code> turned it into the SVG shell. The same happens when a lesson uses a word whose picture is not drawn yet (a missing file).</p>
+      </div>
+    </div>
+    <div class="code"><span class="label">Markup</span><button type="button" class="copy">Copy</button><pre>&lt;span data-pic="cat-f"&gt;&lt;/span&gt;                 &lt;!-- auto-wired: KS.pic('cat-f') --&gt;
+&lt;span data-gull="wave"&gt;&lt;/span&gt;                 &lt;!-- auto-wired: KS.gull('wave') --&gt;
+el.innerHTML = KS.pic('shell', { label: '<bdi>صَدَفَةٌ</bdi> — a seashell' });
+KS.gull('happy', { svg: true })               // always the SVG (logo, animation by parts)
+&lt;div data-art-slot&gt;&lt;img class="ill-only" …&gt;&lt;svg class="svg-only" …&gt;&lt;/div&gt;   &lt;!-- static page art --&gt;</pre></div>
+    <p class="src">A new picture name needs three things: the SVG drawing in <code>KS.pic</code> (people, animals or <code>OBJ</code>), a label in <code>LABELS</code> (<code>'shell': '<bdi>صَدَفَةٌ</bdi> — a seashell'</code>), and <code>assets/art/pic/&lt;name&gt;.webp</code>.</p>
+  </div>
+</section>
+
+<!-- ═══ 5 · TYPE ═════════════════════════════════════════════════════════ -->
+<section class="g-sec" id="type" aria-labelledby="h-5">
+  <div class="wrap">
+    <div class="g-head"><span class="n">5</span><h2 id="h-5">Typography with images</h2><span class="ar" lang="ar">الْخَطُّ وَالصُّورَةُ</span></div>
+    <p class="lede">Every children’s word is HTML text in <b>Noto Naskh Arabic</b> (<code>--f-word</code>, class <code>.word</code>) with <b>full tashkeel</b>, under or beside the picture, never inside it. Line height 1.9 leaves room for the harakat. Never letter-space Arabic.</p>
+    <div class="grid">
+      <div class="card" style="text-align:center"><span data-pic="girl" data-pic-decorative style="display:block;width:90px;margin:0 auto"></span><p class="word" lang="ar" dir="rtl" style="font-size:1.9rem;margin:6px 0 0">هَذِهِ بِنْتٌ</p><span class="en" style="display:block;text-align:center">This is a girl.</span></div>
+      <div class="card" style="text-align:center"><span data-pic="boy" data-pic-decorative style="display:block;width:90px;margin:0 auto"></span><p class="word" lang="ar" dir="rtl" style="font-size:1.9rem;margin:6px 0 0">هَذَا وَلَدٌ</p><span class="en" style="display:block;text-align:center">This is a boy.</span></div>
+      <div class="card"><h3>Rules</h3><ul>
+        <li>Picture above, word below, English caption smallest and last.</li>
+        <li><span class="dem-m ar" lang="ar">هَذَا</span> uses <code>--masc-text</code>, <span class="dem-f ar" lang="ar">هَذِهِ</span> uses <code>--fem-text</code>, the ة uses <code>--ta</code>.</li>
+        <li>Wrap English inside Arabic in <code>&lt;bdi&gt;</code> or <code>.en</code> (it isolates direction).</li></ul></div>
+    </div>
+
+    <h3>Colouring the ة without breaking the word: the ZWJ trick</h3>
+    <p>Putting part of an Arabic word in its own <code>&lt;span&gt;</code> can cut the join between the letters (the letter before the span takes its end form). A zero-width joiner (<code>&amp;zwj;</code>, U+200D) on <b>both sides</b> of the split keeps them joined. <code>KS.ta(word)</code> does this for the trailing ة; <code>[data-ta]</code> elements are wired automatically. Test on an iPad: browsers differ in how they shape across a span.</p>
+    <div class="zwj">
+      <div class="card"><span class="big-word word" lang="ar" dir="rtl">مُعَلِّمَ<span class="ta">ةٌ</span></span><p class="src">Span, no ZWJ: the join can break.</p><code dir="ltr"><bdi>مُعَلِّمَ</bdi>&lt;span class="ta"&gt;<bdi>ةٌ</bdi>&lt;/span&gt;</code></div>
+      <div class="card"><span class="big-word word" lang="ar" dir="rtl" id="zwj-ok"></span><p class="src">KS.ta(): ZWJ on both sides, joined.</p><code dir="ltr"><bdi>مُعَلِّمَ</bdi>&amp;zwj;&lt;span class="ta"&gt;&amp;zwj;<bdi>ةٌ</bdi>&lt;/span&gt;</code></div>
+      <div class="card"><label for="ta-in" class="src" style="display:block">Type any word ending in ة:</label><input id="ta-in" class="ta-in" lang="ar" value="سَمَكَةٌ" autocomplete="off"><span class="big-word word" lang="ar" dir="rtl" id="ta-out" aria-live="polite"></span></div>
+    </div>
+
+    <h3>Minimum sizes</h3>
+    <div class="tbl sizes"><table>
+      <thead><tr><th>Use</th><th>Size (from kids.css / the book)</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Word of the day</td><td><code>clamp(2.6rem, 8vw, 3.8rem)</code>, line-height 1.6</td><td><span class="word" lang="ar" style="font-size:2.6rem;line-height:1.6">شَمْسٌ</span></td></tr>
+        <tr><td>Quiz answer button</td><td><code>1.6rem</code> (1.45rem under 520px), button ≥ 64px tall</td><td><span class="word" lang="ar" style="font-size:1.6rem">هَذِهِ</span></td></tr>
+        <tr><td>Picture-card word</td><td><code>1.55rem</code>, line-height 1.9</td><td><span class="word" lang="ar" style="font-size:1.55rem">قِطَّةٌ</span></td></tr>
+        <tr><td>Body text</td><td><code>19px</code>, line-height 1.75</td><td><span class="word" lang="ar" style="font-size:19px">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</span></td></tr>
+        <tr><td>English caption (<code>.en</code>)</td><td><code>.82em</code> of its parent, <code>--ink2</code></td><td><span class="en">Fusha for little hearts</span></td></tr>
+        <tr><td>Print (book, worksheets)</td><td>17pt+ median text on every page (checked by <code>check-print-text.py</code>)</td><td>–</td></tr>
+        <tr><td>Anything tappable</td><td><code>--tap-min: 56px</code></td><td>–</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ═══ 6 · MOTION ═══════════════════════════════════════════════════════ -->
+<section class="g-sec" id="motion" aria-labelledby="h-6">
+  <div class="wrap">
+    <div class="g-head"><span class="n">6</span><h2 id="h-6">Animation rules</h2><span class="ar" lang="ar">الْحَرَكَةُ</span></div>
+    <p class="lede">Motion has a job: <b>feedback</b> (you tapped, you answered), <b>attention</b> (look here), or <b>reward</b> (you did it). If it has no job, it goes. Every demo below runs the real class or function from the kit.</p>
+    <div class="motion-bar">
+      <button type="button" class="toggle" id="rm-toggle" aria-pressed="false"><span class="sw" aria-hidden="true"></span>Preview reduced motion</button>
+      <span class="src">Applies the same rules kids.css uses for <code>prefers-reduced-motion: reduce</code> to the demos below.</span>
+    </div>
+    <div id="motion-demos">
+      <div class="callout rm-note"><p class="callout__label">Reduced motion is on</p><p>Every animation and transition jumps to its end state (0.001 ms, one iteration), loops stop, confetti is skipped, scroll reveals and the tagline appear at once. The child still gets the star, the colour, the sound and the words: the reward never depends on motion.</p></div>
+      <div class="grid">
+        <div class="card demo"><h3>Pop-in</h3><div class="stage"><span class="mini-star" id="d-pop"></span></div>
+          <button type="button" class="btn btn--sm" data-demo="pop">Run</button>
+          <p class="spec">.anim-pop · popIn · 420ms (--t-pop) · --ease-pop</p><p class="job"><b>Job:</b> something new arrives: a star, a card, the result.</p></div>
+        <div class="card demo"><h3>Wiggle</h3><div class="stage"><button type="button" class="pic-card" id="d-wiggle" data-say="قِطَّةٌ" style="width:130px"><span data-pic="cat-f" data-pic-decorative></span><span class="word" lang="ar" data-ta>قِطَّةٌ</span></button></div>
+          <button type="button" class="btn btn--sm" data-demo="wiggle">Run</button>
+          <p class="spec">.anim-wiggle · wiggle ±6deg · .5s · ease-in-out · once</p><p class="job"><b>Job:</b> attention: “tap me”. Once, not on a loop.</p></div>
+        <div class="card demo"><h3>Hop (joy)</h3><div class="stage" id="d-hop"><span data-gull="happy" data-art-svg data-gull-label="Noori, ready to hop"></span></div>
+          <button type="button" class="btn btn--sm" data-demo="hop">Run</button>
+          <p class="spec">KS.cheer(el) · hop .5s ×2 --ease-pop + flapL/flapR .3s ×4 alternate</p><p class="job"><b>Job:</b> reward after a right answer or <span class="ar" lang="ar">انْتَهَيْتُ</span>. Tapping Noori anywhere does it too.</p></div>
+        <div class="card demo"><h3>Wrong = gentle shake</h3><div class="stage" style="gap:6px">
+            <p class="qline word" lang="ar" dir="rtl"><span class="blank" style="display:inline-block;min-width:2.4em;border-bottom:4px dotted var(--ink2)"></span> بِنْتٌ</p>
+            <div class="ans-row" dir="rtl"><button type="button" class="ans" data-demo="ans">هَذَا</button><button type="button" class="ans" data-demo="ans" data-ok>هَذِهِ</button></div>
+            <p class="fb" id="d-fb" role="status" aria-live="polite"></p></div>
+          <p class="spec">.is-bad · shake 10px→4px · .4s · ease · once + KS.sfx('bad') (soft triangle tones)</p><p class="job"><b>Job:</b> feedback. Then a hint, never “wrong!”, no red X, no lost stars; try again.</p></div>
+        <div class="card demo"><h3>The ة flies in</h3><div class="stage"><span class="big-word word" lang="ar" dir="rtl" id="d-ta"></span></div>
+          <button type="button" class="btn btn--sm" data-demo="ta">Run</button>
+          <p class="spec">.ta-fly · taFly .9s --ease-pop, then .ta-glow · glow 1.4s ×2</p><p class="job"><b>Job:</b> teaches <bdi class="ar" lang="ar" dir="rtl">مُعَلِّمٌ + ة = مُعَلِّمَةٌ</bdi>. The ة lands in the word.</p></div>
+        <div class="card demo"><h3>Confetti</h3><div class="stage"><p class="job" id="d-conf" style="text-align:center">For finishing something: the quiz (40, or 80 for all right) and the writing pad (40).</p></div>
+          <button type="button" class="btn btn--sm" data-demo="confetti">Run</button>
+          <p class="spec">KS.confetti(n=70) · fall 1.3–2.5s ease-out, delay ≤ .35s · removed after 3.2s · theme --c1…--c4</p><p class="job"><b>Job:</b> big reward, rarely. Never on every answer.</p></div>
+        <div class="card demo"><h3>Noori: blink, flap, moods</h3><div class="stage" id="d-gull"></div>
+          <div class="moods" role="group" aria-label="Noori moods">
+            <button type="button" class="btn btn--sm btn--ghost" data-set-mood="happy">happy</button><button type="button" class="btn btn--sm btn--ghost" data-set-mood="wave">wave</button><button type="button" class="btn btn--sm btn--ghost" data-set-mood="fly">fly</button><button type="button" class="btn btn--sm btn--ghost" data-set-mood="think">think</button><button type="button" class="btn btn--sm btn--ghost" data-set-mood="cheer">cheer</button><button type="button" class="btn btn--sm btn--ghost" data-set-mood="sleep">sleep</button>
+          </div>
+          <p class="spec">blink 5s ∞ (eyes shut at 96%) · fly: flapL/R .5s ∞ alternate · wave 1.1s ∞ · think: tilt 2.4s ∞ · cheer: hop .6s ×3</p><p class="job"><b>Job:</b> Noori feels alive. Loops are slow and small; they stop under reduced motion.</p></div>
+        <div class="card demo"><h3>Word-by-word tagline</h3><div class="stage"><p class="word" lang="ar" dir="rtl" id="d-words" style="font-size:1.8rem;margin:0">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</p></div>
+          <button type="button" class="btn btn--sm" data-demo="words">Run</button>
+          <p class="spec">[data-words] · wordIn .6s --ease-pop · stagger 220ms + 200ms</p><p class="job"><b>Job:</b> the hero line arrives the way it is read. Split on spaces only, never inside a word; <code>aria-label</code> keeps the whole sentence.</p></div>
+        <div class="card demo"><h3>Easing: why things “land”</h3>
+          <div><span class="ease-label">--ease-pop cubic-bezier(.34, 1.56, .64, 1)</span><div class="ease-track" data-e="pop"><i></i></div>
+          <span class="ease-label">--ease-out cubic-bezier(.22, 1, .36, 1)</span><div class="ease-track" data-e="out"><i></i></div>
+          <span class="ease-label">linear (don’t)</span><div class="ease-track" data-e="lin"><i></i></div></div>
+          <button type="button" class="btn btn--sm" data-demo="ease">Run</button>
+          <p class="job"><b>Use:</b> <code>--ease-pop</code> overshoots a little, for things that arrive or reward; <code>--ease-out</code> for moves and fades. All over <code>--t-move</code> 600ms here.</p></div>
+      </div>
+    </div>
+
+    <h3>Durations and easings in kids.css</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Motion</th><th>Class / keyframes</th><th>Duration</th><th>Easing</th><th>Repeats</th><th>Job</th></tr></thead>
+      <tbody>
+        <tr><td>Button press</td><td><code>.btn:active</code> translateY(4px)</td><td>140ms <code>--t-tap</code></td><td>--ease-out</td><td>–</td><td>feedback</td></tr>
+        <tr><td>Card hover</td><td><code>.card--link</code> −6px, −.6deg</td><td>.25s</td><td>--ease-pop</td><td>–</td><td>feedback</td></tr>
+        <tr><td>Pop-in / star on</td><td><code>popIn</code>, <code>pop</code></td><td>420ms <code>--t-pop</code></td><td>--ease-pop</td><td>1</td><td>reward</td></tr>
+        <tr><td>Wiggle</td><td><code>wiggle</code></td><td>.5s</td><td>ease-in-out</td><td>1</td><td>attention</td></tr>
+        <tr><td>Shake (wrong)</td><td><code>shake</code> on <code>.is-bad</code></td><td>.4s</td><td>ease</td><td>1</td><td>feedback</td></tr>
+        <tr><td>Hop (KS.cheer)</td><td><code>hop</code> + <code>flapL/R</code></td><td>.5s / .3s</td><td>--ease-pop / ease-in-out</td><td>2 / 4</td><td>reward</td></tr>
+        <tr><td>The ة flies in</td><td><code>taFly</code> then <code>glow</code></td><td>.9s, then 1.4s</td><td>--ease-pop / ease-in-out</td><td>1, then 2</td><td>teaching</td></tr>
+        <tr><td>Tagline</td><td><code>wordIn</code></td><td>.6s, +220ms per word</td><td>--ease-pop</td><td>1</td><td>attention</td></tr>
+        <tr><td>Scroll reveal</td><td><code>[data-reveal]</code> → <code>.is-in</code></td><td>.6s, +90ms per <code>--i</code></td><td>--ease-out / --ease-pop</td><td>1</td><td>attention</td></tr>
+        <tr><td>Progress bar</td><td><code>.progress &gt; i</code> width</td><td>.5s</td><td>--ease-out</td><td>–</td><td>feedback</td></tr>
+        <tr><td>Speaking</td><td><code>pulse</code> on <code>.say.is-speaking</code></td><td>1s</td><td>ease-in-out</td><td>while speaking</td><td>status</td></tr>
+        <tr><td>Noori alive</td><td><code>blink</code>, <code>wave</code>, <code>tilt</code>, <code>float</code></td><td>5s, 1.1s, 2.4s, 4s</td><td>ease-in-out</td><td>∞ (1 when reduced)</td><td>ambient</td></tr>
+        <tr><td>Confetti</td><td><code>fall</code></td><td>1.3–2.5s</td><td>--ease-out</td><td>1</td><td>big reward</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout">
+      <p class="callout__label">Rules</p>
+      <ul class="rule-list">
+        <li><b>Motion has a job</b> (feedback, attention, reward). Feedback finishes in under a second.</li>
+        <li><b>Nothing flashes more than 3 times a second.</b> The fastest repeat in the kit is a wing flap (.3s alternate) which moves, not flashes; <code>glow</code> pulses every 1.4s.</li>
+        <li><b>Honour <code>prefers-reduced-motion</code>.</b> kids.css already does it globally; new keyframes need nothing extra. JS effects check it too (<code>KS.confetti</code> returns early).</li>
+        <li><b>No timers, countdowns or punishment.</b> No “time’s up”, no losing stars, no lives. A wrong answer gets a gentle shake, a soft tone and a hint, then the right answer is shown.</li>
+        <li><b>One thing moves at a time</b> where the child is looking. Ambient loops (blink, float) stay small and slow.</li>
+        <li>Animate <code>transform</code> and <code>opacity</code> only. Re-run a class with <code>el.classList.remove(c); void el.offsetWidth; el.classList.add(c)</code>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7 · SOUND ════════════════════════════════════════════════════════ -->
+<section class="g-sec" id="sound" aria-labelledby="h-7">
+  <div class="wrap">
+    <div class="g-head"><span class="n">7</span><h2 id="h-7">Sound &amp; narration</h2><span class="ar" lang="ar">الصَّوْتُ وَالْقِرَاءَةُ</span></div>
+    <p class="lede">Three kinds of sound: soft UI tones made in the browser, narration recorded once and shipped as MP3, and the browser’s own speech for tap-to-hear words.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>Voice</th><th>Engine</th><th>ID / where</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td><b>Fusha: Sarah</b></td><td>ElevenLabs <code>eleven_v4</code></td><td><code>EXAVITQu4vr4xnSDxMaL</code></td><td>the book, lessons, every Fusha line that ships</td></tr>
+        <tr><td><b>Egyptian: Hisham (clone)</b></td><td>ElevenLabs <code>eleven_v4</code></td><td><code>pusofH2Ro5Ny4RH6qBEO</code></td><td>the Egyptian toggle; name vocalised <span class="ar" lang="ar">هِشام أبو العِلا</span></td></tr>
+        <tr><td><b>English: Hisham</b></td><td>local Fish S2-Pro (8-bit MLX)</td><td><code>~/Work/Whisper-audio/bakeoff/narrate.py</code></td><td>the owners’ deck; no quota; non-commercial licence</td></tr>
+        <tr><td>Tap-to-hear words</td><td>browser <code>speechSynthesis</code></td><td><code>KS.speak(text)</code>, rate .85, first <code>ar-*</code> voice</td><td>single words on cards; fails silently</td></tr>
+      </tbody>
+    </table></div>
+    <div class="grid grid--2">
+      <div class="card"><h3>Listen: the approved samples</h3>
+        <p class="src">Fusha (Sarah) · <code>audio/samples/ar/s2.mp3</code></p>
+        <audio controls preload="none" src="audio/samples/ar/s2.mp3" style="width:100%"></audio>
+        <p class="src" style="margin-top:10px">Egyptian (Hisham) · <code>audio/samples/eg/s2.mp3</code></p>
+        <audio controls preload="none" src="audio/samples/eg/s2.mp3" style="width:100%"></audio>
+        <p class="src" style="margin-top:10px">Transcripts: <code>audio/transcripts/sample-{ar,eg}.json</code></p></div>
+      <div class="card"><h3>UI tones: <code>KS.sfx()</code></h3>
+        <p>Soft sine tones only, no music, no clips. Muted by the speaker button (saved as <code>nawras-mute</code>).</p>
+        <div class="theme-row"><button type="button" class="btn btn--sm" data-demo="sfx-good">good</button><button type="button" class="btn btn--sm btn--ghost" data-demo="sfx-bad">bad</button><button type="button" class="btn btn--sm btn--ghost" data-demo="sfx-pop">pop</button><button type="button" class="btn btn--sm btn--ghost" data-say="هَذِهِ قِطَّةٌ">KS.speak</button></div>
+        <p class="spec" style="margin-top:10px">good 660 → 880 → 1175 Hz sine · bad 330 → 262 Hz triangle, quieter · pop 740 Hz, 90ms</p></div>
+    </div>
+
+    <h3>Settings and tags</h3>
+    <div class="code"><span class="label">transcript JSON (one per language, the source of truth)</span><button type="button" class="copy">Copy</button><pre>{ "title": "…", "language": "ar", "voice": "EXAVITQu4vr4xnSDxMaL", "model": "eleven_v4",
+  "settings": { "stability": 0.5, "similarity_boost": 0.8 },
+  "slides": [
+    { "id": "s2", "title": "<bdi>هذا وهذه</bdi>",
+      "transcript": "<bdi dir="rtl">[playfully] اُنظُروا مَعي… &lt;break time=\"0.4s\" /&gt; هذا وَلَدٌ، وهذهِ بِنتٌ. &lt;break time=\"0.5s\" /&gt; هذا قِطٌّ، وهذهِ قِطَّةٌ.</bdi>" } ] }</pre></div>
+    <ul class="rule-list">
+      <li><b><code>eleven_v4</code>, stability 0.5, similarity 0.8</b>: the house recipe. v3/v4 ignore the <code>style</code> dial, so delivery goes into tags.</li>
+      <li><b>Tags in English, in brackets, one per sentence</b>: <code>[warmly]</code> <code>[softly]</code> <code>[gently]</code> <code>[playfully]</code> <code>[curious]</code> <code>[excited]</code> <code>[whispers]</code>. Breaks <code>&lt;break time="0.4s" /&gt;</code> give children time to look at the picture.</li>
+      <li><b>Add tags programmatically</b> around the existing text, never retype a corrected line.</li>
+      <li>Read in sequence: <code>generate.js</code> sends the neighbouring slides as <code>previous_text</code> / <code>next_text</code>.</li>
+    </ul>
+    <h3>Arabic rules for the voice</h3>
+    <ul class="rule-list">
+      <li><b>Screen and voice differ.</b> On screen: full tashkeel always. In a TTS script: <b>selective tashkeel</b> on ambiguous words (<span class="ar" lang="ar">قِطَّة</span>, <span class="ar" lang="ar">يُصبِح</span>); full tashkeel everywhere can confuse the model.</li>
+      <li><b>Carrier sentences.</b> A bare sound or a lone letter warbles; put it in a sentence: <span class="ar" lang="ar">البقرةُ تقول: مُوو!</span> A lone ة was read <span class="ar" lang="ar">«تاء»</span> in the book (caught by Whisper), so say <span class="ar" lang="ar">التّاءُ المَربوطة</span>.</li>
+      <li><b>Never invent onomatopoeia</b>; for real noises use the sound-effects endpoint, not a voice.</li>
+      <li>Spell out numbers; no symbols, URLs or digits in a script.</li>
+      <li>Arabic runs 30–50% longer than English; an Arabic clip shorter than its English twin is in the wrong folder.</li>
+      <li>Fish S2-Pro softens emphatic letters in Arabic (ق→ك, ص→س, ط→ت, ض→ظ): English only for anything that ships; listen to every Egyptian clip if the local model is tried.</li>
+    </ul>
+    <h3>QA commands</h3>
+    <div class="code"><button type="button" class="copy">Copy</button><pre>node ~/Work/Elevenlabs-voice/generate.js --usage                                    # quota before + after
+node ~/Work/Elevenlabs-voice/lint-transcript.js --pair source/x-ar.json source/x-eg.json
+node ~/Work/Elevenlabs-voice/generate.js source/x-ar.json audio/ar \
+  --voice EXAVITQu4vr4xnSDxMaL --model eleven_v4 --stability 0.5 --similarity 0.8
+python3 ~/Work/Elevenlabs-voice/qa-audio.py source/x-ar.json audio/ar source/x-eg.json audio/eg
+cd ~/Work/Whisper-audio/bakeoff &amp;&amp; uv run narrate.py deck &lt;transcript.json&gt;   # local English, Whisper-checked</pre></div>
+    <p class="src">What <code>qa-audio.py</code> flags: <code>mean_volume</code> below −45 dB (healthy narration is −15 to −24 dB); seconds per spoken character above 1.6× the set’s median (Arabic narration runs 0.089–0.104 s/char). Also confirm the browser decodes each file (<code>new Audio(url)</code> fires <code>loadedmetadata</code>). The book’s 56 clips passed; ≈ 6.5k credits used.</p>
+  </div>
+</section>
+
+<!-- ═══ 8 · WRITING + PRINT ═════════════════════════════════════════════ -->
+<section class="g-sec" id="writing" aria-labelledby="h-8">
+  <div class="wrap">
+    <div class="g-head"><span class="n">8</span><h2 id="h-8">Writing pad &amp; print exercise art</h2><span class="ar" lang="ar">لَوْحُ الْكِتَابَةِ وَالطِّبَاعَةُ</span></div>
+    <p class="lede">Every lesson has a writing station: trace the ة, trace <span class="ar" lang="ar">هَذَا</span> / <span class="ar" lang="ar">هَذِهِ</span>, write a short sentence under a picture. On screen it is <code>KS.writePad</code>; in print it is dotted words on ruled lines.</p>
+    <div data-writepad data-model="ة|هَذِهِ" data-lines="2"></div>
+    <div class="code"><button type="button" class="copy">Copy</button><pre>&lt;div data-writepad data-model="<bdi>ة|هَذِهِ</bdi>" data-lines="2"&gt;&lt;/div&gt;
+KS.writePad(el, { model: ['<bdi>ة</bdi>', '<bdi>هَذَا</bdi>'], lines: 2, lineHeight: 140 })   // → { clear, undo, toPNG, redraw }</pre></div>
+    <div class="grid grid--2">
+      <div class="card"><h3>On screen</h3><ul>
+        <li>Finger, mouse or Apple Pencil (pressure sets the width); <code>touch-action: none</code>; touches ignored for 1.5s after the pen (palm).</li>
+        <li>Baseline at 72% of the line, dotted mid-line at 42%; model word in Naskh at half the line height, dotted, from the <b>right</b>, with a <b>green start dot</b>.</li>
+        <li>Three pens from tokens (<code>--ink</code>, <code>--masc-text</code>, <code>--fem-text</code>), eraser, undo, clear, show/hide model, save PNG, 52px buttons.</li>
+        <li><span class="ar" lang="ar">انْتَهَيْتُ</span> always praises: three stars, <code>sfx('good')</code>, 40 confetti, Noori hops. No grading of handwriting, ever.</li></ul></div>
+      <div class="card"><h3>In print</h3><ul>
+        <li>Ruled lines <b>≥ 12 mm</b> per line for small hands: <code>.write-lines</code> uses 14 mm; the book uses 26 mm with an 8 mm letter body.</li>
+        <li>Dotted tracing words (grey-blue <code>#7F8DB0</code>, dash 2.5/3) with a <b>green start dot</b> (<code>#2F9E44</code>) and arrows, measured from the real glyphs.</li>
+        <li>White pages, thin lines, no tints behind writing: they must take pencil and crayon. Don’t laminate.</li>
+        <li>Pictures on exercise pages are the SVG word pictures or simple outlines; a “draw it” box gets a caption line.</li>
+        <li>One QR (≥ 25 mm, quiet zone, dark on white) per exercise page, linking to its writing-pad page.</li></ul></div>
+    </div>
+    <div class="paper" style="margin-top:18px" aria-label="Print preview of a tracing row">
+      <p>Print preview · <code>.trace-svg</code> + <code>.write-lines</code> (14 mm)</p>
+      <svg class="trace-svg" id="trace" viewBox="0 0 600 150" role="img" aria-label="Dotted هَذِهِ to trace, with a green start dot on the right">
+        <line class="mid" x1="10" y1="63" x2="590" y2="63"/><line class="base" x1="10" y1="108" x2="590" y2="108"/>
+        <text x="300" y="108" font-size="78" text-anchor="middle" direction="rtl">هَذِهِ</text>
+        <circle class="start" cx="420" cy="78" r="7"/>
+      </svg>
+      <div class="write-lines" style="--n:2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 9 · CHECKLIST ════════════════════════════════════════════════════ -->
+<section class="g-sec" id="checklist" aria-labelledby="h-9">
+  <div class="wrap">
+    <div class="g-head"><span class="n">9</span><h2 id="h-9">Pre-ship checklist for a new lesson</h2><span class="ar" lang="ar">قَبْلَ النَّشْرِ</span></div>
+    <p class="lede">Tick through it before a lesson goes to the review step. <span class="tally" id="tally" aria-live="polite"></span></p>
+    <form class="check" id="check" onsubmit="return false">
+      <fieldset><legend>Images</legend>
+        <label><input type="checkbox"><span>Characters come from <code>$NOORI</code> / <code>$SAMI</code> / <code>$SALMA</code>, style and NEG from the book, not retyped</span></label>
+        <label><input type="checkbox"><span>Every picture eye-checked at full size and on a contact sheet (section 3 list)</span></label>
+        <label><input type="checkbox"><span>No text, letters or numbers inside any picture</span></label>
+        <label><input type="checkbox"><span>Modest dress, no grown-ups in scenes, no prophets, angels, Qur’an as decoration, crosses, idols, pigs, alcohol, instruments</span></label>
+        <label><input type="checkbox"><span>Winning seed on the <code>gen</code> line, rejected seeds and reasons logged</span></label>
+        <label><input type="checkbox"><span>Web copies made; each WebP ≤ 150 KB; <code>width</code>/<code>height</code>/<code>loading="lazy"</code> set</span></label>
+        <label><input type="checkbox"><span>Works in both artwork modes; the SVG fallback exists for every <code>KS.pic</code> name</span></label>
+        <label><input type="checkbox"><span>Checked in all 6 themes, including Fanous (dark)</span></label>
+      </fieldset>
+      <fieldset><legend>Motion</legend>
+        <label><input type="checkbox"><span>Every animation has a job (feedback, attention, reward)</span></label>
+        <label><input type="checkbox"><span>Uses kit classes and tokens (<code>--t-pop</code>, <code>--ease-pop</code>), no new magic numbers</span></label>
+        <label><input type="checkbox"><span>Nothing flashes more than 3 times a second</span></label>
+        <label><input type="checkbox"><span>Reduced motion checked: the end state shows, nothing is lost</span></label>
+        <label><input type="checkbox"><span>No timers, countdowns, lives or lost stars; wrong = shake + hint</span></label>
+      </fieldset>
+      <fieldset><legend>Audio</legend>
+        <label><input type="checkbox"><span>Transcripts linted (<code>lint-transcript.js --pair</code>), tags in English, numbers spelled out</span></label>
+        <label><input type="checkbox"><span>Fusha = Sarah, Egyptian = Hisham clone, <code>eleven_v4</code> 0.5 / 0.8</span></label>
+        <label><input type="checkbox"><span><code>qa-audio.py</code> clean; Fusha checked word by word with Whisper</span></label>
+        <label><input type="checkbox"><span>Every clip decodes in the browser; sound effects are soft tones only</span></label>
+      </fieldset>
+      <fieldset><legend>Accessibility</legend>
+        <label><input type="checkbox"><span>Alt text in Arabic + English (<code><bdi>قِطَّةٌ</bdi> — a cat</code>); decorative pictures <code>aria-hidden</code></span></label>
+        <label><input type="checkbox"><span>Every Arabic word in Naskh with full tashkeel; ة coloured with ZWJ (<code>KS.ta</code>)</span></label>
+        <label><input type="checkbox"><span>Touch targets ≥ 56px; focus ring visible; hover, active and focus states</span></label>
+        <label><input type="checkbox"><span>Text contrast ≥ 4.5:1 (use the <code>--*-text</code> twins on light fills)</span></label>
+        <label><input type="checkbox"><span>No console errors; no horizontal scroll at 390px; tested on an iPad</span></label>
+      </fieldset>
+      <fieldset><legend>Print</legend>
+        <label><input type="checkbox"><span>Writing page with lines ≥ 12 mm, dotted model words, green start dots</span></label>
+        <label><input type="checkbox"><span>Pictures from the 1536px master, ≥ 300 ppi at their printed size</span></label>
+        <label><input type="checkbox"><span>White exercise pages, thin lines; A4 + Letter worksheet PDFs</span></label>
+        <label><input type="checkbox"><span>QR codes decode to the exact URL, ≥ 25 mm, quiet zone kept</span></label>
+      </fieldset>
+    </form>
+    <p style="margin-top:14px"><button type="button" class="btn btn--sm btn--ghost" data-demo="check-reset">Clear the ticks</button></p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="word" lang="ar" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <span class="en">Nawras Fusha School, San Diego · Art &amp; motion guide · <a href="index.html">Back to the demo hub</a></span>
+  </div>
+</footer>
+
+<script src="assets/kids.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var demos = $('#motion-demos');
+  function reduced() { return demos.classList.contains('rm-sim') || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches); }
+  function rerun(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
+
+  /* copy buttons */
+  $$('.code').forEach(function (box) {
+    var b = box.querySelector('.copy'); if (!b) return;
+    b.setAttribute('aria-label', 'Copy this block');
+    b.addEventListener('click', function () {
+      var txt = box.querySelector('pre').textContent;
+      function ok() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1400); }
+      try {
+        if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(txt).then(ok, fallback); }
+        else fallback();
+      } catch (e) { fallback(); }
+      function fallback() {
+        var t = document.createElement('textarea'); t.value = txt; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove(); ok();
+      }
+    });
+  });
+
+  /* section 4: SVG twins that follow the theme */
+  $('#sv-girl').innerHTML = KS.pic('girl', { svg: true, label: 'بِنْتٌ — SVG' }) + '<small>KS.pic(\'girl\', {svg:true})</small>';
+  $('#sv-catf').innerHTML = KS.pic('cat-f', { svg: true, label: 'قِطَّةٌ — SVG' }) + '<small>KS.pic(\'cat-f\', {svg:true})</small>';
+  $('#sv-boy').innerHTML = KS.pic('boy', { svg: true, label: 'وَلَدٌ — SVG' }) + '<small>KS.pic(\'boy\', {svg:true})</small>';
+  function artState() { var m = KS.art(); $('#art-state').innerHTML = 'Now: <b>' + (m === 'svg' ? 'simple (SVG)' : 'illustrated (WebP)') + '</b>. The switch is saved for the whole site.'; }
+  artState();
+  document.addEventListener('ks:art', artState);
+
+  /* section 4: the fallback demo (made after kids.js so KS.artFallback exists) */
+  $('#fb-demo').innerHTML = '<img class="pic" src="data:image/webp;base64,AAAA" alt="صَدَفَةٌ — a seashell (broken file, falls back)" data-pic-name="shell" width="96" height="110" onerror="KS.artFallback(this)">';
+
+  /* section 5: KS.ta */
+  $('#zwj-ok').innerHTML = KS.ta('مُعَلِّمَةٌ');
+  var tin = $('#ta-in'), tout = $('#ta-out');
+  function paintTa() { tout.innerHTML = KS.ta(tin.value); }
+  tin.addEventListener('input', paintTa); paintTa();
+
+  /* section 6 demos */
+  $('#d-pop').innerHTML = KS.star(true);
+  $('#d-ta').innerHTML = KS.ta('مُعَلِّمَةٌ');
+  $('#d-gull').innerHTML = KS.gull('fly', { svg: true, label: 'Noori flying' });
+  var tagline = $('#d-words').textContent.trim();
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-demo], [data-set-mood], [data-demo-theme]');
+    if (!t) return;
+    if (t.hasAttribute('data-set-mood')) {
+      var m = t.getAttribute('data-set-mood');
+      $('#d-gull').innerHTML = KS.gull(m, { svg: true, label: 'Noori — ' + m });
+      KS.sfx('pop'); return;
+    }
+    if (t.hasAttribute('data-demo-theme')) { KS.setTheme(t.getAttribute('data-demo-theme'), false); KS.sfx('pop'); return; }
+    var d = t.getAttribute('data-demo');
+    if (d === 'pop') { rerun($('#d-pop svg'), 'anim-pop'); KS.sfx('pop'); }
+    else if (d === 'wiggle') { rerun($('#d-wiggle'), 'anim-wiggle'); }
+    else if (d === 'hop') { KS.cheer($('#d-hop')); KS.sfx('pop'); }
+    else if (d === 'ans') {
+      var fb = $('#d-fb'), all = $$('.ans');
+      all.forEach(function (b) { b.classList.remove('is-good', 'is-bad'); });
+      if (t.hasAttribute('data-ok')) {
+        t.classList.add('is-good');
+        fb.className = 'fb good'; fb.innerHTML = 'أَحْسَنْتَ! <span class="en">Well done! بِنْتٌ is feminine, so هَذِهِ.</span>';
+        KS.sfx('good');
+      } else {
+        rerun(t, 'is-bad');
+        fb.className = 'fb soft'; fb.innerHTML = 'لَا بَأْسَ، نَتَعَلَّمُ مَعًا! <span class="en">Nice try. بِنْتٌ is a girl: try the other one.</span>';
+        KS.sfx('bad');
+      }
+    }
+    else if (d === 'ta') {
+      var w = $('#d-ta'); w.innerHTML = KS.ta('مُعَلِّمَةٌ'); w.classList.remove('ta-glow');
+      var ta = w.querySelector('.ta');
+      ta.classList.add('ta-fly');
+      var done = function () { ta.classList.remove('ta-fly'); w.classList.add('ta-glow'); setTimeout(function () { w.classList.remove('ta-glow'); }, 3000); };
+      if (reduced()) setTimeout(done, 20); else ta.addEventListener('animationend', done, { once: true });
+      KS.sfx('pop');
+    }
+    else if (d === 'confetti') {
+      var c = $('#d-conf');
+      if (reduced()) { c.innerHTML = '<b>Skipped:</b> reduced motion is on, so <code>KS.confetti</code> draws nothing. The stars and words still say “well done”.'; KS.sfx('good'); }
+      else { KS.confetti(40); KS.sfx('good'); c.textContent = 'KS.confetti(40): the writing pad’s amount.'; }
+    }
+    else if (d === 'words') {
+      var el = $('#d-words');
+      el.setAttribute('aria-label', tagline);
+      el.innerHTML = tagline.split(/\s+/).map(function (x, k) { return '<span class="ks-w" aria-hidden="true" style="--wi:' + k + '">' + x + '</span>'; }).join(' ');
+    }
+    else if (d === 'ease') {
+      $$('.ease-track').forEach(function (tr) { tr.classList.remove('go'); });
+      void document.body.offsetWidth;
+      setTimeout(function () { $$('.ease-track').forEach(function (tr) { tr.classList.add('go'); }); }, 30);
+    }
+    else if (d === 'sfx-good') KS.sfx('good');
+    else if (d === 'sfx-bad') KS.sfx('bad');
+    else if (d === 'sfx-pop') KS.sfx('pop');
+    else if (d === 'art-svg') KS.art('svg');
+    else if (d === 'art-ill') KS.art('ill');
+    else if (d === 'check-reset') { $$('#check input').forEach(function (i) { i.checked = false; }); tally(); }
+  });
+
+  /* reduced-motion preview */
+  var rm = $('#rm-toggle');
+  rm.addEventListener('click', function () {
+    var on = !demos.classList.contains('rm-sim');
+    demos.classList.toggle('rm-sim', on);
+    rm.setAttribute('aria-pressed', String(on));
+  });
+
+  /* section 8: put the green start dot at the right edge of the real glyphs */
+  function placeDot() {
+    try {
+      var svg = $('#trace'), tx = svg.querySelector('text'), bb = tx.getBBox();
+      if (!bb.width) return;
+      var dot = svg.querySelector('.start');
+      dot.setAttribute('cx', (bb.x + bb.width + 10).toFixed(1));
+      dot.setAttribute('cy', (108 - 78 * 0.38).toFixed(1));
+    } catch (e) {}
+  }
+  placeDot();
+  if (document.fonts && document.fonts.load) document.fonts.load('700 78px "Noto Naskh Arabic"').then(placeDot, function () {});
+
+  /* section 9: tally */
+  var boxes = $$('#check input');
+  function tally() { var n = boxes.filter(function (i) { return i.checked; }).length; $('#tally').textContent = n + ' of ' + boxes.length + ' ticked.'; }
+  boxes.forEach(function (i) { i.addEventListener('change', tally); });
+  tally();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="pacific" data-theme-fixed data-no-picker>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E{{ICON}}%3C/text%3E%3C/svg%3E">
+<meta name="description" content="{{DESC}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{OGDESC}}">
+<meta property="og:type" content="book">
+<meta property="og:image" content="../images-{{SLUG}}/cover.jpg">
+<title>{{TITLE}}</title>
+<!-- Built by tools/new-story.js from stories/{{SLUG}}.json — do not edit by hand. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Noto+Naskh+Arabic:wght@400..700&display=swap">
+<link rel="stylesheet" href="../../assets/kids.css">
+<style>
+  /* the same fonts, shipped beside the book, so it reads offline and from file:// */
+  @font-face{font-family:"Noto Naskh Arabic";src:url("../fonts/NotoNaskhArabic.ttf") format("truetype");font-weight:400 700;font-display:swap}
+  @font-face{font-family:"Baloo Bhaijaan 2";src:url("../fonts/BalooBhaijaan2.ttf") format("truetype");font-weight:400 800;font-display:swap}
+  :root{
+    --page:#FFFDF7;
+    --ink:#0B3540;
+    --ink2:#3A6470;
+    --surround:#0B2F38;
+    --surround-2:#124651;
+    --quiet:#5E7E86;
+    --rule:rgba(11,53,64,.14);
+    --acc:{{ACCENT}};
+    --acc-text:#0A6A72;
+    --m:#12658C; --m-fill:#3BA7D6;
+    --f:#B8391C; --f-fill:#FF8A6B;
+    --ta-c:#C23B1E;
+    --good:#1E7A32; --good-bg:#E6F7EA;
+    --tint:transparent;
+    --word:"Noto Naskh Arabic","Geeza Pro","Times New Roman",serif;
+    --ui:"Baloo Bhaijaan 2","Geeza Pro",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;min-height:100vh;
+    background:radial-gradient(120% 80% at 50% 0%, var(--surround-2) 0%, var(--surround) 62%);
+    color:var(--page);font-family:var(--ui);font-size:17px;line-height:1.5;
+    padding:16px 16px 36px;display:flex;flex-direction:column;align-items:center;gap:14px;
+  }
+  .skip{position:absolute;inset-inline-start:-999px;top:8px;background:var(--page);color:var(--ink);padding:8px 14px;border-radius:999px;z-index:20}
+  .skip:focus{inset-inline-start:12px}
+
+  /* ---------- top bar ---------- */
+  .bar{width:min(860px,100%);display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  .bar-group{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .seg{display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,253,247,.08);border:1px solid rgba(255,253,247,.16)}
+  .seg button{background:transparent;border:none;color:#CFE3E3;font-family:var(--ui);font-size:.95rem;padding:8px 14px;border-radius:999px;min-height:44px;transition:background .18s ease,color .18s ease}
+  .seg button[aria-pressed="true"]{background:var(--page);color:var(--ink);font-weight:700}
+  .seg button:hover:not([aria-pressed="true"]){color:var(--page)}
+  .seg button small{display:block;font-size:.66rem;line-height:1;opacity:.75}
+  .pill{background:transparent;border:1px solid rgba(255,253,247,.26);color:#CFE3E3;border-radius:999px;padding:8px 14px;min-height:44px;font-family:var(--ui);font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .pill:hover{border-color:rgba(255,253,247,.6);color:var(--page)}
+  .pill[aria-pressed="true"]{border-color:var(--page);color:var(--page);background:rgba(255,253,247,.08)}
+  .pill:active{transform:scale(.97)}
+  /* print / PDF menu */
+  .pdfmenu{position:relative}
+  .pdfmenu summary{list-style:none;cursor:pointer}
+  .pdfmenu summary::-webkit-details-marker{display:none}
+  .pdfmenu .pdflinks{position:absolute;z-index:20;inset-inline-start:0;top:calc(100% + 6px);min-width:260px;display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:16px;background:#14363b;border:1px solid rgba(255,253,247,.26);box-shadow:0 14px 30px -10px rgba(0,0,0,.7)}
+  .pdfmenu .pdflinks .pill{justify-content:flex-start}
+
+  /* ---------- the book ---------- */
+  .book{width:min(860px,100%);background:var(--page);color:var(--ink);border-radius:18px;box-shadow:0 26px 60px -24px rgba(0,0,0,.85);overflow:hidden}
+  .spread{padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px;animation:settle .42s ease both}
+  @keyframes settle{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .stage{position:relative;width:100%;aspect-ratio:1/1;max-height:min(54vh,470px);margin-inline:auto;display:grid;place-items:center;border-radius:14px;background:var(--tint);overflow:hidden}
+  .stage img{width:100%;height:100%;object-fit:contain;display:block;border-radius:14px}
+  .breathe{animation:breathe 6s ease-in-out infinite;transform-origin:50% 62%}
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+  .big-ta{position:absolute;inset-inline-start:6%;top:4%;font-family:var(--word);font-size:clamp(4rem,16vw,8rem);line-height:1.2;color:var(--ta-c);background:rgba(255,253,247,.88);border-radius:24px;padding:0 .3em;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)}
+
+  /* ---------- words ---------- */
+  .words{display:flex;flex-direction:column;gap:8px;text-align:center;max-width:36ch;margin-inline:auto;width:100%}
+  .word,.words h1,.words h2,.line,.sound{font-family:var(--word)}
+  .words h2{font-weight:700;font-size:clamp(1.9rem,7vw,2.7rem);line-height:1.5;margin:0;color:var(--acc-text)}
+  .line{font-size:clamp(1.35rem,4.6vw,1.75rem);line-height:1.9;margin:0}
+  .sound{font-size:clamp(1.3rem,4.6vw,1.6rem);font-weight:700;color:var(--acc-text);margin:0}
+  .m{color:var(--m);font-weight:700}
+  .f{color:var(--f);font-weight:700}
+  .ta{color:var(--ta-c)}
+  .eg-line{font-family:var(--ui);font-size:1rem;color:var(--ink2);margin:0;border-top:1px dashed var(--rule);padding-top:8px}
+  .eg-line b{font-size:.75rem;color:var(--quiet);margin-inline-end:6px}
+  .en-line{font-family:var(--ui);direction:ltr;unicode-bidi:isolate;font-size:.98rem;line-height:1.45;color:var(--ink2);margin:0}
+  .en-line .m,.en-line .f,.en-line .ta,.about .en-block .m,.about .en-block .f{font-family:var(--word);unicode-bidi:isolate}
+  body:not(.show-en) .en-line{display:none}
+  body:not(.show-eg) .eg-line{display:none}
+
+  /* ---------- cover ---------- */
+  .cover h1{font-weight:700;font-size:clamp(2.1rem,8vw,3.2rem);line-height:1.45;margin:0;color:var(--ink)}
+  .eyebrow{font-family:var(--ui);font-size:1rem;color:var(--quiet);margin:0}
+  .cover-rule{height:6px;background:var(--acc);width:72px;margin:2px auto;border-radius:4px}
+
+  /* ---------- about ---------- */
+  .about{text-align:start;max-width:62ch;margin-inline:auto;display:grid;gap:14px}
+  .about h2{font-family:var(--word);color:var(--acc-text);margin:0;font-size:1.7rem;line-height:1.5}
+  .about p{margin:0;font-family:var(--word);font-size:1.2rem;line-height:1.9}
+  .about .en-block{direction:ltr;text-align:left;border-top:1px solid var(--rule);padding-top:12px}
+  .about .en-block p{font-family:var(--ui);font-size:1rem;line-height:1.55}
+  .about .en-block h3{margin:0 0 6px;font-size:1.15rem}
+
+  /* ---------- exercise pages: white and light, like the printed ones ---------- */
+  .ex-head{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap}
+  .ex-num{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;font-size:1.3rem;flex:none}
+  .ex-head h2{margin:0}
+  .ex-body{display:grid;gap:14px}
+  .ex-body .wp{--radius:18px}
+  .pics{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .pic-card{display:grid;gap:6px;justify-items:center;background:#fff;border:2px solid var(--rule);border-radius:16px;padding:10px 14px}
+  .pic-card svg{width:96px;height:96px}
+  .rows{display:grid;gap:10px}
+  .row{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;background:#fff;border:1px solid var(--rule);border-radius:14px;padding:8px 10px}
+  .row .pic{width:64px;height:64px}
+  .pick{font-family:var(--word);font-size:1.6rem;line-height:1.6;min-height:56px;min-width:96px;padding:2px 18px;border-radius:999px;border:2px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer;transition:transform .14s ease,border-color .2s,background .2s}
+  .pick:hover{transform:translateY(-2px);border-color:var(--acc)}
+  .pick:active{transform:scale(.96)}
+  .pick:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+  .pick.is-right{border-color:var(--good);background:var(--good-bg);box-shadow:0 0 0 4px rgba(30,122,50,.18)}
+  .pick.is-wrong{animation:shake .45s ease}
+  .pick:disabled{cursor:default}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
+  .noun{font-family:var(--word);font-size:1.7rem;line-height:1.6;min-width:4ch;text-align:center}
+  .hint{font-family:var(--ui);font-size:1rem;color:var(--ink2);min-height:1.5em;margin:0;text-align:center}
+  .hint.good{color:var(--good);font-weight:700}
+  .score{display:flex;justify-content:center;gap:4px;min-height:34px}
+  .score svg{width:30px;height:30px}
+  .score .star-on{fill:#FFC94A;stroke:#B07F00;stroke-width:1}
+  .recap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .recap-col{background:#fff;border:2px solid var(--rule);border-radius:16px;padding:10px;text-align:center}
+  .recap-col h3{font-family:var(--word);font-size:2rem;margin:0;line-height:1.6}
+  .recap-col.mcol{border-color:var(--m-fill)} .recap-col.fcol{border-color:var(--f-fill)}
+  .recap-col p{font-family:var(--word);font-size:1.45rem;margin:0;line-height:1.8}
+  .rule-box{font-family:var(--word);font-size:1.4rem;line-height:1.8;background:#FFF4EE;border-radius:14px;padding:8px 12px;margin:0;text-align:center}
+  .cert{text-align:center;display:grid;gap:10px;justify-items:center;border:4px double var(--acc);border-radius:20px;padding:18px}
+  .cert .gull-wrap{width:140px;height:140px}
+  .cert input{font:inherit;font-family:var(--word);font-size:1.4rem;padding:6px 14px;border:2px solid var(--ink);border-radius:12px;text-align:center;width:min(18ch,100%);background:#fff;color:var(--ink)}
+  .cert input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+
+  /* ---------- listen ---------- */
+  .listen{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  .play{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--ink);background:var(--ink);color:var(--page);border-radius:999px;padding:10px 22px;min-height:52px;font-family:var(--ui);font-size:1.05rem;font-weight:700;cursor:pointer;transition:transform .14s ease}
+  .play:hover{transform:translateY(-2px)}
+  .play:active{transform:scale(.97)}
+  .play[data-state="playing"]{background:var(--acc);border-color:var(--acc)}
+  .play[disabled]{opacity:.45;cursor:default;transform:none}
+  .play .ico{width:15px;height:17px;flex:none}
+  .note{border-top:1px solid var(--rule);padding-top:11px;display:flex;gap:10px;align-items:flex-start;font-size:.98rem;line-height:1.6;color:#2F4F57;text-align:start}
+  .note b{font-weight:700;font-size:.78rem;color:var(--quiet);padding-top:.25em;white-space:nowrap;flex:none}
+  .note .en-line{display:block;margin-top:4px}
+  body.notes-off .note{display:none}
+
+  /* ---------- controls ---------- */
+  .controls{width:min(860px,100%);display:flex;align-items:center;justify-content:space-between;gap:12px}
+  button{font:inherit;cursor:pointer}
+  .turn{display:inline-flex;align-items:center;gap:8px;background:var(--page);color:var(--ink);border:none;border-radius:999px;padding:12px 20px;min-height:52px;font-family:var(--ui);font-weight:700;font-size:1rem;box-shadow:0 8px 20px -10px rgba(0,0,0,.9);transition:transform .14s ease}
+  .turn:hover{transform:translateY(-2px)}
+  .turn:active{transform:scale(.97)}
+  .turn[disabled]{opacity:.3;cursor:default;transform:none}
+  :focus-visible{outline:3px solid #FFC94A;outline-offset:3px}
+  .dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:52%}
+  .dots button{width:12px;height:12px;min-height:0;padding:0;border:none;border-radius:50%;background:rgba(255,253,247,.3);transition:background .2s,transform .2s}
+  .dots button.ex{border-radius:3px}
+  .dots button.on{background:var(--page);transform:scale(1.35)}
+  .footer{width:min(860px,100%);display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+
+  /* ---------- full screen ---------- */
+  body.big{padding:8px 0 0;gap:8px;justify-content:flex-start;height:100vh;height:100dvh;min-height:0;overflow:hidden}
+  body.big .bar{width:min(1000px,96%);flex:none}
+  body.big .book{width:100%;max-width:none;border-radius:0;box-shadow:none;flex:1 1 auto;min-height:0;overflow-y:auto}
+  body.big .spread{width:min(1000px,100%);margin-inline:auto;padding:12px 24px 104px}
+  body.big .stage{max-height:min(50dvh,820px)}
+  body.big .note,body.big .footer{display:none}
+  body.big .controls{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:min(1000px,96%);z-index:5}
+
+  @media (min-width:900px){
+    .spread.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:30px;row-gap:14px;align-items:center}
+    .spread.story .stage{grid-row:1 / span 2;max-height:min(70vh,520px)}
+    .spread.story .listen,.spread.story .note{grid-column:1 / -1}
+  }
+  @media (max-width:430px){
+    .turn{padding:11px 14px;font-size:.94rem}
+    .spread{padding:18px 14px 16px}
+    .controls{gap:8px}
+    .pick{min-width:80px;font-size:1.4rem}
+  }
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body class="show-en">
+<a class="skip" href="#spread">تَخَطَّ إِلَى الْكِتَابِ · Skip to the book</a>
+<header class="bar">
+  <div class="bar-group">
+    <a class="pill" href="../../index.html" id="homeLink">→ نَوْرَس <span lang="en">Home</span></a>
+    <button class="pill" id="fsBtn" type="button" aria-pressed="false">مِلْءُ الشَّاشَةِ</button>
+    <details class="pdfmenu"><summary class="pill" lang="en">Print / PDF</summary><div class="pdflinks" lang="en">
+      <a class="pill" href="../print/{{SLUG}}-lulu-interior.pdf" target="_blank" rel="noopener">See the book (PDF)</a>
+      <a class="pill" href="../print/{{SLUG}}-lulu-cover.pdf" target="_blank" rel="noopener">Cover (PDF)</a>
+      <a class="pill" href="../print/{{SLUG}}-home-a5.pdf" target="_blank" rel="noopener">Print at home (A5 booklet)</a>
+      <a class="pill" href="../print/{{SLUG}}-worksheets-letter.pdf" target="_blank" rel="noopener">Worksheets (Letter)</a>
+      <a class="pill" href="../print/{{SLUG}}-worksheets-a4.pdf" target="_blank" rel="noopener">Worksheets (A4)</a>
+    </div></details>
+    <button class="pill" id="turnBtn" type="button" aria-pressed="false">تَقْلِيبٌ تِلْقَائِيٌّ</button>
+  </div>
+  <div class="bar-group">
+    <div class="seg" id="voices" role="group" aria-label="الرَّاوِي — Narration">
+      <button type="button" data-voice="ar" aria-pressed="true">فُصْحَى<small lang="en">Fusha</small></button>
+      <button type="button" data-voice="eg" aria-pressed="false" lang="ar-EG">مَصْرِي<small lang="en">Egyptian</small></button>
+    </div>
+    <button class="pill" id="enBtn" type="button" aria-pressed="true" lang="en">English</button>
+  </div>
+</header>
+
+<main class="book" aria-live="polite"><section class="spread" id="spread" tabindex="-1"></section></main>
+
+<nav class="controls" aria-label="الصَّفَحَاتُ — pages">
+  <button class="turn" id="prev" type="button"><span aria-hidden="true">→</span><span>السَّابِقَةُ</span></button>
+  <div class="dots" id="dots"></div>
+  <button class="turn" id="next" type="button"><span id="nextLabel">اقْلِبِ الصَّفْحَةَ</span><span aria-hidden="true">←</span></button>
+</nav>
+
+<footer class="footer">
+  <button class="pill" id="autoBtn" type="button" aria-pressed="true"></button>
+  <button class="pill" id="notesBtn" type="button" aria-pressed="true"></button>
+  <button class="pill" id="startBtn" type="button">الْغِلَافُ <span lang="en">Cover</span></button>
+</footer>
+
+<audio id="player" preload="none"></audio>
+
+<script src="../../assets/kids.js"></script>
+<script>
+/* ============================================================
+   The book — every page pre-rendered from stories/{{SLUG}}.json
+   ============================================================ */
+var BOOK = {{BOOK}};
+var AUDIO_DIR = { ar:'../audio/ar/', eg:'../audio/eg/' };
+
+/* ============================================================
+   Wiring (after bedtime-stories' story-template)
+   ============================================================ */
+var spread = document.getElementById('spread'), dots = document.getElementById('dots');
+var prevBtn = document.getElementById('prev'), nextBtn = document.getElementById('next');
+var player = document.getElementById('player');
+var at = 0, voice = 'ar', autoplay = true, unlocked = false, big = false, autoturn = false, turnTimer = null;
+var TURN_PAUSE = 5000;
+var pages = BOOK.pages;
+
+function store(k, v){ try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+function render(){
+  var page = pages[at];
+  spread.className = 'spread ' + page.type + (page.exercise ? ' exercise' : '');
+  spread.style.setProperty('--tint', page.tint ? page.tint + '33' : 'transparent');
+  var html = page.html;
+  html += '<div class="listen"><button class="play" id="playBtn" type="button"' + (page.audio ? '' : ' disabled') + '>' +
+    '<svg class="ico" viewBox="0 0 15 17" aria-hidden="true" style="transform:scaleX(-1)"><path d="M1 1 L14 8.5 L1 16 Z" fill="currentColor"/></svg>' +
+    '<span id="playLabel">' + (page.audio ? 'اقْرَأْ لِي' : 'بِلَا صَوْتٍ') + '</span><span lang="en" style="font-weight:400;font-size:.85em;opacity:.8">' + (page.audio ? 'Read to me' : 'No narration') + '</span></button></div>';
+  if (page.note) html += '<p class="note"><b>لِلْكِبَارِ<br><span lang="en">Grown-ups</span></b><span>' + page.note + '</span></p>';
+  spread.innerHTML = html;
+  wirePage(page);
+  document.getElementById('playBtn').addEventListener('click', togglePlay);
+  prevBtn.disabled = at === 0;
+  nextBtn.disabled = at === pages.length - 1;
+  document.getElementById('nextLabel').textContent = at === 0 ? 'ابْدَأْ' : 'اقْلِبِ الصَّفْحَةَ';
+  Array.prototype.forEach.call(dots.children, function (d, n) { d.classList.toggle('on', n === at); d.setAttribute('aria-current', n === at ? 'page' : 'false'); });
+  try { history.replaceState(null, '', '#' + page.key); } catch (e) {}
+  document.title = page.title + ' · ' + BOOK.title;
+  loadAudio();
+}
+
+/* ---------- exercises: pads, picks, the certificate ---------- */
+function wirePage(page){
+  Array.prototype.forEach.call(spread.querySelectorAll('[data-writepad]'), function (el) {
+    var model = el.getAttribute('data-model');
+    KS.writePad(el, { model: model ? model.split('|') : [], lines: +el.getAttribute('data-lines') || 1, lineHeight: +el.getAttribute('data-line-height') || undefined });
+  });
+  Array.prototype.forEach.call(spread.querySelectorAll('[data-pic]'), function (el) {
+    el.innerHTML = KS.pic(el.getAttribute('data-pic'), { decorative: true });
+  });
+  Array.prototype.forEach.call(spread.querySelectorAll('[data-gull]'), function (el) {
+    el.innerHTML = KS.gull(el.getAttribute('data-gull'));
+  });
+  var picks = spread.querySelectorAll('.pick');
+  var score = spread.querySelector('.score'), hint = spread.querySelector('.hint');
+  var got = 0, total = spread.querySelectorAll('[data-group]').length;
+  Array.prototype.forEach.call(picks, function (b) {
+    b.addEventListener('click', function () {
+      unlocked = true;
+      var group = b.closest('[data-group]');
+      if (b.getAttribute('data-ok') === '1') {
+        b.classList.add('is-right');
+        if (b.hasAttribute('data-fill')) {
+          var slot = group.querySelector('.slot'); if (slot) slot.innerHTML = b.getAttribute('data-fill');
+        }
+        Array.prototype.forEach.call(group.querySelectorAll('.pick'), function (x) { x.disabled = true; });
+        got++;
+        if (score) score.innerHTML += KS.star(true);
+        if (hint) { hint.textContent = got === total ? 'أَحْسَنْتَ! كُلُّ الْإِجَابَاتِ صَحِيحَةٌ — Well done!' : 'رَائِعٌ! — Great!'; hint.className = 'hint good'; }
+        if (window.KS && KS.sfx) KS.sfx('good');
+        if (got === total && KS.confetti) KS.confetti(24);
+      } else {
+        b.classList.remove('is-wrong'); void b.offsetWidth; b.classList.add('is-wrong');
+        if (hint) { hint.textContent = group.getAttribute('data-hint') || page.hint || 'حَاوِلْ مَرَّةً أُخْرَى — try again'; hint.className = 'hint'; }
+        if (window.KS && KS.sfx) KS.sfx('bad');
+      }
+    });
+  });
+  var nameIn = spread.querySelector('#champName');
+  if (nameIn) {
+    nameIn.value = store('{{SLUG}}-name') || '';
+    nameIn.addEventListener('input', function () { store('{{SLUG}}-name', nameIn.value.trim()); });
+  }
+}
+
+function buildDots(){
+  dots.innerHTML = '';
+  pages.forEach(function (p, n) {
+    var d = document.createElement('button');
+    d.type = 'button';
+    if (p.exercise) d.className = 'ex';
+    d.setAttribute('aria-label', 'صَفْحَةُ ' + (n + 1) + ' — ' + p.title);
+    d.addEventListener('click', function () { show(n); });
+    dots.appendChild(d);
+  });
+}
+
+/* ---------- audio ---------- */
+function loadAudio(){
+  player.pause();
+  var page = pages[at];
+  if (page.audio) player.src = AUDIO_DIR[voice] + page.key + '.mp3';
+  else player.removeAttribute('src');
+  setPlayState(false);
+}
+function setPlayState(playing){
+  var btn = document.getElementById('playBtn');
+  if (!btn) return;
+  btn.dataset.state = playing ? 'playing' : 'idle';
+  if (pages[at].audio) document.getElementById('playLabel').textContent = playing ? 'إِيقَافٌ' : 'اقْرَأْ لِي';
+}
+function togglePlay(){
+  unlocked = true;
+  if (!pages[at].audio) return;
+  if (player.paused) player.play().then(function () { setPlayState(true); }).catch(function () { setPlayState(false); });
+  else { player.pause(); setPlayState(false); }
+}
+
+/* ---------- turning the pages by itself (waits after the narration; never on an exercise) ---------- */
+function stopTurning(){ if (turnTimer) { clearTimeout(turnTimer); turnTimer = null; } }
+function queueTurn(){
+  stopTurning();
+  if (!autoturn || at >= pages.length - 1 || pages[at].exercise) return;
+  if (!player.paused && !player.ended) return;
+  turnTimer = setTimeout(function () { if (autoturn && at < pages.length - 1) show(at + 1); }, TURN_PAUSE);
+}
+player.addEventListener('ended', function () { setPlayState(false); queueTurn(); });
+player.addEventListener('pause', function () { setPlayState(false); stopTurning(); });
+
+function show(i){
+  stopTurning();
+  at = Math.max(0, Math.min(pages.length - 1, i));
+  render();
+  if (autoplay && unlocked && pages[at].audio) {
+    player.play().then(function () { setPlayState(true); }).catch(function () { queueTurn(); });
+  } else queueTurn();
+  document.querySelector('.book').scrollIntoView({ block: 'nearest' });
+}
+
+/* ---------- chrome ---------- */
+nextBtn.addEventListener('click', function () { unlocked = true; show(at + 1); });
+prevBtn.addEventListener('click', function () { show(at - 1); });
+document.getElementById('startBtn').addEventListener('click', function () { show(0); });
+
+var notesBtn = document.getElementById('notesBtn'), autoBtn = document.getElementById('autoBtn'), turnBtn = document.getElementById('turnBtn');
+function paintChrome(){
+  var off = document.body.classList.contains('notes-off');
+  notesBtn.innerHTML = (off ? 'إِظْهَارُ مُلَاحَظَاتِ الْكِبَارِ' : 'إِخْفَاءُ مُلَاحَظَاتِ الْكِبَارِ') + ' <span lang="en">' + (off ? 'Show notes' : 'Hide notes') + '</span>';
+  notesBtn.setAttribute('aria-pressed', String(!off));
+  autoBtn.innerHTML = 'تَشْغِيلٌ تِلْقَائِيٌّ: ' + (autoplay ? 'نَعَمْ' : 'لَا') + ' <span lang="en">Auto-play ' + (autoplay ? 'on' : 'off') + '</span>';
+  autoBtn.setAttribute('aria-pressed', String(autoplay));
+  turnBtn.setAttribute('aria-pressed', String(autoturn));
+  document.getElementById('fsBtn').setAttribute('aria-pressed', String(big));
+}
+notesBtn.addEventListener('click', function () { document.body.classList.toggle('notes-off'); paintChrome(); });
+autoBtn.addEventListener('click', function () { autoplay = !autoplay; paintChrome(); });
+turnBtn.addEventListener('click', function () { autoturn = !autoturn; paintChrome(); if (autoturn) queueTurn(); else stopTurning(); });
+document.getElementById('enBtn').addEventListener('click', function () {
+  var on = document.body.classList.toggle('show-en');
+  this.setAttribute('aria-pressed', String(on));
+  store('{{SLUG}}-en', on ? '1' : '0');
+});
+document.getElementById('voices').addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  voice = b.getAttribute('data-voice');
+  Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+  document.body.classList.toggle('show-eg', voice === 'eg');
+  store('{{SLUG}}-voice', voice);
+  loadAudio();
+});
+document.getElementById('fsBtn').addEventListener('click', function () {
+  big = !big;
+  document.body.classList.toggle('big', big);
+  if (big && document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(function () {});
+  else if (!big && document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(function () {});
+  paintChrome();
+});
+document.addEventListener('fullscreenchange', function () {
+  if (!document.fullscreenElement && big) { big = false; document.body.classList.remove('big'); paintChrome(); }
+});
+document.addEventListener('keydown', function (e) {
+  if (/INPUT|TEXTAREA/.test(e.target.tagName)) return;
+  if (e.key === 'ArrowLeft') show(at + 1);     // right to left: forward is to the left
+  if (e.key === 'ArrowRight') show(at - 1);
+});
+var x0 = null, book = document.querySelector('.book');
+book.addEventListener('touchstart', function (e) { x0 = e.target.closest('.wp-stage') ? null : e.changedTouches[0].clientX; }, { passive: true });
+book.addEventListener('touchend', function (e) {
+  if (x0 === null) return;
+  var dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 60) show(at + (dx > 0 ? 1 : -1));
+  x0 = null;
+}, { passive: true });
+
+if (store('{{SLUG}}-en') === '0') { document.body.classList.remove('show-en'); document.getElementById('enBtn').setAttribute('aria-pressed', 'false'); }
+if (store('{{SLUG}}-voice') === 'eg') document.querySelector('#voices [data-voice="eg"]').click();
+var fromHash = location.hash.slice(1);
+pages.forEach(function (p, n) { if (p.key === fromHash) at = n; });
+window.addEventListener('hashchange', function () {
+  var k = location.hash.slice(1);
+  pages.forEach(function (p, n) { if (p.key === k && n !== at) show(n); });
+});
+buildDots();
+paintChrome();
+render();
+</script>
+</body>
+</html>

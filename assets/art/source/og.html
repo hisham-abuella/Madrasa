@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Nawras og card</title>
+<!-- Social share card template, 1200×630. make-og.js opens og.html?theme=<name> and
+     screenshots it into ../og/<name>.jpg. The words are typeset here (never drawn by the model). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;800&family=Noto+Naskh+Arabic:wght@700&family=Lalezar&family=Reem+Kufi:wght@700&display=swap">
+<style>
+:root { --bg: #FFF6E8; --ink: #0B3540; --ink2: #3E5763; --brand: #0B7A7E; --panel: rgba(255,255,255,.86); --f: "Baloo Bhaijaan 2", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--f); }
+.card { position: relative; width: 1200px; height: 630px; overflow: hidden; }
+.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.text { position: absolute; z-index: 2; text-align: center; padding: 26px 46px 30px; border-radius: 34px; background: var(--panel); box-shadow: 0 18px 40px -18px rgba(0,0,0,.45); }
+.mark { font-family: var(--f); font-weight: 800; font-size: 132px; line-height: 1.25; margin: 0; color: var(--brand); }
+.full { font-family: "Noto Naskh Arabic", serif; font-weight: 700; font-size: 38px; line-height: 1.6; margin: 0; }
+.tag { font-family: "Noto Naskh Arabic", serif; font-weight: 700; font-size: 30px; line-height: 1.7; margin: 4px 0 0; color: var(--ink2); }
+.en { direction: ltr; font-family: var(--f); font-weight: 600; font-size: 24px; margin: 6px 0 0; color: var(--ink2); }
+.noori { position: absolute; z-index: 3; width: 230px; }
+.arch { position: absolute; z-index: 1; overflow: hidden; border-radius: 50% 50% 26px 26px / 38% 38% 26px 26px; border: 10px solid #fff; box-shadow: 0 18px 40px -18px rgba(0,0,0,.5); }
+.arch img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo { position: absolute; z-index: 1; background: #fff; padding: 14px 14px 46px; transform: rotate(3deg); box-shadow: 0 18px 40px -18px rgba(0,0,0,.45); }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* per theme */
+[data-t="pacific"] { --brand: #0B7A7E; }
+[data-t="pacific"] .text { top: 60px; left: 50%; transform: translateX(-50%); width: 720px; }
+[data-t="pacific"] .noori { left: 70px; top: 120px; }
+[data-t="fanous"] { --brand: #F0C463; --panel: rgba(14,28,66,.78); --ink: #FFF8E6; --ink2: #D9E1F5; }
+[data-t="fanous"] .text { top: 150px; left: 50%; transform: translateX(-50%); width: 700px; }
+[data-t="fanous"] .noori { left: 60px; bottom: 30px; width: 210px; }
+[data-t="andalus"] { --bg: #FBEFD9; --brand: #B5502A; --ink: #3A2314; --ink2: #6B4A33; }
+[data-t="andalus"] .arch { left: 70px; top: 40px; width: 400px; height: 560px; }
+[data-t="andalus"] .text { right: 60px; top: 120px; width: 620px; }
+[data-t="andalus"] .noori { left: 170px; bottom: 30px; width: 200px; }
+[data-t="mihrab"] { --bg: #EEF5F2; --brand: #3F7A6C; --ink: #1F3B35; --ink2: #4C6A63; }
+[data-t="mihrab"] .arch { left: 80px; top: 40px; width: 400px; height: 560px; border-color: #F7FBF9; }
+[data-t="mihrab"] .text { right: 60px; top: 120px; width: 620px; }
+[data-t="mihrab"] .noori { left: 180px; bottom: 40px; width: 190px; }
+[data-t="kurrasa"] { --bg: #FFFEF6; --brand: #2B59C3; --ink: #1E2A4A; --ink2: #44507A; --panel: transparent; }
+[data-t="kurrasa"] body, [data-t="kurrasa"] .card { background: repeating-linear-gradient(180deg, transparent 0 41px, rgba(143,174,230,.55) 41px 43px), #FFFEF6; }
+[data-t="kurrasa"] .card::before { content: ""; position: absolute; top: 0; bottom: 0; right: 120px; width: 3px; background: #F2A7A7; }
+[data-t="kurrasa"] .photo { left: 80px; top: 70px; width: 420px; height: 480px; }
+[data-t="kurrasa"] .text { right: 150px; top: 110px; width: 560px; box-shadow: none; }
+[data-t="kurrasa"] .noori { left: 250px; top: 290px; width: 210px; }
+[data-t="mosaic"] { --bg: #FFC53D; --brand: #2450D8; --ink: #14213D; --ink2: #2E3B5E; --panel: #FFC53D; }
+[data-t="mosaic"] .bgwrap { position: absolute; left: 0; top: 0; bottom: 0; width: 560px; overflow: hidden; border-left: 8px solid #14213D; }
+[data-t="mosaic"] .text { right: 50px; top: 110px; width: 600px; border: 6px solid #14213D; box-shadow: 10px 10px 0 #14213D; border-radius: 26px; }
+[data-t="mosaic"] .noori { left: 160px; bottom: 30px; width: 250px; }
+</style>
+</head>
+<body>
+<div class="card" id="card"></div>
+<script>
+var T = (location.search.match(/theme=(\w+)/) || [])[1] || 'pacific';
+document.documentElement.setAttribute('data-t', T);
+var A = '../', TXT =
+  '<div class="text"><p class="mark">نَوْرَس</p><p class="full">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>' +
+  '<p class="tag">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</p><p class="en">Nawras Fusha School · San Diego</p></div>';
+var L = {
+  pacific: '<img class="bg" src="' + A + 'site/hero-pacific.webp" alt="">' + TXT + '<img class="noori" src="' + A + 'noori/fly.webp" alt="">',
+  fanous: '<img class="bg" src="' + A + 'site/hero-fanous.webp" alt="">' + TXT + '<img class="noori" src="' + A + 'noori/sleep.webp" alt="">',
+  andalus: '<div class="arch"><img src="' + A + 'site/hero-andalus.webp" alt=""></div>' + TXT + '<img class="noori" src="' + A + 'noori/wave.webp" alt="">',
+  mihrab: '<div class="arch"><img src="' + A + 'site/hero-mihrab.webp" alt=""></div>' + TXT + '<img class="noori" src="' + A + 'noori/happy.webp" alt="">',
+  kurrasa: '<div class="photo"><img src="' + A + 'site/hero-kurrasa.webp" alt=""></div>' + TXT + '<img class="noori" src="' + A + 'noori/wave.webp" alt="">',
+  mosaic: '<div class="bgwrap"><img class="bg" src="' + A + 'site/hero-mosaic.webp" alt=""></div>' + TXT + '<img class="noori" src="' + A + 'noori/cheer.webp" alt="">'
+};
+document.getElementById('card').innerHTML = L[T];
+</script>
+</body>
+</html>

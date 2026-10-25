@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="kurrasa" data-theme-fixed>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>هَذَا وَهَذِهِ · مَقَالَةٌ مُصَوَّرَةٌ — Nawras</title>
+<meta name="description" content="Nawras Fusha School — sample lesson (grade 1–2): هَذَا وَهَذِهِ, masculine and feminine, as an illustrated read-along article with a writing station and a knowledge check.">
+<meta property="og:title" content="هَذَا وَهَذِهِ — Nawras sample lesson (article)">
+<meta property="og:image" content="../assets/og-nawras.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<style>
+/* ── Article layout (Wireless101 lesson article, kid version) — tokens only ── */
+.topbar .logo .gull { width: 50px; height: 50px; }
+.top-actions { display: flex; gap: 8px; margin-inline-start: auto; align-items: center; flex-wrap: wrap; }
+.top-actions .btn { min-height: var(--tap-min); }
+@media (max-width: 560px) { .top-actions .hide-sm { display: none; } .logo small { display: none; } }
+
+.l-hero { background: var(--hero-bg); padding: clamp(24px, 5vw, 56px) 0 clamp(20px, 4vw, 40px); border-bottom: var(--border-w) solid var(--border-c); }
+.l-hero .wrap { display: grid; grid-template-columns: 1fr auto; gap: clamp(16px, 4vw, 40px); align-items: center; }
+.crumbs { display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: center; font-size: .95rem; margin-bottom: 6px; }
+.crumbs a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 700; }
+.crumbs span[aria-hidden] { color: var(--ink2); }
+.badge { display: inline-flex; gap: 8px; align-items: center; }
+.badge svg { width: 20px; height: 20px; }
+.l-hero h1 { margin: 6px 0 0; font-family: var(--f-word); color: var(--hero-ink); font-size: clamp(2.6rem, 9vw, 4.4rem); line-height: 1.5; }
+.l-hero .sub { margin: 0; font-family: var(--f-word); font-weight: 700; font-size: clamp(1.3rem, 4vw, 1.7rem); color: var(--brand-text); }
+.l-hero .en.cap { font-size: 1rem; margin: 2px 0 12px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.meta .chip { font-family: var(--f-latin); direction: ltr; font-weight: 600; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-noori { position: relative; width: clamp(120px, 18vw, 200px); padding-top: 54px; }
+.hero-noori .gull { width: 100%; height: auto; }
+.hero-noori .bubble { position: absolute; top: 0; inset-inline-end: 30%; white-space: nowrap; font-family: var(--f-word); font-size: 1.1rem; padding: 4px 16px; }
+@media (max-width: 640px) {
+  .l-hero .wrap { grid-template-columns: 1fr; }
+  .hero-noori { order: -1; width: 120px; margin-inline-start: auto; padding-top: 46px; }
+  .hero-noori .bubble { inset-inline-end: 50%; }
+}
+
+.l-body { width: min(920px, 100% - 32px); margin-inline: auto; }
+.l-sec { padding-block: clamp(30px, 6vw, 56px); border-bottom: 2px dashed var(--line); scroll-margin-top: 90px; }
+.l-sec:last-child { border-bottom: 0; }
+.l-sec > h2 { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; font-family: var(--f-word); margin-bottom: 10px; }
+.l-sec > h2 .en { flex-basis: 100%; font-size: 1rem; font-weight: 600; margin-top: -6px; }
+.num { flex: none; width: 52px; height: 52px; border-radius: 50%; display: inline-grid; place-items: center;
+  background: var(--brand); color: var(--on-brand); font: 800 1.4rem/1 var(--f-ui); }
+.num svg { width: 28px; height: 28px; }
+.lead { font-size: 1.25rem; margin-bottom: 6px; }
+.lead .word { font-size: 1.15em; }
+.lead + .en { margin-bottom: 20px; }
+
+/* objectives */
+.promise { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-bottom: 22px; }
+.promise .gull { width: 96px; height: 96px; }
+.promise .bubble { font-family: var(--f-word); font-size: 1.25rem; line-height: 1.9; }
+.promise .bubble::after { inset-inline-start: -10px; bottom: 22px; transform: rotate(135deg); }
+.goals .word { font-size: 1.3rem; }
+.goals .en { display: block; }
+.goals-card { padding: 22px 24px; }
+
+/* ة badge */
+.ta-big { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+.ta-big .glyph { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--surface); border: 3px solid var(--fem); font-family: var(--f-word); font-weight: 700; font-size: 3.4rem; line-height: 1; color: var(--ta); padding-bottom: 10px; animation: glow 2.4s ease-in-out infinite; }
+.callout .word { font-size: 1.15em; }
+
+/* magic of ة: morph rows */
+.morph-list { display: grid; gap: 16px; margin-top: 18px; }
+.morph { display: grid; grid-template-columns: 120px 1fr auto; gap: 6px 18px; align-items: center; padding: 14px 20px; }
+.morph__pic { grid-row: span 2; width: 120px; }
+.morph__pic .pic { width: 100%; max-height: 150px; }
+.morph__say { margin: 0; font-size: clamp(1.7rem, 5.6vw, 2.4rem); line-height: 1.8; }
+.morph .en { margin: 0; grid-column: 2; }
+.morph__btn { grid-row: span 2; grid-column: 3; grid-row-start: 1; min-width: 132px; }
+.morph__btn .word { font-size: 1.5rem; line-height: 1; }
+.morph.is-f { border-color: var(--fem); }
+@media (max-width: 560px) {
+  .morph { grid-template-columns: 84px 1fr; padding: 12px 14px; }
+  .morph__pic { width: 84px; }
+  .morph__btn { grid-column: 1 / -1; grid-row: auto; }
+}
+
+.l-body .pic-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 560px) { .l-body .pic-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+.takeaways h2 [data-gull] .gull, .end-cta [data-gull] .gull { width: 100%; height: auto; }
+
+/* fence */
+.l-body .fence-grid { grid-template-columns: repeat(3, 1fr); margin-top: 14px; }
+.no-ta { position: absolute; top: 8px; inset-inline-start: 8px; font-size: .78rem; padding: 0 10px; }
+@media (max-width: 480px) { .l-body .fence-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* challenge pairs */
+.pairs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pairs .pic-card .word { font-size: 1.4rem; }
+@media (max-width: 420px) { .pairs .pic-card .word { font-size: 1.2rem; } }
+
+/* writing station */
+.ws-step { margin-top: 26px; }
+.ws-step h3 { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-family: var(--f-word); margin-bottom: 4px; }
+.ws-step h3 .num { width: 42px; height: 42px; font-size: 1.15rem; }
+.ws-step > .en { margin-bottom: 10px; }
+.ws-pic { display: grid; grid-template-columns: 130px 1fr; gap: 16px; align-items: center; margin-bottom: 12px; }
+.ws-pic .pic { width: 130px; }
+.bank { display: flex; flex-wrap: wrap; gap: 8px; }
+.bank .chip { font-family: var(--f-word); font-size: 1.25rem; padding: 2px 16px; }
+
+/* takeaways */
+.takeaways h2 { display: flex; align-items: center; gap: 12px; font-family: var(--f-word); }
+.takeaways .word { font-size: 1.25rem; }
+.takeaways .en { display: block; }
+
+/* parents' corner (English) */
+.parents { background: var(--surface2); border-radius: var(--radius); padding: clamp(20px, 4vw, 34px); margin-block: 10px 0; }
+.parents h2 { font-family: var(--f-latin); font-size: 1.6rem; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.parents h2 .word { font-size: 1.2rem; }
+.parents h3 { font-family: var(--f-latin); font-size: 1.15rem; margin-top: 18px; }
+.parents p, .parents li { font-family: var(--f-latin); font-size: 1rem; line-height: 1.65; }
+.parents ol { padding-inline-start: 1.3em; }
+.parents li { margin-bottom: 6px; }
+.parents .word { font-size: 1.1em; }
+.parents .acts { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.end-cta { text-align: center; padding: 34px 0 10px; }
+.end-cta .row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 16px; }
+
+/* ── print: a clean worksheet with writing lines ──────────────────────── */
+.ws-print { font-family: var(--f-word); color: #000; }
+.ws-print h2 { font-family: var(--f-word); font-size: 22pt; margin: 0; }
+.ws-print h3 { font-family: var(--f-word); font-size: 15pt; margin: 14pt 0 4pt; display: flex; gap: 8pt; align-items: baseline; }
+.ws-print h3 .en, .ws-print .en { font-family: "Patrick Hand", "Baloo Bhaijaan 2", sans-serif; font-size: 9.5pt; color: #444; font-weight: 400; }
+.ws-print .namebar { display: flex; gap: 24pt; margin: 6pt 0 8pt; font-size: 13pt; }
+.ws-print .namebar span { flex: 1; border-bottom: 1px solid #555; padding-bottom: 2pt; }
+.ws-print .circle-row { display: flex; justify-content: space-around; font-size: 22pt; font-weight: 700; padding: 3pt 0; }
+.ws-print .fill-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; font-size: 19pt; font-weight: 700; }
+.ws-print .fill-row span { display: block; }
+.ws-print .fill-row i { display: inline-block; width: 52%; border-bottom: 1.5px dotted #333; height: 1em; vertical-align: baseline; }
+.ws-print .match { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10pt; text-align: center; }
+.ws-print .match [data-pic] { height: 30mm; display: flex; justify-content: center; align-items: flex-end; }
+.ws-print .match .pic { width: auto; height: 100%; }
+.ws-print .match p { font-size: 17pt; font-weight: 700; margin: 2pt 0 0; }
+.ws-print .match i { display: inline-block; width: 18mm; border-bottom: 1.5px dotted #333; }
+.ws-print .draw { display: grid; grid-template-columns: 1fr; gap: 6pt; }
+.ws-print .draw .box { height: 55mm; border: 1.5px dashed #888; border-radius: 4mm; }
+.ws-print .draw p { font-size: 19pt; font-weight: 700; margin: 0; }
+.ws-print .draw p i { display: inline-block; width: 60%; border-bottom: 1.5px dotted #333; }
+.ws-print .write-lines { --lh: 13mm; --n: 2; margin-top: 2pt; }
+
+@media print {
+  @page { size: auto; margin: 12mm; }
+  html, body { background: #fff !important; color: #000; font-size: 12pt; }
+  body { --pattern: none; }
+  .topbar, .l-hero .hero-noori, .hero-cta, .meta, .crumbs, .foot, .end-cta, .parents .acts { display: none !important; }
+  .l-hero { background: none; border: 0; padding: 0 0 6pt; }
+  .l-hero h1 { font-size: 26pt; }
+  .l-body > .l-sec { display: none; }
+  .l-body > .l-sec.print-keep { display: block; border: 0; padding: 8pt 0; break-inside: avoid; }
+  .takeaways { border: 1.5px dashed #555; }
+  .takeaways .en { color: #444; }
+  .parents { background: none; border: 1px solid #bbb; break-before: page; }
+  .ws-print { break-before: page; }
+  .ws-print section { break-inside: avoid; }
+  * { animation: none !important; transition: none !important; box-shadow: none !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تَخَطَّ إِلَى الْمُحْتَوَى · Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none" opacity=".18"/><path d="M7 12.5l3.2 3.2L17 9"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+  <symbol id="i-ear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2z" fill="currentColor" fill-opacity=".15"/><path d="M12 10v4M12 17.5v.5"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-5L16 4l4 4L9 19z"/><path d="M14 6l4 4"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M14 9l-5 3 5 3z" fill="currentColor"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-quiz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.5 9.5a2.5 2.5 0 1 0-4.6 1.4c.5.8 2.1 1.3 2.1 2.6v.5M12 17v.4" transform="scale(-1 1) translate(-24 0)"/></symbol>
+  <symbol id="i-family" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="6" r="2.5"/><circle cx="16" cy="6" r="2.5"/><path d="M4 21v-6a4 4 0 0 1 8 0M12 21v-6a4 4 0 0 1 8 0"/></symbol>
+</svg>
+
+<header class="topbar no-print">
+  <div class="wrap">
+    <a class="logo" href="../index.html" aria-label="نَوْرَس — back to the Nawras hub">
+      <span data-gull="happy" data-gull-label="نُورِي — Noori"></span>
+      <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
+    </a>
+    <div class="top-actions">
+      <a class="btn btn--ghost btn--sm hide-sm" href="story.html"><svg aria-hidden="true"><use href="#i-play"/></svg> الْقِصَّةُ <span class="en">Story</span></a>
+      <button class="btn btn--ghost btn--sm" type="button" data-print><svg aria-hidden="true"><use href="#i-print"/></svg> <span class="en" style="opacity:1">Print</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HEADER (Wireless101 lesson-hero) -->
+  <section class="l-hero" aria-labelledby="title">
+    <div class="wrap">
+      <div>
+        <nav class="crumbs" aria-label="breadcrumb · مَسَارُ الصَّفْحَةِ">
+          <a href="../index.html">الرَّئِيسَةُ</a><span aria-hidden="true">‹</span>
+          <a href="../index.html#more">الدُّرُوسُ</a><span aria-hidden="true">‹</span>
+          <span>الصَّفُّ الْأَوَّلُ وَالثَّانِي</span>
+        </nav>
+        <span class="chip chip--brand badge"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-book"/></svg> مَقَالَةٌ مُصَوَّرَةٌ · <span class="en" style="color:inherit">Read-along article</span></span>
+        <h1 id="title">هَذَا وَهَذِهِ</h1>
+        <p class="sub">الْمُذَكَّرُ وَالْمُؤَنَّثُ</p>
+        <p class="en cap">This (masculine) &amp; this (feminine) — read it together, tap the pictures to hear them.</p>
+        <div class="meta">
+          <span class="chip">Grade 1–2</span><span class="chip">≈ 15 min</span><span class="chip">Fusha grammar</span><span class="chip">Tap · listen · write</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn--accent" href="#goals">ابْدَأِ الدَّرْسَ <span class="en">Start</span></a>
+          <a class="btn btn--ghost" href="story.html"><svg aria-hidden="true"><use href="#i-play"/></svg> وَضْعُ الْقِصَّةِ <span class="en">Story mode</span></a>
+        </div>
+      </div>
+      <div class="hero-noori">
+        <span class="bubble">هَيَّا نَقْرَأْ مَعًا!</span>
+        <div data-gull="wave" data-gull-label="نُورِي يُلَوِّحُ — Noori waves hello"></div>
+      </div>
+    </div>
+  </section>
+
+  <article class="l-body">
+
+    <!-- 0 · OBJECTIVES / PROMISE -->
+    <section class="l-sec" id="goals" aria-labelledby="h-goals">
+      <h2 id="h-goals" data-reveal><span class="num"><svg aria-hidden="true"><use href="#i-star" fill="currentColor"/></svg></span> مَاذَا سَنَتَعَلَّمُ؟ <span class="en">What will we learn?</span></h2>
+      <div class="promise" data-reveal>
+        <div data-gull="happy" data-gull-label="نُورِي — Noori"></div>
+        <p class="bubble">بَعْدَ هَذَا الدَّرْسِ سَتَقُولُ «هَذَا» وَ«هَذِهِ» مِثْلَ الْكِبَارِ!
+          <span class="en" style="display:block">After this lesson you’ll use هَذَا and هَذِهِ like a grown-up!</span></p>
+      </div>
+      <div class="card goals-card" data-reveal>
+        <ul class="goals">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><span class="word">أَقُولُ <span class="dem-m">هَذَا</span> لِلْمُذَكَّرِ.</span><span class="en">I say هَذَا (“this”) for masculine words.</span></div></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><span class="word">أَقُولُ <span class="dem-f">هَذِهِ</span> لِلْمُؤَنَّثِ.</span><span class="en">I say هَذِهِ (“this”) for feminine words.</span></div></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><span class="word">أَعْرِفُ التَّاءَ الْمَرْبُوطَةَ: <span class="ta">ة</span></span><span class="en">I know the tā’ marbūṭa ة and how it makes words feminine.</span></div></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><span class="word">أَعْرِفُ كَلِمَاتٍ مُؤَنَّثَةً بِلَا ة.</span><span class="en">I know some feminine words that have no ة.</span></div></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><span class="word">أَكْتُبُ هَذَا وَهَذِهِ بِيَدِي.</span><span class="en">I can write هَذَا and هَذِهِ myself.</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 1 · هَذَا + MASCULINE -->
+    <section class="l-sec" id="hadha" aria-labelledby="h-hadha">
+      <h2 id="h-hadha" data-reveal><span class="num">١</span> <span><span class="dem-m">هَذَا</span> … لِلْمُذَكَّرِ</span> <span class="en">هَذَا — “this” for masculine words</span></h2>
+      <p class="lead" data-reveal>نَقُولُ <b class="word dem-m">هَذَا</b> لِلْمُذَكَّرِ. اضْغَطْ عَلَى الصُّورَةِ وَاسْتَمِعْ.</p>
+      <p class="en" data-reveal>We say hādhā for masculine nouns. Tap a picture to hear it.</p>
+      <div class="pic-grid">
+        <button class="pic-card pic-card--m" type="button" data-say="هَذَا وَلَدٌ" data-reveal style="--i:0"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="boy" data-pic-decorative></span><span class="word"><span class="dem-m">هَذَا</span> وَلَدٌ</span><span class="en">This is a boy.</span></button>
+        <button class="pic-card pic-card--m" type="button" data-say="هَذَا قِطٌّ" data-reveal style="--i:1"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="cat" data-pic-decorative></span><span class="word"><span class="dem-m">هَذَا</span> قِطٌّ</span><span class="en">This is a cat.</span></button>
+        <button class="pic-card pic-card--m" type="button" data-say="هَذَا كِتَابٌ" data-reveal style="--i:2"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="book" data-pic-decorative></span><span class="word"><span class="dem-m">هَذَا</span> كِتَابٌ</span><span class="en">This is a book.</span></button>
+        <button class="pic-card pic-card--m" type="button" data-say="هَذَا بَابٌ" data-reveal style="--i:3"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="door" data-pic-decorative></span><span class="word"><span class="dem-m">هَذَا</span> بَابٌ</span><span class="en">This is a door.</span></button>
+        <button class="pic-card pic-card--m" type="button" data-say="هَذَا قَمَرٌ" data-reveal style="--i:4"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="moon" data-pic-decorative></span><span class="word"><span class="dem-m">هَذَا</span> قَمَرٌ</span><span class="en">This is a moon.</span></button>
+        <button class="pic-card pic-card--m" type="button" data-say="هَذَا بَيْتٌ" data-reveal style="--i:5"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="house" data-pic-decorative></span><span class="word"><span class="dem-m">هَذَا</span> بَيْتٌ</span><span class="en">This is a house.</span></button>
+      </div>
+      <div class="callout" data-reveal>
+        <p class="callout__label"><svg aria-hidden="true"><use href="#i-bulb"/></svg> سِرٌّ صَغِيرٌ <span class="en">A little secret</span></p>
+        <p class="word" style="margin:0">أَكْثَرُ الْكَلِمَاتِ الْمُذَكَّرَةِ لَيْسَ فِي آخِرِهَا ة.</p>
+        <p class="en">Most masculine words do <b>not</b> end in ة.</p>
+      </div>
+    </section>
+
+    <!-- 2 · هَذِهِ + FEMININE -->
+    <section class="l-sec" id="hadhihi" aria-labelledby="h-hadhihi">
+      <h2 id="h-hadhihi" data-reveal><span class="num">٢</span> <span><span class="dem-f">هَذِهِ</span> … لِلْمُؤَنَّثِ</span> <span class="en">هَذِهِ — “this” for feminine words</span></h2>
+      <p class="lead" data-reveal>نَقُولُ <b class="word dem-f">هَذِهِ</b> لِلْمُؤَنَّثِ. انْظُرْ إِلَى آخِرِ الْكَلِمَةِ!</p>
+      <p class="en" data-reveal>We say hādhihi for feminine nouns. Look at the end of each word — see the glowing letter?</p>
+      <div class="pic-grid">
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ قِطَّةٌ" data-reveal style="--i:0"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="cat-f" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> <span data-ta>قِطَّةٌ</span></span><span class="en">This is a cat (she).</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ سَمَكَةٌ" data-reveal style="--i:1"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="fish" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> <span data-ta>سَمَكَةٌ</span></span><span class="en">This is a fish.</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ شَجَرَةٌ" data-reveal style="--i:2"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="tree" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> <span data-ta>شَجَرَةٌ</span></span><span class="en">This is a tree.</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ نَجْمَةٌ" data-reveal style="--i:3"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="star" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> <span data-ta>نَجْمَةٌ</span></span><span class="en">This is a star.</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ وَرْدَةٌ" data-reveal style="--i:4"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="rose" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> <span data-ta>وَرْدَةٌ</span></span><span class="en">This is a rose.</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ تُفَّاحَةٌ" data-reveal style="--i:5"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="apple" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> <span data-ta>تُفَّاحَةٌ</span></span><span class="en">This is an apple.</span></button>
+      </div>
+      <div class="callout callout--fem ta-big" data-reveal>
+        <span class="glyph" aria-hidden="true">ة</span>
+        <div>
+          <p class="callout__label">التَّاءُ الْمَرْبُوطَةُ <span class="en">tā’ marbūṭa — the “tied t”</span></p>
+          <p class="word" style="margin:0">هَذَا الْحَرْفُ يَأْتِي فِي آخِرِ الْكَلِمَةِ، وَيَجْعَلُهَا مُؤَنَّثَةً فِي الْغَالِبِ.</p>
+          <p class="en">This letter comes at the end of a word, and it usually makes the word feminine.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · THE MAGIC OF ة -->
+    <section class="l-sec" id="magic" aria-labelledby="h-magic">
+      <h2 id="h-magic" data-reveal><span class="num">٣</span> سِحْرُ التَّاءِ <span class="en">The magic of ة — add it and the word becomes feminine</span></h2>
+      <p class="lead" data-reveal>أَضِفِ التَّاءَ الْمَرْبُوطَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!</p>
+      <p class="en" data-reveal>Tap <b>+ ة</b> and watch the ة fly in. The picture changes too, and هَذَا becomes هَذِهِ.</p>
+      <div class="morph-list">
+        <div class="card morph" data-m="مُعَلِّمٌ" data-f="مُعَلِّمَةٌ" data-pm="teacher-m" data-pf="teacher-f" data-reveal style="--i:0">
+          <div class="morph__pic" data-pic="teacher-m"></div>
+          <p class="morph__say word" aria-live="polite"><span class="dem dem-m">هَذَا</span> <span class="morph__w">مُعَلِّمٌ</span></p>
+          <p class="en" data-en-m="a teacher (man)" data-en-f="a teacher (woman)">a teacher (man)</p>
+          <button class="btn btn--accent morph__btn" type="button">+ <span class="word">ة</span></button>
+        </div>
+        <div class="card morph" data-m="طَالِبٌ" data-f="طَالِبَةٌ" data-pm="student-m" data-pf="student-f" data-reveal style="--i:1">
+          <div class="morph__pic" data-pic="student-m"></div>
+          <p class="morph__say word" aria-live="polite"><span class="dem dem-m">هَذَا</span> <span class="morph__w">طَالِبٌ</span></p>
+          <p class="en" data-en-m="a student (boy)" data-en-f="a student (girl)">a student (boy)</p>
+          <button class="btn btn--accent morph__btn" type="button">+ <span class="word">ة</span></button>
+        </div>
+        <div class="card morph" data-m="قِطٌّ" data-f="قِطَّةٌ" data-pm="cat" data-pf="cat-f" data-reveal style="--i:2">
+          <div class="morph__pic" data-pic="cat"></div>
+          <p class="morph__say word" aria-live="polite"><span class="dem dem-m">هَذَا</span> <span class="morph__w">قِطٌّ</span></p>
+          <p class="en" data-en-m="a cat (he)" data-en-f="a cat (she)">a cat (he)</p>
+          <button class="btn btn--accent morph__btn" type="button">+ <span class="word">ة</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · FENCE: feminine without ة -->
+    <section class="l-sec" id="fence" aria-labelledby="h-fence">
+      <h2 id="h-fence" data-reveal><span class="num"><svg aria-hidden="true"><use href="#i-alert"/></svg></span> انْتَبِهْ! <span class="en">Careful! Some feminine words have no ة</span></h2>
+      <div class="callout callout--warn" data-reveal>
+        <p class="callout__label"><svg aria-hidden="true"><use href="#i-alert"/></svg> مُؤَنَّثٌ بِلَا ة <span class="en">Feminine — but no ة</span></p>
+        <p class="word" style="margin:0">بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ، وَلَيْسَ فِي آخِرِهَا ة. نَقُولُ مَعَهَا: <span class="dem-f">هَذِهِ</span>.</p>
+        <p class="en">A few words are feminine even though they don’t end in ة. We still say هَذِهِ with them — we learn these by heart.</p>
+      </div>
+      <div class="pic-grid fence-grid">
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ بِنْتٌ" data-reveal style="--i:0"><span class="chip no-ta">بِلَا ة</span><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="girl" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> بِنْتٌ</span><span class="en">This is a girl.</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ أُمٌّ" data-reveal style="--i:1"><span class="chip no-ta">بِلَا ة</span><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="mother" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> أُمٌّ</span><span class="en">This is a mother.</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ شَمْسٌ" data-reveal style="--i:2"><span class="chip no-ta">بِلَا ة</span><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="sun" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> شَمْسٌ</span><span class="en">This is the sun.</span></button>
+      </div>
+    </section>
+
+    <!-- 5 · EXTENSION: adjective agreement -->
+    <section class="l-sec" id="challenge" aria-labelledby="h-challenge">
+      <h2 id="h-challenge" data-reveal><span class="num"><svg aria-hidden="true"><use href="#i-star" fill="currentColor"/></svg></span> تَحَدِّي الْأَبْطَالِ <span class="en">Champions’ challenge — describing words agree</span></h2>
+      <p class="lead" data-reveal>الصِّفَةُ تَتْبَعُ الِاسْمَ: إِذَا كَانَ مُؤَنَّثًا، أَخَذَتِ الصِّفَةُ ة.</p>
+      <p class="en" data-reveal>A describing word follows its noun: if the noun is feminine, the describing word takes ة too.</p>
+      <div class="pairs">
+        <button class="pic-card pic-card--m" type="button" data-say="هَذَا وَلَدٌ نَشِيطٌ" data-reveal style="--i:0"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="boy" data-pic-decorative></span><span class="word"><span class="dem-m">هَذَا</span> وَلَدٌ نَشِيطٌ</span><span class="en">This is an active boy.</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ بِنْتٌ نَشِيطَةٌ" data-reveal style="--i:1"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="girl" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> بِنْتٌ <span data-ta>نَشِيطَةٌ</span></span><span class="en">This is an active girl.</span></button>
+        <button class="pic-card pic-card--m" type="button" data-say="هَذَا قِطٌّ صَغِيرٌ" data-reveal style="--i:2"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="cat" data-pic-decorative></span><span class="word"><span class="dem-m">هَذَا</span> قِطٌّ صَغِيرٌ</span><span class="en">This is a little cat (he).</span></button>
+        <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ قِطَّةٌ صَغِيرَةٌ" data-reveal style="--i:3"><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="cat-f" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> <span data-ta>قِطَّةٌ</span> <span data-ta>صَغِيرَةٌ</span></span><span class="en">This is a little cat (she).</span></button>
+      </div>
+      <div class="callout callout--fem" data-reveal>
+        <p class="callout__label"><svg aria-hidden="true"><use href="#i-bulb"/></svg> انْظُرْ جَيِّدًا <span class="en">Look closely</span></p>
+        <p class="word" style="margin:0">«بِنْتٌ» بِلَا ة، وَلَكِنَّ صِفَتَهَا فِيهَا ة: بِنْتٌ <span data-ta>نَشِيطَةٌ</span>.</p>
+        <p class="en">بِنْت has no ة, but her describing word still gets one: نَشِيطَة.</p>
+      </div>
+    </section>
+
+    <!-- 6 · WRITING STATION -->
+    <section class="l-sec" id="write" aria-labelledby="h-write">
+      <h2 id="h-write" data-reveal><span class="num"><svg aria-hidden="true"><use href="#i-pencil"/></svg></span> مَحَطَّةُ الْكِتَابَةِ <span class="en">Writing station — finger, Apple Pencil or mouse</span></h2>
+      <p class="lead" data-reveal>خُذْ قَلَمَكَ أَوْ إِصْبَعَكَ، وَابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ.</p>
+      <p class="en" data-reveal>Arabic is written from right to left — start at the green dot. There is no wrong answer here; tap «انْتَهَيْتُ» when you’re done.</p>
+
+      <div class="ws-step" data-reveal>
+        <h3><span class="num">١</span> تَتَبَّعِ التَّاءَ الْمَرْبُوطَةَ</h3>
+        <p class="en">Trace the ة — on its own, then joined to a letter (ـة).</p>
+        <div data-writepad data-model="ة|ـة" data-lines="2" data-line-height="130"></div>
+      </div>
+      <div class="ws-step" data-reveal>
+        <h3><span class="num">٢</span> تَتَبَّعْ: <span class="dem-m">هَذَا</span> وَ<span class="dem-f">هَذِهِ</span></h3>
+        <p class="en">Trace هَذَا and هَذِهِ.</p>
+        <div data-writepad data-model="هَذَا|هَذِهِ" data-lines="2" data-line-height="130"></div>
+      </div>
+      <div class="ws-step" data-reveal>
+        <h3><span class="num">٣</span> انْظُرْ إِلَى الصُّورَةِ، وَاكْتُبْ جُمْلَةً</h3>
+        <div class="ws-pic">
+          <span data-pic="fish"></span>
+          <div>
+            <p class="en" style="margin-bottom:8px">Look at the picture and write a sentence. Word bank below — stuck? Tap the eye to see a model.</p>
+            <div class="bank" aria-label="كَلِمَاتٌ تُسَاعِدُكَ — word bank"><span class="chip chip--masc">هَذَا</span><span class="chip chip--fem">هَذِهِ</span><span class="chip">سَمَكَةٌ</span></div>
+          </div>
+        </div>
+        <div id="pad-sentence"></div>
+      </div>
+    </section>
+
+    <!-- 7 · KNOWLEDGE CHECK -->
+    <section class="l-sec" id="check" aria-labelledby="h-check">
+      <h2 id="h-check" data-reveal><span class="num"><svg aria-hidden="true"><use href="#i-quiz"/></svg></span> اخْتَبِرْ نَفْسَكَ <span class="en">Knowledge check — five questions, a star for each</span></h2>
+      <div id="quiz" data-reveal></div>
+    </section>
+
+    <!-- 8 · KEY TAKEAWAYS -->
+    <section class="l-sec print-keep" id="remember" aria-labelledby="h-remember">
+      <div class="takeaways" data-reveal>
+        <h2 id="h-remember"><span data-gull="think" style="width:64px;display:block" data-gull-label="نُورِي يُفَكِّرُ — Noori thinking"></span> تَذَكَّرْ <span class="en" style="font-size:1rem">Remember</span></h2>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">نَقُولُ <span class="dem-m">هَذَا</span> لِلْمُذَكَّرِ: هَذَا وَلَدٌ.</span><span class="en">هَذَا for masculine words.</span></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">نَقُولُ <span class="dem-f">هَذِهِ</span> لِلْمُؤَنَّثِ: هَذِهِ بِنْتٌ.</span><span class="en">هَذِهِ for feminine words.</span></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">التَّاءُ الْمَرْبُوطَةُ <span class="ta">ة</span> تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً: مُعَلِّمٌ ← <span data-ta>مُعَلِّمَةٌ</span>.</span><span class="en">ة usually makes a word feminine.</span></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة: بِنْتٌ، أُمٌّ، شَمْسٌ.</span><span class="en">A few feminine words have no ة.</span></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">الصِّفَةُ تَتْبَعُ الِاسْمَ: هَذِهِ بِنْتٌ <span data-ta>نَشِيطَةٌ</span>.</span><span class="en">Describing words agree with their noun.</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 9 · PARENTS' CORNER (English) -->
+    <section class="l-sec print-keep" id="parents" aria-labelledby="h-parents">
+      <div class="parents" dir="ltr" lang="en" data-reveal>
+        <h2 id="h-parents"><svg aria-hidden="true" style="width:32px;height:32px;color:var(--brand-text)"><use href="#i-family"/></svg> Parents’ corner <span class="word" lang="ar" dir="rtl">رُكْنُ الْأَهْلِ</span></h2>
+        <h3>What your child learned today</h3>
+        <p>Arabic nouns are either masculine or feminine, and the word for “this” changes to match:
+          <span class="word" lang="ar">هَذَا</span> (<i>hādhā</i>) for masculine nouns and <span class="word" lang="ar">هَذِهِ</span> (<i>hādhihi</i>) for feminine ones.
+          Most feminine nouns end in the <b>tā’ marbūṭa</b> <span class="word" lang="ar">ة</span>, which turns many masculine words feminine
+          (<span class="word" lang="ar">مُعَلِّمٌ ← مُعَلِّمَةٌ</span>, teacher). A few common feminine words have no ة —
+          <span class="word" lang="ar">بِنْتٌ</span> girl, <span class="word" lang="ar">أُمٌّ</span> mother, <span class="word" lang="ar">شَمْسٌ</span> sun — and are simply learned by heart.
+          Stronger readers also met agreement: <span class="word" lang="ar">هَذِهِ بِنْتٌ نَشِيطَةٌ</span> (“this is an active girl”).</p>
+        <h3>Practise at home — five minutes a day</h3>
+        <ol>
+          <li><b>“This or this?” walk.</b> Point at things around the house; your child answers with a full sentence: <span class="word" lang="ar">هَذَا بَابٌ</span>, <span class="word" lang="ar">هَذِهِ طَاوِلَةٌ</span>.</li>
+          <li><b>ة hunt.</b> In any Arabic book or on a food label, ask your child to find and point to every ة.</li>
+          <li><b>The magic shell.</b> Write <span class="word" lang="ar">مُعَلِّم، طَالِب، قِطّ</span> on cards; your child adds a paper “shell” with ة and reads the new word.</li>
+          <li><b>One drawing, one sentence.</b> Your child draws something and writes a sentence under it starting with هَذَا or هَذِهِ.</li>
+          <li><b>Read the vowel marks aloud</b>, slowly. Praise effort; never correct handwriting harshly.</li>
+        </ol>
+        <p><b>Good to know:</b> at home you may hear dialect forms (Egyptian <span class="word" lang="ar">دَه / دِي</span>, Levantine <span class="word" lang="ar">هَاد / هَاي</span>). That’s fine — at Nawras we learn the Fusha forms, the language of books and of the Qur’an.</p>
+        <div class="acts no-print">
+          <button class="btn" type="button" data-print><svg aria-hidden="true"><use href="#i-print"/></svg> Print the worksheet</button>
+          <a class="btn btn--ghost" href="story.html"><svg aria-hidden="true"><use href="#i-play"/></svg> Watch the story version</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="end-cta no-print">
+      <div data-gull="cheer" style="width:110px;margin:0 auto" data-gull-label="نُورِي يَفْرَحُ — Noori cheering"></div>
+      <p class="word" style="font-size:1.5rem;margin:0">أَحْسَنْتَ! إِلَى اللِّقَاءِ فِي الدَّرْسِ الْقَادِمِ.</p>
+      <p class="en" style="text-align:center">Well done! See you in the next lesson.</p>
+      <div class="row">
+        <a class="btn btn--accent trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
+        <a class="btn btn--ghost" href="story.html">الْقِصَّةُ <span class="en">Story</span></a>
+        <a class="btn btn--ghost" href="presentation.html">الْعَرْضُ <span class="en">Slides</span></a>
+        <a class="btn btn--ghost" href="../index.html">الرَّئِيسَةُ <span class="en">Hub</span></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- PRINT-ONLY WORKSHEET -->
+  <div class="l-body ws-print print-only" aria-hidden="true">
+    <h2>وَرَقَةُ عَمَلٍ: هَذَا وَهَذِهِ <span class="en">Worksheet · Nawras Fusha School</span></h2>
+    <div class="namebar"><span>الِاسْمُ:</span><span>التَّارِيخُ:</span></div>
+
+    <section>
+      <h3>١ · تَتَبَّعْ، ثُمَّ اكْتُبْ <span class="en">Trace, then write on the empty line. Start at the green dot.</span></h3>
+      <div data-trace="ة   ة   ة   ـة   ـة"></div>
+      <div data-trace="هَذَا     هَذَا     هَذَا"></div>
+      <div data-trace="هَذِهِ     هَذِهِ     هَذِهِ"></div>
+      <div class="write-lines"></div>
+    </section>
+
+    <section>
+      <h3>٢ · ضَعْ دَائِرَةً حَوْلَ الْكَلِمَةِ الْمُؤَنَّثَةِ <span class="en">Circle the feminine word in each row.</span></h3>
+      <div class="circle-row"><span>قِطٌّ</span><span>قِطَّةٌ</span><span>بَابٌ</span></div>
+      <div class="circle-row"><span>مُعَلِّمٌ</span><span>قَمَرٌ</span><span>وَرْدَةٌ</span></div>
+      <div class="circle-row"><span>كِتَابٌ</span><span>شَمْسٌ</span><span>بَيْتٌ</span></div>
+    </section>
+
+    <section>
+      <h3>٣ · أَضِفِ التَّاءَ الْمَرْبُوطَةَ <span class="en">Add the ة and write the new word.</span></h3>
+      <div class="fill-row"><span>مُعَلِّمٌ ← <i></i></span><span>طَالِبٌ ← <i></i></span><span>قِطٌّ ← <i></i></span></div>
+    </section>
+
+    <section>
+      <h3>٤ · اكْتُبْ: هَذَا أَوْ هَذِهِ <span class="en">Write هَذَا or هَذِهِ in front of each word.</span></h3>
+      <div class="match">
+        <div><span data-pic="cat" data-pic-decorative></span><p><i></i> قِطٌّ</p></div>
+        <div><span data-pic="star" data-pic-decorative></span><p><i></i> نَجْمَةٌ</p></div>
+        <div><span data-pic="book" data-pic-decorative></span><p><i></i> كِتَابٌ</p></div>
+        <div><span data-pic="girl" data-pic-decorative></span><p><i></i> بِنْتٌ</p></div>
+      </div>
+    </section>
+
+    <section class="draw">
+      <h3>٥ · ارْسُمْ، ثُمَّ اكْتُبْ <span class="en">Draw something feminine, then finish the sentence.</span></h3>
+      <div class="box"></div>
+      <p>هَذِهِ <i></i></p>
+    </section>
+  </div>
+</main>
+
+<footer class="foot no-print">
+  <div class="wrap">
+    <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <span class="en">Nawras Fusha School, San Diego · Sample lesson 1 of 3 — article · <a href="../index.html">demo hub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/kids.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* print buttons */
+  document.querySelectorAll('[data-print]').forEach(function (b) { b.addEventListener('click', function () { window.print(); }); });
+
+  /* picture cards: glow the ة when tapped */
+  document.addEventListener('click', function (e) {
+    var c = e.target.closest('.pic-card');
+    if (!c) return;
+    c.classList.remove('ta-glow'); void c.offsetWidth; c.classList.add('ta-glow');
+    setTimeout(function () { c.classList.remove('ta-glow'); }, 3000);
+  });
+
+  /* «سِحْرُ التَّاءِ»: the ة flies in, the picture and هَذَا/هَذِهِ change */
+  document.querySelectorAll('.morph').forEach(function (m) {
+    var btn = m.querySelector('.morph__btn'), w = m.querySelector('.morph__w'), dem = m.querySelector('.dem');
+    var pic = m.querySelector('.morph__pic'), en = m.querySelector('.en');
+    var fem = false;
+    function label() {
+      btn.innerHTML = fem ? '↺ <span class="en">again</span>' : '+ <span class="word">ة</span>';
+      btn.setAttribute('aria-label', fem ? 'أَعِدِ الْكَلِمَةَ مُذَكَّرَةً — back to masculine' : 'أَضِفِ التَّاءَ الْمَرْبُوطَةَ — add the ة');
+    }
+    btn.addEventListener('click', function () {
+      fem = !fem;
+      if (fem) {
+        w.innerHTML = KS.ta(m.getAttribute('data-f'));
+        var t = w.querySelector('.ta');
+        if (t) {
+          t.classList.add('ta-fly');
+          t.addEventListener('animationend', function done() { t.classList.remove('ta-fly'); t.removeEventListener('animationend', done); w.classList.add('ta-glow'); setTimeout(function () { w.classList.remove('ta-glow'); }, 3000); });
+        }
+        dem.textContent = 'هَذِهِ'; dem.className = 'dem dem-f';
+        KS.sfx('good');
+        KS.speak('هَذِهِ ' + m.getAttribute('data-f'));
+      } else {
+        w.textContent = m.getAttribute('data-m');
+        dem.textContent = 'هَذَا'; dem.className = 'dem dem-m';
+        KS.sfx('pop');
+        KS.speak('هَذَا ' + m.getAttribute('data-m'));
+      }
+      pic.innerHTML = KS.pic(m.getAttribute(fem ? 'data-pf' : 'data-pm'));
+      en.textContent = en.getAttribute(fem ? 'data-en-f' : 'data-en-m');
+      m.classList.toggle('is-f', fem);
+      label();
+    });
+    label();
+  });
+
+  /* writing step 3: free sentence, model hidden until the eye is tapped */
+  var pad = KS.writePad(document.getElementById('pad-sentence'), { model: 'هَذِهِ سَمَكَةٌ', lines: 2, lineHeight: 130 });
+  if (pad) { var eye = pad.el.querySelector('[data-act="model"]'); if (eye) eye.click(); }
+
+  /* knowledge check — 5 questions */
+  var B = '<span class="blank" aria-label="فَرَاغٌ — blank"></span>';
+  KS.quiz(document.getElementById('quiz'), [
+    { pic: 'cat-f', q: B + ' ' + KS.ta('قِطَّةٌ'), say: 'قِطَّةٌ', en: 'Which word fits? “___ a cat (she)”',
+      options: [{ h: 'هَذِهِ', ok: true }, { h: 'هَذَا' }],
+      why: 'قِطَّةٌ فِي آخِرِهَا ة، فَنَقُولُ: هَذِهِ قِطَّةٌ.', whyEn: 'قِطَّة ends in ة, so it is feminine: هَذِهِ.' },
+    { pic: 'book', q: B + ' كِتَابٌ', say: 'كِتَابٌ', en: 'Which word fits? “___ a book”',
+      options: [{ h: 'هَذَا', ok: true }, { h: 'هَذِهِ' }],
+      why: 'كِتَابٌ مُذَكَّرٌ، فَنَقُولُ: هَذَا كِتَابٌ.', whyEn: 'كِتَاب is masculine (no ة): هَذَا.' },
+    { q: 'أَيُّ كَلِمَةٍ مُؤَنَّثَةٌ؟', say: 'أَيُّ كَلِمَةٍ مُؤَنَّثَةٌ؟', en: 'Which word is feminine?',
+      options: [{ h: 'مُعَلِّمَةٌ', ok: true }, { h: 'مُعَلِّمٌ' }, { h: 'قَلَمٌ' }],
+      why: 'مُعَلِّمَةٌ فِي آخِرِهَا التَّاءُ الْمَرْبُوطَةُ ة.', whyEn: 'مُعَلِّمَة ends in the ة, so it is the feminine one.' },
+    { pic: 'sun', q: B + ' شَمْسٌ', say: 'شَمْسٌ', en: 'Careful! “___ the sun”',
+      options: [{ h: 'هَذِهِ', ok: true }, { h: 'هَذَا' }],
+      why: 'شَمْسٌ مُؤَنَّثَةٌ بِلَا ة، فَنَقُولُ: هَذِهِ شَمْسٌ.', whyEn: 'شَمْس has no ة, but it is feminine — one to learn by heart.' },
+    { pic: 'girl', q: 'هَذِهِ بِنْتٌ ' + B, say: 'هَذِهِ بِنْتٌ…', en: 'Champions’ question: “This is an active girl.”',
+      options: [{ h: KS.ta('نَشِيطَةٌ'), ok: true }, { h: 'نَشِيطٌ' }],
+      why: 'الْبِنْتُ مُؤَنَّثَةٌ، فَالصِّفَةُ مُؤَنَّثَةٌ أَيْضًا: بِنْتٌ نَشِيطَةٌ.', whyEn: 'The girl is feminine, so the describing word is too: نَشِيطَة.' }
+  ]);
+
+  /* print worksheet: dotted tracing rows (SVG text with a dashed stroke) */
+  document.querySelectorAll('[data-trace]').forEach(function (d) {
+    var txt = d.getAttribute('data-trace');
+    d.innerHTML = '<svg class="trace-svg" viewBox="0 0 800 120" aria-hidden="true">' +
+      '<line class="base" x1="8" y1="86" x2="792" y2="86"/><line class="mid" x1="8" y1="52" x2="792" y2="52"/>' +
+      '<circle class="start" cx="784" cy="60" r="6"/>' +
+      '<text x="770" y="86" font-size="66" direction="rtl" text-anchor="start" xml:space="preserve">' + txt + '</text></svg>';
+  });
+})();
+</script>
+</body>
+</html>

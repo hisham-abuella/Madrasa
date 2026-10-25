@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="pacific" data-theme-fixed>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نَوْرَس · Pacific coast</title>
+<meta name="description" content="Nawras Fusha School, San Diego — homepage mockup in the Pacific coast theme.">
+<meta property="og:title" content="نَوْرَس — Nawras Fusha School, San Diego">
+<meta property="og:image" content="../assets/art/og/pacific.jpg">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<style>
+/* ── Layout: full-bleed ocean hero with flying Noori · wave-topped cards · postcard ── */
+.topbar { position: absolute; inset-inline: 0; background: transparent; border: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.topbar .nav a { background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.o-hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  min-height: clamp(640px, 94vh, 860px);
+  background: var(--hero-bg);
+  display: flex; flex-direction: column; align-items: center;
+  padding: 120px 16px 0; text-align: center;
+}
+.o-hero h1 { font-size: clamp(2.6rem, 8vw, 5rem); color: var(--hero-ink); margin: 0; line-height: 1.5; font-family: var(--f-word); }
+.o-hero .cap { color: var(--hero-ink2); font-size: 1.15rem; margin: 4px 0 22px; text-align: center !important; }
+.o-hero .greet { font-family: var(--f-word); font-size: 1.3rem; margin-bottom: 12px; display: inline-block; }
+.o-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; position: relative; z-index: 3; }
+.sun { position: absolute; z-index: -2; left: 50%; bottom: 130px; width: 300px; height: 300px; margin-left: -150px; border-radius: 50%;
+  background: radial-gradient(circle, var(--sun) 0 58%, color-mix(in srgb, var(--sun) 40%, transparent) 59% 70%, transparent 71%); }
+.palm { position: absolute; z-index: -1; bottom: 40px; width: clamp(150px, 22vw, 300px); color: color-mix(in srgb, var(--ink) 82%, var(--brand)); }
+.palm--r { right: -30px; }
+.palm--l { left: -40px; transform: scaleX(-1); width: clamp(120px, 17vw, 240px); }
+.palm .frond { transform-box: view-box; transform-origin: 132px 110px; animation: sway 6s ease-in-out infinite; }
+.far-gulls { position: absolute; z-index: -1; top: 140px; inset-inline-start: 12%; width: 120px; color: var(--ink2); opacity: .6; }
+.flyer { position: absolute; z-index: 2; top: 34%; inset-inline-end: 9%; width: clamp(110px, 14vw, 170px); animation: float 3.6s ease-in-out infinite; }
+.flyer .gull { width: 100%; height: auto; }
+.flyer .bubble { position: absolute; top: -34px; inset-inline-end: 80%; white-space: nowrap; font-family: var(--f-word); font-size: 1.05rem; padding: 4px 16px; }
+.sea { position: absolute; inset-inline: 0; bottom: 0; height: 170px; z-index: 1; pointer-events: none; }
+.sea svg { position: absolute; left: 0; bottom: 0; width: 200%; max-width: none; height: 100%; animation: drift 18s linear infinite; }
+.sea .w1 { height: 150px; bottom: 26px; animation-duration: 26s; } .sea .w1 path { fill: color-mix(in srgb, var(--brand) 45%, var(--surface)); }
+.sea .w2 { height: 110px; bottom: 14px; animation-duration: 18s; animation-direction: reverse; } .sea .w2 path { fill: var(--brand); }
+.sea .w3 { height: 54px; animation-duration: 30s; } .sea .w3 path { fill: var(--bg); }
+
+/* levels: wave-topped cards */
+.lv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.lv { --c: var(--c1); overflow: hidden; padding: 0; text-align: center; }
+.lv:nth-child(2) { --c: var(--c2); } .lv:nth-child(3) { --c: var(--c3); } .lv:nth-child(4) { --c: var(--c4); }
+.lv__top { position: relative; height: 92px; background: var(--c); }
+.lv__top svg { position: absolute; bottom: -1px; left: 0; width: 100%; height: 26px; }
+.lv__top svg path { fill: var(--surface); }
+.lv__num { position: absolute; left: 50%; top: 18px; transform: translateX(-50%); width: 56px; height: 56px; border-radius: 50%; background: var(--surface); color: var(--ink); display: grid; place-items: center; font: 800 1.3rem/1 var(--f-latin); border: var(--border-w) solid var(--border-c); }
+.lv__body { padding: 8px 16px 22px; }
+.lv h3 { font-family: var(--f-word); font-size: 1.45rem; margin: 0; }
+.lv .word { margin: 0; color: var(--brand-text); }
+.lv .en { display: block; text-align: center; }
+
+/* postcard word of the day */
+.postcard { display: grid; grid-template-columns: 1.4fr auto .8fr; gap: 28px; align-items: center; padding: clamp(22px, 4vw, 40px); position: relative;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box, repeating-linear-gradient(45deg, var(--accent) 0 14px, var(--surface) 14px 22px, var(--brand) 22px 36px, var(--surface) 36px 44px) border-box;
+  border: 8px solid transparent; }
+.postcard .divider { width: 0; align-self: stretch; border-inline-start: 3px dashed var(--line); }
+.postcard .label { margin: 0; font-weight: 800; color: var(--accent-text); font-size: 1.15rem; }
+.postcard .wotd-word { justify-content: flex-start; }
+.stamp { justify-self: center; position: relative; width: 150px; aspect-ratio: 1; display: grid; place-items: center; }
+.stamp > svg.st { position: absolute; inset: 0; width: 100%; height: 100%; }
+.stamp .gull { width: 72%; height: auto; position: relative; }
+.postmark { margin-top: 8px; text-align: center; font: 700 .8rem/1.3 var(--f-latin); color: var(--ink2); letter-spacing: .1em; direction: ltr; }
+
+/* lessons: boats/shell cards with big round icon */
+.ls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.ls { text-align: center; padding: 30px 22px; }
+.ls .ico { width: 92px; height: 92px; border-radius: 50%; margin: 0 auto 12px; display: grid; place-items: center; background: var(--surface2); color: var(--brand-text); }
+.ls:nth-child(2) .ico { background: color-mix(in srgb, var(--accent) 22%, var(--surface)); color: var(--accent-text); }
+.ls .ico svg { width: 46px; height: 46px; }
+.ls h3 { font-family: var(--f-word); font-size: 1.45rem; margin: 0; }
+.ls .en { display: block; text-align: center; }
+.topic { text-align: center; margin: -14px 0 28px; }
+.topic .word { font-size: 1.7rem; }
+
+/* parents on the sand */
+.sand { background: var(--sand); position: relative; }
+.sand::before { content: ""; position: absolute; inset: 0; opacity: .14; pointer-events: none;
+  background: radial-gradient(ellipse 5px 8px at 30% 30%, var(--ink2) 98%, transparent) 0 0 / 90px 70px, radial-gradient(ellipse 5px 8px at 60% 70%, var(--ink2) 98%, transparent) 0 0 / 90px 70px; }
+.sand .wrap { position: relative; }
+.pa-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pa { display: flex; gap: 14px; align-items: flex-start; }
+.pa svg { width: 40px; height: 40px; flex: none; color: var(--brand-text); }
+.pa h3 { margin: 0; }
+.pa p { margin: 0; }
+.cta-row { text-align: center; margin-top: 32px; }
+
+.ocean-foot { background: var(--brand); color: var(--on-brand); }
+.ocean-foot .en, .ocean-foot a { color: var(--on-brand); }
+
+@media (max-width: 960px) {
+  .lv-grid { grid-template-columns: repeat(2, 1fr); }
+  .ls-grid, .pa-grid { grid-template-columns: 1fr; }
+  .postcard { grid-template-columns: 1fr; text-align: center; }
+  .postcard .divider { display: none; }
+  .postcard .wotd-word { justify-content: center; }
+  .flyer { top: auto; bottom: 150px; inset-inline-end: 6%; }
+  .flyer .bubble { inset-inline-end: 70%; }
+}
+@media (max-width: 460px) {
+  .o-hero { padding-top: 104px; min-height: 700px; }
+  .lv-grid { gap: 14px; }
+  .lv h3 { font-size: 1.2rem; }
+  .palm--l { display: none; }
+  .sun { width: 220px; height: 220px; margin-left: -110px; }
+}
+
+.try-write { margin-top: 30px; }
+.try-write h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 12px; }
+.try-write h3 .en { font-family: var(--f-latin); font-weight: 400; }
+/* ── illustrated artwork (KS.art) ── */
+.o-art { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; object-position: center 70%; }
+html:not([data-art="svg"]) .o-hero:not(.art-miss)::before { content: ""; position: absolute; z-index: -1; inset: 70px 0 auto; height: 460px;
+  background: radial-gradient(ellipse 46% 50% at 50% 45%, color-mix(in srgb, var(--surface) 62%, transparent), transparent 75%); pointer-events: none; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تَخَطَّ إِلَى الْمُحْتَوَى · Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star8" viewBox="0 0 100 100"><path d="M50 2L64 16H84V36L98 50L84 64V84H64L50 98L36 84H16V64L2 50L16 36V16H36Z"/></symbol>
+  <symbol id="i-article" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 11h7M9 15h7M9 19h4"/></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/><path d="M10 8l4 2-4 2z" fill="currentColor"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol>
+  <symbol id="palm" viewBox="0 0 240 400">
+    <path d="M100 400C104 300 112 200 132 110" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/>
+    <g class="frond" fill="currentColor">
+      <path d="M132 110C100 84 58 92 28 126C66 104 98 104 132 110Z"/>
+      <path d="M132 110C110 70 76 52 40 56C78 68 104 84 132 110Z"/>
+      <path d="M132 110C130 70 146 40 172 24C156 54 144 80 132 110Z"/>
+      <path d="M132 110C160 74 196 70 222 84C190 84 160 96 132 110Z"/>
+      <path d="M132 110C168 104 200 124 214 160C190 132 162 120 132 110Z"/>
+      <path d="M132 110C112 120 92 146 86 180C100 150 116 130 132 110Z"/>
+    </g>
+    <circle cx="127" cy="119" r="7" fill="currentColor"/><circle cx="139" cy="121" r="7" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#main" aria-label="نَوْرَس — Nawras home">
+      <span data-gull="happy"></span>
+      <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
+    </a>
+    <nav class="nav" aria-label="الْقَائِمَةُ">
+      <a href="#levels">الصُّفُوفُ</a>
+      <a href="#word">كَلِمَةُ الْيَوْمِ</a>
+      <a href="#lessons">دُرُوسٌ</a>
+      <a href="#parents">لِلْأَهْلِ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO: sunset over the Pacific, Noori flying in -->
+  <section class="o-hero" aria-labelledby="h1" data-art-slot>
+    <img class="o-art ill-only" src="../assets/art/site/hero-pacific.webp" alt="غُرُوبُ الشَّمْسِ عَلَى شَاطِئِ سَان دِييغُو — sunset over a San Diego beach with palm trees" width="1536" height="768" decoding="async" fetchpriority="high" onerror="this.closest('[data-art-slot]')&&this.closest('[data-art-slot]').classList.add('art-miss');this.remove()">
+    <div class="sun svg-only" aria-hidden="true"></div>
+    <svg class="palm palm--r svg-only" viewBox="0 0 240 400" aria-hidden="true"><use href="#palm"/></svg>
+    <svg class="palm palm--l svg-only" viewBox="0 0 240 400" aria-hidden="true"><use href="#palm"/></svg>
+    <svg class="far-gulls svg-only" viewBox="0 0 120 50" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M10 20q8-9 16 0q8-9 16 0M70 36q6-7 12 0q6-7 12 0M84 10q5-5 10 0q5-5 10 0"/></svg>
+
+    <span class="bubble greet" data-reveal>السَّلَامُ عَلَيْكُمْ يَا أَصْدِقَاءُ!</span>
+    <h1 id="h1" data-words>نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</h1>
+    <p class="en cap">Fusha for little hearts, by the Pacific.</p>
+    <div class="o-ctas">
+      <a class="btn" href="#levels">هَيَّا نَبْدَأُ <span class="en">Start</span></a>
+      <a class="btn btn--ghost" href="#parents">لِلْأَهْلِ <span class="en">For parents</span></a>
+    </div>
+
+    <div class="flyer" role="img" aria-label="نُورِي يَطِيرُ — Noori flying over the ocean">
+      <div data-gull="fly"></div>
+    </div>
+
+    <div class="sea" aria-hidden="true">
+      <svg class="w1" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 50Q90 20 180 50T360 50T540 50T720 50T900 50T1080 50T1260 50T1440 50V120H0Z"/></svg>
+      <svg class="w2" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 60Q90 30 180 60T360 60T540 60T720 60T900 60T1080 60T1260 60T1440 60V120H0Z"/></svg>
+      <svg class="w3" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 60Q90 25 180 60T360 60T540 60T720 60T900 60T1080 60T1260 60T1440 60V120H0Z"/></svg>
+    </div>
+  </section>
+
+  <!-- LEVELS -->
+  <section class="section" id="levels">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <svg class="orn" aria-hidden="true"><use href="#star8" style="fill:currentColor"/></svg>
+        <h2>اِخْتَرْ صَفَّكَ</h2>
+        <span class="en">Pick your class</span>
+      </div>
+      <div class="lv-grid">
+        <a class="card card--link lv" href="#" data-reveal style="--i:0">
+          <div class="lv__top"><span class="lv__num">KG</span><svg viewBox="0 0 200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14Q25 0 50 14T100 14T150 14T200 14V26H0Z"/></svg></div>
+          <div class="lv__body"><img class="lvl-art ill-only" src="../assets/art/site/level-kg.webp" alt="مُكَعَّبَاتٌ وَكُرَةٌ وَأَقْلَامُ تَلْوِينٍ — toy blocks, a ball and crayons" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الرَّوْضَةُ</h3><p class="word">حُرُوفٌ وَأَصْوَاتٌ</p><span class="en">Ages 4–5 · letters &amp; sounds</span></div>
+        </a>
+        <a class="card card--link lv" href="#" data-reveal style="--i:1">
+          <div class="lv__top"><span class="lv__num">1</span><svg viewBox="0 0 200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14Q25 0 50 14T100 14T150 14T200 14V26H0Z"/></svg></div>
+          <div class="lv__body"><img class="lvl-art ill-only" src="../assets/art/site/level-1.webp" alt="كِتَابٌ مُصَوَّرٌ وَقَلَمٌ — a picture book and a pencil" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الْأَوَّلُ</h3><p class="word">أَقْرَأُ كَلِمَاتِي</p><span class="en">Grade 1 · first words</span></div>
+        </a>
+        <a class="card card--link lv" href="#" data-reveal style="--i:2">
+          <div class="lv__top"><span class="lv__num">2</span><svg viewBox="0 0 200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14Q25 0 50 14T100 14T150 14T200 14V26H0Z"/></svg></div>
+          <div class="lv__body"><img class="lvl-art ill-only" src="../assets/art/site/level-2.webp" alt="كُتُبُ قِصَصٍ وَقَارِبٌ مِنْ وَرَقٍ — storybooks and a paper boat" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الثَّانِي</h3><p class="word">جُمَلٌ وَقِصَصٌ</p><span class="en">Grade 2 · sentences &amp; stories</span></div>
+        </a>
+        <a class="card card--link lv" href="#" data-reveal style="--i:3">
+          <div class="lv__top"><span class="lv__num">3</span><svg viewBox="0 0 200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14Q25 0 50 14T100 14T150 14T200 14V26H0Z"/></svg></div>
+          <div class="lv__body"><img class="lvl-art ill-only" src="../assets/art/site/level-3.webp" alt="دَفْتَرٌ وَقَلَمٌ وَمِحْبَرَةٌ — a notebook, a pencil and an ink pot" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الثَّالِثُ</h3><p class="word">أَقْرَأُ وَأَكْتُبُ</p><span class="en">Grade 3 · reading &amp; writing</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORD OF THE DAY: a postcard from the sea -->
+  <section class="section" id="word" style="padding-top:0">
+    <div class="wrap">
+      <div class="card postcard" data-reveal>
+        <div>
+          <p class="label">كَلِمَةُ الْيَوْمِ <span class="en">Word of the day</span></p>
+          <div class="wotd-word">
+              <img class="wotd-art ill-only" src="../assets/art/pic/sea.webp" alt="بَحْرٌ — the sea" width="120" height="120" loading="lazy" decoding="async" onerror="this.remove()">
+            <span class="word">بَحْرٌ</span>
+            <button class="say" type="button" data-say="بَحْرٌ"></button>
+            <span class="chip chip--masc">مُذَكَّرٌ · هَذَا</span>
+          </div>
+          <p class="wotd-sentence">هَذَا بَحْرٌ كَبِيرٌ. <button class="say" type="button" data-say="هَذَا بَحْرٌ كَبِيرٌ" style="width:44px;height:44px"></button></p>
+          <p class="en" style="margin:0">baḥr — sea. “This is a big sea.” No ة, so it is masculine: هَذَا.</p>
+        </div>
+        <div class="divider" aria-hidden="true"></div>
+        <div>
+          <div class="stamp">
+            <svg class="st" viewBox="0 0 100 100" aria-hidden="true"><use href="#star8" style="fill:var(--surface2);stroke:var(--brand);stroke-width:2;stroke-dasharray:4 3"/></svg>
+            <span data-gull="wave"></span>
+          </div>
+          <div class="postmark">SAN DIEGO · CA</div>
+        </div>
+      </div>
+
+      <div class="try-write">
+        <h3>جَرِّبْ أَنْ تَكْتُبَ <span class="en">Try writing — trace with a finger, Apple Pencil or mouse. Start at the green dot.</span></h3>
+        <div data-writepad data-model="هَذَا|هَذَا بَحْرٌ" data-lines="2"></div>
+      </div>    </div>
+  </section>
+
+  <!-- DEMO LESSONS -->
+  <section class="section" id="lessons" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <svg class="orn" aria-hidden="true"><use href="#star8" style="fill:currentColor"/></svg>
+        <h2>دُرُوسٌ تَجْرِيبِيَّةٌ</h2>
+        <span class="en">Demo lessons — one lesson, three ways</span>
+      </div>
+      <p class="topic" data-reveal><span class="word">هَذَا وَهَذِهِ</span><br><span class="en">This (m.) &amp; this (f.) — masculine and feminine</span></p>
+      <div class="ls-grid">
+        <a class="card card--link ls" href="../lessons/article.html" data-reveal style="--i:0">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-article"/></svg></span>
+          <h3>مَقَالَةٌ مُصَوَّرَةٌ</h3><span class="en">Illustrated article · read together</span>
+        </a>
+        <a class="card card--link ls" href="../lessons/story.html" data-reveal style="--i:1">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-story"/></svg></span>
+          <h3>قِصَّةٌ تَفَاعُلِيَّةٌ</h3><span class="en">Interactive story · tap &amp; play</span>
+        </a>
+        <a class="card card--link ls" href="../lessons/presentation.html" data-reveal style="--i:2">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-slides"/></svg></span>
+          <h3>عَرْضٌ لِلصَّفِّ</h3><span class="en">Classroom slides · for the teacher</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENTS -->
+  <section class="section sand" id="parents">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>لِلْأَهْلِ</h2>
+        <span class="en">For parents — details are placeholders until confirmed</span>
+      </div>
+      <figure class="parents-art ill-only" data-reveal><img src="../assets/art/site/parents.webp" alt="أُمٌّ وَبِنْتُهَا تَمْشِيَانِ إِلَى الْمَدْرَسَةِ — a mother and her daughter walking to school" width="1200" height="800" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure>
+      <div class="pa-grid">
+        <div class="card pa" data-reveal style="--i:0"><svg aria-hidden="true"><use href="#i-cal"/></svg><div><h3>الْمَوَاعِيدُ</h3><p class="en">Saturdays 9:30 – 12:00 (KG until 11:00) · Wednesday reading club 4:30 – 6:00 pm</p><span class="placeholder">placeholder</span></div></div>
+        <div class="card pa" data-reveal style="--i:1"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><h3>الْمَكَانُ</h3><p class="en">Community classroom in Mira Mesa, San Diego · 10 min from the 15 / 805</p><span class="placeholder">placeholder</span></div></div>
+        <div class="card pa" data-reveal style="--i:2"><svg aria-hidden="true"><use href="#i-mail"/></svg><div><h3>تَوَاصَلُوا مَعَنَا</h3><p class="en">Ustadha Maryam &amp; Ustadh Yusuf · hello@nawras.example · (619) 555-0142</p><span class="placeholder">placeholder</span></div></div>
+      </div>
+      <div class="cta-row" data-reveal><a class="btn btn--accent trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot ocean-foot">
+  <div class="wrap">
+    <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <span class="en">Nawras Fusha School, San Diego · Demo mockup 2 of 6 — “Pacific” · <a href="../index.html">all mockups</a></span>
+  </div>
+</footer>
+<script src="../assets/kids.js"></script>
+</body>
+</html>

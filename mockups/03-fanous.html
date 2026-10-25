@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="fanous" data-theme-fixed>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نَوْرَس · Night lanterns</title>
+<meta name="description" content="Nawras Fusha School, San Diego — homepage mockup in the Fanous (night lanterns) theme.">
+<meta property="og:title" content="نَوْرَس — Nawras Fusha School, San Diego">
+<meta property="og:image" content="../assets/art/og/fanous.jpg">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<style>
+/* ── Layout: night sky + hanging lanterns that light up · lantern-string levels · lit windows ── */
+.n-hero { position: relative; overflow: hidden; isolation: isolate; background: var(--hero-bg); color: var(--hero-ink);
+  padding: 210px 16px 200px; text-align: center; }
+.n-hero h1 { color: var(--hero-ink); font-size: clamp(2.6rem, 7vw, 4.6rem); margin: 0; }
+.n-hero .tag { font-family: var(--f-word); font-weight: 700; font-size: clamp(1.4rem, 3.4vw, 1.9rem); color: var(--brand-text); margin: 0; }
+.n-hero .cap { text-align: center !important; color: var(--hero-ink2); font-size: 1.1rem; margin: 6px 0 24px; }
+.n-hero .greet { display: inline-block; margin-bottom: 10px; padding: 4px 18px; border-radius: 999px; font-family: var(--f-word); font-size: 1.25rem;
+  border: 1.5px solid color-mix(in srgb, var(--brand) 60%, transparent); color: var(--hero-ink); }
+.n-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.n-sky-star { position: absolute; z-index: -1; width: 16px; height: 16px; color: var(--sun); animation: twinkle 3s ease-in-out infinite; }
+.n-moon { position: absolute; z-index: -1; top: 110px; inset-inline-end: 7%; width: clamp(130px, 16vw, 210px); }
+.n-moon .noori { position: absolute; width: 52%; left: 30%; top: 40%; }
+.n-moon .noori .gull { width: 100%; height: auto; }
+/* hanging lanterns — each lights up on hover / focus */
+.lanterns { position: absolute; top: 0; inset-inline: 0; display: flex; justify-content: space-around; pointer-events: none; padding-inline: 4%; }
+.lantern { pointer-events: auto; display: flex; flex-direction: column; align-items: center; transform-origin: top center; animation: sway 5s ease-in-out infinite; background: none; border: 0; padding: 0; cursor: pointer; }
+.lantern:nth-child(2) { animation-delay: -1.2s; } .lantern:nth-child(3) { animation-delay: -2.4s; } .lantern:nth-child(4) { animation-delay: -.6s; } .lantern:nth-child(5) { animation-delay: -3s; }
+.lantern .str { width: 2px; background: color-mix(in srgb, var(--brand) 70%, transparent); }
+.lantern svg { width: 64px; height: auto; transition: filter .35s; }
+.lantern:hover svg, .lantern:focus-visible svg, .lantern.is-lit svg { filter: drop-shadow(0 0 16px var(--sun)) drop-shadow(0 0 40px color-mix(in srgb, var(--sun) 60%, transparent)); }
+.lamp-frame { fill: var(--brand); }
+/* the lamp symbol is drawn through <use>, so its lit state is passed in with CSS variables */
+.lamp-glass { fill: var(--glass, var(--surface2)); transition: fill .35s; }
+.lamp-flame { fill: var(--sun); opacity: var(--flame, 0); transition: opacity .35s; }
+.lantern:hover, .lantern:focus-visible, .lantern.is-lit, .lamp-card:hover, .lamp-card:focus-visible, .moonbox {
+  --glass: color-mix(in srgb, var(--sun) 55%, var(--surface)); --flame: 1; }
+.lamp-line { stroke: var(--brand); fill: none; }
+.skyline { position: absolute; z-index: -1; left: 0; right: 0; bottom: -1px; width: 100%; height: 150px; max-width: none; }
+.skyline path { fill: var(--bg); }
+.skyline .win { fill: var(--sun); opacity: .8; }
+
+/* levels on a lantern string */
+.string-wrap { position: relative; }
+.string-wrap::before { content: ""; position: absolute; top: 0; inset-inline: 2%; height: 40px; border-top: 2px solid color-mix(in srgb, var(--brand) 60%, transparent); border-radius: 50% / 100% 100% 0 0; transform: scaleY(-1); }
+.lamps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; padding-top: 18px; }
+.lamp-card { text-align: center; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; align-items: center; }
+.lamp-card .hang { width: 2px; height: 34px; background: color-mix(in srgb, var(--brand) 60%, transparent); }
+.lamp-card:nth-child(even) .hang { height: 64px; }
+.lamp-card svg.lamp { width: 74px; height: auto; transition: filter .35s, transform .35s var(--ease-pop); }
+.lamp-card:hover svg.lamp, .lamp-card:focus-visible svg.lamp { filter: drop-shadow(0 0 18px var(--sun)); transform: translateY(-4px) rotate(-3deg); }
+.lamp-card .body { margin-top: 12px; width: 100%; background: var(--surface); border: var(--border-w) solid var(--border-c); border-radius: var(--radius); padding: 16px 12px; box-shadow: var(--shadow); transition: box-shadow .3s, transform .3s var(--ease-pop); }
+.lamp-card:hover .body, .lamp-card:focus-visible .body { box-shadow: var(--shadow-hover); }
+.lamp-card:active .body { transform: scale(.98); }
+.lamp-card:focus-visible { outline: none; }
+.lamp-card:focus-visible .body { outline: 4px solid var(--brand); outline-offset: 3px; }
+.lamp-card h3 { font-family: var(--f-word); font-size: 1.4rem; margin: 0; }
+.lamp-card .word { margin: 0; color: var(--accent-text); }
+.lamp-card .en { display: block; text-align: center; }
+
+/* word of the day under the moon */
+.moonbox { position: relative; text-align: center; padding: clamp(30px, 6vw, 60px) 20px; border-radius: 999px 999px var(--radius) var(--radius);
+  background: radial-gradient(circle at 50% 0, color-mix(in srgb, var(--sun) 22%, var(--surface)) 0 30%, var(--surface) 70%); border: var(--border-w) solid var(--border-c); box-shadow: var(--shadow);
+  max-width: 760px; margin-inline: auto; }
+.moonbox .moon-i { width: 64px; height: 64px; margin: 0 auto; color: var(--brand); }
+.moonbox .label { margin: 0; font-weight: 700; color: var(--brand-text); }
+.moonbox .wotd-word .word { text-shadow: 0 0 22px color-mix(in srgb, var(--sun) 55%, transparent); }
+
+/* lessons: lit arched windows */
+.windows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.win-card { position: relative; text-align: center; text-decoration: none; color: var(--ink); padding: 74px 20px 26px; border-radius: 999px 999px var(--radius-sm) var(--radius-sm);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sun) 30%, var(--surface)) 0%, var(--surface) 62%); border: 6px solid var(--surface2); box-shadow: var(--shadow); transition: transform .3s var(--ease-pop), box-shadow .3s; }
+.win-card::before { content: ""; position: absolute; top: 14px; left: 50%; width: 3px; height: 46px; background: var(--surface2); transform: translateX(-50%); }
+.win-card:hover, .win-card:focus-visible { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+.win-card:active { transform: translateY(-1px) scale(.99); }
+.win-card svg { width: 44px; height: 44px; margin: 0 auto 6px; color: var(--brand-text); }
+.win-card h3 { font-family: var(--f-word); font-size: 1.4rem; margin: 0; }
+.win-card .en { display: block; text-align: center; }
+.topic { text-align: center; margin: -14px 0 30px; }
+.topic .word { font-size: 1.7rem; }
+
+/* parents */
+.night-parents { background: var(--surface); border-block: var(--border-w) solid var(--border-c); }
+.np-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.np { padding: 8px 26px; text-align: center; }
+.np + .np { border-inline-start: 1px solid var(--border-c); }
+.np svg { width: 36px; height: 36px; margin: 0 auto 6px; color: var(--brand-text); }
+.np h3 { margin: 0; }
+.np p { margin: 0; }
+.np .en { text-align: center !important; }
+.cta-row { text-align: center; margin-top: 34px; }
+
+@media (max-width: 900px) {
+  .lamps { grid-template-columns: repeat(2, 1fr); }
+  .windows, .np-grid { grid-template-columns: 1fr; }
+  .np + .np { border-inline-start: 0; border-top: 1px solid var(--border-c); padding-top: 20px; margin-top: 12px; }
+  .string-wrap::before { display: none; }
+}
+@media (max-width: 560px) {
+  .n-hero { padding-top: 250px; padding-bottom: 150px; }
+  .lantern:nth-child(n+4) { display: none; }
+  .n-moon { top: 140px; inset-inline-end: 4%; width: 110px; }
+  .lamps { gap: 14px; }
+  .lamp-card h3 { font-size: 1.2rem; }
+  .skyline { height: 90px; }
+}
+/* ── illustrated artwork (KS.art) ── */
+.n-art { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+html:not([data-art="svg"]) .n-hero:not(.art-miss) .n-moon { top: auto; bottom: 18px; inset-inline-end: 5%; width: clamp(150px, 18vw, 220px); aspect-ratio: 1; z-index: 0; }
+html:not([data-art="svg"]) .n-hero:not(.art-miss) .n-moon .noori { left: 0; top: auto; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تَخَطَّ إِلَى الْمُحْتَوَى · Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star8" viewBox="0 0 100 100"><path d="M50 2L64 16H84V36L98 50L84 64V84H64L50 98L36 84H16V64L2 50L16 36V16H36Z"/></symbol>
+  <symbol id="spark" viewBox="-10 -10 20 20"><path d="M0-9L2-2 9 0 2 2 0 9-2 2-9 0-2-2Z" fill="currentColor"/></symbol>
+  <symbol id="lamp" viewBox="0 0 80 132">
+    <circle cx="40" cy="6" r="5" class="lamp-line" stroke-width="3"/>
+    <path d="M28 26Q40 8 52 26Z" class="lamp-frame"/>
+    <path d="M20 38H60L50 24H30Z" class="lamp-frame"/>
+    <path d="M20 38H60L56 98H24Z" class="lamp-frame"/>
+    <path d="M27 44H53L50 92H30Z" class="lamp-glass"/>
+    <ellipse cx="40" cy="74" rx="6" ry="11" class="lamp-flame"/>
+    <path d="M27 58Q40 44 53 58M40 44V92" class="lamp-line" stroke-width="3"/>
+    <path d="M24 98H56L48 110H32Z" class="lamp-frame"/>
+    <path d="M40 110V122" class="lamp-line" stroke-width="3"/>
+    <circle cx="40" cy="125" r="5" class="lamp-frame"/>
+  </symbol>
+  <symbol id="i-article" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 11h7M9 15h7M9 19h4"/></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/><path d="M10 8l4 2-4 2z" fill="currentColor"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#main" aria-label="نَوْرَس — Nawras home">
+      <span data-gull="happy"></span>
+      <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
+    </a>
+    <nav class="nav" aria-label="الْقَائِمَةُ">
+      <a href="#levels">الصُّفُوفُ</a>
+      <a href="#word">كَلِمَةُ الْيَوْمِ</a>
+      <a href="#lessons">دُرُوسٌ</a>
+      <a href="#parents">لِلْأَهْلِ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="n-hero" aria-labelledby="h1" data-art-slot>
+    <img class="n-art ill-only" src="../assets/art/site/hero-fanous.webp" alt="فَوَانِيسُ مُضِيئَةٌ فِي لَيْلَةٍ هَادِئَةٍ عَلَى الْبَحْرِ — glowing lanterns on a calm night by the sea" width="1536" height="768" decoding="async" fetchpriority="high" onerror="this.closest('[data-art-slot]')&&this.closest('[data-art-slot]').classList.add('art-miss');this.remove()">
+    <!-- hanging lanterns: hover or tap to light -->
+    <div class="lanterns svg-only">
+      <button class="lantern" type="button" aria-label="فَانُوسٌ — light a lantern"><span class="str" style="height:40px"></span><svg viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg></button>
+      <button class="lantern is-lit" type="button" aria-label="فَانُوسٌ — light a lantern"><span class="str" style="height:90px"></span><svg viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg></button>
+      <button class="lantern" type="button" aria-label="فَانُوسٌ — light a lantern"><span class="str" style="height:20px"></span><svg viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg></button>
+      <button class="lantern" type="button" aria-label="فَانُوسٌ — light a lantern"><span class="str" style="height:70px"></span><svg viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg></button>
+      <button class="lantern is-lit" type="button" aria-label="فَانُوسٌ — light a lantern"><span class="str" style="height:34px"></span><svg viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg></button>
+    </div>
+    <!-- crescent with Noori resting on it -->
+    <div class="n-moon" aria-hidden="true">
+      <svg class="svg-only" viewBox="0 0 100 100"><defs><mask id="cres"><rect width="100" height="100" fill="#fff"/><circle cx="64" cy="38" r="36" fill="#000"/></mask></defs><circle cx="50" cy="50" r="44" mask="url(#cres)" style="fill:var(--sun)"/></svg>
+      <div class="noori" data-gull="sleep"></div>
+    </div>
+    <svg class="n-sky-star svg-only" style="top:120px;inset-inline-start:12%" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="n-sky-star svg-only" style="top:300px;inset-inline-start:6%;animation-delay:-1s" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="n-sky-star svg-only" style="top:180px;inset-inline-start:30%;animation-delay:-2s;width:10px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="n-sky-star svg-only" style="top:380px;inset-inline-end:16%;animation-delay:-.5s" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="n-sky-star svg-only" style="top:440px;inset-inline-start:22%;animation-delay:-1.6s;width:12px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="n-sky-star svg-only" style="top:250px;inset-inline-end:34%;animation-delay:-2.4s;width:10px" aria-hidden="true"><use href="#spark"/></svg>
+
+    <span class="greet" data-reveal>السَّلَامُ عَلَيْكُمْ</span>
+    <h1 id="h1" data-reveal>كُلُّ حَرْفٍ فَانُوسٌ</h1>
+    <p class="tag" data-words>نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</p>
+    <p class="en cap">Every letter is a little lantern — Fusha for little hearts, by the Pacific.</p>
+    <div class="n-ctas">
+      <a class="btn" href="#levels">هَيَّا نَبْدَأُ <span class="en">Start</span></a>
+      <a class="btn btn--ghost" href="#parents">لِلْأَهْلِ <span class="en">For parents</span></a>
+    </div>
+
+    <svg class="skyline svg-only" viewBox="0 0 1440 150" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path d="M0 150V100H120V80H160Q200 30 240 80H280V100H420V64Q470 6 520 64V100H640V90H700Q760 24 820 90H880V110H1000V78Q1040 38 1080 78V110H1200V86H1240Q1290 28 1340 86H1380V100H1440V150Z"/>
+      <rect class="win" x="190" y="92" width="10" height="16" rx="5"/><rect class="win" x="460" y="80" width="10" height="18" rx="5"/><rect class="win" x="480" y="80" width="10" height="18" rx="5"/>
+      <rect class="win" x="752" y="104" width="12" height="20" rx="6"/><rect class="win" x="1034" y="92" width="10" height="16" rx="5"/><rect class="win" x="1284" y="100" width="10" height="16" rx="5"/>
+    </svg>
+  </section>
+
+  <!-- LEVELS on a string of lanterns -->
+  <section class="section" id="levels">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <svg class="orn" aria-hidden="true"><use href="#star8" style="fill:currentColor"/></svg>
+        <h2>أَضِئْ فَانُوسَ صَفِّكَ</h2>
+        <span class="en">Light up your class’s lantern</span>
+      </div>
+      <div class="string-wrap">
+        <div class="lamps">
+          <a class="lamp-card" href="#" data-reveal style="--i:0"><span class="hang"></span><svg class="lamp" viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg>
+            <div class="body"><img class="lvl-art ill-only" src="../assets/art/site/level-kg.webp" alt="مُكَعَّبَاتٌ وَكُرَةٌ وَأَقْلَامُ تَلْوِينٍ — toy blocks, a ball and crayons" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الرَّوْضَةُ</h3><p class="word">حُرُوفٌ وَأَصْوَاتٌ</p><span class="en">KG · ages 4–5 · letters &amp; sounds</span></div></a>
+          <a class="lamp-card" href="#" data-reveal style="--i:1"><span class="hang"></span><svg class="lamp" viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg>
+            <div class="body"><img class="lvl-art ill-only" src="../assets/art/site/level-1.webp" alt="كِتَابٌ مُصَوَّرٌ وَقَلَمٌ — a picture book and a pencil" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الْأَوَّلُ</h3><p class="word">أَقْرَأُ كَلِمَاتِي</p><span class="en">Grade 1 · first words</span></div></a>
+          <a class="lamp-card" href="#" data-reveal style="--i:2"><span class="hang"></span><svg class="lamp" viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg>
+            <div class="body"><img class="lvl-art ill-only" src="../assets/art/site/level-2.webp" alt="كُتُبُ قِصَصٍ وَقَارِبٌ مِنْ وَرَقٍ — storybooks and a paper boat" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الثَّانِي</h3><p class="word">جُمَلٌ وَقِصَصٌ</p><span class="en">Grade 2 · sentences &amp; stories</span></div></a>
+          <a class="lamp-card" href="#" data-reveal style="--i:3"><span class="hang"></span><svg class="lamp" viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg>
+            <div class="body"><img class="lvl-art ill-only" src="../assets/art/site/level-3.webp" alt="دَفْتَرٌ وَقَلَمٌ وَمِحْبَرَةٌ — a notebook, a pencil and an ink pot" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الثَّالِثُ</h3><p class="word">أَقْرَأُ وَأَكْتُبُ</p><span class="en">Grade 3 · reading &amp; writing</span></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORD OF THE DAY -->
+  <section class="section" id="word" style="padding-top:0">
+    <div class="wrap">
+      <div class="moonbox" data-reveal>
+        <svg class="moon-i" viewBox="0 0 80 132" aria-hidden="true"><use href="#lamp"/></svg>
+        <p class="label">كَلِمَةُ الْيَوْمِ <span class="en">Word of the day</span></p>
+        <div class="wotd-word">
+              <img class="wotd-art ill-only" src="../assets/art/site/wotd-lantern.webp" alt="فَانُوسٌ — a lantern" width="120" height="120" loading="lazy" decoding="async" onerror="this.remove()">
+          <span class="word">فَانُوسٌ</span>
+          <button class="say" type="button" data-say="فَانُوسٌ"></button>
+        </div>
+        <span class="chip chip--masc">مُذَكَّرٌ · هَذَا</span>
+        <p class="wotd-sentence" style="margin-top:10px">هَذَا فَانُوسٌ مُضِيءٌ. <button class="say" type="button" data-say="هَذَا فَانُوسٌ مُضِيءٌ" style="width:44px;height:44px"></button></p>
+        <p class="en" style="text-align:center !important;margin:0">fānūs — lantern. “This is a shining lantern.” No ة: masculine, so هَذَا.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO LESSONS -->
+  <section class="section" id="lessons" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <svg class="orn" aria-hidden="true"><use href="#star8" style="fill:currentColor"/></svg>
+        <h2>دُرُوسٌ تَجْرِيبِيَّةٌ</h2>
+        <span class="en">Demo lessons — one lesson, three ways</span>
+      </div>
+      <p class="topic" data-reveal><span class="word">هَذَا وَهَذِهِ</span><br><span class="en">This (m.) &amp; this (f.) — masculine and feminine</span></p>
+      <div class="windows">
+        <a class="win-card" href="../lessons/article.html" data-reveal style="--i:0"><svg aria-hidden="true"><use href="#i-article"/></svg><h3>مَقَالَةٌ مُصَوَّرَةٌ</h3><span class="en">Illustrated article</span></a>
+        <a class="win-card" href="../lessons/story.html" data-reveal style="--i:1"><svg aria-hidden="true"><use href="#i-story"/></svg><h3>قِصَّةٌ تَفَاعُلِيَّةٌ</h3><span class="en">Interactive story</span></a>
+        <a class="win-card" href="../lessons/presentation.html" data-reveal style="--i:2"><svg aria-hidden="true"><use href="#i-slides"/></svg><h3>عَرْضٌ لِلصَّفِّ</h3><span class="en">Classroom slides</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENTS -->
+  <section class="section night-parents" id="parents">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>لِلْأَهْلِ</h2>
+        <span class="en">For parents — details are placeholders until confirmed</span>
+      </div>
+      <figure class="parents-art ill-only" data-reveal><img src="../assets/art/site/parents.webp" alt="أُمٌّ وَبِنْتُهَا تَمْشِيَانِ إِلَى الْمَدْرَسَةِ — a mother and her daughter walking to school" width="1200" height="800" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure>
+      <div class="np-grid">
+        <div class="np" data-reveal style="--i:0"><svg aria-hidden="true"><use href="#i-cal"/></svg><h3>الْمَوَاعِيدُ</h3><p class="en">Saturdays 9:30 – 12:00 (KG until 11:00) · Wednesday reading club 4:30 – 6:00 pm</p><span class="placeholder">placeholder</span></div>
+        <div class="np" data-reveal style="--i:1"><svg aria-hidden="true"><use href="#i-pin"/></svg><h3>الْمَكَانُ</h3><p class="en">Community classroom in Mira Mesa, San Diego · free parking</p><span class="placeholder">placeholder</span></div>
+        <div class="np" data-reveal style="--i:2"><svg aria-hidden="true"><use href="#i-mail"/></svg><h3>تَوَاصَلُوا مَعَنَا</h3><p class="en">Ustadha Maryam &amp; Ustadh Yusuf · hello@nawras.example · (619) 555-0142</p><span class="placeholder">placeholder</span></div>
+      </div>
+      <div class="cta-row" data-reveal><a class="btn trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <span class="en">Nawras Fusha School, San Diego · Demo mockup 3 of 6 — “Fanous” · <a href="../index.html">all mockups</a></span>
+  </div>
+</footer>
+<script src="../assets/kids.js"></script>
+<script>
+  // tap a lantern to light / unlight it (soft pop)
+  document.querySelectorAll('.lantern').forEach(function (b) {
+    b.addEventListener('click', function () { b.classList.toggle('is-lit'); KS.sfx('pop'); });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# regenerable scratch (rebuilt by the scripts; seeds are in the gen-*.sh files)
+logos/build/
+book/build/
+assets/art/hi/tries/
+**/__pycache__/
+node_modules/
+# OS / editor
+.DS_Store
+# secrets — never commit
+.env
+*.key

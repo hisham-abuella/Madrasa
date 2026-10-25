@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="mosaic" data-theme-fixed>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نَوْرَس · Mosaic playground</title>
+<meta name="description" content="Nawras Fusha School, San Diego — homepage mockup in the Mosaic playground theme.">
+<meta property="og:title" content="نَوْرَس — Nawras Fusha School, San Diego">
+<meta property="og:image" content="../assets/art/og/mosaic.jpg">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<style>
+/* ── Layout: one bento grid of chunky mosaic tiles ── */
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; padding-block: 28px 60px; }
+.tile { position: relative; overflow: hidden; background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(18px, 2.4vw, 30px); }
+a.tile { text-decoration: none; transition: transform .2s var(--ease-pop), box-shadow .2s; }
+a.tile:hover, a.tile:focus-visible { transform: translate(-3px, -3px); box-shadow: var(--shadow-hover); }
+a.tile:active { transform: translate(4px, 4px); box-shadow: var(--btn-shadow-press); }
+.t-hero { grid-column: span 7; grid-row: span 2; background: var(--hero-bg); color: var(--hero-ink); display: flex; flex-direction: column; justify-content: center; min-height: 440px; }
+.t-hero h1 { font-size: clamp(2.8rem, 6.5vw, 5rem); margin: 0; line-height: 1.35; }
+.t-hero .tag { font-family: var(--f-word); font-weight: 700; font-size: 1.6rem; margin: 6px 0 0; }
+.t-hero .cap { color: var(--hero-ink2); font-size: 1.1rem; margin-bottom: 22px; }
+.t-hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; position: relative; z-index: 1; }
+.t-noori { grid-column: span 5; grid-row: span 2; background: var(--brand); display: grid; place-items: center; min-height: 440px; }
+.t-noori .big-star { position: absolute; width: 118%; max-width: none; color: var(--sun); animation: spin 60s linear infinite; }
+.t-noori .gull { position: relative; width: min(260px, 64%); height: auto; }
+.t-noori .bubble { position: absolute; top: 26px; inset-inline-start: 22px; font-family: var(--f-word); font-size: 1.3rem; border-color: var(--border-c); }
+.corner-star { position: absolute; width: 90px; inset-inline-start: -26px; bottom: -26px; color: var(--surface); opacity: .55; }
+.lbl { display: inline-block; font: 700 .85rem/1.4 var(--f-latin); direction: ltr; text-transform: uppercase; letter-spacing: .06em; padding: 2px 10px; border: 2px solid currentColor; border-radius: 999px; margin-bottom: 8px; }
+
+/* level tiles */
+.t-lv { grid-column: span 3; min-height: 210px; display: flex; flex-direction: column; justify-content: flex-end; }
+.t-lv:nth-of-type(1) { background: var(--brand); color: var(--on-brand); }
+.t-lv:nth-of-type(2) { background: var(--accent); color: var(--on-accent); }
+.t-lv:nth-of-type(3) { background: var(--sun); color: #1E1A0E; }
+.t-lv:nth-of-type(4) { background: var(--surface2); color: var(--ink); }
+.t-lv .en { color: inherit; opacity: .92; }
+.t-lv h3 { font-family: var(--f-word); font-size: 1.55rem; margin: 0; }
+.t-lv .word { margin: 0; font-size: 1.15rem; }
+.t-lv .badge { position: absolute; top: 14px; inset-inline-end: 14px; width: 66px; height: 66px; display: grid; place-items: center; transition: transform .4s var(--ease-pop); }
+.t-lv .badge svg { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--surface); }
+.t-lv .badge b { position: relative; font: 800 1.25rem/1 var(--f-latin); color: var(--ink); }
+.t-lv:hover .badge { transform: rotate(45deg); }
+.t-lv:hover .badge b { transform: rotate(-45deg); }
+.levels-title { grid-column: span 12; display: flex; align-items: baseline; gap: 12px; margin: 14px 0 -4px; }
+.levels-title h2 { margin: 0; }
+
+/* word tile */
+.t-word { grid-column: span 6; background: var(--surface); }
+.t-word .wotd-word { justify-content: flex-start; }
+.t-word > p.en { padding-inline-end: 120px; }
+.t-word .noori { position: absolute; width: 110px; inset-inline-end: 18px; bottom: 12px; }
+.t-word .noori .gull { width: 100%; height: auto; }
+.t-word .sticker { position: absolute; top: -20px; inset-inline-end: 90px; width: 78px; color: var(--sun); transform: rotate(12deg); }
+
+/* lessons tile */
+.t-lessons { grid-column: span 6; background: var(--surface2); }
+.t-lessons h2 { margin: 0 0 4px; }
+.ls-links { display: grid; gap: 12px; margin-top: 14px; }
+.ls-link { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 8px 16px; background: var(--surface); color: var(--ink); text-decoration: none;
+  border: var(--border-w) solid var(--border-c); border-radius: calc(var(--radius) - 8px); box-shadow: 4px 4px 0 0 var(--border-c); transition: transform .15s var(--ease-out), box-shadow .15s; }
+.ls-link:hover, .ls-link:focus-visible { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 0 var(--border-c); }
+.ls-link:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 0 var(--border-c); }
+.ls-link svg { width: 34px; height: 34px; flex: none; color: var(--brand-text); }
+.ls-link b { font-family: var(--f-word); font-size: 1.25rem; }
+.ls-link .en { margin-inline-start: auto; }
+
+/* parents tiles */
+.t-p { grid-column: span 4; }
+.t-p svg.i { width: 40px; height: 40px; color: var(--brand-text); }
+.t-p h3 { margin: 6px 0 2px; }
+.t-p p { margin: 0 0 6px; }
+.t-cta { grid-column: span 12; background: var(--accent); color: var(--on-accent); display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.t-cta h2 { margin: 0; color: var(--on-accent); }
+.t-cta .en { color: var(--on-accent); opacity: .92; }
+.t-cta .btn { --b: var(--sun); --bi: #1E1A0E; }
+
+@media (max-width: 960px) {
+  .bento { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .t-hero, .t-noori, .t-word, .t-lessons, .t-p, .t-cta, .levels-title { grid-column: span 2; }
+  .t-hero, .t-noori { grid-row: auto; min-height: 0; }
+  .t-noori { min-height: 320px; }
+  .t-lv { grid-column: span 1; min-height: 190px; }
+  .t-word { padding-bottom: 130px; }
+  .t-word > p.en { padding-inline-end: 0; }
+}
+@media (max-width: 420px) {
+  .t-lv h3 { font-size: 1.25rem; }
+  .t-lv .badge { width: 52px; height: 52px; }
+  .ls-link .en { display: none; }
+}
+/* ── illustrated artwork (KS.art) ── */
+.t-noori > .bubble, .t-noori > [data-gull] { position: relative; z-index: 1; }
+.t-noori > .bubble { position: absolute; }
+html:not([data-art="svg"]) .t-noori:not(.art-miss) { place-items: end center; padding-bottom: 6%; }
+.t-pimg { grid-column: 1 / -1; }
+.t-pimg .parents-art { margin-block: 0; max-width: 760px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تَخَطَّ إِلَى الْمُحْتَوَى · Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star8" viewBox="0 0 100 100"><path d="M50 2L64 16H84V36L98 50L84 64V84H64L50 98L36 84H16V64L2 50L16 36V16H36Z"/></symbol>
+  <symbol id="star8o" viewBox="0 0 100 100"><path d="M50 6L62 18H82V38L94 50L82 62V82H62L50 94L38 82H18V62L6 50L18 38V18H38Z" fill="currentColor" stroke="var(--ink)" stroke-width="5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-article" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 11h7M9 15h7M9 19h4"/></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/><path d="M10 8l4 2-4 2z" fill="currentColor"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#main" aria-label="نَوْرَس — Nawras home">
+      <span data-gull="happy"></span>
+      <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
+    </a>
+    <nav class="nav" aria-label="الْقَائِمَةُ">
+      <a href="#levels">الصُّفُوفُ</a>
+      <a href="#word">كَلِمَةُ الْيَوْمِ</a>
+      <a href="#lessons">دُرُوسٌ</a>
+      <a href="#parents">لِلْأَهْلِ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap bento">
+  <section class="tile t-hero" aria-labelledby="h1" data-reveal>
+    <span class="lbl">San Diego · Arabic Fusha</span>
+    <h1 id="h1">نَلْعَبُ وَنَتَعَلَّمُ</h1>
+    <p class="tag" data-words>نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</p>
+    <p class="en cap">We play, we learn — Fusha for little hearts, by the Pacific.</p>
+    <div class="ctas">
+      <a class="btn" href="#levels">هَيَّا نَبْدَأُ <span class="en">Start</span></a>
+      <a class="btn btn--ghost" href="#parents">لِلْأَهْلِ <span class="en">For parents</span></a>
+    </div>
+    <svg class="corner-star" aria-hidden="true" viewBox="0 0 100 100"><use href="#star8" style="fill:currentColor"/></svg>
+  </section>
+
+  <section class="tile t-noori" aria-label="نُورِي يُسَلِّمُ عَلَيْكُمْ — Noori says hello" data-reveal style="--i:1" data-art-slot>
+    <img class="hero-fill ill-only" src="../assets/art/site/hero-mosaic.webp" alt="مَلْعَبُ الْمَدْرَسَةِ وَجِدَارٌ مِنَ الْفُسَيْفِسَاءِ — a school playground with a mosaic wall" width="1000" height="1000" decoding="async" onerror="this.closest('[data-art-slot]')&&this.closest('[data-art-slot]').classList.add('art-miss');this.remove()">
+    <svg class="big-star svg-only" viewBox="0 0 100 100" aria-hidden="true"><use href="#star8o"/></svg>
+    <span class="bubble">السَّلَامُ عَلَيْكُمْ!</span>
+    <div data-gull="cheer" data-gull-label="نُورِي — Noori cheering"></div>
+  </section>
+
+  <div class="levels-title" id="levels" data-reveal><h2>صُفُوفُنَا</h2><span class="en">Our classes</span></div>
+  <a class="tile t-lv" href="#" data-reveal style="--i:0"><span class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star8o"/></svg><b>KG</b></span><img class="lvl-art ill-only" src="../assets/art/site/level-kg.webp" alt="مُكَعَّبَاتٌ وَكُرَةٌ وَأَقْلَامُ تَلْوِينٍ — toy blocks, a ball and crayons" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الرَّوْضَةُ</h3><p class="word">حُرُوفٌ وَأَصْوَاتٌ</p><span class="en">Ages 4–5 · letters &amp; sounds</span></a>
+  <a class="tile t-lv" href="#" data-reveal style="--i:1"><span class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star8o"/></svg><b>1</b></span><img class="lvl-art ill-only" src="../assets/art/site/level-1.webp" alt="كِتَابٌ مُصَوَّرٌ وَقَلَمٌ — a picture book and a pencil" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الْأَوَّلُ</h3><p class="word">أَقْرَأُ كَلِمَاتِي</p><span class="en">Grade 1 · first words</span></a>
+  <a class="tile t-lv" href="#" data-reveal style="--i:2"><span class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star8o"/></svg><b>2</b></span><img class="lvl-art ill-only" src="../assets/art/site/level-2.webp" alt="كُتُبُ قِصَصٍ وَقَارِبٌ مِنْ وَرَقٍ — storybooks and a paper boat" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الثَّانِي</h3><p class="word">جُمَلٌ وَقِصَصٌ</p><span class="en">Grade 2 · sentences &amp; stories</span></a>
+  <a class="tile t-lv" href="#" data-reveal style="--i:3"><span class="badge"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#star8o"/></svg><b>3</b></span><img class="lvl-art ill-only" src="../assets/art/site/level-3.webp" alt="دَفْتَرٌ وَقَلَمٌ وَمِحْبَرَةٌ — a notebook, a pencil and an ink pot" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الثَّالِثُ</h3><p class="word">أَقْرَأُ وَأَكْتُبُ</p><span class="en">Grade 3 · reading &amp; writing</span></a>
+
+  <section class="tile t-word" id="word" aria-labelledby="wotd-h" data-reveal>
+    <svg class="sticker" viewBox="0 0 100 100" aria-hidden="true"><use href="#star8o"/></svg>
+    <h2 id="wotd-h" style="margin:0">كَلِمَةُ الْيَوْمِ</h2>
+    <span class="en">Word of the day</span>
+    <div class="wotd-word">
+              <img class="wotd-art ill-only" src="../assets/art/pic/star.webp" alt="نَجْمَةٌ — a star" width="120" height="120" loading="lazy" decoding="async" onerror="this.remove()">
+      <span class="word" data-ta>نَجْمَةٌ</span>
+      <button class="say" type="button" data-say="نَجْمَةٌ"></button>
+      <span class="chip chip--fem">مُؤَنَّثٌ · هَذِهِ</span>
+    </div>
+    <p class="wotd-sentence">هَذِهِ نَجْمَةٌ لَامِعَةٌ. <button class="say" type="button" data-say="هَذِهِ نَجْمَةٌ لَامِعَةٌ" style="width:44px;height:44px"></button></p>
+    <p class="en" style="margin:0;max-width:30em">najma — star. “This is a shining star.” Ends in ة, so it is feminine: هَذِهِ.</p>
+    <div class="noori" data-gull="think"></div>
+  </section>
+
+  <section class="tile t-lessons" id="lessons" aria-labelledby="ls-h" data-reveal style="--i:1">
+    <h2 id="ls-h">دُرُوسٌ تَجْرِيبِيَّةٌ</h2>
+    <span class="en">Demo lessons · <span class="word" style="font-size:1.15em">هَذَا وَهَذِهِ</span> — this (m.) &amp; this (f.)</span>
+    <div class="ls-links">
+      <a class="ls-link" href="../lessons/article.html"><svg aria-hidden="true"><use href="#i-article"/></svg><b>مَقَالَةٌ مُصَوَّرَةٌ</b><span class="en">Article</span></a>
+      <a class="ls-link" href="../lessons/story.html"><svg aria-hidden="true"><use href="#i-story"/></svg><b>قِصَّةٌ تَفَاعُلِيَّةٌ</b><span class="en">Story</span></a>
+      <a class="ls-link" href="../lessons/presentation.html"><svg aria-hidden="true"><use href="#i-slides"/></svg><b>عَرْضٌ لِلصَّفِّ</b><span class="en">Slides</span></a>
+    </div>
+  </section>
+
+  <div class="levels-title" id="parents" data-reveal><h2>لِلْأَهْلِ</h2><span class="en">For parents · details are placeholders</span></div>
+  <div class="t-pimg ill-only"><figure class="parents-art ill-only" data-reveal><img src="../assets/art/site/parents.webp" alt="أُمٌّ وَبِنْتُهَا تَمْشِيَانِ إِلَى الْمَدْرَسَةِ — a mother and her daughter walking to school" width="1200" height="800" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure></div>
+  <div class="tile t-p" data-reveal style="--i:0"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg><h3>الْمَوَاعِيدُ</h3><p class="en">Saturdays 9:30 – 12:00 (KG until 11:00) · Wednesday reading club 4:30 – 6:00 pm</p><span class="placeholder">placeholder</span></div>
+  <div class="tile t-p" data-reveal style="--i:1"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><h3>الْمَكَانُ</h3><p class="en">Community classroom in Mira Mesa, San Diego · free parking</p><span class="placeholder">placeholder</span></div>
+  <div class="tile t-p" data-reveal style="--i:2"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><h3>تَوَاصَلُوا مَعَنَا</h3><p class="en">Ustadha Maryam &amp; Ustadh Yusuf · hello@nawras.example · (619) 555-0142</p><span class="placeholder">placeholder</span></div>
+  <div class="tile t-cta" data-reveal>
+    <div><h2>حِصَّةٌ تَجْرِيبِيَّةٌ مَجَّانِيَّةٌ</h2><span class="en">Come and try a class — small groups, gentle teachers.</span></div>
+    <a class="btn trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <span class="en">Nawras Fusha School, San Diego · Demo mockup 5 of 6 — “Mosaic” · <a href="../index.html">all mockups</a></span>
+  </div>
+</footer>
+<script src="../assets/kids.js"></script>
+</body>
+</html>

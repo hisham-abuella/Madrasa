@@ -1,0 +1,6 @@
+{
+  "_comment": "The ONE place the book's public URL lives. Change bookUrl, set urlConfirmed to true once the host is final, then run: bash tools/print-book.sh noori-shell (QR codes, PDFs and checks are all rebuilt). While urlConfirmed is false every print file is named -DRAFT.",
+  "slug": "noori-shell",
+  "bookUrl": "https://hisham-abuella.github.io/Madrasa/book/books/noori-shell.html",
+  "urlConfirmed": true
+}

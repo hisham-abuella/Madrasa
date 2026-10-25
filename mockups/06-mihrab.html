@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="mihrab" data-theme-fixed>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نَوْرَس · Soft mihrab</title>
+<meta name="description" content="Nawras Fusha School, San Diego — homepage mockup in the soft Mihrab theme.">
+<meta property="og:title" content="نَوْرَس — Nawras Fusha School, San Diego">
+<meta property="og:image" content="../assets/art/og/mihrab.jpg">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<style>
+/* ── Layout: calm, centred — one big rounded arch, soft cards, lots of air ── */
+.topbar .wrap { justify-content: space-between; }
+.m-hero { text-align: center; padding: clamp(40px, 7vw, 90px) 16px clamp(50px, 8vw, 100px); background: var(--hero-bg); }
+.arch {
+  position: relative; width: min(420px, 82vw); aspect-ratio: 4 / 5; margin: 0 auto 34px;
+  border-radius: 50% 50% var(--radius) var(--radius) / 40% 40% var(--radius) var(--radius);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sky) 55%, var(--surface)) 0%, var(--surface) 75%);
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+  display: grid; place-items: end center; padding-bottom: 14%;
+}
+.arch::before { /* inner frame: inner radius = outer − gap (14px) */
+  content: ""; position: absolute; inset: 14px; pointer-events: none;
+  border-radius: 50% 50% calc(var(--radius) - 14px) calc(var(--radius) - 14px) / 40% 40% calc(var(--radius) - 14px) calc(var(--radius) - 14px);
+  border: 2px solid color-mix(in srgb, var(--deco) 70%, transparent);
+}
+.arch .noori { position: absolute; bottom: 9%; left: 50%; translate: -50% 0; width: 56%; animation: float 5s ease-in-out infinite; }
+.arch .noori .gull { width: 100%; height: auto; }
+.arch .greet { position: absolute; top: 15%; z-index: 1; font-family: var(--f-word); font-size: 1.25rem; color: var(--ink); background: color-mix(in srgb, var(--surface) 85%, transparent); padding: 2px 18px; border-radius: 999px; }
+.arch .lamp-dot { position: absolute; top: 7%; width: 26px; height: 26px; color: var(--deco); }
+.m-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0; }
+.m-hero .tag { font-family: var(--f-word); font-size: 1.5rem; color: var(--brand-text); margin: 6px 0 0; font-weight: 600; }
+.m-hero .cap { text-align: center !important; font-size: 1.05rem; max-width: 34em; margin: 8px auto 28px; }
+.m-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+.narrow { width: min(980px, 100% - 32px); margin-inline: auto; }
+.why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; text-align: center; }
+.why > div { padding: 10px 28px; }
+.why > div + div { border-inline-start: 1px solid var(--line); }
+.why svg { width: 34px; height: 34px; margin: 0 auto 8px; color: var(--brand-text); }
+.why h3 { margin: 0; font-size: 1.15rem; }
+.why .en { text-align: center !important; }
+
+.soft-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.soft { text-align: center; padding: 28px 16px 22px; }
+.soft .mini-arch { width: 54px; height: 66px; margin: 0 auto 12px; display: grid; place-items: center; padding-top: 10px;
+  border-radius: 999px 999px 10px 10px; background: var(--surface2); color: var(--brand-text); font: 600 1.15rem/1 var(--f-latin); }
+.soft:nth-child(2) .mini-arch { background: color-mix(in srgb, var(--accent) 45%, var(--surface)); color: var(--accent-text); }
+.soft:nth-child(3) .mini-arch { background: color-mix(in srgb, var(--sky) 55%, var(--surface)); color: var(--masc-text); }
+.soft:nth-child(4) .mini-arch { background: color-mix(in srgb, var(--sun) 50%, var(--surface)); color: var(--ink); }
+.soft h3 { font-family: var(--f-word); font-size: 1.35rem; margin: 0; }
+.soft .word { margin: 0; color: var(--ink2); font-weight: 600; }
+.soft .en { display: block; text-align: center; }
+
+.wotd { text-align: center; padding: clamp(28px, 5vw, 52px); }
+.wotd .label { margin: 0; color: var(--brand-text); font-weight: 600; }
+.wotd .fence { display: inline-block; margin-top: 6px; padding: 6px 16px; border-radius: var(--radius-sm); background: var(--surface2); font-size: .95rem; }
+.wotd .fence .en { display: block; }
+
+.rows { border-top: 1px solid var(--line); }
+.row { display: flex; align-items: center; gap: 18px; padding: 18px 8px; min-height: 76px; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); transition: background .2s, padding .25s var(--ease-out); border-radius: 6px; }
+.row:hover, .row:focus-visible { background: var(--surface2); padding-inline-start: 18px; }
+.row:active { background: color-mix(in srgb, var(--brand) 14%, var(--surface)); }
+.row svg { width: 30px; height: 30px; color: var(--brand-text); flex: none; }
+.row h3 { margin: 0; font-family: var(--f-word); font-size: 1.3rem; }
+.row .go { margin-inline-start: auto; color: var(--brand-text); font-size: 1.4rem; }
+.topic { text-align: center; margin: -14px 0 24px; }
+.topic .word { font-size: 1.6rem; }
+
+.par { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.par > div { padding: 8px 26px; }
+.par > div + div { border-inline-start: 1px solid var(--line); }
+.par h3 { font-size: 1.1rem; margin: 0 0 2px; }
+.par p { margin: 0 0 4px; }
+.cta-row { text-align: center; margin-top: 34px; }
+
+@media (max-width: 860px) {
+  .why, .par { grid-template-columns: 1fr; }
+  .why > div + div, .par > div + div { border-inline-start: 0; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 10px; }
+  .soft-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) { .soft h3 { font-size: 1.15rem; } .soft { padding-inline: 8px; } }
+/* ── illustrated artwork (KS.art) ── */
+.arch > .lamp-dot, .arch > .greet, .arch > .noori { z-index: 1; }
+.arch .hero-fill { opacity: .92; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تَخَطَّ إِلَى الْمُحْتَوَى · Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star8" viewBox="0 0 100 100"><path d="M50 2L64 16H84V36L98 50L84 64V84H64L50 98L36 84H16V64L2 50L16 36V16H36Z"/></symbol>
+  <symbol id="i-article" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 11h7M9 15h7M9 19h4"/></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/><path d="M10 8l4 2-4 2z" fill="currentColor"/></symbol>
+  <symbol id="i-group" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 5.5 2 5.5 5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#main" aria-label="نَوْرَس — Nawras home">
+      <span data-gull="happy"></span>
+      <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
+    </a>
+    <nav class="nav" aria-label="الْقَائِمَةُ">
+      <a href="#levels">الصُّفُوفُ</a>
+      <a href="#word">كَلِمَةُ الْيَوْمِ</a>
+      <a href="#lessons">دُرُوسٌ</a>
+      <a href="#parents">لِلْأَهْلِ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="m-hero" aria-labelledby="h1">
+    <div class="arch" data-reveal data-art-slot>
+      <img class="hero-fill ill-only" src="../assets/art/site/hero-mihrab.webp" alt="فِنَاءٌ هَادِئٌ فِيهِ نَافُورَةٌ صَغِيرَةٌ — a calm courtyard with a small fountain" width="900" height="1200" decoding="async" fetchpriority="high" onerror="this.closest('[data-art-slot]')&&this.closest('[data-art-slot]').classList.add('art-miss');this.remove()">
+      <svg class="lamp-dot" viewBox="0 0 100 100" aria-hidden="true"><use href="#star8" style="fill:currentColor"/></svg>
+      <span class="greet">السَّلَامُ عَلَيْكُمْ</span>
+      <div class="noori" data-gull="wave" data-gull-label="نُورِي يُلَوِّحُ — Noori waving hello"></div>
+    </div>
+    <h1 id="h1" data-reveal>لُغَةُ الْقُرْآنِ لِأَطْفَالِنَا</h1>
+    <p class="tag" data-words>نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</p>
+    <p class="en cap">The language of the Qur’an for our children — calm, joyful Fusha classes in San Diego.</p>
+    <div class="m-ctas">
+      <a class="btn" href="#levels">هَيَّا نَبْدَأُ <span class="en">Start</span></a>
+      <a class="btn btn--ghost" href="#parents">لِلْأَهْلِ <span class="en">For parents</span></a>
+    </div>
+  </section>
+
+  <section class="section narrow" aria-label="لِمَاذَا نَوْرَس — Why Nawras">
+    <div class="why">
+      <div data-reveal style="--i:0"><svg aria-hidden="true"><use href="#i-group"/></svg><h3>صُفُوفٌ صَغِيرَةٌ</h3><p class="en">Small groups, up to 10 children <span class="placeholder">placeholder</span></p></div>
+      <div data-reveal style="--i:1"><svg aria-hidden="true"><use href="#i-heart"/></svg><h3>فُصْحَى بِلُطْفٍ</h3><p class="en">Gentle Fusha — no tests, lots of praise</p></div>
+      <div data-reveal style="--i:2"><svg aria-hidden="true"><use href="#i-moon"/></svg><h3>أَدَبٌ وَقِيَمٌ</h3><p class="en">Islamic manners woven into every lesson</p></div>
+    </div>
+  </section>
+
+  <section class="section narrow" id="levels" style="padding-top:0">
+    <div class="sec-head" data-reveal><h2>صُفُوفُنَا</h2><span class="en">Our classes</span></div>
+    <div class="soft-grid">
+      <a class="card card--link soft" href="#" data-reveal style="--i:0"><span class="mini-arch">KG</span><img class="lvl-art ill-only" src="../assets/art/site/level-kg.webp" alt="مُكَعَّبَاتٌ وَكُرَةٌ وَأَقْلَامُ تَلْوِينٍ — toy blocks, a ball and crayons" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الرَّوْضَةُ</h3><p class="word">حُرُوفٌ وَأَصْوَاتٌ</p><span class="en">Ages 4–5 · letters &amp; sounds</span></a>
+      <a class="card card--link soft" href="#" data-reveal style="--i:1"><span class="mini-arch">1</span><img class="lvl-art ill-only" src="../assets/art/site/level-1.webp" alt="كِتَابٌ مُصَوَّرٌ وَقَلَمٌ — a picture book and a pencil" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الْأَوَّلُ</h3><p class="word">أَقْرَأُ كَلِمَاتِي</p><span class="en">Grade 1 · first words</span></a>
+      <a class="card card--link soft" href="#" data-reveal style="--i:2"><span class="mini-arch">2</span><img class="lvl-art ill-only" src="../assets/art/site/level-2.webp" alt="كُتُبُ قِصَصٍ وَقَارِبٌ مِنْ وَرَقٍ — storybooks and a paper boat" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الثَّانِي</h3><p class="word">جُمَلٌ وَقِصَصٌ</p><span class="en">Grade 2 · sentences &amp; stories</span></a>
+      <a class="card card--link soft" href="#" data-reveal style="--i:3"><span class="mini-arch">3</span><img class="lvl-art ill-only" src="../assets/art/site/level-3.webp" alt="دَفْتَرٌ وَقَلَمٌ وَمِحْبَرَةٌ — a notebook, a pencil and an ink pot" width="96" height="96" loading="lazy" decoding="async" onerror="this.remove()"><h3>الصَّفُّ الثَّالِثُ</h3><p class="word">أَقْرَأُ وَأَكْتُبُ</p><span class="en">Grade 3 · reading &amp; writing</span></a>
+    </div>
+  </section>
+
+  <section class="section narrow" id="word" style="padding-top:0">
+    <div class="card wotd" data-reveal>
+      <p class="label">كَلِمَةُ الْيَوْمِ <span class="en">Word of the day</span></p>
+      <div class="wotd-word">
+              <img class="wotd-art ill-only" src="../assets/art/pic/sun.webp" alt="شَمْسٌ — the sun" width="120" height="120" loading="lazy" decoding="async" onerror="this.remove()">
+        <span class="word">شَمْسٌ</span>
+        <button class="say" type="button" data-say="شَمْسٌ"></button>
+      </div>
+      <p class="wotd-sentence" style="margin:0">هَذِهِ شَمْسٌ دَافِئَةٌ. <button class="say" type="button" data-say="هَذِهِ شَمْسٌ دَافِئَةٌ" style="width:44px;height:44px"></button></p>
+      <p class="en" style="text-align:center !important">shams — sun. “This is a warm sun.”</p>
+      <div class="fence"><span class="chip chip--fem">مُؤَنَّثٌ بِلَا ة</span><span class="en">A surprise! شَمْسٌ is feminine even without ة — so we say هَذِهِ.</span></div>
+    </div>
+  </section>
+
+  <section class="section narrow" id="lessons" style="padding-top:0">
+    <div class="sec-head" data-reveal><h2>دُرُوسٌ تَجْرِيبِيَّةٌ</h2><span class="en">Demo lessons — one lesson, three ways</span></div>
+    <p class="topic" data-reveal><span class="word">هَذَا وَهَذِهِ</span><br><span class="en">This (m.) &amp; this (f.) — masculine and feminine</span></p>
+    <div class="rows">
+      <a class="row" href="../lessons/article.html" data-reveal style="--i:0"><svg aria-hidden="true"><use href="#i-article"/></svg><div><h3>مَقَالَةٌ مُصَوَّرَةٌ</h3><span class="en">Illustrated article — read together at home</span></div><span class="go" aria-hidden="true">←</span></a>
+      <a class="row" href="../lessons/story.html" data-reveal style="--i:1"><svg aria-hidden="true"><use href="#i-story"/></svg><div><h3>قِصَّةٌ تَفَاعُلِيَّةٌ</h3><span class="en">Interactive story — tap, listen, choose</span></div><span class="go" aria-hidden="true">←</span></a>
+      <a class="row" href="../lessons/presentation.html" data-reveal style="--i:2"><svg aria-hidden="true"><use href="#i-slides"/></svg><div><h3>عَرْضٌ لِلصَّفِّ</h3><span class="en">Classroom slides — for the teacher’s screen</span></div><span class="go" aria-hidden="true">←</span></a>
+    </div>
+  </section>
+
+  <section class="section narrow" id="parents" style="padding-top:0">
+    <div class="sec-head" data-reveal><h2>لِلْأَهْلِ</h2><span class="en">For parents — details are placeholders until confirmed</span></div>
+    <figure class="parents-art ill-only" data-reveal><img src="../assets/art/site/parents.webp" alt="أُمٌّ وَبِنْتُهَا تَمْشِيَانِ إِلَى الْمَدْرَسَةِ — a mother and her daughter walking to school" width="1200" height="800" loading="lazy" decoding="async" onerror="this.parentNode.remove()"></figure>
+    <div class="card" data-reveal>
+      <div class="par">
+        <div><h3>الْمَوَاعِيدُ</h3><p class="en">Saturdays 9:30 – 12:00 (KG until 11:00) · Wednesday reading club 4:30 – 6:00 pm</p><span class="placeholder">placeholder</span></div>
+        <div><h3>الْمَكَانُ</h3><p class="en">Community classroom in Mira Mesa, San Diego · free parking</p><span class="placeholder">placeholder</span></div>
+        <div><h3>تَوَاصَلُوا مَعَنَا</h3><p class="en">Ustadha Maryam &amp; Ustadh Yusuf · hello@nawras.example · (619) 555-0142</p><span class="placeholder">placeholder</span></div>
+      </div>
+    </div>
+    <div class="cta-row" data-reveal><a class="btn trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <span class="en">Nawras Fusha School, San Diego · Demo mockup 6 of 6 — “Mihrab” · <a href="../index.html">all mockups</a></span>
+  </div>
+</footer>
+<script src="../assets/kids.js"></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+{
+  "slug": "noori-shell",
+  "title": "نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ — Noori and the Little Shell",
+  "icon": "🐚",
+  "accent": "#0E7C86",
+  "desc": "A Nawras lesson book: Noori the seagull teaches هَذَا and هَذِهِ, the ة as a little shell, and the words that are feminine without it. Story, exercises and narration in Fusha and Egyptian.",
+  "ogdesc": "Noori and the Little Shell — a Fusha lesson book for grade 1–2, with page-by-page narration and writing practice.",
+  "_markup": "[[word]] colours the ة at the end of that word (ZWJ on both sides of the split). Every هَذَا and هَذِهِ is coloured automatically. Fields: ar = Fusha words on the page (always shown), en = English for parents, eg = the Egyptian narration (shown under the page when مصري is on). ar.say / eg.say override the generated narration script.",
+  "pages": [
+    {
+      "key": "cover", "type": "cover", "img": "cover", "tint": "#8FD3D9",
+      "ar": { "eyebrow": "قِصَّةٌ عَنْ هَذَا وَهَذِهِ", "title": "نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ",
+              "line": "كِتَابُ الدَّرْسِ — مَدْرَسَةُ نَوْرَس لِلْفُصْحَى",
+              "note": "اقْرَؤُوا الْقِصَّةَ مَعًا، ثُمَّ اكْتُبُوا فِي صَفَحَاتِ التَّمَارِينِ.",
+              "say": "[warmly] نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ. <break time=\"0.5s\" /> قِصَّةٌ عَنْ هَذَا، وَهَذِهِ." },
+      "en": { "eyebrow": "A story about هَذَا and هَذِهِ", "title": "Noori and the Little Shell",
+              "line": "A lesson book from Nawras Fusha School, San Diego",
+              "note": "Read the story together first, then do the exercise pages with a pencil. Grade 1–2." },
+      "eg": { "line": "حِكاية عن هذا، وهذهِ.",
+              "say": "[warmly] نوري والصَّدَفة الصُّغيّرة. <break time=\"0.5s\" /> حِكاية عن هذا، وهذهِ." }
+    },
+    {
+      "key": "title", "type": "title", "web": false, "audio": false,
+      "ar": { "title": "نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ", "line": "قِصَّةٌ وَتَمَارِينُ لِلصَّفِّ الْأَوَّلِ وَالثَّانِي",
+              "school": "مَدْرَسَةُ نَوْرَس لِلْفُصْحَى · سَان دِييغُو", "name": "هَذَا الْكِتَابُ لِـ:" },
+      "en": { "title": "Noori and the Little Shell", "line": "A story and exercises · Grade 1–2",
+              "school": "Nawras Fusha School · San Diego", "name": "This book belongs to:" }
+    },
+    {
+      "key": "about", "type": "about", "audio": false,
+      "ar": { "name": "عَنْ هَذَا الْكِتَابِ — لِلْأَهْلِ",
+              "body": [
+                "نُورِي، النَّوْرَسُ الصَّغِيرُ، يُعَلِّمُ أَطْفَالَنَا: نَقُولُ «هَذَا» لِلْمُذَكَّرِ، وَ«هَذِهِ» لِلْمُؤَنَّثِ.",
+                "التَّاءُ الْمَرْبُوطَةُ ة تُشْبِهُ صَدَفَةً صَغِيرَةً، وَهِيَ فِي الْغَالِبِ عَلَامَةُ الْمُؤَنَّثِ: قِطٌّ ← قِطَّةٌ.",
+                "وَبَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة: بِنْتٌ، أُمٌّ، شَمْسٌ.",
+                "اقْرَؤُوا الْقِصَّةَ بِصَوْتٍ عَالٍ، ثُمَّ اكْتُبُوا مَعَ طِفْلِكُمْ فِي صَفَحَاتِ التَّمَارِينِ. امْسَحُوا الرَّمْزَ لِتَسْمَعُوا كُلَّ صَفْحَةٍ بِالْفُصْحَى أَوْ بِالْمِصْرِيِّ."
+              ],
+              "scan": "امْسَحْ لِتَسْمَعَ الْقِصَّةَ" },
+      "en": { "name": "About this book — for parents",
+              "body": [
+                "Noori the seagull teaches one idea from the Nawras grade 1–2 lesson: we say هَذَا (this, masculine) and هَذِهِ (this, feminine).",
+                "The tā’ marbūṭa ة looks like a little seashell. At the end of a word it usually marks the feminine: قِطّ (tomcat) becomes قِطَّة (she-cat).",
+                "The fence: some feminine words have no ة — بِنْت (girl), أُمّ (mother), شَمْس (sun). They still take هَذِهِ. Children learn these by heart.",
+                "How to use it: read one story page a night aloud, pointing at the picture. Then do the exercise pages (from page 18) with a pencil: tracing starts at the green dot and runs right to left. Praise effort; never mark handwriting wrong.",
+                "Scan the code to hear every page read aloud in Fusha, or explained in Egyptian Arabic, and to write on an iPad."
+              ],
+              "scan": "Scan to listen and to write on a tablet" }
+    },
+
+    {
+      "key": "salam", "type": "story", "img": "salam", "tint": "#8FC8E8",
+      "ar": { "name": "السَّلَامُ عَلَيْكُمْ!",
+              "line": "أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ. أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو.",
+              "sound": "وَعَلَيْكُمُ السَّلَامُ يَا نُورِي!",
+              "note": "رُدُّوا التَّحِيَّةَ مَعًا: وَعَلَيْكُمُ السَّلَامُ." },
+      "en": { "name": "Peace be upon you!",
+              "line": "I am Noori, the little seagull. I fly over the sea of San Diego.",
+              "sound": "And peace be upon you, Noori!",
+              "note": "Answer the greeting together in Fusha. The book opens with a greeting so children speak from page one." },
+      "eg": { "line": "السلام عليكم! أنا نوري، النَّورس الصغير، وبطير فوق بحر سان دييجو.",
+              "say": "[warmly] السلام عليكم يا صحابي! <break time=\"0.4s\" /> أنا نوري، النَّورس الصغير، وبطير فوق بحر سان دييجو. <break time=\"0.5s\" /> [cheerful] قولوا معايا: وعليكم السلام يا نوري!" }
+    },
+    {
+      "key": "friends", "type": "story", "img": "friends", "tint": "#F4C97A",
+      "ar": { "name": "صَدِيقَانِ جَدِيدَانِ",
+              "line": "عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ: هَذَا سَامِي، وَهَذِهِ سَلْمَى.",
+              "sound": "أَهْلًا يَا سَامِي! أَهْلًا يَا سَلْمَى!",
+              "note": "أَشِيرُوا وَأَنْتُمْ تَقْرَؤُونَ: هَذَا سَامِي، وَهَذِهِ سَلْمَى." },
+      "en": { "name": "Two new friends",
+              "line": "On the beach, Noori met two friends: this is Sami (هَذَا), and this is Salma (هَذِهِ).",
+              "sound": "Hello, Sami! Hello, Salma!",
+              "note": "Point as you read. Children hear هَذَا for a boy and هَذِهِ for a girl before anyone explains the rule." },
+      "eg": { "line": "على البحر، نوري قابل اتنين صحابه: هذا سامي، وهذهِ سَلْمى.",
+              "say": "[cheerful] على البحر، نوري قابل اتنين صحابه. <break time=\"0.5s\" /> هذا سامي، <break time=\"0.3s\" /> وهذهِ سَلْمى. <break time=\"0.5s\" /> أهلًا يا سامي! أهلًا يا سَلْمى!" }
+    },
+    {
+      "key": "qarib", "type": "story", "img": "qarib", "tint": "#7FC4E8", "gender": "m",
+      "ar": { "name": "هَذَا قَارِبٌ",
+              "line": "يُشِيرُ نُورِي بِجَنَاحِهِ إِلَى الْبَحْرِ: هَذَا قَارِبٌ.",
+              "sound": "هَيَّا نَقُولُ مَعًا: هَذَا قَارِبٌ!",
+              "note": "قَارِبٌ كَلِمَةٌ مُذَكَّرَةٌ، فَنَقُولُ: هَذَا." },
+      "en": { "name": "This is a boat",
+              "line": "Noori points his wing at the sea: this is a boat.",
+              "sound": "Let’s say it together: هَذَا قَارِبٌ!",
+              "note": "قَارِب (boat) is masculine, so it takes هَذَا. Let your child point and say it." },
+      "eg": { "line": "نوري بيشاوِر بجناحه على البحر: هذا قارِبٌ.",
+              "say": "[cheerful] نوري بيشاوِر بجناحه على البحر. <break time=\"0.4s\" /> هذا قارِبٌ. <break time=\"0.5s\" /> يلّا نقول مع بعض: هذا قارِبٌ!" }
+    },
+    {
+      "key": "kitab", "type": "story", "img": "kitab", "tint": "#F2B48A", "gender": "m",
+      "ar": { "name": "هَذَا كِتَابٌ",
+              "line": "يَقْرَأُ نُورِي عَلَى الشَّاطِئِ. هَذَا كِتَابٌ.",
+              "sound": "نَقُولُ «هَذَا» لِلْمُذَكَّرِ.",
+              "note": "أَشِيرُوا إِلَى أَشْيَاءَ فِي الْبَيْتِ: هَذَا بَابٌ، هَذَا قَلَمٌ." },
+      "en": { "name": "This is a book",
+              "line": "Noori reads on the beach. This is a book.",
+              "sound": "We say هَذَا for masculine words.",
+              "note": "مُذَكَّر means masculine. At home, point and say: هَذَا بَابٌ (a door), هَذَا قَلَمٌ (a pen)." },
+      "eg": { "line": "نوري بيقرا على البحر. هذا كِتابٌ. في الفُصحى بنقول «هذا» للمُذَكَّر.",
+              "say": "[warmly] نوري بيقرا على البحر. <break time=\"0.4s\" /> هذا كِتابٌ. <break time=\"0.6s\" /> [gently] في الفُصحى بنقول هذا، للمُذَكَّر." }
+    },
+    {
+      "key": "samaka", "type": "story", "img": "samaka", "tint": "#8ED6C8", "gender": "f",
+      "ar": { "name": "هَذِهِ [[سَمَكَةٌ]]",
+              "line": "قَفَزَتْ [[سَمَكَةٌ]] مِنَ الْمَوْجِ! هَذِهِ [[سَمَكَةٌ]].",
+              "sound": "هَيَّا نَقُولُ مَعًا: هَذِهِ [[سَمَكَةٌ]]!",
+              "note": "سَمَكَةٌ كَلِمَةٌ مُؤَنَّثَةٌ، فَنَقُولُ: هَذِهِ." },
+      "en": { "name": "This is a fish",
+              "line": "A fish jumped out of the waves! This is a fish.",
+              "sound": "Let’s say it together: هَذِهِ سَمَكَةٌ!",
+              "note": "سَمَكَة (fish) is feminine, so it takes هَذِهِ. Notice the coloured ending — it comes back on page 10." },
+      "eg": { "line": "سَمَكة نطّت من المَوج! هذهِ سَمَكةٌ.",
+              "say": "[excited] سَمَكة نطّت من المَوج! <break time=\"0.4s\" /> هذهِ سَمَكةٌ. <break time=\"0.5s\" /> [cheerful] يلّا نقول مع بعض: هذهِ سَمَكةٌ!" }
+    },
+    {
+      "key": "nakhla", "type": "story", "img": "nakhla", "tint": "#A9D98B", "gender": "f",
+      "ar": { "name": "هَذِهِ [[نَخْلَةٌ]]",
+              "line": "يَجْلِسُ نُورِي فَوْقَ [[شَجَرَةٍ]] عَالِيَةٍ. هَذِهِ [[نَخْلَةٌ]].",
+              "sound": "نَقُولُ «هَذِهِ» لِلْمُؤَنَّثِ.",
+              "note": "فِي سَان دِييغُو نَخْلٌ كَثِيرٌ: عُدُّوا النَّخَلَاتِ فِي الطَّرِيقِ." },
+      "en": { "name": "This is a palm tree",
+              "line": "Noori sits on top of a tall tree. This is a palm tree.",
+              "sound": "We say هَذِهِ for feminine words.",
+              "note": "مُؤَنَّث means feminine. San Diego is full of palm trees: count them on the way home and say هَذِهِ نَخْلَةٌ." },
+      "eg": { "line": "نوري قاعد فوق شجرة عالية. هذهِ نَخْلةٌ. وبنقول «هذهِ» للمُؤَنَّث.",
+              "say": "[warmly] نوري قاعد فوق شجرة عالية. <break time=\"0.4s\" /> هذهِ نَخْلةٌ. <break time=\"0.6s\" /> [gently] وفي الفُصحى بنقول هذهِ، للمُؤَنَّث." }
+    },
+    {
+      "key": "sadafa", "type": "story", "img": "sadafa", "tint": "#F6B8C0", "gender": "f",
+      "ar": { "name": "هَذِهِ [[صَدَفَةٌ]]",
+              "line": "وَجَدَ نُورِي شَيْئًا صَغِيرًا عَلَى الرَّمْلِ. هَذِهِ [[صَدَفَةٌ]] [[صَغِيرَةٌ]]!",
+              "sound": "مَا أَجْمَلَهَا!",
+              "note": "ابْحَثُوا عَنْ صَدَفَةٍ حَقِيقِيَّةٍ عَلَى الشَّاطِئِ، وَقُولُوا: هَذِهِ صَدَفَةٌ." },
+      "en": { "name": "This is a shell",
+              "line": "Noori found something small on the sand. This is a little shell!",
+              "sound": "How beautiful it is!",
+              "note": "On your next beach day, find a real shell and say هَذِهِ صَدَفَةٌ together." },
+      "eg": { "line": "نوري لقى حاجة صغيّرة على الرملة. هذهِ صَدَفةٌ صغيرةٌ!",
+              "say": "[curious] نوري لقى حاجة صغيّرة على الرملة… <break time=\"0.4s\" /> [excited] هذهِ صَدَفةٌ صغيرةٌ! <break time=\"0.4s\" /> الله، حلوة قوي!" }
+    },
+    {
+      "key": "ta", "type": "story", "img": "ta", "tint": "#F6B8C0", "big": "ة",
+      "ar": { "name": "الصَّدَفَةُ الصَّغِيرَةُ",
+              "line": "انْظُرُوا إِلَى آخِرِ الْكَلِمَةِ: [[سَمَكَةٌ]]، [[نَخْلَةٌ]]، [[صَدَفَةٌ]]. هَذَا الْحَرْفُ يُشْبِهُ [[صَدَفَةً]] [[صَغِيرَةً]]!",
+              "sound": "إِنَّهَا التَّاءُ الْمَرْبُوطَةُ!",
+              "note": "ارْسُمُوا ة بِالْإِصْبَعِ فِي الْهَوَاءِ أَوْ عَلَى الرَّمْلِ." },
+      "en": { "name": "The little shell",
+              "line": "Look at the end of the words: سَمَكَة، نَخْلَة، صَدَفَة. This letter looks like a little shell!",
+              "sound": "It is the tā’ marbūṭa!",
+              "note": "The ة is the book’s key picture: a little shell at the end of a word. Draw it in the air or in the sand with a finger." },
+      "eg": { "line": "بُصّوا على آخر الكلمة: سَمَكة، نَخْلة، صَدَفة. الحرف ده شبه صَدَفة صغيّرة!",
+              "say": "[curious] بُصّوا على آخر الكلمة: <break time=\"0.3s\" /> سَمَكة، <break time=\"0.3s\" /> نَخْلة، <break time=\"0.3s\" /> صَدَفة. <break time=\"0.5s\" /> الحرف ده شبه صَدَفة صغيّرة! <break time=\"0.4s\" /> [excited] دي التاء المربوطة!" }
+    },
+    {
+      "key": "qitt", "type": "story", "img": "qitt", "tint": "#F7CF8E",
+      "ar": { "name": "قِطٌّ… [[قِطَّةٌ]]",
+              "line": "هَذَا قِطٌّ، وَهَذِهِ [[قِطَّةٌ]]. الصَّدَفَةُ فِي آخِرِ الْكَلِمَةِ تَقُولُ لَنَا: هَذِهِ!",
+              "sound": "أَضِفِ الصَّدَفَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!",
+              "note": "قُولُوا الْكَلِمَتَيْنِ بِبُطْءٍ: قِطٌّ… قِطَّةٌ. هَلْ تَسْمَعُونَ الْفَرْقَ؟" },
+      "en": { "name": "Tomcat… she-cat",
+              "line": "This is a tomcat (هَذَا قِطٌّ), and this is a she-cat (هَذِهِ قِطَّةٌ). The shell at the end of the word tells us: هَذِهِ!",
+              "sound": "Add the shell… and the word becomes feminine!",
+              "note": "Say both words slowly — قِطّ… قِطَّة — so your child hears the ending as well as sees it." },
+      "eg": { "line": "هذا قِطٌّ، وهذهِ قِطَّةٌ. الصَّدَفة اللي في آخر الكلمة بتقول لنا: هذهِ!",
+              "say": "[playfully] هذا قِطٌّ، <break time=\"0.3s\" /> وهذهِ قِطَّةٌ. <break time=\"0.5s\" /> الصَّدَفة اللي في آخر الكلمة بتقول لنا: هذهِ! <break time=\"0.4s\" /> حُطّ الصَّدَفة، والكلمة تبقى مؤنَّثة." }
+    },
+    {
+      "key": "sadiq", "type": "story", "img": "sadiq", "tint": "#F4C97A",
+      "ar": { "name": "صَدِيقٌ… [[صَدِيقَةٌ]]",
+              "line": "سَامِي صَدِيقٌ، وَسَلْمَى [[صَدِيقَةٌ]]. يَبْنِيَانِ قَصْرًا مِنَ الرَّمْلِ.",
+              "sound": "مُعَلِّمٌ… [[مُعَلِّمَةٌ]]! طَالِبٌ… [[طَالِبَةٌ]]!",
+              "note": "الْعَبُوا: أَقُولُ «مُعَلِّمٌ»، وَأَنْتَ تُضِيفُ الصَّدَفَةَ: «مُعَلِّمَةٌ»." },
+      "en": { "name": "Friend… friend",
+              "line": "Sami is a friend (صَدِيق), and Salma is a friend (صَدِيقَة). They build a sandcastle together.",
+              "sound": "Teacher (m)… teacher (f)! Student (m)… student (f)!",
+              "note": "Play “add the shell”: you say مُعَلِّم, your child answers مُعَلِّمَة. Then طَالِب → طَالِبَة." },
+      "eg": { "line": "سامي صَديقٌ، وسَلْمى صَديقةٌ. بيبنوا قصر من الرملة.",
+              "say": "[warmly] سامي صَديقٌ، <break time=\"0.3s\" /> وسَلْمى صَديقةٌ. <break time=\"0.4s\" /> بيبنوا قصر من الرملة. <break time=\"0.5s\" /> [playfully] مُعَلِّمٌ… مُعَلِّمةٌ! <break time=\"0.3s\" /> طالِبٌ… طالِبةٌ!" }
+    },
+    {
+      "key": "bint", "type": "story", "img": "bint", "tint": "#F2A7A0",
+      "ar": { "name": "انْتَبِهُوا!",
+              "line": "قَالَتْ سَلْمَى: لَكِنْ… أَنَا بِنْتٌ، وَ«بِنْتٌ» لَيْسَ فِي آخِرِهَا صَدَفَةٌ!",
+              "sound": "هَلْ نَقُولُ هَذَا أَمْ هَذِهِ؟",
+              "note": "اسْأَلُوا طِفْلَكُمْ قَبْلَ أَنْ تَقْلِبُوا الصَّفْحَةَ." },
+      "en": { "name": "Careful!",
+              "line": "Salma said: “But… I am a girl, and بِنْت (girl) has no shell at the end!”",
+              "sound": "Do we say هَذَا or هَذِهِ?",
+              "note": "Ask your child before you turn the page — guessing first makes the next page stick." },
+      "eg": { "line": "سَلْمى قالت: بس… أنا بِنت، وبِنت مافيش في آخرها صَدَفة!",
+              "say": "[curious] سَلْمى قالت: بس… <break time=\"0.3s\" /> أنا بِنت، وبِنت مافيش في آخرها صَدَفة! <break time=\"0.5s\" /> نقول هذا، ولّا هذهِ؟" }
+    },
+    {
+      "key": "shams", "type": "story", "img": "shams", "tint": "#FFD86B",
+      "ar": { "name": "مُؤَنَّثٌ بِلَا ة",
+              "line": "قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ.",
+              "sound": "نَحْفَظُهَا فِي قُلُوبِنَا!",
+              "note": "هَذِهِ الْكَلِمَاتُ الثَّلَاثُ نَحْفَظُهَا: بِنْتٌ، أُمٌّ، شَمْسٌ." },
+      "en": { "name": "Feminine without ة",
+              "line": "Noori said: “Right! Some words are feminine with no ة: this is a girl, this is a mother, this is the sun.”",
+              "sound": "We learn them by heart!",
+              "note": "The fence: the ة is a helper, not the rule. بِنْت، أُمّ، شَمْس take هَذِهِ with no ة. Mother is in the words, not the picture." },
+      "eg": { "line": "نوري قال: صحّ! فيه كلمات مؤنَّثة من غير تاء مربوطة: هذهِ بِنتٌ، هذهِ أُمٌّ، هذهِ شَمسٌ.",
+              "say": "[warmly] نوري قال: صحّ! <break time=\"0.3s\" /> فيه كلمات مؤنَّثة من غير تاء مربوطة: <break time=\"0.4s\" /> هذهِ بِنتٌ، <break time=\"0.3s\" /> هذهِ أُمٌّ، <break time=\"0.3s\" /> هذهِ شَمسٌ. <break time=\"0.5s\" /> [gently] بنحفظهم في قلبنا!" }
+    },
+    {
+      "key": "nashit", "type": "story", "img": "nashit", "tint": "#9ED0F0",
+      "ar": { "name": "وَالصِّفَةُ أَيْضًا!",
+              "line": "هَذَا وَلَدٌ نَشِيطٌ، وَهَذِهِ بِنْتٌ [[نَشِيطَةٌ]].",
+              "sound": "الصِّفَةُ تَأْخُذُ الصَّدَفَةَ أَيْضًا!",
+              "note": "بِنْتٌ بِلَا ة، لَكِنَّ صِفَتَهَا تَأْخُذُ ة: بِنْتٌ نَشِيطَةٌ." },
+      "en": { "name": "The describing word too!",
+              "line": "This is an active boy (وَلَدٌ نَشِيطٌ), and this is an active girl (بِنْتٌ نَشِيطَةٌ).",
+              "sound": "The describing word takes the shell too!",
+              "note": "Agreement: بِنْت has no ة, but the adjective after it does — نَشِيطَة. This is the champions’ challenge." },
+      "eg": { "line": "هذا وَلَدٌ نَشيطٌ، وهذهِ بِنتٌ نَشيطةٌ. والصِّفة كمان بتاخد الصَّدَفة!",
+              "say": "[excited] هذا وَلَدٌ نَشيطٌ، <break time=\"0.3s\" /> وهذهِ بِنتٌ نَشيطةٌ. <break time=\"0.5s\" /> والصِّفة كمان بتاخد الصَّدَفة!" }
+    },
+    {
+      "key": "bye", "type": "story", "img": "bye", "tint": "#F7A98B",
+      "ar": { "name": "أَحْسَنْتُمْ!",
+              "line": "تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ ة تَجْعَلُ الْكَلِمَةَ [[مُؤَنَّثَةً]].",
+              "sound": "إِلَى اللِّقَاءِ يَا أَصْدِقَائِي!",
+              "note": "الْآنَ إِلَى صَفَحَاتِ التَّمَارِينِ: قَلَمُ رَصَاصٍ، وَنَبْدَأُ مِنَ النُّقْطَةِ الْخَضْرَاءِ." },
+      "en": { "name": "Well done!",
+              "line": "We learned: هَذَا for masculine, هَذِهِ for feminine, and the little shell ة makes a word feminine.",
+              "sound": "Goodbye, my friends!",
+              "note": "Now the exercise pages: a pencil, and every tracing starts at the green dot." },
+      "eg": { "line": "اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، والصَّدَفة الصغيّرة بتخلّي الكلمة مؤنَّثة.",
+              "say": "[happy] برافو عليكم! <break time=\"0.4s\" /> اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، <break time=\"0.3s\" /> والصَّدَفة الصغيّرة بتخلّي الكلمة مؤنَّثة. <break time=\"0.5s\" /> [warmly] مع السلامة يا صحابي!" }
+    },
+
+    {
+      "key": "recap", "type": "recap",
+      "ar": { "name": "تَذَكَّرْ",
+              "masc": ["وَلَدٌ", "قِطٌّ", "كِتَابٌ", "قَارِبٌ"],
+              "fem": ["بِنْتٌ", "[[قِطَّةٌ]]", "[[سَمَكَةٌ]]", "[[صَدَفَةٌ]]"],
+              "rule": "ة [[صَدَفَةٌ]] [[صَغِيرَةٌ]] فِي آخِرِ الْكَلِمَةِ.",
+              "fence": "مُؤَنَّثٌ بِلَا ة: بِنْتٌ، أُمٌّ، شَمْسٌ.",
+              "say": "[warmly] تَذَكَّرْ: <break time=\"0.4s\" /> هَذَا وَلَدٌ، هَذَا قِطٌّ، هَذَا كِتَابٌ. <break time=\"0.5s\" /> هَذِهِ بِنْتٌ، هَذِهِ قِطَّةٌ، هَذِهِ سَمَكَةٌ. <break time=\"0.5s\" /> [gently] وَمُؤَنَّثٌ بِلَا تَاءٍ مَرْبُوطَةٍ: بِنْتٌ، أُمٌّ، شَمْسٌ." },
+      "en": { "name": "Remember", "note": "The whole lesson on one page. Keep it open while doing the exercises." },
+      "eg": { "say": "[warmly] افتكر: <break time=\"0.4s\" /> هذا وَلَدٌ، هذا قِطٌّ، هذا كِتابٌ. <break time=\"0.5s\" /> هذهِ بِنتٌ، هذهِ قِطَّةٌ، هذهِ سَمَكةٌ. <break time=\"0.5s\" /> [gently] وفيه مؤنَّث من غير تاء مربوطة: بِنتٌ، أُمٌّ، شَمسٌ." }
+    },
+
+    {
+      "key": "ex-ta", "type": "trace", "exercise": 1,
+      "rows": [ { "model": "ة", "repeat": 5 }, { "model": "ـة", "repeat": 4 }, { "blank": 2 } ],
+      "pad": ["ة", "ـة"],
+      "ar": { "name": "تَتَبَّعِ الصَّدَفَةَ: ة", "line": "ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، ثُمَّ اكْتُبْ وَحْدَكَ.",
+              "say": "[gently] تَتَبَّعِ الصَّدَفَةَ الصَّغِيرَةَ. <break time=\"0.4s\" /> ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، <break time=\"0.3s\" /> ثُمَّ اكْتُبْ وَحْدَكَ." },
+      "en": { "name": "Exercise 1 · Trace the little shell ة", "line": "Start at the green dot, follow the arrow, then write it alone on the empty lines." },
+      "eg": { "say": "[gently] امشي بالقلم على الصَّدَفة الصغيّرة. <break time=\"0.4s\" /> ابدأ من النقطة الخضرا، <break time=\"0.3s\" /> وبعدين اكتبها لوحدك." }
+    },
+    {
+      "key": "ex-hatha", "type": "trace", "exercise": 2, "gender": "m",
+      "rows": [ { "model": "هَذَا", "repeat": 3 }, { "model": "هَذَا قَارِبٌ", "repeat": 1 }, { "blank": 2 } ],
+      "pad": ["هَذَا", "هَذَا قَارِبٌ"],
+      "ar": { "name": "تَتَبَّعْ: هَذَا", "line": "نَكْتُبُ مِنَ الْيَمِينِ إِلَى الْيَسَارِ.",
+              "say": "[gently] تَتَبَّعْ: هَذَا. <break time=\"0.4s\" /> ثُمَّ: هَذَا قَارِبٌ. <break time=\"0.4s\" /> نَكْتُبُ مِنَ الْيَمِينِ إِلَى الْيَسَارِ." },
+      "en": { "name": "Exercise 2 · Trace هَذَا", "line": "Arabic is written right to left: start at the green dot on the right." },
+      "eg": { "say": "[gently] امشي بالقلم على كلمة هذا. <break time=\"0.4s\" /> وبعدين: هذا قارِبٌ. <break time=\"0.4s\" /> بنكتب من اليمين للشمال." }
+    },
+    {
+      "key": "ex-hathihi", "type": "trace", "exercise": 3, "gender": "f",
+      "rows": [ { "model": "هَذِهِ", "repeat": 3 }, { "model": "هَذِهِ سَمَكَةٌ", "repeat": 1 }, { "blank": 2 } ],
+      "pad": ["هَذِهِ", "هَذِهِ سَمَكَةٌ"],
+      "ar": { "name": "تَتَبَّعْ: هَذِهِ", "line": "انْتَبِهْ لِلصَّدَفَةِ فِي آخِرِ [[سَمَكَةٌ]].",
+              "say": "[gently] تَتَبَّعْ: هَذِهِ. <break time=\"0.4s\" /> ثُمَّ: هَذِهِ سَمَكَةٌ. <break time=\"0.4s\" /> انْتَبِهْ لِلصَّدَفَةِ فِي آخِرِ الْكَلِمَةِ." },
+      "en": { "name": "Exercise 3 · Trace هَذِهِ", "line": "Then trace هَذِهِ سَمَكَةٌ — notice the shell at the end of سَمَكَة." },
+      "eg": { "say": "[gently] امشي بالقلم على كلمة هذهِ. <break time=\"0.4s\" /> وبعدين: هذهِ سَمَكةٌ. <break time=\"0.4s\" /> خلّي بالك من الصَّدَفة اللي في آخر الكلمة." }
+    },
+    {
+      "key": "ex-write", "type": "write", "exercise": 4,
+      "items": [ { "pic": "shell", "model": "هَذِهِ صَدَفَةٌ", "trace": true },
+                 { "pic": "book", "model": "هَذَا كِتَابٌ", "trace": false } ],
+      "pad": ["هَذِهِ صَدَفَةٌ", ""],
+      "ar": { "name": "انْظُرْ وَاكْتُبْ", "line": "اكْتُبْ جُمْلَةً تَحْتَ كُلِّ صُورَةٍ.",
+              "say": "[warmly] انْظُرْ وَاكْتُبْ. <break time=\"0.4s\" /> تَحْتَ الصَّدَفَةِ: هَذِهِ صَدَفَةٌ. <break time=\"0.4s\" /> وَتَحْتَ الْكِتَابِ… مَاذَا نَكْتُبُ؟" },
+      "en": { "name": "Exercise 4 · Look and write", "line": "Write a sentence under each picture. The first is dotted to trace; the second is yours (answer: هَذَا كِتَابٌ)." },
+      "eg": { "say": "[warmly] بُصّ واكتب. <break time=\"0.4s\" /> تحت الصَّدَفة: هذهِ صَدَفةٌ. <break time=\"0.4s\" /> وتحت الكتاب… نكتب إيه؟" }
+    },
+    {
+      "key": "ex-circle", "type": "circle", "exercise": 5,
+      "rows": [ ["قِطٌّ", "[[قِطَّةٌ]]"], ["[[مُعَلِّمَةٌ]]", "مُعَلِّمٌ"], ["كِتَابٌ", "[[سَمَكَةٌ]]"],
+                ["[[نَخْلَةٌ]]", "قَمَرٌ"], ["وَلَدٌ", "بِنْتٌ"], ["شَمْسٌ", "قَارِبٌ"] ],
+      "answers": [1, 0, 1, 0, 1, 0],
+      "ar": { "name": "ضَعْ دَائِرَةً حَوْلَ الْمُؤَنَّثِ", "line": "فِي كُلِّ سَطْرٍ كَلِمَةٌ مُؤَنَّثَةٌ وَاحِدَةٌ. انْتَبِهْ لِلسَّطْرَيْنِ الْأَخِيرَيْنِ!",
+              "say": "[playfully] ضَعْ دَائِرَةً حَوْلَ الْكَلِمَةِ الْمُؤَنَّثَةِ. <break time=\"0.4s\" /> انْتَبِهْ لِلسَّطْرَيْنِ الْأَخِيرَيْنِ: كَلِمَاتٌ مُؤَنَّثَةٌ بِلَا تَاءٍ مَرْبُوطَةٍ!" },
+      "en": { "name": "Exercise 5 · Circle the feminine word", "line": "One feminine word in each row. The last two rows are the fence words with no ة." },
+      "eg": { "say": "[playfully] اعمل دايرة حوالين الكلمة المؤنَّثة. <break time=\"0.4s\" /> خلّي بالك من آخر سطرين: كلمات مؤنَّثة من غير تاء مربوطة!" }
+    },
+    {
+      "key": "ex-addta", "type": "addta", "exercise": 6,
+      "rows": [ ["مُعَلِّمٌ", "مُعَلِّمَـ", "مُعَلِّمَةٌ"], ["طَالِبٌ", "طَالِبَـ", "طَالِبَةٌ"], ["صَدِيقٌ", "صَدِيقَـ", "صَدِيقَةٌ"],
+                ["قِطٌّ", "قِطَّـ", "قِطَّةٌ"], ["نَشِيطٌ", "نَشِيطَـ", "نَشِيطَةٌ"] ],
+      "pad": ["مُعَلِّمَة", "طَالِبَة"],
+      "ar": { "name": "أَضِفِ الصَّدَفَةَ ة", "line": "اكْتُبْ ة فِي الْمُرَبَّعِ، فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً.",
+              "say": "[playfully] أَضِفِ الصَّدَفَةَ! <break time=\"0.4s\" /> مُعَلِّمٌ… مُعَلِّمَةٌ. <break time=\"0.4s\" /> اكْتُبِ التَّاءَ الْمَرْبُوطَةَ فِي الْمُرَبَّعِ." },
+      "en": { "name": "Exercise 6 · Add the ة", "line": "Write ة in the box to make each word feminine: مُعَلِّم → مُعَلِّمَة." },
+      "eg": { "say": "[playfully] حُطّ الصَّدَفة! <break time=\"0.4s\" /> مُعَلِّمٌ… مُعَلِّمةٌ. <break time=\"0.4s\" /> اكتب التاء المربوطة في المربّع." }
+    },
+    {
+      "key": "ex-match", "type": "match", "exercise": 7,
+      "items": [ { "pic": "boy", "word": "وَلَدٌ", "ans": "m" }, { "pic": "fish", "word": "[[سَمَكَةٌ]]", "ans": "f" },
+                 { "pic": "book", "word": "كِتَابٌ", "ans": "m" }, { "pic": "palm", "word": "[[نَخْلَةٌ]]", "ans": "f" },
+                 { "pic": "sun", "word": "شَمْسٌ", "ans": "f" }, { "pic": "moon", "word": "قَمَرٌ", "ans": "m" } ],
+      "ar": { "name": "صِلْ: هَذَا أَمْ هَذِهِ؟", "line": "ارْسُمْ خَطًّا مِنْ كُلِّ صُورَةٍ إِلَى هَذَا أَوْ هَذِهِ.",
+              "say": "[curious] هَذَا، أَمْ هَذِهِ؟ <break time=\"0.4s\" /> ارْسُمْ خَطًّا مِنْ كُلِّ صُورَةٍ إِلَى الْكَلِمَةِ الصَّحِيحَةِ." },
+      "en": { "name": "Exercise 7 · Match: هَذَا or هَذِهِ?", "line": "Draw a line from each picture to هَذَا or هَذِهِ. Watch the sun: no ة, still هَذِهِ." },
+      "eg": { "say": "[curious] هذا، ولّا هذهِ؟ <break time=\"0.4s\" /> ارسم خط من كل صورة للكلمة الصحّ." }
+    },
+    {
+      "key": "ex-fill", "type": "fill", "exercise": 8,
+      "rows": [ { "word": "بِنْتٌ", "ans": "f" }, { "word": "وَلَدٌ", "ans": "m" }, { "word": "أُمٌّ", "ans": "f" },
+                { "word": "قَمَرٌ", "ans": "m" }, { "word": "شَمْسٌ", "ans": "f" }, { "word": "[[صَدَفَةٌ]]", "ans": "f" } ],
+      "pad": ["هَذِهِ بِنْتٌ", "هَذَا وَلَدٌ"],
+      "ar": { "name": "اكْتُبْ: هَذَا أَوْ هَذِهِ", "line": "تَذَكَّرْ: بِنْتٌ، أُمٌّ، شَمْسٌ مُؤَنَّثَةٌ بِلَا ة.",
+              "say": "[gently] اكْتُبْ: هَذَا، أَوْ هَذِهِ. <break time=\"0.4s\" /> تَذَكَّرْ: بِنْتٌ، أُمٌّ، شَمْسٌ، مُؤَنَّثَةٌ بِلَا تَاءٍ مَرْبُوطَةٍ." },
+      "en": { "name": "Exercise 8 · Write هَذَا or هَذِهِ", "line": "Write the right word on the line before each noun. Remember the fence words: بِنْت، أُمّ، شَمْس." },
+      "eg": { "say": "[gently] اكتب: هذا، ولّا هذهِ. <break time=\"0.4s\" /> افتكر: بِنتٌ، أُمٌّ، شَمسٌ، مؤنَّثة من غير تاء مربوطة." }
+    },
+    {
+      "key": "ex-adj", "type": "adj", "exercise": 9,
+      "rows": [ { "noun": "هَذَا وَلَدٌ", "opts": ["نَشِيطٌ", "[[نَشِيطَةٌ]]"], "ans": 0 },
+                { "noun": "هَذِهِ بِنْتٌ", "opts": ["نَشِيطٌ", "[[نَشِيطَةٌ]]"], "ans": 1 },
+                { "noun": "هَذِهِ [[قِطَّةٌ]]", "opts": ["صَغِيرٌ", "[[صَغِيرَةٌ]]"], "ans": 1 },
+                { "noun": "هَذَا قَارِبٌ", "opts": ["صَغِيرٌ", "[[صَغِيرَةٌ]]"], "ans": 0 } ],
+      "write": "هَذِهِ سَمَكَةٌ صَغِيرَةٌ",
+      "pad": ["هَذِهِ بِنْتٌ نَشِيطَةٌ"],
+      "ar": { "name": "تَحَدِّي الْأَبْطَالِ: الصِّفَةُ", "line": "ضَعْ دَائِرَةً حَوْلَ الصِّفَةِ الصَّحِيحَةِ، ثُمَّ اكْتُبِ الْجُمْلَةَ.",
+              "say": "[excited] تَحَدِّي الْأَبْطَالِ! <break time=\"0.4s\" /> ضَعْ دَائِرَةً حَوْلَ الصِّفَةِ الصَّحِيحَةِ. <break time=\"0.4s\" /> هَذِهِ بِنْتٌ… نَشِيطَةٌ!" },
+      "en": { "name": "Exercise 9 · Champions’ challenge: the describing word", "line": "Circle the right adjective, then copy the sentence: هَذِهِ سَمَكَةٌ صَغِيرَةٌ." },
+      "eg": { "say": "[excited] تحدّي الأبطال! <break time=\"0.4s\" /> اعمل دايرة حوالين الصِّفة الصحّ. <break time=\"0.4s\" /> هذهِ بِنتٌ… نَشيطةٌ!" }
+    },
+    {
+      "key": "ex-draw-f", "type": "draw", "exercise": 10, "gender": "f", "start": "هَذِهِ",
+      "ar": { "name": "ارْسُمْ شَيْئًا مُؤَنَّثًا", "line": "ارْسُمْ فِي الْمُرَبَّعِ، ثُمَّ اكْتُبْ: هَذِهِ…",
+              "say": "[warmly] ارْسُمْ شَيْئًا مُؤَنَّثًا: <break time=\"0.3s\" /> قِطَّةً، أَوْ سَمَكَةً، أَوْ شَمْسًا. <break time=\"0.4s\" /> ثُمَّ اكْتُبْ تَحْتَهُ: هَذِهِ." },
+      "en": { "name": "Exercise 10 · Draw something feminine", "line": "Draw it in the box, then finish the sentence: هَذِهِ … (a cat, a fish, the sun…)." },
+      "eg": { "say": "[warmly] ارسم حاجة مؤنَّثة: <break time=\"0.3s\" /> قُطّة، ولّا سَمَكة، ولّا شمس. <break time=\"0.4s\" /> وبعدين اكتب تحتها: هذهِ." }
+    },
+    {
+      "key": "ex-draw-m", "type": "draw", "exercise": 11, "gender": "m", "start": "هَذَا",
+      "ar": { "name": "ارْسُمْ شَيْئًا مُذَكَّرًا", "line": "ارْسُمْ فِي الْمُرَبَّعِ، ثُمَّ اكْتُبْ: هَذَا…",
+              "say": "[warmly] ارْسُمْ شَيْئًا مُذَكَّرًا: <break time=\"0.3s\" /> قَارِبًا، أَوْ كِتَابًا، أَوْ قَمَرًا. <break time=\"0.4s\" /> ثُمَّ اكْتُبْ تَحْتَهُ: هَذَا." },
+      "en": { "name": "Exercise 11 · Draw something masculine", "line": "Draw it in the box, then finish the sentence: هَذَا … (a boat, a book, the moon…)." },
+      "eg": { "say": "[warmly] ارسم حاجة مذكَّرة: <break time=\"0.3s\" /> قارِب، ولّا كتاب، ولّا قمر. <break time=\"0.4s\" /> وبعدين اكتب تحتها: هذا." }
+    },
+    {
+      "key": "certificate", "type": "certificate",
+      "ar": { "name": "شَهَادَةُ بَطَلِ الصَّدَفَةِ", "line": "أَحْسَنْتَ! أَنْتَ تَقُولُ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ.", "who": "الِاسْمُ:", "date": "التَّارِيخُ:",
+              "say": "[happy] أَحْسَنْتَ يَا بَطَلُ! <break time=\"0.4s\" /> أَنْتَ تَقُولُ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ. <break time=\"0.4s\" /> [warmly] إِلَى اللِّقَاءِ!" },
+      "en": { "name": "Shell Champion certificate", "line": "Well done! You say هَذَا and هَذِهِ like the grown-ups.", "note": "Colour a star for each exercise page finished." },
+      "eg": { "say": "[happy] برافو عليك يا بطل! <break time=\"0.4s\" /> إنت بتقول هذا وهذهِ زيّ الكبار. <break time=\"0.4s\" /> [warmly] مع السلامة!" }
+    },
+    {
+      "key": "answers", "type": "answers", "web": false, "audio": false,
+      "ar": { "name": "الْإِجَابَاتُ — لِلْأَهْلِ" },
+      "en": { "name": "Answers — for parents",
+              "note": "Tracing and drawing pages have no single answer: praise the effort, never mark handwriting wrong." }
+    },
+    {
+      "key": "practice", "type": "practice", "web": false, "audio": false,
+      "ar": { "name": "صَفْحَتِي لِلْكِتَابَةِ", "line": "اكْتُبْ كَلِمَاتٍ فِيهَا ة." },
+      "en": { "name": "My writing page", "line": "Write words that end with the little shell ة." }
+    },
+    {
+      "key": "end", "type": "end", "web": false, "audio": false,
+      "ar": { "name": "إِلَى اللِّقَاءِ!", "line": "نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ",
+              "school": "مَدْرَسَةُ نَوْرَس لِلْفُصْحَى · سَان دِييغُو" },
+      "en": { "name": "Goodbye!", "line": "Fusha for little hearts, by the Pacific.",
+              "credits": "Story and exercises: Nawras Fusha School (draft for the owners’ review). Pictures drawn locally with Z-Image Turbo. Narration: ElevenLabs — Fusha read by Sarah, Egyptian by Hisham. Set in Noto Naskh Arabic and Baloo Bhaijaan 2." }
+    }
+  ]
+}

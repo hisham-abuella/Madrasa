@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="pacific">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem('nawras-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<title>نَوْرَس · Nawras demo hub</title>
+<meta name="description" content="Nawras Fusha School, San Diego — demo hub: six homepage mockups, logos, sample lessons, guide and the owners' presentation.">
+<meta property="og:title" content="نَوْرَس — Nawras Fusha School, San Diego">
+<meta property="og:image" content="assets/og-nawras.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="assets/kids.css">
+<style>
+.hub-hero { background: var(--hero-bg); padding: clamp(40px, 7vw, 80px) 0 clamp(36px, 6vw, 64px); }
+.hub-hero .wrap { display: grid; grid-template-columns: auto 1fr; gap: clamp(18px, 4vw, 40px); align-items: center; }
+.hub-hero .noori { width: clamp(130px, 18vw, 200px); }
+.hub-hero .noori .gull { width: 100%; height: auto; }
+.hub-hero h1 { margin: 0; font-family: var(--f-word); color: var(--hero-ink); font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.4; }
+.hub-hero .full { font-family: var(--f-word); font-size: 1.35rem; font-weight: 700; color: var(--brand-text); margin: 0; }
+.hub-hero .en { font-size: 1.05rem; color: var(--hero-ink2); }
+.hub-hero .intro { max-width: 40em; margin-top: 10px; }
+
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.mock { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.mock .pv { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface2); border-bottom: var(--border-w) solid var(--border-c); }
+.mock .pv iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 800px; border: 0; transform-origin: 0 0; pointer-events: none; }
+.mock .meta { padding: 16px 20px 20px; display: grid; gap: 2px; }
+.mock .num { font: 700 .8rem/1 var(--f-latin); color: var(--ink2); direction: ltr; text-align: right; letter-spacing: .08em; }
+.mock h3 { margin: 4px 0 0; font-family: var(--f-word); font-size: 1.5rem; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.mock h3 .en { font-size: 1rem; font-weight: 700; color: var(--ink); }
+.mock p.en { margin: 0; }
+.mock .dots { display: flex; gap: 6px; margin-top: 8px; }
+.mock .dots i { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,.2); }
+.flag { position: absolute; top: 12px; right: 12px; z-index: 1; }
+
+.more { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.more .card { display: flex; flex-direction: column; gap: 6px; }
+.more svg { width: 40px; height: 40px; color: var(--brand-text); }
+.more h3 { margin: 0; font-family: var(--f-word); }
+.more .soon { align-self: flex-start; }
+.more ul { list-style: none; margin: 4px 0 0; padding: 0; }
+.more li a { display: inline-flex; gap: 8px; min-height: 44px; align-items: center; font-weight: 700; }
+
+.lesson-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+@media (max-width: 1100px) { .lesson-cards { grid-template-columns: repeat(2, 1fr); } }
+.lesson-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; }
+.lesson-card .lc-pic { width: 96px; height: 96px; display: grid; place-items: center; }
+.lesson-card h3 { margin: 6px 0 0; font-family: var(--f-word); font-size: 1.45rem; }
+.lesson-card .en { text-align: center; }
+@media (max-width: 860px) { .lesson-cards { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .gallery { grid-template-columns: repeat(2, 1fr); } .more { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) {
+  .gallery, .more { grid-template-columns: 1fr; }
+  .hub-hero .wrap { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .hub-hero p.en { text-align: center !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تَخَطَّ إِلَى الْمُحْتَوَى · Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 2.6H18V9l2.6 3L18 15v3.4h-3.4L12 21l-2.6-2.6H6V15l-2.6-3L6 9V5.6h3.4z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-story" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
+  <symbol id="i-brush" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-8 8-6-6z"/><path d="M6 12c-2 0-3 1.5-3 3.5S2 20 2 20s3.5 0 5-1 2-2 2-3.5"/></symbol>
+  <symbol id="i-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/><path d="M10 8l4 2-4 2z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#main" aria-label="نَوْرَس — Nawras demo hub">
+      <span data-gull="happy"></span>
+      <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
+    </a>
+    <nav class="nav" aria-label="الْقَائِمَةُ">
+      <a href="#mockups">النَّمَاذِجُ</a>
+      <a href="#more">الْمَزِيدُ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hub-hero" aria-labelledby="h1">
+    <div class="wrap">
+      <div class="noori" data-gull="wave" data-gull-label="نُورِي — Noori, the Nawras seagull"></div>
+      <div>
+        <h1 id="h1">نَوْرَس</h1>
+        <p class="full">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+        <p class="word" style="margin:0;font-size:1.3rem" data-words>نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</p>
+        <p class="en intro">Nawras Fusha School, San Diego — “Fusha for little hearts, by the Pacific.” This is the demo hub for the school owners: six homepage ideas, the Noori mascot, logo concepts, one sample lesson told four ways (article, story, slides and a printed lesson book), and the presentation. Every page has a theme button (bottom corner) so any look can be tried on any layout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="mockups">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>سِتَّةُ نَمَاذِجَ لِلصَّفْحَةِ الرَّئِيسَةِ</h2>
+        <span class="en">Six homepage mockups — each a different layout and look</span>
+      </div>
+      <div class="gallery">
+        <a class="card card--link mock" href="mockups/01-andalus.html" data-reveal style="--i:0">
+          <div class="pv"><iframe src="mockups/01-andalus.html" title="Preview: Andalus mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="meta"><span class="num">01</span><h3>الْأَنْدَلُسُ <span class="en">Andalus garden</span></h3>
+            <p class="en">Horseshoe arch over a fountain garden, zellige bands, terracotta + garden green. San Diego’s mission arches, traced back to Al-Andalus.</p>
+            <span class="dots" aria-hidden="true"><i style="background:#B5502A"></i><i style="background:#3B7A4C"></i><i style="background:#E8B048"></i><i style="background:#FBF3E4"></i></span></div>
+        </a>
+        <a class="card card--link mock" href="mockups/02-pacific.html" data-reveal style="--i:1">
+          <div class="pv"><span class="chip chip--accent flag">flagship</span><iframe src="mockups/02-pacific.html" title="Preview: Pacific mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="meta"><span class="num">02</span><h3>الْمُحِيطُ <span class="en">Pacific coast</span></h3>
+            <p class="en">Full-bleed sunset ocean, palms and Noori flying in. The most playful — and the most “San Diego”.</p>
+            <span class="dots" aria-hidden="true"><i style="background:#0B7A7E"></i><i style="background:#FF7A5C"></i><i style="background:#FFC94A"></i><i style="background:#FFF9EE"></i></span></div>
+        </a>
+        <a class="card card--link mock" href="mockups/03-fanous.html" data-reveal style="--i:2">
+          <div class="pv"><iframe src="mockups/03-fanous.html" title="Preview: Fanous mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="meta"><span class="num">03</span><h3>الْفَانُوسُ <span class="en">Night lanterns</span></h3>
+            <p class="en">Lapis night, a crescent and gold lanterns that light up when tapped. Calm and a little magical.</p>
+            <span class="dots" aria-hidden="true"><i style="background:#0E1C42"></i><i style="background:#F0C463"></i><i style="background:#4CC7B9"></i><i style="background:#FBF5E6"></i></span></div>
+        </a>
+        <a class="card card--link mock" href="mockups/04-kurrasa.html" data-reveal style="--i:3">
+          <div class="pv"><iframe src="mockups/04-kurrasa.html" title="Preview: Kurrasa mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="meta"><span class="num">04</span><h3>الْكُرَّاسَةُ <span class="en">Madrasa notebook</span></h3>
+            <p class="en">The page is a notebook: index tabs, sticky notes, a flashcard, crayon doodles — and a writing pad to trace on.</p>
+            <span class="dots" aria-hidden="true"><i style="background:#2B59C3"></i><i style="background:#C9343A"></i><i style="background:#FFD43B"></i><i style="background:#FFFEF6"></i></span></div>
+        </a>
+        <a class="card card--link mock" href="mockups/05-mosaic.html" data-reveal style="--i:4">
+          <div class="pv"><iframe src="mockups/05-mosaic.html" title="Preview: Mosaic mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="meta"><span class="num">05</span><h3>الْفُسَيْفِسَاءُ <span class="en">Mosaic playground</span></h3>
+            <p class="en">A bento grid of chunky tiles, 8-point stars, bold primaries, thick outlines and offset shadows.</p>
+            <span class="dots" aria-hidden="true"><i style="background:#2450D8"></i><i style="background:#D62F35"></i><i style="background:#FFC53D"></i><i style="background:#1F9D55"></i></span></div>
+        </a>
+        <a class="card card--link mock" href="mockups/06-mihrab.html" data-reveal style="--i:5">
+          <div class="pv"><iframe src="mockups/06-mihrab.html" title="Preview: Mihrab mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="meta"><span class="num">06</span><h3>الْمِحْرَابُ <span class="en">Soft mihrab</span></h3>
+            <p class="en">White, pastel and quiet: one rounded arch and soft cards. Speaks to parents and older kids.</p>
+            <span class="dots" aria-hidden="true"><i style="background:#3F7A6C"></i><i style="background:#F5C2B0"></i><i style="background:#BFDDF0"></i><i style="background:#FBFAF7"></i></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lessons" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>دَرْسٌ وَاحِدٌ بِأَرْبَعِ طُرُقٍ</h2>
+        <span class="en">One sample lesson, four ways — <span class="word">هَذَا وَهَذِهِ</span> · masculine &amp; feminine · grade 1–2</span>
+      </div>
+      <div class="lesson-cards">
+        <a class="card card--link lesson-card" href="lessons/article.html" data-reveal style="--i:0">
+          <span class="lc-pic" data-pic="book" data-pic-decorative></span>
+          <h3>مَقَالَةٌ مُصَوَّرَةٌ</h3>
+          <span class="en">Read-along article · tap-to-hear picture cards, the “magic ة”, a writing station, a 5-question check and a printable worksheet. Opens in the Kurrasa theme.</span>
+        </a>
+        <a class="card card--link lesson-card" href="lessons/story.html" data-reveal style="--i:1">
+          <span class="lc-pic" data-pic="shell" data-pic-decorative></span>
+          <h3>قِصَّةٌ تَفَاعُلِيَّةٌ</h3>
+          <span class="en">Story slides · Noori meets Sami &amp; Salma on a San Diego beach. Swipe, auto-read, Fusha / Egyptian narration, tracing and a quiz.</span>
+        </a>
+        <a class="card card--link lesson-card" href="lessons/presentation.html" data-reveal style="--i:2">
+          <span class="lc-pic" data-pic="star" data-pic-decorative></span>
+          <h3>عَرْضٌ لِلصَّفِّ</h3>
+          <span class="en">Classroom slides · for the teacher to present.</span>
+        </a>
+        <a class="card card--link lesson-card" href="book/books/noori-shell.html" data-reveal style="--i:3">
+          <span class="lc-pic"><img src="book/images-noori-shell/cover.webp" alt="" width="96" height="96" style="border-radius:50%;object-fit:cover"></span>
+          <h3>كِتَابُ الدَّرْسِ</h3>
+          <span class="en">Lesson book · <bdi class="word" dir="rtl">«نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»</bdi> · 14 story pages + 11 writing exercises, narrated in Fusha / Egyptian, write on an iPad. Also printed (Lulu 8.5″ square) and as worksheets.</span>
+        </a>
+      </div>
+      <p class="en" style="text-align:center;margin-top:22px">Lesson book files:
+        <a href="book/print/noori-shell-lulu-interior.pdf" target="_blank" rel="noopener">See the book (PDF)</a> ·
+        <a href="book/print/noori-shell-lulu-cover.pdf" target="_blank" rel="noopener">Cover (PDF)</a> ·
+        <a href="book/print/noori-shell-home-a5.pdf" target="_blank" rel="noopener">Print at home (A5 booklet)</a> ·
+        <a href="book/print/noori-shell-worksheets-letter.pdf" target="_blank" rel="noopener">Worksheets (Letter)</a> ·
+        <a href="book/print/noori-shell-worksheets-a4.pdf" target="_blank" rel="noopener">Worksheets (A4)</a> ·
+        <a href="book/books/noori-shell.html">Web book</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="more" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>الْمَزِيدُ</h2>
+        <span class="en">More of the demo</span>
+      </div>
+      <div class="more">
+        <a class="card card--link" href="logos/index.html" data-reveal style="--i:0">
+          <svg aria-hidden="true"><use href="#i-logo"/></svg>
+          <h3>الشِّعَارُ</h3><span class="en">Logo concepts for Nawras</span>
+        </a>
+        <div class="card" data-reveal style="--i:1">
+          <svg aria-hidden="true"><use href="#i-story"/></svg>
+          <h3>الدُّرُوسُ</h3><span class="en">One lesson, four ways — <span class="word">هَذَا وَهَذِهِ</span></span>
+          <ul>
+            <li><a href="lessons/article.html">مَقَالَةٌ <span class="en">Article</span></a></li>
+            <li><a href="lessons/story.html">قِصَّةٌ <span class="en">Story</span></a></li>
+            <li><a href="lessons/presentation.html">عَرْضٌ <span class="en">Slides</span></a></li>
+            <li><a href="book/books/noori-shell.html">كِتَابٌ <span class="en">Lesson book</span></a></li>
+          </ul>
+        </div>
+        <a class="card card--link" href="guide.html" data-reveal style="--i:2">
+          <svg aria-hidden="true"><use href="#i-brush"/></svg>
+          <h3>الدَّلِيلُ</h3><span class="en">Guide: making kid-friendly images &amp; animations — the characters, Draw Things prompts and seeds, motion rules with live demos, narration, print and a pre-ship checklist</span>
+        </a>
+        <a class="card card--link" href="pitch/" data-reveal style="--i:3">
+          <svg aria-hidden="true"><use href="#i-slides"/></svg>
+          <h3>عَرْضُ الْمُلَّاكِ</h3><span class="en">The presentation for the school owners</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <span class="en">Nawras Fusha School, San Diego · Demo — names, times and contacts are placeholders</span>
+  </div>
+</footer>
+<script src="assets/kids.js"></script>
+<script>
+  // scale the live 1280×800 previews to fit their cards
+  (function () {
+    var pvs = document.querySelectorAll('.mock .pv');
+    function fit() { pvs.forEach(function (pv) { var f = pv.querySelector('iframe'); f.style.transform = 'scale(' + (pv.clientWidth / 1280) + ')'; }); }
+    fit();
+    if ('ResizeObserver' in window) { var ro = new ResizeObserver(fit); pvs.forEach(function (p) { ro.observe(p); }); }
+    else window.addEventListener('resize', fit);
+  })();
+</script>
+</body>
+</html>

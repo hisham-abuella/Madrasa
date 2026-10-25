@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="pacific">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نَوْرَس · Logo concepts</title>
+<meta name="description" content="Nawras Fusha School, San Diego — six logo concepts: generated emblems with a typeset wordmark, small-size tests, light and dark, and two clean vector versions.">
+<meta property="og:title" content="نَوْرَس — Logo concepts">
+<meta property="og:image" content="../assets/og-nawras.png">
+<link rel="icon" href="svg/noori-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<style>
+/* ── Logo sheet. Each concept card carries its OWN theme's tokens (copied from
+      assets/kids.css) as --l-* so all six themes can sit on one page. ───────── */
+.lc { --l-bg:#FFF9EE; --l-surface:#fff; --l-ink:#0B3540; --l-ink2:#3A6470; --l-line:#CBE6E2; --l-brand:#0B7A7E; --l-on-brand:#fff; --l-accent:#FF7A5C;
+      --l-dk:#0B3540; --l-dk-ink:#FFF9EE; --l-dk-ink2:#BFE3E6;
+      --l-disp:"Baloo Bhaijaan 2","Geeza Pro",sans-serif; --l-w:800; --l-latin:"Baloo Bhaijaan 2",system-ui,sans-serif; --l-r:28px; }
+.lc[data-t="andalus"] { --l-bg:#FBF3E4; --l-surface:#FFFDF8; --l-ink:#3A2314; --l-ink2:#6C4A33; --l-line:#E8D2AE; --l-brand:#B5502A; --l-on-brand:#fff; --l-accent:#3B7A4C;
+      --l-dk:#3A2314; --l-dk-ink:#FBF3E4; --l-dk-ink2:#E8D2AE; --l-disp:"Reem Kufi","Geeza Pro",sans-serif; --l-w:700; --l-latin:"Fredoka","Baloo Bhaijaan 2",system-ui,sans-serif; --l-r:20px; }
+.lc[data-t="mosaic"] { --l-bg:#FFF7DD; --l-surface:#fff; --l-ink:#14213D; --l-ink2:#3B4868; --l-line:#14213D; --l-brand:#2450D8; --l-on-brand:#fff; --l-accent:#D62F35;
+      --l-dk:#14213D; --l-dk-ink:#FFF7DD; --l-dk-ink2:#FFC53D; --l-disp:"Lalezar","Baloo Bhaijaan 2","Geeza Pro",sans-serif; --l-w:400; --l-latin:"Baloo Bhaijaan 2",system-ui,sans-serif; --l-r:16px; }
+.lc[data-t="kurrasa"] { --l-bg:#FFFEF6; --l-surface:#fff; --l-ink:#1E2A4A; --l-ink2:#4A5675; --l-line:#C9D6F2; --l-brand:#2B59C3; --l-on-brand:#fff; --l-accent:#C9343A;
+      --l-dk:#1E2A4A; --l-dk-ink:#FFFEF6; --l-dk-ink2:#C9D6F2; --l-disp:"Amiri","Noto Naskh Arabic","Geeza Pro",serif; --l-w:700; --l-latin:"Patrick Hand","Baloo Bhaijaan 2",system-ui,sans-serif; --l-r:14px; }
+.lc[data-t="fanous"] { --l-bg:#0E1C42; --l-surface:#172B5C; --l-ink:#FBF5E6; --l-ink2:#C6D1EC; --l-line:#2C4A8A; --l-brand:#F0C463; --l-on-brand:#0E1C42; --l-accent:#4CC7B9;
+      --l-dk:#FBF5E6; --l-dk-ink:#0E1C42; --l-dk-ink2:#44577A; --l-disp:"Readex Pro","IBM Plex Sans Arabic","Geeza Pro",sans-serif; --l-w:700; --l-latin:"Readex Pro",system-ui,sans-serif; --l-r:22px; }
+.lc[data-t="mihrab"] { --l-bg:#FBFAF7; --l-surface:#fff; --l-ink:#2C3340; --l-ink2:#5A6272; --l-line:#E3E6E0; --l-brand:#3F7A6C; --l-on-brand:#fff; --l-accent:#F5C2B0;
+      --l-dk:#2C3340; --l-dk-ink:#FBFAF7; --l-dk-ink2:#CFE3DC; --l-disp:"Readex Pro","IBM Plex Sans Arabic","Geeza Pro",sans-serif; --l-w:500; --l-latin:"Readex Pro",system-ui,sans-serif; --l-r:26px; }
+
+.ls-hero { padding: clamp(36px, 6vw, 64px) 0 8px; text-align: center; }
+.ls-hero h1 { font-family: var(--f-word); font-size: clamp(2.2rem, 6vw, 3.4rem); margin: 0; }
+.ls-hero p { max-width: 64ch; margin: 6px auto 0; }
+.ls-hero .en { display: block; text-align: center; }
+.how { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+
+.concepts { display: grid; gap: 36px; padding-block: 28px 64px; }
+.lc { position: relative; background: var(--l-bg); color: var(--l-ink); border: 2px solid var(--l-line); border-radius: var(--l-r);
+      padding: clamp(18px, 3vw, 32px); box-shadow: 0 18px 34px -22px rgba(0,0,0,.35); overflow: hidden; }
+.lc.is-top { outline: 4px solid #FFC94A; outline-offset: 4px; }
+.lc__head { display: flex; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+.lc__num { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--l-brand); color: var(--l-on-brand); font: 800 1.3rem/1 var(--l-latin); }
+.lc__title { flex: 1 1 260px; min-width: 0; }
+.lc__title h2 { margin: 0; font-family: var(--l-disp); font-weight: var(--l-w); font-size: 1.6rem; line-height: 1.5; color: var(--l-ink); }
+.lc__title .en { color: var(--l-ink2); display: block; font-size: .95rem; }
+.lc__why { margin: 6px 0 0; color: var(--l-ink); font-size: 1.02rem; }
+.lc__note { margin: 6px 0 0; font-size: .82rem; color: var(--l-ink2); border-inline-start: 3px solid var(--l-accent); padding-inline-start: 8px; display: block; }
+.lc__why .en { display: block; font-size: .88rem; color: var(--l-ink2); }
+.tchip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; border: 1.5px solid var(--l-line); font: 600 .82rem/1.4 var(--l-latin); color: var(--l-ink2); direction: ltr; background: var(--l-surface); }
+.rec { display: inline-flex; flex-direction: column; gap: 2px; background: #FFC94A; color: #3A2A00; border-radius: 16px; padding: 8px 14px; max-width: 420px; box-shadow: 0 4px 0 #C9951A; }
+.rec b { font-family: var(--f-word); font-size: 1.05rem; }
+.rec .en { color: #4A3600; font-size: .82rem; display: block; }
+
+.lc__grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+/* main lockup */
+.lockup { display: flex; align-items: center; justify-content: center; gap: clamp(14px, 3vw, 28px); background: var(--l-surface); border: 1.5px solid var(--l-line);
+          border-radius: calc(var(--l-r) - 8px); padding: clamp(18px, 3vw, 34px) clamp(14px, 3vw, 28px); min-height: 280px; }
+.lc[data-t="fanous"] .lockup { background: var(--l-bg); }
+.lockup img { width: clamp(130px, 18vw, 210px); height: auto; aspect-ratio: 1; flex: none; }
+.wm { display: flex; flex-direction: column; min-width: 0; }
+.wm b { font-family: var(--l-disp); font-weight: var(--l-w); font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1.35; color: var(--l-ink); }
+.wm .full { font-family: var(--f-word); font-weight: 600; font-size: clamp(.95rem, 1.8vw, 1.15rem); color: var(--l-brand); line-height: 1.6; }
+.lc[data-t="fanous"] .wm .full { color: var(--l-brand); }
+.lc:not([data-t="fanous"]) .wm .full { color: color-mix(in srgb, var(--l-brand) 80%, var(--l-ink)); }
+.wm .lat { font-family: var(--l-latin); font-size: clamp(.78rem, 1.4vw, .92rem); color: var(--l-ink2); direction: ltr; text-align: right; letter-spacing: .02em; white-space: nowrap; }
+
+/* tests column */
+.tests { display: grid; gap: 14px; }
+.tests h3 { margin: 0 0 6px; font: 700 .95rem/1.4 var(--f-ui); color: var(--l-ink2); }
+.tests h3 .en { font-size: .8rem; margin: 0 10px 0 0; color: var(--l-ink2); }
+.sizes { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.tab { display: flex; align-items: center; gap: 8px; background: #E9ECEF; border-radius: 10px 10px 0 0; padding: 8px 12px; min-width: 0; direction: ltr; }
+.tab img { width: 32px; height: 32px; flex: none; }
+.tab span { font: 500 .82rem/1.2 system-ui, sans-serif; color: #333; white-space: nowrap; }
+.app { width: 128px; height: 128px; border-radius: 28px; background: var(--l-surface); display: grid; place-items: center; border: 1.5px solid var(--l-line); box-shadow: 0 8px 18px -10px rgba(0,0,0,.4); flex: none; }
+.app img { width: 112px; height: 112px; }
+.sz { display: grid; gap: 4px; justify-items: center; font: 600 .74rem/1.2 var(--l-latin); color: var(--l-ink2); direction: ltr; }
+.ld { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ld > div { display: flex; align-items: center; gap: 10px; padding: 14px; border-radius: 14px; min-width: 0; }
+.ld img { width: 52px; height: 52px; flex: none; }
+.ld b { font-family: var(--l-disp); font-weight: var(--l-w); font-size: 1.6rem; line-height: 1.3; display: block; }
+.ld small { font: .7rem/1.2 var(--l-latin); direction: ltr; display: block; text-align: right; }
+.ld .on-l { background: var(--l-bg); border: 1.5px solid var(--l-line); color: var(--l-ink); }
+.lc[data-t="fanous"] .ld .on-l { background: var(--l-dk); color: var(--l-dk-ink); }
+.ld .on-l small { color: var(--l-ink2); } .lc[data-t="fanous"] .ld .on-l small { color: var(--l-dk-ink2); }
+.ld .on-d { background: var(--l-dk); color: var(--l-dk-ink); }
+.lc[data-t="fanous"] .ld .on-d { background: #0A1430; color: var(--l-ink); border: 1.5px solid var(--l-line); }
+.ld .on-d small { color: var(--l-dk-ink2); } .lc[data-t="fanous"] .ld .on-d small { color: var(--l-ink2); }
+
+/* mini top-bar mockup */
+.mini { border-radius: 14px; overflow: hidden; border: 1.5px solid var(--l-line); }
+.mini__bar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--l-bg); border-bottom: 1.5px solid var(--l-line); }
+.lc[data-t="fanous"] .mini__bar { background: #0A1430; }
+.mini__logo { display: flex; align-items: center; gap: 6px; }
+.mini__logo img { width: 40px; height: 40px; }
+.mini__logo b { font-family: var(--l-disp); font-weight: var(--l-w); font-size: 1.3rem; line-height: 1.2; display: block; color: var(--l-ink); }
+.mini__logo small { font: .62rem/1.1 var(--l-latin); color: var(--l-ink2); direction: ltr; display: block; text-align: right; white-space: nowrap; }
+.mini__nav { display: flex; gap: 10px; margin-inline-start: auto; font: 600 .8rem/1 var(--f-ui); color: var(--l-ink2); }
+.mini__cta { background: var(--l-brand); color: var(--l-on-brand); border-radius: 999px; padding: 7px 12px; font: 700 .78rem/1.2 var(--f-ui); white-space: nowrap; }
+.mini__hero { height: 46px; background: linear-gradient(90deg, color-mix(in srgb, var(--l-brand) 22%, var(--l-bg)), color-mix(in srgb, var(--l-accent) 26%, var(--l-bg))); }
+
+/* vector section */
+.vec { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.vec .card { text-align: center; }
+.vec .big { width: min(260px, 70%); height: auto; margin: 6px auto 14px; display: block; }
+.vec .row { display: flex; justify-content: center; align-items: flex-end; gap: 18px; flex-wrap: wrap; margin: 6px 0 14px; }
+.vec .row figure { margin: 0; display: grid; justify-items: center; gap: 4px; font: 600 .74rem/1.2 var(--f-latin); color: var(--ink2); direction: ltr; }
+.vec .dark { background: #0B3540; padding: 12px; border-radius: 14px; }
+.vec h3 { font-family: var(--f-word); margin: 0; }
+.vec p { margin: 4px 0 12px; }
+.vec .en { display: block; text-align: center; }
+.sheet { display: block; width: 100%; height: auto; border-radius: 16px; border: 2px solid var(--line); background: #fff; }
+.note { font-size: .95rem; }
+
+@media (max-width: 900px) {
+  .lc__grid, .vec { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .lockup { flex-direction: column; text-align: center; min-height: 0; }
+  .wm { align-items: center; }
+  .wm .lat { text-align: center; white-space: normal; }
+  .ld { grid-template-columns: 1fr; }
+  .mini__nav { display: none; }
+  .mini__logo small { display: none; }
+  .tab span { white-space: normal; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تَخَطَّ إِلَى الْمُحْتَوَى · Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../index.html" aria-label="نَوْرَس — back to the demo hub">
+      <span data-gull="happy"></span>
+      <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
+    </a>
+    <nav class="nav" aria-label="الْقَائِمَةُ">
+      <a href="#concepts">الْأَفْكَارُ</a>
+      <a href="#vector">الْمُتَّجِهُ</a>
+      <a href="#tries">الْمُحَاوَلَاتُ</a>
+      <a href="../index.html">الرَّئِيسِيَّةُ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="ls-hero">
+    <div class="wrap">
+      <h1>شِعَارُ نَوْرَس</h1>
+      <p>سِتُّ أَفْكَارٍ لِلشِّعَارِ. الرَّسْمُ مِنْ نَمُوذَجٍ مَحَلِّيٍّ بِلَا أَيِّ حُرُوفٍ، وَالِاسْمُ «نَوْرَس» مَكْتُوبٌ بِخُطُوطٍ حَقِيقِيَّةٍ.</p>
+      <p class="en">Six logo concepts for Nawras. Each emblem was generated locally (Draw Things, Z-Image Turbo) with <b>no text in the image</b>; the wordmark is typeset in each theme's own fonts. Every card shows the lockup, the 32px favicon and 128px app icon, light and dark, and a mini top-bar.</p>
+      <div class="how">
+        <span class="chip chip--brand">٦ أَفْكَارٍ · 6 concepts</span>
+        <span class="chip">٢٨ مُحَاوَلَةً · 28 seeds tried</span>
+        <span class="chip chip--accent">٢ نُسْخَةٌ مُتَّجِهَةٌ · 2 vector SVGs</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="concepts" aria-label="Logo concepts">
+    <div class="wrap concepts" id="cards"></div>
+  </section>
+
+  <section class="section" id="vector" style="padding-top:8px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>نُسَخٌ مُتَّجِهَةٌ لِلطِّبَاعَةِ</h2>
+        <span class="en">Clean vector versions of the two strongest concepts — hand-built SVG, scales from favicon to the Lulu book cover</span>
+      </div>
+      <div class="vec">
+        <article class="card" data-reveal style="--i:0">
+          <img class="big" src="svg/hilal-badge.svg" alt="شِعَارُ نَوْرَسِ الهِلَالِ · Gull & Crescent badge, vector">
+          <h3>نَوْرَسُ الهِلَالِ</h3><span class="en">Concept 1 · Gull &amp; Crescent — the full badge</span>
+          <div class="row">
+            <figure><img src="svg/hilal-badge.svg" width="16" height="16" alt="">16px</figure>
+            <figure><img src="svg/hilal-badge.svg" width="32" height="32" alt="">32px</figure>
+            <figure><img src="svg/hilal-badge.svg" width="64" height="64" alt="">64px</figure>
+            <figure class="dark"><img src="svg/hilal-badge.svg" width="64" height="64" alt=""></figure>
+          </div>
+          <a class="btn btn--sm" href="svg/hilal-badge.svg" download>تَنْزِيلُ SVG <span class="en">download</span></a>
+        </article>
+        <article class="card" data-reveal style="--i:1">
+          <img class="big" src="svg/noori-icon.svg" alt="أَيْقُونَةُ نُورِي · Noori app icon, vector">
+          <h3>وَجْهُ نُورِي</h3><span class="en">Concept 6 · Noori face mark — favicon, app icon, stickers</span>
+          <div class="row">
+            <figure><img src="svg/noori-icon.svg" width="16" height="16" alt="">16px</figure>
+            <figure><img src="svg/noori-icon.svg" width="32" height="32" alt="">32px</figure>
+            <figure><img src="svg/noori-icon.svg" width="64" height="64" alt="">64px</figure>
+            <figure class="dark"><img src="svg/noori-icon.svg" width="64" height="64" alt=""></figure>
+          </div>
+          <a class="btn btn--sm" href="svg/noori-icon.svg" download>تَنْزِيلُ SVG <span class="en">download</span></a>
+        </article>
+      </div>
+      <p class="en note" style="text-align:center;margin-top:18px">The two work as a family: the badge is the school's sign (website header, book cover, uniforms); the face is its small form (favicon, app icon, stickers, stamps).</p>
+    </div>
+  </section>
+
+  <section class="section" id="tries" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>كُلُّ الْمُحَاوَلَاتِ</h2>
+        <span class="en">Contact sheet — all 28 tries (4 seeds × 6 concepts, plus 4 redraws of concept 2); “* chosen” marks the pick. Rejected seeds are in <code>img/tries/</code>; prompts and seeds in <code>source/gen-logos.sh</code>.</span>
+      </div>
+      <a href="contact-sheet.png"><img class="sheet" src="contact-sheet.png" alt="Contact sheet of all 28 generated logo tries" loading="lazy"></a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><p class="en" style="text-align:center">Nawras Fusha School, San Diego · demo · logo concepts are proposals for the owners — the emblem art is AI-generated locally and contains no text; final art would be redrawn as vector.</p></div>
+</footer>
+
+<script src="../assets/kids.js"></script>
+<script>
+(function () {
+  var TOP = 'c1';
+  var C = [
+    { id: 'c1', seed: 102, t: 'pacific', ar: 'نَوْرَسُ الهِلَالِ', en: 'Gull & Crescent', theme: 'Pacific',
+      why: 'الهِلَالُ لِلْإِسْلَامِ، وَالْمَوْجُ لِسَان دِييغُو، وَنُورِي لِلْأَطْفَالِ.',
+      whyEn: 'The crescent says Islamic, the wave says San Diego, Noori says kids — the whole brand in one badge.',
+      rec: 'الِاخْتِيَارُ الْمُقْتَرَحُ', recEn: 'Recommended — tells the whole story (faith + Pacific + a friendly mascot) at a glance, stays readable at 32px thanks to the thick ring, and works in every theme. Pair it with concept 6 as the app icon.' },
+    { id: 'c2', seed: 253, t: 'andalus', ar: 'قَوْسُ الأَنْدَلُسِ', en: 'Andalusian Arch', theme: 'Andalus',
+      why: 'أَقْوَاسُ سَان دِييغُو جَاءَتْ مِنَ الْأَنْدَلُسِ، وَفِي الْقَوْسِ غُرُوبُ الْمُحِيطِ.',
+      whyEn: 'San Diego’s mission arches descend from Andalusian arches; inside, a Pacific sunset and one gull.',
+      note: 'Seeds 201–204 drew a literal horseshoe (lucky-charm look) — rejected and redrawn as a Moorish keyhole arch on columns (seed 253). The gull is tiny: a final version would enlarge it.' },
+    { id: 'c3', seed: 301, t: 'mosaic', ar: 'نَجْمَةُ الخَاتَمِ', en: 'Khatam Star', theme: 'Mosaic',
+      why: 'النَّجْمَةُ الثُّمَانِيَّةُ أَقْدَمُ زَخَارِفِنَا، وَالنَّوْرَسُ فِي قَلْبِهَا يَجْعَلُهَا لَنَا.',
+      whyEn: 'The 8-point star is the classic Islamic pattern; the gull at its heart makes it ours. Bold, playful, prints well on shirts.' },
+    { id: 'c4', seed: 401, t: 'kurrasa', ar: 'كِتَابُ المَوْجِ', en: 'Book of Waves', theme: 'Kurrasa',
+      why: 'صَفَحَاتُ الْكِتَابِ تَصِيرُ مَوْجًا: لُغَةٌ تَحْمِلُ الْأَطْفَالَ بَعِيدًا.',
+      whyEn: 'The pages of a book become the sea — learning that carries children far and brings them home.' },
+    { id: 'c5', seed: 502, t: 'fanous', ar: 'فَانُوسُ نُورِي', en: 'Noori’s Lantern', theme: 'Fanous',
+      why: 'اسْمُ نُورِي مِنَ النُّورِ، وَالْفَانُوسُ نُورٌ دَافِئٌ يُحِبُّهُ الْأَطْفَالُ.',
+      whyEn: 'Noori’s name comes from nūr, light; the lantern is warm, Ramadan-ready and glows on dark backgrounds.' },
+    { id: 'c6', seed: 603, t: 'mihrab', ar: 'وَجْهُ نُورِي', en: 'Noori Face Mark', theme: 'Mihrab',
+      why: 'أَبْسَطُ شِعَارٍ: وَجْهُ الصَّدِيقِ الَّذِي يَعْرِفُهُ الْأَطْفَالُ، وَاضِحٌ حَتَّى فِي ٣٢ بِكْسِل.',
+      whyEn: 'The simplest mark — the friend children already know; reads at 32px as a favicon, app icon or sticker.' }
+  ];
+  var AR_N = ['١','٢','٣','٤','٥','٦'];
+  var out = '';
+  C.forEach(function (c, i) {
+    var img = 'img/' + c.id + '.webp';
+    var alt = c.ar + ' · ' + c.en + ' — Nawras logo emblem';
+    out +=
+      '<article class="lc' + (c.id === TOP ? ' is-top' : '') + '" data-t="' + c.t + '" id="' + c.id + '" data-reveal style="--i:' + (i % 2) + '" aria-labelledby="' + c.id + '-h">' +
+        '<div class="lc__head">' +
+          '<span class="lc__num" aria-hidden="true">' + AR_N[i] + '</span>' +
+          '<div class="lc__title">' +
+            '<h2 id="' + c.id + '-h">' + c.ar + '</h2><span class="en">Concept ' + (i + 1) + ' · ' + c.en + '</span>' +
+            '<p class="lc__why">' + c.why + '<span class="en">' + c.whyEn + '</span></p>' +
+            (c.note ? '<p class="lc__note en">' + c.note + '</p>' : '') +
+          '</div>' +
+          '<span class="tchip">Theme · ' + c.theme + ' · seed ' + c.seed + '</span>' +
+          (c.rec ? '<div class="rec"><b>★ ' + c.rec + '</b><span class="en">' + c.recEn + '</span></div>' : '') +
+        '</div>' +
+        '<div class="lc__grid">' +
+          '<div class="lockup">' +
+            '<img src="' + img + '" alt="' + alt + '" width="210" height="210">' +
+            '<div class="wm"><b>نَوْرَس</b><span class="full">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</span><span class="lat">Nawras · Fusha School · San Diego</span></div>' +
+          '</div>' +
+          '<div class="tests">' +
+            '<div><h3>الْأَحْجَامُ الصَّغِيرَةُ<span class="en">small sizes</span></h3>' +
+              '<div class="sizes">' +
+                '<div class="sz"><div class="tab"><img src="' + img + '" alt="" width="32" height="32"><span>نَوْرَس — Nawras</span></div>favicon 32px</div>' +
+                '<div class="sz"><div class="app"><img src="' + img + '" alt="" width="112" height="112"></div>app icon 128px</div>' +
+              '</div></div>' +
+            '<div><h3>فَاتِحٌ وَدَاكِنٌ<span class="en">light &amp; dark</span></h3>' +
+              '<div class="ld">' +
+                '<div class="on-l"><img src="' + img + '" alt="" width="52" height="52"><span><b>نَوْرَس</b><small>Fusha School · San Diego</small></span></div>' +
+                '<div class="on-d"><img src="' + img + '" alt="" width="52" height="52"><span><b>نَوْرَس</b><small>Fusha School · San Diego</small></span></div>' +
+              '</div></div>' +
+            '<div><h3>فِي الْمَوْقِعِ<span class="en">in the top bar</span></h3>' +
+              '<div class="mini" aria-hidden="true"><div class="mini__bar">' +
+                '<span class="mini__logo"><img src="' + img + '" alt="" width="40" height="40"><span><b>نَوْرَس</b><small>Fusha School · San Diego</small></span></span>' +
+                '<span class="mini__nav"><span>الدُّرُوسُ</span><span>الْمُسْتَوَيَاتُ</span><span>عَنَّا</span></span>' +
+                '<span class="mini__cta">احْجِزْ حِصَّةً تَجْرِيبِيَّةً</span>' +
+              '</div><div class="mini__hero"></div></div></div>' +
+          '</div>' +
+        '</div>' +
+      '</article>';
+  });
+  document.getElementById('cards').innerHTML = out;
+})();
+</script>
+</body>
+</html>

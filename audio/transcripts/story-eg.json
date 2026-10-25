@@ -1,0 +1,18 @@
+{ "title": "نوري والصدفة الصغيرة — هذا وهذه (مصري)", "language": "ar",
+  "voice": "pusofH2Ro5Ny4RH6qBEO", "model": "eleven_v4", "settings": { "stability": 0.5, "similarity_boost": 0.8 },
+  "page": "lessons/story.html", "note": "Egyptian-dialect narration that explains; the Fusha target words (هذا / هذه and the nouns) are kept as they appear on screen. p02/p04/p07 = approved samples s1/s2/s3 (audio/samples/eg/).",
+  "slides": [
+    { "id": "p01", "slide": 1, "title": "الغلاف", "transcript": "[warmly] نوري والصَّدَفة الصُّغيّرة. <break time=\"0.6s\" /> حِكاية عن هذا، وهذهِ." },
+    { "id": "p02", "slide": 2, "sample": "s1", "title": "التحية", "transcript": "[warmly] السلام عليكم يا صحابي الصُّغيّرين! <break time=\"0.4s\" /> أنا نوري، النَّورس الصغير، وبطير فوق بحر سان دييجو." },
+    { "id": "p03", "slide": 3, "title": "سامي وسلمى", "transcript": "[cheerful] على البحر، نوري قابل اتنين صحابه. <break time=\"0.5s\" /> هذا سامي، <break time=\"0.3s\" /> وهذهِ سَلْمى." },
+    { "id": "p04", "slide": 4, "sample": "s2", "title": "ده ودي", "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت. <break time=\"0.5s\" /> ده قُطّ، ودي قُطّة." },
+    { "id": "p05", "slide": 5, "title": "هذا للمذكر", "transcript": "[cheerful] سامي بيشاوِر وبيقول: <break time=\"0.4s\" /> هذا قارِبٌ. <break time=\"0.3s\" /> هذا كِتابٌ. <break time=\"0.3s\" /> هذا قَمَرٌ. <break time=\"0.6s\" /> [gently] في الفُصحى بنقول هذا، للمُذَكَّر." },
+    { "id": "p06", "slide": 6, "title": "هذه للمؤنث", "transcript": "[cheerful] وسَلْمى بتقول: <break time=\"0.4s\" /> هذهِ سَمَكةٌ. <break time=\"0.3s\" /> هذهِ نَخْلةٌ. <break time=\"0.3s\" /> هذهِ صَدَفةٌ. <break time=\"0.6s\" /> [gently] وبنقول هذهِ، للمُؤَنَّث." },
+    { "id": "p07", "slide": 7, "sample": "s3", "title": "التاء المربوطة", "transcript": "[curious] سِمعتوا الحرف الصغيّر اللي في آخر الكلمة؟ <break time=\"0.5s\" /> [excited] دي التاء المربوطة! <break time=\"0.3s\" /> قُطّ… قُطّة!" },
+    { "id": "p08", "slide": 8, "title": "الصدفة السحرية", "transcript": "[playfully] حُطّ الصَّدَفة في آخر الكلمة، تبقى مؤنَّثة! <break time=\"0.6s\" /> مُعَلِّمٌ… <break time=\"0.4s\" /> مُعَلِّمةٌ. <break time=\"0.5s\" /> طالِبٌ… <break time=\"0.4s\" /> طالِبةٌ." },
+    { "id": "p09", "slide": 9, "title": "خلّي بالك", "transcript": "[curious] سَلْمى قالت: بس… بِنت مافيش في آخرها صَدَفة! <break time=\"0.6s\" /> [warmly] نوري قال: صحّ! <break time=\"0.3s\" /> فيه كلمات مؤنَّثة من غير تاء مربوطة: <break time=\"0.4s\" /> هذهِ بِنتٌ، هذهِ أُمٌّ، هذهِ شَمسٌ." },
+    { "id": "p10", "slide": 10, "title": "الصفة", "transcript": "[excited] والصِّفة كمان بتاخد الصَّدَفة! <break time=\"0.5s\" /> هذا وَلَدٌ نَشيطٌ. <break time=\"0.4s\" /> هذهِ بِنتٌ نَشيطةٌ." },
+    { "id": "p11", "slide": 11, "title": "نكتب", "transcript": "[cheerful] يلّا نِكتب! <break time=\"0.4s\" /> [gently] امشي بصباعك على التاء المربوطة، وبعدين على هذهِ. <break time=\"0.4s\" /> ابدأ من النقطة الخضرا." },
+    { "id": "p12", "slide": 12, "title": "اختبر نفسك", "transcript": "[playfully] يلّا نختبر نفسنا: أربع أسئلة. <break time=\"0.4s\" /> دُوس على الإجابة!" },
+    { "id": "p13", "slide": 13, "title": "أحسنتم", "transcript": "[happy] برافو عليكم يا صحابي! <break time=\"0.5s\" /> اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، <break time=\"0.3s\" /> والتاء المربوطة صَدَفة صغيّرة، بتخلّي الكلمة مؤنَّثة. <break time=\"0.6s\" /> [warmly] مع السلامة!" }
+  ] }

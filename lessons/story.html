@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="pacific" data-theme-fixed>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ · قِصَّةٌ — Nawras</title>
+<meta name="description" content="Nawras Fusha School — sample lesson (grade 1–2) as an illustrated story: Noori the seagull meets Sami and Salma on a San Diego beach and discovers هَذَا and هَذِهِ.">
+<meta property="og:title" content="Noori and the Little Shell — Nawras sample lesson (story)">
+<meta property="og:image" content="../assets/og-nawras.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<style>
+/* ── Story deck (Wireless101 story-slides, kid version) — tokens only ── */
+html, body { height: 100%; }
+body { overflow: hidden; }
+.story { position: fixed; inset: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; height: 100dvh; background: var(--bg); overflow: hidden; }
+
+/* top controls — on their own bar, so they never sit on a slide colour */
+.st-top { display: flex; align-items: center; gap: 8px; padding: 8px max(12px, env(safe-area-inset-right)) 8px max(12px, env(safe-area-inset-left)); background: var(--topbar-bg); border-bottom: var(--border-w) solid var(--border-c); position: relative; z-index: 5; }
+.st-btn { width: var(--tap-min); height: var(--tap-min); flex: none; border-radius: 50%; display: inline-grid; place-items: center; padding: 0; cursor: pointer;
+  background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); text-decoration: none;
+  transition: transform var(--t-tap) var(--ease-pop), background .2s; -webkit-tap-highlight-color: transparent; }
+.st-btn svg { width: 26px; height: 26px; }
+.st-btn:hover { transform: scale(1.06); }
+.st-btn:active { transform: scale(.92); }
+.st-btn[aria-pressed="true"] { background: var(--brand); color: var(--on-brand); border-color: var(--brand); }
+.st-btn.is-speaking { animation: pulse 1s ease-in-out infinite; }
+.st-title { min-width: 0; flex: 1 1 auto; line-height: 1.25; }
+.st-title b { display: block; font-family: var(--f-word); font-size: 1.05rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.st-title .en { display: block; font-size: .78rem; }
+.st-tools { display: flex; gap: 8px; align-items: center; margin-inline-start: auto; }
+.seg { display: inline-flex; padding: 3px; gap: 3px; border-radius: 999px; background: var(--surface2); border: var(--border-w) solid var(--border-c); }
+.seg button { min-height: 48px; min-width: 64px; padding: 0 12px; border-radius: 999px; border: 0; cursor: pointer; background: transparent; color: var(--ink); font: 700 1rem/1.1 var(--f-ui); }
+.seg button .en { display: block; font-size: .68rem; color: inherit; opacity: .8; }
+.seg button[aria-pressed="true"] { background: var(--brand); color: var(--on-brand); }
+.seg button:focus-visible { outline: 3px solid var(--ink); outline-offset: 1px; }
+.st-tools > .seg { display: none; }
+@media (min-width: 760px) { .st-tools > .seg { display: inline-flex; } }
+@media (max-width: 420px) { .st-title .en { display: none; } .st-title b { font-size: .95rem; } }
+
+/* settings panel */
+.st-panel { position: absolute; top: calc(100% + 8px); inset-inline-end: 12px; width: min(360px, calc(100vw - 24px)); z-index: 20;
+  background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); border-radius: var(--radius-sm); box-shadow: 0 20px 40px -16px rgba(0,0,0,.4); padding: 14px 16px; }
+.st-panel[hidden] { display: none; }
+.st-panel h3 { font-size: 1rem; margin: 6px 0 6px; font-family: var(--f-ui); }
+.st-panel h3 .en { font-weight: 400; }
+.st-panel .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+.st-panel p.en { margin: 0 0 8px; font-size: .8rem; }
+.st-panel [data-picker-slot] .ks-picker { border: 0; padding: 0; }
+.st-panel [data-picker-slot] .ks-swatch { width: 48px; height: 48px; }
+
+/* slides */
+.slides { position: relative; overflow: hidden; }
+.s { position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; display: flex; padding: clamp(10px, 2.4vw, 28px) 16px;
+  opacity: 0; visibility: hidden; transform: translateX(-36px);
+  transition: opacity .45s var(--ease-out), transform .55s var(--ease-out), visibility 0s linear .55s; }
+.s.on { opacity: 1; visibility: visible; transform: none; transition: opacity .45s var(--ease-out), transform .55s var(--ease-out), visibility 0s; }
+.s--sky { background: var(--hero-bg); }
+.s--foam { background: var(--surface2); }
+.s--sand { background: color-mix(in srgb, var(--sand) 55%, var(--bg)); }
+.s--sea { background: var(--brand); }
+.s--sunset { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 38%, var(--bg)) 0%, var(--bg) 100%); }
+.s--paper { background: var(--pattern), var(--bg); }
+.s-inner { margin: auto; width: min(1180px, 100%); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(14px, 3vw, 36px); align-items: center; }
+.s-text { background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(16px, 3vw, 30px); }
+.s-kicker { margin: 0 0 4px; font-weight: 800; color: var(--accent-text); font-size: 1rem; }
+.s-title { font-family: var(--f-word); font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.55; margin: 0 0 6px; }
+.s-line { font-family: var(--f-word); font-weight: 600; font-size: clamp(1.35rem, 3.4vw, 1.9rem); line-height: 2; margin: 0 0 6px; }
+.s-line b { font-weight: 700; }
+.s-text .en { display: block; margin-bottom: 4px; }
+.s-listen { margin-top: 10px; }
+.s-art { position: relative; aspect-ratio: 4 / 3; width: 100%; border-radius: var(--radius); overflow: hidden; border: var(--border-w) solid var(--border-c); box-shadow: var(--shadow); background: var(--sky); }
+.s-art--plain { aspect-ratio: auto; overflow: visible; background: var(--surface); padding: clamp(12px, 2.4vw, 22px); }
+.scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cast { position: absolute; inset-inline: 3%; bottom: 5%; display: flex; justify-content: center; align-items: flex-end; gap: 3%; }
+.fig { appearance: none; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; color: var(--ink);
+  width: clamp(56px, 22%, 170px); min-width: 56px; min-height: 56px; flex: 0 1 auto; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  transition: transform .25s var(--ease-pop); -webkit-tap-highlight-color: transparent; }
+.fig:hover { transform: translateY(-6px); }
+.fig:active { transform: scale(.94); }
+.fig:focus-visible { outline: 4px solid var(--ink); outline-offset: 2px; border-radius: 12px; }
+.fig > [data-pic] { width: 100%; }
+.fig--sm { width: clamp(56px, 17%, 130px); }
+@media (max-width: 520px) { .cast { gap: 2%; inset-inline: 2%; } .tag { padding: 0 8px; } }
+.tag { display: inline-block; padding: 0 12px; border-radius: 999px; background: var(--surface); border: var(--border-w) solid var(--border-c); font-family: var(--f-word); font-weight: 700; font-size: clamp(.95rem, 2.2vw, 1.25rem); line-height: 1.7; white-space: nowrap; }
+.tag--f { color: var(--fem-text); } .tag--m { color: var(--masc-text); }
+.noori { position: absolute; top: 5%; inset-inline-start: 4%; width: 22%; }
+.noori .gull { width: 100%; height: auto; }
+.noori--big { width: 34%; top: 10%; inset-inline-start: 33%; }
+.art-bubble { position: absolute; top: 5%; inset-inline-start: 28%; font-family: var(--f-word); font-size: clamp(1rem, 2.4vw, 1.35rem); padding: 4px 16px; white-space: nowrap; }
+.s.on .s-text { animation: popIn .55s var(--ease-pop) both; }
+.s.on .fig { animation: popIn .6s var(--ease-pop) both; }
+.s.on .fig:nth-child(2) { animation-delay: .12s; } .s.on .fig:nth-child(3) { animation-delay: .24s; } .s.on .fig:nth-child(4) { animation-delay: .36s; }
+.s.on .noori { animation: float 3.6s ease-in-out infinite; }
+
+/* little shell with ة */
+.big-shell { position: absolute; left: 50%; bottom: 8%; width: 46%; transform: translateX(-50%); }
+.big-shell .glyph { position: absolute; left: 31%; top: 22%; width: 38%; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; padding-bottom: 6%;
+  background: var(--surface); border: 3px solid var(--fem); font-family: var(--f-word); font-weight: 700; font-size: clamp(2rem, 6vw, 3.6rem); line-height: 1; color: var(--ta); animation: glow 2s ease-in-out infinite; }
+.pair-line { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; font-family: var(--f-word); font-weight: 700; font-size: clamp(1.6rem, 4.4vw, 2.4rem); }
+
+/* magic shell rows */
+.mrow { display: grid; grid-template-columns: 96px 1fr auto; gap: 6px 14px; align-items: center; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--surface2); border: var(--border-w) solid var(--border-c); }
+.mrow + .mrow { margin-top: 12px; }
+.mrow__pic { width: 96px; }
+.mrow__pic .pic { max-height: 120px; }
+.mrow__say { margin: 0; font-family: var(--f-word); font-weight: 700; font-size: clamp(1.6rem, 4.6vw, 2.2rem); line-height: 1.8; }
+.mrow .en { grid-column: 2; margin: 0; }
+.mrow__btn { grid-column: 3; grid-row: 1 / span 2; width: 76px; height: 76px; border-radius: 50%; padding: 0; cursor: pointer; display: grid; place-items: center; position: relative;
+  background: var(--surface); border: 3px solid var(--fem); box-shadow: var(--btn-shadow-press); transition: transform var(--t-tap) var(--ease-pop); }
+.mrow__btn:hover { transform: scale(1.06) rotate(-6deg); }
+.mrow__btn:active { transform: scale(.92); }
+.mrow__btn:focus-visible { outline: 4px solid var(--brand); outline-offset: 3px; }
+.mrow__btn [data-pic] { width: 60px; }
+.mrow__btn b { position: absolute; bottom: -6px; left: -6px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; padding-bottom: 4px;
+  background: var(--surface); border: 2px solid var(--fem); font-family: var(--f-word); font-size: 1.3rem; line-height: 1; color: var(--ta); }
+.mrow.is-f { border-color: var(--fem); }
+@media (max-width: 520px) { .mrow { grid-template-columns: 70px 1fr auto; } .mrow__pic { width: 70px; } .mrow__btn { width: 64px; height: 64px; } .mrow__btn [data-pic] { width: 50px; } }
+
+/* recap list */
+.recap { list-style: none; margin: 6px 0 12px; padding: 0; display: grid; gap: 6px; }
+.recap li { display: flex; gap: 10px; align-items: flex-start; font-family: var(--f-word); font-weight: 600; font-size: clamp(1.1rem, 2.6vw, 1.35rem); line-height: 1.9; }
+.recap li svg { width: 24px; height: 24px; flex: none; margin-top: 10px; fill: var(--sun); stroke: color-mix(in srgb, var(--sun) 55%, #000); stroke-width: 1.5; }
+.end-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.cover-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; align-items: center; }
+
+/* bottom navigation */
+.st-nav { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; padding: 10px max(14px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)); background: var(--topbar-bg); border-top: var(--border-w) solid var(--border-c); z-index: 5; }
+.nav-btn { min-width: 64px; min-height: 64px; padding: 0 18px; border-radius: 999px; }
+.nav-btn svg { width: 28px; height: 28px; }
+.nav-btn[disabled] { opacity: .35; pointer-events: none; }
+.nav-btn.nudge { animation: hop .6s var(--ease-pop) 3; }
+.dots { display: flex; gap: 7px; justify-content: center; flex-wrap: wrap; direction: rtl; }
+.dots i { width: 12px; height: 12px; border-radius: 999px; background: var(--line); transition: width .3s var(--ease-out), background .3s; }
+.dots i.done { background: color-mix(in srgb, var(--brand) 55%, var(--surface)); }
+.dots i.on { width: 30px; background: var(--brand); }
+.count { font: 700 .85rem/1 var(--f-latin); color: var(--ink2); text-align: center; margin-top: 6px; }
+@media (max-width: 520px) { .nav-btn .lbl { display: none; } .dots { gap: 5px; } .dots i { width: 9px; height: 9px; } .dots i.on { width: 22px; } }
+
+@media (max-width: 820px) {
+  .s-inner { grid-template-columns: minmax(0, 1fr); align-content: start; margin-top: 0; }
+  .s-art { order: -1; aspect-ratio: 16 / 11; }
+  .s-art--plain { aspect-ratio: auto; }
+  .s-inner--wide .s-art--plain { order: 0; }
+}
+@media (max-width: 820px) { .quiz-gull { display: none; } }
+.quiz-gull .gull { width: 100%; height: auto; }
+@media (prefers-reduced-motion: reduce) { .s, .s.on { transform: none; } }
+
+/* ── illustrated artwork (KS.art) ── */
+.scene--img { object-fit: cover; object-position: center 60%; }
+.tag--ill { display: none; }
+/* full book scenes already show the characters: keep the words as tap targets, hide the drawn stand-ins */
+html:not([data-art="svg"]) .s-art--full:not(.art-miss) .noori,
+html:not([data-art="svg"]) .s-art--full:not(.art-miss) span.fig,
+html:not([data-art="svg"]) .s-art--full:not(.art-miss) .fig > [data-pic],
+html:not([data-art="svg"]) .s-art--full:not(.art-miss) .fig > [data-gull] { display: none; }
+html:not([data-art="svg"]) .s-art--full:not(.art-miss) .tag--ill { display: inline-block; }
+html:not([data-art="svg"]) .s-art--full:not(.art-miss) .fig { width: auto; min-width: 56px; }
+html:not([data-art="svg"]) .s-art--full:not(.art-miss) .tag { box-shadow: 0 6px 14px -8px rgba(0,0,0,.5); }
+html:not([data-art="svg"]) .s-art--full[data-ill-flip]:not(.art-miss) .cast { flex-direction: row-reverse; justify-content: space-around; }
+html:not([data-art="svg"]) .s-art--full:not(.art-miss) .cast { bottom: 4%; }
+html:not([data-art="svg"]) .s[style*="--s-bg"] { background: linear-gradient(color-mix(in srgb, var(--bg) 58%, transparent), color-mix(in srgb, var(--bg) 58%, transparent)), var(--s-bg) center / cover no-repeat, var(--bg); }
+html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px rgba(0,0,0,.18)); }
+</style>
+</head>
+<body>
+<a class="skip" href="#slides">تَخَطَّ إِلَى الْقِصَّةِ · Skip to the story</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/></symbol>
+  <symbol id="i-ear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5l-10 7 10 7z" fill="currentColor"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1.5"/><rect x="14" y="5" width="4" height="14" rx="1.5"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1z"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+  <symbol id="beach" viewBox="0 0 400 300">
+    <rect width="400" height="300" style="fill:var(--sky)"/>
+    <circle cx="318" cy="72" r="40" style="fill:var(--sun)"/>
+    <circle cx="318" cy="72" r="54" style="fill:var(--sun)" opacity=".25"/>
+    <g fill="#FFFFFF" opacity=".9"><ellipse cx="92" cy="62" rx="36" ry="12"/><ellipse cx="116" cy="53" rx="22" ry="12"/><ellipse cx="236" cy="38" rx="26" ry="9"/></g>
+    <path d="M166 92q6-6 12 0q6-6 12 0M196 76q4-4 8 0q4-4 8 0" fill="none" stroke="#3E5763" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M0 146Q50 134 100 146T200 146T300 146T400 146V300H0Z" fill="#4FB6C4"/>
+    <path d="M0 164Q50 152 100 164T200 164T300 164T400 164V300H0Z" fill="#1E8C96"/>
+    <path d="M0 200Q60 186 130 196T260 194T400 190V300H0Z" fill="#F6DFB4"/>
+    <path d="M0 202Q60 188 130 198T260 196T400 192" fill="none" stroke="#FFFFFF" stroke-width="4" opacity=".75" stroke-linecap="round"/>
+    <g fill="#E9C995"><ellipse cx="60" cy="262" rx="5" ry="3"/><ellipse cx="340" cy="250" rx="6" ry="3"/><ellipse cx="200" cy="284" rx="4" ry="2.5"/></g>
+  </symbol>
+</svg>
+
+<div class="story" id="story">
+  <header class="st-top">
+    <a class="st-btn" href="../index.html" aria-label="الرَّئِيسَةُ — back to the hub"><svg aria-hidden="true"><use href="#i-home"/></svg></a>
+    <div class="st-title"><b>نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ</b><span class="en">Story · هَذَا وَهَذِهِ · Grade 1–2</span></div>
+    <div class="st-tools">
+      <div class="seg" role="group" aria-label="صَوْتُ الرَّاوِي — narration voice">
+        <button type="button" data-voice="ar" aria-pressed="true">فُصْحَى<span class="en">Fusha</span></button>
+        <button type="button" data-voice="eg" aria-pressed="false">مَصْرِي<span class="en">Egyptian</span></button>
+      </div>
+      <button class="st-btn" type="button" id="listenBtn" aria-label="اسْتَمِعْ إِلَى هَذِهِ الصَّفْحَةِ — listen to this page"><svg aria-hidden="true"><use href="#i-ear"/></svg></button>
+      <button class="st-btn" type="button" id="autoBtn" aria-pressed="false" aria-label="قِرَاءَةٌ تِلْقَائِيَّةٌ — auto-read (P)"><svg aria-hidden="true"><use href="#i-auto"/></svg></button>
+      <button class="st-btn" type="button" id="gearBtn" aria-expanded="false" aria-controls="panel" aria-label="الْإِعْدَادَاتُ — settings"><svg aria-hidden="true"><use href="#i-gear"/></svg></button>
+    </div>
+    <div class="st-panel" id="panel" hidden>
+      <h3>صَوْتُ الرَّاوِي <span class="en">Narration voice</span></h3>
+      <div class="row">
+        <div class="seg" role="group" aria-label="صَوْتُ الرَّاوِي — narration voice">
+          <button type="button" data-voice="ar" aria-pressed="true">فُصْحَى<span class="en">Fusha</span></button>
+          <button type="button" data-voice="eg" aria-pressed="false">مَصْرِي<span class="en">Egyptian</span></button>
+        </div>
+      </div>
+      <p class="en">Recorded narration (ElevenLabs samples) on pages 2, 4 and 7, in Fusha or Egyptian; other pages use the device’s Arabic voice for now. On-screen words always stay Fusha.</p>
+      <h3>الْقِرَاءَةُ التِّلْقَائِيَّةُ <span class="en">Auto-read</span></h3>
+      <p class="en">Reads each page aloud and turns the page when the narration ends. It waits on the activity pages (shell, writing, quiz). Pause any time with the ▶ / ⏸ button or the P key.</p>
+      <h3>الْأَصْوَاتُ <span class="en">Sound effects</span></h3>
+      <div class="row"><button type="button" class="btn btn--ghost btn--sm" id="sfxBtn" aria-pressed="true">مُفَعَّلَةٌ <span class="en">On</span></button></div>
+      <h3>السِّمَةُ <span class="en">Theme</span></h3>
+      <div data-picker-slot></div>
+    </div>
+  </header>
+
+  <main class="slides" id="slides" aria-roledescription="قِصَّةٌ — story" aria-label="نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ — Noori and the Little Shell" tabindex="-1">
+
+    <!-- 1 · COVER -->
+    <section class="s s--sky on" aria-label="١ — الْغِلَافُ · cover"
+      data-narr="نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ. قِصَّةٌ عَنْ هَذَا وَهَذِهِ.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-kicker">قِصَّةٌ مُصَوَّرَةٌ <span class="en" style="display:inline">· an illustrated story</span></p>
+          <h1 class="s-title">نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ</h1>
+          <p class="s-line">قِصَّةٌ عَنْ <b class="dem-m">هَذَا</b> وَ<b class="dem-f">هَذِهِ</b></p>
+          <p class="en">Noori and the Little Shell — a story about “this” for boys’ words and girls’ words. Tap ▶ to have it read aloud, or turn the pages yourself.</p>
+          <div class="cover-cta">
+            <button type="button" class="btn btn--accent" data-go="next">ابْدَأْ <span class="en">Start</span></button>
+            <button type="button" class="btn btn--ghost" data-auto-start><svg aria-hidden="true"><use href="#i-auto"/></svg> اقْرَأْ لِي <span class="en">Read it to me</span></button>
+          </div>
+        </div>
+        <div class="s-art s-art--full" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s01-cover.webp" alt="نُورِي يَحْمِلُ صَدَفَةً صَغِيرَةً عَلَى الشَّاطِئِ — Noori holding a little seashell on the beach" decoding="async" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="noori noori--big" data-gull="fly" data-gull-label="نُورِي يَطِيرُ — Noori flying"></div>
+          <div class="cast"><span class="fig fig--sm" style="cursor:default"><span data-pic="shell" data-pic-decorative></span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · GREETING (audio s1) -->
+    <section class="s s--foam" aria-label="٢ — التَّحِيَّةُ · greeting" data-audio="s1"
+      data-narr="السَّلَامُ عَلَيْكُمْ يَا أَصْدِقَائِي الصِّغَارَ! أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ، أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-line">السَّلَامُ عَلَيْكُمْ يَا أَصْدِقَائِي الصِّغَارَ!</p>
+          <p class="s-line">أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ، أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو.</p>
+          <p class="en">Peace be upon you, my little friends! I’m Noori, the little seagull. I fly over the sea of San Diego.</p>
+        </div>
+        <div class="s-art s-art--full" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s02-salam.webp" alt="نُورِي يَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو — Noori flying over the San Diego sea" decoding="async" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="cast">
+            <span class="fig fig--sm" style="cursor:default"><span data-pic="palm" data-pic-decorative></span></span>
+            <button type="button" class="fig" style="width:34%" data-say="أَنَا نُورِي" aria-label="أَنَا نُورِي — I am Noori"><span data-gull="wave"></span><span class="tag tag--ill">نُورِي</span></button>
+            <span class="fig fig--sm" style="cursor:default"><span data-pic="boat" data-pic-decorative></span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · MEET SAMI AND SALMA -->
+    <section class="s s--sand" aria-label="٣ — سَامِي وَسَلْمَى · meet Sami and Salma"
+      data-narr="عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ. هَذَا سَامِي، وَهَذِهِ سَلْمَى.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-line">عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ.</p>
+          <p class="s-line"><b class="dem-m">هَذَا</b> سَامِي، وَ<b class="dem-f">هَذِهِ</b> سَلْمَى.</p>
+          <p class="en">On the beach, Noori met two friends: this is Sami, and this is Salma. Tap them to say hello.</p>
+        </div>
+        <div class="s-art s-art--full" data-art-slot data-ill-flip>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s03-friends.webp" alt="سَامِي وَنُورِي وَسَلْمَى عَلَى الشَّاطِئِ — Sami, Noori and Salma on the beach" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="noori" data-gull="happy" data-gull-label="نُورِي — Noori"></div>
+          <div class="cast">
+            <button type="button" class="fig" data-say="هَذَا سَامِي" aria-label="هَذَا سَامِي — this is Sami"><span data-pic="boy" data-pic-decorative></span><span class="tag tag--m">سَامِي</span></button>
+            <button type="button" class="fig" data-say="هَذِهِ سَلْمَى" aria-label="هَذِهِ سَلْمَى — this is Salma"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f">سَلْمَى</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · هَذَا وَلَدٌ / هَذِهِ بِنْتٌ (audio s2) -->
+    <section class="s s--sky" aria-label="٤ — هَذَا وَهَذِهِ · this and this" data-audio="s2"
+      data-narr="انْظُرُوا مَعِي… هَذَا وَلَدٌ، وَهَذِهِ بِنْتٌ. هَذَا قِطٌّ، وَهَذِهِ قِطَّةٌ.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-line">انْظُرُوا مَعِي…</p>
+          <p class="s-line"><b class="dem-m">هَذَا</b> وَلَدٌ، وَ<b class="dem-f">هَذِهِ</b> بِنْتٌ.</p>
+          <p class="s-line"><b class="dem-m">هَذَا</b> قِطٌّ، وَ<b class="dem-f">هَذِهِ</b> <span data-ta>قِطَّةٌ</span>.</p>
+          <p class="en">Look with me: this is a boy, and this is a girl. This is a cat (he), and this is a cat (she). Tap each one.</p>
+        </div>
+        <div class="s-art" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s04-wall.webp" alt="شَاطِئٌ مُشْمِسٌ وَسُورٌ صَغِيرٌ — a sunny beach with a low wall" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="cast">
+            <button type="button" class="fig" data-say="هَذَا وَلَدٌ" aria-label="هَذَا وَلَدٌ — this is a boy"><span data-pic="boy" data-pic-decorative></span><span class="tag tag--m">هَذَا</span></button>
+            <button type="button" class="fig fig--sm" data-say="هَذَا قِطٌّ" aria-label="هَذَا قِطٌّ — this is a cat"><span data-pic="cat" data-pic-decorative></span><span class="tag tag--m">هَذَا</span></button>
+            <button type="button" class="fig fig--sm" data-say="هَذِهِ قِطَّةٌ" aria-label="هَذِهِ قِطَّةٌ — this is a cat (she)"><span data-pic="cat-f" data-pic-decorative></span><span class="tag tag--f">هَذِهِ</span></button>
+            <button type="button" class="fig" data-say="هَذِهِ بِنْتٌ" aria-label="هَذِهِ بِنْتٌ — this is a girl"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f">هَذِهِ</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · هَذَا for masculine -->
+    <section class="s s--sea" aria-label="٥ — هَذَا لِلْمُذَكَّرِ · hadha for masculine"
+      data-narr="سَامِي يُشِيرُ وَيَقُولُ: هَذَا قَارِبٌ. هَذَا كِتَابٌ. هَذَا قَمَرٌ. نَقُولُ هَذَا لِلْمُذَكَّرِ.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-kicker"><span class="chip chip--masc">مُذَكَّرٌ ← هَذَا</span></p>
+          <p class="s-line">سَامِي يُشِيرُ وَيَقُولُ:</p>
+          <p class="s-line"><b class="dem-m">هَذَا</b> قَارِبٌ. <b class="dem-m">هَذَا</b> كِتَابٌ. <b class="dem-m">هَذَا</b> قَمَرٌ.</p>
+          <p class="s-line">نَقُولُ <b class="dem-m">هَذَا</b> لِلْمُذَكَّرِ.</p>
+          <p class="en">Sami points: this is a boat, this is a book, this is a moon. We say هَذَا for masculine words.</p>
+        </div>
+        <div class="s-art" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s05-dusk.webp" alt="الشَّاطِئُ فِي الْمَسَاءِ — the beach at dusk" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="cast">
+            <button type="button" class="fig" data-say="هَذَا سَامِي" aria-label="سَامِي — Sami"><span data-pic="boy" data-pic-decorative></span><span class="tag tag--m">سَامِي</span></button>
+            <button type="button" class="fig fig--sm" data-say="هَذَا قَارِبٌ" aria-label="هَذَا قَارِبٌ — this is a boat"><span data-pic="boat" data-pic-decorative></span><span class="tag">قَارِبٌ</span></button>
+            <button type="button" class="fig fig--sm" data-say="هَذَا كِتَابٌ" aria-label="هَذَا كِتَابٌ — this is a book"><span data-pic="book" data-pic-decorative></span><span class="tag">كِتَابٌ</span></button>
+            <button type="button" class="fig fig--sm" data-say="هَذَا قَمَرٌ" aria-label="هَذَا قَمَرٌ — this is a moon"><span data-pic="moon" data-pic-decorative></span><span class="tag">قَمَرٌ</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · هَذِهِ for feminine -->
+    <section class="s s--sunset" aria-label="٦ — هَذِهِ لِلْمُؤَنَّثِ · hadhihi for feminine"
+      data-narr="وَسَلْمَى تَقُولُ: هَذِهِ سَمَكَةٌ. هَذِهِ نَخْلَةٌ. هَذِهِ صَدَفَةٌ. نَقُولُ هَذِهِ لِلْمُؤَنَّثِ.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-kicker"><span class="chip chip--fem">مُؤَنَّثٌ ← هَذِهِ</span></p>
+          <p class="s-line">وَسَلْمَى تَقُولُ:</p>
+          <p class="s-line"><b class="dem-f">هَذِهِ</b> <span data-ta>سَمَكَةٌ</span>. <b class="dem-f">هَذِهِ</b> <span data-ta>نَخْلَةٌ</span>. <b class="dem-f">هَذِهِ</b> <span data-ta>صَدَفَةٌ</span>.</p>
+          <p class="s-line">نَقُولُ <b class="dem-f">هَذِهِ</b> لِلْمُؤَنَّثِ.</p>
+          <p class="en">And Salma says: this is a fish, this is a palm tree, this is a seashell. We say هَذِهِ for feminine words.</p>
+        </div>
+        <div class="s-art" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s06-sunset.webp" alt="الشَّاطِئُ عِنْدَ الْغُرُوبِ — the beach at sunset" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="cast">
+            <button type="button" class="fig fig--sm" data-say="هَذِهِ صَدَفَةٌ" aria-label="هَذِهِ صَدَفَةٌ — this is a seashell"><span data-pic="shell" data-pic-decorative></span><span class="tag" data-ta>صَدَفَةٌ</span></button>
+            <button type="button" class="fig fig--sm" data-say="هَذِهِ نَخْلَةٌ" aria-label="هَذِهِ نَخْلَةٌ — this is a palm tree"><span data-pic="palm" data-pic-decorative></span><span class="tag" data-ta>نَخْلَةٌ</span></button>
+            <button type="button" class="fig fig--sm" data-say="هَذِهِ سَمَكَةٌ" aria-label="هَذِهِ سَمَكَةٌ — this is a fish"><span data-pic="fish" data-pic-decorative></span><span class="tag" data-ta>سَمَكَةٌ</span></button>
+            <button type="button" class="fig" data-say="هَذِهِ سَلْمَى" aria-label="سَلْمَى — Salma"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f">سَلْمَى</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · THE LITTLE SHELL ة (audio s3) -->
+    <section class="s s--foam" aria-label="٧ — التَّاءُ الْمَرْبُوطَةُ · the tied ta" data-audio="s3"
+      data-narr="هَلْ سَمِعْتُمُ التَّاءَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ إِنَّهَا التَّاءُ الْمَرْبُوطَةُ! قِطٌّ… قِطَّةٌ!">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-line">هَلْ سَمِعْتُمُ التَّاءَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟</p>
+          <p class="s-line">إِنَّهَا التَّاءُ الْمَرْبُوطَةُ!</p>
+          <p class="pair-line"><span>قِطٌّ</span> <span aria-hidden="true">…</span> <span data-ta>قِطَّةٌ</span>!</p>
+          <p class="en">Did you hear the little “t” at the end of the word? It’s the tā’ marbūṭa! Noori thinks ة looks like a little seashell — and it often makes a word feminine.</p>
+        </div>
+        <div class="s-art" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s07-sand.webp" alt="رَمْلٌ مُبْتَلٌّ عِنْدَ الْمَاءِ — wet sand at the water’s edge" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="noori" data-gull="think" data-gull-label="نُورِي يُفَكِّرُ — Noori thinking"></div>
+          <span class="bubble art-bubble">ة مِثْلُ صَدَفَةٍ صَغِيرَةٍ!</span>
+          <div class="big-shell"><span data-pic="shell" data-pic-decorative></span><span class="glyph" aria-hidden="true">ة</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · MAGIC SHELL (interactive) -->
+    <section class="s s--sand" style="--s-bg:url(../assets/art/story/s08-shells.webp)" aria-label="٨ — الصَّدَفَةُ السِّحْرِيَّةُ · the magic shell" data-stop
+      data-narr="ضَعِ الصَّدَفَةَ فِي آخِرِ الْكَلِمَةِ، فَتَصِيرُ مُؤَنَّثَةً: مُعَلِّمٌ… مُعَلِّمَةٌ. طَالِبٌ… طَالِبَةٌ.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-kicker">الصَّدَفَةُ السِّحْرِيَّةُ <span class="en" style="display:inline">· the magic shell</span></p>
+          <p class="s-line">ضَعِ الصَّدَفَةَ فِي آخِرِ الْكَلِمَةِ، فَتَصِيرُ مُؤَنَّثَةً!</p>
+          <p class="en">Tap the shell to put a ة at the end of the word. Watch هَذَا turn into هَذِهِ.</p>
+        </div>
+        <div class="s-art s-art--plain">
+          <div class="mrow" data-m="مُعَلِّمٌ" data-f="مُعَلِّمَةٌ" data-pm="teacher-m" data-pf="teacher-f" data-en-m="a teacher (man)" data-en-f="a teacher (woman)">
+            <div class="mrow__pic" data-pic="teacher-m"></div>
+            <p class="mrow__say" aria-live="polite"><span class="dem dem-m">هَذَا</span> <span class="mrow__w">مُعَلِّمٌ</span></p>
+            <p class="en">a teacher (man)</p>
+            <button type="button" class="mrow__btn" aria-label="أَضِفِ التَّاءَ الْمَرْبُوطَةَ — add the ة"><span data-pic="shell" data-pic-decorative></span><b aria-hidden="true">ة</b></button>
+          </div>
+          <div class="mrow" data-m="طَالِبٌ" data-f="طَالِبَةٌ" data-pm="student-m" data-pf="student-f" data-en-m="a student (boy)" data-en-f="a student (girl)">
+            <div class="mrow__pic" data-pic="student-m"></div>
+            <p class="mrow__say" aria-live="polite"><span class="dem dem-m">هَذَا</span> <span class="mrow__w">طَالِبٌ</span></p>
+            <p class="en">a student (boy)</p>
+            <button type="button" class="mrow__btn" aria-label="أَضِفِ التَّاءَ الْمَرْبُوطَةَ — add the ة"><span data-pic="shell" data-pic-decorative></span><b aria-hidden="true">ة</b></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · FENCE -->
+    <section class="s s--sunset" aria-label="٩ — انْتَبِهْ · careful"
+      data-narr="قَالَتْ سَلْمَى: لَكِنْ… بِنْتٌ لَيْسَ فِي آخِرِهَا صَدَفَةٌ! قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا تَاءٍ مَرْبُوطَةٍ: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-kicker">انْتَبِهْ! <span class="en" style="display:inline">· careful!</span></p>
+          <p class="s-line">قَالَتْ سَلْمَى: لَكِنْ… «بِنْتٌ» لَيْسَ فِي آخِرِهَا صَدَفَةٌ!</p>
+          <p class="s-line">قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة:</p>
+          <p class="s-line"><b class="dem-f">هَذِهِ</b> بِنْتٌ، <b class="dem-f">هَذِهِ</b> أُمٌّ، <b class="dem-f">هَذِهِ</b> شَمْسٌ.</p>
+          <p class="en">Salma: “But بِنْت (girl) has no shell at the end!” Noori: “Right! Some words are feminine without ة — we still say هَذِهِ.”</p>
+        </div>
+        <div class="s-art" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s09-cliffs.webp" alt="شَاطِئٌ تَحْتَ صُخُورٍ ذَهَبِيَّةٍ — a beach below golden cliffs" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="cast">
+            <button type="button" class="fig fig--sm" data-say="هَذِهِ شَمْسٌ" aria-label="هَذِهِ شَمْسٌ — this is the sun"><span data-pic="sun" data-pic-decorative></span><span class="tag tag--f">شَمْسٌ</span></button>
+            <button type="button" class="fig" data-say="هَذِهِ أُمٌّ" aria-label="هَذِهِ أُمٌّ — this is a mother"><span data-pic="mother" data-pic-decorative></span><span class="tag tag--f">أُمٌّ</span></button>
+            <button type="button" class="fig" data-say="هَذِهِ بِنْتٌ" aria-label="هَذِهِ بِنْتٌ — this is a girl"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f">بِنْتٌ</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · ADJECTIVES -->
+    <section class="s s--sea" aria-label="١٠ — الصِّفَةُ · describing words"
+      data-narr="وَالصِّفَةُ تَأْخُذُ الصَّدَفَةَ أَيْضًا: هَذَا وَلَدٌ نَشِيطٌ. هَذِهِ بِنْتٌ نَشِيطَةٌ.">
+      <div class="s-inner">
+        <div class="s-text">
+          <p class="s-kicker">تَحَدِّي الْأَبْطَالِ <span class="en" style="display:inline">· champions’ challenge</span></p>
+          <p class="s-line">وَالصِّفَةُ تَأْخُذُ الصَّدَفَةَ أَيْضًا:</p>
+          <p class="s-line"><b class="dem-m">هَذَا</b> وَلَدٌ نَشِيطٌ.</p>
+          <p class="s-line"><b class="dem-f">هَذِهِ</b> بِنْتٌ <span data-ta>نَشِيطَةٌ</span>.</p>
+          <p class="en">The describing word takes the shell too: this is an active boy; this is an active girl. (بِنْت has no ة — but نَشِيطَة does!)</p>
+        </div>
+        <div class="s-art s-art--full" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s10-nashit.webp" alt="سَلْمَى وَسَامِي يَرْكُضَانِ بِطَائِرَةٍ وَرَقِيَّةٍ — Salma and Sami running with a kite" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="noori" data-gull="cheer" data-gull-label="نُورِي يَفْرَحُ — Noori cheering"></div>
+          <div class="cast">
+            <button type="button" class="fig" data-say="هَذِهِ بِنْتٌ نَشِيطَةٌ" aria-label="هَذِهِ بِنْتٌ نَشِيطَةٌ — this is an active girl"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f" data-ta>نَشِيطَةٌ</span></button>
+            <button type="button" class="fig" data-say="هَذَا وَلَدٌ نَشِيطٌ" aria-label="هَذَا وَلَدٌ نَشِيطٌ — this is an active boy"><span data-pic="boy" data-pic-decorative></span><span class="tag tag--m">نَشِيطٌ</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · WRITING -->
+    <section class="s s--paper" style="--s-bg:url(../assets/art/story/s11-picnic.webp)" aria-label="١١ — نَكْتُبُ · let's write" data-stop
+      data-narr="هَيَّا نَكْتُبْ! تَتَبَّعْ بِإِصْبَعِكَ: التَّاءَ الْمَرْبُوطَةَ، ثُمَّ هَذِهِ. ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ.">
+      <div class="s-inner s-inner--wide">
+        <div class="s-text">
+          <p class="s-kicker">مَحَطَّةُ الْكِتَابَةِ <span class="en" style="display:inline">· writing station</span></p>
+          <p class="s-line">هَيَّا نَكْتُبْ! تَتَبَّعْ بِإِصْبَعِكَ: <span class="ta">ة</span>، ثُمَّ <b class="dem-f">هَذِهِ</b>.</p>
+          <p class="en">Trace with your finger, an Apple Pencil or the mouse. Start at the green dot — Arabic goes right to left. Tap «انْتَهَيْتُ» when you’re done.</p>
+        </div>
+        <div class="s-art s-art--plain" style="padding:0;background:none;border:0;box-shadow:none">
+          <div data-writepad data-model="ة|هَذِهِ" data-lines="2" data-line-height="120"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · QUIZ -->
+    <section class="s s--foam" style="--s-bg:url(../assets/art/story/s12-sails.webp)" aria-label="١٢ — اخْتَبِرْ نَفْسَكَ · quiz" data-stop
+      data-narr="اخْتَبِرْ نَفْسَكَ: أَرْبَعَةُ أَسْئِلَةٍ. اضْغَطْ عَلَى الْجَوَابِ.">
+      <div class="s-inner s-inner--wide">
+        <div class="s-text">
+          <p class="s-kicker">اخْتَبِرْ نَفْسَكَ <span class="en" style="display:inline">· quick quiz</span></p>
+          <p class="s-line">أَرْبَعَةُ أَسْئِلَةٍ… اضْغَطْ عَلَى الْجَوَابِ!</p>
+          <p class="en">Four questions — tap an answer. You get a star for each one, and Noori explains every answer.</p>
+          <div class="quiz-gull" data-gull="happy" style="width:110px" data-gull-label="نُورِي — Noori"></div>
+        </div>
+        <div class="s-art s-art--plain" style="padding:0;background:none;border:0;box-shadow:none">
+          <div id="quiz"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · CELEBRATION -->
+    <section class="s s--sky" aria-label="١٣ — أَحْسَنْتُمْ · well done"
+      data-narr="أَحْسَنْتُمْ يَا أَصْدِقَائِي! تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالتَّاءُ الْمَرْبُوطَةُ صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً. إِلَى اللِّقَاءِ!">
+      <div class="s-inner">
+        <div class="s-text">
+          <h2 class="s-title">أَحْسَنْتُمْ يَا أَصْدِقَائِي!</h2>
+          <p class="s-kicker">مَاذَا تَعَلَّمْنَا؟ <span class="en" style="display:inline">· what you learned</span></p>
+          <ul class="recap">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span><b class="dem-m">هَذَا</b> لِلْمُذَكَّرِ: هَذَا وَلَدٌ.</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span><b class="dem-f">هَذِهِ</b> لِلْمُؤَنَّثِ: هَذِهِ بِنْتٌ.</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span><span class="ta">ة</span> صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً: قِطٌّ ← <span data-ta>قِطَّةٌ</span>.</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span>بَعْضُ الْمُؤَنَّثِ بِلَا ة: بِنْتٌ، أُمٌّ، شَمْسٌ.</span></li>
+          </ul>
+          <p class="en">You learned: هَذَا for masculine, هَذِهِ for feminine, the ة “little shell”, and feminine words without ة. See you soon!</p>
+          <div class="end-row">
+            <button type="button" class="btn btn--ghost" data-go="0">مِنَ الْبِدَايَةِ <span class="en">Read again</span></button>
+            <a class="btn" href="article.html">الْمَقَالَةُ <span class="en">Article</span></a>
+            <a class="btn btn--accent trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
+          </div>
+        </div>
+        <div class="s-art s-art--full" data-art-slot>
+          <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
+          <img class="scene scene--img ill-only" src="../assets/art/story/s13-sadiq.webp" alt="سَامِي وَسَلْمَى يَبْنِيَانِ قَلْعَةً مِنَ الرَّمْلِ — Sami and Salma building a sandcastle" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="noori noori--big" style="top:4%;width:30%;inset-inline-start:35%" data-gull="cheer" data-gull-label="نُورِي يَفْرَحُ — Noori cheering"></div>
+          <div class="cast">
+            <span class="fig fig--sm" style="cursor:default"><span data-pic="cat-f" data-pic-decorative></span></span>
+            <button type="button" class="fig" data-say="مَعَ السَّلَامَةِ يَا سَلْمَى" aria-label="سَلْمَى — Salma"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f tag--ill">سَلْمَى</span></button>
+            <button type="button" class="fig" data-say="مَعَ السَّلَامَةِ يَا سَامِي" aria-label="سَامِي — Sami"><span data-pic="boy" data-pic-decorative></span><span class="tag tag--m tag--ill">سَامِي</span></button>
+            <span class="fig fig--sm" style="cursor:default"><span data-pic="cat" data-pic-decorative></span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="st-nav" aria-label="التَّنَقُّلُ — page navigation">
+    <button type="button" class="btn btn--ghost nav-btn" id="prevBtn" aria-label="الصَّفْحَةُ السَّابِقَةُ — previous page"><svg aria-hidden="true"><use href="#i-prev"/></svg><span class="lbl">السَّابِقُ</span></button>
+    <div><div class="dots" id="dots" aria-hidden="true"></div><div class="count" id="count" aria-live="polite"></div></div>
+    <button type="button" class="btn btn--accent nav-btn" id="nextBtn" aria-label="الصَّفْحَةُ التَّالِيَةُ — next page"><span class="lbl">التَّالِي</span><svg aria-hidden="true"><use href="#i-next"/></svg></button>
+  </nav>
+</div>
+
+<script src="../assets/kids.js"></script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var story = $('#story'), slidesEl = $('#slides'), slides = $$('.s', slidesEl), N = slides.length, cur = 0;
+  var prevBtn = $('#prevBtn'), nextBtn = $('#nextBtn'), dotsEl = $('#dots'), countEl = $('#count');
+  var autoBtn = $('#autoBtn'), listenBtn = $('#listenBtn'), gearBtn = $('#gearBtn'), panel = $('#panel');
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+  var voice = store('nawras-voice') === 'eg' ? 'eg' : 'ar';
+  var auto = false, advT = null, safeT = null, tok = 0;
+  var audio = new Audio(); audio.preload = 'none';
+
+  dotsEl.innerHTML = slides.map(function () { return '<i></i>'; }).join('');
+  var dots = $$('i', dotsEl);
+
+  /* ── narration: recorded sample (s1–s3) → device voice fallback ── */
+  function stopNarr() {
+    tok++;
+    try { audio.pause(); } catch (e) {}
+    audio.onended = audio.onerror = null;
+    try { if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch (e) {}
+    clearTimeout(safeT);
+    listenBtn.classList.remove('is-speaking');
+  }
+  function pickVoice() {
+    try {
+      var vs = speechSynthesis.getVoices() || [], want = voice === 'eg' ? /^ar[-_]EG/i : /^ar/i, any = null;
+      for (var i = 0; i < vs.length; i++) { if (want.test(vs[i].lang)) return vs[i]; if (!any && /^ar/i.test(vs[i].lang)) any = vs[i]; }
+      return any;
+    } catch (e) { return null; }
+  }
+  function speakText(text, done) {
+    var est = Math.max(2600, (text || '').length * 95);
+    try {
+      if (!('speechSynthesis' in window) || !text) { safeT = setTimeout(done, est); return; }
+      var u = new SpeechSynthesisUtterance(text), v = pickVoice();
+      u.lang = v ? v.lang : (voice === 'eg' ? 'ar-EG' : 'ar-SA'); if (v) u.voice = v;
+      u.rate = 0.85;
+      u.onend = done;
+      u.onerror = function () { clearTimeout(safeT); safeT = setTimeout(done, est); };
+      speechSynthesis.cancel(); speechSynthesis.speak(u);
+      safeT = setTimeout(done, est * 2.2);       // some browsers never fire onend
+    } catch (e) { safeT = setTimeout(done, est); }
+  }
+  function narrate(n, cb) {
+    stopNarr();
+    var my = tok, s = slides[n], fell = false;
+    listenBtn.classList.add('is-speaking');
+    function done() {
+      if (my !== tok) return;
+      tok++; clearTimeout(safeT);
+      listenBtn.classList.remove('is-speaking');
+      if (cb) cb();
+    }
+    function fallback() { if (fell || my !== tok) return; fell = true; speakText(s.getAttribute('data-narr'), done); }
+    var id = s.getAttribute('data-audio');
+    if (id) {
+      audio.src = '../audio/samples/' + voice + '/' + id + '.mp3';
+      audio.onended = done; audio.onerror = fallback;
+      try { var p = audio.play(); if (p && p.catch) p.catch(fallback); } catch (e) { fallback(); }
+    } else speakText(s.getAttribute('data-narr'), done);
+  }
+  function afterNarr() {
+    if (!auto) return;
+    if (slides[cur].hasAttribute('data-stop') || cur === N - 1) return;   // activity pages wait for the child
+    clearTimeout(advT);
+    advT = setTimeout(function () { if (auto) go(cur + 1); }, 900);
+  }
+  function setAuto(on) {
+    auto = !!on;
+    clearTimeout(advT);
+    autoBtn.setAttribute('aria-pressed', String(auto));
+    autoBtn.innerHTML = '<svg aria-hidden="true"><use href="#' + (auto ? 'i-pause' : 'i-auto') + '"/></svg>';
+    autoBtn.setAttribute('aria-label', auto ? 'إِيقَافٌ مُؤَقَّتٌ — pause auto-read (P)' : 'قِرَاءَةٌ تِلْقَائِيَّةٌ — auto-read (P)');
+    if (auto) narrate(cur, afterNarr); else stopNarr();
+  }
+
+  /* ── slide engine (clamps at both ends) ── */
+  function go(n) {
+    if (n < 0 || n >= N) return;
+    stopNarr(); clearTimeout(advT);
+    cur = n;
+    slides.forEach(function (s, i) {
+      var on = i === n;
+      s.classList.toggle('on', on);
+      s.setAttribute('aria-hidden', String(!on));
+      if ('inert' in s) s.inert = !on;
+    });
+    slides[n].scrollTop = 0;
+    dots.forEach(function (d, i) { d.className = i === n ? 'on' : (i < n ? 'done' : ''); });
+    countEl.textContent = KS.arNum(n + 1) + ' / ' + KS.arNum(N);
+    countEl.setAttribute('aria-label', 'Page ' + (n + 1) + ' of ' + N);
+    prevBtn.disabled = n === 0; nextBtn.disabled = n === N - 1;
+    nextBtn.classList.remove('nudge');
+    try { history.replaceState(null, '', '#' + (n + 1)); } catch (e) {}
+    if (n === N - 1) {
+      KS.sfx('good'); KS.confetti(90);
+      var g = $('.gull', slides[n]); if (g) KS.cheer(g);
+    }
+    if (auto) narrate(n, afterNarr);
+  }
+
+  prevBtn.addEventListener('click', function () { go(cur - 1); });
+  nextBtn.addEventListener('click', function () { go(cur + 1); });
+  listenBtn.addEventListener('click', function () { narrate(cur, auto ? afterNarr : null); });
+  autoBtn.addEventListener('click', function () { setAuto(!auto); });
+  document.addEventListener('click', function (e) {
+    var g = e.target.closest('[data-go]');
+    if (g) { var v = g.getAttribute('data-go'); go(v === 'next' ? cur + 1 : +v); return; }
+    if (e.target.closest('[data-auto-start]')) { go(1); setAuto(true); }
+  });
+
+  /* keyboard — RTL: the next page is on the LEFT */
+  document.addEventListener('keydown', function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    var t = e.target, inCtl = t && t.closest && t.closest('button, a, input, textarea, select, canvas, [contenteditable]');
+    switch (e.key) {
+      case 'ArrowLeft': case 'PageDown': go(cur + 1); e.preventDefault(); break;
+      case 'ArrowRight': case 'PageUp': go(cur - 1); e.preventDefault(); break;
+      case ' ': if (!inCtl) { go(cur + 1); e.preventDefault(); } break;
+      case 'Home': if (!inCtl) { go(0); e.preventDefault(); } break;
+      case 'End': if (!inCtl) { go(N - 1); e.preventDefault(); } break;
+      case 'p': case 'P': setAuto(!auto); break;
+      case 'Escape': if (!panel.hidden) { panel.hidden = true; gearBtn.setAttribute('aria-expanded', 'false'); gearBtn.focus(); } break;
+    }
+  });
+
+  /* swipe — RTL book: finger moving right turns to the next page */
+  var sx = null, sy = 0;
+  slidesEl.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' || e.target.closest('.wp, .qz-options, button, a')) { sx = null; return; }
+    sx = e.clientX; sy = e.clientY;
+  });
+  slidesEl.addEventListener('pointerup', function (e) {
+    if (sx === null) return;
+    var dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.3) go(dx > 0 ? cur + 1 : cur - 1);
+  });
+  slidesEl.addEventListener('pointercancel', function () { sx = null; });
+
+  /* settings panel: voice, sounds, theme */
+  gearBtn.addEventListener('click', function () {
+    panel.hidden = !panel.hidden;
+    gearBtn.setAttribute('aria-expanded', String(!panel.hidden));
+  });
+  document.addEventListener('pointerdown', function (e) {
+    if (!panel.hidden && !e.target.closest('#panel, #gearBtn')) { panel.hidden = true; gearBtn.setAttribute('aria-expanded', 'false'); }
+  });
+  function paintVoice() { $$('[data-voice]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-voice') === voice)); }); }
+  $$('[data-voice]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      voice = b.getAttribute('data-voice'); store('nawras-voice', voice); paintVoice(); KS.sfx('pop');
+      if (slides[cur].hasAttribute('data-audio')) narrate(cur, auto ? afterNarr : null);
+    });
+  });
+  paintVoice();
+  var sfxBtn = $('#sfxBtn');
+  function paintSfx() { sfxBtn.setAttribute('aria-pressed', String(!KS.muted)); sfxBtn.innerHTML = KS.muted ? 'مُطْفَأَةٌ <span class="en">Off</span>' : 'مُفَعَّلَةٌ <span class="en">On</span>'; }
+  sfxBtn.addEventListener('click', function () { KS.mute(!KS.muted); paintSfx(); KS.sfx('pop'); });
+  paintSfx();
+
+  /* figures: little hop when tapped */
+  slidesEl.addEventListener('click', function (e) {
+    var f = e.target.closest('.fig');
+    if (f && f.tagName === 'BUTTON') { f.classList.remove('anim-wiggle'); void f.offsetWidth; f.classList.add('anim-wiggle'); }
+  });
+
+  /* the magic shell */
+  $$('.mrow').forEach(function (m) {
+    var btn = $('.mrow__btn', m), w = $('.mrow__w', m), dem = $('.dem', m), pic = $('.mrow__pic', m), en = $('.en', m), fem = false;
+    btn.addEventListener('click', function () {
+      fem = !fem;
+      if (fem) {
+        w.innerHTML = KS.ta(m.getAttribute('data-f'));
+        var t = $('.ta', w);
+        if (t) { t.classList.add('ta-fly'); t.addEventListener('animationend', function d() { t.classList.remove('ta-fly'); t.removeEventListener('animationend', d); }); }
+        dem.textContent = 'هَذِهِ'; dem.className = 'dem dem-f';
+        KS.sfx('good'); KS.speak('هَذِهِ ' + m.getAttribute('data-f'));
+      } else {
+        w.textContent = m.getAttribute('data-m');
+        dem.textContent = 'هَذَا'; dem.className = 'dem dem-m';
+        KS.sfx('pop'); KS.speak('هَذَا ' + m.getAttribute('data-m'));
+      }
+      pic.innerHTML = KS.pic(m.getAttribute(fem ? 'data-pf' : 'data-pm'));
+      en.textContent = m.getAttribute(fem ? 'data-en-f' : 'data-en-m');
+      m.classList.toggle('is-f', fem);
+      btn.setAttribute('aria-label', fem ? 'أَزِلِ التَّاءَ الْمَرْبُوطَةَ — take the ة away' : 'أَضِفِ التَّاءَ الْمَرْبُوطَةَ — add the ة');
+      btn.setAttribute('aria-pressed', String(fem));
+    });
+    btn.setAttribute('aria-pressed', 'false');
+  });
+
+  /* quiz — 4 questions */
+  var B = '<span class="blank" aria-label="فَرَاغٌ — blank"></span>';
+  KS.quiz($('#quiz'), [
+    { pic: 'boy', q: B + ' وَلَدٌ', say: 'وَلَدٌ', en: '“___ a boy”',
+      options: [{ h: 'هَذَا', ok: true }, { h: 'هَذِهِ' }],
+      why: 'وَلَدٌ مُذَكَّرٌ، فَنَقُولُ: هَذَا وَلَدٌ.', whyEn: 'وَلَد is masculine: هَذَا.' },
+    { pic: 'fish', q: B + ' ' + KS.ta('سَمَكَةٌ'), say: 'سَمَكَةٌ', en: '“___ a fish”',
+      options: [{ h: 'هَذِهِ', ok: true }, { h: 'هَذَا' }],
+      why: 'سَمَكَةٌ فِي آخِرِهَا ة، فَنَقُولُ: هَذِهِ سَمَكَةٌ.', whyEn: 'سَمَكَة ends with the little shell ة: هَذِهِ.' },
+    { pic: 'student-f', q: 'أَيُّ كَلِمَةٍ لِهَذِهِ الصُّورَةِ؟', say: 'أَيُّ كَلِمَةٍ لِهَذِهِ الصُّورَةِ؟', en: 'Which word matches the picture?',
+      options: [{ h: KS.ta('طَالِبَةٌ'), ok: true }, { h: 'طَالِبٌ' }],
+      why: 'هِيَ بِنْتٌ، فَنُضِيفُ ة: طَالِبَةٌ.', whyEn: 'She is a girl, so we add ة: طَالِبَة.' },
+    { pic: 'girl', q: B + ' بِنْتٌ', say: 'بِنْتٌ', en: 'Careful! “___ a girl”',
+      options: [{ h: 'هَذِهِ', ok: true }, { h: 'هَذَا' }],
+      why: 'بِنْتٌ مُؤَنَّثَةٌ بِلَا ة، فَنَقُولُ: هَذِهِ بِنْتٌ.', whyEn: 'بِنْت has no ة, but it is feminine: هَذِهِ.' }
+  ], { gull: false, onDone: function () { nextBtn.classList.add('nudge'); } });
+
+  /* start (deep link #n) */
+  var h = parseInt((location.hash || '').slice(1), 10);
+  go(h >= 1 && h <= N ? h - 1 : 0);
+  setAuto(false);
+})();
+</script>
+</body>
+</html>
