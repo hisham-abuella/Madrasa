@@ -55,3 +55,20 @@ data-ids), short and spoken, Egyptian natural مصري, numbers in words, no Lat
 ## 6. Checks
 check.mjs clean, --themes clean, --shots, --outline shows 12 slides ending on the close. Click every switcher
 button in Playwright (theme changes inside the iframe, logo changes), and every PDF link resolves to a file.
+
+---
+# REVIEW 2 — 2026-10-25 — verdict: FIX (apply after the narration run finishes)
+## 7. Show the main website in the pitch
+Add one slide right after "idea" (slide 2): **"This is the Nawras website"** — the flagship homepage
+(../mockups/02-pacific.html) shown large as a live, scrollable iframe in a browser-window frame (address bar
+reading hisham-abuella.github.io/Madrasa), with an "Open the website ↗" button (new tab) and a "Book a free trial
+class" callout pointing at the real CTA. Unlike the theme-switcher slide, this frame is scrollable
+(pointer-events on) — so make sure arrow keys still advance the deck when focus is outside the frame, and add a
+small hint "scroll inside · click outside to continue". Keep slide 5 (layout/theme switcher) as is.
+Deck becomes 13 slides. Add a matching short script to pitch-en.json and pitch-eg.json (new id), lint --pair.
+Do not regenerate other clips.
+- Also: put the repo link (https://github.com/hisham-abuella/Madrasa, "private — ask Hisham for access") as a small reference line on the close slide next to the website link.
+- Egyptian narration: the local voice can't say «أيقونة» (comes out «أيكونة» in every take). Reword it in
+  pitch-eg.json on the **logo** and **ask** slides, e.g. «زي صورة الأبلكيشن على الموبايل» → better avoid ق:
+  «زي الصورة الصغيرة اللي على شاشة الموبايل». Keep the English unchanged. Those two clips plus the new website
+  slide get re-narrated afterwards (local, one at a time).
