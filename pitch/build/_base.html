@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nawras: Fusha for little hearts, by the Pacific</title>
+<title>Nawras: Arabic for little hearts, by the Pacific</title>
 <style id="kp-themes">
 /* =====================================================================
    THEME TOKEN CONTRACT
@@ -626,22 +626,13 @@ html.kp-idle .kp-ui{opacity:0;pointer-events:none}html.kp-idle .kp-ui:focus-with
   .kp-ui{bottom:8px;padding:3px;gap:2px;border-radius:10px}.kp-ui button{min-width:36px;height:36px}.kp-ui svg{width:18px;height:18px}
   .kp-ui .kp-count{min-width:50px;padding:0 4px;font-size:12px}.kp-ui .kp-sep{margin:6px 2px}
   .kp-ui :is([data-act="outline"],[data-act="pres"],[data-act="link"],[data-act="pen"]){display:none}}
-html.kp-clean :is(.kp-ui,.kp-pen,.kp-set,.kp-ol,.kp-progress,.kp-toast,.kp-laser,.kp-sound){display:none!important}
+html.kp-clean :is(.kp-ui,.kp-pen,.kp-set,.kp-ol,.kp-progress,.kp-toast,.kp-laser){display:none!important}
 .kp-progress{position:fixed;left:0;bottom:0;height:4px;width:100%;background:var(--brand,#0066cc);transform-origin:0 50%;transform:scaleX(0);transition:transform .4s;z-index:40;pointer-events:none}
 [dir="rtl"] .kp-progress{transform-origin:100% 50%}
 .kp-live-region{position:fixed;left:-9999px;top:0;width:1px;height:1px;overflow:hidden}
 .kp-screen{position:fixed;inset:0;z-index:90;background:#000;display:none;color:#8e8e93;font:500 22px system-ui,sans-serif;place-items:center}.kp-screen.white{background:#fff}.kp-screen.on{display:block}.kp-screen.on.end{display:grid}
 .kp-toast{position:fixed;top:24px;left:50%;transform:translateX(-50%);background:rgba(24,24,26,.9);color:#fff;font:600 28px system-ui,sans-serif;padding:10px 22px;border-radius:12px;z-index:95;opacity:0;transition:opacity .2s;pointer-events:none}
 .kp-toast.on{opacity:1}
-/* Sound marker: shown only when the deck's narration clips exist. A click is what browsers need before they play sound. */
-.kp-sound{position:fixed;top:20px;right:20px;z-index:60;display:flex;align-items:center;gap:12px;padding:8px 8px 8px 16px;border-radius:999px;background:rgba(24,24,26,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#f2f2f2;font:600 16px system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.28);transition:opacity .3s}
-[dir="rtl"] .kp-sound{right:auto;left:20px;padding:8px 16px 8px 8px}
-.kp-sound svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.kp-sound button{all:unset;box-sizing:border-box;cursor:pointer;min-height:44px;padding:0 18px;border-radius:999px;background:var(--brand,#0a84ff);color:#fff;font:700 16px system-ui,sans-serif;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
-.kp-sound button:hover{filter:brightness(1.12)}.kp-sound button:focus-visible{outline:2px solid #6db3ff;outline-offset:2px}
-.kp-sound.on button{background:rgba(255,255,255,.18)}
-html.kp-idle .kp-sound.on{opacity:0;pointer-events:none}html.kp-idle .kp-sound.on:focus-within{opacity:1;pointer-events:auto}
-@media (max-width:760px),(max-height:480px){.kp-sound{top:8px;right:8px;gap:8px;padding:4px 4px 4px 12px;font-size:13px}[dir="rtl"] .kp-sound{left:8px;padding:4px 12px 4px 4px}.kp-sound button{min-height:36px;padding:0 12px;font-size:13px}}
 .kp-ink{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:30;pointer-events:none;touch-action:none}
 html.kp-penmode .kp-ink{pointer-events:auto;cursor:crosshair}
 .kp-laser{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:radial-gradient(circle,#ff2d20 0 28%,rgba(255,45,32,.55) 45%,rgba(255,45,32,0) 70%);pointer-events:none;z-index:96;display:none}
@@ -696,7 +687,7 @@ html.kp-idle .kp-set{opacity:1}
   .slide{position:relative!important;visibility:visible!important;opacity:1!important;transform:none!important;width:1920px;height:1080px;break-after:page;break-inside:avoid;
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
   .slide:last-of-type{break-after:auto}
-  .kp-ui,.kp-progress,.kp-overview,.kp-screen,.kp-toast,.kp-ink,.kp-pen,.kp-set,.kp-ol,.kp-sound{display:none!important}
+  .kp-ui,.kp-progress,.kp-overview,.kp-screen,.kp-toast,.kp-ink,.kp-pen,.kp-set,.kp-ol{display:none!important}
   .kb,.kb *{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}
   .kd{stroke-dashoffset:0!important}
   .chart .bar{transform:none!important}.chart .ln-path{stroke-dashoffset:0!important}.chart .val,.chart .dot{opacity:1!important}
@@ -723,7 +714,7 @@ html.kp-idle .kp-set{opacity:1}
 <!-- NAWRAS-CSS -->
 </head>
 <body>
-<main class="deck" data-title="Nawras: Fusha for little hearts, by the Pacific" data-duration="10" data-narration="audio/en/">
+<main class="deck" data-title="Nawras: Fusha for little hearts, by the Pacific" data-duration="10">
 <!-- SLIDES:START -->
 <!-- ============ SAMPLE SLIDES: one per layout. Delete what you do not need; copy what you do. ============ -->
 
@@ -1261,7 +1252,7 @@ function update() {
   $('.kp-progress').style.transform = `scaleX(${N > 1 ? state.i / (N - 1) : 1})`;
   $('.kp-live-region').textContent = `Slide ${state.i + 1} of ${N}. ${titleOf(s)}`;
   if (location.hash !== '#' + SLUG[state.i]) try { history.replaceState(null, '', '#' + SLUG[state.i]); } catch (e) {}
-  ink.draw(); sendState(); markOutline(); narr.sync();
+  ink.draw(); sendState(); markOutline(); 
   const nx = slides[state.i + 1]; if (nx) $$('img', nx).forEach(im => im.decode && im.decode().catch(() => {})); // decode ahead: no first-visit hitch
 }
 
@@ -1358,7 +1349,7 @@ function presenterMain() { // runs inside the presenter window (stringified)
   setInterval(tick, 1000); tick(); $('#tm').onclick = pause; $('#tp').onclick = pause; $('#tr').onclick = reset;
   const size = d => { nf = Math.max(16, Math.min(64, nf + d)); localStorage.setItem('kp-nf', nf); document.documentElement.style.setProperty('--nf', nf + 'px'); }; size(0);
   $('#na').onclick = () => size(-2); $('#nb').onclick = () => size(2);
-  const KEYS = {ArrowRight: 'next', ArrowDown: 'next', ' ': 'next', PageDown: 'next', ArrowLeft: 'prev', ArrowUp: 'prev', PageUp: 'prev', Backspace: 'prev', Home: 'first', End: 'last', n: 'next', a: 'narr', b: 'black', '.': 'black', w: 'white', g: 'grid', m: 'pen', Escape: 'esc'};
+  const KEYS = {ArrowRight: 'next', ArrowDown: 'next', ' ': 'next', PageDown: 'next', ArrowLeft: 'prev', ArrowUp: 'prev', PageUp: 'prev', Backspace: 'prev', Home: 'first', End: 'last', n: 'next', b: 'black', '.': 'black', w: 'white', g: 'grid', m: 'pen', Escape: 'esc'};
   addEventListener('keydown', e => { if (e.metaKey || e.ctrlKey || e.altKey) return; const k = e.key, kk = k.length === 1 ? k.toLowerCase() : k;
     if (/^[0-9]$/.test(k)) { buf += k; $('#nl').textContent = 'Go to ' + buf + ' (Enter)'; clearTimeout(bufT); bufT = setTimeout(() => { buf = ''; if (st) $('#nl').textContent = st.nextLabel || ''; }, 2500); e.preventDefault(); return; }
     if (k === 'Enter') { e.preventDefault(); if (buf) { send('goto', +buf - 1); buf = ''; } else send('next'); return; }
@@ -1396,7 +1387,7 @@ addEventListener('message', e => { const d = e.data; if (!d || !e.source || e.so
     if (mine && (d.type === 'kp-ready' || d.type === 'kp-cmd') && d.from === 'kp-pv') pw = e.source; else return; }
   if (e.source !== pw) return;
   if (d.type === 'kp-ready') sendState();
-  if (d.type === 'kp-cmd') { ({next, prev, first: () => go(0, 0), last: () => go(N - 1, Infinity), goto: () => go(Math.min(N, Math.max(1, d.n + 1)) - 1, 0), black: () => screen('black'), white: () => screen('white'), grid: () => toggleOverview(), pen: () => ink.set(!ink.on()), narr: () => narr.toggle(), esc: escKey})[d.cmd]?.(); } });
+  if (d.type === 'kp-cmd') { ({next, prev, first: () => go(0, 0), last: () => go(N - 1, Infinity), goto: () => go(Math.min(N, Math.max(1, d.n + 1)) - 1, 0), black: () => screen('black'), white: () => screen('white'), grid: () => toggleOverview(), pen: () => ink.set(!ink.on()), esc: escKey})[d.cmd]?.(); } });
 
 /* ---------- 10. Pen (marker): per-slide strokes in stage coordinates ---------- */
 const ink = (() => {
@@ -1457,13 +1448,11 @@ function escKey() { // Escape never opens anything: it only closes (panels, over
 function markOutline() { if (!ol || !ol.classList.contains('on')) return; $$('.kp-ol-i', ol).forEach((b, i) => b.setAttribute('aria-current', i === state.i)); const cur = $$('.kp-ol-i', ol)[state.i]; cur.scrollIntoView({block: 'nearest'}); }
 const ICON = {
   prev: '<path d="M15 5l-7 7 7 7"/>', next: '<path d="M9 5l7 7-7 7"/>', grid: '<rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/>',
-  outline: '<path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/>', pres: '<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 21l4-5 4 5"/>', pen: '<path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/>', set: '<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>', full: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
-  narr: '<path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>'};
+  outline: '<path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/>', pres: '<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 21l4-5 4 5"/>', pen: '<path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/>', set: '<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>', full: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
 const btn = (act, label, key) => `<button type="button" data-act="${act}" aria-label="${label}${key ? ` (${key})` : ''}" title="${label}${key ? ` (${key})` : ''}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON[act === 'full' ? 'full' : act]}</svg></button>`;
 function buildUI() {
   const ui = el('div', 'kp-ui'); ui.setAttribute('role', 'toolbar'); ui.setAttribute('aria-label', 'Presentation controls');
-  ui.innerHTML = btn('prev', 'Previous', '←') + `<span class="kp-count" aria-hidden="true"></span>` + btn('next', 'Next', '→') + '<span class="kp-sep"></span>' + btn('outline', 'Outline', 'O') + btn('grid', 'Overview', 'G') + btn('pres', 'Presenter view', 'P') + btn('narr', 'Narration', 'A') + btn('pen', 'Marker', 'M') + btn('set', 'Theme and fonts', 'S') + btn('link', 'Copy link to this slide', 'K') + btn('full', 'Fullscreen', 'F');
-  ui.querySelector('[data-act="narr"]').hidden = true; // shown once a narration clip is found
+  ui.innerHTML = btn('prev', 'Previous', '←') + `<span class="kp-count" aria-hidden="true"></span>` + btn('next', 'Next', '→') + '<span class="kp-sep"></span>' + btn('outline', 'Outline', 'O') + btn('grid', 'Overview', 'G') + btn('pres', 'Presenter view', 'P') + btn('pen', 'Marker', 'M') + btn('set', 'Theme and fonts', 'S') + btn('link', 'Copy link to this slide', 'K') + btn('full', 'Fullscreen', 'F');
   document.body.append(ui, el('div', 'kp-progress'), Object.assign(el('div', 'kp-live-region'), {ariaLive: 'polite'}), el('div', 'kp-toast'), el('div', 'kp-screen'));
   $('.kp-live-region').setAttribute('aria-live', 'polite'); $('.kp-live-region').setAttribute('role', 'status');
   const pen = el('div', 'kp-pen'); pen.setAttribute('role', 'toolbar'); pen.setAttribute('aria-label', 'Marker');
@@ -1482,7 +1471,7 @@ function buildUI() {
     box.addEventListener('pointerleave', back); box.addEventListener('focusout', back); });
   syncSet();
   ui.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const a = b.dataset.act;
-    ({prev, next, outline: () => toggleOutline(), grid: () => toggleOverview(), pres: openPresenter, narr: () => narr.toggle(), pen: () => ink.set(!ink.on()), set: () => toggleSet(), link: () => copyLink(), full: fullscreen})[a]?.(); if (e.detail > 0 && !/outline|set|grid/.test(a)) b.blur(); });
+    ({prev, next, outline: () => toggleOutline(), grid: () => toggleOverview(), pres: openPresenter, pen: () => ink.set(!ink.on()), set: () => toggleSet(), link: () => copyLink(), full: fullscreen})[a]?.(); if (e.detail > 0 && !/outline|set|grid/.test(a)) b.blur(); });
   pen.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; if (b.dataset.col) ink.color(b.dataset.col); else ({hi: () => ink.hi(), erase: () => ink.eraser(), undo: () => ink.undo(), clear: () => ink.clear(), penoff: () => ink.set(false)})[b.dataset.act]?.(); });
 }
 function syncSet() { const t = committed.theme || root.getAttribute('data-theme'), f = committed.fonts || 'theme'; $$('#kp-th button').forEach(b => b.setAttribute('aria-pressed', b.dataset.th === t)); $$('#kp-fo button').forEach(b => b.setAttribute('aria-pressed', b.dataset.fo === f)); }
@@ -1513,7 +1502,7 @@ addEventListener('keydown', e => {
   else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k) || (k === ' ' && e.shiftKey)) { e.preventDefault(); prev(); }
   else if (k === 'Home') go(0, 0); else if (k === 'End') go(N - 1, Infinity);
   else if (kk === 'p') openPresenter(); else if (kk === 'f') fullscreen(); else if (kk === 'b' || k === '.') screen('black'); else if (kk === 'w') screen('white');
-  else if (kk === 'k') copyLink(); else if (kk === 'o') { e.preventDefault(); toggleOutline(); } else if (kk === 'm') ink.set(!ink.on()); else if (kk === 's') { e.preventDefault(); toggleSet(); } else if (kk === 'l') ink.laser(!ink.isLaser()); else if (kk === 'a') narr.toggle();
+  else if (kk === 'k') copyLink(); else if (kk === 'o') { e.preventDefault(); toggleOutline(); } else if (kk === 'm') ink.set(!ink.on()); else if (kk === 's') { e.preventDefault(); toggleSet(); } else if (kk === 'l') ink.laser(!ink.isLaser());
   else if (kk === 'e' && ink.on()) ink.eraser(); else if (kk === 'h' && ink.on()) ink.hi(); else if (kk === 'c' && ink.on()) ink.clear();
 });
 let tx = 0, ty = 0, tt = 0;
@@ -1528,51 +1517,12 @@ addEventListener('resize', resize);
 rmq.addEventListener?.('change', () => { root.classList.toggle('kp-rm', rmq.matches); if (rmq.matches) { finish(); setStep(slides[state.i], state.step, false); } }); // settle whatever is in flight
 addEventListener('beforeprint', () => { finish(); }); 
 
-/* ---------- 13. Narration: one recorded clip per slide ----------
-   <main class="deck" data-narration="audio/my-deck/"> plays audio/my-deck/<slide link id>.mp3 for each slide (A or the speaker button).
-   The button stays hidden until the first slide's clip loads, so a deck can ship before its audio exists.
-   Once it loads, a "This deck has sound" marker with a Play with sound button also appears (top corner; Arabic labels when lang="ar").
-   While narration is on: arriving on a slide plays its clip and reveals its builds; when the clip ends the deck moves on. */
-const narr = (() => {
-  const base = deck.dataset.narration;
-  if (!base) return {sync() {}, toggle() {}, probe() {}, on: () => false};
-  const url = i => new URL(base.replace(/\/?$/, '/') + encodeURIComponent(SLUG[i]) + '.mp3', location.href).href;
-  const a = new Audio(); a.preload = 'auto';
-  let on = false, ok = false, cur = -1, tAdv = 0, tRev = 0;
-  const button = () => $('.kp-ui [data-act="narr"]');
-  const clear = () => { clearTimeout(tAdv); clearTimeout(tRev); };
-  const advance = delay => { clearTimeout(tAdv); tAdv = setTimeout(() => { if (!on) return; const j = nextIndex(); if (j > -1) go(j, 0); else { set(false); endShow(); } }, delay); };
-  function sync() {
-    if (!on || cur === state.i) return; cur = state.i; clear(); a.pause();
-    a.src = url(state.i); a.play().catch(() => {});
-    tRev = setTimeout(() => { if (on && cur === state.i && state.step < slides[state.i].kp.steps) go(state.i, Infinity); }, 900); // the narration speaks to the whole slide
-  }
-  const T = /^ar/i.test(root.lang) ? {has: 'العرض ده بالصوت', play: 'شغّل بالصوت', playing: 'شغّال بالصوت', stop: 'وقّف'}
-    : {has: 'This deck has sound', play: 'Play with sound', playing: 'Playing with sound', stop: 'Stop'};
-  let pill = null;
-  function syncPill() { if (!pill) return; pill.classList.toggle('on', on); $('.kp-sound-txt', pill).textContent = on ? T.playing : T.has;
-    const b = $('button', pill); b.innerHTML = `<span aria-hidden="true">${on ? '■' : '▶'}</span> ${on ? T.stop : T.play}`; b.setAttribute('aria-pressed', on); }
-  function showPill() { // the marker and its start button; starting from the last slide goes back to the first
-    pill = el('div', 'kp-sound', `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON.narr}</svg><span class="kp-sound-txt"></span><button type="button"></button>`);
-    pill.setAttribute('role', 'region'); pill.setAttribute('aria-label', T.has);
-    $('button', pill).addEventListener('click', e => { if (!on && state.i === N - 1) go(0, 0, {instant: true}); set(!on); if (e.detail > 0) e.currentTarget.blur(); });
-    document.body.appendChild(pill); syncPill(); }
-  function set(v) { on = !!v && ok; const b = button(); if (b) b.setAttribute('aria-pressed', on); cur = -1; clear();
-    if (on) sync(); else a.pause(); syncPill(); toast(on ? 'Narration on (A to stop)' : 'Narration off'); }
-  a.addEventListener('ended', () => { if (on) advance(1200); });
-  a.addEventListener('error', () => { if (!on || !a.getAttribute('src')) return; toast('No narration for this slide'); advance(3000); });
-  function probe() { const p = new Audio(); p.preload = 'metadata';
-    p.addEventListener('loadedmetadata', () => { ok = true; const b = button(); if (b) { b.hidden = false; b.setAttribute('aria-pressed', 'false'); } showPill(); }, {once: true});
-    p.src = url(0); }
-  return {sync, probe, toggle: () => { if (ok) set(!on); }, on: () => on};
-})();
-
 /* ---------- Boot ---------- */
 let saved = null; try { saved = JSON.parse(localStorage.getItem(storeKey)); } catch (e) {}
 if (!REG.themes[root.getAttribute('data-theme')]) root.setAttribute('data-theme', Object.keys(REG.themes)[0] || 'keynote-white');
 root.classList.toggle('kp-rm', rmq.matches);
 slides.forEach(prep);
-buildUI(); narr.probe();
+buildUI();
 const look = saved && REG.themes[saved.theme] ? applyLook(saved.theme, saved.fonts, false) : applyLook(root.getAttribute('data-theme'), root.getAttribute('data-fonts'), false);
 resize();
 Promise.race([look, new Promise(r => setTimeout(r, 3000))]).then(() => {

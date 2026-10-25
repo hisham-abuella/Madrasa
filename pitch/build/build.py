@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds pitch/index.html and the narration transcripts from PLAN.md.
+"""Builds pitch/index.html from PLAN.md (no narration: the presenter speaks; notes are the script).
 Run: python3 pitch/build/build.py   (images: python3 pitch/build/images.py first)
 """
 import re, json, glob, os, subprocess, html
@@ -18,17 +18,10 @@ scripts = {}
 for m in re.finditer(r'### \d+ · (\w+)\n\*\*EN\*\*: (.*?)\n\n\*\*EG\*\*: (.*?)\n', plan, re.S):
     scripts[m.group(1)] = {'en': m.group(2).strip(), 'eg': m.group(3).strip()}
 assert len(scripts) == 13, len(scripts)
-for k in scripts:
-    e = scripts[k]['en']
-    e = e.replace('classroom TV', 'classroom television').replace('QR code', 'Q R code').replace('an AI model', 'an artificial intelligence model')
-    scripts[k]['en'] = e
-for k in ('start', 'close'):
-    for l in ('en', 'eg'):
-        scripts[k][l] = '[warmly] ' + scripts[k][l]
 
 TITLES = {
- 'start': 'Nawras: Fusha for little hearts, by the Pacific',
- 'idea': 'Fusha has our hours: one lesson, four ways',
+ 'start': 'Nawras: Arabic for little hearts, by the Pacific',
+ 'idea': 'Proper Arabic has our hours: one lesson, four ways',
  'site': 'The Nawras website, live',
  'name': 'The name: the seagull and Noori',
  'logo': 'Six logo ideas, one recommended',
@@ -42,8 +35,8 @@ TITLES = {
  'close': 'What your school has now',
 }
 TITLES_AR = {
- 'start': 'نَوْرَس: الفصحى لقلوب صغيرة، على المحيط الهادي',
- 'idea': 'الفصحى ليها ساعاتنا: درس واحد بأربع طرق',
+ 'start': 'نَوْرَس: العربي لقلوب صغيرة، على المحيط الهادي',
+ 'idea': 'العربي السليم ليه ساعاتنا: درس واحد بأربع طرق',
  'site': 'موقع نَوْرَس، على الهواء',
  'name': 'الاسم: النورس ونوري',
  'logo': 'ست أفكار للشعار، وواحدة مرشّحة',
@@ -59,16 +52,6 @@ TITLES_AR = {
 ORDER = list(TITLES.keys())
 assert set(ORDER) == set(scripts)
 
-def write_transcripts():
-    os.makedirs(P + 'audio/transcripts', exist_ok=True)
-    for key, lang, titles, ttl in (('en', 'en', TITLES, 'Nawras owners pitch (English)'),
-                                   ('eg', 'ar', TITLES_AR, 'Nawras owners pitch (Egyptian Arabic)')):
-        d = {'title': ttl, 'language': lang, 'page': 'pitch/index.html',
-             'note': 'One entry per slide, in slide order; ids are the deck data-ids.',
-             'slides': [{'id': i, 'slide': n + 1, 'title': titles[i], 'transcript': scripts[i][key]}
-                        for n, i in enumerate(ORDER)]}
-        json.dump(d, open(P + f'audio/transcripts/pitch-{key}.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-
 # ---------- helpers ----------
 def A(t):  # fully vowelled Arabic inline
     return f'<span class="ar" lang="ar">{t}</span>'
@@ -77,7 +60,7 @@ def notes(i, sources=''):
     s = scripts.get(i)
     if not s:
         return f'<aside class="notes"><p>{sources}</p></aside>'
-    return ('<aside class="notes"><p>' + html.escape(s['en'], quote=False) + '</p><p>— مصري —</p><p>' + s['eg'] + '</p>'
+    return ('<aside class="notes"><p>' + html.escape(s['en'], quote=False).replace('Foos-ha', 'Fusha') + '</p><p>— مصري —</p><p>' + s['eg'] + '</p>'
             + (f'<p>Sources: {sources}</p>' if sources else '') + '</aside>')
 
 def a(href, text, cls=''):
@@ -93,16 +76,15 @@ def slide(i, layout, body, src, extra=''):
 
 # 1 start
 slide('start', 'title', f'''<p class="label">{A("مَدْرَسَةُ نَوْرَس لِلْفُصْحَى")}</p>
-<nav class="vsw bx-ui" aria-label="Narration voice"><a href="?voice=en" data-v="en">English</a><a href="?voice=eg" data-v="eg" lang="ar">{A("مَصْرِي")}</a></nav>
 <img class="badge" src="img/hilal-badge.svg" alt="Gull and Crescent emblem, Nawras logo concept 1 (نَوْرَسُ الْهِلَالِ)">
-<h1>{A("نَوْرَس")} <span class="h1en">Nawras: Fusha for little hearts, by the Pacific</span></h1>
+<h1>{A("نَوْرَس")} <span class="h1en">Nawras: Arabic for little hearts, by the Pacific</span></h1>
 <p class="sub">Five decisions in ten minutes.</p>
 <p class="meta"><span>Nawras Fusha School, San Diego</span><span>{A("نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ")}</span></p>''',
  'BRIEF.md (brand, tagline); PLAN.md promise.', ' data-tone="hero"')
 
 # 2 idea
 slide('idea', 'statement', '''<p class="label">The idea</p>
-<h2>Fusha has only our hours, so one lesson, written once, reaches the child <em>four ways</em></h2>
+<h2>Proper Arabic has only our hours, so one lesson, written once, reaches the child <em>four ways</em></h2>
 <ul class="chips" data-build="list"><li class="chip">on a screen at home</li><li class="chip">on the classroom TV with the teacher</li><li class="chip">in a printed book they write in</li><li class="chip">read aloud in their ears</li></ul>
 <p class="close-line">Teachers teach. Nawras makes it joyful.</p>''',
  'BRIEF.md (one spec feeds the web book, the Lulu PDFs and the narration); lessons/presentation/PLAN.md audience line (many pupils speak English or a dialect at home). No statistics: the owners know their children.')
@@ -125,7 +107,7 @@ slide('name', 'image-right', f'''<figure><img src="img/noori-happy.webp" alt="No
 <ul data-build="list">
 <li>{A("نَوْرَس")} Nawras = the seagull, San Diego's coastal bird</li>
 <li>Mascot {A("نُورِي")} Noori, from {A("نُور")} light: round, kind, never scary</li>
-<li>{A("نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ")} Fusha for little hearts, by the Pacific</li>
+<li>Tagline: Arabic for little hearts, by the Pacific</li>
 </ul>
 <p class="src">Also prepared: {A("شَاطِئُ الضَّاد")} · {A("لُؤْلُؤَةُ الْفُصْحَى")} · {A("الْأَنْدَلُسُ الصَّغِيرَة")} · {A("هِلَال")}</p>''',
  'BRIEF.md (name, mascot, tagline, alternate names).')
@@ -181,7 +163,7 @@ slide('look', 'two-column', f'''<h2>Six layouts and six colour themes are live: 
 # 6 lesson
 cards = [
  ('article', 'مَقَالَةٌ مُصَوَّرَةٌ', 'Tap to hear, 5-question check, printable worksheet, about 15 min', '../lessons/article.html', 'Open the article', 'Screenshot of the read-along article'),
- ('story', 'قِصَّةٌ تَفَاعُلِيَّةٌ', 'Noori, Sami and Salma, read aloud in Fusha or Egyptian', '../lessons/story.html', 'Open the story', 'Screenshot of the interactive story'),
+ ('story', 'قِصَّةٌ تَفَاعُلِيَّةٌ', 'Noori, Sami and Salma, read aloud in proper Arabic or Egyptian', '../lessons/story.html', 'Open the story', 'Screenshot of the interactive story'),
  ('slides', 'عَرْضٌ لِلصَّفِّ', '18 slides, about 20 min, with games and quizzes', '../lessons/presentation.html', 'Open the slides', 'Screenshot of the classroom slides'),
 ]
 cols = ''.join(f'''<div class="col" data-build="rise"><img src="img/lesson-{k}.png" alt="{alt} ({ar})"><h3>{A(ar)}</h3><p>{d}</p><p>{a(h, t)}</p></div>''' for k, ar, d, h, t, alt in cards)
@@ -206,12 +188,12 @@ slide('write', 'image-left', f'''<figure><img src="img/writing-pad.png" alt="The
 # 8 book
 P_ = '../book/print/noori-shell-'
 slide('book', 'image-right', f'''<figure class="wide"><img src="img/book-pages.png" alt="All 32 interior pages of the book Noori and the Little Shell">
-<div class="qrrow"><img class="qr" src="img/qr-book.svg" alt="QR code to the web book, hisham-abuella.github.io/Madrasa/book/books/noori-shell.html"><div class="bx-ui listenbtns"><p>Scan, or listen:</p><button type="button" class="lbtn" data-clip="audio/clips/salam-fusha.mp3">{A("فُصْحَى")}</button> <button type="button" class="lbtn" data-clip="audio/clips/salam-eg.mp3">{A("مَصْرِي")}</button></div></div></figure>
+<div class="qrrow"><img class="qr" src="img/qr-book.svg" alt="QR code to the web book, hisham-abuella.github.io/Madrasa/book/books/noori-shell.html"><div class="bx-ui listenbtns"><p>Scan, or listen:</p><button type="button" class="lbtn" data-clip="audio/clips/salam-fusha.mp3">{A("عَرَبِيٌّ سَلِيم")}</button> <button type="button" class="lbtn" data-clip="audio/clips/salam-eg.mp3">{A("مَصْرِي")}</button></div></div></figure>
 <h2>A 32-page printed book, and its QR code reads it aloud</h2>
 <ul data-build="list">
 <li>8.5 × 8.5 in square, full colour, printed on demand by Lulu</li>
 <li>14 story pages, 11 exercises, certificate, answers</li>
-<li>Read aloud in two voices: Fusha (Sarah) and Egyptian (Hisham)</li>
+<li>Read aloud in two voices: proper Arabic (Sarah) and Egyptian (Hisham)</li>
 </ul>
 <p class="pdfbtns bx-ui">{a(P_+"lulu-interior.pdf", "See the book (PDF)", "pbtn")}{a(P_+"lulu-cover.pdf", "Cover (PDF)", "pbtn")}{a(P_+"home-a5.pdf", "Print at home (A5 booklet)", "pbtn")}{a(P_+"worksheets-letter.pdf", "Worksheets (Letter)", "pbtn")}{a(P_+"worksheets-a4.pdf", "Worksheets (A4)", "pbtn")}{a("../book/books/noori-shell.html", "Web book", "pbtn")}</p>''',
  'book/README.md (page map, Printing, Status: 56 clips, 28 Fusha by Sarah, 28 Egyptian by Hisham; 12 QR codes, 48 decodes; Lulu 8.5 in square, Premium Color; spine 0.1321 in); book/book.config.json; book/print/*.pdf. Narration credits are covered by the existing ElevenLabs plan.')
@@ -227,7 +209,7 @@ slide('adab', 'two-column', '''<h2>Every picture follows Islamic adab, and Nawra
 # 10 grow
 slide('grow', 'process', f'''<h2>Every new lesson follows the same five steps, from one written lesson to screen, paper and sound</h2>
 <ol class="steps" data-build="list">
-<li><h3>Write once</h3><p>Every word in Fusha</p></li>
+<li><h3>Write once</h3><p>Every word in proper Arabic</p></li>
 <li><h3>Draw the pictures</h3><p>On our own computer</p></li>
 <li><h3>Build web book and slides</h3><p>From the same text</p></li>
 <li><h3>Make print files</h3><p>Checked automatically</p></li>
@@ -242,7 +224,7 @@ slide('ask', 'ask', f'''<h2>Five decisions today let one class start</h2>
 <li><b>Look</b> <span>One of the six layouts and themes: your call</span></li>
 <li><b>Logo</b> <span>Gull &amp; Crescent + Noori face (recommended)</span></li>
 <li><b>Pilot class</b> <span>Grade and teacher {FILL} from {FILL}</span></li>
-<li class="hotitem"><b>Fusha proofreading</b> <span>One teacher checks every vowel mark before printing</span></li>
+<li class="hotitem"><b>Arabic proofreading</b> <span>One teacher checks every vowel mark before printing</span></li>
 <li><b>Printing budget</b> <span>Lulu about $8–15 a copy: $160–300 for a class of 20</span></li>
 </ol>
 <p class="strip cost"><span class="chip">Proof copy first: 5–10 days</span> <span class="chip">Website: $0 extra</span> <span class="chip">Home booklet: $1–3</span> <span class="chip">Estimates, Oct 2026</span></p>''',
@@ -251,7 +233,7 @@ slide('ask', 'ask', f'''<h2>Five decisions today let one class start</h2>
 # 12 close
 slide('close', 'closing', f'''<img class="cheer" src="img/noori-cheer.webp" alt="Noori the seagull cheering (نُورِي)">
 <h2>Your school now has a name, a look, a lesson and a book, ready for one class to try</h2>
-<p class="tagline">{A("نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ")}</p>
+<p class="tagline">{A("مَدْرَسَةُ نَوْرَس لِلْفُصْحَى")} &middot; Nawras Fusha School</p>
 <p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> {a("https://github.com/hisham-abuella/Madrasa", "github.com/hisham-abuella/Madrasa")} <small>(private: ask Hisham for access)</small></span></p>''',
  'Restates the story as what the owners now have.')
 
@@ -276,13 +258,9 @@ time .fill{width:3.5em;margin-top:6px}
 /* slide 1 */
 .badge{position:absolute;inset-inline-end:140px;top:300px;width:300px;height:auto;filter:drop-shadow(0 0 0 transparent)}
 [data-layout="title"] h1 .ar{font-size:1.25em;line-height:1.1}
-.vsw{background:#0B3540;position:absolute;top:110px;inset-inline-end:120px;display:flex;gap:0;border:2px solid var(--hero-ink2);border-radius:999px;overflow:hidden;font-size:28px;z-index:3}
-.vsw a{color:#FFF9EE;text-decoration:none;padding:8px 26px;line-height:1.3}
-.vsw .ar{line-height:1.2}
 .h1en{display:block;font-family:var(--f-display);font-size:64px;font-weight:500;letter-spacing:0;line-height:1.2;margin-top:12px;max-width:1100px}
 .meta{bottom:120px}
 .meta .ar{line-height:1.2}
-.vsw a.on{background:#FFC94A;color:#0B3540!important;font-weight:700}
 /* slide 2 */
 [data-layout="agenda"] .foot-line{grid-column:1/6;grid-row:1;align-self:end;font-size:30px;font-family:var(--f-mono)}
 /* slide 4 */
@@ -381,19 +359,6 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 '''
 
 
-JS = r'''<script>
-/* Narration track: English by default, Egyptian with ?voice=eg (or localStorage.nawrasVoice). Runs before the engine. */
-(function(){
-  var q=(location.search.match(/[?&]voice=(en|eg)/)||[])[1], v='en';
-  try{ if(q) localStorage.nawrasVoice=q; v=q||localStorage.nawrasVoice||'en'; }catch(e){ v=q||'en'; }
-  if(v!=='eg') v='en';
-  document.querySelector('main.deck').setAttribute('data-narration','audio/'+v+'/');
-  document.addEventListener('DOMContentLoaded',function(){
-    var l=document.querySelectorAll('.vsw a'); for(var i=0;i<l.length;i++){ if(l[i].dataset.v===v) l[i].className='on'; }
-  });
-})();
-</script>'''
-
 JS2 = r'''<script>
 /* Book slide: listen buttons play on click only; they stop when the slide is left. */
 (function(){
@@ -407,7 +372,6 @@ JS2 = r'''<script>
   }); });
   au.addEventListener('ended',stop);
   new MutationObserver(function(){ if(!sl.classList.contains('is-current')) stop(); }).observe(sl,{attributes:true,attributeFilter:['class']});
-  document.querySelectorAll('.vsw').forEach(function(n){ n.addEventListener('click',function(e){e.stopPropagation();}); });
 })();
 /* Logo switcher (slide 4). */
 (function(){
@@ -452,8 +416,7 @@ base = open(P + 'build/_base.html', encoding='utf-8').read()
 slides_html = '\n\n'.join(sl)
 out = base.replace('<!-- NAWRAS-CSS -->', '<style id="nawras">' + CSS + '</style>')
 out = re.sub(r'<!-- SLIDES:START -->.*<!-- SLIDES:END -->', lambda m: '<!-- SLIDES:START -->\n' + slides_html + '\n<!-- SLIDES:END -->', out, flags=re.S)
-out = out.replace('<!-- NAWRAS-JS -->', JS)
+out = out.replace('<!-- NAWRAS-JS -->', '')
 out = out.replace('<!-- NAWRAS-JS2 -->', JS2)
 open(P + 'index.html', 'w', encoding='utf-8').write(out)
-write_transcripts()
 print('built; slides:', len(sl), 'art:', ART)

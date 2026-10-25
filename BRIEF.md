@@ -148,3 +148,5 @@ so it documents the final tools; validated with a dry run on a second topic (spe
   14 story pages, summary, 11 exercise pages, certificate, answers, free writing, goodbye), same cover border +
   pattern, same characters and style suffix, same exercise types, same Lulu settings and checks. The skill copies
   the Noori book as the template and only swaps topic content.
+
+- **Owners' deck: NO narration (owner decision 2026-10-25)** — presenter speaks live from the notes. "Fusha" said at most once or twice in the deck. Keep it simple.

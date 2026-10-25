@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nawras: Fusha for little hearts, by the Pacific</title>
+<title>Nawras: Arabic for little hearts, by the Pacific</title>
 <style id="kp-themes">
 /* =====================================================================
    THEME TOKEN CONTRACT
@@ -626,22 +626,13 @@ html.kp-idle .kp-ui{opacity:0;pointer-events:none}html.kp-idle .kp-ui:focus-with
   .kp-ui{bottom:8px;padding:3px;gap:2px;border-radius:10px}.kp-ui button{min-width:36px;height:36px}.kp-ui svg{width:18px;height:18px}
   .kp-ui .kp-count{min-width:50px;padding:0 4px;font-size:12px}.kp-ui .kp-sep{margin:6px 2px}
   .kp-ui :is([data-act="outline"],[data-act="pres"],[data-act="link"],[data-act="pen"]){display:none}}
-html.kp-clean :is(.kp-ui,.kp-pen,.kp-set,.kp-ol,.kp-progress,.kp-toast,.kp-laser,.kp-sound){display:none!important}
+html.kp-clean :is(.kp-ui,.kp-pen,.kp-set,.kp-ol,.kp-progress,.kp-toast,.kp-laser){display:none!important}
 .kp-progress{position:fixed;left:0;bottom:0;height:4px;width:100%;background:var(--brand,#0066cc);transform-origin:0 50%;transform:scaleX(0);transition:transform .4s;z-index:40;pointer-events:none}
 [dir="rtl"] .kp-progress{transform-origin:100% 50%}
 .kp-live-region{position:fixed;left:-9999px;top:0;width:1px;height:1px;overflow:hidden}
 .kp-screen{position:fixed;inset:0;z-index:90;background:#000;display:none;color:#8e8e93;font:500 22px system-ui,sans-serif;place-items:center}.kp-screen.white{background:#fff}.kp-screen.on{display:block}.kp-screen.on.end{display:grid}
 .kp-toast{position:fixed;top:24px;left:50%;transform:translateX(-50%);background:rgba(24,24,26,.9);color:#fff;font:600 28px system-ui,sans-serif;padding:10px 22px;border-radius:12px;z-index:95;opacity:0;transition:opacity .2s;pointer-events:none}
 .kp-toast.on{opacity:1}
-/* Sound marker: shown only when the deck's narration clips exist. A click is what browsers need before they play sound. */
-.kp-sound{position:fixed;top:20px;right:20px;z-index:60;display:flex;align-items:center;gap:12px;padding:8px 8px 8px 16px;border-radius:999px;background:rgba(24,24,26,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#f2f2f2;font:600 16px system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.28);transition:opacity .3s}
-[dir="rtl"] .kp-sound{right:auto;left:20px;padding:8px 16px 8px 8px}
-.kp-sound svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.kp-sound button{all:unset;box-sizing:border-box;cursor:pointer;min-height:44px;padding:0 18px;border-radius:999px;background:var(--brand,#0a84ff);color:#fff;font:700 16px system-ui,sans-serif;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
-.kp-sound button:hover{filter:brightness(1.12)}.kp-sound button:focus-visible{outline:2px solid #6db3ff;outline-offset:2px}
-.kp-sound.on button{background:rgba(255,255,255,.18)}
-html.kp-idle .kp-sound.on{opacity:0;pointer-events:none}html.kp-idle .kp-sound.on:focus-within{opacity:1;pointer-events:auto}
-@media (max-width:760px),(max-height:480px){.kp-sound{top:8px;right:8px;gap:8px;padding:4px 4px 4px 12px;font-size:13px}[dir="rtl"] .kp-sound{left:8px;padding:4px 12px 4px 4px}.kp-sound button{min-height:36px;padding:0 12px;font-size:13px}}
 .kp-ink{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:30;pointer-events:none;touch-action:none}
 html.kp-penmode .kp-ink{pointer-events:auto;cursor:crosshair}
 .kp-laser{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:radial-gradient(circle,#ff2d20 0 28%,rgba(255,45,32,.55) 45%,rgba(255,45,32,0) 70%);pointer-events:none;z-index:96;display:none}
@@ -696,7 +687,7 @@ html.kp-idle .kp-set{opacity:1}
   .slide{position:relative!important;visibility:visible!important;opacity:1!important;transform:none!important;width:1920px;height:1080px;break-after:page;break-inside:avoid;
     -webkit-print-color-adjust:exact;print-color-adjust:exact}
   .slide:last-of-type{break-after:auto}
-  .kp-ui,.kp-progress,.kp-overview,.kp-screen,.kp-toast,.kp-ink,.kp-pen,.kp-set,.kp-ol,.kp-sound{display:none!important}
+  .kp-ui,.kp-progress,.kp-overview,.kp-screen,.kp-toast,.kp-ink,.kp-pen,.kp-set,.kp-ol{display:none!important}
   .kb,.kb *{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}
   .kd{stroke-dashoffset:0!important}
   .chart .bar{transform:none!important}.chart .ln-path{stroke-dashoffset:0!important}.chart .val,.chart .dot{opacity:1!important}
@@ -740,13 +731,9 @@ time .fill{width:3.5em;margin-top:6px}
 /* slide 1 */
 .badge{position:absolute;inset-inline-end:140px;top:300px;width:300px;height:auto;filter:drop-shadow(0 0 0 transparent)}
 [data-layout="title"] h1 .ar{font-size:1.25em;line-height:1.1}
-.vsw{background:#0B3540;position:absolute;top:110px;inset-inline-end:120px;display:flex;gap:0;border:2px solid var(--hero-ink2);border-radius:999px;overflow:hidden;font-size:28px;z-index:3}
-.vsw a{color:#FFF9EE;text-decoration:none;padding:8px 26px;line-height:1.3}
-.vsw .ar{line-height:1.2}
 .h1en{display:block;font-family:var(--f-display);font-size:64px;font-weight:500;letter-spacing:0;line-height:1.2;margin-top:12px;max-width:1100px}
 .meta{bottom:120px}
 .meta .ar{line-height:1.2}
-.vsw a.on{background:#FFC94A;color:#0B3540!important;font-weight:700}
 /* slide 2 */
 [data-layout="agenda"] .foot-line{grid-column:1/6;grid-row:1;align-self:end;font-size:30px;font-family:var(--f-mono)}
 /* slide 4 */
@@ -845,24 +832,23 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 </style>
 </head>
 <body>
-<main class="deck" data-title="Nawras: Fusha for little hearts, by the Pacific" data-duration="10" data-narration="audio/en/">
+<main class="deck" data-title="Nawras: Fusha for little hearts, by the Pacific" data-duration="10">
 <!-- SLIDES:START -->
 <section class="slide" data-layout="title" data-id="start" data-tone="hero">
 <p class="label"><span class="ar" lang="ar">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</span></p>
-<nav class="vsw bx-ui" aria-label="Narration voice"><a href="?voice=en" data-v="en">English</a><a href="?voice=eg" data-v="eg" lang="ar"><span class="ar" lang="ar">مَصْرِي</span></a></nav>
 <img class="badge" src="img/hilal-badge.svg" alt="Gull and Crescent emblem, Nawras logo concept 1 (نَوْرَسُ الْهِلَالِ)">
-<h1><span class="ar" lang="ar">نَوْرَس</span> <span class="h1en">Nawras: Fusha for little hearts, by the Pacific</span></h1>
+<h1><span class="ar" lang="ar">نَوْرَس</span> <span class="h1en">Nawras: Arabic for little hearts, by the Pacific</span></h1>
 <p class="sub">Five decisions in ten minutes.</p>
 <p class="meta"><span>Nawras Fusha School, San Diego</span><span><span class="ar" lang="ar">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</span></span></p>
-<aside class="notes"><p>[warmly] Assalamu alaikum. In ten minutes I will show you what we built for your school, under one name: Nawras. At the end I will ask you for five decisions: which look, which logo, which class tries it first, which teacher checks the Fusha, and how many books to print. Let us start with the children.</p><p>— مصري —</p><p>[warmly] السلام عليكم. في عشر دقايق هوريكم اللي عملناه للمدرسة تحت اسم واحد: نَوْرَس. وفي الآخر هطلب منكم خمس قرارات: أنهي شكل، وأنهي شعار، وأنهي فصل يجرّب الأول، ومين من المدرّسين يراجع الفصحى، وكام كتاب نطبع. يلّا نبدأ بالأولاد.</p><p>Sources: BRIEF.md (brand, tagline); PLAN.md promise.</p></aside>
+<aside class="notes"><p>Assalamu alaikum. In ten minutes I will show you what we built for your school, under one name: Nawras. At the end I will ask you for five decisions: which look, which logo, which class tries it first, which teacher checks the Fusha, and how many books to print. Let us start with the children.</p><p>— مصري —</p><p>السلام عليكم. في عشر دقايق هوريكم اللي عملناه للمدرسة تحت اسم واحد: نَوْرَس. وفي الآخر هطلب منكم خمس قرارات: أنهي شكل، وأنهي شعار، وأنهي فصل يجرّب الأول، ومين من المدرّسين يراجع الفصحى، وكام كتاب نطبع. يلّا نبدأ بالأولاد.</p><p>Sources: BRIEF.md (brand, tagline); PLAN.md promise.</p></aside>
 </section>
 
 <section class="slide" data-layout="statement" data-id="idea">
 <p class="label">The idea</p>
-<h2>Fusha has only our hours, so one lesson, written once, reaches the child <em>four ways</em></h2>
+<h2>Proper Arabic has only our hours, so one lesson, written once, reaches the child <em>four ways</em></h2>
 <ul class="chips" data-build="list"><li class="chip">on a screen at home</li><li class="chip">on the classroom TV with the teacher</li><li class="chip">in a printed book they write in</li><li class="chip">read aloud in their ears</li></ul>
 <p class="close-line">Teachers teach. Nawras makes it joyful.</p>
-<aside class="notes"><p>Our students live in English, and at home in a dialect. Fusha, the language of the Qur'an, gets only the hours they spend with us. So those hours must be joyful. Let me ask you, as parents: when your own child comes to Arabic class, do they run in, or drag their feet? Here is our idea. We write a lesson once, carefully, in correct Fusha. The child gets it four ways: on a screen at home, on the classroom television with the teacher, in a printed book they write in, and read aloud in their ears. Teachers teach; Nawras makes it joyful.</p><p>— مصري —</p><p>ولادنا عايشين بالإنجليزي، وفي البيت بلهجة. والفصحى، لغة القرآن، مالهاش غير الساعات اللي معانا. يعني الساعات دي لازم تبقى فرحة. خلّوني أسألكم كأهالي: لما ابنكم أو بنتكم بييجوا حصة العربي، بيجروا على الفصل ولا بيتسحبوا؟ فكرتنا بسيطة. بنكتب الدرس مرة واحدة، بعناية، وبفصحى سليمة. والطفل ياخده بأربع طرق: على الشاشة في البيت، وعلى شاشة الفصل مع المدرّس، وفي كتاب مطبوع يكتب فيه، ومسموع في ودانه. المدرّسين بيعلّموا، ونَوْرَس بيخلّي التعليم فرحة.</p><p>Sources: BRIEF.md (one spec feeds the web book, the Lulu PDFs and the narration); lessons/presentation/PLAN.md audience line (many pupils speak English or a dialect at home). No statistics: the owners know their children.</p></aside>
+<aside class="notes"><p>Our students live in English, and at home in a dialect. Fusha, the language of the Qur'an, gets only the hours they spend with us. So those hours must be joyful. Let me ask you, as parents: when your own child comes to Arabic class, do they run in, or drag their feet? Here is our idea. We write a lesson once, carefully, in proper Arabic. The child gets it four ways: on a screen at home, on the classroom TV with the teacher, in a printed book they write in, and read aloud in their ears. Teachers teach; Nawras makes it joyful.</p><p>— مصري —</p><p>ولادنا عايشين بالإنجليزي، وفي البيت بلهجة. والفصحى، لغة القرآن، مالهاش غير الساعات اللي معانا. يعني الساعات دي لازم تبقى فرحة. خلّوني أسألكم كأهالي: لما ابنكم أو بنتكم بييجوا حصة العربي، بيجروا على الفصل ولا بيتسحبوا؟ فكرتنا بسيطة. بنكتب الدرس مرة واحدة، بعناية، وبعربي سليم. والطفل ياخده بأربع طرق: على الشاشة في البيت، وعلى شاشة الفصل مع المدرّس، وفي كتاب مطبوع يكتب فيه، ومسموع في ودانه. المدرّسين بيعلّموا، ونَوْرَس بيخلّي التعليم فرحة.</p><p>Sources: BRIEF.md (one spec feeds the web book, the Lulu PDFs and the narration); lessons/presentation/PLAN.md audience line (many pupils speak English or a dialect at home). No statistics: the owners know their children.</p></aside>
 </section>
 
 <section class="slide" data-layout="two-column" data-id="site">
@@ -884,7 +870,7 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <ul data-build="list">
 <li><span class="ar" lang="ar">نَوْرَس</span> Nawras = the seagull, San Diego's coastal bird</li>
 <li>Mascot <span class="ar" lang="ar">نُورِي</span> Noori, from <span class="ar" lang="ar">نُور</span> light: round, kind, never scary</li>
-<li><span class="ar" lang="ar">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</span> Fusha for little hearts, by the Pacific</li>
+<li>Tagline: Arabic for little hearts, by the Pacific</li>
 </ul>
 <p class="src">Also prepared: <span class="ar" lang="ar">شَاطِئُ الضَّاد</span> · <span class="ar" lang="ar">لُؤْلُؤَةُ الْفُصْحَى</span> · <span class="ar" lang="ar">الْأَنْدَلُسُ الصَّغِيرَة</span> · <span class="ar" lang="ar">هِلَال</span></p>
 <aside class="notes"><p>The name is Nawras, the seagull. Children in San Diego see seagulls every time they go to the beach. A seagull flies far and always comes home, like our children returning to the language of the Qur'an. Our mascot is a young seagull called Noori, from nur, light. He is round and kind, never scary. If you prefer another name, we prepared four more; they are at the bottom of the slide.</p><p>— مصري —</p><p>الاسم نَوْرَس. والنورس الطفل في سان دييجو بيشوفه كل ما يروح البحر. بيطير بعيد وبيرجع دايمًا لبيته، زي ولادنا وهما راجعين للغة القرآن. والشخصية بتاعتنا نورس صغير اسمه نوري، من النور. مدوّر وطيّب وعمره ما يخوّف. ولو حابّين اسم تاني، جهّزنا أربع أسامي كمان، مكتوبين تحت.</p><p>Sources: BRIEF.md (name, mascot, tagline, alternate names).</p></aside>
@@ -921,8 +907,8 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <section class="slide" data-layout="two-column" data-id="lesson" data-cols="3">
 <p class="label">Grade 1–2 · masculine and feminine · the final tā' marbūṭa is Noori's little seashell</p>
 <h2>One lesson, <span class="ar" lang="ar">هَذَا وَهَذِهِ</span>, is ready three ways: to read, to hear, to present</h2>
-<div class="cols"><div class="col" data-build="rise"><img src="img/lesson-article.png" alt="Screenshot of the read-along article (مَقَالَةٌ مُصَوَّرَةٌ)"><h3><span class="ar" lang="ar">مَقَالَةٌ مُصَوَّرَةٌ</span></h3><p>Tap to hear, 5-question check, printable worksheet, about 15 min</p><p><a href="../lessons/article.html" target="_blank" rel="noopener">Open the article</a></p></div><div class="col" data-build="rise"><img src="img/lesson-story.png" alt="Screenshot of the interactive story (قِصَّةٌ تَفَاعُلِيَّةٌ)"><h3><span class="ar" lang="ar">قِصَّةٌ تَفَاعُلِيَّةٌ</span></h3><p>Noori, Sami and Salma, read aloud in Fusha or Egyptian</p><p><a href="../lessons/story.html" target="_blank" rel="noopener">Open the story</a></p></div><div class="col" data-build="rise"><img src="img/lesson-slides.png" alt="Screenshot of the classroom slides (عَرْضٌ لِلصَّفِّ)"><h3><span class="ar" lang="ar">عَرْضٌ لِلصَّفِّ</span></h3><p>18 slides, about 20 min, with games and quizzes</p><p><a href="../lessons/presentation.html" target="_blank" rel="noopener">Open the slides</a></p></div></div>
-<aside class="notes"><p>To show the format, we built one real lesson for grades one and two: hadha and hadhihi, "this" for masculine and for feminine words. The little ta marbuta becomes a seashell that Noori finds on the beach. The lesson comes three ways. An article to read together, about fifteen minutes, with five questions and a worksheet. A story with Noori and his friends Sami and Salma, read aloud in Fusha or Egyptian. And slides for the teacher, eighteen of them in about twenty minutes, with games. Tap a card to open any of them.</p><p>— مصري —</p><p>علشان نوريكم الطريقة، عملنا درس حقيقي لأولى وتانية ابتدائي: هذا وهذه، هذا للمذكّر وهذه للمؤنّث. والتاء المربوطة بقت صدفة صغيرة نوري بيلاقيها على البحر. والدرس موجود بتلات طرق. مقالة يقروها مع بعض، حوالي ربع ساعة، فيها خمس أسئلة وورقة تمارين. وقصة فيها نوري وصاحبيه سامي وسلمى، مقروّة بالفصحى أو بالمصري. وعرض للمدرّس، تمنتاشر شريحة في حوالي عشرين دقيقة، فيه ألعاب. دوسوا على أي كارت يفتح.</p><p>Sources: index.html lesson cards; lessons/article.html, story.html, presentation/PLAN.md. (story.html has recorded clips on pages 2, 4 and 7; the other pages use the device voice for now.)</p></aside>
+<div class="cols"><div class="col" data-build="rise"><img src="img/lesson-article.png" alt="Screenshot of the read-along article (مَقَالَةٌ مُصَوَّرَةٌ)"><h3><span class="ar" lang="ar">مَقَالَةٌ مُصَوَّرَةٌ</span></h3><p>Tap to hear, 5-question check, printable worksheet, about 15 min</p><p><a href="../lessons/article.html" target="_blank" rel="noopener">Open the article</a></p></div><div class="col" data-build="rise"><img src="img/lesson-story.png" alt="Screenshot of the interactive story (قِصَّةٌ تَفَاعُلِيَّةٌ)"><h3><span class="ar" lang="ar">قِصَّةٌ تَفَاعُلِيَّةٌ</span></h3><p>Noori, Sami and Salma, read aloud in proper Arabic or Egyptian</p><p><a href="../lessons/story.html" target="_blank" rel="noopener">Open the story</a></p></div><div class="col" data-build="rise"><img src="img/lesson-slides.png" alt="Screenshot of the classroom slides (عَرْضٌ لِلصَّفِّ)"><h3><span class="ar" lang="ar">عَرْضٌ لِلصَّفِّ</span></h3><p>18 slides, about 20 min, with games and quizzes</p><p><a href="../lessons/presentation.html" target="_blank" rel="noopener">Open the slides</a></p></div></div>
+<aside class="notes"><p>To show the format, we built one real lesson for grades one and two: hadha and hadhihi, "this" for masculine and for feminine words. The little ta marbuta becomes a seashell that Noori finds on the beach. The lesson comes three ways. An article to read together, about fifteen minutes, with five questions and a worksheet. A story with Noori and his friends Sami and Salma, read aloud in classical Arabic or Egyptian. And slides for the teacher, eighteen of them in about twenty minutes, with games. Tap a card to open any of them.</p><p>— مصري —</p><p>علشان نوريكم الطريقة، عملنا درس حقيقي لأولى وتانية ابتدائي: هذا وهذه، هذا للمذكّر وهذه للمؤنّث. والتاء المربوطة بقت صدفة صغيرة نوري بيلاقيها على البحر. والدرس موجود بتلات طرق. مقالة يقروها مع بعض، حوالي ربع ساعة، فيها خمس أسئلة وورقة تمارين. وقصة فيها نوري وصاحبيه سامي وسلمى، مقروّة بالعربي السليم أو بالمصري. وعرض للمدرّس، تمنتاشر شريحة في حوالي عشرين دقيقة، فيه ألعاب. دوسوا على أي كارت يفتح.</p><p>Sources: index.html lesson cards; lessons/article.html, story.html, presentation/PLAN.md. (story.html has recorded clips on pages 2, 4 and 7; the other pages use the device voice for now.)</p></aside>
 </section>
 
 <section class="slide" data-layout="image-left" data-id="write">
@@ -940,15 +926,15 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 
 <section class="slide" data-layout="image-right" data-id="book">
 <figure class="wide"><img src="img/book-pages.png" alt="All 32 interior pages of the book Noori and the Little Shell">
-<div class="qrrow"><img class="qr" src="img/qr-book.svg" alt="QR code to the web book, hisham-abuella.github.io/Madrasa/book/books/noori-shell.html"><div class="bx-ui listenbtns"><p>Scan, or listen:</p><button type="button" class="lbtn" data-clip="audio/clips/salam-fusha.mp3"><span class="ar" lang="ar">فُصْحَى</span></button> <button type="button" class="lbtn" data-clip="audio/clips/salam-eg.mp3"><span class="ar" lang="ar">مَصْرِي</span></button></div></div></figure>
+<div class="qrrow"><img class="qr" src="img/qr-book.svg" alt="QR code to the web book, hisham-abuella.github.io/Madrasa/book/books/noori-shell.html"><div class="bx-ui listenbtns"><p>Scan, or listen:</p><button type="button" class="lbtn" data-clip="audio/clips/salam-fusha.mp3"><span class="ar" lang="ar">عَرَبِيٌّ سَلِيم</span></button> <button type="button" class="lbtn" data-clip="audio/clips/salam-eg.mp3"><span class="ar" lang="ar">مَصْرِي</span></button></div></div></figure>
 <h2>A 32-page printed book, and its QR code reads it aloud</h2>
 <ul data-build="list">
 <li>8.5 × 8.5 in square, full colour, printed on demand by Lulu</li>
 <li>14 story pages, 11 exercises, certificate, answers</li>
-<li>Read aloud in two voices: Fusha (Sarah) and Egyptian (Hisham)</li>
+<li>Read aloud in two voices: proper Arabic (Sarah) and Egyptian (Hisham)</li>
 </ul>
 <p class="pdfbtns bx-ui"><a class="pbtn" href="../book/print/noori-shell-lulu-interior.pdf" target="_blank" rel="noopener">See the book (PDF)</a><a class="pbtn" href="../book/print/noori-shell-lulu-cover.pdf" target="_blank" rel="noopener">Cover (PDF)</a><a class="pbtn" href="../book/print/noori-shell-home-a5.pdf" target="_blank" rel="noopener">Print at home (A5 booklet)</a><a class="pbtn" href="../book/print/noori-shell-worksheets-letter.pdf" target="_blank" rel="noopener">Worksheets (Letter)</a><a class="pbtn" href="../book/print/noori-shell-worksheets-a4.pdf" target="_blank" rel="noopener">Worksheets (A4)</a><a class="pbtn" href="../book/books/noori-shell.html" target="_blank" rel="noopener">Web book</a></p>
-<aside class="notes"><p>Now off the screen and into their hands. This is the book: Noori and the Little Shell. Thirty-two pages, square, in full colour, printed on demand by Lulu. Fourteen story pages, eleven exercise pages, a certificate, and an answer page for parents. On every exercise page there is a Q R code; a parent scans it and the book opens on the web, read aloud in Fusha or in Egyptian. Scan this one now, or press a button to hear. The buttons below open the real print files: the book, the cover, a booklet to print at home, and the worksheets.</p><p>— مصري —</p><p>ودلوقتي من الشاشة لإيد الطفل. ده الكتاب: نوري والصدفة الصغيرة. اتنين وتلاتين صفحة، مربّع، ألوان كاملة، بيتطبع عند الطلب في لولو. أربعتاشر صفحة قصة، وحداشر صفحة تمارين، وشهادة للطفل، وصفحة إجابات للأهل. وعلى كل صفحة تمرين كود كيو آر؛ ولي الأمر يصوّره والكتاب يفتح على النت مقروء بصوت عالي، بالفصحى أو بالمصري. صوّروا الكود ده دلوقتي، أو دوسوا على زرار تسمعوا. والزراير اللي تحت بتفتح ملفات الطباعة الحقيقية: الكتاب، والغلاف، وكتيّب يتطبع في البيت، وورق التمارين.</p><p>Sources: book/README.md (page map, Printing, Status: 56 clips, 28 Fusha by Sarah, 28 Egyptian by Hisham; 12 QR codes, 48 decodes; Lulu 8.5 in square, Premium Color; spine 0.1321 in); book/book.config.json; book/print/*.pdf. Narration credits are covered by the existing ElevenLabs plan.</p></aside>
+<aside class="notes"><p>Now off the screen and into their hands. This is the book: Noori and the Little Shell. Thirty-two pages, square, in full colour, printed on demand by Lulu. Fourteen story pages, eleven exercise pages, a certificate, and an answer page for parents. On every exercise page there is a QR code; a parent scans it and the book opens on the web, read aloud in proper Arabic or in Egyptian. Scan this one now, or press a button to hear. The buttons below open the real print files: the book, the cover, a booklet to print at home, and the worksheets.</p><p>— مصري —</p><p>ودلوقتي من الشاشة لإيد الطفل. ده الكتاب: نوري والصدفة الصغيرة. اتنين وتلاتين صفحة، مربّع، ألوان كاملة، بيتطبع عند الطلب في لولو. أربعتاشر صفحة قصة، وحداشر صفحة تمارين، وشهادة للطفل، وصفحة إجابات للأهل. وعلى كل صفحة تمرين كود كيو آر؛ ولي الأمر يصوّره والكتاب يفتح على النت مقروء بصوت عالي، بالعربي السليم أو بالمصري. صوّروا الكود ده دلوقتي، أو دوسوا على زرار تسمعوا. والزراير اللي تحت بتفتح ملفات الطباعة الحقيقية: الكتاب، والغلاف، وكتيّب يتطبع في البيت، وورق التمارين.</p><p>Sources: book/README.md (page map, Printing, Status: 56 clips, 28 Fusha by Sarah, 28 Egyptian by Hisham; 12 QR codes, 48 decodes; Lulu 8.5 in square, Premium Color; spine 0.1321 in); book/book.config.json; book/print/*.pdf. Narration credits are covered by the existing ElevenLabs plan.</p></aside>
 </section>
 
 <section class="slide" data-layout="two-column" data-id="adab">
@@ -963,14 +949,14 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <section class="slide" data-layout="process" data-id="grow">
 <h2>Every new lesson follows the same five steps, from one written lesson to screen, paper and sound</h2>
 <ol class="steps" data-build="list">
-<li><h3>Write once</h3><p>Every word in Fusha</p></li>
+<li><h3>Write once</h3><p>Every word in proper Arabic</p></li>
 <li><h3>Draw the pictures</h3><p>On our own computer</p></li>
 <li><h3>Build web book and slides</h3><p>From the same text</p></li>
 <li><h3>Make print files</h3><p>Checked automatically</p></li>
 <li><h3>Record the narration</h3><p>Checked word by word</p></li>
 </ol>
 <p class="strip"><span class="chip">In progress: colour picture set, 73 pictures so far</span> <span class="chip">Next: a short guide for images and animation</span></p>
-<aside class="notes"><p>How does this grow beyond one lesson? Every new lesson follows the same five steps. We write it once, every word in Fusha. We draw the pictures on our own computer, so Noori always looks like himself. We build the web book and the slides from that text. The print files and Q R codes are made and checked automatically. And the narration is recorded and checked word by word. Right now we are drawing a fuller set of colour pictures, and the next step is a short guide for pictures and animation.</p><p>— مصري —</p><p>طب إزاي ده يكبر لأكتر من درس؟ كل درس جديد بيمشي في نفس الخمس خطوات. بنكتبه مرة واحدة، كل كلمة بالفصحى. وبنرسم الصور على جهازنا إحنا، علشان نوري يفضل شكله هو هو. والكتاب اللي على النت والعرض بيتعملوا من نفس النص. وملفات الطباعة وأكواد الكيو آر بتتعمل وتتراجع لوحدها. والتسجيل الصوتي بيتعمل وبيتراجع كلمة كلمة. ودلوقتي بنرسم مجموعة صور ملوّنة أكبر، والخطوة الجاية دليل قصير للصور والحركة.</p><p>Sources: BRIEF.md (The lesson book; Illustrated artwork pass); book/README.md (Rebuild everything); assets/art/source/gen-art.sh. Picture count = web copies in assets/art at build time. The guide does not exist yet: presented as the next step.</p></aside>
+<aside class="notes"><p>How does this grow beyond one lesson? Every new lesson follows the same five steps. We write it once, every word in proper Arabic. We draw the pictures on our own computer, so Noori always looks like himself. We build the web book and the slides from that text. The print files and QR codes are made and checked automatically. And the narration is recorded and checked word by word. Right now we are drawing a fuller set of colour pictures, and the next step is a short guide for pictures and animation.</p><p>— مصري —</p><p>طب إزاي ده يكبر لأكتر من درس؟ كل درس جديد بيمشي في نفس الخمس خطوات. بنكتبه مرة واحدة، كل كلمة بعربي سليم. وبنرسم الصور على جهازنا إحنا، علشان نوري يفضل شكله هو هو. والكتاب اللي على النت والعرض بيتعملوا من نفس النص. وملفات الطباعة وأكواد الكيو آر بتتعمل وتتراجع لوحدها. والتسجيل الصوتي بيتعمل وبيتراجع كلمة كلمة. ودلوقتي بنرسم مجموعة صور ملوّنة أكبر، والخطوة الجاية دليل قصير للصور والحركة.</p><p>Sources: BRIEF.md (The lesson book; Illustrated artwork pass); book/README.md (Rebuild everything); assets/art/source/gen-art.sh. Picture count = web copies in assets/art at build time. The guide does not exist yet: presented as the next step.</p></aside>
 </section>
 
 <section class="slide" data-layout="ask" data-id="ask">
@@ -979,34 +965,23 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <li><b>Look</b> <span>One of the six layouts and themes: your call</span></li>
 <li><b>Logo</b> <span>Gull &amp; Crescent + Noori face (recommended)</span></li>
 <li><b>Pilot class</b> <span>Grade and teacher <span class="fill" role="img" aria-label="to be filled in at the meeting">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> from <span class="fill" role="img" aria-label="to be filled in at the meeting">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li>
-<li class="hotitem"><b>Fusha proofreading</b> <span>One teacher checks every vowel mark before printing</span></li>
+<li class="hotitem"><b>Arabic proofreading</b> <span>One teacher checks every vowel mark before printing</span></li>
 <li><b>Printing budget</b> <span>Lulu about $8–15 a copy: $160–300 for a class of 20</span></li>
 </ol>
 <p class="strip cost"><span class="chip">Proof copy first: 5–10 days</span> <span class="chip">Website: $0 extra</span> <span class="chip">Home booklet: $1–3</span> <span class="chip">Estimates, Oct 2026</span></p>
-<aside class="notes"><p>So here are the five decisions. One: the look, one of the six; the choice is yours. Two: the logo; we recommend the Gull and Crescent, with Noori's face as the icon. Three: a pilot class, which grade and which teacher, and from when; let us fill that in together. Four: one teacher who proofreads the Fusha, every vowel mark, before anything is printed. This one matters most, because children copy exactly what they see. Five: a printing budget. A Lulu paperback is about eight to fifteen dollars a copy, so a class of twenty is about one hundred and sixty to three hundred dollars; these are October estimates. We print one proof copy first, which takes five to ten days. The website costs nothing extra, and a home booklet costs one to three dollars. Which of these can we decide today?</p><p>— مصري —</p><p>يبقى دي الخمس قرارات. واحد: الشكل، واحد من الستة، والقرار قراركم. اتنين: الشعار، وترشيحنا النورس والهلال، ووش نوري للصورة الصغيرة على الموبايل. تلاتة: فصل للتجربة، أنهي سنة وأنهي مدرّس، وإمتى نبدأ؛ نملّيها سوا. أربعة: مدرّس يراجع الفصحى، كل حركة وكل تشكيلة، قبل ما أي حاجة تتطبع. ودي أهم واحدة، لأن الأطفال بينقلوا بالظبط اللي بيشوفوه. خمسة: ميزانية للطباعة. نسخة الكتاب من لولو تقديرها من تمانية لخمستاشر دولار، يعني فصل فيه عشرين طفل من مية وستين لتلتمية دولار، وده تقدير شهر أكتوبر. وبنطبع نسخة تجربة الأول، بتاخد من خمس لعشر أيام. والموقع مش هيكلّفنا حاجة زيادة، وكتيّب البيت بدولار لتلاتة. أنهي واحدة فيهم نقدر نقرّرها النهارده؟</p><p>Sources: book/README.md cost estimate; PRINTING-GUIDE.md section 4 (Lulu paperback about $8–15 plus shipping about $5–10; Lulu 5–10 days; home booklet about $1–3). Class of 20 = 20 × $8 = $160 to 20 × $15 = $300, books only, shipping extra; confirm in Lulu's calculator before ordering. Hosting: $0 extra, GitHub Pages on the existing account (decision 2026-10-25). No Lulu proof copy has been printed yet. The pilot blanks are decisions for the owners in the meeting.</p></aside>
+<aside class="notes"><p>So here are the five decisions. One: the look, one of the six; the choice is yours. Two: the logo; we recommend the Gull and Crescent, with Noori's face as the icon. Three: a pilot class, which grade and which teacher, and from when; let us fill that in together. Four: one teacher who proofreads the Arabic, every vowel mark, before anything is printed. This one matters most, because children copy exactly what they see. Five: a printing budget. A Lulu paperback is about eight to fifteen dollars a copy, so a class of twenty is about one hundred and sixty to three hundred dollars; these are October estimates. We print one proof copy first, which takes five to ten days. The website costs nothing extra, and a home booklet costs one to three dollars. Which of these can we decide today?</p><p>— مصري —</p><p>يبقى دي الخمس قرارات. واحد: الشكل، واحد من الستة، والقرار قراركم. اتنين: الشعار، وترشيحنا النورس والهلال، ووش نوري للصورة الصغيرة على الموبايل. تلاتة: فصل للتجربة، أنهي سنة وأنهي مدرّس، وإمتى نبدأ؛ نملّيها سوا. أربعة: مدرّس يراجع العربي السليم، كل حركة وكل تشكيلة، قبل ما أي حاجة تتطبع. ودي أهم واحدة، لأن الأطفال بينقلوا بالظبط اللي بيشوفوه. خمسة: ميزانية للطباعة. نسخة الكتاب من لولو تقديرها من تمانية لخمستاشر دولار، يعني فصل فيه عشرين طفل من مية وستين لتلتمية دولار، وده تقدير شهر أكتوبر. وبنطبع نسخة تجربة الأول، بتاخد من خمس لعشر أيام. والموقع مش هيكلّفنا حاجة زيادة، وكتيّب البيت بدولار لتلاتة. أنهي واحدة فيهم نقدر نقرّرها النهارده؟</p><p>Sources: book/README.md cost estimate; PRINTING-GUIDE.md section 4 (Lulu paperback about $8–15 plus shipping about $5–10; Lulu 5–10 days; home booklet about $1–3). Class of 20 = 20 × $8 = $160 to 20 × $15 = $300, books only, shipping extra; confirm in Lulu's calculator before ordering. Hosting: $0 extra, GitHub Pages on the existing account (decision 2026-10-25). No Lulu proof copy has been printed yet. The pilot blanks are decisions for the owners in the meeting.</p></aside>
 </section>
 
 <section class="slide" data-layout="closing" data-id="close">
 <img class="cheer" src="img/noori-cheer.webp" alt="Noori the seagull cheering (نُورِي)">
 <h2>Your school now has a name, a look, a lesson and a book, ready for one class to try</h2>
-<p class="tagline"><span class="ar" lang="ar">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</span></p>
+<p class="tagline"><span class="ar" lang="ar">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</span> &middot; Nawras Fusha School</p>
 <p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> <a href="https://github.com/hisham-abuella/Madrasa" target="_blank" rel="noopener">github.com/hisham-abuella/Madrasa</a> <small>(private: ask Hisham for access)</small></span></p>
-<aside class="notes"><p>[warmly] Here is what your school has today: a name, a look, a logo, one lesson in three forms, and a book with its own voice. One lesson, written once in careful Fusha, reaching each child on a screen, in class, on paper and in their ears. With your five decisions, it reaches your students next. May Allah bless your school, your teachers and your children.</p><p>— مصري —</p><p>[warmly] ده اللي عند مدرستكم النهارده: اسم، وشكل، وشعار، ودرس واحد بتلات طرق، وكتاب بصوته. درس واحد، مكتوب مرة واحدة بفصحى سليمة، بيوصل لكل طفل على الشاشة، وفي الفصل، وعلى الورق، وفي ودانه. وبالخمس قرارات بتوعكم، يوصل لتلاميذكم. ربنا يبارك في مدرستكم، وفي المدرّسين، وفي الولاد.</p><p>Sources: Restates the story as what the owners now have.</p></aside>
+<aside class="notes"><p>Here is what your school has today: a name, a look, a logo, one lesson in three forms, and a book with its own voice. One lesson, written once in careful, proper Arabic, reaching each child on a screen, in class, on paper and in their ears. With your five decisions, it reaches your students next. May Allah bless your school, your teachers and your children.</p><p>— مصري —</p><p>ده اللي عند مدرستكم النهارده: اسم، وشكل، وشعار، ودرس واحد بتلات طرق، وكتاب بصوته. درس واحد، مكتوب مرة واحدة بعربي سليم، بيوصل لكل طفل على الشاشة، وفي الفصل، وعلى الورق، وفي ودانه. وبالخمس قرارات بتوعكم، يوصل لتلاميذكم. ربنا يبارك في مدرستكم، وفي المدرّسين، وفي الولاد.</p><p>Sources: Restates the story as what the owners now have.</p></aside>
 </section>
 <!-- SLIDES:END -->
 </main>
-<script>
-/* Narration track: English by default, Egyptian with ?voice=eg (or localStorage.nawrasVoice). Runs before the engine. */
-(function(){
-  var q=(location.search.match(/[?&]voice=(en|eg)/)||[])[1], v='en';
-  try{ if(q) localStorage.nawrasVoice=q; v=q||localStorage.nawrasVoice||'en'; }catch(e){ v=q||'en'; }
-  if(v!=='eg') v='en';
-  document.querySelector('main.deck').setAttribute('data-narration','audio/'+v+'/');
-  document.addEventListener('DOMContentLoaded',function(){
-    var l=document.querySelectorAll('.vsw a'); for(var i=0;i<l.length;i++){ if(l[i].dataset.v===v) l[i].className='on'; }
-  });
-})();
-</script>
+
 <script>
 /* Book slide: listen buttons play on click only; they stop when the slide is left. */
 (function(){
@@ -1020,7 +995,6 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
   }); });
   au.addEventListener('ended',stop);
   new MutationObserver(function(){ if(!sl.classList.contains('is-current')) stop(); }).observe(sl,{attributes:true,attributeFilter:['class']});
-  document.querySelectorAll('.vsw').forEach(function(n){ n.addEventListener('click',function(e){e.stopPropagation();}); });
 })();
 /* Logo switcher (slide 4). */
 (function(){
@@ -1405,7 +1379,7 @@ function update() {
   $('.kp-progress').style.transform = `scaleX(${N > 1 ? state.i / (N - 1) : 1})`;
   $('.kp-live-region').textContent = `Slide ${state.i + 1} of ${N}. ${titleOf(s)}`;
   if (location.hash !== '#' + SLUG[state.i]) try { history.replaceState(null, '', '#' + SLUG[state.i]); } catch (e) {}
-  ink.draw(); sendState(); markOutline(); narr.sync();
+  ink.draw(); sendState(); markOutline(); 
   const nx = slides[state.i + 1]; if (nx) $$('img', nx).forEach(im => im.decode && im.decode().catch(() => {})); // decode ahead: no first-visit hitch
 }
 
@@ -1502,7 +1476,7 @@ function presenterMain() { // runs inside the presenter window (stringified)
   setInterval(tick, 1000); tick(); $('#tm').onclick = pause; $('#tp').onclick = pause; $('#tr').onclick = reset;
   const size = d => { nf = Math.max(16, Math.min(64, nf + d)); localStorage.setItem('kp-nf', nf); document.documentElement.style.setProperty('--nf', nf + 'px'); }; size(0);
   $('#na').onclick = () => size(-2); $('#nb').onclick = () => size(2);
-  const KEYS = {ArrowRight: 'next', ArrowDown: 'next', ' ': 'next', PageDown: 'next', ArrowLeft: 'prev', ArrowUp: 'prev', PageUp: 'prev', Backspace: 'prev', Home: 'first', End: 'last', n: 'next', a: 'narr', b: 'black', '.': 'black', w: 'white', g: 'grid', m: 'pen', Escape: 'esc'};
+  const KEYS = {ArrowRight: 'next', ArrowDown: 'next', ' ': 'next', PageDown: 'next', ArrowLeft: 'prev', ArrowUp: 'prev', PageUp: 'prev', Backspace: 'prev', Home: 'first', End: 'last', n: 'next', b: 'black', '.': 'black', w: 'white', g: 'grid', m: 'pen', Escape: 'esc'};
   addEventListener('keydown', e => { if (e.metaKey || e.ctrlKey || e.altKey) return; const k = e.key, kk = k.length === 1 ? k.toLowerCase() : k;
     if (/^[0-9]$/.test(k)) { buf += k; $('#nl').textContent = 'Go to ' + buf + ' (Enter)'; clearTimeout(bufT); bufT = setTimeout(() => { buf = ''; if (st) $('#nl').textContent = st.nextLabel || ''; }, 2500); e.preventDefault(); return; }
     if (k === 'Enter') { e.preventDefault(); if (buf) { send('goto', +buf - 1); buf = ''; } else send('next'); return; }
@@ -1540,7 +1514,7 @@ addEventListener('message', e => { const d = e.data; if (!d || !e.source || e.so
     if (mine && (d.type === 'kp-ready' || d.type === 'kp-cmd') && d.from === 'kp-pv') pw = e.source; else return; }
   if (e.source !== pw) return;
   if (d.type === 'kp-ready') sendState();
-  if (d.type === 'kp-cmd') { ({next, prev, first: () => go(0, 0), last: () => go(N - 1, Infinity), goto: () => go(Math.min(N, Math.max(1, d.n + 1)) - 1, 0), black: () => screen('black'), white: () => screen('white'), grid: () => toggleOverview(), pen: () => ink.set(!ink.on()), narr: () => narr.toggle(), esc: escKey})[d.cmd]?.(); } });
+  if (d.type === 'kp-cmd') { ({next, prev, first: () => go(0, 0), last: () => go(N - 1, Infinity), goto: () => go(Math.min(N, Math.max(1, d.n + 1)) - 1, 0), black: () => screen('black'), white: () => screen('white'), grid: () => toggleOverview(), pen: () => ink.set(!ink.on()), esc: escKey})[d.cmd]?.(); } });
 
 /* ---------- 10. Pen (marker): per-slide strokes in stage coordinates ---------- */
 const ink = (() => {
@@ -1601,13 +1575,11 @@ function escKey() { // Escape never opens anything: it only closes (panels, over
 function markOutline() { if (!ol || !ol.classList.contains('on')) return; $$('.kp-ol-i', ol).forEach((b, i) => b.setAttribute('aria-current', i === state.i)); const cur = $$('.kp-ol-i', ol)[state.i]; cur.scrollIntoView({block: 'nearest'}); }
 const ICON = {
   prev: '<path d="M15 5l-7 7 7 7"/>', next: '<path d="M9 5l7 7-7 7"/>', grid: '<rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/>',
-  outline: '<path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/>', pres: '<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 21l4-5 4 5"/>', pen: '<path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/>', set: '<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>', full: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
-  narr: '<path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>'};
+  outline: '<path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/>', pres: '<rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 21l4-5 4 5"/>', pen: '<path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/>', set: '<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>', full: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>', link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
 const btn = (act, label, key) => `<button type="button" data-act="${act}" aria-label="${label}${key ? ` (${key})` : ''}" title="${label}${key ? ` (${key})` : ''}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON[act === 'full' ? 'full' : act]}</svg></button>`;
 function buildUI() {
   const ui = el('div', 'kp-ui'); ui.setAttribute('role', 'toolbar'); ui.setAttribute('aria-label', 'Presentation controls');
-  ui.innerHTML = btn('prev', 'Previous', '←') + `<span class="kp-count" aria-hidden="true"></span>` + btn('next', 'Next', '→') + '<span class="kp-sep"></span>' + btn('outline', 'Outline', 'O') + btn('grid', 'Overview', 'G') + btn('pres', 'Presenter view', 'P') + btn('narr', 'Narration', 'A') + btn('pen', 'Marker', 'M') + btn('set', 'Theme and fonts', 'S') + btn('link', 'Copy link to this slide', 'K') + btn('full', 'Fullscreen', 'F');
-  ui.querySelector('[data-act="narr"]').hidden = true; // shown once a narration clip is found
+  ui.innerHTML = btn('prev', 'Previous', '←') + `<span class="kp-count" aria-hidden="true"></span>` + btn('next', 'Next', '→') + '<span class="kp-sep"></span>' + btn('outline', 'Outline', 'O') + btn('grid', 'Overview', 'G') + btn('pres', 'Presenter view', 'P') + btn('pen', 'Marker', 'M') + btn('set', 'Theme and fonts', 'S') + btn('link', 'Copy link to this slide', 'K') + btn('full', 'Fullscreen', 'F');
   document.body.append(ui, el('div', 'kp-progress'), Object.assign(el('div', 'kp-live-region'), {ariaLive: 'polite'}), el('div', 'kp-toast'), el('div', 'kp-screen'));
   $('.kp-live-region').setAttribute('aria-live', 'polite'); $('.kp-live-region').setAttribute('role', 'status');
   const pen = el('div', 'kp-pen'); pen.setAttribute('role', 'toolbar'); pen.setAttribute('aria-label', 'Marker');
@@ -1626,7 +1598,7 @@ function buildUI() {
     box.addEventListener('pointerleave', back); box.addEventListener('focusout', back); });
   syncSet();
   ui.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const a = b.dataset.act;
-    ({prev, next, outline: () => toggleOutline(), grid: () => toggleOverview(), pres: openPresenter, narr: () => narr.toggle(), pen: () => ink.set(!ink.on()), set: () => toggleSet(), link: () => copyLink(), full: fullscreen})[a]?.(); if (e.detail > 0 && !/outline|set|grid/.test(a)) b.blur(); });
+    ({prev, next, outline: () => toggleOutline(), grid: () => toggleOverview(), pres: openPresenter, pen: () => ink.set(!ink.on()), set: () => toggleSet(), link: () => copyLink(), full: fullscreen})[a]?.(); if (e.detail > 0 && !/outline|set|grid/.test(a)) b.blur(); });
   pen.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; if (b.dataset.col) ink.color(b.dataset.col); else ({hi: () => ink.hi(), erase: () => ink.eraser(), undo: () => ink.undo(), clear: () => ink.clear(), penoff: () => ink.set(false)})[b.dataset.act]?.(); });
 }
 function syncSet() { const t = committed.theme || root.getAttribute('data-theme'), f = committed.fonts || 'theme'; $$('#kp-th button').forEach(b => b.setAttribute('aria-pressed', b.dataset.th === t)); $$('#kp-fo button').forEach(b => b.setAttribute('aria-pressed', b.dataset.fo === f)); }
@@ -1657,7 +1629,7 @@ addEventListener('keydown', e => {
   else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k) || (k === ' ' && e.shiftKey)) { e.preventDefault(); prev(); }
   else if (k === 'Home') go(0, 0); else if (k === 'End') go(N - 1, Infinity);
   else if (kk === 'p') openPresenter(); else if (kk === 'f') fullscreen(); else if (kk === 'b' || k === '.') screen('black'); else if (kk === 'w') screen('white');
-  else if (kk === 'k') copyLink(); else if (kk === 'o') { e.preventDefault(); toggleOutline(); } else if (kk === 'm') ink.set(!ink.on()); else if (kk === 's') { e.preventDefault(); toggleSet(); } else if (kk === 'l') ink.laser(!ink.isLaser()); else if (kk === 'a') narr.toggle();
+  else if (kk === 'k') copyLink(); else if (kk === 'o') { e.preventDefault(); toggleOutline(); } else if (kk === 'm') ink.set(!ink.on()); else if (kk === 's') { e.preventDefault(); toggleSet(); } else if (kk === 'l') ink.laser(!ink.isLaser());
   else if (kk === 'e' && ink.on()) ink.eraser(); else if (kk === 'h' && ink.on()) ink.hi(); else if (kk === 'c' && ink.on()) ink.clear();
 });
 let tx = 0, ty = 0, tt = 0;
@@ -1672,51 +1644,12 @@ addEventListener('resize', resize);
 rmq.addEventListener?.('change', () => { root.classList.toggle('kp-rm', rmq.matches); if (rmq.matches) { finish(); setStep(slides[state.i], state.step, false); } }); // settle whatever is in flight
 addEventListener('beforeprint', () => { finish(); }); 
 
-/* ---------- 13. Narration: one recorded clip per slide ----------
-   <main class="deck" data-narration="audio/my-deck/"> plays audio/my-deck/<slide link id>.mp3 for each slide (A or the speaker button).
-   The button stays hidden until the first slide's clip loads, so a deck can ship before its audio exists.
-   Once it loads, a "This deck has sound" marker with a Play with sound button also appears (top corner; Arabic labels when lang="ar").
-   While narration is on: arriving on a slide plays its clip and reveals its builds; when the clip ends the deck moves on. */
-const narr = (() => {
-  const base = deck.dataset.narration;
-  if (!base) return {sync() {}, toggle() {}, probe() {}, on: () => false};
-  const url = i => new URL(base.replace(/\/?$/, '/') + encodeURIComponent(SLUG[i]) + '.mp3', location.href).href;
-  const a = new Audio(); a.preload = 'auto';
-  let on = false, ok = false, cur = -1, tAdv = 0, tRev = 0;
-  const button = () => $('.kp-ui [data-act="narr"]');
-  const clear = () => { clearTimeout(tAdv); clearTimeout(tRev); };
-  const advance = delay => { clearTimeout(tAdv); tAdv = setTimeout(() => { if (!on) return; const j = nextIndex(); if (j > -1) go(j, 0); else { set(false); endShow(); } }, delay); };
-  function sync() {
-    if (!on || cur === state.i) return; cur = state.i; clear(); a.pause();
-    a.src = url(state.i); a.play().catch(() => {});
-    tRev = setTimeout(() => { if (on && cur === state.i && state.step < slides[state.i].kp.steps) go(state.i, Infinity); }, 900); // the narration speaks to the whole slide
-  }
-  const T = /^ar/i.test(root.lang) ? {has: 'العرض ده بالصوت', play: 'شغّل بالصوت', playing: 'شغّال بالصوت', stop: 'وقّف'}
-    : {has: 'This deck has sound', play: 'Play with sound', playing: 'Playing with sound', stop: 'Stop'};
-  let pill = null;
-  function syncPill() { if (!pill) return; pill.classList.toggle('on', on); $('.kp-sound-txt', pill).textContent = on ? T.playing : T.has;
-    const b = $('button', pill); b.innerHTML = `<span aria-hidden="true">${on ? '■' : '▶'}</span> ${on ? T.stop : T.play}`; b.setAttribute('aria-pressed', on); }
-  function showPill() { // the marker and its start button; starting from the last slide goes back to the first
-    pill = el('div', 'kp-sound', `<svg viewBox="0 0 24 24" aria-hidden="true">${ICON.narr}</svg><span class="kp-sound-txt"></span><button type="button"></button>`);
-    pill.setAttribute('role', 'region'); pill.setAttribute('aria-label', T.has);
-    $('button', pill).addEventListener('click', e => { if (!on && state.i === N - 1) go(0, 0, {instant: true}); set(!on); if (e.detail > 0) e.currentTarget.blur(); });
-    document.body.appendChild(pill); syncPill(); }
-  function set(v) { on = !!v && ok; const b = button(); if (b) b.setAttribute('aria-pressed', on); cur = -1; clear();
-    if (on) sync(); else a.pause(); syncPill(); toast(on ? 'Narration on (A to stop)' : 'Narration off'); }
-  a.addEventListener('ended', () => { if (on) advance(1200); });
-  a.addEventListener('error', () => { if (!on || !a.getAttribute('src')) return; toast('No narration for this slide'); advance(3000); });
-  function probe() { const p = new Audio(); p.preload = 'metadata';
-    p.addEventListener('loadedmetadata', () => { ok = true; const b = button(); if (b) { b.hidden = false; b.setAttribute('aria-pressed', 'false'); } showPill(); }, {once: true});
-    p.src = url(0); }
-  return {sync, probe, toggle: () => { if (ok) set(!on); }, on: () => on};
-})();
-
 /* ---------- Boot ---------- */
 let saved = null; try { saved = JSON.parse(localStorage.getItem(storeKey)); } catch (e) {}
 if (!REG.themes[root.getAttribute('data-theme')]) root.setAttribute('data-theme', Object.keys(REG.themes)[0] || 'keynote-white');
 root.classList.toggle('kp-rm', rmq.matches);
 slides.forEach(prep);
-buildUI(); narr.probe();
+buildUI();
 const look = saved && REG.themes[saved.theme] ? applyLook(saved.theme, saved.fonts, false) : applyLook(root.getAttribute('data-theme'), root.getAttribute('data-fonts'), false);
 resize();
 Promise.race([look, new Promise(r => setTimeout(r, 3000))]).then(() => {

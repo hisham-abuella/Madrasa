@@ -37,7 +37,7 @@ returning to the language of the Qur'an. The mascot is **نُورِي Noori** (f
 | 📚 | **Lesson book** «نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»: 32 pages, Lulu-ready, 11 exercise pages, QR to the web book, narrated | [`book/`](book/) |
 | 🖼️ | **Illustrated artwork set**: 54 local generations + book art, with a simple/illustrated switch and SVG fallback | [`assets/art/`](assets/art/) |
 | 🎬 | **Image & animation guide**: characters, prompts, seeds, motion rules, live demos, pre-ship checklist | [`guide.html`](guide.html) |
-| 🎤 | **Owners' presentation**: the whole effort in ~10 minutes, live theme & logo switchers, narrated in English + Egyptian | [`pitch/`](pitch/) |
+| 🎤 | **Owners' presentation**: the whole effort in ~10 minutes, live website, theme & logo switchers; presenter speaks from the notes | [`pitch/`](pitch/) |
 
 ## The six looks
 
@@ -74,8 +74,7 @@ Full rebuild instructions: [`book/README.md`](book/README.md).
   modest dress, no text inside generated images, soft tones instead of music.
 - **Images:** generated locally with Draw Things (Z-Image Turbo), one fixed character description per
   character, every image checked by eye; prompts and seeds in `logos/source/`, `book/source/`, `assets/art/source/`.
-- **Narration:** ElevenLabs `eleven_v4` for the book (Fusha: Sarah · Egyptian: Hisham's voice clone);
-  the owners' deck in Hisham's voice on the local Fish S2-Pro model.
+- **Narration:** ElevenLabs `eleven_v4` for the book (Fusha: Sarah · Egyptian: Hisham's voice clone).
 - **Decks:** [present-in-html](https://hisham-abuella.github.io/present-in-html/): the classroom lesson
   (`lessons/presentation.html`) and the owners' pitch (`pitch/`), both rebuilt from `*/build/`.
 - **Borrowed patterns:** the "worlds", story slides and knowledge check from Wireless 101; the print, QR and
