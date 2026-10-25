@@ -67,7 +67,16 @@
   .pdfmenu .pdflinks .pill{justify-content:flex-start}
 
   /* ---------- the book ---------- */
-  .book{width:min(860px,100%);background:var(--page);color:var(--ink);border-radius:18px;box-shadow:0 26px 60px -24px rgba(0,0,0,.85);overflow:hidden}
+  .book{width:min(860px,100%);background:var(--page);color:var(--ink);border-radius:18px;box-shadow:0 26px 60px -24px rgba(0,0,0,.85);overflow:hidden;position:relative}
+  /* the printed book's ornament, lightly (shapes + colours: tools/lib.js -> DECO):
+     a faint tile of 8-point stars, shells and waves, a thin teal frame and gold
+     rosettes in the corners. Exercise pages keep plain paper (.book.plain). */
+  .book{background:{{DECO_TILE}} 0 0 / 104px 104px,var(--page)}
+  .book.plain{background:var(--page)}
+  .book::before,.book::after{content:"";position:absolute;pointer-events:none;border-radius:12px}
+  .book::before{inset:12px;border:1.5px solid rgba(11,122,126,.32)}
+  .book::after{inset:1px;background:{{DECO_ROSE}} left top / 22px no-repeat,{{DECO_ROSE}} right top / 22px no-repeat,{{DECO_ROSE}} left bottom / 22px no-repeat,{{DECO_ROSE}} right bottom / 22px no-repeat}
+  .book>.spread{position:relative;z-index:1}
   .spread{padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px;animation:settle .42s ease both}
   @keyframes settle{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   .stage{position:relative;width:100%;aspect-ratio:1/1;max-height:min(54vh,470px);margin-inline:auto;display:grid;place-items:center;border-radius:14px;background:var(--tint);overflow:hidden}
@@ -186,6 +195,8 @@
   @media (max-width:430px){
     .turn{padding:11px 14px;font-size:.94rem}
     .spread{padding:18px 14px 16px}
+    .book::before{inset:7px}
+    .book::after{inset:-3px}
     .controls{gap:8px}
     .pick{min-width:80px;font-size:1.4rem}
   }
@@ -256,6 +267,7 @@ function store(k, v){ try { if (v === undefined) return localStorage.getItem(k);
 function render(){
   var page = pages[at];
   spread.className = 'spread ' + page.type + (page.exercise ? ' exercise' : '');
+  spread.parentNode.classList.toggle('plain', !!page.exercise);
   spread.style.setProperty('--tint', page.tint ? page.tint + '33' : 'transparent');
   var html = page.html;
   html += '<div class="listen"><button class="play" id="playBtn" type="button"' + (page.audio ? '' : ' disabled') + '>' +

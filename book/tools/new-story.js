@@ -12,7 +12,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { ROOT, esc, mark, plain, webPages, isExercise, arNum } = require('./lib');
+const { ROOT, esc, mark, plain, webPages, isExercise, arNum, decoWebCss } = require('./lib');
 
 const specPath = process.argv[2];
 if (!specPath) { console.error('usage: new-story.js stories/<slug>.json'); process.exit(1); }
@@ -99,6 +99,7 @@ let out = fs.readFileSync(path.join(__dirname, 'story-template.html'), 'utf8');
 const fill = {
     TITLE: esc(plain(spec.title)), DESC: esc(spec.desc), OGDESC: esc(spec.ogdesc || spec.desc),
     ICON: encodeURIComponent(spec.icon), ACCENT: spec.accent, BOOK, SLUG: slug,
+    DECO_TILE: decoWebCss().tile, DECO_ROSE: decoWebCss().rose,
 };
 for (const [k, v] of Object.entries(fill)) out = out.split(`{{${k}}}`).join(v);
 const left = out.match(/\{\{[A-Z_]+\}\}/g);

@@ -22,7 +22,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { ROOT, esc, mark, plain, loadSpec, interiorPages, isExercise, arNum, pageUrl } = require('./lib');
+const { ROOT, esc, mark, plain, loadSpec, interiorPages, isExercise, arNum, pageUrl, DECO, star8, decoDefs, decoPattern, decoFrame } = require('./lib');
 
 const [, , slug, outPath] = process.argv;
 const arg = (f, d) => { const i = process.argv.indexOf(f); return i > -1 ? process.argv[i + 1] : d; };
@@ -66,6 +66,38 @@ const folio = (n) => (n && format !== 'letter' && format !== 'a4') ? `<p class="
 const qrUrl = (name) => name === 'qr-book' ? config.bookUrl : pageUrl(config, name.replace(/^qr-/, ''));
 const qrBlock = (name, ar, enText, cls) => `<div class="qrbox ${cls || ''}" data-qr="${esc(qrUrl(name))}"><div class="qr">${qrSvg(name)}</div>
       <div class="qr-text"><b class="word">${esc(ar)}</b><span lang="en">${esc(enText)}</span></div></div>`;
+
+/* ---- ornament: frame + background pattern (shapes and colours: lib.js -> DECO) ----
+ * Sits behind .safe, between the trim (or the paper edge) and the safe area, so it
+ * never touches words, writing lines or a QR quiet zone. Lulu: the frame's outer
+ * line is 0.25in inside the trim and its inner edge stays outside the 0.5in safety.
+ *   story, title, about, recap, answers, practice, end  thin line + very light pattern
+ *   certificate, A5 cover/back                          the full zellige band + pattern
+ *   exercise pages                                      corner rosettes only, white paper
+ *   worksheets (Letter / A4)                            thin line frame only, white paper
+ */
+const worksheet = format === 'letter' || format === 'a4';
+const fIn = { lulu: bleed + 0.25 * IN, a5: 4.5, letter: 7, a4: 7 }[format] || 0;     // outer line, from the sheet edge
+const bandIn = { lulu: bleed + 5, a5: 4, letter: 6, a4: 6 }[format] || 0;
+const bandW = { lulu: 5.5, a5: 4.4, letter: 6, a4: 6 }[format] || 5;
+const ins = (v) => ({ l: v, t: v, r: v, b: v });
+function deco(kind, ink) {
+    const W = sheetW, H = sheetH;
+    let out = '';
+    if (ink && !worksheet) out += decoPattern(W, H, ink);
+    if (kind === 'band') out += decoFrame(W, H, ins(bandIn), 'band', { band: bandW });
+    else if (kind) out += decoFrame(W, H, ins(fIn), kind, format === 'a5' ? { rose: 2.1, radius: 4 } : {});
+    return out ? `<div class="dz">${out}</div>` : '';
+}
+function decorate(html, p) {
+    const t = p ? (isExercise(p) ? 'exercise' : p.type) : 'blank';
+    let d = '';
+    if (t === 'exercise' || t === 'practice') d = deco(worksheet ? 'line' : 'corner', 0);   // ruled lines: white paper
+    else if (t === 'certificate') d = deco('band', DECO.ink.page);
+    else if (t === 'story') d = deco('line', DECO.ink.story);
+    else if (t !== 'blank') d = deco('line', DECO.ink.page);
+    return d ? html.replace(/^(<section[^>]*>)/, `$1${d}`) : html;
+}
 
 /* ---- the exercise building blocks ------------------------------------------ */
 // A ruled Arabic writing line: solid baseline, dotted mid-line, 26mm tall (8mm body) (the
@@ -204,29 +236,54 @@ function frontCover() {
       <div class="f-words"><p class="eyebrow word">${mark(c.eyebrow)}</p><h1 class="word">${mark(c.title)}</h1>
       ${en(ce.title, 'big')}<p class="line f-school">${mark(c.line)}</p></div>`;
 }
+// the Nawras badge (logos/svg/hilal-badge.svg, hand-made vector), inline so it prints as vector
+const badge = () => fs.readFileSync(path.join(ROOT, '..', 'logos', 'svg', 'hilal-badge.svg'), 'utf8')
+    .replace(/<!--[\s\S]*?-->/g, '').replace('<svg ', '<svg class="badge" ')
+    // Chrome rasterises SVG masks in a PDF: the crescent becomes a clipped even-odd path instead
+    .replace(/<mask id="hm">[\s\S]*?<\/mask>/, '<clipPath id="hm"><circle cx="98" cy="110" r="80"/></clipPath>')
+    .replace('<rect width="240" height="240" fill="#FFC94A" mask="url(#hm)"/>',
+        '<path clip-path="url(#hm)" fill="#FFC94A" fill-rule="evenodd" d="M0 0H240V240H0Z M204 84A66 66 0 1 0 72 84A66 66 0 1 0 204 84Z"/>');
+const chipStar = `<svg class="chip-star" viewBox="-1.1 -1.1 2.2 2.2" aria-hidden="true"><path d="${star8(1)}" fill="${DECO.gold}" stroke="${DECO.teal}" stroke-width=".12"/><circle r=".3" fill="${DECO.coral}"/></svg>`;
 function backCover() {
     const c = cover.ar, ce = cover.en;
-    return `<h2 class="word">${mark(c.title)}</h2>${en(ce.title, 'big')}
+    const chip = (ar, enText) => `<li>${chipStar}<span class="word">${mark(ar)}</span><span class="chip-en" lang="en">${esc(enText)}</span></li>`;
+    return `<div class="b-head"><h2 class="word">${mark(c.title)}</h2>${en(ce.title, 'big')}</div>
       <p class="line">${mark('نُورِي، النَّوْرَسُ الصَّغِيرُ، يُعَلِّمُ: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ ة فِي آخِرِ الْكَلِمَةِ.')}</p>
       ${en('A Fusha lesson book for grade 1–2: a story in fourteen pages, then eleven pages of writing practice — tracing, circling, matching and drawing.')}
-      <div class="art b-art">${art('back', 'Noori waving goodbye')}</div>
-      <p class="en school-en" lang="en">Nawras Fusha School · San Diego</p>
+      <div class="b-mid"><div class="art b-art">${art('back', 'Noori waving goodbye')}</div>
+        <div class="b-side"><ul class="chips">${chip('قِصَّةٌ: ١٤ صَفْحَةً', 'Story · 14 pages')}${chip('تَمَارِينُ: ١١ صَفْحَةً', 'Writing practice · 11 pages')}${chip('شَهَادَةٌ وَإِجَابَاتٌ', 'Certificate + answers')}</ul>
+        <div class="b-school">${badge()}<p class="word">${mark('مَدْرَسَةُ نَوْرَس لِلْفُصْحَى')}<span lang="en">Nawras Fusha School · San Diego</span></p></div></div></div>
       ${qrBlock('qr-book', 'امْسَحْ لِتَسْمَعَ الْقِصَّةَ', 'Scan to listen in Fusha or Egyptian Arabic', 'back-qr')}`;
 }
 
 if (format === 'cover') {
+    // one ornament layer over the whole spread: the pattern runs on unbroken across
+    // the spine (so a fold off by Lulu's 1/16in still looks right), a sand strip with
+    // small stars marks the spine, and each cover gets its own zellige band
+    const H = trim + bleed * 2, halfW = trim + bleed, sw = trim * 2 + spineMm + bleed * 2, fr = 0.25 * IN;
+    const cx = halfW + spineMm / 2, strip = spineMm / 2 + 3;
+    let spine = `<rect x="${(cx - strip).toFixed(3)}" y="0" width="${(strip * 2).toFixed(3)}" height="${H}" fill="${DECO.sandSoft}"/>`;
+    for (let y = bleed + 9; y < H - bleed - 6; y += 9) {
+        spine += (Math.round((y - bleed - 9) / 9) % 2 === 0)
+            ? `<use href="#dz-bstar" transform="translate(${cx.toFixed(3)} ${y.toFixed(3)}) scale(1.15)"/>`
+            : `<circle cx="${cx.toFixed(3)}" cy="${y.toFixed(3)}" r=".6" fill="${DECO.coral}"/>`;
+    }
+    const dz = `<div class="dz">${decoPattern(sw, H, DECO.ink.cover)}
+      <svg class="dz-frame" viewBox="0 0 ${sw.toFixed(3)} ${H}" style="width:${sw.toFixed(3)}mm;height:${H}mm" aria-hidden="true">${spine}</svg>
+      ${decoFrame(sw, H, { l: bleed + fr, t: bleed + fr, b: bleed + fr, r: sw - (halfW - fr) }, 'band', { band: 5.5 })}
+      ${decoFrame(sw, H, { l: halfW + spineMm + fr, t: bleed + fr, b: bleed + fr, r: bleed + fr }, 'band', { band: 5.5 })}</div>`;
     sheets.push(`<section class="spread"><div class="half back"><div class="hsafe">${backCover()}</div></div>
-    <div class="spine"></div><div class="half front"><div class="hsafe">${frontCover()}</div></div></section>`);
+    <div class="spine"></div><div class="half front"><div class="hsafe">${frontCover()}</div></div>${dz}</section>`);
 } else if (format === 'lulu') {
-    interior.forEach((p, i) => sheets.push(page(p, i + 1)));
+    interior.forEach((p, i) => sheets.push(decorate(page(p, i + 1), p)));
     while (sheets.length % 4) { sheets.push('<section class="sheet blank"></section>'); padded++; }
 } else if (format === 'a5') {
-    sheets.push(`<section class="sheet a5cover"><div class="safe">${frontCover()}</div></section>`);
-    interior.forEach((p, i) => sheets.push(page(p, i + 1)));
+    sheets.push(`<section class="sheet a5cover">${deco('band', DECO.ink.cover)}<div class="safe">${frontCover()}</div></section>`);
+    interior.forEach((p, i) => sheets.push(decorate(page(p, i + 1), p)));
     while ((sheets.length + 1) % 4) { sheets.push('<section class="sheet blank"></section>'); padded++; }
-    sheets.push(`<section class="sheet a5back"><div class="safe">${backCover()}</div></section>`);
+    sheets.push(`<section class="sheet a5back">${deco('band', DECO.ink.cover)}<div class="safe">${backCover()}</div></section>`);
 } else {
-    spec.pages.filter(isExercise).forEach((p) => sheets.push(page(p, 0)));
+    spec.pages.filter(isExercise).forEach((p) => sheets.push(decorate(page(p, 0), p)));
 }
 
 /* ---- geometry and type ----------------------------------------------------- */
@@ -283,7 +340,7 @@ const css = `
   .title .en.big,.en.big{font-size:18pt;font-weight:700;color:var(--ink)}
   .title .line{font-size:18pt;line-height:1.6}
   .title .school{font-size:16pt;color:var(--ink2)}
-  .owner{width:80%;margin-top:6mm}
+  .owner{width:80%;margin-top:5mm;background:${DECO.paper};border-radius:4mm;padding:0 3mm}
   .owner p{font-size:16pt;text-align:start}
   .owner p span{font-family:var(--ui);font-size:14pt;color:var(--ink2)}
   .about h2{font-size:24pt;line-height:1.5;color:var(--acc);margin-bottom:1mm}
@@ -300,7 +357,7 @@ const css = `
   .rcol h3{font-size:30pt;line-height:1.5}
   .rcol .line{font-size:22pt;line-height:1.6}
   .recap .rule{font-size:19pt;line-height:1.6;text-align:center;background:#FFF1EA;border-radius:4mm;padding:1.5mm 4mm;margin-top:3mm}
-  .cert .frame{flex:1;border:1.6mm double var(--acc);border-radius:8mm;padding:6mm;display:flex;flex-direction:column;align-items:center;gap:2.5mm;text-align:center}
+  .cert .frame{flex:1;border:.5mm solid ${DECO.tealSoft};border-radius:6mm;padding:6mm;display:flex;flex-direction:column;align-items:center;gap:2.5mm;text-align:center}
   .cert .gull{width:44mm;height:44mm}
   .cert .gull svg{width:100%;height:100%}
   .cert h2{font-size:30pt;line-height:1.45;color:var(--acc)}
@@ -392,10 +449,33 @@ const css = `
   .a5cover .safe,.a5back .safe{justify-content:center;align-items:center}
   .back h2,.a5back h2{font-size:26pt;color:var(--acc);text-align:center}
   .back .line,.a5back .line{font-size:17pt;line-height:1.6;text-align:center}
-  .b-art{width:66mm;height:66mm;margin-top:3mm}
+  .b-art{width:66mm;height:66mm;margin:2mm}
   .back-qr{margin-top:auto;align-self:flex-start;direction:rtl}
   .school-en{text-align:center;margin-top:2mm}
   .sheet.blank{background:#fff}
+  /* ornament layer (lib.js decoPattern / decoFrame): behind .safe, never clickable */
+  .dz{position:absolute;inset:0;pointer-events:none}
+  .dz svg{position:absolute;top:0;left:0;display:block;overflow:visible}
+  .safe,.hsafe{z-index:1}
+  /* covers: the title sits on a soft arch-topped paper panel so the pattern never
+     runs under the letters; the pictures get a paper + teal ring */
+  .f-words{background:${DECO.paper};border:.45mm solid ${DECO.tealSoft};border-radius:26mm 26mm 6mm 6mm / 14mm 14mm 6mm 6mm;padding:3mm 9mm 3.5mm}
+  .f-art img,.b-art img{box-shadow:0 0 0 1.3mm ${DECO.paper},0 0 0 1.75mm ${DECO.teal}}
+  .b-head{background:${DECO.paper};border:.45mm solid ${DECO.tealSoft};border-radius:22mm 22mm 5mm 5mm / 11mm 11mm 5mm 5mm;padding:1.5mm 10mm 2.5mm;text-align:center}
+  .back .line,.a5back .line,.back .en,.a5back .en{background:color-mix(in srgb,${DECO.paper} 82%,transparent);border-radius:3mm;padding:0 2mm}
+  .b-mid{display:flex;align-items:center;justify-content:center;gap:8mm;margin-top:1mm;direction:rtl}
+  .chips{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2.5mm}
+  .chips li{display:grid;grid-template-columns:7mm auto;column-gap:2.5mm;align-items:center;background:${DECO.paper};border:.4mm solid ${DECO.tealSoft};border-radius:4mm;padding:1.2mm 4mm 1.4mm 3mm}
+  .chip-star{width:7mm;height:7mm;grid-row:1 / span 2}
+  .chips .word{font-size:17pt;line-height:1.4;color:var(--ink)}
+  .chip-en{font-family:var(--ui);font-size:12pt;color:var(--ink2);direction:ltr;text-align:right;line-height:1.2}
+  .b-school{display:flex;align-items:center;gap:3mm;margin-top:3mm;background:${DECO.paper};border-radius:12mm;padding:1mm 5mm 1mm 1.5mm;border:.4mm solid ${DECO.tealSoft}}
+  .b-school .badge{width:15mm;height:15mm;flex:none}
+  .b-school p{font-size:15pt;line-height:1.35;color:var(--acc);display:flex;flex-direction:column}
+  .b-school p span{font-family:var(--ui);font-size:11pt;color:var(--ink2);direction:ltr;text-align:right}
+  .back-qr{background:#fff;border:.4mm solid ${DECO.tealSoft};border-radius:4mm;padding:1.5mm 4mm 1.5mm 1.5mm}
+  .a5cover{background:linear-gradient(180deg,#DDF3F5 0%,#FFFDF7 55%)}
+  .a5back{background:linear-gradient(180deg,#FFF4E8 0%,#FFFDF7 60%)}
   /* A5 lays everything out at 85%: the QR box grows so the printed symbol stays
      25mm+ (38mm x .85 = 32mm), and the answers page tightens to fit */
   .fmt-a5 .qr{width:38mm;height:38mm}
@@ -405,15 +485,16 @@ ${format === 'cover' ? `
   /* the spread: back | spine | front. Content keeps the full 0.5in safety from
      every trimmed edge and from the spine fold. Lulu's barcode area (92 x 32mm,
      bottom right of the back cover, 0.5in in) is left empty: the QR sits left. */
-  .spread{width:${spreadW.toFixed(3)}mm;height:${trim + bleed * 2}mm;display:flex;overflow:hidden;background:#FFFDF7;direction:ltr}
+  .spread{width:${spreadW.toFixed(3)}mm;height:${trim + bleed * 2}mm;display:flex;overflow:hidden;background:#FFFDF7;direction:ltr;position:relative}
   /* Lulu binds on the left only (no right-to-left binding), so the flat spread is
      the usual back | spine | front even for an Arabic book; direction:ltr stops the
      page's rtl from flipping it */
   .half{flex:0 0 ${(trim + bleed).toFixed(3)}mm;position:relative}
   .half.front{background:linear-gradient(180deg,#DDF3F5 0%,#FFFDF7 55%)}
   .half.back{background:linear-gradient(180deg,#FFF4E8 0%,#FFFDF7 60%)}
-  /* 3.4mm is too narrow for type, and a coloured band would wander onto a cover
-     within Lulu's folding tolerance, so the spine is plain paper */
+  /* 3.4mm is too narrow for type (Lulu allows spine text from 80 pages), so the
+     spine carries only the ornament strip drawn in the .dz layer: sand, wider than
+     the spine itself and soft-edged, so Lulu's folding tolerance can't show an edge */
   .spine{flex:0 0 ${spineMm.toFixed(3)}mm;background:#FFFDF7}
   .hsafe{position:absolute;top:${bleed + safe}mm;bottom:${bleed + safe}mm;display:flex;flex-direction:column;align-items:center;gap:2mm;direction:rtl}
   .back .hsafe{left:${bleed + safe}mm;right:${safe}mm}
@@ -430,6 +511,7 @@ fs.writeFileSync(outPath, `<!DOCTYPE html>
 <style>${css}</style>
 </head>
 <body class="fmt-${format}">
+${decoDefs()}
 ${sheets.join('\n')}
 <script src="${assets}/kids.js"></script>
 <script src="${path.relative(outDir, path.join(__dirname, 'print-pages.js'))}"></script>

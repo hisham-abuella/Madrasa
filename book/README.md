@@ -77,7 +77,7 @@ really lands, and open the link on a phone before printing.
 
 | Tool | From bedtime-stories | What changed |
 |---|---|---|
-| `lib.js` | new | shared markup: `[[word]]` colours the ة (ZWJ both sides), هَذَا / هَذِهِ coloured |
+| `lib.js` | new | shared markup: `[[word]]` colours the ة (ZWJ both sides), هَذَا / هَذِهِ coloured ; **ornament** (`DECO` palette + ink strength, 8-point star / shell / wave tile, zellige band frame, rosettes) used by print and web |
 | `new-story.js` + `story-template.html` | adapted | Arabic-first, exercise pages, `KS.writePad`, Fusha/مصري narration toggle, English captions toggle, `#page-key` deep links for the QR codes |
 | `build-book.sh` | replaces `build-<slug>.sh` / `build-book.py` | runs new-story + make-transcripts |
 | `make-transcripts.js` | adapted | ar + eg, id = page key, `say` per page |
