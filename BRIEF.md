@@ -152,3 +152,17 @@ so it documents the final tools; validated with a dry run on a second topic (spe
 
 - **Story narration recorded (2026-10-25):** ElevenLabs clips `audio/story/{ar,eg}/p01–p13.mp3` (Sarah Fusha / Hisham Egyptian) from `audio/transcripts/story-{ar,eg}.json`, wired into all 13 slides of `lessons/story.html`; the device voice is only a fallback.
 - **Owners' deck: NO narration (owner decision 2026-10-25)** — presenter speaks live from the notes. "Fusha" said at most once or twice in the deck. Keep it simple.
+
+## Team review → suggestions slide (queued 2026-10-25)
+1. Two reviewer subagents act as the Claude team roles (`.claude/agents/`), write `claudeteam/reviews/*.md`.
+2. `ceo` consolidates and prioritises into **`claudeteam/suggestions.jsonl`** — one JSON object per line:
+   `{"id","title","detail","area","roles":[…],"priority":"now|next|later","severity","effort":"S|M|L","ceo_note","status":"proposed"}`.
+3. The owners' deck gets a **final slide** "What the team suggests next" that renders the list from that JSONL
+   (grouped by priority). build.py inlines the JSONL at build time (works from file://) and the page also
+   fetches `../claudeteam/suggestions.jsonl` when served over http so edits show without a rebuild.
+   **Slide format (owner, 2026-10-25): a searchable table, filterable by who suggested it** — a search box
+   (matches title/detail/area), a "Suggested by" filter (one chip or dropdown per team role, plus All),
+   priority filter, sortable columns (Priority, Suggestion, Suggested by, Area, Effort, CEO note), row count;
+   scrolls inside the slide; keyboard typing in the search box must not trigger deck shortcuts.
+   Each JSONL line therefore carries `suggested_by` (the role that first raised it) and `roles` (all who agreed).
+- **Every team member keeps its own persistent log** `claudeteam/log_chat/<name>.log`: read it at the start of a task, append (never overwrite) a dated entry with all analysis, findings, decisions and open items at the end. Committed to git.

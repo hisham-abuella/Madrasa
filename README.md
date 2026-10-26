@@ -87,6 +87,16 @@ Ask Claude Code in this folder for *"a new topic book about <grammar topic>"*: t
 32 pages, border, characters, exercises and checks) and swaps only the topic. Start a book by hand with
 `.claude/skills/topic-book/scripts/new-topic-book.sh <slug>`; check its spec with `node .claude/skills/topic-book/scripts/check-spec.js <slug>`.
 
+## Claude team
+
+A standing team of 14 specialist reviewer agents (`.claude/agents/`) works on this repo. `ceo` owns
+the vision: *the best website for a school that teaches Arabic (Fusha) to children in San Diego,
+built on interaction, not memorisation, and rooted in Islamic morals*. The other agents cover the
+Arabic, the teaching, child development, adab, design, children's UX, art, motion and sound,
+frontend, accessibility, QA, families and print. Each one keeps its own log in
+`claudeteam/log_chat/`. Roster, how to use them and the "one lead, with helpers" pattern:
+[`claudeteam/README.md`](claudeteam/README.md).
+
 ## Folder map
 
 ```
