@@ -80,6 +80,13 @@ Full rebuild instructions: [`book/README.md`](book/README.md).
 - **Borrowed patterns:** the "worlds", story slides and knowledge check from Wireless 101; the print, QR and
   narration pipeline from Bedtime Stories.
 
+## Make another topic book
+
+Ask Claude Code in this folder for *"a new topic book about <grammar topic>"*: the project skill
+[`.claude/skills/topic-book/`](.claude/skills/topic-book/SKILL.md) copies Noori's book as the template (same
+32 pages, border, characters, exercises and checks) and swaps only the topic. Start a book by hand with
+`.claude/skills/topic-book/scripts/new-topic-book.sh <slug>`; check its spec with `node .claude/skills/topic-book/scripts/check-spec.js <slug>`.
+
 ## Folder map
 
 ```
