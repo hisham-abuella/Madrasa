@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>نَوْرَس · Logo concepts</title>
-<meta name="description" content="Nawras Fusha School, San Diego — six logo concepts: generated emblems with a typeset wordmark, small-size tests, light and dark, and two clean vector versions.">
+<meta name="description" content="Nawras Fusha School, San Diego — six logo concepts: generated emblems with a typeset wordmark, four generated versions each (main, dark, small mark, one colour), small-size tests, light and dark.">
 <meta property="og:title" content="نَوْرَس — Logo concepts">
 <meta property="og:image" content="../assets/og-nawras.png">
-<link rel="icon" href="svg/noori-icon.svg" type="image/svg+xml">
+<link rel="icon" href="img/v2/c6-s.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
 <link rel="stylesheet" href="../assets/kids.css">
@@ -99,13 +99,21 @@
 .mini__cta { background: var(--l-brand); color: var(--l-on-brand); border-radius: 999px; padding: 7px 12px; font: 700 .78rem/1.2 var(--f-ui); white-space: nowrap; }
 .mini__hero { height: 46px; background: linear-gradient(90deg, color-mix(in srgb, var(--l-brand) 22%, var(--l-bg)), color-mix(in srgb, var(--l-accent) 26%, var(--l-bg))); }
 
-/* vector section */
+/* the four versions */
+.vars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+.vars figure { margin: 0; display: grid; gap: 6px; justify-items: center; font: 600 .74rem/1.25 var(--l-latin); color: var(--l-ink2); direction: ltr; text-align: center; }
+.vars .tile { width: 100%; aspect-ratio: 1; border-radius: 14px; border: 1.5px solid var(--l-line); background: #fff; display: grid; place-items: center; overflow: hidden; }
+.vars .tile img { width: 86%; height: 86%; object-fit: contain; }
+.vars .tile.full img { width: 100%; height: 100%; }
+.vars .tile.sm img { width: 56%; height: 56%; }
+.vars figcaption b { display: block; font-family: var(--f-word); font-size: .9rem; color: var(--l-ink); font-weight: 600; }
+/* family section */
 .vec { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .vec .card { text-align: center; }
 .vec .big { width: min(260px, 70%); height: auto; margin: 6px auto 14px; display: block; }
 .vec .row { display: flex; justify-content: center; align-items: flex-end; gap: 18px; flex-wrap: wrap; margin: 6px 0 14px; }
 .vec .row figure { margin: 0; display: grid; justify-items: center; gap: 4px; font: 600 .74rem/1.2 var(--f-latin); color: var(--ink2); direction: ltr; }
-.vec .dark { background: #0B3540; padding: 12px; border-radius: 14px; }
+.vec .dk { border-radius: 12px; }
 .vec h3 { font-family: var(--f-word); margin: 0; }
 .vec p { margin: 4px 0 12px; }
 .vec .en { display: block; text-align: center; }
@@ -114,6 +122,9 @@
 
 @media (max-width: 900px) {
   .lc__grid, .vec { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .vars { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 560px) {
   .lockup { flex-direction: column; text-align: center; min-height: 0; }
@@ -137,7 +148,7 @@
     </a>
     <nav class="nav" aria-label="الْقَائِمَةُ">
       <a href="#concepts">الْأَفْكَارُ</a>
-      <a href="#vector">الْمُتَّجِهُ</a>
+      <a href="#family">الْعَائِلَةُ</a>
       <a href="#tries">الْمُحَاوَلَاتُ</a>
       <a href="../index.html">الرَّئِيسِيَّةُ</a>
     </nav>
@@ -149,11 +160,12 @@
     <div class="wrap">
       <h1>شِعَارُ نَوْرَس</h1>
       <p>سِتُّ أَفْكَارٍ لِلشِّعَارِ. الرَّسْمُ مِنْ نَمُوذَجٍ مَحَلِّيٍّ بِلَا أَيِّ حُرُوفٍ، وَالِاسْمُ «نَوْرَس» مَكْتُوبٌ بِخُطُوطٍ حَقِيقِيَّةٍ.</p>
-      <p class="en">Six logo concepts for Nawras. Each emblem was generated locally (Draw Things, Z-Image Turbo) with <b>no text in the image</b>; the wordmark is typeset in each theme's own fonts. Every card shows the lockup, the 32px favicon and 128px app icon, light and dark, and a mini top-bar.</p>
+      <p class="en">Six logo concepts for Nawras. Each emblem was generated locally (Draw Things, Z-Image Turbo) with <b>no text in the image</b>; the wordmark is typeset in each theme's own fonts. Round 2: every concept now has <b>four generated versions</b> — the main emblem, a dark-background version, a simplified small mark (favicon / app icon) and a one-colour stamp. Every card shows them with the lockup, the 32px favicon and 128px app icon, light and dark, and a mini top-bar.</p>
       <div class="how">
         <span class="chip chip--brand">٦ أَفْكَارٍ · 6 concepts</span>
-        <span class="chip">٢٨ مُحَاوَلَةً · 28 seeds tried</span>
-        <span class="chip chip--accent">٢ نُسْخَةٌ مُتَّجِهَةٌ · 2 vector SVGs</span>
+        <span class="chip">٤ نُسَخٍ لِكُلِّ فِكْرَةٍ · 4 versions each</span>
+        <span class="chip">٩٦ مُحَاوَلَةً · 96 round-2 tries</span>
+        <span class="chip chip--accent">الْجَوْلَةُ ٢ · round 2</span>
       </div>
     </div>
   </section>
@@ -162,34 +174,34 @@
     <div class="wrap concepts" id="cards"></div>
   </section>
 
-  <section class="section" id="vector" style="padding-top:8px">
+  <section class="section" id="family" style="padding-top:8px">
     <div class="wrap">
       <div class="sec-head">
-        <h2>نُسَخٌ مُتَّجِهَةٌ لِلطِّبَاعَةِ</h2>
-        <span class="en">Clean vector versions of the two strongest concepts — hand-built SVG, scales from favicon to the Lulu book cover</span>
+        <h2>الشِّعَارُ وَالْأَيْقُونَةُ مَعًا</h2>
+        <span class="en">The recommended pair — the Gull &amp; Crescent badge (concept 1) and the Noori face app icon (concept 6); the small marks at 16, 32 and 64 px</span>
       </div>
       <div class="vec">
         <article class="card" data-reveal style="--i:0">
-          <img class="big" src="svg/hilal-badge.svg" alt="شِعَارُ نَوْرَسِ الهِلَالِ · Gull & Crescent badge, vector">
+          <img class="big" src="img/v2/c1-m.webp" width="260" height="260" alt="شِعَارُ نَوْرَسِ الهِلَالِ · Gull & Crescent badge, main emblem">
           <h3>نَوْرَسُ الهِلَالِ</h3><span class="en">Concept 1 · Gull &amp; Crescent — the full badge</span>
           <div class="row">
-            <figure><img src="svg/hilal-badge.svg" width="16" height="16" alt="">16px</figure>
-            <figure><img src="svg/hilal-badge.svg" width="32" height="32" alt="">32px</figure>
-            <figure><img src="svg/hilal-badge.svg" width="64" height="64" alt="">64px</figure>
-            <figure class="dark"><img src="svg/hilal-badge.svg" width="64" height="64" alt=""></figure>
+            <figure><img src="img/v2/c1-s.webp" width="16" height="16" alt="">16px</figure>
+            <figure><img src="img/v2/c1-s.webp" width="32" height="32" alt="">32px</figure>
+            <figure><img src="img/v2/c1-s.webp" width="64" height="64" alt="">64px</figure>
+            <figure><img class="dk" src="img/v2/c1-d.webp" width="64" height="64" alt="">dark</figure>
           </div>
-          <a class="btn btn--sm" href="svg/hilal-badge.svg" download>تَنْزِيلُ SVG <span class="en">download</span></a>
+          <a class="btn btn--sm" href="img/v2/hi/c1-m.png" download>تَنْزِيلُ PNG <span class="en">download 1024px</span></a>
         </article>
         <article class="card" data-reveal style="--i:1">
-          <img class="big" src="svg/noori-icon.svg" alt="أَيْقُونَةُ نُورِي · Noori app icon, vector">
+          <img class="big" src="img/v2/c6-m.webp" width="260" height="260" alt="أَيْقُونَةُ نُورِي · Noori face app icon, main emblem">
           <h3>وَجْهُ نُورِي</h3><span class="en">Concept 6 · Noori face mark — favicon, app icon, stickers</span>
           <div class="row">
-            <figure><img src="svg/noori-icon.svg" width="16" height="16" alt="">16px</figure>
-            <figure><img src="svg/noori-icon.svg" width="32" height="32" alt="">32px</figure>
-            <figure><img src="svg/noori-icon.svg" width="64" height="64" alt="">64px</figure>
-            <figure class="dark"><img src="svg/noori-icon.svg" width="64" height="64" alt=""></figure>
+            <figure><img src="img/v2/c6-s.webp" width="16" height="16" alt="">16px</figure>
+            <figure><img src="img/v2/c6-s.webp" width="32" height="32" alt="">32px</figure>
+            <figure><img src="img/v2/c6-s.webp" width="64" height="64" alt="">64px</figure>
+            <figure><img class="dk" src="img/v2/c6-d.webp" width="64" height="64" alt="">dark</figure>
           </div>
-          <a class="btn btn--sm" href="svg/noori-icon.svg" download>تَنْزِيلُ SVG <span class="en">download</span></a>
+          <a class="btn btn--sm" href="img/v2/hi/c6-m.png" download>تَنْزِيلُ PNG <span class="en">download 1024px</span></a>
         </article>
       </div>
       <p class="en note" style="text-align:center;margin-top:18px">The two work as a family: the badge is the school's sign (website header, book cover, uniforms); the face is its small form (favicon, app icon, stickers, stamps).</p>
@@ -200,15 +212,16 @@
     <div class="wrap">
       <div class="sec-head">
         <h2>كُلُّ الْمُحَاوَلَاتِ</h2>
-        <span class="en">Contact sheet — all 28 tries (4 seeds × 6 concepts, plus 4 redraws of concept 2); “* chosen” marks the pick. Rejected seeds are in <code>img/tries/</code>; prompts and seeds in <code>source/gen-logos.sh</code>.</span>
+        <span class="en">Round 2 contact sheet — all 96 tries (3 seeds × 4 versions × 6 concepts, plus redraws of the concept-3 small mark and the concept-6 face); “* chosen” marks the pick. Rejected tries are in <code>img/v2/tries/</code>; prompts and seeds in <code>source/gen-logos.sh</code> (ROUND 2 block).</span>
       </div>
-      <a href="contact-sheet.png"><img class="sheet" src="contact-sheet.png" alt="Contact sheet of all 28 generated logo tries" loading="lazy"></a>
+      <a href="contact-sheet-v2.png"><img class="sheet" src="contact-sheet-v2.png" width="2160" height="2926" alt="Contact sheet of all 96 round-2 logo tries" loading="lazy"></a>
+      <p class="en note" style="margin-top:14px">Round 1 (one emblem per concept, 28 tries): <a href="contact-sheet.png">contact-sheet.png</a>.</p>
     </div>
   </section>
 </main>
 
 <footer class="foot">
-  <div class="wrap"><p class="en" style="text-align:center">Nawras Fusha School, San Diego · demo · logo concepts are proposals for the owners — the emblem art is AI-generated locally and contains no text; final art would be redrawn as vector.</p></div>
+  <div class="wrap"><p class="en" style="text-align:center">Nawras Fusha School, San Diego · demo · logo concepts are proposals for the owners — the emblem art is AI-generated locally and contains no text; the hand-drawn SVGs in <code>svg/</code> are kept for print.</p></div>
 </footer>
 
 <script src="../assets/kids.js"></script>
@@ -216,31 +229,40 @@
 (function () {
   var TOP = 'c1';
   var C = [
-    { id: 'c1', seed: 102, t: 'pacific', ar: 'نَوْرَسُ الهِلَالِ', en: 'Gull & Crescent', theme: 'Pacific',
+    { id: 'c1', seeds: [1111, 1121, 1131, 1143], t: 'pacific', ar: 'نَوْرَسُ الهِلَالِ', en: 'Gull & Crescent', theme: 'Pacific',
       why: 'الهِلَالُ لِلْإِسْلَامِ، وَالْمَوْجُ لِسَان دِييغُو، وَنُورِي لِلْأَطْفَالِ.',
       whyEn: 'The crescent says Islamic, the wave says San Diego, Noori says kids — the whole brand in one badge.',
       rec: 'الِاخْتِيَارُ الْمُقْتَرَحُ', recEn: 'Recommended — tells the whole story (faith + Pacific + a friendly mascot) at a glance, stays readable at 32px thanks to the thick ring, and works in every theme. Pair it with concept 6 as the app icon.' },
-    { id: 'c2', seed: 253, t: 'andalus', ar: 'قَوْسُ الأَنْدَلُسِ', en: 'Andalusian Arch', theme: 'Andalus',
+    { id: 'c2', seeds: [1211, 1222, 1231, 1241], t: 'andalus', ar: 'قَوْسُ الأَنْدَلُسِ', en: 'Andalusian Arch', theme: 'Andalus',
       why: 'أَقْوَاسُ سَان دِييغُو جَاءَتْ مِنَ الْأَنْدَلُسِ، وَفِي الْقَوْسِ غُرُوبُ الْمُحِيطِ.',
       whyEn: 'San Diego’s mission arches descend from Andalusian arches; inside, a Pacific sunset and one gull.',
-      note: 'Seeds 201–204 drew a literal horseshoe (lucky-charm look) — rejected and redrawn as a Moorish keyhole arch on columns (seed 253). The gull is tiny: a final version would enlarge it.' },
-    { id: 'c3', seed: 301, t: 'mosaic', ar: 'نَجْمَةُ الخَاتَمِ', en: 'Khatam Star', theme: 'Mosaic',
+      note: 'Round 2: the gull is now large and centred in front of the sun, clearly visible inside the arch. (Round 1: seeds 201–204 drew a literal horseshoe, so the arch is described as a Moorish keyhole window.)' },
+    { id: 'c3', seeds: [1311, 1322, 1339, 1341], t: 'mosaic', ar: 'نَجْمَةُ الخَاتَمِ', en: 'Khatam Star', theme: 'Mosaic',
       why: 'النَّجْمَةُ الثُّمَانِيَّةُ أَقْدَمُ زَخَارِفِنَا، وَالنَّوْرَسُ فِي قَلْبِهَا يَجْعَلُهَا لَنَا.',
       whyEn: 'The 8-point star is the classic Islamic pattern; the gull at its heart makes it ours. Bold, playful, prints well on shirts.' },
-    { id: 'c4', seed: 401, t: 'kurrasa', ar: 'كِتَابُ المَوْجِ', en: 'Book of Waves', theme: 'Kurrasa',
+    { id: 'c4', seeds: [1412, 1422, 1431, 1441], t: 'kurrasa', ar: 'كِتَابُ المَوْجِ', en: 'Book of Waves', theme: 'Kurrasa',
       why: 'صَفَحَاتُ الْكِتَابِ تَصِيرُ مَوْجًا: لُغَةٌ تَحْمِلُ الْأَطْفَالَ بَعِيدًا.',
       whyEn: 'The pages of a book become the sea — learning that carries children far and brings them home.' },
-    { id: 'c5', seed: 502, t: 'fanous', ar: 'فَانُوسُ نُورِي', en: 'Noori’s Lantern', theme: 'Fanous',
+    { id: 'c5', seeds: [1511, 1521, 1531, 1542], t: 'fanous', ar: 'فَانُوسُ نُورِي', en: 'Noori’s Lantern', theme: 'Fanous',
       why: 'اسْمُ نُورِي مِنَ النُّورِ، وَالْفَانُوسُ نُورٌ دَافِئٌ يُحِبُّهُ الْأَطْفَالُ.',
-      whyEn: 'Noori’s name comes from nūr, light; the lantern is warm, Ramadan-ready and glows on dark backgrounds.' },
-    { id: 'c6', seed: 603, t: 'mihrab', ar: 'وَجْهُ نُورِي', en: 'Noori Face Mark', theme: 'Mihrab',
+      whyEn: 'Noori’s name comes from nūr, light; the lantern is warm, Ramadan-ready and glows on dark backgrounds.',
+      note: 'Round 2: the modern light bulb inside the lantern is replaced by a candle flame.' },
+    { id: 'c6', seeds: [1628, 1628, 1638, 1641], t: 'mihrab', ar: 'وَجْهُ نُورِي', en: 'Noori Face Mark', theme: 'Mihrab',
       why: 'أَبْسَطُ شِعَارٍ: وَجْهُ الصَّدِيقِ الَّذِي يَعْرِفُهُ الْأَطْفَالُ، وَاضِحٌ حَتَّى فِي ٣٢ بِكْسِل.',
-      whyEn: 'The simplest mark — the friend children already know; reads at 32px as a favicon, app icon or sticker.' }
+      whyEn: 'The simplest mark — the friend children already know; reads at 32px as a favicon, app icon or sticker.',
+      note: 'Round 2: a small pointed seagull beak instead of the duck-like bill (the model kept drawing a duck bill, so a small beak was painted in and redrawn by the model at low strength), and the face now fills the circle.',
+      rec: 'أَيْقُونَةُ التَّطْبِيقِ الْمُقْتَرَحَةُ', recEn: 'Recommended app icon — the small form of the brand; pair it with concept 1.' }
   ];
   var AR_N = ['١','٢','٣','٤','٥','٦'];
+  var VARS = [
+    { k: 'm', ar: 'الرَّئِيسِيُّ', en: 'main emblem', cls: '' },
+    { k: 'd', ar: 'عَلَى الدَّاكِنِ', en: 'dark background', cls: ' full' },
+    { k: 's', ar: 'الْعَلَامَةُ الصَّغِيرَةُ', en: 'small mark', cls: ' sm' },
+    { k: 'o', ar: 'لَوْنٌ وَاحِدٌ', en: 'one colour', cls: '' }
+  ];
   var out = '';
   C.forEach(function (c, i) {
-    var img = 'img/' + c.id + '.webp';
+    var V = 'img/v2/' + c.id, img = V + '-m.webp', sm = V + '-s.webp';
     var alt = c.ar + ' · ' + c.en + ' — Nawras logo emblem';
     out +=
       '<article class="lc' + (c.id === TOP ? ' is-top' : '') + '" data-t="' + c.t + '" id="' + c.id + '" data-reveal style="--i:' + (i % 2) + '" aria-labelledby="' + c.id + '-h">' +
@@ -251,7 +273,7 @@
             '<p class="lc__why">' + c.why + '<span class="en">' + c.whyEn + '</span></p>' +
             (c.note ? '<p class="lc__note en">' + c.note + '</p>' : '') +
           '</div>' +
-          '<span class="tchip">Theme · ' + c.theme + ' · seed ' + c.seed + '</span>' +
+          '<span class="tchip">Theme · ' + c.theme + ' · seed ' + c.seeds[0] + '</span>' +
           (c.rec ? '<div class="rec"><b>★ ' + c.rec + '</b><span class="en">' + c.recEn + '</span></div>' : '') +
         '</div>' +
         '<div class="lc__grid">' +
@@ -262,13 +284,13 @@
           '<div class="tests">' +
             '<div><h3>الْأَحْجَامُ الصَّغِيرَةُ<span class="en">small sizes</span></h3>' +
               '<div class="sizes">' +
-                '<div class="sz"><div class="tab"><img src="' + img + '" alt="" width="32" height="32"><span>نَوْرَس — Nawras</span></div>favicon 32px</div>' +
-                '<div class="sz"><div class="app"><img src="' + img + '" alt="" width="112" height="112"></div>app icon 128px</div>' +
+                '<div class="sz"><div class="tab"><img src="' + sm + '" alt="" width="32" height="32"><span>نَوْرَس — Nawras</span></div>favicon 32px</div>' +
+                '<div class="sz"><div class="app"><img src="' + sm + '" alt="" width="112" height="112"></div>app icon 128px</div>' +
               '</div></div>' +
             '<div><h3>فَاتِحٌ وَدَاكِنٌ<span class="en">light &amp; dark</span></h3>' +
               '<div class="ld">' +
                 '<div class="on-l"><img src="' + img + '" alt="" width="52" height="52"><span><b>نَوْرَس</b><small>Fusha School · San Diego</small></span></div>' +
-                '<div class="on-d"><img src="' + img + '" alt="" width="52" height="52"><span><b>نَوْرَس</b><small>Fusha School · San Diego</small></span></div>' +
+                '<div class="on-d"><img src="' + V + '-d.webp" alt="" width="52" height="52" style="border-radius:10px"><span><b>نَوْرَس</b><small>Fusha School · San Diego</small></span></div>' +
               '</div></div>' +
             '<div><h3>فِي الْمَوْقِعِ<span class="en">in the top bar</span></h3>' +
               '<div class="mini" aria-hidden="true"><div class="mini__bar">' +
@@ -277,6 +299,12 @@
                 '<span class="mini__cta">احْجِزْ حِصَّةً تَجْرِيبِيَّةً</span>' +
               '</div><div class="mini__hero"></div></div></div>' +
           '</div>' +
+        '</div>' +
+        '<div class="vars" role="group" aria-label="' + c.en + ': four versions">' +
+          VARS.map(function (v, j) {
+            return '<figure><div class="tile' + v.cls + '"><img src="' + V + '-' + v.k + '.webp" alt="' + c.en + ', ' + v.en + '" width="640" height="640" loading="lazy"></div>' +
+              '<figcaption><b>' + v.ar + '</b>' + v.en + ' · seed ' + c.seeds[j] + '</figcaption></figure>';
+          }).join('') +
         '</div>' +
       '</article>';
   });

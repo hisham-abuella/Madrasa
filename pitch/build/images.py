@@ -13,3 +13,9 @@ im=Image.open(R+'book/build/prev-int.png').convert('RGB'); im=im.resize((1600,ro
 # QR svg lacks xmlns (needed when used as <img>)
 s=open(R+'book/input/qr/qr-book.svg').read().replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" ',1)
 open(R+'pitch/img/qr-book.svg','w').write(s)
+
+# Logo switcher (slide 4): round-2 generated emblems (logos/img/v2/hi), main + small mark for the 32 px preview
+for k in ('c1','c2','c3','c4','c5','c6'):
+    for v,suf,w in (('m','',640),('s','-s',128)):
+        im=Image.open(R+f'logos/img/v2/hi/{k}-{v}.png').convert('RGBA').resize((w,w),Image.LANCZOS)
+        im.save(R+f'pitch/img/logo-{k}{suf}-v2.webp','WEBP',quality=86)

@@ -123,20 +123,20 @@ logos = [
 ]
 tags = {'c1': 'Recommended', 'c6': 'App icon'}
 thumbs = ''.join(
- f'<button type="button" class="lthumb{" on" if k=="c1" else ""}" data-logo="{k}" aria-pressed="{"true" if k=="c1" else "false"}" aria-label="Logo {n+1}: {en}" data-ar="{ar}" data-en="{en}" data-why="{why}" data-tag="{tags.get(k,"")}"><img src="img/logo-{k}.webp" alt=""><span>{n+1}</span></button>'
+ f'<button type="button" class="lthumb{" on" if k=="c1" else ""}" data-logo="{k}" aria-pressed="{"true" if k=="c1" else "false"}" aria-label="Logo {n+1}: {en}" data-ar="{ar}" data-en="{en}" data-why="{why}" data-tag="{tags.get(k,"")}"><img src="img/logo-{k}-v2.webp" alt=""><span>{n+1}</span></button>'
  for n, (k, ar, en, why) in enumerate(logos))
 slide('logo', 'two-column', f'''<h2>We recommend the Gull and Crescent, with Noori's face as the app icon</h2>
 <div class="demo logo-demo bx-ui">
-<div class="lstage" id="lstage" data-bg="light"><img id="lbig" src="img/logo-c1.webp" alt="Logo concept 1: Gull and Crescent"><p class="wordmark">{A("نَوْرَس")}</p></div>
+<div class="lstage" id="lstage" data-bg="light"><img id="lbig" src="img/logo-c1-v2.webp" alt="Logo concept 1: Gull and Crescent"><p class="wordmark">{A("نَوْرَس")}</p></div>
 <div class="linfo">
 <div class="lthumbs" role="group" aria-label="Choose a logo">{thumbs}</div>
 <h3 id="lname"><span class="ar" lang="ar">نَوْرَسُ الْهِلَالِ</span> <span id="lname-en">Gull &amp; Crescent</span></h3>
 <p id="lwhy">The crescent says Islamic, the wave says San Diego, Noori says kids.</p>
-<p class="lrow"><span class="ltag" id="ltag">Recommended</span> <img id="lfav" class="lfav" src="img/logo-c1.webp" alt="" width="32" height="32"> <span class="lsmall">32 px</span>
+<p class="lrow"><span class="ltag" id="ltag">Recommended</span> <img id="lfav" class="lfav" src="img/logo-c1-s-v2.webp" alt="" width="32" height="32"> <span class="lsmall">32 px</span>
 <button type="button" class="lbg on" data-bg="light" aria-pressed="true">Light</button><button type="button" class="lbg" data-bg="dark" aria-pressed="false">Dark</button></p>
 <p class="lsmall">{a("../logos/index.html", "All six on one page →")}</p>
 </div></div>''',
- 'logos/index.html (names, reasons, "Recommended" on concept 1, pair with concept 6); logos/source/gen-logos.sh (28 versions tried; no text in the emblems; 2 vector SVGs, for 1 and 6).')
+ 'logos/index.html (names, reasons, "Recommended" on concept 1, pair with concept 6); logos/source/gen-logos.sh (round 2: 4 generated versions per concept, 96 tries; no text in the emblems; the 32 px preview is the small mark).')
 
 # 5 look (interactive)
 LAYOUTS = [('01-andalus', 'Garden arch', 'andalus'), ('02-pacific', 'Ocean', 'pacific'), ('03-fanous', 'Lanterns', 'fanous'),
@@ -379,7 +379,7 @@ JS2 = r'''<script>
   var big=sl.querySelector('#lbig'), fav=sl.querySelector('#lfav'), st=sl.querySelector('#lstage');
   function pick(b){
     sl.querySelectorAll('.lthumb').forEach(function(t){ var on=t===b; t.classList.toggle('on',on); t.setAttribute('aria-pressed',on); });
-    var k=b.dataset.logo; big.src='img/logo-'+k+'.webp'; fav.src='img/logo-'+k+'.webp';
+    var k=b.dataset.logo; big.src='img/logo-'+k+'-v2.webp'; fav.src='img/logo-'+k+'-s-v2.webp';
     big.alt='Logo '+b.querySelector('span').textContent+': '+b.dataset.en;
     sl.querySelector('#lname .ar').textContent=b.dataset.ar; sl.querySelector('#lname-en').innerHTML=b.dataset.en;
     sl.querySelector('#lwhy').textContent=b.dataset.why; sl.querySelector('#ltag').textContent=b.dataset.tag;

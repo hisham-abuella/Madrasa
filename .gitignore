@@ -9,3 +9,4 @@ node_modules/
 # secrets — never commit
 .env
 *.key
+logos/img/v2/tries/
