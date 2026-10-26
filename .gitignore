@@ -10,3 +10,5 @@ node_modules/
 .env
 *.key
 logos/img/v2/tries/
+logos/img/tries/
+.playwright-mcp/

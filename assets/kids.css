@@ -511,7 +511,7 @@ html[data-theme="mosaic"] .btn, html[data-theme="kurrasa"] .btn { border-color: 
   transition: transform var(--t-tap) var(--ease-pop);
 }
 .say svg { width: 26px; height: 26px; }
-.say:hover { transform: scale(1.1); }
+.say:hover { transform: scale(1.1); } .say--sm { width: 44px; height: 44px; position: relative; } .say--sm::after { content: ""; position: absolute; inset: -7px; border-radius: 50%; }
 .say.is-speaking { animation: pulse 1s ease-in-out infinite; }
 
 /* ── cards, chips, bubbles ──────────────────────────────────────────────── */
@@ -713,7 +713,7 @@ html.ks-js [data-reveal].is-in { opacity: 1; transform: none; }
 .wp-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
 .wp-group { display: flex; gap: 6px; align-items: center; padding: 4px; border-radius: 999px; background: var(--surface2); }
 .wp-pen, .wp-btn {
-  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; padding: 0;
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; padding: 0;
   background: var(--surface); color: var(--ink); border: 2px solid transparent;
   transition: transform var(--t-tap) var(--ease-pop), border-color .2s;
 }
@@ -967,3 +967,7 @@ a:hover .lvl-art { transform: rotate(-4deg) scale(1.06); }
 .parents-art { margin: 0 auto 26px; max-width: 640px; border-radius: var(--radius); overflow: hidden; border: var(--border-w) solid var(--border-c); box-shadow: var(--shadow); background: var(--surface); }
 .parents-art img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 @media (prefers-reduced-motion: reduce) { a:hover .lvl-art { transform: none; } }
+
+/* Brand mark (round-2 logo, Gull & Crescent main emblem) used in the top bars */
+.logo-mark { width: 56px; height: 56px; border-radius: 50%; flex: none; display: block; object-fit: contain; }
+@media (max-width: 480px) { .logo-mark { width: 48px; height: 48px; } }

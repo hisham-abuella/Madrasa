@@ -11,6 +11,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>هَذَا وَهَذِهِ · دَرْسٌ لِلصَّفِّ — Nawras</title>
+<meta name="description" content="Nawras classroom slides (grade 1–2): هَذَا وَهَذِهِ, masculine and feminine, for the teacher to present, with a live writing pad.">
+<meta property="og:title" content="هَذَا وَهَذِهِ — Nawras classroom slides">
+<meta property="og:description" content="A classroom lesson for grade 1–2: هَذَا وَهَذِهِ, the little shell ة, a game and a writing station.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/lessons/presentation.html">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/assets/og-nawras.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style id="kp-themes">
 /* =====================================================================
@@ -787,7 +796,7 @@ html{
 .wp-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
 .wp-group { display: flex; gap: 6px; align-items: center; padding: 4px; border-radius: 999px; background: var(--surface2); }
 .wp-pen, .wp-btn {
-  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; padding: 0;
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; padding: 0;
   background: var(--surface); color: var(--ink); border: 2px solid transparent;
   transition: transform var(--t-tap) var(--ease-pop), border-color .2s;
 }
@@ -899,6 +908,9 @@ figure.fig{display:flex;align-items:center;justify-content:center;background:var
 [dir="rtl"] .listen{padding:0 12px 0 36px}
 .listen svg{width:64px;height:64px;padding:14px;border-radius:50%;background:rgba(255,255,255,.2);flex:none}
 .listen.on{background:var(--accent);color:var(--on-accent)}
+/* hit area >= 56 CSS px at any stage scale (the visual button stays the same) */
+.listen{position:relative}
+.listen::after{content:"";position:absolute;inset:min(0px,calc((72px - 56px*var(--inv,1))/2)) min(0px,calc((72px - 56px*var(--inv,1))/2));border-radius:999px}
 .listen:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
 [data-layout="title"] .listen{background:#FFF3DC;color:#0B3540;box-shadow:0 6px 0 0 #07575A}
 [data-layout="title"] .listen svg{background:rgba(11,122,126,.18)}
@@ -951,7 +963,17 @@ figure.fig{display:flex;align-items:center;justify-content:center;background:var
 .padhost .en{display:none}
 .padhost .wp-done{font:700 32px/1.2 var(--f-ar-b);min-height:56px}
 .padhost .wp-msg{font-size:32px}
-.padhost .wp-pen,.padhost .wp-btn{width:56px;height:56px}
+.padhost{--u:calc(1px*var(--inv,1))}
+.padhost .wp-tools{gap:calc(10*var(--u))}
+.padhost .wp-pen,.padhost .wp-btn{width:max(56px,calc(56*var(--u)));height:max(56px,calc(56*var(--u)))}
+.padhost .wp-pen i{width:calc(26*var(--u));height:calc(26*var(--u))}
+.padhost .wp-btn svg{width:calc(24*var(--u));height:calc(24*var(--u))}
+.padhost .wp-done{min-height:max(56px,calc(56*var(--u)))}
+/* write slides: the pad gets most of the slide */
+[data-id^="write"] .col.bx-text{grid-column:span 4}[data-id^="write"] .col.bx-stage{grid-column:span 8}
+.ws-pic .pic-box{height:340px;margin-block-start:24px}
+/* the slide counter reads 1 / 22 left to right, also in RTL */
+.kp-foot span:last-child,.kp-ui .kp-count{direction:ltr;unicode-bidi:isolate}
 /* bullets */
 [data-layout="bullets"] li{font-family:var(--f-ar-d);font-weight:700}
 /* footer in Arabic */
@@ -1086,12 +1108,20 @@ html[data-theme="keynote-black"],html[data-theme="studio"]{--masc-text:#8FD0F5;-
 </section>
 
 <section class="slide" data-id="write" data-layout="two-column" data-fit="off" data-demo>
-<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ</p>
-<h2 class="inh">هَيَّا نَكْتُبْ: <span class="ta">ة</span>، ثُمَّ هَذِهِ</h2>
+<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ · ١ وَ٢</p>
+<h2 class="inh">هَيَّا نَكْتُبْ: <span class="ta">ة</span>، ثُمَّ <span class="dm">هَذَا</span> وَ<span class="df">هَذِهِ</span></h2>
 <p>ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ.</p>
 <p>افْتَحُوا الْكِتَابَ: صَفَحَاتُ ١٨–٢٨</p></div>
-<div class="col bx-stage bx-ui"><div class="padhost" data-pad></div></div>
-<aside class="notes"><p>«هَيَّا نَكْتُبْ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذِهِ.</p><p>«افْتَحُوا الْكِتَابَ: صَفَحَاتُ ١٨–٢٨.»</p><p dir="ltr" lang="en">Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.</p></aside>
+<div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="ة|هَذَا|هَذِهِ" data-lines="3" data-lh="200"></div></div>
+<aside class="notes"><p>«هَيَّا نَكْتُبْ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذَا، ثُمَّ هَذِهِ.</p><p>«افْتَحُوا الْكِتَابَ: صَفَحَاتُ ١٨–٢٨.»</p><p dir="ltr" lang="en">Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.</p></aside>
+</section>
+
+<section class="slide" data-id="write-sentence" data-layout="two-column" data-fit="off" data-demo>
+<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ · ٣</p>
+<h2 class="inh">انْظُرْ وَاكْتُبْ: <span class="df">هَذِهِ</span> …</h2>
+<div class="ws-pic"><div data-pic="fish" class="pic-box "></div></div></div>
+<div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="" data-lines="1" data-lh="300"></div></div>
+<aside class="notes"><p>«انْظُرُوا إِلَى الصُّورَةِ. مَاذَا نَكْتُبُ؟» الصَّفُّ يَقُولُ: «هَذِهِ سَمَكَةٌ.»</p><p>اُكْتُبِ الْجُمْلَةَ عَلَى السَّطْرِ الْفَارِغِ، ثُمَّ يَكْتُبُهَا الْأَطْفَالُ فِي الْكِتَابِ تَحْتَ الصُّورَةِ.</p><p dir="ltr" lang="en">Step 3 of the writing station: a short sentence under a picture. The line is empty on purpose (no model): the class says the sentence first, then you write it. Answer: هَذِهِ سَمَكَةٌ. Praise every try.</p></aside>
 </section>
 
 <section class="slide" data-id="remember" data-layout="bullets">
@@ -1829,21 +1859,27 @@ Promise.race([look, new Promise(r => setTimeout(r, 3000))]).then(() => {
     a.addEventListener('ended',function(){b.classList.remove('on');});
     new MutationObserver(function(){if(!sl.classList.contains('is-current')){a.pause();a.currentTime=0;b.classList.remove('on');}})
       .observe(sl,{attributes:true,attributeFilter:['class']});});}
-  // writing pad: built when its slide is on screen so the line height matches the stage scale
-  var padW=0;
+  // writing pads: built when their slide is on screen so the line height matches the stage scale.
+  // --inv (1/scale, capped) lets kid-facing controls keep a >= 56 CSS px hit area at any stage scale.
+  function inv(){var deck=document.querySelector('.deck');if(!deck)return 1;
+    var s=deck.getBoundingClientRect().width/deck.offsetWidth||1;deck.style.setProperty('--inv',Math.min(1/s,2.6).toFixed(3));return s;}
   function pad(){
-    var host=document.querySelector('[data-pad]');if(!host||!window.KS)return;
-    var deck=document.querySelector('.deck'),s=deck.getBoundingClientRect().width/deck.offsetWidth||1;
-    var w=host.getBoundingClientRect().width;if(w<50)return;
-    if(host.__pad&&Math.abs(padW-s)<0.01)return;
-    host.__pad=null;host.innerHTML='';padW=s;
-    KS.writePad(host,{model:['ة','هَذِهِ'],lines:2,lineHeight:150*s});
-    var st=host.querySelector('.wp-stage');st.style.height=(300)+'px';
+    if(!window.KS)return;var s=inv();
+    document.querySelectorAll('[data-pad]').forEach(function(host){
+      if(!host.closest('.slide').classList.contains('is-current')&&host.__pad)return;
+      var w=host.getBoundingClientRect().width;if(w<50)return;
+      if(host.__pad&&Math.abs(host.__s-s)<0.01)return;
+      host.__pad=null;host.innerHTML='';host.__s=s;
+      var m=host.getAttribute('data-model')||'',n=+host.getAttribute('data-lines')||1,lh=+host.getAttribute('data-lh')||150;
+      KS.writePad(host,{model:m?m.split('|'):[],lines:n,lineHeight:lh*s});
+      host.querySelector('.wp-stage').style.height=(n*lh)+'px';
+    });
   }
   function init(){foot();stops();audio();
-    var sl=document.querySelector('[data-id="write"]');
-    if(sl){new MutationObserver(function(){if(sl.classList.contains('is-current'))setTimeout(pad,120);}).observe(sl,{attributes:true,attributeFilter:['class']});
-      setTimeout(pad,300);}
+    inv();
+    document.querySelectorAll('[data-pad]').forEach(function(h){var sl=h.closest('.slide');
+      new MutationObserver(function(){if(sl.classList.contains('is-current'))setTimeout(pad,120);}).observe(sl,{attributes:true,attributeFilter:['class']});});
+    setTimeout(pad,300);
     window.addEventListener('resize',function(){setTimeout(pad,250);});}
   if(document.readyState==='complete')setTimeout(init,50);else window.addEventListener('load',function(){setTimeout(init,50);});
 })();

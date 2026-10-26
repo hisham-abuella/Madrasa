@@ -6,8 +6,13 @@
 <title>نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ · قِصَّةٌ — Nawras</title>
 <meta name="description" content="Nawras Fusha School — sample lesson (grade 1–2) as an illustrated story: Noori the seagull meets Sami and Salma on a San Diego beach and discovers هَذَا and هَذِهِ.">
 <meta property="og:title" content="Noori and the Little Shell — Nawras sample lesson (story)">
-<meta property="og:image" content="../assets/og-nawras.png">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:description" content="Nawras Fusha School — sample lesson (grade 1–2) as an illustrated story: Noori the seagull meets Sami and Salma on a San Diego beach and discovers هَذَا and هَذِهِ.">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/assets/og-nawras.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/lessons/story.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
 <link rel="stylesheet" href="../assets/kids.css">
@@ -23,6 +28,7 @@ body { overflow: hidden; }
   background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); text-decoration: none;
   transition: transform var(--t-tap) var(--ease-pop), background .2s; -webkit-tap-highlight-color: transparent; }
 .st-btn svg { width: 26px; height: 26px; }
+.st-home { overflow: hidden; } .st-home .logo-mark { width: 100%; height: 100%; }
 .st-btn:hover { transform: scale(1.06); }
 .st-btn:active { transform: scale(.92); }
 .st-btn[aria-pressed="true"] { background: var(--brand); color: var(--on-brand); border-color: var(--brand); }
@@ -32,7 +38,7 @@ body { overflow: hidden; }
 .st-title .en { display: block; font-size: .78rem; }
 .st-tools { display: flex; gap: 8px; align-items: center; margin-inline-start: auto; }
 .seg { display: inline-flex; padding: 3px; gap: 3px; border-radius: 999px; background: var(--surface2); border: var(--border-w) solid var(--border-c); }
-.seg button { min-height: 48px; min-width: 64px; padding: 0 12px; border-radius: 999px; border: 0; cursor: pointer; background: transparent; color: var(--ink); font: 700 1rem/1.1 var(--f-ui); }
+.seg button { min-height: 56px; min-width: 64px; padding: 0 12px; border-radius: 999px; border: 0; cursor: pointer; background: transparent; color: var(--ink); font: 700 1rem/1.1 var(--f-ui); }
 .seg button .en { display: block; font-size: .68rem; color: inherit; opacity: .8; }
 .seg button[aria-pressed="true"] { background: var(--brand); color: var(--on-brand); }
 .seg button:focus-visible { outline: 3px solid var(--ink); outline-offset: 1px; }
@@ -72,6 +78,12 @@ body { overflow: hidden; }
 .s-text .en { display: block; margin-bottom: 4px; }
 .s-listen { margin-top: 10px; }
 .s-art { position: relative; aspect-ratio: 4 / 3; width: 100%; border-radius: var(--radius); overflow: hidden; border: var(--border-w) solid var(--border-c); box-shadow: var(--shadow); background: var(--sky); }
+.write-stack { display: grid; gap: 12px; }
+.sentence-st { display: flex; align-items: center; gap: 14px; background: var(--surface); border: var(--border-w) solid var(--border-c); border-radius: var(--radius); padding: 8px 14px; }
+.sentence-pic { width: 84px; height: 84px; flex: none; display: grid; place-items: center; }
+.sentence-pic > * { width: 100%; height: 100%; }
+.sentence-pic img, .sentence-pic svg { width: 100%; height: 100%; object-fit: contain; }
+.sentence-cap { margin: 0; font-family: var(--f-word); font-size: 1.35rem; font-weight: 700; }
 .s-art--plain { aspect-ratio: auto; overflow: visible; background: var(--surface); padding: clamp(12px, 2.4vw, 22px); }
 .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cast { position: absolute; inset-inline: 3%; bottom: 5%; display: flex; justify-content: center; align-items: flex-end; gap: 3%; }
@@ -193,7 +205,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
 
 <div class="story" id="story">
   <header class="st-top">
-    <a class="st-btn" href="../index.html" aria-label="الرَّئِيسَةُ — back to the hub"><svg aria-hidden="true"><use href="#i-home"/></svg></a>
+    <a class="st-btn st-home" href="../index.html" aria-label="نَوْرَس — الرَّئِيسَةُ · back to the hub"><img class="logo-mark" src="../assets/brand/logo-c1-128.webp" alt="" width="48" height="48"></a>
     <div class="st-title"><b>نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ</b><span class="en">Story · هَذَا وَهَذِهِ · Grade 1–2</span></div>
     <div class="st-tools">
       <div class="seg" role="group" aria-label="صَوْتُ الرَّاوِي — narration voice">
@@ -212,7 +224,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
           <button type="button" data-voice="eg" aria-pressed="false">مَصْرِي<span class="en">Egyptian</span></button>
         </div>
       </div>
-      <p class="en">Recorded narration (ElevenLabs samples) on pages 2, 4 and 7, in Fusha or Egyptian; other pages use the device’s Arabic voice for now. On-screen words always stay Fusha.</p>
+      <p class="en">Recorded narration on every page (ElevenLabs): Fusha read by Sarah, Egyptian by Hisham’s voice. On-screen words always stay Fusha.</p>
       <h3>الْقِرَاءَةُ التِّلْقَائِيَّةُ <span class="en">Auto-read</span></h3>
       <p class="en">Reads each page aloud and turns the page when the narration ends. It waits on the activity pages (shell, writing, quiz). Pause any time with the ▶ / ⏸ button or the P key.</p>
       <h3>الْأَصْوَاتُ <span class="en">Sound effects</span></h3>
@@ -248,7 +260,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     </section>
 
     <!-- 2 · GREETING (audio s1) -->
-    <section class="s s--foam" aria-label="٢ — التَّحِيَّةُ · greeting" data-audio="s1"
+    <section class="s s--foam" aria-label="٢ — التَّحِيَّةُ · greeting"
       data-narr="السَّلَامُ عَلَيْكُمْ يَا أَصْدِقَائِي الصِّغَارَ! أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ، أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو.">
       <div class="s-inner">
         <div class="s-text">
@@ -290,7 +302,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     </section>
 
     <!-- 4 · هَذَا وَلَدٌ / هَذِهِ بِنْتٌ (audio s2) -->
-    <section class="s s--sky" aria-label="٤ — هَذَا وَهَذِهِ · this and this" data-audio="s2"
+    <section class="s s--sky" aria-label="٤ — هَذَا وَهَذِهِ · this and this"
       data-narr="انْظُرُوا مَعِي… هَذَا وَلَدٌ، وَهَذِهِ بِنْتٌ. هَذَا قِطٌّ، وَهَذِهِ قِطَّةٌ.">
       <div class="s-inner">
         <div class="s-text">
@@ -361,7 +373,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     </section>
 
     <!-- 7 · THE LITTLE SHELL ة (audio s3) -->
-    <section class="s s--foam" aria-label="٧ — التَّاءُ الْمَرْبُوطَةُ · the tied ta" data-audio="s3"
+    <section class="s s--foam" aria-label="٧ — التَّاءُ الْمَرْبُوطَةُ · the tied ta"
       data-narr="هَلْ سَمِعْتُمُ التَّاءَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ إِنَّهَا التَّاءُ الْمَرْبُوطَةُ! قِطٌّ… قِطَّةٌ!">
       <div class="s-inner">
         <div class="s-text">
@@ -454,15 +466,20 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
 
     <!-- 11 · WRITING -->
     <section class="s s--paper" style="--s-bg:url(../assets/art/story/s11-picnic.webp)" aria-label="١١ — نَكْتُبُ · let's write" data-stop
-      data-narr="هَيَّا نَكْتُبْ! تَتَبَّعْ بِإِصْبَعِكَ: التَّاءَ الْمَرْبُوطَةَ، ثُمَّ هَذِهِ. ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ.">
+      data-narr="هَيَّا نَكْتُبْ! تَتَبَّعْ بِإِصْبَعِكَ: التَّاءَ الْمَرْبُوطَةَ، ثُمَّ هَذَا وَهَذِهِ. ثُمَّ اكْتُبْ جُمْلَةً تَحْتَ الصُّورَةِ. ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ.">
       <div class="s-inner s-inner--wide">
         <div class="s-text">
           <p class="s-kicker">مَحَطَّةُ الْكِتَابَةِ <span class="en" style="display:inline">· writing station</span></p>
-          <p class="s-line">هَيَّا نَكْتُبْ! تَتَبَّعْ بِإِصْبَعِكَ: <span class="ta">ة</span>، ثُمَّ <b class="dem-f">هَذِهِ</b>.</p>
-          <p class="en">Trace with your finger, an Apple Pencil or the mouse. Start at the green dot — Arabic goes right to left. Tap «انْتَهَيْتُ» when you’re done.</p>
+          <p class="s-line">هَيَّا نَكْتُبْ! تَتَبَّعْ بِإِصْبَعِكَ: <span class="ta">ة</span>، ثُمَّ <b class="dem-m">هَذَا</b> وَ<b class="dem-f">هَذِهِ</b>.</p>
+          <p class="en">Step 1–2: trace ة, then هَذَا and هَذِهِ. Step 3: look at the picture and write a short sentence on the empty line. Finger, Apple Pencil or mouse; start at the green dot — Arabic goes right to left. Tap «انْتَهَيْتُ» when you’re done.</p>
         </div>
-        <div class="s-art s-art--plain" style="padding:0;background:none;border:0;box-shadow:none">
-          <div data-writepad data-model="ة|هَذِهِ" data-lines="2" data-line-height="120"></div>
+        <div class="s-art s-art--plain write-stack" style="padding:0;background:none;border:0;box-shadow:none">
+          <div data-writepad data-model="ة|هَذَا|هَذِهِ" data-lines="3" data-line-height="104"></div>
+          <div class="sentence-st">
+            <div class="sentence-pic"><span data-pic="fish" data-pic-label="سَمَكَةٌ — a fish"></span></div>
+            <p class="sentence-cap">اكْتُبْ: <b class="dem-f">هَذِهِ</b> … <span class="en" style="display:inline">Write: “this is …”</span></p>
+          </div>
+          <div data-writepad data-model="" data-lines="1" data-line-height="120"></div>
         </div>
       </div>
     </section>
@@ -540,10 +557,13 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
   var auto = false, advT = null, safeT = null, tok = 0;
   var audio = new Audio(); audio.preload = 'none';
 
+  slides.forEach(function (sl, i) { sl.setAttribute('data-audio', clipId(i)); });
   dotsEl.innerHTML = slides.map(function () { return '<i></i>'; }).join('');
   var dots = $$('i', dotsEl);
 
-  /* ── narration: recorded sample (s1–s3) → device voice fallback ── */
+  /* ── narration: recorded clips audio/story/{ar,eg}/p01–p13.mp3 (ElevenLabs: Sarah Fusha / Hisham Egyptian);
+        KS.speak (device voice) only if a clip fails to load ── */
+  function clipId(n) { return 'p' + (n < 9 ? '0' : '') + (n + 1); }
   function stopNarr() {
     tok++;
     try { audio.pause(); } catch (e) {}
@@ -551,26 +571,6 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     try { if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch (e) {}
     clearTimeout(safeT);
     listenBtn.classList.remove('is-speaking');
-  }
-  function pickVoice() {
-    try {
-      var vs = speechSynthesis.getVoices() || [], want = voice === 'eg' ? /^ar[-_]EG/i : /^ar/i, any = null;
-      for (var i = 0; i < vs.length; i++) { if (want.test(vs[i].lang)) return vs[i]; if (!any && /^ar/i.test(vs[i].lang)) any = vs[i]; }
-      return any;
-    } catch (e) { return null; }
-  }
-  function speakText(text, done) {
-    var est = Math.max(2600, (text || '').length * 95);
-    try {
-      if (!('speechSynthesis' in window) || !text) { safeT = setTimeout(done, est); return; }
-      var u = new SpeechSynthesisUtterance(text), v = pickVoice();
-      u.lang = v ? v.lang : (voice === 'eg' ? 'ar-EG' : 'ar-SA'); if (v) u.voice = v;
-      u.rate = 0.85;
-      u.onend = done;
-      u.onerror = function () { clearTimeout(safeT); safeT = setTimeout(done, est); };
-      speechSynthesis.cancel(); speechSynthesis.speak(u);
-      safeT = setTimeout(done, est * 2.2);       // some browsers never fire onend
-    } catch (e) { safeT = setTimeout(done, est); }
   }
   function narrate(n, cb) {
     stopNarr();
@@ -582,13 +582,15 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
       listenBtn.classList.remove('is-speaking');
       if (cb) cb();
     }
-    function fallback() { if (fell || my !== tok) return; fell = true; speakText(s.getAttribute('data-narr'), done); }
-    var id = s.getAttribute('data-audio');
-    if (id) {
-      audio.src = '../audio/samples/' + voice + '/' + id + '.mp3';
-      audio.onended = done; audio.onerror = fallback;
-      try { var p = audio.play(); if (p && p.catch) p.catch(fallback); } catch (e) { fallback(); }
-    } else speakText(s.getAttribute('data-narr'), done);
+    function fallback() {
+      if (fell || my !== tok) return; fell = true;
+      var text = s.getAttribute('data-narr') || '';
+      try { KS.speak(text); } catch (e) {}
+      safeT = setTimeout(done, Math.max(2600, text.length * 95));
+    }
+    audio.src = '../audio/story/' + voice + '/' + (s.getAttribute('data-audio') || clipId(n)) + '.mp3';
+    audio.onended = done; audio.onerror = fallback;
+    try { var p = audio.play(); if (p && p.catch) p.catch(function (e) { if (!e || e.name !== 'AbortError') fallback(); }); } catch (e) { fallback(); }
   }
   function afterNarr() {
     if (!auto) return;
@@ -618,7 +620,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     });
     slides[n].scrollTop = 0;
     dots.forEach(function (d, i) { d.className = i === n ? 'on' : (i < n ? 'done' : ''); });
-    countEl.textContent = KS.arNum(n + 1) + ' / ' + KS.arNum(N);
+    countEl.textContent = KS.arNum(n + 1) + ' مِنْ ' + KS.arNum(N);
     countEl.setAttribute('aria-label', 'Page ' + (n + 1) + ' of ' + N);
     prevBtn.disabled = n === 0; nextBtn.disabled = n === N - 1;
     nextBtn.classList.remove('nudge');
@@ -680,7 +682,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
   $$('[data-voice]').forEach(function (b) {
     b.addEventListener('click', function () {
       voice = b.getAttribute('data-voice'); store('nawras-voice', voice); paintVoice(); KS.sfx('pop');
-      if (slides[cur].hasAttribute('data-audio')) narrate(cur, auto ? afterNarr : null);
+      narrate(cur, auto ? afterNarr : null);
     });
   });
   paintVoice();

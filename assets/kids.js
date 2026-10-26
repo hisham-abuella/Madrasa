@@ -440,12 +440,13 @@
         ctx.beginPath(); ctx.moveTo(12, mid); ctx.lineTo(W - 12, mid); ctx.stroke();
         var m = models[i];
         if (m && withModel) {
-          var fs = Math.round(LH * 0.5);
+          var one = m.length <= 2;              // a single letter (ة): bigger and stronger so small hands can see it
+          var fs = Math.round(LH * (one ? 0.75 : 0.5));
           ctx.font = '700 ' + fs + 'px "Noto Naskh Arabic", "Amiri", "Geeza Pro", serif';
           ctx.direction = 'rtl'; ctx.textAlign = 'right'; ctx.textBaseline = 'alphabetic';
           var x = W - 36;
-          ctx.setLineDash([]); ctx.globalAlpha = .1; ctx.fillStyle = inkC; ctx.fillText(m, x, base);
-          ctx.globalAlpha = .55; ctx.setLineDash([2, 5]); ctx.lineWidth = 1.6; ctx.strokeStyle = inkC; ctx.strokeText(m, x, base);
+          ctx.setLineDash([]); ctx.globalAlpha = one ? .16 : .1; ctx.fillStyle = inkC; ctx.fillText(m, x, base);
+          ctx.globalAlpha = one ? .75 : .55; ctx.setLineDash([2, 5]); ctx.lineWidth = one ? 2.2 : 1.6; ctx.strokeStyle = inkC; ctx.strokeText(m, x, base);
           // green start dot: Arabic starts on the right
           ctx.setLineDash([]); ctx.globalAlpha = 1; ctx.fillStyle = tok('--good', '#2F9E44');
           ctx.beginPath(); ctx.arc(x + 12, base - fs * 0.38, 7, 0, Math.PI * 2); ctx.fill();

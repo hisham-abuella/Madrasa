@@ -16,21 +16,27 @@
     a.addEventListener('ended',function(){b.classList.remove('on');});
     new MutationObserver(function(){if(!sl.classList.contains('is-current')){a.pause();a.currentTime=0;b.classList.remove('on');}})
       .observe(sl,{attributes:true,attributeFilter:['class']});});}
-  // writing pad: built when its slide is on screen so the line height matches the stage scale
-  var padW=0;
+  // writing pads: built when their slide is on screen so the line height matches the stage scale.
+  // --inv (1/scale, capped) lets kid-facing controls keep a >= 56 CSS px hit area at any stage scale.
+  function inv(){var deck=document.querySelector('.deck');if(!deck)return 1;
+    var s=deck.getBoundingClientRect().width/deck.offsetWidth||1;deck.style.setProperty('--inv',Math.min(1/s,2.6).toFixed(3));return s;}
   function pad(){
-    var host=document.querySelector('[data-pad]');if(!host||!window.KS)return;
-    var deck=document.querySelector('.deck'),s=deck.getBoundingClientRect().width/deck.offsetWidth||1;
-    var w=host.getBoundingClientRect().width;if(w<50)return;
-    if(host.__pad&&Math.abs(padW-s)<0.01)return;
-    host.__pad=null;host.innerHTML='';padW=s;
-    KS.writePad(host,{model:['ة','هَذِهِ'],lines:2,lineHeight:150*s});
-    var st=host.querySelector('.wp-stage');st.style.height=(300)+'px';
+    if(!window.KS)return;var s=inv();
+    document.querySelectorAll('[data-pad]').forEach(function(host){
+      if(!host.closest('.slide').classList.contains('is-current')&&host.__pad)return;
+      var w=host.getBoundingClientRect().width;if(w<50)return;
+      if(host.__pad&&Math.abs(host.__s-s)<0.01)return;
+      host.__pad=null;host.innerHTML='';host.__s=s;
+      var m=host.getAttribute('data-model')||'',n=+host.getAttribute('data-lines')||1,lh=+host.getAttribute('data-lh')||150;
+      KS.writePad(host,{model:m?m.split('|'):[],lines:n,lineHeight:lh*s});
+      host.querySelector('.wp-stage').style.height=(n*lh)+'px';
+    });
   }
   function init(){foot();stops();audio();
-    var sl=document.querySelector('[data-id="write"]');
-    if(sl){new MutationObserver(function(){if(sl.classList.contains('is-current'))setTimeout(pad,120);}).observe(sl,{attributes:true,attributeFilter:['class']});
-      setTimeout(pad,300);}
+    inv();
+    document.querySelectorAll('[data-pad]').forEach(function(h){var sl=h.closest('.slide');
+      new MutationObserver(function(){if(sl.classList.contains('is-current'))setTimeout(pad,120);}).observe(sl,{attributes:true,attributeFilter:['class']});});
+    setTimeout(pad,300);
     window.addEventListener('resize',function(){setTimeout(pad,250);});}
   if(document.readyState==='complete')setTimeout(init,50);else window.addEventListener('load',function(){setTimeout(init,50);});
 })();

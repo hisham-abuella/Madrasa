@@ -7,8 +7,13 @@
 <title>نَوْرَس · Nawras demo hub</title>
 <meta name="description" content="Nawras Fusha School, San Diego — demo hub: six homepage mockups, logos, sample lessons, guide and the owners' presentation.">
 <meta property="og:title" content="نَوْرَس — Nawras Fusha School, San Diego">
-<meta property="og:image" content="assets/og-nawras.png">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:description" content="Nawras Fusha School, San Diego — demo hub: six homepage mockups, logos, sample lessons, guide and the owners' presentation.">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/assets/og-nawras.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
 <link rel="stylesheet" href="assets/kids.css">
@@ -56,6 +61,33 @@
   .hub-hero .wrap { grid-template-columns: 1fr; text-align: center; justify-items: center; }
   .hub-hero p.en { text-align: center !important; }
 }
+
+/* main slide: the owners' presentation */
+.deck-hero { background: var(--hero-bg); padding: clamp(24px, 4vw, 48px) 0 clamp(20px, 3vw, 36px); border-bottom: var(--border-w) solid var(--border-c); }
+.deck-hero .wrap { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(18px, 3.5vw, 44px); align-items: center; }
+.deck-shot { display: block; position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: var(--border-w) solid var(--border-c); aspect-ratio: 16 / 9; background: #0B3540; transition: transform var(--t-tap) var(--ease-pop); }
+.deck-shot:hover { transform: translateY(-4px); }
+.deck-shot:focus-visible { outline: 4px solid var(--brand); outline-offset: 4px; }
+.deck-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.deck-shot .play { position: absolute; inset-inline-end: 16px; bottom: 16px; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--on-accent); box-shadow: var(--shadow); }
+.deck-shot .play svg { width: 28px; height: 28px; }
+.deck-copy .chip { margin-bottom: 10px; }
+.deck-copy h2 { margin: 0; font-family: var(--f-word); color: var(--hero-ink); font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.4; }
+.deck-copy .en { color: var(--hero-ink2); }
+.deck-copy .lead { font-size: 1.15rem; font-weight: 700; color: var(--hero-ink); margin: 6px 0 2px; }
+.deck-copy .btn { margin-top: 16px; }
+.deck-copy .sticker { width: 88px; height: 88px; float: left; margin: 0 0 6px 12px; }
+.deck-copy .sticker .gull { width: 100%; height: 100%; }
+@media (max-width: 860px) { .deck-hero .wrap { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .deck-shot .play { width: 40px; height: 40px; inset-inline-end: 10px; bottom: 10px; } .deck-shot .play svg { width: 18px; height: 18px; } }
+
+/* our pictures strip */
+.pics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.pics a { display: block; border-radius: var(--radius-sm, 14px); overflow: hidden; border: var(--border-w) solid var(--border-c); background: var(--surface2); aspect-ratio: 1; box-shadow: var(--shadow); transition: transform var(--t-tap) var(--ease-pop); }
+.pics a:hover { transform: translateY(-3px) rotate(-1deg); }
+.pics a:focus-visible { outline: 4px solid var(--brand); outline-offset: 3px; }
+.pics img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 640px) { .pics { grid-template-columns: repeat(2, 1fr); } .pics a:last-child { display: none; } }
 </style>
 </head>
 <body>
@@ -70,10 +102,11 @@
 <header class="topbar">
   <div class="wrap">
     <a class="logo" href="#main" aria-label="نَوْرَس — Nawras demo hub">
-      <span data-gull="happy"></span>
+      <img class="logo-mark" src="assets/brand/logo-c1-128.webp" alt="" width="56" height="56">
       <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
     </a>
     <nav class="nav" aria-label="الْقَائِمَةُ">
+      <a href="pitch/index.html">الْعَرْضُ</a>
       <a href="#mockups">النَّمَاذِجُ</a>
       <a href="#more">الْمَزِيدُ</a>
     </nav>
@@ -81,6 +114,23 @@
 </header>
 
 <main id="main">
+  <section class="deck-hero" aria-labelledby="h-deck">
+    <div class="wrap">
+      <a class="deck-shot" href="pitch/index.html" aria-label="Watch the presentation: Nawras, Arabic for little hearts, by the Pacific">
+        <img src="pitch/img/title-1280.webp" width="1280" height="720" alt="Title slide of the owners' presentation: نَوْرَس — Nawras: Arabic for little hearts, by the Pacific. Five decisions in ten minutes." fetchpriority="high">
+        <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      </a>
+      <div class="deck-copy">
+        <span class="sticker" data-gull="cheer" data-gull-label="نُورِي — Noori cheering"></span>
+        <span class="chip chip--accent">Main slide · for the owners</span>
+        <h2 id="h-deck">عَرْضُ الْمُلَّاكِ</h2>
+        <p class="lead" dir="ltr" style="text-align:right">Nawras: Arabic for little hearts, by the Pacific</p>
+        <p class="en">Five decisions in ten minutes: the name, the look, one lesson four ways, the printed book, and what is needed to start one class.</p>
+        <a class="btn btn--accent" href="pitch/index.html">افْتَحِ الْعَرْضَ <span class="en">Watch the presentation</span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="hub-hero" aria-labelledby="h1">
     <div class="wrap">
       <div class="noori" data-gull="wave" data-gull-label="نُورِي — Noori, the Nawras seagull"></div>
@@ -178,6 +228,27 @@
     </div>
   </section>
 
+  <section class="section" id="pictures" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <h2>رُسُومُنَا</h2>
+        <span class="en">Our pictures — made locally, every one checked by eye. Tap one for the guide: characters, prompts and seeds.</span>
+      </div>
+      <div class="pics">
+        <a href="guide.html" data-reveal style="--i:0"><img src="assets/art/noori/wave.webp" alt="نُورِي يُلَوِّحُ — Noori waving" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:1"><img src="assets/art/story/s03-friends.webp" alt="نُورِي وَسَامِي وَسَلْمَى — Noori, Sami and Salma on the beach" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:2"><img src="assets/art/pic/cat-f.webp" alt="قِطَّةٌ — a cat" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:3"><img src="assets/art/site/hero-pacific.webp" alt="شَاطِئُ سَان دِييغُو — the Pacific hero" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:4"><img src="book/images-noori-shell/sadafa.webp" alt="صَدَفَةٌ — the little shell (book page)" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:5"><img src="assets/art/pic/teacher-f.webp" alt="مُعَلِّمَةٌ — a teacher" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:6"><img src="assets/art/story/s10-nashit.webp" alt="بِنْتٌ نَشِيطَةٌ — an active girl (story scene)" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:7"><img src="assets/art/noori/think.webp" alt="نُورِي يُفَكِّرُ — Noori thinking" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:8"><img src="assets/art/site/hero-fanous.webp" alt="فَوَانِيسُ — lanterns at night (Fanous hero)" loading="lazy" width="320" height="320"></a>
+        <a href="guide.html" data-reveal style="--i:9"><img src="book/images-noori-shell/friends.webp" alt="أَصْدِقَاءُ — friends (book page)" loading="lazy" width="320" height="320"></a>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="more" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head" data-reveal>
@@ -203,7 +274,7 @@
           <svg aria-hidden="true"><use href="#i-brush"/></svg>
           <h3>الدَّلِيلُ</h3><span class="en">Guide: making kid-friendly images &amp; animations — the characters, Draw Things prompts and seeds, motion rules with live demos, narration, print and a pre-ship checklist</span>
         </a>
-        <a class="card card--link" href="pitch/" data-reveal style="--i:3">
+        <a class="card card--link" href="pitch/index.html" data-reveal style="--i:3">
           <svg aria-hidden="true"><use href="#i-slides"/></svg>
           <h3>عَرْضُ الْمُلَّاكِ</h3><span class="en">The presentation for the school owners</span>
         </a>
@@ -215,8 +286,9 @@
 <footer class="foot">
   <div class="wrap">
     <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <a class="btn btn--accent btn--sm trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
     <span class="en">Nawras Fusha School, San Diego · Demo — names, times and contacts are placeholders</span>
-    <span class="en">Source: <a href="https://github.com/hisham-abuella/Madrasa" target="_blank" rel="noopener">github.com/hisham-abuella/Madrasa</a> (private)</span>
+    <span class="en">Source: <a href="https://github.com/hisham-abuella/Madrasa" target="_blank" rel="noopener">github.com/hisham-abuella/Madrasa</a> (public)</span>
   </div>
 </footer>
 <script src="assets/kids.js"></script>

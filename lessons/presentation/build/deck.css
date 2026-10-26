@@ -53,6 +53,9 @@ figure.fig{display:flex;align-items:center;justify-content:center;background:var
 [dir="rtl"] .listen{padding:0 12px 0 36px}
 .listen svg{width:64px;height:64px;padding:14px;border-radius:50%;background:rgba(255,255,255,.2);flex:none}
 .listen.on{background:var(--accent);color:var(--on-accent)}
+/* hit area >= 56 CSS px at any stage scale (the visual button stays the same) */
+.listen{position:relative}
+.listen::after{content:"";position:absolute;inset:min(0px,calc((72px - 56px*var(--inv,1))/2)) min(0px,calc((72px - 56px*var(--inv,1))/2));border-radius:999px}
 .listen:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
 [data-layout="title"] .listen{background:#FFF3DC;color:#0B3540;box-shadow:0 6px 0 0 #07575A}
 [data-layout="title"] .listen svg{background:rgba(11,122,126,.18)}
@@ -105,7 +108,17 @@ figure.fig{display:flex;align-items:center;justify-content:center;background:var
 .padhost .en{display:none}
 .padhost .wp-done{font:700 32px/1.2 var(--f-ar-b);min-height:56px}
 .padhost .wp-msg{font-size:32px}
-.padhost .wp-pen,.padhost .wp-btn{width:56px;height:56px}
+.padhost{--u:calc(1px*var(--inv,1))}
+.padhost .wp-tools{gap:calc(10*var(--u))}
+.padhost .wp-pen,.padhost .wp-btn{width:max(56px,calc(56*var(--u)));height:max(56px,calc(56*var(--u)))}
+.padhost .wp-pen i{width:calc(26*var(--u));height:calc(26*var(--u))}
+.padhost .wp-btn svg{width:calc(24*var(--u));height:calc(24*var(--u))}
+.padhost .wp-done{min-height:max(56px,calc(56*var(--u)))}
+/* write slides: the pad gets most of the slide */
+[data-id^="write"] .col.bx-text{grid-column:span 4}[data-id^="write"] .col.bx-stage{grid-column:span 8}
+.ws-pic .pic-box{height:340px;margin-block-start:24px}
+/* the slide counter reads 1 / 22 left to right, also in RTL */
+.kp-foot span:last-child,.kp-ui .kp-count{direction:ltr;unicode-bidi:isolate}
 /* bullets */
 [data-layout="bullets"] li{font-family:var(--f-ar-d);font-weight:700}
 /* footer in Arabic */

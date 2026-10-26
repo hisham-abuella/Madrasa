@@ -6,8 +6,13 @@
 <title>نَوْرَس · Mosaic playground</title>
 <meta name="description" content="Nawras Fusha School, San Diego — homepage mockup in the Mosaic playground theme.">
 <meta property="og:title" content="نَوْرَس — Nawras Fusha School, San Diego">
-<meta property="og:image" content="../assets/art/og/mosaic.jpg">
-<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:description" content="Nawras Fusha School, San Diego — homepage mockup in the Mosaic playground theme.">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/assets/art/og/mosaic.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/mockups/05-mosaic.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&family=Fredoka:wght@500;600&family=Patrick+Hand&display=swap">
 <link rel="stylesheet" href="../assets/kids.css">
@@ -50,7 +55,7 @@ a.tile:active { transform: translate(4px, 4px); box-shadow: var(--btn-shadow-pre
 /* word tile */
 .t-word { grid-column: span 6; background: var(--surface); }
 .t-word .wotd-word { justify-content: flex-start; }
-.t-word > p.en { padding-inline-end: 120px; }
+.t-word > p.en { padding-left: 120px; } /* .en is LTR: keep it clear of the Noori sticker on the left */
 .t-word .noori { position: absolute; width: 110px; inset-inline-end: 18px; bottom: 12px; }
 .t-word .noori .gull { width: 100%; height: auto; }
 .t-word .sticker { position: absolute; top: -20px; inset-inline-end: 90px; width: 78px; color: var(--sun); transform: rotate(12deg); }
@@ -84,7 +89,7 @@ a.tile:active { transform: translate(4px, 4px); box-shadow: var(--btn-shadow-pre
   .t-noori { min-height: 320px; }
   .t-lv { grid-column: span 1; min-height: 190px; }
   .t-word { padding-bottom: 130px; }
-  .t-word > p.en { padding-inline-end: 0; }
+  .t-word > p.en { padding-left: 0; }
 }
 @media (max-width: 420px) {
   .t-lv h3 { font-size: 1.25rem; }
@@ -115,7 +120,7 @@ html:not([data-art="svg"]) .t-noori:not(.art-miss) { place-items: end center; pa
 <header class="topbar">
   <div class="wrap">
     <a class="logo" href="#main" aria-label="نَوْرَس — Nawras home">
-      <span data-gull="happy"></span>
+      <img class="logo-mark" src="../assets/brand/logo-c1-128.webp" alt="" width="56" height="56">
       <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
     </a>
     <nav class="nav" aria-label="الْقَائِمَةُ">
@@ -163,7 +168,7 @@ html:not([data-art="svg"]) .t-noori:not(.art-miss) { place-items: end center; pa
       <button class="say" type="button" data-say="نَجْمَةٌ"></button>
       <span class="chip chip--fem">مُؤَنَّثٌ · هَذِهِ</span>
     </div>
-    <p class="wotd-sentence">هَذِهِ نَجْمَةٌ لَامِعَةٌ. <button class="say" type="button" data-say="هَذِهِ نَجْمَةٌ لَامِعَةٌ" style="width:44px;height:44px"></button></p>
+    <p class="wotd-sentence">هَذِهِ نَجْمَةٌ لَامِعَةٌ. <button class="say say--sm" type="button" data-say="هَذِهِ نَجْمَةٌ لَامِعَةٌ"></button></p>
     <p class="en" style="margin:0;max-width:30em">najma — star. “This is a shining star.” Ends in ة, so it is feminine: هَذِهِ.</p>
     <div class="noori" data-gull="think"></div>
   </section>

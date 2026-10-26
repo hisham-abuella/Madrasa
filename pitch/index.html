@@ -11,6 +11,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nawras: Arabic for little hearts, by the Pacific</title>
+<meta name="description" content="The owners' presentation for Nawras Fusha School, San Diego: name, look, one lesson four ways, the printed book, and five decisions.">
+<meta property="og:title" content="Nawras: Arabic for little hearts, by the Pacific">
+<meta property="og:description" content="The owners' presentation for Nawras Fusha School, San Diego. Five decisions in ten minutes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/pitch/index.html">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/pitch/img/title.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <style id="kp-themes">
 /* =====================================================================
    THEME TOKEN CONTRACT
@@ -730,6 +739,8 @@ html[data-theme="trainer"] .slide:not(:is([data-layout="title"],[data-layout="se
 time .fill{width:3.5em;margin-top:6px}
 /* slide 1 */
 .badge{position:absolute;inset-inline-end:140px;top:300px;width:300px;height:auto;filter:drop-shadow(0 0 0 transparent)}
+/* phones: keep the 1920px stage out of the layout viewport (no sideways scroll in an LTR deck) */
+@media screen{html{overflow:hidden}.deck{position:fixed}}
 [data-layout="title"] h1 .ar{font-size:1.25em;line-height:1.1}
 .h1en{display:block;font-family:var(--f-display);font-size:64px;font-weight:500;letter-spacing:0;line-height:1.2;margin-top:12px;max-width:1100px}
 .meta{bottom:120px}
@@ -748,6 +759,13 @@ ul.chips li.chip{display:inline-block;background:var(--bg2);border-color:var(--b
 /* slide 10 */
 .strip{margin-top:60px;display:flex;gap:20px;flex-wrap:wrap}
 .strip .chip{font-size:30px;padding-block:0;font-family:var(--f-body);background:var(--bg2)}
+[data-id="grow"] .steps{margin-block:28px auto}
+[data-id="grow"] .steps li{padding:28px 32px 32px}
+[data-id="grow"] .steps li::before{margin-block-end:28px}
+.artgrid{margin-top:28px;display:grid;grid-template-columns:repeat(6,1fr) 1.6fr;gap:16px;align-items:center}
+.artgrid img{width:100%;height:120px;object-fit:contain;border-radius:16px;background:var(--bg2)}
+.artgrid img:nth-child(3),.artgrid img:nth-child(6){object-fit:cover}
+.artgrid .artcap{margin:0;font-size:28px;line-height:1.3;color:var(--ink2)}
 /* slide 15 */
 .col.not{border-top:8px solid var(--hot)} .col.is{border-top:8px solid var(--brand)}
 /* slide 18 */
@@ -832,11 +850,11 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 </style>
 </head>
 <body>
-<main class="deck" data-title="Nawras: Fusha for little hearts, by the Pacific" data-duration="10">
+<main class="deck" data-title="Nawras: Arabic for little hearts, by the Pacific" data-duration="10">
 <!-- SLIDES:START -->
 <section class="slide" data-layout="title" data-id="start" data-tone="hero">
 <p class="label"><span class="ar" lang="ar">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</span></p>
-<img class="badge" src="img/hilal-badge.svg" alt="Gull and Crescent emblem, Nawras logo concept 1 (نَوْرَسُ الْهِلَالِ)">
+<img class="badge" src="img/logo-c1-v2.webp" alt="Gull and Crescent emblem, Nawras logo concept 1 (نَوْرَسُ الْهِلَالِ)">
 <h1><span class="ar" lang="ar">نَوْرَس</span> <span class="h1en">Nawras: Arabic for little hearts, by the Pacific</span></h1>
 <p class="sub">Five decisions in ten minutes.</p>
 <p class="meta"><span>Nawras Fusha School, San Diego</span><span><span class="ar" lang="ar">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</span></span></p>
@@ -907,12 +925,12 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <section class="slide" data-layout="two-column" data-id="lesson" data-cols="3">
 <p class="label">Grade 1–2 · masculine and feminine · the final tā' marbūṭa is Noori's little seashell</p>
 <h2>One lesson, <span class="ar" lang="ar">هَذَا وَهَذِهِ</span>, is ready three ways: to read, to hear, to present</h2>
-<div class="cols"><div class="col" data-build="rise"><img src="img/lesson-article.png" alt="Screenshot of the read-along article (مَقَالَةٌ مُصَوَّرَةٌ)"><h3><span class="ar" lang="ar">مَقَالَةٌ مُصَوَّرَةٌ</span></h3><p>Tap to hear, 5-question check, printable worksheet, about 15 min</p><p><a href="../lessons/article.html" target="_blank" rel="noopener">Open the article</a></p></div><div class="col" data-build="rise"><img src="img/lesson-story.png" alt="Screenshot of the interactive story (قِصَّةٌ تَفَاعُلِيَّةٌ)"><h3><span class="ar" lang="ar">قِصَّةٌ تَفَاعُلِيَّةٌ</span></h3><p>Noori, Sami and Salma, read aloud in proper Arabic or Egyptian</p><p><a href="../lessons/story.html" target="_blank" rel="noopener">Open the story</a></p></div><div class="col" data-build="rise"><img src="img/lesson-slides.png" alt="Screenshot of the classroom slides (عَرْضٌ لِلصَّفِّ)"><h3><span class="ar" lang="ar">عَرْضٌ لِلصَّفِّ</span></h3><p>18 slides, about 20 min, with games and quizzes</p><p><a href="../lessons/presentation.html" target="_blank" rel="noopener">Open the slides</a></p></div></div>
-<aside class="notes"><p>To show the format, we built one real lesson for grades one and two: hadha and hadhihi, "this" for masculine and for feminine words. The little ta marbuta becomes a seashell that Noori finds on the beach. The lesson comes three ways. An article to read together, about fifteen minutes, with five questions and a worksheet. A story with Noori and his friends Sami and Salma, read aloud in classical Arabic or Egyptian. And slides for the teacher, eighteen of them in about twenty minutes, with games. Tap a card to open any of them.</p><p>— مصري —</p><p>علشان نوريكم الطريقة، عملنا درس حقيقي لأولى وتانية ابتدائي: هذا وهذه، هذا للمذكّر وهذه للمؤنّث. والتاء المربوطة بقت صدفة صغيرة نوري بيلاقيها على البحر. والدرس موجود بتلات طرق. مقالة يقروها مع بعض، حوالي ربع ساعة، فيها خمس أسئلة وورقة تمارين. وقصة فيها نوري وصاحبيه سامي وسلمى، مقروّة بالعربي السليم أو بالمصري. وعرض للمدرّس، تمنتاشر شريحة في حوالي عشرين دقيقة، فيه ألعاب. دوسوا على أي كارت يفتح.</p><p>Sources: index.html lesson cards; lessons/article.html, story.html, presentation/PLAN.md. (story.html has recorded clips on pages 2, 4 and 7; the other pages use the device voice for now.)</p></aside>
+<div class="cols"><div class="col" data-build="rise"><img src="img/lesson-article.png" alt="Screenshot of the read-along article (مَقَالَةٌ مُصَوَّرَةٌ)"><h3><span class="ar" lang="ar">مَقَالَةٌ مُصَوَّرَةٌ</span></h3><p>Tap to hear, 5-question check, printable worksheet, about 15 min</p><p><a href="../lessons/article.html" target="_blank" rel="noopener">Open the article</a></p></div><div class="col" data-build="rise"><img src="img/lesson-story.png" alt="Screenshot of the interactive story (قِصَّةٌ تَفَاعُلِيَّةٌ)"><h3><span class="ar" lang="ar">قِصَّةٌ تَفَاعُلِيَّةٌ</span></h3><p>Noori, Sami and Salma, read aloud in proper Arabic or Egyptian</p><p><a href="../lessons/story.html" target="_blank" rel="noopener">Open the story</a></p></div><div class="col" data-build="rise"><img src="img/lesson-slides.png" alt="Screenshot of the classroom slides (عَرْضٌ لِلصَّفِّ)"><h3><span class="ar" lang="ar">عَرْضٌ لِلصَّفِّ</span></h3><p>19 slides, about 20 min, with games, quizzes and writing</p><p><a href="../lessons/presentation.html" target="_blank" rel="noopener">Open the slides</a></p></div></div>
+<aside class="notes"><p>To show the format, we built one real lesson for grades one and two: hadha and hadhihi, "this" for masculine and for feminine words. The little ta marbuta becomes a seashell that Noori finds on the beach. The lesson comes three ways. An article to read together, about fifteen minutes, with five questions and a worksheet. A story with Noori and his friends Sami and Salma, read aloud in classical Arabic or Egyptian. And slides for the teacher, eighteen of them in about twenty minutes, with games. Tap a card to open any of them.</p><p>— مصري —</p><p>علشان نوريكم الطريقة، عملنا درس حقيقي لأولى وتانية ابتدائي: هذا وهذه، هذا للمذكّر وهذه للمؤنّث. والتاء المربوطة بقت صدفة صغيرة نوري بيلاقيها على البحر. والدرس موجود بتلات طرق. مقالة يقروها مع بعض، حوالي ربع ساعة، فيها خمس أسئلة وورقة تمارين. وقصة فيها نوري وصاحبيه سامي وسلمى، مقروّة بالعربي السليم أو بالمصري. وعرض للمدرّس، تمنتاشر شريحة في حوالي عشرين دقيقة، فيه ألعاب. دوسوا على أي كارت يفتح.</p><p>Sources: index.html lesson cards; lessons/article.html, story.html, presentation/PLAN.md. (story.html has recorded narration on all 13 pages, Fusha and Egyptian.)</p></aside>
 </section>
 
 <section class="slide" data-layout="image-left" data-id="write">
-<figure><img src="img/writing-pad.png" alt="The writing pad: tracing the ة and هَذِهِ with three stars and عَمَلٌ رَائِعٌ (great work)"></figure>
+<figure><img src="img/writing-pad.png" alt="The writing pad in the story lesson: tracing ة, هَذَا and هَذِهِ, then a sentence under a picture; «انْتَهَيْتُ» gives stars and عَمَلٌ رَائِعٌ (great work)"></figure>
 <h2>Children write with a finger or an Apple Pencil, and are praised, never marked wrong</h2>
 <ul data-build="list">
 <li>Trace the <span class="ar" lang="ar">ة</span>, then <span class="ar" lang="ar">هَذَا / هَذِهِ</span>, then a sentence under a picture</li>
@@ -955,8 +973,8 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <li><h3>Make print files</h3><p>Checked automatically</p></li>
 <li><h3>Record the narration</h3><p>Checked word by word</p></li>
 </ol>
-<p class="strip"><span class="chip">In progress: colour picture set, 73 pictures so far</span> <span class="chip">Next: a short guide for images and animation</span></p>
-<aside class="notes"><p>How does this grow beyond one lesson? Every new lesson follows the same five steps. We write it once, every word in proper Arabic. We draw the pictures on our own computer, so Noori always looks like himself. We build the web book and the slides from that text. The print files and QR codes are made and checked automatically. And the narration is recorded and checked word by word. Right now we are drawing a fuller set of colour pictures, and the next step is a short guide for pictures and animation.</p><p>— مصري —</p><p>طب إزاي ده يكبر لأكتر من درس؟ كل درس جديد بيمشي في نفس الخمس خطوات. بنكتبه مرة واحدة، كل كلمة بعربي سليم. وبنرسم الصور على جهازنا إحنا، علشان نوري يفضل شكله هو هو. والكتاب اللي على النت والعرض بيتعملوا من نفس النص. وملفات الطباعة وأكواد الكيو آر بتتعمل وتتراجع لوحدها. والتسجيل الصوتي بيتعمل وبيتراجع كلمة كلمة. ودلوقتي بنرسم مجموعة صور ملوّنة أكبر، والخطوة الجاية دليل قصير للصور والحركة.</p><p>Sources: BRIEF.md (The lesson book; Illustrated artwork pass); book/README.md (Rebuild everything); assets/art/source/gen-art.sh. Picture count = web copies in assets/art at build time. The guide does not exist yet: presented as the next step.</p></aside>
+<div class="artgrid"><img src="img/art-noori-wave.webp" alt="Noori waving (نُورِي)"><img src="img/art-noori-think.webp" alt="Noori thinking (نُورِي)"><img src="img/art-story-friends.webp" alt="Story scene: Noori meets Sami and Salma on the beach"><img src="img/art-pic-cat-f.webp" alt="Word picture: a cat (قِطَّةٌ)"><img src="img/art-pic-teacher-f.webp" alt="Word picture: a teacher (مُعَلِّمَةٌ)"><img src="img/art-hero-pacific.webp" alt="Homepage hero: the Pacific coast at sunset"><p class="artcap">73 pictures, made locally, every one checked by eye</p></div>
+<aside class="notes"><p>How does this grow beyond one lesson? Every new lesson follows the same five steps. We write it once, every word in proper Arabic. We draw the pictures on our own computer, so Noori always looks like himself. We build the web book and the slides from that text. The print files and QR codes are made and checked automatically. And the narration is recorded and checked word by word. Right now we are drawing a fuller set of colour pictures, and the next step is a short guide for pictures and animation.</p><p>— مصري —</p><p>طب إزاي ده يكبر لأكتر من درس؟ كل درس جديد بيمشي في نفس الخمس خطوات. بنكتبه مرة واحدة، كل كلمة بعربي سليم. وبنرسم الصور على جهازنا إحنا، علشان نوري يفضل شكله هو هو. والكتاب اللي على النت والعرض بيتعملوا من نفس النص. وملفات الطباعة وأكواد الكيو آر بتتعمل وتتراجع لوحدها. والتسجيل الصوتي بيتعمل وبيتراجع كلمة كلمة. ودلوقتي بنرسم مجموعة صور ملوّنة أكبر، والخطوة الجاية دليل قصير للصور والحركة.</p><p>Sources: BRIEF.md (The lesson book; Illustrated artwork pass); book/README.md (Rebuild everything); assets/art/source/gen-art.sh. Picture count = web copies in assets/art at build time; the six pictures are web copies from assets/art (noori, story, pic, site). The image and animation guide is guide.html.</p></aside>
 </section>
 
 <section class="slide" data-layout="ask" data-id="ask">
@@ -976,7 +994,7 @@ a.pbtn:hover,a.pbtn:focus-visible{background:var(--hot-text)}
 <img class="cheer" src="img/noori-cheer.webp" alt="Noori the seagull cheering (نُورِي)">
 <h2>Your school now has a name, a look, a lesson and a book, ready for one class to try</h2>
 <p class="tagline"><span class="ar" lang="ar">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</span> &middot; Nawras Fusha School</p>
-<p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> <a href="https://github.com/hisham-abuella/Madrasa" target="_blank" rel="noopener">github.com/hisham-abuella/Madrasa</a> <small>(private: ask Hisham for access)</small></span></p>
+<p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> <a href="https://github.com/hisham-abuella/Madrasa" target="_blank" rel="noopener">github.com/hisham-abuella/Madrasa</a> <small>(public)</small></span></p>
 <aside class="notes"><p>Here is what your school has today: a name, a look, a logo, one lesson in three forms, and a book with its own voice. One lesson, written once in careful, proper Arabic, reaching each child on a screen, in class, on paper and in their ears. With your five decisions, it reaches your students next. May Allah bless your school, your teachers and your children.</p><p>— مصري —</p><p>ده اللي عند مدرستكم النهارده: اسم، وشكل، وشعار، ودرس واحد بتلات طرق، وكتاب بصوته. درس واحد، مكتوب مرة واحدة بعربي سليم، بيوصل لكل طفل على الشاشة، وفي الفصل، وعلى الورق، وفي ودانه. وبالخمس قرارات بتوعكم، يوصل لتلاميذكم. ربنا يبارك في مدرستكم، وفي المدرّسين، وفي الولاد.</p><p>Sources: Restates the story as what the owners now have.</p></aside>
 </section>
 <!-- SLIDES:END -->

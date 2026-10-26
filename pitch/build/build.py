@@ -76,7 +76,7 @@ def slide(i, layout, body, src, extra=''):
 
 # 1 start
 slide('start', 'title', f'''<p class="label">{A("مَدْرَسَةُ نَوْرَس لِلْفُصْحَى")}</p>
-<img class="badge" src="img/hilal-badge.svg" alt="Gull and Crescent emblem, Nawras logo concept 1 (نَوْرَسُ الْهِلَالِ)">
+<img class="badge" src="img/logo-c1-v2.webp" alt="Gull and Crescent emblem, Nawras logo concept 1 (نَوْرَسُ الْهِلَالِ)">
 <h1>{A("نَوْرَس")} <span class="h1en">Nawras: Arabic for little hearts, by the Pacific</span></h1>
 <p class="sub">Five decisions in ten minutes.</p>
 <p class="meta"><span>Nawras Fusha School, San Diego</span><span>{A("نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ")}</span></p>''',
@@ -164,17 +164,17 @@ slide('look', 'two-column', f'''<h2>Six layouts and six colour themes are live: 
 cards = [
  ('article', 'مَقَالَةٌ مُصَوَّرَةٌ', 'Tap to hear, 5-question check, printable worksheet, about 15 min', '../lessons/article.html', 'Open the article', 'Screenshot of the read-along article'),
  ('story', 'قِصَّةٌ تَفَاعُلِيَّةٌ', 'Noori, Sami and Salma, read aloud in proper Arabic or Egyptian', '../lessons/story.html', 'Open the story', 'Screenshot of the interactive story'),
- ('slides', 'عَرْضٌ لِلصَّفِّ', '18 slides, about 20 min, with games and quizzes', '../lessons/presentation.html', 'Open the slides', 'Screenshot of the classroom slides'),
+ ('slides', 'عَرْضٌ لِلصَّفِّ', '19 slides, about 20 min, with games, quizzes and writing', '../lessons/presentation.html', 'Open the slides', 'Screenshot of the classroom slides'),
 ]
 cols = ''.join(f'''<div class="col" data-build="rise"><img src="img/lesson-{k}.png" alt="{alt} ({ar})"><h3>{A(ar)}</h3><p>{d}</p><p>{a(h, t)}</p></div>''' for k, ar, d, h, t, alt in cards)
 slide('lesson', 'two-column', f'''<p class="label">Grade 1–2 · masculine and feminine · the final tā' marbūṭa is Noori's little seashell</p>
 <h2>One lesson, {A("هَذَا وَهَذِهِ")}, is ready three ways: to read, to hear, to present</h2>
 <div class="cols">{cols}</div>''',
- 'index.html lesson cards; lessons/article.html, story.html, presentation/PLAN.md. (story.html has recorded clips on pages 2, 4 and 7; the other pages use the device voice for now.)',
+ 'index.html lesson cards; lessons/article.html, story.html, presentation/PLAN.md. (story.html has recorded narration on all 13 pages, Fusha and Egyptian.)',
  ' data-cols="3"')
 
 # 7 write
-slide('write', 'image-left', f'''<figure><img src="img/writing-pad.png" alt="The writing pad: tracing the ة and هَذِهِ with three stars and عَمَلٌ رَائِعٌ (great work)"></figure>
+slide('write', 'image-left', f'''<figure><img src="img/writing-pad.png" alt="The writing pad in the story lesson: tracing ة, هَذَا and هَذِهِ, then a sentence under a picture; «انْتَهَيْتُ» gives stars and عَمَلٌ رَائِعٌ (great work)"></figure>
 <h2>Children write with a finger or an Apple Pencil, and are praised, never marked wrong</h2>
 <ul data-build="list">
 <li>Trace the {A("ة")}, then {A("هَذَا / هَذِهِ")}, then a sentence under a picture</li>
@@ -215,8 +215,8 @@ slide('grow', 'process', f'''<h2>Every new lesson follows the same five steps, f
 <li><h3>Make print files</h3><p>Checked automatically</p></li>
 <li><h3>Record the narration</h3><p>Checked word by word</p></li>
 </ol>
-<p class="strip"><span class="chip">In progress: colour picture set, {ART} pictures so far</span> <span class="chip">Next: a short guide for images and animation</span></p>''',
- 'BRIEF.md (The lesson book; Illustrated artwork pass); book/README.md (Rebuild everything); assets/art/source/gen-art.sh. Picture count = web copies in assets/art at build time. The guide does not exist yet: presented as the next step.')
+<div class="artgrid"><img src="img/art-noori-wave.webp" alt="Noori waving (نُورِي)"><img src="img/art-noori-think.webp" alt="Noori thinking (نُورِي)"><img src="img/art-story-friends.webp" alt="Story scene: Noori meets Sami and Salma on the beach"><img src="img/art-pic-cat-f.webp" alt="Word picture: a cat (قِطَّةٌ)"><img src="img/art-pic-teacher-f.webp" alt="Word picture: a teacher (مُعَلِّمَةٌ)"><img src="img/art-hero-pacific.webp" alt="Homepage hero: the Pacific coast at sunset"><p class="artcap">{ART} pictures, made locally, every one checked by eye</p></div>''',
+ 'BRIEF.md (The lesson book; Illustrated artwork pass); book/README.md (Rebuild everything); assets/art/source/gen-art.sh. Picture count = web copies in assets/art at build time; the six pictures are web copies from assets/art (noori, story, pic, site). The image and animation guide is guide.html.')
 
 # 11 ask (cost, timeline, decisions)
 slide('ask', 'ask', f'''<h2>Five decisions today let one class start</h2>
@@ -234,7 +234,7 @@ slide('ask', 'ask', f'''<h2>Five decisions today let one class start</h2>
 slide('close', 'closing', f'''<img class="cheer" src="img/noori-cheer.webp" alt="Noori the seagull cheering (نُورِي)">
 <h2>Your school now has a name, a look, a lesson and a book, ready for one class to try</h2>
 <p class="tagline">{A("مَدْرَسَةُ نَوْرَس لِلْفُصْحَى")} &middot; Nawras Fusha School</p>
-<p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> {a("https://github.com/hisham-abuella/Madrasa", "github.com/hisham-abuella/Madrasa")} <small>(private: ask Hisham for access)</small></span></p>''',
+<p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> {a("https://github.com/hisham-abuella/Madrasa", "github.com/hisham-abuella/Madrasa")} <small>(public)</small></span></p>''',
  'Restates the story as what the owners now have.')
 
 # ---------- CSS ----------
@@ -257,6 +257,8 @@ html[data-theme="trainer"] .slide:not(:is([data-layout="title"],[data-layout="se
 time .fill{width:3.5em;margin-top:6px}
 /* slide 1 */
 .badge{position:absolute;inset-inline-end:140px;top:300px;width:300px;height:auto;filter:drop-shadow(0 0 0 transparent)}
+/* phones: keep the 1920px stage out of the layout viewport (no sideways scroll in an LTR deck) */
+@media screen{html{overflow:hidden}.deck{position:fixed}}
 [data-layout="title"] h1 .ar{font-size:1.25em;line-height:1.1}
 .h1en{display:block;font-family:var(--f-display);font-size:64px;font-weight:500;letter-spacing:0;line-height:1.2;margin-top:12px;max-width:1100px}
 .meta{bottom:120px}
@@ -275,6 +277,13 @@ ul.chips li.chip{display:inline-block;background:var(--bg2);border-color:var(--b
 /* slide 10 */
 .strip{margin-top:60px;display:flex;gap:20px;flex-wrap:wrap}
 .strip .chip{font-size:30px;padding-block:0;font-family:var(--f-body);background:var(--bg2)}
+[data-id="grow"] .steps{margin-block:28px auto}
+[data-id="grow"] .steps li{padding:28px 32px 32px}
+[data-id="grow"] .steps li::before{margin-block-end:28px}
+.artgrid{margin-top:28px;display:grid;grid-template-columns:repeat(6,1fr) 1.6fr;gap:16px;align-items:center}
+.artgrid img{width:100%;height:120px;object-fit:contain;border-radius:16px;background:var(--bg2)}
+.artgrid img:nth-child(3),.artgrid img:nth-child(6){object-fit:cover}
+.artgrid .artcap{margin:0;font-size:28px;line-height:1.3;color:var(--ink2)}
 /* slide 15 */
 .col.not{border-top:8px solid var(--hot)} .col.is{border-top:8px solid var(--brand)}
 /* slide 18 */

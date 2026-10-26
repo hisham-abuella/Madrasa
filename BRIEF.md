@@ -128,6 +128,7 @@ reuse the book's art where it already exists.
 ## Hosting UPDATE (2026-10-25, supersedes "Hosting and privacy" above)
 - Repo: **https://github.com/hisham-abuella/Madrasa** (private repo, branch main). GitHub Pages is ON and public:
   **https://hisham-abuella.github.io/Madrasa/** — the user accepted the site being public.
+- **Repo visibility (owner decision 2026-10-25, supersedes "private repo" above):** the GitHub repo https://github.com/hisham-abuella/Madrasa stays **PUBLIC**. README, the hub footer and the deck's close slide say "(public)". No secrets in the repo.
 - Book QR URL confirmed: https://hisham-abuella.github.io/Madrasa/book/books/noori-shell.html (print files no longer DRAFT).
 - All links must be relative so the site works under /Madrasa/.
 - Owners' deck ("this whole effort") lives in `pitch/`, with narration in **English + Egyptian Arabic in Hisham's
@@ -149,4 +150,5 @@ so it documents the final tools; validated with a dry run on a second topic (spe
   pattern, same characters and style suffix, same exercise types, same Lulu settings and checks. The skill copies
   the Noori book as the template and only swaps topic content.
 
+- **Story narration recorded (2026-10-25):** ElevenLabs clips `audio/story/{ar,eg}/p01–p13.mp3` (Sarah Fusha / Hisham Egyptian) from `audio/transcripts/story-{ar,eg}.json`, wired into all 13 slides of `lessons/story.html`; the device voice is only a fallback.
 - **Owners' deck: NO narration (owner decision 2026-10-25)** — presenter speaks live from the notes. "Fusha" said at most once or twice in the deck. Keep it simple.

@@ -127,14 +127,21 @@ S_('play','two-column',f'''<h2>قُومُوا! هَذَا أَمْ هَذِهِ�
 <div class="col"><ol class="picgrid" data-build="list">{''.join(f'<li>{pic(n)}</li>' for n,_ in items)}</ol></div>''',
 notes(['«قُومُوا!» عَلِّمِ الْحَرَكَتَيْنِ: إِصْبَعٌ وَاحِدٌ لِـ هَذَا، وَيَدَانِ مَضْمُومَتَانِ كَصَدَفَةٍ لِـ هَذِهِ.','اضْغَطْ لِكُلِّ صُورَةٍ؛ الصَّفُّ يَفْعَلُ الْحَرَكَةَ وَيَقُولُ الْجُمْلَةَ: «هَذَا بَابٌ / هَذِهِ وَرْدَةٌ / هَذَا قَلَمٌ / هَذِهِ تُفَّاحَةٌ / هَذَا بَيْتٌ / هَذِهِ نَخْلَةٌ / هَذِهِ أُمٌّ».'],
 ['Children who cannot stand join seated. If time allows, point at real things in the room (الْبَابُ، الْكِتَابُ، الطَّاوِلَةُ). Variant: a sorting game with two baskets هَذَا / هَذِهِ and printed picture cards. Praise every try; nobody is "out". The last picture (أُمٌّ) is the fence again: no ة, still هَذِهِ.']))
-# 16
-S_('write','two-column',f'''<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ</p>
-<h2 class="inh">هَيَّا نَكْتُبْ: <span class="ta">ة</span>، ثُمَّ هَذِهِ</h2>
+# 16 write: steps 1-2 (trace ة, then هَذَا / هَذِهِ)
+S_('write','two-column',f'''<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ · ١ وَ٢</p>
+<h2 class="inh">هَيَّا نَكْتُبْ: <span class="ta">ة</span>، ثُمَّ {DM()} وَ{DF()}</h2>
 <p>ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ.</p>
 <p>افْتَحُوا الْكِتَابَ: {BOOKP}</p></div>
-<div class="col bx-stage bx-ui"><div class="padhost" data-pad></div></div>''',
-notes(['«هَيَّا نَكْتُبْ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ ببُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذِهِ.'.replace('ببُطْءٍ','بِبُطْءٍ'),f'«افْتَحُوا الْكِتَابَ: {BOOKP}.»'],
+<div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="ة|هَذَا|هَذِهِ" data-lines="3" data-lh="200"></div></div>''',
+notes(['«هَيَّا نَكْتُبْ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذَا، ثُمَّ هَذِهِ.',f'«افْتَحُوا الْكِتَابَ: {BOOKP}.»'],
 [f'Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «{BOOKT}»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.']),' data-fit="off" data-demo')
+# 16b write a sentence under a picture (step 3)
+S_('write-sentence','two-column',f'''<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ · ٣</p>
+<h2 class="inh">انْظُرْ وَاكْتُبْ: {DF()} …</h2>
+<div class="ws-pic">{pic('fish')}</div></div>
+<div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="" data-lines="1" data-lh="300"></div></div>''',
+notes(['«انْظُرُوا إِلَى الصُّورَةِ. مَاذَا نَكْتُبُ؟» الصَّفُّ يَقُولُ: «هَذِهِ سَمَكَةٌ.»','اُكْتُبِ الْجُمْلَةَ عَلَى السَّطْرِ الْفَارِغِ، ثُمَّ يَكْتُبُهَا الْأَطْفَالُ فِي الْكِتَابِ تَحْتَ الصُّورَةِ.'],
+['Step 3 of the writing station: a short sentence under a picture. The line is empty on purpose (no model): the class says the sentence first, then you write it. Answer: هَذِهِ سَمَكَةٌ. Praise every try.']),' data-fit="off" data-demo')
 # 17
 S_('remember','bullets',f'''<p class="label">تَذَكَّرْ · نُرَدِّدُ مَعًا</p>
 <h2>{DM()} لِلْمُذَكَّرِ، وَ{DF('هَذِهِ')} لِلْمُؤَنَّثِ</h2>
@@ -165,7 +172,7 @@ js=open('deck.js',encoding='utf8').read()
 t=open(S+'/assets/template.html',encoding='utf8').read()
 t=t.replace('<html lang="en" data-theme="keynote-white" data-fonts="">','<html lang="ar" dir="rtl" data-theme="schoolyard" data-fonts="" data-theme-fixed data-no-picker>')
 TITLE='هَذَا وَهَذِهِ · دَرْسٌ لِلصَّفِّ — Nawras'
-t=t.replace('<title>present-in-html template</title>',f'<title>{TITLE}</title>\n<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">')
+t=t.replace('<title>present-in-html template</title>',f'<title>{TITLE}</title>\n<meta name="description" content="Nawras classroom slides (grade 1–2): هَذَا وَهَذِهِ, masculine and feminine, for the teacher to present, with a live writing pad.">\n<meta property="og:title" content="هَذَا وَهَذِهِ — Nawras classroom slides">\n<meta property="og:description" content="A classroom lesson for grade 1–2: هَذَا وَهَذِهِ, the little shell ة, a game and a writing station.">\n<meta property="og:type" content="website">\n<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/lessons/presentation.html">\n<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/assets/og-nawras.png">\n<meta name="twitter:card" content="summary_large_image">\n<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">\n<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">\n<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">')
 t=t.replace('<main class="deck" data-title="present-in-html template">',f'<main class="deck" data-title="{TITLE}" data-duration="20">')
 a=t.index('<!-- SLIDES:START -->'); b=t.index('<!-- SLIDES:END -->')
 t=t[:a]+'<!-- SLIDES:START -->\n'+slides+'\n'+t[b:]
