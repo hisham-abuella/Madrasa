@@ -1,0 +1,59 @@
+/* team slide (appendix): searchable suggestions table */
+[data-id="team"]{justify-content:flex-start;gap:0}
+[data-id="team"] h2{font-size:64px;line-height:1.05;margin:0}
+[data-id="team"] .lede{font-size:34px;margin:8px 0 14px;max-width:none}
+.team{display:flex;flex-direction:column;gap:10px;min-height:0;flex:1;font-family:var(--f-body)}
+.team *{box-sizing:border-box}
+.trow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.team input[type=search]{font:inherit;font-size:28px;width:560px;max-width:100%;padding:8px 18px;border:3px solid var(--rule);border-radius:999px;background:var(--bg);color:var(--ink)}
+.team input[type=search]:focus{outline:3px solid var(--brand);border-color:var(--brand)}
+.tcount{font:700 30px/1 var(--f-display);color:var(--brand-text);margin-inline:10px}
+.tchip,.treset,.ttog{font:inherit;font-size:28px;line-height:1.15;cursor:pointer;background:var(--bg);color:var(--ink);border:3px solid var(--rule);border-radius:999px;padding:5px 16px;white-space:nowrap}
+.tchip.chip{font-size:22px;padding:4px 14px}.tchip b{font-weight:700;margin-inline-start:6px}
+.tchip[aria-pressed=true],.ttog[aria-pressed=true]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+.treset{border-color:var(--hot);margin-inline-start:auto}
+.tlab{font:700 22px/1 var(--f-body);color:var(--brand-text);text-transform:uppercase;letter-spacing:.06em;margin-inline-end:4px}
+.tscroll{flex:1;min-height:0;overflow:auto;border:3px solid var(--rule);border-radius:16px;background:var(--bg)}
+.ttable{width:100%;border-collapse:separate;border-spacing:0;font-size:28px;line-height:1.3;color:var(--ink)}
+.ttable th{position:sticky;top:0;z-index:2;background:var(--bg2);text-align:start;padding:0;border-bottom:3px solid var(--rule)}
+.ttable th button{all:unset;box-sizing:border-box;display:block;width:100%;padding:10px 14px;font:700 22px/1.1 var(--f-body);color:var(--brand-text);cursor:pointer;text-transform:uppercase;letter-spacing:.04em}
+.ttable th button:focus-visible{outline:3px solid var(--brand);outline-offset:-3px}
+.ttable th[aria-sort=ascending] button::after{content:" \25B2"}.ttable th[aria-sort=descending] button::after{content:" \25BC"}
+.ttable td{padding:10px 14px;vertical-align:top;border-bottom:1px solid var(--rule)}
+.ttable tr.item{cursor:pointer}
+.ttable tr.item:hover td{background:var(--bg2)}
+.ttable td.sg .tt{all:unset;cursor:pointer;display:block;font-weight:700;font-size:28px;line-height:1.2;color:var(--ink)}
+.ttable td.sg .tt:focus-visible{outline:3px solid var(--brand)}
+.ttable td.sg .ta{display:block;font-size:28px;line-height:1.45;color:var(--ink2);margin-top:2px}
+.ttable td.sg .ta .ar{font-weight:600}
+.ttable tr.det td{background:var(--bg2);font-size:28px;line-height:1.45;color:var(--ink2)}
+.ttable tr.det .ids{display:block;margin-top:8px;font-size:22px}.ttable tr.more td{height:70px;border:0}
+.tpill{display:inline-block;font:700 22px/1 var(--f-body);padding:6px 14px;border-radius:999px;border:3px solid var(--tc,var(--rule));background:color-mix(in srgb,var(--tc,var(--rule)) 18%,var(--bg));color:var(--ink);text-transform:uppercase;letter-spacing:.04em}
+.tpill.now{--tc:var(--hot)}.tpill.next{--tc:var(--brand)}.tpill.later{--tc:var(--ink2)}
+.tpill.own{--tc:var(--hot);margin-top:6px;font-size:22px;display:block;width:max-content;text-transform:none}
+.tsup{color:var(--brand-text);font-weight:700;cursor:help;margin-inline-start:6px;white-space:nowrap}
+.tnone{padding:30px;font-size:30px;color:var(--ink2)}
+.ttable .c-p{width:130px}.ttable .c-by{width:240px}.ttable .c-a{width:170px}.ttable .c-e{width:90px}.ttable .c-v{width:120px}.ttable .c-n{width:420px}
+.ttable td.n{font-size:28px;line-height:1.25;color:var(--ink2)}.ttable .nc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tchip b,.tlab{font-size:inherit}
+/* compact layout; .chip is only used so the checker treats these as small labels */
+.team .tlab.chip,.team .tsup.chip,.team .ids.chip{border:0;padding:0;border-radius:0;font-family:var(--f-body);background:none}
+.team .tlab.chip{font:700 22px/1 var(--f-body)}
+.team .tsup.chip{font-size:24px}
+.team .ids.chip{font-size:22px;font-weight:500}
+.team .tchip.chip,.team .tpill.chip{font-family:var(--f-body)}
+.team .tchip.chip{border:3px solid var(--rule);border-radius:999px;padding:3px 12px;line-height:1.15;font-weight:500}
+.team .tchip.chip[aria-pressed=true]{border-color:var(--brand)}
+.team .tpill.chip{border-width:3px;border-radius:999px;font-weight:700;padding:5px 12px}
+.team .tchip.chip b{font-weight:700}
+[data-id="team"] h2{font-size:52px}
+[data-id="team"] .lede{font-size:30px;margin:4px 0 10px}
+.team{gap:8px}
+#trole{display:contents}
+.ttable th button{padding:8px 12px}
+.ttable td{padding:8px 12px}
+.ttable .c-p{width:140px}
+.ttable td.sg .tt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ttable td.sg .ta{line-height:1.25}
+.ttable td.sg .tt[aria-expanded=true]{-webkit-line-clamp:unset}
+.team .ttog.chip{font:500 22px/1.15 var(--f-body);border:3px solid var(--rule);border-radius:999px;padding:3px 12px;background:var(--bg);color:var(--ink)}.team .ttog.chip[aria-pressed=true]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}

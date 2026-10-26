@@ -1,1 +1,25 @@
 # qa-lead — persistent log. Role: Independent final verification for Nawras. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-26 · qa-lead · Team review 2 (independent full sweep) ===
+Lead / asked by: coordinator (TEAM REVIEWER 2)
+Files reviewed: commit 79a5b88 (HEAD ahead of origin/main 5d9c5e7 by 1); all shipped pages, decks, book PDFs, audio
+Findings:
+  [RUN] pages 48 loads: 0 err / 0 failed / 0 broken / 0 hscroll; file:// 9 pages 0 err; links 0 broken; og absolute 15/15; live 200 x8, deep 404 OK
+  [RUN] decks presentation 23 / pitch 13 slides, 0 issues x 7 themes; book check-lulu all passed (32pp, interior 374–542 ppi, cover 331–592), print-text 32/36/11/11 clean, QR 48 exact
+  [RUN] audio qa-audio 0 problems (28+28, 13+13, 3+3); browser decode 90/90; 0 autoplay; reduced motion 0 anims
+  [MAJOR] [COVERAGE-GAP] parent CTA contrast 1.35–3.81 escaped token-level checks — FE-01; add rendered-contrast scan to the checklist
+  [MAJOR] [REGRESSION] Salma fringe in book bint/friends/nashit (+story s03/s10) — REVIEW §4 said fully covered — ART-01 after islamic-studies-advisor ruling
+  [MAJOR] [COVERAGE-GAP] article/mockup listen buttons = device TTS only (REVIEW #3 class) — MS-01/FE-02
+  [MAJOR] .en captions lack lang=en on all Arabic pages — A11Y-02
+  [MINOR] 79a5b88 unpushed; suggestions.jsonl + pitch suggestions slide not built (queued); pitch 4.7 MB / hub 4.97 MB at 390
+Decisions / judgement calls:
+  - Pitch "Fusha" occurrences are brand/tagline/alt-names only — accepted per owner rule and REVIEW.md.
+  - Did not push (team rule: only when user asks).
+Fixed this run:
+  - none (read-only)
+Still open:
+  - QA-01..07 — owners as listed in claudeteam/reviews/qa-lead.md
+Notes for next time:
+  - Known escape routes to add: (a) page-level `.x .en` overriding `.btn .en` — token check blind; (b) contact-sheet-only art review misses hairline — zoom on every Salma face; (c) data-say buttons with no clip.
+  - Measure targets after [data-reveal] transitions end (mid-reveal reads 54.9 for 56).
+[DONE]

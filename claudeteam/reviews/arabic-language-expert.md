@@ -1,0 +1,35 @@
+# Review: arabic-language-expert
+
+**Date:** 2026-10-25 · **Reviewer:** team reviewer 1 acting as `arabic-language-expert` (read-only for this review)
+**Scope:** index.html, mockups/01–06, lessons/article.html, story.html, presentation.html (+ PLAN.md), book spec `book/stories/noori-shell.json` (source of truth) + web book + Lulu interior PDF (pages rendered with pdftoppm), audio/transcripts/story-{ar,eg}.json, guide.html, pitch/index.html (+ PLAN.md). noori-two skipped.
+
+## Verdict: PASS with fixes (0 blocker · 2 major · 9 minor)
+
+The Fusha is correct and fully vocalised on every child-facing page. Checks that passed:
+- `check-spec.js noori-shell`: "spec follows the Noori pattern".
+- A bare-word scan (Arabic words with no harakat) over the lessons, hub and mockups found only the deliberate `ـة` and the blank `ـــــ`. The bare words in the web book are the Egyptian captions, and the ones in the pitch are Egyptian presenter notes.
+- Spot checks that passed: hamza seats (أُمٌّ، أَشْيَاءَ، أَسْئِلَةٍ), the number–noun agreement «أَرْبَعَةُ أَسْئِلَةٍ», the masculine dual for a mixed pair «يَبْنِيَانِ», the vocatives «يَا أَصْدِقَاءُ» / «يَا أَبْطَالُ» / «يَا أَصْدِقَائِي الصِّغَارَ», «مَا أَجْمَلَهَا!» and «لَيْسَ فِي آخِرِهَا صَدَفَةٌ».
+- No lone ة appears in any narration script; the transcripts use «التَّاءُ الْمَرْبُوطَةُ».
+
+The two major items are wording problems, not wrong grammar: the rule is stated as absolute in the recaps, and every child is praised as a boy in a lesson about gender.
+
+## Findings
+
+| id | severity | file + location | evidence (exact) | fix | effort |
+|---|---|---|---|---|---|
+| ALE-01 | major | `book/stories/noori-shell.json` p17 `bye` ar.line; `lessons/story.html` slide 13 recap + `data-narr`; `audio/transcripts/story-ar.json` p13; `lessons/article.html` «تَذَكَّرْ» item 3 | «وَالصَّدَفَةُ الصَّغِيرَةُ ة تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً» (book) · «ة صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً» (story) · «التَّاءُ الْمَرْبُوطَةُ ة تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً» (article, whose own English says "usually") | The rule is stated as absolute right after the fence (بِنْتٌ، أُمٌّ، شَمْسٌ) was taught. Add «فِي الْغَالِبِ»: «…تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً فِي الْغَالِبِ». Change the screen text now. The p13 story clip and the book `bye` clip can be re-recorded later (optional). | S (text) / M (with audio) |
+| ALE-02 | major | book p30 `certificate`; `lessons/article.html` end-cta; `assets/kids.js` quiz `finish()` | «شَهَادَةُ بَطَلِ الصَّدَفَةِ» · «أَحْسَنْتَ! أَنْتَ تَقُولُ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ.» · say «أَحْسَنْتَ يَا بَطَلُ!» · «أَحْسَنْتَ! إِلَى اللِّقَاءِ فِي الدَّرْسِ الْقَادِمِ.» · «أَحْسَنْتَ! أَنْتَ تَتَعَلَّمُ بِسُرْعَةٍ» | A lesson about masculine and feminine praises every girl as a boy. **Certificate:** «شَهَادَةُ بَطَلِ / بَطَلَةِ الصَّدَفَةِ», with two boxes the child ticks: «أَنَا بَطَلٌ ☐ · أَنَا بَطَلَةٌ ☐». Choosing the box is itself the lesson. **On screen:** use the plural «أَحْسَنْتُمْ!», as story.html already does, or «أَحْسَنْتَ / أَحْسَنْتِ». Leave generic instructions (اضْغَطْ، اكْتُبْ) as they are; that is the textbook convention. | S |
+| ALE-03 | minor | `audio/transcripts/story-ar.json` + `story-eg.json` p11 vs `lessons/story.html` slide 11 | The clip says «تَتَبَّعْ بِإصبَعِك: التّاءَ المَربوطة، ثُمَّ هذهِ.», but the screen and `data-narr` say «…التَّاءَ الْمَرْبُوطَةَ، ثُمَّ هَذَا وَهَذِهِ. ثُمَّ اكْتُبْ جُمْلَةً تَحْتَ الصُّورَةِ.» | The voice skips هَذَا and the sentence step that REVIEW #2 added. Update p11 in both transcripts to match the screen, then re-record those 2 clips when the user says go. | S |
+| ALE-04 | minor | `lessons/presentation.html` line ~1007, slide 2 notes | «اقْرَأِ الْعُنْوَانَ بِبُطْءٍ والصَّفُّ يُرَدِّدُ» | → «وَالصَّفُّ يُرَدِّدُ» | S |
+| ALE-05 | minor | `pitch/index.html` line 893 (`name`) and 947 (`book`) | «شَاطِئُ الضَّاد» · «الْأَنْدَلُسُ الصَّغِيرَة» · «هِلَال» · «عَرَبِيٌّ سَلِيم» | The owners judge by vowels. → «شَاطِئُ الضَّادِ» · «الْأَنْدَلُسُ الصَّغِيرَةُ» · «هِلَالٌ» · «عَرَبِيٌّ سَلِيمٌ». Pausal forms are defensible for names, but «نَوْرَسُ الْهِلَالِ» on the next slide is fully vocalised, so the set looks uneven. | S |
+| ALE-06 | minor | book p21 `ex-hathihi` ar.line | «انْتَبِهْ لِلصَّدَفَةِ فِي آخِرِ [[سَمَكَةٌ]]» | After «فِي آخِرِ» the reader expects the genitive (سَمَكَةٍ), so the quoted nominative reads like a case error. → «فِي آخِرِ كَلِمَةِ «سَمَكَةٌ»» | S |
+| ALE-07 | minor | book spec `eg.line` on pages 6–16 (web book captions under مَصْرِي) | «هذا قارِبٌ» · «هذهِ سَمَكةٌ» · «هذا وَلَدٌ نَشيطٌ» | The SKILL §1d rule is that Egyptian explains while the Fusha target words stay exactly as on the page. Keep the dialect frame, but write the target words vocalised: «هَذَا قَارِبٌ», «هَذِهِ سَمَكَةٌ». Captions only; leave `eg.say` as it is. | S |
+| ALE-08 | minor | book p6/p8 «هَيَّا نَقُولُ مَعًا» vs story slide 11 / deck slide 16 «هَيَّا نَكْتُبْ» | Both forms are acceptable (indicative vs jussive after هَيَّا). | Style only: choose one form for the series. I recommend the indicative everywhere («هَيَّا نَكْتُبُ»), the simpler form for teachers to say. | S |
+| ALE-09 | minor | `lessons/presentation.html` slide 15 `play` | «هَذَا ← أَشِرْ بِإِصْبَعٍ وَاحِدٍ» · note «إِصْبَعٌ وَاحِدٌ» | Correct, since إِصْبَع takes both genders, but the feminine is more common, and a gender lesson should not invite a child's "why?". → «بِإِصْبَعٍ وَاحِدَةٍ». Style. | S |
+| ALE-10 | minor | article / story / deck / book p15 «هَذِهِ شَمْسٌ», with English "This is the sun" | The Arabic is indefinite ("a sun") and the English is definite. | Keep the Arabic: it is the هَذِهِ + indefinite noun pattern being taught. Fix the English to "This is a sun", or add a teacher note: when pointing at the real sun, say «هَذِهِ الشَّمْسُ». | S |
+| ALE-11 | minor | `lessons/presentation.html` slide 18 `close` notes | "(page numbers to be added)", while the slide itself shows «صَفَحَاتُ ١٨–٢٨» | Stale note. → "pages 18–28". Hand to `frontend-engineer`. | S |
+
+## Top 3 suggestions for what to build next
+1. **Recorded word clips for every tap-to-hear word.** About 35 short Fusha clips (Sarah), one for each `data-say` string: «هَذَا وَلَدٌ», «هَذِهِ قِطَّةٌ»… the 4 morph pairs, and the quiz prompts. Each one carries full case endings, so the child *hears* the -tun of قِطَّةٌ. Script rule: each clip is a sentence, never a lone word or letter. This replaces the device voice (`KS.speak`) and keeps it as the fallback.
+2. **Gender in how we speak to people.** A short page in the next book: «تَفَضَّلْ يَا سَامِي» / «تَفَضَّلِي يَا سَلْمَى», «أَحْسَنْتَ» / «أَحْسَنْتِ». The child chooses the right form for Sami or Salma. It extends هَذَا / هَذِهِ into real courtesy phrases, so grammar and adab come in one move.
+3. **Next topic book: هُوَ وَهِيَ.** Same nouns, same characters, the natural sequel: «هَذَا قِطٌّ، هُوَ صَغِيرٌ» / «هَذِهِ قِطَّةٌ، هِيَ صَغِيرَةٌ». It reuses all the existing art and vocabulary through the topic-book skill.

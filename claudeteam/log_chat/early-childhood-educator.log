@@ -1,1 +1,22 @@
 # early-childhood-educator — persistent log. Role: Early-childhood and primary educator for Nawras (children 4–10). Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-25 · early-childhood-educator · Team review 1: age-fit of lessons, book, quiz and mockup levels (read-only) ===
+Lead / asked by: team reviewer 1 (user-dispatched team review → suggestions slide)
+Files reviewed: lessons/{article,story,presentation}.html, lessons/presentation/PLAN.md, book/stories/noori-shell.json, book/books/noori-shell.html, book/print/noori-shell-lulu-interior.pdf (pages 13, 14, 22, 29 rendered), mockups/01–06, assets/kids.js quiz
+Findings:
+  [MAJOR] [AGE-FIT] kids.js quiz — empty stars for wrong answers, "You got x of n", one try — fix: retry after hint, star when found, no score line
+  [MAJOR] [AGE-FIT] KG advertised on mockups (الرَّوْضَةُ) but no KG activity — fix: ?kg cut of story.html, no grammar terms
+  [MINOR] [CLASSROOM] deck slide 16 — no calm-down after movement slide 15 — fix: sit + three breaths line in notes
+  [MINOR] [ATTENTION] book about page "one story page a night" — fix: whole story in one sitting, one exercise a day
+  [MINOR] [AGE-FIT] book p13 Salma looks anxious (seed 711) — fix: curious face in the ISA-01 redraw
+  [MINOR] [MOTOR] certificate 11 stars wrap 10+1; article has no movement moment; web-book circle/match pages not tappable
+Decisions / judgement calls:
+  - Quiz score display counted as punishment — why: charter "no lost stars"; the empty star is visible loss.
+Fixed this run:
+  - none (read-only)
+Still open:
+  - ECE-01…ECE-08 in claudeteam/reviews/early-childhood-educator.md — owners: frontend-engineer (quiz, web-book taps, certificate), art-director (Salma face), ceo (KG scope)
+Notes for next time:
+  - Deck timing verified from PLAN.md: ~19.5 min incl. ~5 min activity; within the 6–8 window.
+  - Did not measure pad or button sizes this run (kids-ux / accessibility own that; REVIEW #8, #13 fixed).
+[DONE]

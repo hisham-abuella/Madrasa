@@ -95,7 +95,8 @@ built on interaction, not memorisation, and rooted in Islamic morals*. The other
 Arabic, the teaching, child development, adab, design, children's UX, art, motion and sound,
 frontend, accessibility, QA, families and print. Each one keeps its own log in
 `claudeteam/log_chat/`. Roster, how to use them and the "one lead, with helpers" pattern:
-[`claudeteam/README.md`](claudeteam/README.md).
+[`claudeteam/README.md`](claudeteam/README.md). The team's ranked suggestions live in
+[`claudeteam/suggestions.jsonl`](claudeteam/suggestions.jsonl) (one JSON object per line; shown as a searchable table on the last slide of the owners' deck).
 
 ## Folder map
 

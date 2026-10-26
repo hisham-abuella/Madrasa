@@ -1,1 +1,25 @@
 # arabic-pedagogy-specialist — persistent log. Role: Specialist in teaching Arabic (Fusha) to heritage and second-language children in the US. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-25 · arabic-pedagogy-specialist · Team review 1: pedagogy of the هَذَا وَهَذِهِ lesson in all forms (read-only) ===
+Lead / asked by: team reviewer 1 (user-dispatched team review → suggestions slide)
+Files reviewed: lessons/{article,story,presentation}.html, lessons/presentation/PLAN.md, book/stories/noori-shell.json, book/books/noori-shell.html, book/print/noori-shell-lulu-interior.pdf, mockups word of the day, guide.html §writing pad, assets/kids.js (speak, quiz)
+Findings:
+  [MAJOR] [PASSIVE] story/article/web book — no speaking-back moment on screen — evidence: interactions are tap-to-hear/choose/trace only — fix: «دَوْرُكَ! قُلْ: …» echo with 3 s pause, no mic
+  [MAJOR] [PEDAGOGY] kids.js KS.speak = device speechSynthesis for every data-say card — evidence: kids.js line 11 — fix: ~35 recorded Sarah clips, device voice fallback
+  [MAJOR] [PEDAGOGY] fence taught as memorisation — evidence: «نَحْفَظُهَا فِي قُلُوبِنَا!» (book p15), «نَحْفَظُهَا حِفْظًا» (deck 12) — fix: «بِلَا صَدَفَةٍ» gesture + point-and-say
+  [MINOR] [PASSIVE] story slides 1–7 no choice — fix: slide 6 «أَيْنَ السَّمَكَةُ؟» tap-to-find
+  [MINOR] [LEVEL] "boys' words / girls' words" framing (story slide 1 EN, deck 3 notes) — fix: هَذَا-words / هَذِهِ-words
+  [MINOR] [PEDAGOGY] red ة colouring gives answers on book exercise pages 22/25/27 — fix: drop [[ ]] there
+  [MINOR] [PEDAGOGY] guide.html 702–703 pad snippet `ة|هَذِهِ` — fix: `ة|هَذَا|هَذِهِ` + sentence station
+  [MINOR] [PEDAGOGY] quiz one-shot, no retry (with ECE-01); no home task after story; no retrieval hook for lesson 2
+Decisions / judgement calls:
+  - Echo without microphone — why: no child data (BRIEF, kids-ux privacy), keep it simple; the child self-checks against the model.
+  - Keep colour in story pages, remove in exercises — why: scaffold then remove.
+Fixed this run:
+  - none (read-only)
+Still open:
+  - APS-01…APS-10 in claudeteam/reviews/arabic-pedagogy-specialist.md — owners: frontend-engineer (echo, find-it, quiz retry, guide snippet), arabic-language-expert (fence wording), motion-and-sound-designer (word clips), ceo (priority)
+Notes for next time:
+  - Strongest piece: classroom deck (TPR slide 15, chant slide 17, 3 quizzes). Book p4 greeting reply is the model for speak-back.
+  - Check every new lesson for a "say it" moment, not only choose/trace.
+[DONE]

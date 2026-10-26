@@ -17,7 +17,7 @@ plan = open(P + 'PLAN.md', encoding='utf-8').read()
 scripts = {}
 for m in re.finditer(r'### \d+ · (\w+)\n\*\*EN\*\*: (.*?)\n\n\*\*EG\*\*: (.*?)\n', plan, re.S):
     scripts[m.group(1)] = {'en': m.group(2).strip(), 'eg': m.group(3).strip()}
-assert len(scripts) == 13, len(scripts)
+assert len(scripts) == 14, len(scripts)
 
 TITLES = {
  'start': 'Nawras: Arabic for little hearts, by the Pacific',
@@ -33,6 +33,7 @@ TITLES = {
  'grow': 'The five steps of every new lesson',
  'ask': 'Five decisions',
  'close': 'What your school has now',
+ 'team': 'What the team suggests next',
 }
 TITLES_AR = {
  'start': 'نَوْرَس: العربي لقلوب صغيرة، على المحيط الهادي',
@@ -48,6 +49,7 @@ TITLES_AR = {
  'grow': 'الخمس خطوات لكل درس جديد',
  'ask': 'خمس قرارات',
  'close': 'اللي عند مدرستكم دلوقتي',
+ 'team': 'اللي الفريق بيقترحه بعد كده',
 }
 ORDER = list(TITLES.keys())
 assert set(ORDER) == set(scripts)
@@ -237,6 +239,30 @@ slide('close', 'closing', f'''<img class="cheer" src="img/noori-cheer.webp" alt=
 <p class="contact"><span><b>Web</b> hisham-abuella.github.io/Madrasa</span><span class="repo"><b>Repo</b> {a("https://github.com/hisham-abuella/Madrasa", "github.com/hisham-abuella/Madrasa")} <small>(public)</small></span></p>''',
  'Restates the story as what the owners now have.')
 
+# 13 team (appendix, after the close): searchable table from claudeteam/suggestions.jsonl
+_raw = open(R + 'claudeteam/suggestions.jsonl', encoding='utf-8').read()
+_items = []
+for _l in _raw.splitlines():
+    try:
+        _items.append(json.loads(_l))
+    except Exception:
+        pass
+N_SUG = len(_items); N_ROLES = len({x['suggested_by'] for x in _items})
+_data = _raw.replace('</', '<\\/')
+_cols = [('priority', 'Priority', 'c-p'), ('suggestion', 'Suggestion', ''), ('by', 'Suggested by', 'c-by'), ('area', 'Area', 'c-a'), ('effort', 'Effort', 'c-e'), ('severity', 'Severity', 'c-v'), ('note', 'CEO note', 'c-n')]
+_th = ''.join(f'<th scope="col" data-key="{k}" class="{c}" aria-sort="none"><button type="button">{t}</button></th>' for k, t, c in _cols)
+slide('team', 'two-column', f'''<h2>What the team suggests next</h2>
+<p class="lede"><span data-n>{N_ROLES}</span> experts reviewed everything; the CEO ranked their <span data-n>{N_SUG}</span> suggestions.</p>
+<div class="team bx-ui">
+<div class="trow"><input type="search" id="tq" placeholder="Search: title, area, note, Arabic (سلمى)" aria-label="Search suggestions" autocomplete="off" spellcheck="false"><span class="tcount" id="tcount" aria-live="polite"></span>
+<button type="button" class="tchip" data-pri="" aria-pressed="true">Any priority</button><button type="button" class="tchip" data-pri="now" aria-pressed="false">Now</button><button type="button" class="tchip" data-pri="next" aria-pressed="false">Next</button><button type="button" class="tchip" data-pri="later" aria-pressed="false">Later</button>
+<button type="button" class="ttog" id="town" aria-pressed="false">Needs owner decision</button><button type="button" class="treset" id="treset">Reset</button></div>
+<div class="trow" style="gap:8px"><span class="tlab chip">Suggested by</span><span id="trole"></span><button type="button" class="ttog chip" id="tsup" aria-pressed="false" title="Also match suggestions this role supported">Include supporters</button></div>
+<div class="tscroll" tabindex="0" role="region" aria-label="Suggestions table"><table class="ttable"><thead><tr>{_th}</tr></thead><tbody></tbody></table></div>
+</div>
+<script type="application/jsonl" id="team-data">{_data}</script>''',
+ 'claudeteam/suggestions.jsonl (inlined at build; also fetched from ../claudeteam/suggestions.jsonl over http so edits show without a rebuild). Appendix after the close; not part of the ten minutes.', ' data-fit="off" data-demo')
+
 # ---------- CSS ----------
 CSS = r'''
 html[data-theme="trainer"]{
@@ -423,9 +449,9 @@ JS2 = r'''<script>
 # ---------- assemble ----------
 base = open(P + 'build/_base.html', encoding='utf-8').read()
 slides_html = '\n\n'.join(sl)
-out = base.replace('<!-- NAWRAS-CSS -->', '<style id="nawras">' + CSS + '</style>')
+out = base.replace('<!-- NAWRAS-CSS -->', '<style id="nawras">' + CSS + open(P + 'build/team.css', encoding='utf-8').read() + '</style>')
 out = re.sub(r'<!-- SLIDES:START -->.*<!-- SLIDES:END -->', lambda m: '<!-- SLIDES:START -->\n' + slides_html + '\n<!-- SLIDES:END -->', out, flags=re.S)
 out = out.replace('<!-- NAWRAS-JS -->', '')
-out = out.replace('<!-- NAWRAS-JS2 -->', JS2)
+out = out.replace('<!-- NAWRAS-JS2 -->', JS2.replace('</script>', open(P + 'build/team.js', encoding='utf-8').read() + '\n</script>'))
 open(P + 'index.html', 'w', encoding='utf-8').write(out)
 print('built; slides:', len(sl), 'art:', ART)

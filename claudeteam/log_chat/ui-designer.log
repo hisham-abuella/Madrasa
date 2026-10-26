@@ -1,1 +1,25 @@
 # ui-designer — persistent log. Role: Visual designer for Nawras. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-26 · ui-designer · Team review 2 (all pages, six themes, contrast, type, brand) ===
+Lead / asked by: coordinator (TEAM REVIEWER 2)
+Files reviewed: assets/kids.css, index.html, mockups/01-06, lessons/article|story, 404.html, guide.html, book/books/noori-shell.html, logos/index.html (git 79a5b88, clean tree)
+Findings:
+  [MAJOR] [CONTRAST] index.html:76 .deck-copy .en — hero CTA English 1.35–3.81:1 across 6 themes (pacific 2.99) — fix: kids.css:492 `.btn.btn .en{color:inherit}`
+  [MAJOR] [CONTRAST] mockups/01-andalus.html:93 `.parents a` turns parent CTA text white on gold #E8B048 = 1.96:1 — fix: `.parents a:not(.btn)`
+  [MAJOR] [CONTRAST] mockups/05-mosaic.html:82 `.t-cta .en` white on #FFC53D = 1.58:1 — fix: same kids.css rule or delete line
+  [MINOR] [CONTRAST] 404.html:28 .lost .en on coral button 2.99:1
+  [MINOR] [TOKEN] floating theme/mute buttons cover last lines at 390 px (guide, 404) — body padding-bottom 88px
+  [MINOR] [TOKEN] hard-coded hex in page CSS: article 12, kurrasa 2, mosaic 2, hub 1, story 1
+  [MINOR] [TOKEN] --masc/--fem fills fail as text (1.93–3.04) — none used as text today; comment the tokens
+Decisions / judgement calls:
+  - Hex parse trap: computed colours from color-mix() come back as color(srgb 0-1 …); first scan pass misread them as failures (chips, callouts). Re-ran with a fixed parser; those were false positives.
+  - KG badge "failures" on mockups 01/05 are text over an SVG star (bg detection blind) — not reported.
+Fixed this run:
+  - none (read-only review)
+Still open:
+  - UI-01..UI-07 — owner: frontend-engineer (markup/CSS), ui-designer for token comments
+Notes for next time:
+  - Baseline token ratios 2026-10-26: Mihrab on-brand/brand 4.99, Pacific 5.12, mosaic ta/surface 4.86, mosaic ta/surface2 4.02 (large text only).
+  - Measure button text per span, not per button: the English span can differ from the Arabic.
+  - Measure targets after reveals finish: [data-reveal] transitions made 56px tools read 54.9px.
+[DONE]

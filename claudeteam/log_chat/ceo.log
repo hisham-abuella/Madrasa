@@ -1,1 +1,48 @@
 # ceo — persistent log. Role: Product vision owner for Nawras (نَوْرَس), the Islamic Fusha school for children in San Diego. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-25 · ceo · Team review 1: vision pass (child test, parent test, interaction vs memorisation, morals) ===
+Lead / asked by: team reviewer 1 (user-dispatched team review → suggestions slide; consolidation is a later step)
+Files reviewed: index.html, mockups/01–06, lessons/{article,story,presentation}.html, book/stories/noori-shell.json, book/books/noori-shell.html, book/print (rendered), guide.html, pitch/index.html, pitch/PLAN.md; plus this run's reviews by arabic-language-expert, arabic-pedagogy-specialist, early-childhood-educator, islamic-studies-advisor
+Findings:
+  [MAJOR] [VISION] story/article/web book — child never says Arabic on screen (child test 6 fails) — fix: «دَوْرُكَ!» echo (APS-01)
+  [MAJOR] [VISION] morals stated as rules, lived on only 2 story pages; mockup 06 over-promises "manners woven into every lesson" — fix: shell gift / تَعَاوُن / الْحَمْدُ لِلَّهِ (ISA-03), then one honest deck line
+  [MAJOR] [RULING] pitch "Modest clothing on every child" vs book Salma fringe + bare forearm — fix: redraw before the owners' meeting and Lulu (ISA-01/02)
+  [MAJOR] [VISION] «نَحْفَظُهَا فِي قُلُوبِنَا» / «نَحْفَظُهَا حِفْظًا» / "by heart" — the page names memorising as the method — fix: point-and-say fence (APS-03)
+  [MINOR] quiz empty stars (ECE-01); device voice on tap-to-hear (APS-02); deck idea slide never says what the child does
+Decisions / judgement calls:
+  - [RULING] Verdict SEND BACK (gentle) — why: correct is a floor; two vision points (speak, lived morals) are unmet, both cheap.
+  - [RULING] Backed islamic-studies-advisor's "not a veto" on Salma's fringe, but set it as before-print and before-meeting — why: decision step 1 (respect/trust) and the claim on our own slide.
+  - [PRIORITY] (provisional, not the suggestions.jsonl ranking) Now: CEO-03, CEO-04, ALE-01, ALE-02, ISA-04, CEO-05 · Next: CEO-01, CEO-02, CEO-06 · Later: KG cut, sentence builder, lesson 2 — why: steps 1 → 2 → 4 → 7 of "How this role decides".
+Fixed this run:
+  - none (read-only)
+Still open:
+  - Consolidate all reviews into claudeteam/suggestions.jsonl (later CEO step); log each rank there.
+  - Owner decisions unchanged: theme, logo, pilot class, Fusha proofreading teacher (#4), print budget.
+Notes for next time:
+  - Classroom deck is the model of the vision (TPR, chant, praise); bring its "say it" energy to the screen lessons.
+  - Re-run the child test table after the echo and the lived-value lines ship.
+[DONE]
+
+=== 2026-10-26 · ceo · Consolidate team reviews 1 + 2 into claudeteam/suggestions.jsonl ===
+Lead / asked by: user (team review → suggestions slide, BRIEF step 2)
+Files reviewed: claudeteam/reviews/*.md (14: ALE, APS, ECE, ISA, CEO, UI, KUX, ART, MS, FE, A11Y, QA, PCA, PPS); BRIEF.md "Team review → suggestions slide"; claudeteam/README.md; my 2026-10-25 entry
+Findings:
+  101 findings (0 blocker) + 42 top-3 suggestions → 55 merged items: now 10 · next 22 · later 23. Validated with python: every line parses, ids S-001..S-055 unique, keys exactly as specified, all 101 finding ids + all 42 top-3 ids (cited as <PREFIX>-T1..T3) present in source_ids. Nothing intentionally dropped. Arabic check: 0 U+FFFD.
+Decisions / judgement calls:
+  - [RULING] Salma's fringe (open ruling a): recorded islamic-studies-advisor's ruling: not a veto, but redraw before the Lulu order and the owners' meeting → S-001 now, needs_owner=false. I enforce it (step 1). Folded ECE-05 (curious face) and ART-04 (Noori off her head) into the same redraw: one GPU round, not three.
+  - [PRIORITY] NOW (step 1 respect/trust → 2 correct Arabic → 3 unblock a child → 5 parent's action; all S except S-001):
+      S-001 Salma redraw (step 1) · S-002 CTA contrast, 6 roles (step 5) · S-003 quiz retry/full stars (step 1, no punishment) · S-004 fence by pointing, not memorising (step 4 / vision line) · S-005 «فِي الْغَالِبِ» (step 2) · S-006 praise girls (step 1) · S-007 no "magic" (step 1/5) · S-008 lived morals text (vision) · S-009 lang=en (step 3, AA) · S-010 listen tap always answers (step 3).
+  - [PRIORITY] S-008 lived morals moved from my provisional "next" (2026-10-25) to "now" — why: the book text is being rebuilt for S-001 anyway, and the deck/mockup 06 claims must be true before the owners see them; text only. Re-recording the touched clips waits for credits (S-015).
+  - [PRIORITY] S-010 split out of the word-clip item: the silent tap is a blocked child (step 3) and the code is S with no credits; the clips themselves (S-012) are "next" and needs_owner (ElevenLabs credits, open ruling c).
+  - [PRIORITY] NEXT top: S-011 «دَوْرُكَ!» echo + salam reply (biggest vision gap, but new interaction code needing QA) · S-012 word clips (owner credits) · S-013 parents' copy: fee/phone/class size/sit-in (owner questions d; copy can ship with placeholders) · S-014 suggestions slide + push (BRIEF-queued) · S-015 re-record batch · S-016 book-text batch into ONE print rebuild (step 7: print once) · S-017 Lulu proof (owner cost) · S-018 deck says what the child does + vowels + plain hub words · S-019…S-029 small fixes (step 4 do-moments, end card, deck notes, metaphor, 44 px links, FAB padding, button names, lang=ar/alt, loops ×3, guide snippet, page weight) · S-030 sweep tool · S-031 real iPad VoiceOver · S-032 parents page (owner details; no backend).
+  - [PRIORITY] LATER — why: "finish before starting" + one new game at a time: S-033 KG cut (only major in later; depends on clips + echo) · S-044 next book هُوَ وَهِيَ (after lesson 1 is fixed and printed) · S-045 sentence builder · S-046 two baskets · S-047 listening game · S-048 adab stickers · S-049 beach page (book 2 value) · S-050 pre-reader start · owner/theme-dependent S-036 beak (open ruling b), S-037 loops, S-038 logo masters, S-051 brand sheet, S-054 flyer · housekeeping S-034/35/39/40/41/42/43/52/53/55.
+  - [PRIORITY] Rejected: none. Deferred: all "later" items above. suggested_by = the cited originator (ISA-01, ECE-01, MS-01…), otherwise the earliest review in team order.
+Fixed this run:
+  - none on site pages (read-only). Wrote claudeteam/suggestions.jsonl, claudeteam/reviews/ceo-consolidation.md (generator kept in session scratchpad, not in repo).
+Still open:
+  - Owner decisions: (b) Noori's beak S-036 · (c) ElevenLabs credits S-012/S-015 · (d) fee + sibling policy, phone/WhatsApp, class-size cap, parents at trial S-013/S-032 · Lulu proof cost S-017 · logo masters S-038. Standing: theme, logo, pilot class, Fusha proofreading teacher, print budget.
+  - frontend-engineer: build the pitch final slide from the JSONL (S-014); push only when the user asks.
+Notes for next time:
+  - Re-run the child test table after S-003/S-004/S-008/S-010 ship and after S-011 echo.
+  - Keep one print rebuild: S-001 + S-004/5/6/8 book text + S-016 before ordering S-017.
+[DONE]

@@ -1,1 +1,27 @@
 # arabic-language-expert — persistent log. Role: Fusha (MSA) language authority for Nawras. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-25 · arabic-language-expert · Team review 1: Arabic across every child/teacher/parent page (read-only) ===
+Lead / asked by: team reviewer 1 (user-dispatched team review → suggestions slide)
+Files reviewed: index.html, mockups/01–06, lessons/{article,story,presentation}.html, lessons/presentation/PLAN.md, book/stories/noori-shell.json, book/books/noori-shell.html, book/print/noori-shell-lulu-interior.pdf (pdftoppm), audio/transcripts/story-{ar,eg}.json, guide.html, pitch/index.html, pitch/PLAN.md
+Findings:
+  [MAJOR] [GRAMMAR] book p17 bye / story.html slide 13 / article تَذَكَّرْ — ة rule stated absolute after the fence — evidence: «…تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً» without «فِي الْغَالِبِ» — fix: add «فِي الْغَالِبِ»
+  [MAJOR] [GRAMMAR] book p30 certificate, article end, kids.js quiz finish — praise masculine only — evidence: «شَهَادَةُ بَطَلِ الصَّدَفَةِ», «أَحْسَنْتَ يَا بَطَلُ!» — fix: بَطَلِ / بَطَلَةِ + tick box «أَنَا بَطَلٌ / أَنَا بَطَلَةٌ»; plural «أَحْسَنْتُمْ» on screen
+  [MINOR] [NARRATION] story p11 clip skips هَذَا and the sentence step — evidence: transcript «…ثُمَّ هذهِ.» vs screen «ثُمَّ هَذَا وَهَذِهِ. ثُمَّ اكْتُبْ جُمْلَةً» — fix: update transcripts, re-record 2 clips
+  [MINOR] [TASHKEEL] presentation.html slide 2 note «والصَّفُّ» → «وَالصَّفُّ»
+  [MINOR] [TASHKEEL] pitch name/book slides «الضَّاد»، «الصَّغِيرَة»، «هِلَال»، «سَلِيم» → full final vowels
+  [MINOR] [GRAMMAR] book p21 «فِي آخِرِ [[سَمَكَةٌ]]» → «فِي آخِرِ كَلِمَةِ «سَمَكَةٌ»»
+  [MINOR] [TASHKEEL] book eg.line captions drop vocalisation of Fusha target words («هذا قارِبٌ») — SKILL §1d
+  [MINOR] [TYPESET] style: هَيَّا نَقُولُ vs هَيَّا نَكْتُبْ; «إِصْبَعٍ وَاحِدٍ» → «وَاحِدَةٍ»; «هَذِهِ شَمْسٌ» vs EN "the sun"; deck close note "(page numbers to be added)" stale
+Decisions / judgement calls:
+  - Generic masculine imperatives in instructions (اضْغَطْ، اكْتُبْ) kept — why: textbook convention; only direct praise/certificate must include girls.
+  - Pausal names on the pitch slide flagged minor, not wrong — why: names in isolation may be read in waqf; only consistency with «نَوْرَسُ الْهِلَالِ».
+  - «هَذِهِ شَمْسٌ» kept indefinite — why: it is the taught pattern; adjust the English instead.
+Fixed this run:
+  - none (read-only review)
+Still open:
+  - ALE-01…ALE-11 in claudeteam/reviews/arabic-language-expert.md — owner: arabic-language-expert (text), frontend-engineer (kids.js quiz string, deck note), motion-and-sound-designer (re-record p11/p13 when user says go)
+  - † lines in lessons/presentation/PLAN.md still unproofread by a teacher (owner decision #4)
+Notes for next time:
+  - Verified clean: check-spec.js passes; bare-word scan shows only ـة / blanks on lessons, hub and mockups; no lone ة in transcripts.
+  - Narration transcripts can drift from screen text after a screen fix (p11) — diff data-narr against transcripts after any lesson edit.
+[DONE]

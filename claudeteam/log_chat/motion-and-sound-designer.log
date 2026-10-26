@@ -1,1 +1,23 @@
 # motion-and-sound-designer — persistent log. Role: Motion and sound designer for Nawras. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-26 · motion-and-sound-designer · Team review 2 (motion jobs, reduced motion, audio QA) ===
+Lead / asked by: coordinator (TEAM REVIEWER 2)
+Files reviewed: assets/kids.css, assets/kids.js (speak, sfx), lessons/*, mockups/*, book/books/noori-shell.html, audio/story, book/audio, audio/samples, transcripts
+Findings:
+  [MAJOR] [NARRATION] lessons/article.html 19 data-say cards + quiz, mockup words of the day -> KS.speak speechSynthesis only; silent no-op where no Arabic voice (kids.js:286) — fix: ~30 Sarah word clips audio/words/<name>.mp3, clip-first in KS.speak (when user says go)
+  [MINOR] [MOTION] article.html:72 and story.html:113 ة badge glow infinite — fix: 3 iterations
+  [MINOR] [MOTION] book .breathe 6s infinite on every page image — cover only
+  [MINOR] [MOTION] mockup ambient loops (pacific drift/float, mosaic spin, mihrab float) — keep one in the chosen theme
+  [MINOR] [AUDIO-QA] story p02 peak -0.9 dBFS — normalise -1 dBTP on next re-cut
+Decisions / judgement calls:
+  - qa-audio.py has no --pair flag in this copy; run per transcript/dir (positional pairs also work).
+  - Egyptian clips shorter than Fusha (p04 4.96 vs 6.88 s) are expected — different, explanatory script, not a wrong folder.
+Fixed this run:
+  - none (read-only; no TTS, no Whisper)
+Still open:
+  - MS-01 word clips — owner: user go-ahead for ElevenLabs credits; then motion-and-sound-designer + frontend-engineer
+Notes for next time:
+  - Baselines 2026-10-26: book 28+28 clean (median 0.071/0.083 s/char), story 13+13 clean (0.076/0.077), samples 3+3; story mean -18.1..-21.3 dB; 90/90 browser decode.
+  - Reduced motion: 0 running animations on 15 pages; without it, infinite loops on pacific(4), mihrab(1), article(1), story(1), guide(6), book(1), 404(1).
+  - Credits used this run: 0.
+[DONE]

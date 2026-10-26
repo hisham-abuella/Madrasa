@@ -1,1 +1,25 @@
 # accessibility-auditor — persistent log. Role: Accessibility auditor for Nawras — WCAG 2. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-26 · accessibility-auditor · Team review 2 (contrast, focus, SR, targets, motion) ===
+Lead / asked by: coordinator (TEAM REVIEWER 2)
+Files reviewed: 15 pages x 1280/820/390; assets/kids.css tokens x 6 themes
+Findings:
+  [MAJOR] [CONTRAST] parent CTA spans fail 1.4.3: hub EN 1.35–3.81 (6 themes), andalus CTA 1.96, mosaic EN 1.58, 404 EN 2.99 — fix: FE-01 CSS
+  [MAJOR] [SR] 3.1.2 .en captions lack lang="en": hub 37, article 86, story 49, logos 48, pacific 25, 404 6, presentation 2 — fix: kids.js init sets lang=en
+  [MINOR] [SR] article 19 identical "اِسْتَمِعْ — Listen" names
+  [MINOR] [SR] guide 27 / pitch 28 Arabic leaves without lang="ar"
+  [MINOR] [SR] book 6/16 story alts English only
+  [MINOR] [TARGET] hub PDF links 27px, footer links 15–21px
+  [MINOR] [MOTION] infinite ة glow (article:72, story:113), book .breathe — 2.2.2
+Decisions / judgement calls:
+  - Fanous lamp-card shows ring on child .body — tab test flagged it, visual check OK; not a finding.
+  - KG badge text over SVG star flagged by the scan — background detection blind to SVG; not reported.
+Fixed this run:
+  - none (read-only)
+Still open:
+  - A11Y-01..07 — owner: frontend-engineer; token side ui-designer
+  - Untested: VoiceOver on tashkeel, Switch Control, real Pencil
+Notes for next time:
+  - Baselines 2026-10-26: tokens tightest 4.99 (mihrab on-brand/brand); 0 missing focus rings on hub/article/story/book/presentation; 0 anims under reduced motion; child targets >=56.
+  - color-mix() returns color(srgb 0–1) — parse it, or the scan reports false fails.
+[DONE]

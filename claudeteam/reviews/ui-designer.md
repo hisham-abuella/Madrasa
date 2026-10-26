@@ -1,0 +1,22 @@
+# ui-designer — Team review 2 (2026-10-26)
+
+**Verdict: FIX (small).** The six-theme token system holds. Every text token pair passes 4.5:1 in all six themes. The REVIEW.md visual fixes are still in place: the book eyebrow is in Naskh, the mockup 05 sticker clears the English line, and the counters read «١ مِنْ ١٣» and "1 / 23". The failures are all in one place, the **English line inside the parent CTA buttons**. A page rule such as `.x .en { color: … }` beats `.btn .en { color: inherit }`, and the English then fails contrast on the very button parents are meant to press.
+
+Method: token contrast was computed from `assets/kids.css` (6 themes × 20 pairs). I scanned the rendered text contrast of every page at 1280 px (Playwright), with fanous/mosaic/mihrab overrides on the hub and the article, and looked at theme sheets at 820×1180. Screenshots are in `/private/tmp/claude-501/-Users-hishamabuella-Work-Arabic-school/d88abab3-a4d7-40f9-b268-0ee19b844ff0/scratchpad/shots/team2/` (`sheet_themes.png`, `sheet_ctas.png`, `sheet_1280.png`, `sheet_phone.png`).
+
+| id | sev | file + location | evidence | fix | effort |
+|---|---|---|---|---|---|
+| UI-01 | major | `index.html:76` `.deck-copy .en`; hero button «افْتَحِ الْعَرْضَ · Watch the presentation» | The English span is painted `--hero-ink2` on the button fill. Ratio by theme: pacific 2.99, andalus 1.53, fanous 1.35, kurrasa 1.40, mosaic 2.42, mihrab 3.81. The Arabic on the same button passes (4.86–8.44). | Make the shared rule win: in `kids.css:492` change `.btn .en` to `.btn.btn .en { color: inherit; }`. That fixes every page at once. Alternatively, scope `index.html:76` to `.deck-copy p.en`. | S |
+| UI-02 | major | `mockups/01-andalus.html:93` `.parents a { color: var(--on-brand) }` → the parents' CTA `.btn--sun` | Both lines of «اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً · Book a free trial class» are white on gold `#E8B048`: **1.96:1**. This is the page's one parent action. | Change it to `.parents a:not(.btn)`, so the button keeps `--bi:#1E1A0E` (≈ 9:1). | S |
+| UI-03 | major | `mockups/05-mosaic.html:82` `.t-cta .en { color: var(--on-accent) }` | "Book a free trial class" is white on sun `#FFC53D`: **1.58:1**. The Arabic line is dark and passes. | Covered by the UI-01 kids.css fix, or delete line 82. | S |
+| UI-04 | minor | `404.html:28` `.lost .en` | "Back to the hub" on the coral button: 2.99:1 (the same pattern). | Covered by the UI-01 fix. | S |
+| UI-05 | minor | floating theme/mute buttons (`kids.css` FABs), on every page at 390 px | They cover body text at the bottom left (guide «No text inside images» card, 404 footer). See `phone_guide_html.png` and `phone_404_html.png`. | Add `body { padding-bottom: 88px }` (FAB height + gap) so the last line can scroll clear. | S |
+| UI-06 | minor | `lessons/article.html` `<style>` | 12 hard-coded hex values in page CSS (`index.html` 1, kurrasa 2, mosaic 2, story 1). The rule is "no hard-coded hex in page CSS". | Move them to tokens when the page is next touched. Not urgent, because each one was measured in its fixed theme. | S |
+| UI-07 | minor | `--masc` / `--fem` fills | Used as text they would fail (mihrab 1.93/1.94, mosaic 2.06/2.45, pacific 2.73/2.31). I found no text use today; the only `color: var(--fill)` hits are SVG `currentColor` doodles. | Keep it that way: add a comment at the token, "fill only — text uses `--masc-text` / `--fem-text`". | S |
+
+**Re-verified from REVIEW.md (still fixed):** #10 eyebrow Naskh · #11 mosaic sticker · #12 counters · #15 pitch title · the logo + favicon on every page (sweep: favicon present on all 15 pages). Arabic letter-spacing is 0 on all 15 pages × 3 viewports. The tightest token pairs are unchanged: Mihrab on-brand/brand 4.99, Pacific 5.12, mosaic ta/surface 4.86. Mosaic ta/surface2 is 4.02, which is OK only because the ة is always large text (≥ 3:1).
+
+## Top 3 suggestions for what to build next
+1. **One shared CTA component.** `.trial` in kids.css sets its own colours (`.trial .en { color: inherit }` at high specificity), so no page can break it again. It would carry the three fixes above.
+2. **A contrast smoke test.** The script used for this review (rendered text vs. nearest solid background) would run in the release sweep. It found three failures that the token-level check cannot see.
+3. **A one-page "brand sheet"** in `logos/index.html`: the chosen logo, wordmark, the 6 theme swatches with their text twins, and the do/don't for Noori, ready for when the owners pick a logo and a theme.

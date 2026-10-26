@@ -1,1 +1,22 @@
 # art-director — persistent log. Role: Art director for every generated image on Nawras — Noori, Sami, Salma, word pictures, story scenes, heroes, logos, book pages. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-26 · art-director · Team review 2 (every shipped picture, eye-check list) ===
+Lead / asked by: coordinator (TEAM REVIEWER 2)
+Files reviewed: assets/art/{pic,story,noori,site,og,guide}, logos/img/v2, book/images-noori-shell, gen-art.sh, gen-noori-shell.sh (no model run)
+Findings:
+  [MAJOR] [MODESTY] book bint.webp (gen-noori-shell.sh:69), friends 804 (:51), nashit 613 (:71) + story s03/s10 + print pp 4/13/15 — Salma shows a brown fringe under the scarf; site set fixed with $HIJAB, book set not — fix: islamic-studies-advisor ruling, then redraw with $SALMA, $HIJAB, NEG hair/fringe/bangs (+100 seeds)
+  [MINOR] [PROMPT] Noori beak reads as a duck bill (happy, think, sleep, book cover) — owner: accept as house style or beak-paint + img2img next round
+  [MINOR] [BUDGET] site/level-1.webp white cut-out halo
+  [MINOR] [PROMPT] sadiq: Noori standing on Salma's head
+  [MINOR] [BUDGET] logos/img/v2/hi 24 PNG 12 MB tracked, unreferenced by pages — owner call
+Decisions / judgement calls:
+  - Fringe raised as major, not blocker: the project's own rule (guide §4, gen-art.sh HIJAB) says no fringe, but the adab call belongs to islamic-studies-advisor (veto).
+  - Beak not escalated: consistent across 40+ images; a redraw for it alone would break "keep it simple".
+Fixed this run:
+  - none (read-only; no GPU job)
+Still open:
+  - ART-01 redraw (3 pages) — owner: islamic-studies-advisor ruling, then art-director (one GPU job at a time)
+Notes for next time:
+  - Contact sheets in scratchpad/shots/team2/art_*.png; Salma crops art_salma_hairline.png.
+  - Size baseline: all site WebP <=150 KB (pic 604K/24, story 528K/13, site 604K/14); pitch/img has 7 PNG >150 KB (frontend item).
+[DONE]

@@ -1,1 +1,25 @@
 # frontend-engineer — persistent log. Role: Frontend engineer for Nawras — static HTML, CSS and vanilla JS with no framework and no build step. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-26 · frontend-engineer · Team review 2 (pages, paths, file://, og, decks, weight) ===
+Lead / asked by: coordinator (TEAM REVIEWER 2)
+Files reviewed: 15 shipped pages + deep 404, assets/kids.css, assets/kids.js, pitch/img (commit 79a5b88, clean)
+Findings:
+  [MAJOR] [FIX] kids.css:492 .btn .en loses to page .x .en rules (index:76, 404:28, mosaic:82) and andalus:93 .parents a — CTA contrast 1.35–3.81 — fix: .btn.btn .en{color:inherit}; .parents a:not(.btn)
+  [MAJOR] [A11Y] kids.js:284 speak() silent when no Arabic voice; no clip fallback for article/mockups — fix: clip-first + always toggle .is-speaking
+  [MINOR] [PERF] pitch/img PNG ~2.5 MB (lesson-article 1253 KB) — WebP in images.py
+  [MINOR] [PERF] hub 139 req / 4.97 MB at 390 (6 lazy mockup iframes) — og jpg thumbnails on phones
+  [MINOR] [FIX] FAB overlap at 390 — body padding-bottom 88px
+  [MINOR] [A11Y] 19 identical "اِسْتَمِعْ — Listen" labels in article
+  [MINOR] [FIX] hub PDF links 27px tall
+Decisions / judgement calls:
+  - 7 "broken" links in logos/index.html are JS string templates (' + img + ') — not defects.
+  - Deep-404 console error is the 404 status itself — expected.
+Fixed this run:
+  - none (read-only review)
+Still open:
+  - FE-01..07 — owner: frontend-engineer (FE-02 waits on word clips from motion-and-sound-designer)
+Notes for next time:
+  - Baseline 2026-10-26: 48 loads, 0 errors / 0 failed / 0 broken / 0 hscroll; file:// 9 pages 0 errors; decks 23 + 13 slides 0 issues x 7 themes.
+  - Page weight at 390: hub 4.97 MB/139 req, pitch 4.75 MB, story 1.43 MB, logos 1.28 MB, article 0.99 MB, book 0.85 MB.
+  - Sweep scripts kept in scratchpad/t2/ (sweep.cjs, cscan.cjs, motion.cjs, hit.cjs).
+[DONE]

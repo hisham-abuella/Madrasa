@@ -1,1 +1,25 @@
 # kids-ux-designer — persistent log. Role: UX designer for children and their parents on Nawras. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-26 · kids-ux-designer · Team review 2 (targets, flows, feedback, CTA, privacy) ===
+Lead / asked by: coordinator (TEAM REVIEWER 2)
+Files reviewed: all 15 pages at 1280 / 820x1180 mobile / 390x844 mobile; assets/kids.js quiz + writePad; book deep links
+Findings:
+  [MAJOR] [CTA] parent CTA unreadable: andalus parents btn 1.96:1, mosaic EN 1.58:1, hub hero EN 1.35–3.81:1 — fix via ui-designer UI-01..03
+  [MINOR] [TARGET] index.html lesson-book file links 27px tall (parent rule 44)
+  [MINOR] [TARGET] footer links 15–21px tall (all mockups, demo hub, repo)
+  [MINOR] [CTA] mailto placeholder is a dead tap on devices without Mail — add tel: placeholder line
+  [MINOR] [FLOW] floating theme/mute FABs cover last lines at 390px
+  [MINOR] [TARGET] book grown-up pills 44px beside the 56px child toggle — group under a details menu
+Decisions / judgement calls:
+  - 54.9px pad tools in the first sweep were measured mid-reveal (offsetWidth 56) — not a finding.
+  - Deck engine buttons 44px (36px on phone) are teacher controls — accepted, not a child target.
+  - Book page dots aria-hidden progress bar (REVIEW #8) still in place — accepted.
+Fixed this run:
+  - none (read-only)
+Still open:
+  - KUX-01..06 — owner: frontend-engineer; KUX-04 wording → parent-and-community-advocate
+Notes for next time:
+  - Measured baselines 2026-10-26: wp tools 56, say--sm 44 + 7px ::after each side, voice toggle 56 tall, deck listen hit 131 (820) / 146 (390), book pills 44.
+  - Privacy baseline: only fonts.googleapis.com + fonts.gstatic.com; localStorage empty on load; 0 sound before a gesture on 15 pages.
+  - Book QR deep link #ex-ta opens exercise 1 directly — keep testing one deep link per run.
+[DONE]

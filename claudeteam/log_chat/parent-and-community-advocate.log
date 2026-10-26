@@ -1,1 +1,24 @@
 # parent-and-community-advocate — persistent log. Role: The San Diego Muslim family's voice on Nawras. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-26 · parent-and-community-advocate · Team review 2 (hub, mockups, CTA, parents' copy, book) ===
+Lead / asked by: coordinator (TEAM REVIEWER 2)
+Files reviewed: index.html, mockups/01-06 (parents sections), lessons/article.html parents' corner, book cover PDF, 404
+Findings:
+  [MAJOR] [COST] no cost line on any mockup or hub (0 hits fee/tuition/$/cost) — add placeholder fees line
+  [MAJOR] [ENROL] andalus CTA 1.96:1, mosaic CTA EN 1.58:1 — unreadable one action (ui-designer UI-02/03)
+  [MINOR] [INCLUSION] no "no Arabic at home is fine" line on mockups
+  [MINOR] [TRUST] adab promise missing on mockups 01-05
+  [MINOR] [TRUST] no safety / class size / sit-in line
+  [MINOR] [ENROL] mailto-only CTA — add tel/sms placeholder
+  [MINOR] [TRUST] hub mockup blurbs use design jargon (bento grid, full-bleed)
+  [MINOR] book back cover "for grade 1–2" → "grades 1–2" (next reprint)
+Decisions / judgement calls:
+  - Article parents' corner judged good as is (warm, 5 minutes, dialect respected) — no change.
+  - Kept every suggestion as a placeholder line; real numbers are owner decisions.
+Fixed this run:
+  - none (read-only)
+Still open:
+  - [OWNER-QUESTION] monthly fee + sibling policy; real phone/WhatsApp; sit-in on trial; class size cap
+Notes for next time:
+  - Baseline: placeholders marked 4–5x per mockup; CTA present on all mockups, lessons, hub/logos/book footers; story CTA only on its last slide.
+[DONE]

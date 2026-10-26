@@ -1,1 +1,23 @@
 # islamic-studies-advisor — persistent log. Role: Islamic studies and adab advisor for Nawras. Purpose: saves all of this agent's analysis (findings, decisions, fixed vs open) so later runs pick up where earlier ones left off. Append only; format in claudeteam/log_chat/README.md. Created 2026-10-25.
+
+=== 2026-10-25 · islamic-studies-advisor · Team review 1: adab, modesty, sacred text, morals across all child/parent pages (read-only) ===
+Lead / asked by: team reviewer 1 (user-dispatched team review → suggestions slide)
+Files reviewed: index.html, mockups/01–06, lessons/{article,story,presentation}.html, book/stories/noori-shell.json, book/books/noori-shell.html, book/print/noori-shell-lulu-interior.pdf, book/images-noori-shell/*.webp (Salma crops at full size), assets/art/story/*, assets/art/pic/{girl,student-f,mother}.webp, guide.html, pitch/index.html, book/source/gen-noori-shell.sh, assets/art/source/gen-art.sh
+Findings:
+  [MAJOR] [MODESTY] book/images-noori-shell/{friends 804, sadiq 710, bint 711, nashit 613} + story s03/s10/s13 — Salma's hair fringe visible — evidence: full-size crops; gen-noori-shell.sh SALMA lacks $HIJAB (gen-art.sh:65) — fix: add $HIJAB + NEG "hair, fringe, bangs", redraw 4 before the Lulu order
+  [MAJOR] [MODESTY] nashit 613 — Salma short sleeve / bare forearm — fix: same redraw, "long sleeves to the wrists"
+  [MAJOR] [ADAB] story pages model only salam + sandcastle; pitch adab slide is prohibitions; mockup 06 claims "manners woven into every lesson" — fix: shell gift «تَفَضَّلِي… شُكْرًا، جَزَاكَ اللَّهُ خَيْرًا», «نَتَعَاوَنُ», «الْحَمْدُ لِلَّهِ»
+  [MAJOR] [ADAB] «سِحْرُ التَّاءِ», «الصَّدَفَةُ السِّحْرِيَّةُ», "magic ة" — fix: «سِرُّ التَّاءِ» / «الصَّدَفَةُ الْعَجِيبَةُ»
+  [MINOR] [ADAB] eg p10 «الله، حلوة قوي!» → «ما شاء الله، حلوة قوي!»; story slide 2 no salam reply; deck close could add «الْحَمْدُ لِلَّهِ»
+Decisions / judgement calls:
+  - [RULING] Salma's fringe is NOT a veto — why: six-year-old cartoon child, modest overall, hijab not obligatory before puberty; but it contradicts our own rule and the pitch claim, so fix before print.
+  - [RULING] Sami's short sleeves (613) remain accepted drift — why: boy; earlier acceptance in gen-noori-shell.sh stands.
+  - [RULING] «الله» as Egyptian admiration is not disrespectful; replacing with «ما شاء الله» is an improvement, not a correction.
+Fixed this run:
+  - none (read-only)
+Still open:
+  - ISA-01…ISA-07 in claudeteam/reviews/islamic-studies-advisor.md — owners: art-director (redraw, GPU one at a time), arabic-language-expert (moral lines, renames), frontend-engineer (salam reply button), motion-and-sound-designer (re-record touched clips), ceo (enforce before print)
+Notes for next time:
+  - Clean: no Qur'an/hadith text (grep), no prophets/angels, khatam 8-point, pic/ set has under-cap, bint-611 blurred.
+  - Any art made by a script other than gen-art.sh must carry $HIJAB — check every gen script, not just the site one.
+[DONE]
