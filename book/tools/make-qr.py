@@ -2,26 +2,32 @@
 """Regenerate the book's printed QR codes from book.config.json -> bookUrl.
 (Adapted from bedtime-stories/tools/make-qr.py.)
 
-  uvx --with segno python tools/make-qr.py
+  uvx --with segno python tools/make-qr.py [slug]     # default: book.config.json -> slug
 
-  input/qr/qr-book.svg          the web book (back cover, "about this book" page)
-  input/qr/qr-<page-key>.svg    one per exercise page: the web book opened at that
+  <qrDir>/qr-book.svg           the web book (back cover, "about this book" page)
+  <qrDir>/qr-<page-key>.svg     one per exercise page: the web book opened at that
                                 page's writing pad, bookUrl#<page-key>
 
 segno writes width/height but no viewBox, and without one the symbol renders at
 its natural size and the page clips it into something that will not scan, so
 every code gets a viewBox injected. Error correction Q, a 4-module quiet zone
 (segno's border is in modules; the print layout adds white around it too).
+
+qrDir is input/qr for noori-shell and input/qr/<slug> for every other book, and
+the URL comes from book.config.json (books.<slug> or urlPattern): tools/lib.js
+bookConfig() is the one place that rule lives, so it is asked here through node.
 """
-import json, re
+import json, re, subprocess, sys
 from pathlib import Path
 import segno
 
 ROOT = Path(__file__).resolve().parent.parent
-config = json.loads((ROOT / 'book.config.json').read_text())
-spec = json.loads((ROOT / 'stories' / f"{config['slug']}.json").read_text())
+slug = sys.argv[1] if len(sys.argv) > 1 else json.loads((ROOT / 'book.config.json').read_text())['slug']
+config = json.loads(subprocess.run(['node', '-e', f"console.log(JSON.stringify(require('./tools/lib').bookConfig({json.dumps(slug)})))"],
+                                   cwd=ROOT, capture_output=True, text=True, check=True).stdout)
+spec = json.loads((ROOT / 'stories' / f"{slug}.json").read_text())
 BASE = config['bookUrl']
-OUT = ROOT / 'input' / 'qr'
+OUT = ROOT / config['qrDir']
 OUT.mkdir(parents=True, exist_ok=True)
 
 CODES = {'qr-book': BASE}

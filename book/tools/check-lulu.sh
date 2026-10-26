@@ -2,7 +2,7 @@
 # Check the Lulu PDFs against Lulu's published requirements.
 # (Copied from bedtime-stories/tools/check-lulu.sh; globs and the safe-area source changed.)
 #
-#   bash tools/check-lulu.sh
+#   bash tools/check-lulu.sh [slug]      # a slug checks only that book's Lulu pair
 #
 # A PDF that is wrong in any of these ways still opens and still looks right on
 # screen, which is exactly why this is a script and not an eyeball.
@@ -21,7 +21,10 @@ note() { printf '    %-12s %s\n' "$1" "$2"; }
 bad()  { fail=$((fail + 1)); printf '    %-12s \033[31m%s\033[0m\n' "$1" "$2"; }
 
 shopt -s nullglob
-files=(print/*-lulu-*.pdf)
+slug=${1:-}
+if [[ -n $slug ]]; then files=(print/"$slug"-lulu-interior{,-DRAFT}.pdf print/"$slug"-lulu-cover{,-DRAFT}.pdf)
+else files=(print/*-lulu-*.pdf); fi
+existing=(); for f in "${files[@]}"; do [[ -f $f ]] && existing+=("$f"); done; files=("${existing[@]+"${existing[@]}"}")
 (( ${#files[@]} )) || { echo "no Lulu PDFs built yet — run tools/print-book.sh"; exit 1; }
 for f in "${files[@]}"; do
   echo "$(basename "$f")"

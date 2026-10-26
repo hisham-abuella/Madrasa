@@ -9,7 +9,9 @@ attribute make-print.js writes next to each code, from book.config.json).
 Also checked, per code: the printed symbol (without its quiet zone) is at least
 25mm wide, and the quiet zone around it (4 modules) is white.
 
-  uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py
+  uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py [slug]
+
+With a slug only that book's PDFs (print/<slug>-*.pdf) are read; without, every PDF.
 """
 import glob, html, json, re, subprocess, sys, tempfile
 from pathlib import Path
@@ -20,7 +22,9 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 DPI = 200
 TMP = Path(tempfile.mkdtemp(prefix='qrpages-'))
-config = json.loads((ROOT / 'book.config.json').read_text())
+slug = sys.argv[1] if len(sys.argv) > 1 else None
+config = json.loads(subprocess.run(['node', '-e', f"console.log(JSON.stringify(require('./tools/lib').bookConfig({json.dumps(slug)})))"],
+                                   cwd=ROOT, capture_output=True, text=True, check=True).stdout)
 
 def expected(pdf):
     """the URLs each page should carry, read from the HTML the PDF was printed from"""
@@ -30,8 +34,11 @@ def expected(pdf):
     return [[html.unescape(u) for u in re.findall(r'data-qr="([^"]*)"', p)] for p in parts]
 
 bad, rows, total = [], [], 0
+STEMS = ('-lulu-interior', '-lulu-cover', '-home-a5', '-worksheets-letter', '-worksheets-a4')
 for pdf in sorted(glob.glob(str(ROOT / 'print' / '*.pdf'))):
     name = Path(pdf).stem
+    if slug and not any(name in (slug + st, slug + st + '-DRAFT') for st in STEMS):
+        continue
     want = expected(pdf)
     for f in TMP.glob('*.png'):
         f.unlink()

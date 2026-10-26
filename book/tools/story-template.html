@@ -127,7 +127,7 @@
   .ex-body .wp{--radius:18px}
   .pics{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
   .pic-card{display:grid;gap:6px;justify-items:center;background:#fff;border:2px solid var(--rule);border-radius:16px;padding:10px 14px}
-  .pic-card svg{width:96px;height:96px}
+  .pic-card svg{width:96px;height:96px}{{EXTRA_CSS}}
   .rows{display:grid;gap:10px}
   .row{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;background:#fff;border:1px solid var(--rule);border-radius:14px;padding:8px 10px}
   .row .pic{width:64px;height:64px}
@@ -256,7 +256,7 @@
    The book — every page pre-rendered from stories/{{SLUG}}.json
    ============================================================ */
 var BOOK = {{BOOK}};
-var AUDIO_DIR = { ar:'../audio/ar/', eg:'../audio/eg/' };
+var AUDIO_DIR = { ar:'{{AUDIO}}ar/', eg:'{{AUDIO}}eg/' };
 
 /* ============================================================
    Wiring (after bedtime-stories' story-template)

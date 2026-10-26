@@ -2,7 +2,7 @@
 # Build the web book and its narration scripts from the spec.
 # (bedtime-stories: tools/build-<slug>.sh -> build-book.py; here one script.)
 #
-#   zsh tools/build-book.sh [slug]      # default: noori-shell
+#   zsh tools/build-book.sh [slug]      # default: book.config.json -> slug (noori-shell)
 #
 #   books/<slug>.html                   the web book (template: tools/story-template.html)
 #   source/<slug>-{ar,eg}.json          narration scripts for generate.js

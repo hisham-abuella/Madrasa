@@ -25,11 +25,18 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 slug=${1:-$(node -e "console.log(require('./book.config.json').slug)")}
-draft=$(node -e "console.log(require('./book.config.json').urlConfirmed ? '' : '-DRAFT')")
+[[ -f stories/$slug.json ]] || { echo "no stories/$slug.json" >&2; exit 1; }
+# per-book URL: book.config.json -> top level (noori-shell), books.<slug>, or urlPattern (tools/lib.js bookConfig)
+draft=$(node -e "console.log(require('./tools/lib').bookConfig('$slug').urlConfirmed ? '' : '-DRAFT')")
+# placeholder pictures (a dry run: tools/placeholder-art.sh) can never make a final print file
+if [[ -f art-hi/images-$slug/PLACEHOLDER.txt ]]; then
+  echo "PLACEHOLDER pictures in art-hi/images-$slug (see PLACEHOLDER.txt): print files are named -DRAFT" >&2
+  draft=-DRAFT
+fi
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 echo "QR codes from book.config.json…"
-uvx --with segno python tools/make-qr.py | tail -1
+uvx --with segno python tools/make-qr.py "$slug" | tail -1
 
 mkdir -p build print "input/img-hi/images-$slug"
 missing=0
@@ -45,7 +52,9 @@ done
 (( missing )) && { echo "draw them first: DEST=\$PWD/art-hi/images-$slug zsh source/gen-$slug.sh" >&2; exit 1; }
 
 # remove an older set (a DRAFT set once the URL is confirmed, or the other way round)
-rm -f print/"$slug"-*.pdf
+for st in lulu-interior lulu-cover home-a5 worksheets-letter worksheets-a4; do   # exact names: one slug may prefix another
+  rm -f "print/$slug-$st.pdf" "print/$slug-$st-DRAFT.pdf"
+done
 
 fail=0
 made=()
@@ -73,9 +82,9 @@ for stem in "${made[@]}"; do
   python3 tools/check-print-text.py "build/$stem.html" "print/$stem.pdf" || fail=1
 done
 echo; echo "checking Lulu's rules…"
-bash tools/check-lulu.sh || fail=1
+bash tools/check-lulu.sh "$slug" || fail=1
 echo; echo "checking QR codes…"
-uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py | tail -3 || fail=1
+uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py "$slug" | tail -3 || fail=1
 
 (( fail )) && { echo; echo "print-book: a check failed — see above." >&2; exit 1; }
-echo; echo "all checks passed${draft:+ (DRAFT: the QR URL is not confirmed yet — book.config.json)}"
+echo; echo "all checks passed${draft:+ (DRAFT: the QR URL is not confirmed yet in book.config.json, or the pictures are placeholders)}"

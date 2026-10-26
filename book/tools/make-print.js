@@ -22,13 +22,14 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { ROOT, esc, mark, plain, loadSpec, interiorPages, isExercise, arNum, pageUrl, DECO, star8, decoDefs, decoPattern, decoFrame } = require('./lib');
+const { ROOT, esc, mark, plain, loadSpec, interiorPages, isExercise, arNum, pageUrl, DECO, star8, decoDefs, decoPattern, decoFrame, topic, choices } = require('./lib');
 
 const [, , slug, outPath] = process.argv;
 const arg = (f, d) => { const i = process.argv.indexOf(f); return i > -1 ? process.argv[i + 1] : d; };
 if (!slug || !outPath) { console.error('usage: make-print.js <slug> <out.html> --format lulu|cover|a5|letter|a4'); process.exit(1); }
 const format = arg('--format', 'lulu');
 const { spec, config } = loadSpec(slug);
+const T = topic();
 
 const IN = 25.4;
 const lulu = format === 'lulu' || format === 'cover';
@@ -43,7 +44,7 @@ const outDir = path.dirname(path.resolve(outPath));
 const rel = (p) => path.relative(outDir, path.join(ROOT, p));
 const assets = path.relative(outDir, path.join(ROOT, '..', 'assets'));
 const qrSvg = (name) => {
-    const f = path.join(ROOT, 'input', 'qr', `${name}.svg`);
+    const f = path.join(ROOT, config.qrDir, `${name}.svg`);
     if (!fs.existsSync(f)) { console.error(`no ${f} — run tools/make-qr.py`); process.exit(1); }
     return fs.readFileSync(f, 'utf8');
 };
@@ -59,6 +60,9 @@ function art(key, alt) {
     return `<img src="${rel(hi)}" alt="${esc(alt || '')}">`;
 }
 
+// a picture card: one KS.pic, or n copies side by side ("n": 2 on an item: the dual books)
+const pcard = (it) => it.n > 1 ? `<div class="pcard pair">${Array.from({ length: it.n }, () => `<span data-pic="${it.pic}"></span>`).join('')}</div>`
+    : `<div class="pcard" data-pic="${it.pic}"></div>`;
 const en = (s, cls) => s ? `<p class="en${cls ? ' ' + cls : ''}" lang="en">${mark(s)}</p>` : '';
 const folio = (n) => (n && format !== 'letter' && format !== 'a4') ? `<p class="folio">${arNum(n)}</p>` : '';
 // data-qr carries the exact URL the code must decode to; check-qr.py reads it back.
@@ -117,7 +121,7 @@ function exercise(p, n) {
         mid = p.rows.map((r) => r.blank ? Array.from({ length: r.blank }, () => ruled()).join('') : ruled(r.model, r.repeat)).join('');
         break;
     case 'write':
-        mid = p.items.map((it) => `<div class="write-item"><div class="pcard" data-pic="${it.pic}"></div>
+        mid = p.items.map((it) => `<div class="write-item">${pcard(it)}
         <div class="wl">${ruled(it.trace ? it.model : '', 1)}${it.trace ? '' : ''}</div></div>`).join('');
         break;
     case 'circle':
@@ -125,19 +129,19 @@ function exercise(p, n) {
         break;
     case 'addta':
         mid = `<div class="addta-rows">${p.rows.map((r) => `<div class="addta-row word"><span class="from">${mark(r[0])}</span><span class="arrow" aria-hidden="true">←</span>
-          <span class="to">${esc(r[1])}<span class="box" aria-label="اكْتُبْ ة"></span></span></div>`).join('')}</div>`;
+          <span class="to">${esc(r[1])}<span class="box" aria-label="${esc(T.addBoxAria)}"${p.boxMm ? ` style="width:${p.boxMm}mm"` : ''}></span></span></div>`).join('')}</div>`;
         break;
     case 'match': {
         const right = p.items.filter((_, i) => i % 2 === 0), left = p.items.filter((_, i) => i % 2 === 1);
-        const col = (items, side) => `<div class="mcol ${side}">${items.map((it) => `<div class="mitem"><div class="pcard" data-pic="${it.pic}"></div>
+        const col = (items, side) => `<div class="mcol ${side}">${items.map((it) => `<div class="mitem">${pcard(it)}
             <span class="word mword">${mark(it.word)}</span><i class="dot"></i></div>`).join('')}</div>`;
-        mid = `<div class="match">${col(right, 'r')}<div class="mcol c"><div class="mtarget word"><i class="dot"></i>${mark('هَذَا')}<i class="dot"></i></div>
-          <div class="mtarget word"><i class="dot"></i>${mark('هَذِهِ')}<i class="dot"></i></div></div>${col(left, 'l')}</div>`;
+        mid = `<div class="match">${col(right, 'r')}<div class="mcol c"><div class="mtarget word"><i class="dot"></i>${mark(choices(p)[0])}<i class="dot"></i></div>
+          <div class="mtarget word"><i class="dot"></i>${mark(choices(p)[1])}<i class="dot"></i></div></div>${col(left, 'l')}</div>`;
         break;
     }
     case 'fill':
         mid = `<div class="fill-rows">${p.rows.map((r) => `<div class="fill-row word"><span class="slotline">${ruled('', 1, 'short')}</span><span class="noun">${mark(r.word)}.</span></div>`).join('')}</div>
-        <p class="fence word">${mark('تَذَكَّرْ: بِنْتٌ، أُمٌّ، شَمْسٌ ← هَذِهِ (بِلَا ة)')}</p>`;
+        <p class="fence word">${mark(p.fence || T.fillFence)}</p>`;
         break;
     case 'adj':
         mid = `<div class="adj-rows">${p.rows.map((r) => `<div class="adj-row word"><span class="noun">${mark(r.noun)}</span>
@@ -153,6 +157,14 @@ function exercise(p, n) {
 }
 
 /* ---- every page type ------------------------------------------------------- */
+// the recap's two columns, in the topic's order (Noori: هَذِهِ on the right, then هَذَا)
+function recapCols(p) {
+    const a = p.ar, heads = a.heads || choices(p);
+    const f = `<div class="rcol f"><h3 class="word">${mark(heads[1])}</h3>${a.fem.map((w) => `<p class="line">${mark(w)}</p>`).join('')}</div>`;
+    const m = `<div class="rcol m"><h3 class="word">${mark(heads[0])}</h3>${a.masc.map((w) => `<p class="line">${mark(w)}</p>`).join('')}</div>`;
+    return T.recapFirst === 'm' ? `${m}\n      ${f}` : `${f}\n      ${m}`;
+}
+
 function page(p, n) {
     const a = p.ar || {}, e = p.en || {};
     if (isExercise(p)) return exercise(p, n);
@@ -176,8 +188,7 @@ function page(p, n) {
     case 'recap':
         return `<section class="sheet recap" data-key="recap"><div class="safe">
     <h2 class="word center">${mark(a.name)}</h2>${en(e.note, 'center')}
-    <div class="recap-grid"><div class="rcol f"><h3 class="word">${mark('هَذِهِ')}</h3>${a.fem.map((w) => `<p class="line">${mark(w)}</p>`).join('')}</div>
-      <div class="rcol m"><h3 class="word">${mark('هَذَا')}</h3>${a.masc.map((w) => `<p class="line">${mark(w)}</p>`).join('')}</div></div>
+    <div class="recap-grid">${recapCols(p)}</div>
     <p class="line rule">${mark(a.rule)}</p><p class="line rule">${mark(a.fence)}</p>${folio(n)}</div></section>`;
     case 'certificate':
         return `<section class="sheet cert" data-key="certificate"><div class="safe"><div class="frame">
@@ -210,11 +221,11 @@ function answers() {
         switch (p.type) {
         case 'trace': case 'draw': ar = 'لَا إِجَابَةَ وَاحِدَةً: نَمْدَحُ الْمُحَاوَلَةَ.'; enx = 'No single answer — praise the effort.'; break;
         case 'write': ar = p.items.map((i) => i.model).join('، '); enx = 'Picture sentences'; break;
-        case 'circle': ar = p.rows.map((r, i) => r[p.answers[i]]).map(strip).join('، '); enx = 'The feminine words (the last two have no ة)'; break;
-        case 'addta': ar = p.rows.map((r) => r[2]).join('، '); enx = 'Add ة'; break;
-        case 'match': ar = 'هَذَا: ' + p.items.filter((i) => i.ans === 'm').map((i) => strip(i.word)).join('، ') + ' — هَذِهِ: ' + p.items.filter((i) => i.ans === 'f').map((i) => strip(i.word)).join('، '); enx = 'Match'; break;
-        case 'fill': ar = p.rows.map((r) => (r.ans === 'm' ? 'هَذَا ' : 'هَذِهِ ') + strip(r.word)).join('، '); enx = 'هَذَا or هَذِهِ'; break;
-        case 'adj': ar = p.rows.map((r) => strip(r.noun) + ' ' + strip(r.opts[r.ans])).join('، ') + '، ' + p.write; enx = 'Adjective agreement'; break;
+        case 'circle': ar = p.rows.map((r, i) => r[p.answers[i]]).map(strip).join('، '); enx = T.answersEn.circle; break;
+        case 'addta': ar = p.rows.map((r) => r[2]).join('، '); enx = T.answersEn.addta; break;
+        case 'match': { const [cm, cf] = choices(p).map(strip); ar = cm + ': ' + p.items.filter((i) => i.ans === 'm').map((i) => strip(i.word)).join('، ') + ' — ' + cf + ': ' + p.items.filter((i) => i.ans === 'f').map((i) => strip(i.word)).join('، '); enx = T.answersEn.match; break; }
+        case 'fill': { const [cm, cf] = choices(p).map(strip); ar = p.rows.map((r) => (r.ans === 'm' ? cm + ' ' : cf + ' ') + strip(r.word)).join('، '); enx = T.answersEn.fill; break; }
+        case 'adj': ar = p.rows.map((r) => strip(r.noun) + ' ' + strip(r.opts[r.ans])).join('، ') + '، ' + p.write; enx = T.answersEn.adj; break;
         }
         return `<li><b>${arNum(p.exercise)}</b> <span class="word">${esc(ar)}</span> <bdi dir="ltr" lang="en">(${esc(enx)})</bdi></li>`;
     });
@@ -232,7 +243,7 @@ const spineMm = spineIn * IN;
 
 function frontCover() {
     const c = cover.ar, ce = cover.en;
-    return `<div class="art f-art">${art(cover.img, 'Noori holding a little shell')}</div>
+    return `<div class="art f-art">${art(cover.img, T.coverAltPrint)}</div>
       <div class="f-words"><p class="eyebrow word">${mark(c.eyebrow)}</p><h1 class="word">${mark(c.title)}</h1>
       ${en(ce.title, 'big')}<p class="line f-school">${mark(c.line)}</p></div>`;
 }
@@ -248,8 +259,8 @@ function backCover() {
     const c = cover.ar, ce = cover.en;
     const chip = (ar, enText) => `<li>${chipStar}<span class="word">${mark(ar)}</span><span class="chip-en" lang="en">${esc(enText)}</span></li>`;
     return `<div class="b-head"><h2 class="word">${mark(c.title)}</h2>${en(ce.title, 'big')}</div>
-      <p class="line">${mark('نُورِي، النَّوْرَسُ الصَّغِيرُ، يُعَلِّمُ: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ ة فِي آخِرِ الْكَلِمَةِ.')}</p>
-      ${en('A Fusha lesson book for grade 1–2: a story in fourteen pages, then eleven pages of writing practice — tracing, circling, matching and drawing.')}
+      <p class="line">${mark(T.backLine)}</p>
+      ${en(T.backLineEn)}
       <div class="b-mid"><div class="art b-art">${art('back', 'Noori waving goodbye')}</div>
         <div class="b-side"><ul class="chips">${chip('قِصَّةٌ: ١٤ صَفْحَةً', 'Story · 14 pages')}${chip('تَمَارِينُ: ١١ صَفْحَةً', 'Writing practice · 11 pages')}${chip('شَهَادَةٌ وَإِجَابَاتٌ', 'Certificate + answers')}</ul>
         <div class="b-school">${badge()}<p class="word">${mark('مَدْرَسَةُ نَوْرَس لِلْفُصْحَى')}<span lang="en">Nawras Fusha School · San Diego</span></p></div></div></div>
@@ -286,6 +297,9 @@ if (format === 'cover') {
     spec.pages.filter(isExercise).forEach((p) => sheets.push(decorate(page(p, 0), p)));
 }
 
+// picture pairs (dual books) only: older books build byte-for-byte as before
+const pairCss = spec.pages.some((p) => (p.items || []).some((it) => it.n > 1))
+    ? '\n  .pcard.pair{display:flex;gap:1mm;align-items:center}.pcard.pair span{flex:1;min-width:0;height:100%;display:flex;align-items:center}.pcard.pair svg{width:100%;height:auto}' : '';
 /* ---- geometry and type ----------------------------------------------------- */
 const spreadW = trim * 2 + spineMm + bleed * 2;
 const pageRule = format === 'cover'
@@ -480,7 +494,7 @@ const css = `
      25mm+ (38mm x .85 = 32mm), and the answers page tightens to fit */
   .fmt-a5 .qr{width:38mm;height:38mm}
   .fmt-a5 .ans{gap:1.2mm;margin:2mm 0}
-  .fmt-a5 .ans li{font-size:14.5pt;line-height:1.4}
+  .fmt-a5 .ans li{font-size:14.5pt;line-height:1.4}${pairCss}
 ${format === 'cover' ? `
   /* the spread: back | spine | front. Content keeps the full 0.5in safety from
      every trimmed edge and from the spine fold. Lulu's barcode area (92 x 32mm,

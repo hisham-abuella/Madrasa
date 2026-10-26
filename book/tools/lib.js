@@ -7,6 +7,7 @@
  *                  the split, BRIEF.md, so the letters stay joined)
  *   هَذَا / هَذِهِ   coloured automatically (masculine / feminine)
  *   a lone ة       coloured as the little shell
+ * (Those are the Noori defaults; a spec's "topic" block changes them — useTopic.)
  */
 'use strict';
 const fs = require('fs');
@@ -16,8 +17,57 @@ const ROOT = path.join(__dirname, '..');
 const ZWJ = '‍';
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+/* ---- the topic: what the markup colours and what the exercises choose between ----
+ * The Noori book (هَذَا / هَذِهِ, the ة) is the default. A new topic book puts a
+ * "topic" block in its spec with only the fields that differ (see
+ * .claude/skills/topic-book/SKILL.md). Two "sides" everywhere: m = the first
+ * choice (blue, class "m"), f = the second (coral, class "f"); answers say "m" / "f".
+ *
+ *   auto      words coloured automatically everywhere: [word, "m"|"f"] (longest first is safe:
+ *             one regex, so هَذَانِ is never split into هَذَا + نِ)
+ *   ending    regex source of the coloured ending inside [[word]] (default the ة)
+ *   last      true: colour the LAST match in the word (for endings like انِ that can repeat)
+ *   lone      marks coloured when they stand alone in text («ة», «ـة»)
+ *   choices   the two words the circle/match/fill/recap pages choose between [m, f];
+ *             a page can override with its own "choices"
+ */
+const TOPIC_DEFAULT = {
+    auto: [['هَذَا', 'm'], ['هَذِهِ', 'f']],
+    ending: 'ة[ً-ْٰ]*', last: false,
+    lone: ['ـة', 'ة'],
+    choices: ['هَذَا', 'هَذِهِ'],
+    recapFirst: 'f',
+    hint: 'تَذَكَّرْ: ة فِي الْآخِرِ ← هَذِهِ. وَبِنْتٌ، أُمٌّ، شَمْسٌ مُؤَنَّثَةٌ بِلَا ة. — Look for the shell ة; and remember the fence words.',
+    addMark: 'ة', addHint: 'ة — اضْغَطْ عَلَى الصَّدَفَةِ', addAria: 'أَضِفْ ة — add ة', addBoxAria: 'اكْتُبْ ة',
+    adjHint: 'الصِّفَةُ مِثْلُ الِاسْمِ: هَذِهِ … ة — the describing word matches',
+    fillFence: 'تَذَكَّرْ: بِنْتٌ، أُمٌّ، شَمْسٌ ← هَذِهِ (بِلَا ة)',
+    answersEn: { circle: 'The feminine words (the last two have no ة)', addta: 'Add ة', match: 'Match', fill: 'هَذَا or هَذِهِ', adj: 'Adjective agreement' },
+    coverAlt: 'نُورِي يَحْمِلُ صَدَفَةً صَغِيرَةً عَلَى الشَّاطِئِ — Noori holding a little shell on the beach',
+    coverAltPrint: 'Noori holding a little shell',
+    backLine: 'نُورِي، النَّوْرَسُ الصَّغِيرُ، يُعَلِّمُ: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ ة فِي آخِرِ الْكَلِمَةِ.',
+    backLineEn: 'A Fusha lesson book for grade 1–2: a story in fourteen pages, then eleven pages of writing practice — tracing, circling, matching and drawing.',
+};
+let T = TOPIC_DEFAULT, RE = null;
+const reEsc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+/** set the topic for mark() from a spec (call once per build; loadSpec does it) */
+function useTopic(spec) {
+    T = Object.assign({}, TOPIC_DEFAULT, (spec && spec.topic) || {});
+    const auto = T.auto.slice().sort((a, b) => b[0].length - a[0].length);
+    RE = {
+        word: new RegExp(`^(${T.last ? '.*' : '.*?'})(${T.ending})(.*)$`),
+        auto: new RegExp(auto.map((a) => reEsc(a[0])).join('|'), 'g'),
+        cls: Object.fromEntries(auto),
+        lone: new RegExp(`(^|[\\s«(:،])(${T.lone.map(reEsc).join('|')})(?=[\\s،.»):!؟]|$)`, 'g'),
+    };
+    return T;
+}
+const topic = () => T;
+/** the two choices for a page: its own "choices", else the topic's */
+const choices = (p) => (p && p.choices) || T.choices;
+useTopic(null);
+
 function taWord(w) {
-    const m = w.match(/^(.*?)(ة[ً-ْٰ]*)(.*)$/);
+    const m = w.match(RE.word);
     if (!m) return esc(w);
     if (!m[1]) return `<span class="ta">${esc(m[2])}</span>${esc(m[3])}`;
     return `${esc(m[1])}${ZWJ}<span class="ta">${ZWJ}${esc(m[2])}</span>${esc(m[3])}`;
@@ -30,9 +80,8 @@ function mark(s) {
     String(s).split(/(\[\[[^\]]+\]\])/).forEach((part) => {
         if (/^\[\[.*\]\]$/.test(part)) { out += taWord(part.slice(2, -2)); return; }
         let h = esc(part)
-            .replace(/هَذَا/g, '<span class="m">هَذَا</span>')
-            .replace(/هَذِهِ/g, '<span class="f">هَذِهِ</span>')
-            .replace(/(^|[\s«(:،])(ـ?ة)(?=[\s،.»):!؟]|$)/g, '$1<span class="ta">$2</span>');
+            .replace(RE.auto, (w) => `<span class="${RE.cls[w]}">${w}</span>`)
+            .replace(RE.lone, '$1<span class="ta">$2</span>');
         out += h;
     });
     return out;
@@ -42,10 +91,27 @@ function mark(s) {
 const plain = (s) => String(s || '').replace(/\[\[|\]\]/g, '').replace(/<br\s*\/?>/gi, ' ')
     .replace(/<[^>]+>/g, '').replace(/\s{2,}/g, ' ').trim();
 
+/* ---- per-book config: book.config.json ----------------------------------------
+ * The top level is the first book (noori-shell) and stays as it was. Other books
+ * live under "books": { "<slug>": { bookUrl, urlConfirmed } }; a book with no
+ * entry gets urlPattern with <slug> filled in and urlConfirmed false (-DRAFT).
+ * audioDir / qrDir: noori-shell keeps audio/ and input/qr/ (top level); every
+ * other book gets audio/<slug>/ and input/qr/<slug>/ so their files never collide.
+ */
+function bookConfig(slug) {
+    const all = JSON.parse(fs.readFileSync(path.join(ROOT, 'book.config.json'), 'utf8'));
+    const top = { slug: all.slug, bookUrl: all.bookUrl, urlConfirmed: all.urlConfirmed, audioDir: 'audio', qrDir: 'input/qr' };
+    if (!slug || slug === all.slug) return top;
+    const own = (all.books || {})[slug] || {};
+    const pattern = all.urlPattern || 'https://hisham-abuella.github.io/Madrasa/book/books/<slug>.html';
+    return Object.assign({ slug, bookUrl: pattern.replace('<slug>', slug), urlConfirmed: false,
+        audioDir: `audio/${slug}`, qrDir: `input/qr/${slug}` }, own, { slug });
+}
+
 function loadSpec(slug) {
     const spec = JSON.parse(fs.readFileSync(path.join(ROOT, 'stories', `${slug}.json`), 'utf8'));
-    const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'book.config.json'), 'utf8'));
-    return { spec, config };
+    useTopic(spec);
+    return { spec, config: bookConfig(slug) };
 }
 
 /** pages that appear in the printed interior, in order (the cover is its own file) */
@@ -187,5 +253,5 @@ function decoWebCss() {
     return { tile, rose };
 }
 
-module.exports = { ROOT, ZWJ, esc, mark, plain, taWord, loadSpec, interiorPages, webPages, audioPages, isExercise, arNum, pageUrl, draft,
+module.exports = { ROOT, ZWJ, esc, mark, plain, taWord, loadSpec, bookConfig, useTopic, topic, choices, interiorPages, webPages, audioPages, isExercise, arNum, pageUrl, draft,
     DECO, star8, decoDefs, decoPattern, decoFrame, decoWebCss };

@@ -12,3 +12,13 @@ node_modules/
 logos/img/v2/tries/
 logos/img/tries/
 .playwright-mcp/
+# dry-run topic book (placeholder art, DRAFT PDFs) — not published until real art + audio exist
+book/stories/noori-two.json
+book/source/gen-noori-two.sh
+book/source/noori-two-*.json
+book/books/noori-two.html
+book/art-hi/images-noori-two/
+book/images-noori-two/
+book/input/img-hi/images-noori-two/
+book/input/qr/noori-two/
+book/print/noori-two-*

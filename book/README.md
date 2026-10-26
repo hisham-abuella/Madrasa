@@ -73,6 +73,17 @@ the repo layout unchanged, the public URL will end in `/book/books/noori-shell.h
 not the current default `/book/noori-shell.html` — set `bookUrl` to wherever the file
 really lands, and open the link on a phone before printing.
 
+## Another topic book
+
+Every new grammar topic gets a book on exactly this pattern (same 32 pages, characters,
+style, exercise types, Lulu settings and checks): follow the project skill
+`.claude/skills/topic-book/SKILL.md`. The tools take the slug everywhere
+(`zsh tools/build-book.sh <slug>`, `bash tools/print-book.sh <slug>`); a spec's `topic`
+block changes what is coloured and what the exercises choose between (defaults = this
+book, `tools/lib.js` → `TOPIC_DEFAULT`); `book.config.json → books / urlPattern` holds each
+book's URL; `tools/placeholder-art.sh` stands in stamped pictures for a dry run (and forces
+`-DRAFT`). The dry run «نُورِي وَالصَّدَفَتَانِ» (`noori-two`, singular and dual) is the second worked example.
+
 ## The pipeline (tools/)
 
 | Tool | From bedtime-stories | What changed |
