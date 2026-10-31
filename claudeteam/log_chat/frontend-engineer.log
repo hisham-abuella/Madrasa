@@ -23,3 +23,33 @@ Notes for next time:
   - Page weight at 390: hub 4.97 MB/139 req, pitch 4.75 MB, story 1.43 MB, logos 1.28 MB, article 0.99 MB, book 0.85 MB.
   - Sweep scripts kept in scratchpad/t2/ (sweep.cjs, cscan.cjs, motion.cjs, hit.cjs).
 [DONE]
+
+=== 2026-10-31 · frontend-engineer · LEAD: build the writing game «كَيْفَ أَكْتُبُ؟» (games/write.html) + links ===
+Lead / asked by: coordinator (BRIEF "New game (owner, 2026-10-31)")
+Files reviewed: BRIEF.md, claudeteam/README.md, assets/kids.{css,js}, lessons/{story,article}.html, lessons/presentation/build/*, book/tools/story-template.html
+Files changed: NEW games/{write.html,write.js,write.css,strokes.json,strokes.js,build-strokes.js}; index.html (card + i-pen symbol, .more 5 cols); lessons/article.html, lessons/story.html (.game-link); assets/kids.css (+.game-link); lessons/presentation/build/{build.py,deck.css} → lessons/presentation.html; book/tools/story-template.html → book/books/noori-shell.html (new-story.js only, no print-book.sh); README.md row
+Findings:
+  [MINOR] [A11Y] the deck's game link scales with the stage: 357×48 at 1280, 109×15 at 390 — same class as REVIEW #13; deck is TV/iPad — left as is
+  [MINOR] [A11Y] the canvas has no keyboard path — Watch mode + Noori's help after 3 tries reach the stars without fine motor
+Decisions / judgement calls:
+  - One source of truth: games/strokes.json → `node games/build-strokes.js` → strokes.js (window.STROKES) for file://; the build lints start == path M point
+  - Letters are thick round SVG strokes (the stroke model IS the visible letter); the Naskh word is shown small beneath ("نَقْرَأُ")
+  - viewBox x from the strokes' bbox (min 300 wide), y 38–290; canvas maps pointer → viewBox units, so tolerance is in letter units at any size
+  - Check: start ≤40u of the dot; ≥70% of the child's points ≤28u of the line; ≥70% of the model covered; direction by sequence-aware nearest index (≥75% forward) — handles loops (ه, ة) and retraced teeth (بِنْتٌ); dots by centroid ≤34u; tol ×1.2/try (max 1.6); 3rd miss → Noori draws it
+  - Numbered badge offset off the line, small green dot at the exact start; arrows on body strokes only (they hid short harakat in the static view)
+  - Sound off unless a saved choice exists (KS.muted=true, not stored); deep link ?item=<id>; lessons → taa-m, book pads → the matching item
+Fixed this run:
+  - Built the game — verified by Playwright (scratchpad/wg/test.cjs, test2.cjs) at 1280×800, 820×1180, 390×844: 0 console errors, 0 failed requests, 0 hscroll, 0 controls < 56 px
+  - Pass/miss on baa, taa-final, hatha, bint at all 3 sizes: reversed stroke → stays on step 1 + hint; stroke shifted 70u → hint; correct strokes advance 1..n → data-done=1
+  - 3 misses → help advances (noon); dot shifted 60u → hint, on the dot → done; step-by-step 1 then 2 strokes; reduced motion: all 7 strokes + 7 numbers at once, miss shows the stroke statically
+  - 6 themes × 2 art modes: 0 hscroll, 0 errors; file:// write.html works; links from hub/article/story/deck resolve on file://; 9 book pad pages carry a 68 px link
+  - Deck: run.sh 0 issues; run.sh --themes 7/7 0 issues (link bg made transparent after keynote-black/studio contrast fails)
+  - book/books/noori-shell.html diff = only the template change (CSS 2 lines + wirePage block)
+Still open:
+  - قِطَّةٌ (level 3, shadda) not built — owner: frontend-engineer
+  - Teacher trace test on a real iPad + Pencil (pressure, palm) — owner: qa-lead
+  - Book PDFs not rebuilt (print-book.sh not run, by instruction)
+Notes for next time:
+  - Edit strokes in strokes.json then rerun build-strokes.js; preview sheet: scratchpad/wg/preview.html
+  - Screenshots: scratchpad/shots/writegame/
+[DONE]

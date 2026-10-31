@@ -791,6 +791,15 @@ html{
 
 .star-off { fill: var(--line); }
 .star-on { fill: var(--sun); stroke: color-mix(in srgb, var(--sun) 55%, #000); stroke-width: 1.5; animation: pop var(--t-pop) var(--ease-pop); }
+
+/* the one parent action on every page */
+.trial { display: inline-flex; flex-direction: column; align-items: center; gap: 0; }
+.trial .en { font-size: .78rem; }
+
+/* word-by-word tagline reveal (KS wraps [data-words]); reduced motion = shown at once */
+.ks-w { display: inline-block; opacity: 0; transform: translateY(.4em); animation: wordIn .6s var(--ease-pop) forwards; animation-delay: calc(var(--wi) * 220ms + 200ms); }
+@keyframes wordIn { to { opacity: 1; transform: none; } }
+
 /* ── writing pad (KS.writePad) ──────────────────────────────────────────── */
 .wp { background: var(--surface); border: var(--border-w) solid var(--border-c); border-radius: var(--radius); box-shadow: var(--shadow); padding: 12px; }
 .wp-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
@@ -812,25 +821,25 @@ html{
   position: relative; border-radius: max(4px, calc(var(--radius) - 12px)); overflow: hidden;
   background: #FFFFFF; border: 1px solid var(--line); cursor: crosshair;
 }
-html[data-theme="fanous"] .wp-stage { background: #FFFDF6; }
-.wp-stage.is-erasing { cursor: cell; }
-.wp-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
-html[data-theme="fanous"] .wp-stage { --ink: #0E1C42; --ink2: #44577A; --masc: #7FA8E8; --masc-text: #1B4F9C; --fem-text: #B8391C; }
-.wp-reward { position: absolute; top: 10px; left: 12px; display: flex; gap: 4px; pointer-events: none; }
-.wp-reward svg { width: 40px; height: 40px; }
-.wp-reward svg:nth-child(2) { animation-delay: .12s; } .wp-reward svg:nth-child(3) { animation-delay: .24s; }
-.wp-msg { min-height: 1.6em; margin: 8px 4px 0; font-weight: 700; color: var(--good-text); }
+  --lh: 14mm; --n: 3; height: calc(var(--lh) * var(--n));
+}
+@media print { .wp-tools, .wp-msg { display: none; } .wp { box-shadow: none; } }
 
+/* ── keyframes ──────────────────────────────────────────────────────────── */
 @keyframes pop     { 0% { transform: scale(.3); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-@keyframes hop     { 0%,100% { transform: translateY(0); } 40% { transform: translateY(-18px); } }
-@keyframes tilt    { 0%,100% { transform: rotate(0); } 30% { transform: rotate(-9deg); } 70% { transform: rotate(7deg); } }
-@keyframes blink   { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
-@keyframes flapL   { from { transform: rotate(40deg); } to { transform: rotate(110deg); } }
-@keyframes flapR   { from { transform: rotate(-40deg); } to { transform: rotate(-110deg); } }
-@keyframes wave    { 0%,100% { transform: rotate(-100deg); } 50% { transform: rotate(-130deg); } }
-@keyframes pulse   { 0%,100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand) 45%, transparent); } 50% { box-shadow: 0 0 0 10px transparent; } }
-@keyframes fall    { 0% { transform: translate(0,0) rotate(0); opacity: 1; } 100% { transform: translate(var(--x, 0), 105vh) rotate(var(--r, 540deg)); opacity: .9; } }
-@keyframes glow    { 0%,100% { text-shadow: 0 0 0 transparent; } 50% { text-shadow: 0 0 18px color-mix(in srgb, var(--ta) 70%, transparent); } }
+@keyframes popIn   { 0% { transform: scale(.6) translateY(20px); opacity: 0; } 100% { transform: none; opacity: 1; } }
+@keyframes shake   { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-10px); } 40% { transform: translateX(9px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(4px); } }
+@keyframes wiggle  { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
+@keyframes float   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+     .pic-grid / .pic-card       tap-to-hear picture cards (button + data-say)
+     .dem-m / .dem-f             هَذَا / هَذِهِ coloured masculine / feminine
+     .ta-glow / .ta-fly          the ة glowing / flying into a word
+     .callout(--tip|--warn|--fem) Wireless101-style callout boxes, kid sized
+     .goals / .takeaways         learning objectives + key takeaways lists
+     .qz (KS.quiz)               knowledge check: shuffled, locked, explained, stars
+     .print-only / .no-print     print helpers; .trace-svg dotted tracing words
+   ═════════════════════════════════════════════════════════════════════════ */
+
 /* picture library — fixed picture-book colours, theme tokens for clothes */
 .pic { width: 100%; height: auto; overflow: visible; }
 .pic .k { stroke: var(--gull-line); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
@@ -848,15 +857,6 @@ html[data-theme="fanous"] .wp-stage { --ink: #0E1C42; --ink2: #44577A; --masc: #
 .pic .f-trouser { fill: color-mix(in srgb, var(--masc) 35%, #1E2A4A); }
 .pic .f-brand { fill: var(--brand); }
 .pic .f-accent { fill: var(--accent); }
-.pic .f-sun { fill: #FFC94A; } .pic .f-sun2 { fill: #FFE08A; }
-.pic .f-sky { fill: #8ED8E6; } .pic .f-sea { fill: #2C9BB0; } .pic .f-sea2 { fill: #7FD0DE; }
-.pic .f-leaf { fill: #4CAF6A; } .pic .f-leaf2 { fill: #2F8F4E; }
-.pic .f-wood { fill: #B9824F; } .pic .f-wood2 { fill: #8E5B33; }
-.pic .f-red { fill: #E5484D; } .pic .f-pink { fill: #FF9EB5; } .pic .f-coral { fill: #FF8A6B; }
-.pic .f-blue { fill: #4C7DE0; } .pic .f-cat { fill: #F2A65A; } .pic .f-cat2 { fill: #FFE3C2; }
-.pic .f-shell { fill: #FFD9C7; } .pic .f-shell2 { fill: #F7B59A; } .pic .f-sand { fill: #F6DFB4; }
-.pic .f-grey { fill: #C9D3DC; } .pic .f-gold { fill: #F0C463; }
-
 /* ── confetti (KS.confetti) ─────────────────────────────────────────────── */
 .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 100; overflow: hidden; }
 .confetti i {
@@ -985,6 +985,7 @@ figure.fig{display:flex;align-items:center;justify-content:center;background:var
 html[data-theme="keynote-black"],html[data-theme="studio"]{--masc-text:#8FD0F5;--fem-text:#FFA58C;--ta:#FF9378}
 .gm{background:color-mix(in srgb,var(--masc) 16%,var(--bg))!important}
 .gf{background:color-mix(in srgb,var(--fem) 16%,var(--bg))!important}
+.gamelink{font-size:var(--t-small);margin-top:.4em}.gamelink a{white-space:nowrap;display:inline-flex;align-items:center;gap:.4em;min-height:56px;padding:.1em .8em;border-radius:999px;background:transparent;color:inherit;font-weight:700;text-decoration:none;border:2px solid currentColor}.gamelink a:focus-visible{outline:4px solid currentColor;outline-offset:3px}.gamelink .en{font-size:.7em;margin-inline-start:.3em}
 
 </style>
 </head>
@@ -1111,7 +1112,8 @@ html[data-theme="keynote-black"],html[data-theme="studio"]{--masc-text:#8FD0F5;-
 <div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ · ١ وَ٢</p>
 <h2 class="inh">هَيَّا نَكْتُبُ: <span class="ta">ة</span>، ثُمَّ <span class="dm">هَذَا</span> وَ<span class="df">هَذِهِ</span></h2>
 <p>ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ.</p>
-<p>افْتَحُوا الْكِتَابَ: صَفَحَاتُ ١٨–٢٨</p></div>
+<p>افْتَحُوا الْكِتَابَ: صَفَحَاتُ ١٨–٢٨</p>
+<p class="gamelink"><a href="../games/write.html?item=taa-m">تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en">Writing game</span></a></p></div>
 <div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="ة|هَذَا|هَذِهِ" data-lines="3" data-lh="200"></div></div>
 <aside class="notes"><p>أَوَّلًا نَهْدَأُ: «اجْلِسُوا… يَدَانِ عَلَى الرُّكْبَتَيْنِ… نَتَنَفَّسُ ثَلَاثَ مَرَّاتٍ.»</p><p>«هَيَّا نَكْتُبُ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذَا، ثُمَّ هَذِهِ.</p><p>«افْتَحُوا الْكِتَابَ: صَفَحَاتُ ١٨–٢٨.»</p><p dir="ltr" lang="en">Calm down first, after the movement game: sit, hands on knees, three slow breaths, then pencils. Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.</p></aside>
 </section>

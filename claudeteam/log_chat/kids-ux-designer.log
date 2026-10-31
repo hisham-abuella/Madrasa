@@ -23,3 +23,22 @@ Notes for next time:
   - Privacy baseline: only fonts.googleapis.com + fonts.gstatic.com; localStorage empty on load; 0 sound before a gesture on 15 pages.
   - Book QR deep link #ex-ta opens exercise 1 directly — keep testing one deep link per run.
 [DONE]
+
+=== 2026-10-31 · kids-ux-designer · Controls and flow for «كَيْفَ أَكْتُبُ؟» (acting via frontend-engineer, lead) ===
+Lead / asked by: frontend-engineer (game lead)
+Files reviewed: games/write.html, games/write.css, games/write.js
+Findings:
+  [MINOR] [TOUCH] deck slide 16 link «تَدَرَّبْ عَلَى الْكِتَابَةِ» is 357×48 at 1280 but 109×15 at 390 (deck stage scale) — fix: none; the deck is for TV/iPad (known REVIEW #13 class); lessons and book links are 56–68 px
+Decisions / judgement calls:
+  - Every child control measured ≥ 56 px at 1280, 820, 390 (0 below) — levels, items, watch/write, replay, next step, speed, show step, clear, next, listen
+  - Sound off by default on this page only when no saved choice (KS.muted=true, not stored); the FAB speaker turns it on
+  - Pointer Events, touch-action:none on the canvas, touches ignored 1.5 s after pen input, one pointer at a time
+  - After watch ends, the Write button pulses (3×) and Noori says «الْآنَ دَوْرُكَ!»; after the stars a big «الْحَرْفُ التَّالِي» button takes focus
+  - Deep link ?item=<id> so each lesson/book pad opens the matching letter/word
+Fixed this run:
+  - n/a (built with these rules)
+Still open:
+  - none
+Notes for next time:
+  - No storage beyond KS (theme, art, mute); progress stars are per visit.
+[DONE]

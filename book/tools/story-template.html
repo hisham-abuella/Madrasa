@@ -168,6 +168,8 @@
   .note b{font-weight:700;font-size:.78rem;color:var(--quiet);padding-top:.25em;white-space:nowrap;flex:none}
   .note .en-line{display:block;margin-top:4px}
   body.notes-off .note{display:none}
+  .game-row{margin:0;text-align:center}
+  body.big .game-row{display:none}
 
   /* ---------- controls ---------- */
   .controls{width:min(860px,100%);display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -298,6 +300,17 @@ function wirePage(page){
     var model = el.getAttribute('data-model');
     KS.writePad(el, { model: model ? model.split('|') : [], lines: +el.getAttribute('data-lines') || 1, lineHeight: +el.getAttribute('data-line-height') || undefined });
   });
+  // a pad page links the stroke-by-stroke writing game, opened on the closest letter or word
+  var pads = spread.querySelectorAll('[data-writepad]');
+  if (pads.length) {
+    var all = Array.prototype.map.call(pads, function (el) { return el.getAttribute('data-model') || ''; }).join('|'), item = '';
+    [['ة|ـة', 'taa-m'], ['بِنْت', 'bint'], ['هَذِهِ', 'hathihi'], ['هَذَا', 'hatha'], ['ة', 'taa-final']].some(function (m) { if (all.indexOf(m[0]) > -1) { item = m[1]; return true; } return false; });
+    var gl = document.createElement('p');
+    gl.className = 'game-row';
+    gl.innerHTML = '<a class="game-link" href="../../games/write.html' + (item ? '?item=' + item : '') + '"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg>تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en">Practise stroke by stroke — writing game</span></a>';
+    var last = pads[pads.length - 1];
+    last.parentNode.insertBefore(gl, last.nextSibling);
+  }
   Array.prototype.forEach.call(spread.querySelectorAll('[data-pic]'), function (el) {
     el.innerHTML = KS.pic(el.getAttribute('data-pic'), { decorative: true });
   });

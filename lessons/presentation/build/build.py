@@ -131,7 +131,8 @@ notes(['«قُومُوا!» عَلِّمِ الْحَرَكَتَيْنِ: إِ�
 S_('write','two-column',f'''<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ · ١ وَ٢</p>
 <h2 class="inh">هَيَّا نَكْتُبُ: <span class="ta">ة</span>، ثُمَّ {DM()} وَ{DF()}</h2>
 <p>ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ.</p>
-<p>افْتَحُوا الْكِتَابَ: {BOOKP}</p></div>
+<p>افْتَحُوا الْكِتَابَ: {BOOKP}</p>
+<p class="gamelink"><a href="../games/write.html?item=taa-m">تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en">Writing game</span></a></p></div>
 <div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="ة|هَذَا|هَذِهِ" data-lines="3" data-lh="200"></div></div>''',
 notes(['أَوَّلًا نَهْدَأُ: «اجْلِسُوا… يَدَانِ عَلَى الرُّكْبَتَيْنِ… نَتَنَفَّسُ ثَلَاثَ مَرَّاتٍ.»','«هَيَّا نَكْتُبُ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذَا، ثُمَّ هَذِهِ.',f'«افْتَحُوا الْكِتَابَ: {BOOKP}.»'],
 [f'Calm down first, after the movement game: sit, hands on knees, three slow breaths, then pencils. Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «{BOOKT}»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.']),' data-fit="off" data-demo')

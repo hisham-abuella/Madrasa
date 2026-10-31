@@ -56,3 +56,25 @@ Notes for next time:
   - Book narration drafts come from make-transcripts.js (not polished) — rerun it after any spec edit; build-book.sh does both.
   - noori-two.json untouched; its certificate is still masculine-only («أَحْسَنْتَ! أَنْتَ تَعْرِفُ…», «بَطَلِ الْمُثَنَّى») — same fix needed there.
 [DONE]
+
+=== 2026-10-31 · arabic-language-expert · Stroke order, shapes and step-phrase tashkeel for the writing game «كَيْفَ أَكْتُبُ؟» (acting via frontend-engineer, lead) ===
+Lead / asked by: frontend-engineer (game lead), coordinator task "New game (owner, 2026-10-31)"
+Files reviewed: games/strokes.json (13 items, 45 strokes), games/write.js (hints, praise, UI labels), games/write.html; rendered sheet of all 13 items (scratchpad shots/writegame/static-*.png)
+Findings:
+  [MINOR] [NASKH] strokes.json haa — isolated ه is a simplified teaching loop (counter-clockwise from the top + short inner tail), not the Naskh inner eye — evidence: static-haa.png — fix: accepted for grade 1–2 tracing; the real Naskh word is shown beneath for reading
+  [MINOR] [NASKH] strokes.json hatha/hathihi — ذ is a separate stroke from its arm top to the elbow (fluent hands retrace up the arm without lifting) — fix: accepted; a lift is easier to check and to teach
+  [MINOR] [NASKH] strokes.json bint — ٌ drawn as a damma with a back hook; reads as tanween at 760 px, close to a plain damma at 390 px — fix: accepted; watch it if teachers report confusion
+  [MINOR] [TASHKEEL] strokes.json haa-mid — «اِصْعَدْ حَلْقَةً» unidiomatic — fix applied: «اِصْعَدْ وَارْسُمْ حَلْقَةً، ثُمَّ انْزِلْ وَارْسُمْ حَلْقَةً تَحْتَ السَّطْرِ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ.»
+  [MINOR] [TASHKEEL] write.js — «اُضْغُطْ» → «اِضْغَطْ» (ضَغَطَ يَضْغَطُ) — fix applied; «كَتَبْتَ» (masc. only) removed from the end message
+Decisions / judgement calls:
+  - Order body → dots (right to left) → harakat for every item; ث: two lower dots right→left then the top dot — why: brief + common classroom practice
+  - final ـت in بِنْتٌ keeps its own tooth (three teeth, then the boat) — why: Naskh ﺖ has the right horn; «ثَلَاثُ أَسْنَانٍ» agrees with feminine سِنّ
+  - هَذَا / هَذِهِ written without dagger alif, as everywhere else on the site
+  - All 31 step phrases, 5 hints, 3 praises and UI labels checked: fully vocalised, imperatives correct (اِبْدَأْ، اِنْزِلْ، اِصْعَدْ، دُرْ، ضَعْ، ضَعِ، اِتَّبِعِ، اِمْشِ، اِسْتَمِرَّ، أَعِدْ، اِمْسَحْ)
+Fixed this run:
+  - 2 phrase fixes above — verified by: grep -c $'\xEF\xBF\xBD' on games/* → 0; node games/build-strokes.js → 0 problems
+Still open:
+  - قِطَّةٌ (shadda) not built — owner: frontend-engineer, next pass
+Notes for next time:
+  - A teacher should trace each model once on an iPad and confirm the ductus (esp. ه isolated and ـهـ).
+[DONE]

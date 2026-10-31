@@ -40,7 +40,7 @@
 .mock .dots i { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,.2); }
 .flag { position: absolute; top: 12px; right: 12px; z-index: 1; }
 
-.more { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.more { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
 .more .card { display: flex; flex-direction: column; gap: 6px; }
 .more svg { width: 40px; height: 40px; color: var(--brand-text); }
 .more h3 { margin: 0; font-family: var(--f-word); }
@@ -96,6 +96,7 @@
   <symbol id="i-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 2.6H18V9l2.6 3L18 15v3.4h-3.4L12 21l-2.6-2.6H6V15l-2.6-3L6 9V5.6h3.4z"/><circle cx="12" cy="12" r="3"/></symbol>
   <symbol id="i-story" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></symbol>
   <symbol id="i-brush" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-8 8-6-6z"/><path d="M6 12c-2 0-3 1.5-3 3.5S2 20 2 20s3.5 0 5-1 2-2 2-3.5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/><circle cx="19" cy="19" r="1.6" fill="currentColor"/></symbol>
   <symbol id="i-slides" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/><path d="M10 8l4 2-4 2z" fill="currentColor"/></symbol>
 </svg>
 
@@ -256,6 +257,10 @@
         <span class="en">More of the demo</span>
       </div>
       <div class="more">
+        <a class="card card--link" href="games/write.html" data-reveal style="--i:0">
+          <svg aria-hidden="true"><use href="#i-pen"/></svg>
+          <h3>كَيْفَ أَكْتُبُ؟</h3><span class="en">Writing game: watch Noori draw a letter stroke by stroke, then write it yourself — finger, Apple Pencil or mouse</span>
+        </a>
         <a class="card card--link" href="logos/index.html" data-reveal style="--i:0">
           <svg aria-hidden="true"><use href="#i-logo"/></svg>
           <h3>الشِّعَارُ</h3><span class="en">Logo concepts for Nawras</span>

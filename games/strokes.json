@@ -1,0 +1,185 @@
+{
+  "about": "Stroke model for games/write.html «كَيْفَ أَكْتُبُ؟». Hand-authored Naskh-like teaching hand. viewBox height 300, baseline y=200, mid-line y=140; the page sets the viewBox width from each item's strokes. Order: body (right to left) → dots (right to left) → harakat. Each stroke: kind body|dot|mark, d (SVG path, drawn in the writing direction), start [x,y] = the path's first point, dir (down|left|round|teeth|dot|slant|ring), say/en = Noori's step phrase. Edit this file, then run: node games/build-strokes.js (writes games/strokes.js for file://).",
+  "version": 1,
+  "viewH": 300,
+  "baseline": 200,
+  "midline": 140,
+  "levels": [
+    {
+      "id": 1,
+      "ar": "حُرُوفٌ وَحْدَهَا",
+      "en": "Letters on their own",
+      "items": [
+        {
+          "id": "alif", "label": "ا", "name": "الْأَلِفُ", "en": "alif", "say": "الْأَلِفُ",
+          "strokes": [
+            { "kind": "body", "d": "M150 74 C147 112 144 158 140 200", "start": [150, 74], "dir": "down",
+              "say": "اِبْدَأْ مِنْ أَعْلَى، وَانْزِلْ إِلَى السَّطْرِ.", "en": "Start at the top and come down to the line." }
+          ]
+        },
+        {
+          "id": "baa", "label": "ب", "name": "الْبَاءُ", "en": "baa", "say": "الْبَاءُ",
+          "strokes": [
+            { "kind": "body", "d": "M262 146 C266 170 264 198 238 204 C196 212 124 212 90 204 C66 197 56 180 58 158", "start": [262, 146], "dir": "left",
+              "say": "اِبْدَأْ مِنْ هُنَا: اِنْزِلْ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ، وَاصْعَدْ قَلِيلًا.", "en": "Start here: down, then left along the line, and up a little." },
+            { "kind": "dot", "d": "M166 238 L156 248", "start": [166, 238], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً تَحْتَ الْبَاءِ.", "en": "Put one dot under the baa." }
+          ]
+        },
+        {
+          "id": "taa", "label": "ت", "name": "التَّاءُ", "en": "taa", "say": "التَّاءُ",
+          "strokes": [
+            { "kind": "body", "d": "M262 146 C266 170 264 198 238 204 C196 212 124 212 90 204 C66 197 56 180 58 158", "start": [262, 146], "dir": "left",
+              "say": "اِبْدَأْ مِنْ هُنَا: اِنْزِلْ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ، وَاصْعَدْ قَلِيلًا.", "en": "Start here: down, then left along the line, and up a little." },
+            { "kind": "dot", "d": "M186 156 L176 166", "start": [186, 156], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَ التَّاءِ، عَلَى الْيَمِينِ.", "en": "Put a dot above, on the right." },
+            { "kind": "dot", "d": "M150 156 L140 166", "start": [150, 156], "dir": "dot",
+              "say": "ثُمَّ ضَعْ نُقْطَةً ثَانِيَةً عَلَى الْيَسَارِ.", "en": "Then a second dot on the left." }
+          ]
+        },
+        {
+          "id": "thaa", "label": "ث", "name": "الثَّاءُ", "en": "thaa", "say": "الثَّاءُ",
+          "strokes": [
+            { "kind": "body", "d": "M262 146 C266 170 264 198 238 204 C196 212 124 212 90 204 C66 197 56 180 58 158", "start": [262, 146], "dir": "left",
+              "say": "اِبْدَأْ مِنْ هُنَا: اِنْزِلْ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ، وَاصْعَدْ قَلِيلًا.", "en": "Start here: down, then left along the line, and up a little." },
+            { "kind": "dot", "d": "M186 160 L176 170", "start": [186, 160], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَ الثَّاءِ، عَلَى الْيَمِينِ.", "en": "Put a dot above, on the right." },
+            { "kind": "dot", "d": "M150 160 L140 170", "start": [150, 160], "dir": "dot",
+              "say": "ثُمَّ ضَعْ نُقْطَةً ثَانِيَةً عَلَى الْيَسَارِ.", "en": "Then a second dot on the left." },
+            { "kind": "dot", "d": "M168 126 L158 136", "start": [168, 126], "dir": "dot",
+              "say": "ثُمَّ ضَعِ النُّقْطَةَ الثَّالِثَةَ فَوْقَهُمَا.", "en": "Then the third dot on top of them." }
+          ]
+        },
+        {
+          "id": "noon", "label": "ن", "name": "النُّونُ", "en": "noon", "say": "النُّونُ",
+          "strokes": [
+            { "kind": "body", "d": "M218 142 C230 178 230 238 168 248 C108 256 70 222 78 170", "start": [218, 142], "dir": "round",
+              "say": "اِبْدَأْ مِنْ هُنَا، وَانْزِلْ مِثْلَ الْوِعَاءِ، ثُمَّ اصْعَدْ.", "en": "Start here, go down round like a bowl, then come up." },
+            { "kind": "dot", "d": "M158 176 L148 186", "start": [158, 176], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فِي وَسَطِ النُّونِ.", "en": "Put one dot in the middle of the noon." }
+          ]
+        },
+        {
+          "id": "haa", "label": "ه", "name": "الْهَاءُ", "en": "haa", "say": "الْهَاءُ",
+          "strokes": [
+            { "kind": "body", "d": "M156 118 C116 122 90 162 100 188 C110 212 172 214 190 192 C206 170 192 128 156 118 C144 134 142 156 156 170", "start": [156, 118], "dir": "round",
+              "say": "اِبْدَأْ مِنْ أَعْلَى، وَدُرْ إِلَى الْيَسَارِ حَتَّى تَرْجِعَ، ثُمَّ انْزِلْ قَلِيلًا إِلَى الدَّاخِلِ.", "en": "Start at the top, go round to the left until you are back, then a little tail inside." }
+          ]
+        },
+        {
+          "id": "taa-m", "label": "ة", "name": "التَّاءُ الْمَرْبُوطَةُ", "en": "taa marbuta", "say": "التَّاءُ الْمَرْبُوطَةُ",
+          "strokes": [
+            { "kind": "body", "d": "M156 124 C116 128 90 166 100 190 C110 212 172 214 190 192 C206 172 192 134 156 124", "start": [156, 124], "dir": "round",
+              "say": "اِبْدَأْ مِنْ أَعْلَى، وَدُرْ إِلَى الْيَسَارِ حَتَّى تَرْجِعَ إِلَى الْبِدَايَةِ.", "en": "Start at the top and go round to the left until you are back at the start." },
+            { "kind": "dot", "d": "M176 86 L166 96", "start": [176, 86], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَهَا، عَلَى الْيَمِينِ.", "en": "Put a dot above it, on the right." },
+            { "kind": "dot", "d": "M142 86 L132 96", "start": [142, 86], "dir": "dot",
+              "say": "ثُمَّ ضَعْ نُقْطَةً ثَانِيَةً عَلَى الْيَسَارِ.", "en": "Then a second dot on the left." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "ar": "حُرُوفٌ مُتَّصِلَةٌ",
+      "en": "Joined letters",
+      "items": [
+        {
+          "id": "taa-final", "label": "ـة", "name": "التَّاءُ الْمَرْبُوطَةُ فِي آخِرِ الْكَلِمَةِ", "en": "taa marbuta, joined at the end", "say": "التَّاءُ الْمَرْبُوطَةُ",
+          "strokes": [
+            { "kind": "body", "d": "M286 200 L184 200 C164 200 156 176 148 156 C140 136 106 134 98 158 C90 184 106 206 136 206 C156 206 170 203 184 200", "start": [286, 200], "dir": "round",
+              "say": "اِبْدَأْ مِنَ الْيَمِينِ عَلَى السَّطْرِ، ثُمَّ اصْعَدْ وَدُرْ حَتَّى تَرْجِعَ.", "en": "Start on the right along the line, then go up and round until you are back." },
+            { "kind": "dot", "d": "M144 106 L134 116", "start": [144, 106], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَهَا، عَلَى الْيَمِينِ.", "en": "Put a dot above it, on the right." },
+            { "kind": "dot", "d": "M114 106 L104 116", "start": [114, 106], "dir": "dot",
+              "say": "ثُمَّ ضَعْ نُقْطَةً ثَانِيَةً عَلَى الْيَسَارِ.", "en": "Then a second dot on the left." }
+          ]
+        },
+        {
+          "id": "haa-mid", "label": "ـهـ", "name": "الْهَاءُ فِي وَسَطِ الْكَلِمَةِ", "en": "haa in the middle of a word", "say": "الْهَاءُ",
+          "strokes": [
+            { "kind": "body", "d": "M290 200 L212 200 C194 200 188 176 182 154 C176 132 146 132 150 158 C154 182 170 202 174 220 C178 244 152 252 144 234 C136 216 148 203 166 200 L60 200", "start": [290, 200], "dir": "round",
+              "say": "اِبْدَأْ مِنَ الْيَمِينِ: اِصْعَدْ وَارْسُمْ حَلْقَةً، ثُمَّ انْزِلْ وَارْسُمْ حَلْقَةً تَحْتَ السَّطْرِ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ.", "en": "From the right: up into a loop, down into a loop under the line, then off to the left." }
+          ]
+        },
+        {
+          "id": "baa-taa", "label": "بـة", "name": "بَاءٌ وَتَاءٌ مَرْبُوطَةٌ", "en": "baa joined to taa marbuta", "say": "بَاءٌ وَتَاءٌ مَرْبُوطَةٌ",
+          "strokes": [
+            { "kind": "body", "d": "M296 156 C298 180 296 200 276 200 L184 200 C164 200 156 176 148 156 C140 136 106 134 98 158 C90 184 106 206 136 206 C156 206 170 203 184 200", "start": [296, 156], "dir": "round",
+              "say": "اِبْدَأْ بِسِنِّ الْبَاءِ: اِنْزِلْ، اِمْشِ عَلَى السَّطْرِ، ثُمَّ اصْعَدْ وَدُرْ.", "en": "Start with the baa’s tooth: down, along the line, then up and round." },
+            { "kind": "dot", "d": "M290 230 L280 240", "start": [290, 230], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً تَحْتَ الْبَاءِ.", "en": "Put one dot under the baa." },
+            { "kind": "dot", "d": "M144 106 L134 116", "start": [144, 106], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَ التَّاءِ، عَلَى الْيَمِينِ.", "en": "A dot above the taa, on the right." },
+            { "kind": "dot", "d": "M114 106 L104 116", "start": [114, 106], "dir": "dot",
+              "say": "ثُمَّ ضَعْ نُقْطَةً ثَانِيَةً عَلَى الْيَسَارِ.", "en": "Then a second dot on the left." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "ar": "كَلِمَاتٌ مِنَ الدَّرْسِ",
+      "en": "Words from the lesson",
+      "items": [
+        {
+          "id": "hatha", "label": "هَذَا", "name": "هَذَا", "en": "hādhā (this, masc.)", "say": "هَذَا",
+          "strokes": [
+            { "kind": "body", "d": "M368 140 C382 158 384 194 362 201 L342 201 C324 200 320 180 332 170 C344 160 360 170 355 185 C350 198 336 201 320 201 L300 200", "start": [368, 140], "dir": "round",
+              "say": "اُكْتُبِ الْهَاءَ: اِبْدَأْ مِنْ أَعْلَى، اِنْزِلْ، اِرْسُمْ حَلْقَةً، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ.", "en": "The haa: start at the top, come down, make a loop, then go left." },
+            { "kind": "body", "d": "M278 146 C290 162 300 184 302 198 C296 204 282 204 266 203 L236 200", "start": [278, 146], "dir": "left",
+              "say": "اُكْتُبِ الذَّالَ: مِنْ أَعْلَى إِلَى السَّطْرِ، ثُمَّ إِلَى الْيَسَارِ.", "en": "The dhaal: from the top down to the line, then left." },
+            { "kind": "body", "d": "M200 74 C197 112 194 158 190 200", "start": [200, 74], "dir": "down",
+              "say": "اُكْتُبِ الْأَلِفَ مِنْ أَعْلَى إِلَى أَسْفَلَ.", "en": "The alif, from top to bottom." },
+            { "kind": "dot", "d": "M282 112 L272 122", "start": [282, 112], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَ الذَّالِ.", "en": "Put a dot above the dhaal." },
+            { "kind": "mark", "d": "M382 106 L354 120", "start": [382, 106], "dir": "slant",
+              "say": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الْهَاءِ.", "en": "Add the fatha above the haa." },
+            { "kind": "mark", "d": "M296 78 L268 92", "start": [296, 78], "dir": "slant",
+              "say": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الذَّالِ.", "en": "Add the fatha above the dhaal." }
+          ]
+        },
+        {
+          "id": "hathihi", "label": "هَذِهِ", "name": "هَذِهِ", "en": "hādhihi (this, fem.)", "say": "هَذِهِ",
+          "strokes": [
+            { "kind": "body", "d": "M368 140 C382 158 384 194 362 201 L342 201 C324 200 320 180 332 170 C344 160 360 170 355 185 C350 198 336 201 320 201 L300 200", "start": [368, 140], "dir": "round",
+              "say": "اُكْتُبِ الْهَاءَ: اِبْدَأْ مِنْ أَعْلَى، اِنْزِلْ، اِرْسُمْ حَلْقَةً، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ.", "en": "The haa: start at the top, come down, make a loop, then go left." },
+            { "kind": "body", "d": "M278 146 C290 162 300 184 302 198 C296 204 282 204 266 203 L236 200", "start": [278, 146], "dir": "left",
+              "say": "اُكْتُبِ الذَّالَ: مِنْ أَعْلَى إِلَى السَّطْرِ، ثُمَّ إِلَى الْيَسَارِ.", "en": "The dhaal: from the top down to the line, then left." },
+            { "kind": "body", "d": "M196 134 C166 138 148 168 156 188 C164 206 206 208 218 190 C230 172 220 140 196 134 C188 146 188 162 198 172", "start": [196, 134], "dir": "round",
+              "say": "اُكْتُبِ الْهَاءَ الْأَخِيرَةَ: اِبْدَأْ مِنْ أَعْلَى، وَدُرْ إِلَى الْيَسَارِ.", "en": "The last haa: start at the top and go round to the left." },
+            { "kind": "dot", "d": "M282 112 L272 122", "start": [282, 112], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَ الذَّالِ.", "en": "Put a dot above the dhaal." },
+            { "kind": "mark", "d": "M382 106 L354 120", "start": [382, 106], "dir": "slant",
+              "say": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الْهَاءِ.", "en": "Add the fatha above the haa." },
+            { "kind": "mark", "d": "M276 226 L248 240", "start": [276, 226], "dir": "slant",
+              "say": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الذَّالِ.", "en": "Add the kasra under the dhaal." },
+            { "kind": "mark", "d": "M204 228 L176 242", "start": [204, 228], "dir": "slant",
+              "say": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الْهَاءِ.", "en": "Add the kasra under the haa." }
+          ]
+        },
+        {
+          "id": "bint", "label": "بِنْتٌ", "name": "بِنْتٌ", "en": "bintun (a girl)", "say": "بِنْتٌ",
+          "strokes": [
+            { "kind": "body", "d": "M336 156 C338 180 336 200 316 200 L290 200 C282 198 280 180 280 158 C280 180 278 198 266 200 L240 200 C232 198 230 180 230 158 C230 182 232 204 200 207 C162 212 122 212 104 204 C88 196 84 182 86 164", "start": [336, 156], "dir": "teeth",
+              "say": "اِبْدَأْ مِنْ هُنَا: ثَلَاثُ أَسْنَانٍ صَغِيرَةٍ، ثُمَّ قَارِبٌ إِلَى الْيَسَارِ.", "en": "Start here: three little teeth, then a boat to the left." },
+            { "kind": "dot", "d": "M332 228 L322 238", "start": [332, 228], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً تَحْتَ الْبَاءِ.", "en": "Put one dot under the baa." },
+            { "kind": "dot", "d": "M284 128 L274 138", "start": [284, 128], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَ النُّونِ.", "en": "Put one dot above the noon." },
+            { "kind": "dot", "d": "M174 164 L164 174", "start": [174, 164], "dir": "dot",
+              "say": "ضَعْ نُقْطَةً فَوْقَ التَّاءِ، عَلَى الْيَمِينِ.", "en": "A dot above the taa, on the right." },
+            { "kind": "dot", "d": "M142 164 L132 174", "start": [142, 164], "dir": "dot",
+              "say": "ثُمَّ ضَعْ نُقْطَةً ثَانِيَةً عَلَى الْيَسَارِ.", "en": "Then a second dot on the left." },
+            { "kind": "mark", "d": "M342 254 L314 268", "start": [342, 254], "dir": "slant",
+              "say": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الْبَاءِ.", "en": "Add the kasra under the baa." },
+            { "kind": "mark", "d": "M280 84 C296 84 296 110 280 110 C264 110 264 84 280 84", "start": [280, 84], "dir": "ring",
+              "say": "اُكْتُبِ السُّكُونَ فَوْقَ النُّونِ: دَائِرَةٌ صَغِيرَةٌ.", "en": "Add the sukun above the noon: a little circle." },
+            { "kind": "mark", "d": "M168 108 C178 98 190 110 180 118 C172 124 162 118 168 110 C174 102 188 108 180 126 C174 138 162 144 148 144 C142 138 146 128 158 128", "start": [168, 108], "dir": "ring",
+              "say": "اُكْتُبْ تَنْوِينَ الضَّمِّ فَوْقَ التَّاءِ.", "en": "Add the tanween (double damma) above the taa." }
+          ]
+        }
+      ]
+    }
+  ]
+}

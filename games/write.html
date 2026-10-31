@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="pacific">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كَيْفَ أَكْتُبُ؟ · لُعْبَةُ الْكِتَابَةِ — Nawras</title>
+<script>try{var t=localStorage.getItem('nawras-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta name="description" content="Nawras Fusha School — How do I write it? Watch Noori draw an Arabic letter or word stroke by stroke, then write it yourself with a finger, Apple Pencil or mouse. Gentle checks, no timer.">
+<meta property="og:title" content="How do I write it? — Nawras writing game">
+<meta property="og:description" content="Watch Noori draw an Arabic letter stroke by stroke, then write it yourself — ا ب ت ث ن ه ة, joined forms and the words هَذَا، هَذِهِ، بِنْتٌ. Finger, Apple Pencil or mouse; no timer.">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/assets/og-nawras.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/games/write.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<link rel="stylesheet" href="write.css">
+</head>
+<body>
+<a class="skip" href="#game">تَخَطَّ إِلَى اللُّعْبَةِ · Skip to the game</a>
+
+<header class="wg-top">
+  <a class="wg-home" href="../index.html" aria-label="نَوْرَس — الرَّئِيسَةُ · back to the hub"><img class="logo-mark" src="../assets/brand/logo-c1-128.webp" alt="" width="48" height="48"></a>
+  <div class="wg-title">
+    <h1>كَيْفَ أَكْتُبُ؟</h1>
+    <span class="en">How do I write it? Watch Noori, then write it yourself</span>
+  </div>
+</header>
+
+<main id="game" class="wg" tabindex="-1">
+  <nav class="wg-levels" aria-label="الْمُسْتَوَيَاتُ — levels">
+    <div class="wg-seg" role="group" aria-label="الْمُسْتَوَى — level" id="levels"></div>
+  </nav>
+  <div class="wg-items" role="group" aria-label="اخْتَرْ حَرْفًا أَوْ كَلِمَةً — choose a letter or word" id="items"></div>
+
+  <section class="wg-board" aria-labelledby="item-name">
+    <div class="wg-coach">
+      <div class="wg-noori" id="noori" aria-hidden="true"></div>
+      <div class="bubble wg-bubble" id="bubble">
+        <p class="wg-step" id="stepNo"></p>
+        <p class="wg-say" id="say" aria-live="polite"></p>
+        <p class="en" id="sayEn"></p>
+        <button type="button" class="say wg-listen" id="listenStep" aria-label="اِسْتَمِعْ إِلَى نُورِي — listen to Noori"></button>
+      </div>
+    </div>
+
+    <div class="wg-modes" role="group" aria-label="شَاهِدْ أَوِ اكْتُبْ — watch or write">
+      <button type="button" class="wg-mode" data-mode="watch" aria-pressed="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>شَاهِدْ<span class="en">Watch</span></button>
+      <button type="button" class="wg-mode" data-mode="write" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg>اُكْتُبْ<span class="en">Write</span></button>
+    </div>
+
+    <div class="wg-stagewrap">
+      <div class="wg-stage" id="stage">
+        <svg class="wg-svg" id="svg" role="img" aria-labelledby="item-name"></svg>
+        <canvas class="wg-ink" id="ink" aria-label="لَوْحُ الْكِتَابَةِ — writing area: write with your finger, pen or mouse, starting at the green dot"></canvas>
+        <div class="wg-reward" id="reward" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <p class="wg-read">
+      <span class="wg-read__lab">نَقْرَأُ<span class="en">Read it</span></span>
+      <span class="word" id="item-name"></span>
+      <button type="button" class="say" id="listenWord" aria-label="اِسْتَمِعْ إِلَى الْكَلِمَةِ — listen to the word"></button>
+    </p>
+
+    <div class="wg-controls" id="ctlWatch" role="toolbar" aria-label="أَدَوَاتُ الْمُشَاهَدَةِ — watch controls">
+      <button type="button" class="wg-btn" id="replay"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4v6h6"/><path d="M5.5 14a7 7 0 1 0 1.6-7.3L4 10"/></svg>أَعِدْ<span class="en">Replay</span></button>
+      <button type="button" class="wg-btn" id="stepBtn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/><path d="M19 5v14"/></svg>خُطْوَةً خُطْوَةً<span class="en">Next step</span></button>
+      <div class="wg-seg wg-speed" role="group" aria-label="السُّرْعَةُ — speed">
+        <button type="button" data-speed="0.6" aria-pressed="false">أَبْطَأُ<span class="en">Slower</span></button>
+        <button type="button" data-speed="1" aria-pressed="true">عَادِيٌّ<span class="en">Normal</span></button>
+        <button type="button" data-speed="1.5" aria-pressed="false">أَسْرَعُ<span class="en">Faster</span></button>
+      </div>
+    </div>
+    <div class="wg-controls" id="ctlWrite" role="toolbar" aria-label="أَدَوَاتُ الْكِتَابَةِ — writing controls" hidden>
+      <button type="button" class="wg-btn" id="showStep"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>شَاهِدِ الْخُطْوَةَ<span class="en">Show this step</span></button>
+      <button type="button" class="wg-btn" id="restart"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>اِمْسَحْ وَابْدَأْ<span class="en">Clear, start again</span></button>
+    </div>
+
+    <div class="wg-done" id="done" hidden>
+      <div class="stars" id="doneStars" aria-hidden="true"></div>
+      <p class="wg-done__msg">عَمَلٌ رَائِعٌ! <span class="en">Great work!</span></p>
+      <div class="wg-done__row">
+        <button type="button" class="btn" id="nextItem"></button>
+        <button type="button" class="btn btn--ghost" id="again">اُكْتُبْ مَرَّةً أُخْرَى <span class="en">Write it again</span></button>
+      </div>
+    </div>
+  </section>
+
+  <details class="wg-parents">
+    <summary>لِلْأَهْلِ وَالْمُعَلِّمِينَ <span class="en">For parents and teachers</span></summary>
+    <p class="en">Three levels: single letters (ا ب ت ث ن ه ة), joined forms (ـة, ـهـ, بـة) and words from the lesson (هَذَا، هَذِهِ، بِنْتٌ) — the body first, right to left, then the dots, then the harakat. In <b>Watch</b>, Noori draws each stroke slowly with a numbered green start dot and an arrow; use Replay, Next step and the speed buttons. In <b>Write</b>, your child draws each stroke in the same order on the faint guide. A stroke is checked gently (start near the dot, same direction, close to the line): a good stroke turns green; otherwise it fades, Noori shows that step again and gives a hint, and after three tries Noori helps. No timer, nothing is “wrong”, and stars come at the end. Works with a finger, Apple Pencil (pressure) or a mouse. Sound is off until you turn it on (the speaker button). Nothing is saved or sent anywhere.</p>
+  </details>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <a class="btn btn--accent btn--sm trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
+    <span class="en">Nawras Fusha School, San Diego · Demo — names, times and contacts are placeholders</span>
+  </div>
+</footer>
+
+<script src="../assets/kids.js"></script>
+<script src="strokes.js"></script>
+<script src="write.js"></script>
+</body>
+</html>

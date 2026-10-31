@@ -130,3 +130,4 @@ figure.fig{display:flex;align-items:center;justify-content:center;background:var
 html[data-theme="keynote-black"],html[data-theme="studio"]{--masc-text:#8FD0F5;--fem-text:#FFA58C;--ta:#FF9378}
 .gm{background:color-mix(in srgb,var(--masc) 16%,var(--bg))!important}
 .gf{background:color-mix(in srgb,var(--fem) 16%,var(--bg))!important}
+.gamelink{font-size:var(--t-small);margin-top:.4em}.gamelink a{white-space:nowrap;display:inline-flex;align-items:center;gap:.4em;min-height:56px;padding:.1em .8em;border-radius:999px;background:transparent;color:inherit;font-weight:700;text-decoration:none;border:2px solid currentColor}.gamelink a:focus-visible{outline:4px solid currentColor;outline-offset:3px}.gamelink .en{font-size:.7em;margin-inline-start:.3em}

@@ -33,6 +33,7 @@ returning to the language of the Qur'an. The mascot is **نُورِي Noori** (f
 | 🎨 | **6 homepage mockups**: Islamic + kid-friendly + San Diego, each a different layout; any theme works on any layout | [`mockups/`](mockups/) |
 | 🕊️ | **6 logo concepts**, generated locally, wordmark typeset (recommended: #1 Gull & Crescent, #6 as app icon) | [`logos/`](logos/) |
 | 📖 | **One grammar lesson, three styles**: هَذَا وَهَذِهِ (masculine & feminine) as an article, an illustrated story, and a classroom presentation | [`lessons/`](lessons/) |
+| 🖊️ | **Writing game «كَيْفَ أَكْتُبُ؟»**: watch Noori draw a letter or word stroke by stroke (numbered start dots, arrows, replay / step / speed), then write it on a canvas; each stroke checked gently, never graded wrong. 3 levels: ا ب ت ث ن ه ة · ـة ـهـ بـة · هَذَا هَذِهِ بِنْتٌ. Stroke data in one JSON (`node games/build-strokes.js` → `strokes.js` for file://) | [`games/write.html`](games/write.html) |
 | ✍️ | **Writing pad** for iPad / Apple Pencil / mouse in every lesson (trace ة, هَذَا, هَذِهِ, write a sentence; praised, never graded) | [`assets/kids.js`](assets/kids.js) `KS.writePad` |
 | 📚 | **Lesson book** «نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»: 32 pages, Lulu-ready, 11 exercise pages, QR to the web book, narrated | [`book/`](book/) |
 | 🖼️ | **Illustrated artwork set**: 53 local generations + book art, with a simple/illustrated switch and SVG fallback | [`assets/art/`](assets/art/) |

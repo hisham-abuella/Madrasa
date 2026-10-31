@@ -696,6 +696,15 @@ html.ks-js [data-reveal].is-in { opacity: 1; transform: none; }
 /* empty + error states for any list/form a later page adds */
 .empty { padding: 28px; text-align: center; color: var(--ink2); border: 2px dashed var(--line); border-radius: var(--radius); }
 .error { padding: 14px 18px; color: var(--bad-text); background: var(--bad-bg); border: 2px solid var(--bad); border-radius: var(--radius-sm); }
+/* link to the writing game «كَيْفَ أَكْتُبُ؟» (games/write.html) next to each writing station */
+.game-link { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; min-height: var(--tap-min); padding: 6px 20px; border-radius: 999px;
+  background: var(--surface2); color: var(--brand-text); border: var(--border-w) solid var(--border-c); font-weight: 700; text-decoration: none; line-height: 1.3;
+  transition: transform var(--t-tap) var(--ease-pop); }
+.game-link svg { width: 24px; height: 24px; flex: none; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.game-link .en { color: var(--ink2); font-size: .74em; }
+.game-link:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--brand) 14%, var(--surface2)); }
+.game-link:active { transform: scale(.96); }
+.game-link:focus-visible { outline: 4px solid var(--brand); outline-offset: 2px; }
 /* nested radius helper: inner = outer − gap */
 .nest { --gap: 12px; padding: var(--gap); border-radius: var(--radius); }
 .nest > * { border-radius: max(4px, calc(var(--radius) - var(--gap))); }
