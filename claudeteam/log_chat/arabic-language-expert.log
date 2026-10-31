@@ -78,3 +78,22 @@ Still open:
 Notes for next time:
   - A teacher should trace each model once on an iPad and confirm the ductus (esp. ه isolated and ـهـ).
 [DONE]
+
+=== 2026-10-31 · arabic-language-expert · Re-approval of level-2/3 word shapes after the coordinator's review (acting via frontend-engineer) ===
+Lead / asked by: frontend-engineer, after coordinator review of static-hatha / static-hathihi
+Files reviewed: games/strokes.json (14 items, 55 strokes); overlay debug renders of every skeleton on Noto Naskh Arabic 700 at the same size (scratchpad/wg/ov3.png, ov-q2.png); game static shots L3-static-*.png
+Findings:
+  [MAJOR] [NASKH] hatha/hathihi (first version) — initial هـ was a closed blob on a tail and ذ a floating stub; did not read as «هذا» — fix applied: skeletons traced over the Noto glyphs: initial هـ = teardrop with its head at the top-left (head → round right side to the line → up the inside to the head → down and out left to the ذ), ذ = head → elbow on the line → base sweeping left with an upturned tail, dot above-left; alif full height; final ه in هَذِهِ = teardrop with its head on top
+  [MINOR] [NASKH] bint — retraced: tall ب tooth, ن tooth, ت horn, then the boat; dots, kasra, sukun and ٌ placed where the font puts them
+  [MINOR] [NASKH] haa-mid / taa-final / baa-taa — retraced on the font: ـهـ = up to a pointed head, down into a loop under the line, out left; ـة = up the right side, slant down-left, round the bottom back to the line
+  [MINOR] [NASKH] qitta added (10 steps): one body stroke (ق head → line → ط dome → ـة), then the ط stick, ق dots, ة dots, kasra, shadda, fatha over the shadda, ٌ — reads as قِطَّةٌ beside the Naskh word
+Decisions / judgement calls:
+  - The initial هـ keeps the calligraphic retrace (the pen goes back up to the head and comes down to join) — why: that is how the Naskh هـ is made and it is what makes the shape read as ه, not ص
+  - New phrases checked: «اِبْدَأْ مِنْ رَأْسِهَا، دُرْ إِلَى الْيَمِينِ حَتَّى السَّطْرِ، اِصْعَدْ إِلَى الرَّأْسِ، ثُمَّ انْزِلْ وَاذْهَبْ إِلَى الْيَسَارِ.»، «اُكْتُبْ عَصَا الطَّاءِ…»، «قُبَّةُ الطَّاءِ»، «اُكْتُبِ الشَّدَّةَ فَوْقَ الطَّاءِ.»، «اُكْتُبِ الْفَتْحَةَ فَوْقَ الشَّدَّةِ.» — fully vocalised, correct
+Fixed this run:
+  - All of the above — verified by: overlay renders; node games/build-strokes.js → 14 items, 55 strokes, 0 problems; replacement-character grep → 0
+Still open:
+  - A teacher should trace هَذَا and قِطَّةٌ once on an iPad to confirm the ductus feels natural
+Notes for next time:
+  - Debug overlay: scratchpad/wg/overlay.html?ids=<id>&fs=210&x=410 (Noto at fs 210, right edge x 410 matches the model's baseline 200)
+[DONE]

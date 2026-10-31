@@ -84,6 +84,7 @@ body { padding-bottom: 88px; }            /* room for the floating theme / sound
 .wg-svg .ink path.is-help { stroke: var(--good); }
 .wg-svg .mk { transition: opacity .3s; }
 .wg-svg .mk .dot { fill: var(--good); stroke: var(--surface); stroke-width: 2.5; }
+.wg-svg .mk .lead { stroke: #1E7A32; stroke-width: 2.5; stroke-dasharray: 3 3; }
 .wg-svg .mk .badge { fill: #1E7A32; stroke: var(--surface); stroke-width: 2.5; }
 .wg-svg .mk text { fill: #fff; font: 800 14px/1 var(--f-latin); }
 .wg-svg .mk .arr { fill: var(--good-text); stroke: var(--surface); stroke-width: 1.5; stroke-linejoin: round; }

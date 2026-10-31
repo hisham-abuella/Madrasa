@@ -37,7 +37,7 @@
   var VB_Y = 38, VB_H = 252;                          // shown band of the 300-high model
   var LEVELS = DATA.levels;
   var lv = 0, it = 0, item = null, mode = 'watch', speed = 1;
-  var vb = { x: 0, w: 300 };
+  var vb = { x: 0, w: 300, y: 38, h: 252 };
   var S = [];                                         // per stroke: {def, len, pts, ghost, ink, mk}
   var doneItems = {};                                 // this visit only (nothing is stored)
 
@@ -111,12 +111,36 @@
       for (var i = 0; i <= n; i++) { var q = g.getPointAtLength(len * i / n); pts.push({ x: q.x, y: q.y }); }
       return { def: d, len: len, pts: pts, ghost: g, ink: p };
     });
-    // viewBox: centre the item; at least 300 wide so a lone alif is not squeezed
-    var x0 = 1e9, x1 = -1e9;
-    S.forEach(function (s) { var b = s.ghost.getBBox(); x0 = Math.min(x0, b.x - 12); x1 = Math.max(x1, b.x + b.width + 12); });
-    vb.w = Math.max(300, x1 - x0 + 90); vb.x = (x0 + x1) / 2 - vb.w / 2;
-    svg.setAttribute('viewBox', vb.x + ' ' + VB_Y + ' ' + vb.w + ' ' + VB_H);
-    stage.style.setProperty('--ar', (vb.w / VB_H).toFixed(4));
+    // number badges: just before each start dot, off the line, then pushed apart so no two badges,
+    // no badge and start dot, and no badge and model line overlap (a leader joins a badge pushed far)
+    var B = S.map(function (s) {
+      var x0 = s.def.start[0], y0 = s.def.start[1];
+      if (s.def.kind === 'dot' || s.len < 8) return { x: x0 + 18, y: y0 - 18, sx: x0, sy: y0 };
+      var q = s.ghost.getPointAtLength(Math.min(8, s.len)), ux = q.x - x0, uy = q.y - y0, ul = Math.sqrt(ux * ux + uy * uy) || 1;
+      return { x: x0 - ux / ul * 22, y: y0 - uy / ul * 22, sx: x0, sy: y0 };
+    });
+    // greedy: each badge tries 24 angles × 3 distances around its start dot and keeps the freest spot
+    var placed = [];
+    B.forEach(function (b, i) {
+      var pref = Math.atan2(b.y - b.sy, b.x - b.sx), best = null, bestCost = 1e9;
+      for (var r = 22; r <= 40; r += 9) for (var k = 0; k < 24; k++) {
+        var ang = pref + (k % 2 ? 1 : -1) * Math.ceil(k / 2) * Math.PI / 12;
+        var cx = b.sx + Math.cos(ang) * r, cy = b.sy + Math.sin(ang) * r, cost = (r - 22) * 0.6 + Math.ceil(k / 2) * 0.8;
+        S.forEach(function (s2) { var m = 12 + (W[s2.def.kind] || 16) / 2 + 3; s2.pts.forEach(function (p) { var d = Math.sqrt((p.x - cx) * (p.x - cx) + (p.y - cy) * (p.y - cy)); if (d < m) cost += (m - d) * 3; }); });
+        placed.forEach(function (o) { var d = Math.sqrt((o.x - cx) * (o.x - cx) + (o.y - cy) * (o.y - cy)); if (d < 28) cost += (28 - d) * 6; });
+        B.forEach(function (o, j) { if (j === i) return; var d = Math.sqrt((o.sx - cx) * (o.sx - cx) + (o.sy - cy) * (o.sy - cy)); if (d < 22) cost += (22 - d) * 6; });
+        if (cost < bestCost) { bestCost = cost; best = [cx, cy]; }
+      }
+      b.x = best[0]; b.y = best[1]; placed.push(b);
+    });
+    // viewBox: centre the item (at least 300 wide so a lone alif is not squeezed); top and bottom grow to fit badges
+    var x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+    S.forEach(function (s) { var b = s.ghost.getBBox(), h = (W[s.def.kind] || 16) / 2; x0 = Math.min(x0, b.x - h); x1 = Math.max(x1, b.x + b.width + h); y0 = Math.min(y0, b.y - h); y1 = Math.max(y1, b.y + b.height + h); });
+    B.forEach(function (b) { x0 = Math.min(x0, b.x - 14); x1 = Math.max(x1, b.x + 14); y0 = Math.min(y0, b.y - 14); y1 = Math.max(y1, b.y + 14); });
+    vb.w = Math.max(300, x1 - x0 + 60); vb.x = (x0 + x1) / 2 - vb.w / 2;
+    vb.y = Math.min(VB_Y, y0 - 12); vb.h = Math.max(VB_Y + VB_H, y1 + 12) - vb.y;
+    svg.setAttribute('viewBox', vb.x + ' ' + vb.y + ' ' + vb.w + ' ' + vb.h);
+    stage.style.setProperty('--ar', (vb.w / vb.h).toFixed(4));
     el('line', { 'class': 'g-mid', x1: vb.x + 10, x2: vb.x + vb.w - 10, y1: DATA.midline, y2: DATA.midline }, guide);
     el('line', { 'class': 'g-base', x1: vb.x + 10, x2: vb.x + vb.w - 10, y1: DATA.baseline, y2: DATA.baseline }, guide);
     // numbered start dot + direction arrow for every stroke
@@ -129,17 +153,11 @@
         var cx = (a.x + b.x) / 2, cy = (a.y + b.y) / 2, nx = -ty, ny = tx;
         el('path', { 'class': 'arr', d: 'M' + (cx + tx * 11) + ' ' + (cy + ty * 11) + ' L' + (cx - tx * 7 + nx * 9) + ' ' + (cy - ty * 7 + ny * 9) + ' L' + (cx - tx * 7 - nx * 9) + ' ' + (cy - ty * 7 - ny * 9) + ' Z' }, mk);
       }
-      // green start dot exactly where the pen starts; the number badge sits just before it, off the line,
-      // so it never hides a short stroke (a dot, a haraka) when every step is shown at once
-      var x0 = s.def.start[0], y0 = s.def.start[1], bx, by;
-      if (s.def.kind === 'dot' || s.len < 8) { bx = x0 + 17; by = y0 - 17; }
-      else {
-        var q = s.ghost.getPointAtLength(Math.min(8, s.len)), ux = q.x - x0, uy = q.y - y0, ul = Math.sqrt(ux * ux + uy * uy) || 1;
-        bx = x0 - ux / ul * 20; by = y0 - uy / ul * 20;
-      }
-      el('circle', { 'class': 'dot', cx: x0, cy: y0, r: 8 }, mk);
-      el('circle', { 'class': 'badge', cx: bx, cy: by, r: 12 }, mk);
-      var t = el('text', { x: bx, y: by + 1, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, mk);
+      var bd = B[i];
+      if (Math.sqrt(Math.pow(bd.x - bd.sx, 2) + Math.pow(bd.y - bd.sy, 2)) > 26) el('line', { 'class': 'lead', x1: bd.sx, y1: bd.sy, x2: bd.x, y2: bd.y }, mk);
+      el('circle', { 'class': 'dot', cx: bd.sx, cy: bd.sy, r: 8 }, mk);
+      el('circle', { 'class': 'badge', cx: bd.x, cy: bd.y, r: 12 }, mk);
+      var t = el('text', { x: bd.x, y: bd.y + 1, 'text-anchor': 'middle', 'dominant-baseline': 'central' }, mk);
       t.textContent = arNum(i + 1);
       s.mk = mk;
     });
@@ -262,7 +280,7 @@
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, ink.width, ink.height);
     var k = dpr * scale;
-    ctx.setTransform(k, 0, 0, k, -vb.x * k, -VB_Y * k);
+    ctx.setTransform(k, 0, 0, k, -vb.x * k, -vb.y * k);
     ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     var cInk = tok('--ink', '#123'), cGood = tok('--good', '#2F9E44');
     Wr.lines.forEach(function (L) {
@@ -280,7 +298,7 @@
   function pt(e) {
     var r = ink.getBoundingClientRect(), f = vb.w / r.width;
     var w = e.pointerType === 'pen' && e.pressure > 0 ? 13 * (0.55 + e.pressure * 0.9) : 13;
-    return { x: vb.x + (e.clientX - r.left) * f, y: VB_Y + (e.clientY - r.top) * f, w: w };
+    return { x: vb.x + (e.clientX - r.left) * f, y: vb.y + (e.clientY - r.top) * f, w: w };
   }
   function writeStart() {
     stopAnim(); clearTimeout(Wr.hintTimer); cancelAnimationFrame(Wr.fadeRaf);
@@ -435,7 +453,6 @@
     stage.setAttribute('data-done', '1');
     doneItems[item.id] = true;
     buildItems();
-    $('reward').innerHTML = KS.star(true) + KS.star(true) + KS.star(true);
     $('doneStars').innerHTML = KS.star(true) + KS.star(true) + KS.star(true);
     setNoori('cheer');
     stepNo.textContent = '';

@@ -53,3 +53,17 @@ Notes for next time:
   - Edit strokes in strokes.json then rerun build-strokes.js; preview sheet: scratchpad/wg/preview.html
   - Screenshots: scratchpad/shots/writegame/
 [DONE]
+
+=== 2026-10-31 · frontend-engineer · Writing game round 2: word skeletons traced on Noto Naskh, badge layout, قِطَّةٌ ===
+Lead / asked by: coordinator review (level-3 words did not read; badges collided; alif number clipped)
+Files changed: games/strokes.json (+ strokes.js), games/write.js, games/write.css, games/write.html, README.md
+Findings:
+  [MAJOR] [FIX] strokes.json hatha/hathihi — هـ blob + floating ذ stub — fix: retraced over Noto Naskh 700 at fs 210 (overlay debug page)
+  [MAJOR] [FIX] write.js render — badges overlapped (2/4, 5/1 in هَذَا) and the alif's badge was clipped by the fixed viewBox top — fix: greedy badge placement (24 angles × 3 radii, cost vs model lines, other badges, other start dots) + dashed leader when > 26u; viewBox y/h grow to fit strokes + badges
+  [MINOR] [FIX] in-stage reward stars covered the tanween of قِطَّةٌ — removed; the done panel keeps the stars
+Fixed this run:
+  - bint, haa-mid, taa-final, baa-taa retraced; qitta added (10 steps)
+  - Verified: pass/miss (reversed + shifted miss, then all strokes pass → done) for hatha, hathihi, bint, haa-mid, taa-final, baa-taa, qitta at 1280 / 820×1180 / 390 — all pass, 0 errors, 0 hscroll, 0 targets < 56 px; test2 (reduced motion, 3-miss help, dot miss, step mode, 6 themes × 2 art, file://, hub/lesson/deck/book links) all green
+Notes for next time:
+  - overlay: scratchpad/wg/overlay.html; level-3 shots: scratchpad/shots/writegame/L3-static-*.png, L3-watch-*-d.png
+[DONE]
