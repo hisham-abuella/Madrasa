@@ -59,6 +59,7 @@
 .door .word { font-size: 1.15rem; color: var(--accent-text); }
 .door .en { display: block; text-align: center; }
 .door:nth-child(odd) .badge .f-brand { fill: var(--accent); }
+.door:nth-child(odd) .badge b { color: var(--on-accent); }
 
 /* courtyard tile — word of the day */
 .court { padding: 14px; border-radius: calc(var(--radius) + 14px); /* inner = outer − gap */ background:
@@ -90,10 +91,10 @@
 
 /* parents strip — terracotta band */
 .parents { background: var(--brand); color: var(--on-brand); position: relative; }
-.parents h2, .parents .en, .parents a { color: var(--on-brand); }
+.parents h2, .parents .en, .parents a:not(.btn) { color: var(--on-brand); }
 .parents .en { opacity: 1; }
 .p-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.p-item { background: color-mix(in srgb, var(--on-brand) 10%, transparent); border: 2px solid color-mix(in srgb, var(--on-brand) 35%, transparent); border-radius: var(--radius); padding: 20px; }
+.p-item { background: color-mix(in srgb, var(--ink) 12%, transparent); border: 2px solid color-mix(in srgb, var(--on-brand) 35%, transparent); border-radius: var(--radius); padding: 20px; }
 .p-item svg { width: 34px; height: 34px; margin-bottom: 6px; }
 .p-item h3 { margin: 0 0 4px; }
 .p-item p { margin: 0; }

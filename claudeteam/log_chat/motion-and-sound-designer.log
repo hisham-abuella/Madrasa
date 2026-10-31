@@ -21,3 +21,30 @@ Notes for next time:
   - Reduced motion: 0 running animations on 15 pages; without it, infinite loops on pacific(4), mihrab(1), article(1), story(1), guide(6), book(1), 404(1).
   - Credits used this run: 0.
 [DONE]
+
+=== 2026-10-31 · motion-and-sound-designer · Fix round 1 batch B: S-010 never-silent listen, S-027 loops (helper to frontend-engineer) ===
+Lead / asked by: frontend-engineer (batch B lead)
+Files reviewed: assets/kids.js (KS.speak), assets/kids.css, lessons/article.html:72, lessons/story.html:113, book/tools/new-story.js
+Fixes:
+  [MAJOR] [SOUND] S-010 KS.speak now always answers: 1 a recorded clip (btn[data-audio], or KS.clipFor(text) for words listed in WORD_CLIPS → audio/words/<name>.mp3; the list is empty until S-012 so nothing 404s), 2 the device Arabic voice, 3 otherwise — no speechSynthesis, voices but none Arabic, or nothing started within 1.5 s — a word bubble beside the button (role=status, lang=ar) + the soft 'pop' tone. The button pulses (.is-speaking) in every case.
+  [MINOR] [MOTION] S-027 ة glow: article 2.4 s × 3, story 2 s × 3 (were infinite); the book's .breathe is on the cover only (removed from the 13 story pictures).
+  [MINOR] [MOTION] quiz: the right answer's hint glow is `pulse 1s × 3`, not a loop.
+Verified: rc/speak.cjs — no-Arabic-voice → bubble in 2–5 ms; no speechSynthesis → bubble; Arabic voice that never starts → bubble at 1.55 s; working voice → no bubble (control); rc/clip.cjs — data-audio clip plays with no TTS; a missing clip falls back to one TTS call (double call fixed).
+Still open:
+  - S-012 word clips (Sarah) — then list the names in WORD_CLIPS in kids.js
+  - ambient loops left by design in mockup heroes (palm sway, sea drift, lantern sway, star spin, float) — release-check "loop" warning, not part of S-027
+[DONE]
+
+=== 2026-10-31 · motion-and-sound-designer · Local Hisham-clone narration of every spoken sound (in progress, part 0: plan) ===
+Lead / asked by: lead agent, relaying owner Hisham 2026-10-31 "let's use local cloned voice arabic Hisham to record all sounds for better quality"
+Files reviewed: BRIEF.md, ~/Work/Whisper-audio/bakeoff/narrate.py + qa_norm.py, assets/kids.js (speak, clipFor, WORD_CLIPS, LABELS, grownup card), lessons/{article,story,presentation}.html, games/write.js + strokes.json, mockups/*, guide.html
+Decisions / judgement calls:
+  - [NARRATION] Owner decision supersedes the house rule "local model English only, never Arabic" and the ElevenLabs recipe for this job — why: explicit owner request; risk (softened ق ص ط ض) handled by Whisper QA + listing every failed clip for an ear check.
+  - [NARRATION] Driver = my own script in the session scratchpad that imports narrate.py (Narrator, score, BREAK_RE) and overrides best_take with a stricter Fusha check; narrate.py itself NOT modified — why: deck mode stops at the first lax "ok", and for <=6-word refs score() accepts any 1-word miss, so a single word could pass even when wrong.
+  - [AUDIO-QA] Fusha strict pass = score ok AND cer <= 0.12 AND no softened emphatic AND no Egyptian-ism (ق→ء/ا, ث→ت/س, ذ→ز/د) in Whisper's text. Egyptian = narrate.py criteria.
+  - [AUDIO-QA] Output: trim edge silence, two-pass loudnorm I=-16 LUFS TP=-1.5, mono 44.1 kHz 64 kbps mp3.
+  - [SFX] Spoken via KS.speak: data-say (41 unique), morph pairs (4 new), quiz say (6 words + 2 questions + «هَذِهِ بِنْتٌ…»), story find-it line, write game (12 item names, 37 steps, 5 hints, 3 status lines). write.js prefix+number goes to #stepNo only, never spoken — no number variants needed. Classroom deck plays audio/samples/ar/s1–s3 (part 4). Web book uses page clips only.
+  - [SFX] Key scheme: kids.js clipFor maps bare(text) → LABELS name only, so phrases have no key yet. Picture words keep LABELS names (cat, cat-f…); phrases/instructions get readable slugs; I hand the lead a bare-text→key map literal.
+[GPU] pgrep empty at start.
+  [MAJOR] [GPU] 2026-10-31 I started a 3-clip test run (≈70 s) while a draw-things-cli batch from ~/Work/AI_server (logo concepts) was running — my pgrep printed it but the same shell line went on. No crash. Fix: every run now goes through a guard that refuses to start if pgrep finds anything; waiting for Draw Things to stay idle 2 min before any further run.
+  [AUDIO-QA] test: «قِطَّةٌ» alone → 5/5 takes garbage (0.4–0.5 s; heard «ريت», «تتتت»); «هَذَا قِطٌّ» softened ق→ك in 4/5 takes, take 5 clean; the 9-word find-it line passed first take. Lone words are the hard case.

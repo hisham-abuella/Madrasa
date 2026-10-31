@@ -25,6 +25,17 @@
 :root {
   --f-word: "Noto Naskh Arabic", "Amiri", "Geeza Pro", "Times New Roman", serif;
   --f-latin: "Baloo Bhaijaan 2", "Readex Pro", system-ui, sans-serif;
+  /* theme-independent colours (the same in all six themes) */
+  --on-sun: #1E1A0E;        /* dark ink on the --sun fill (≈ 9:1 on every theme's sun) */
+  --on-dark: #FFFFFF;       /* white text on a dark --c* fill */
+  --deck-bg: #0B3540;       /* the owners' deck background (hub hero placeholder) */
+  /* text on the generated hero pictures, which stay the same in every theme
+     (Pacific's sunny beach = day, Fanous's lantern night = night) */
+  --art-day-ink: #0B3540; --art-day-ink2: #2F5965; --art-day-surface: #FFFDF7;
+  --art-night-ink: #FBF5E6; --art-night-ink2: #C6D1EC; --art-night-accent: #F3CB73;
+  /* print worksheets: plain black-and-grey on white paper */
+  --print-ink: #000000; --print-ink2: #444444; --print-rule: #555555;
+  --print-dot: #333333; --print-box: #888888; --print-line: #BBBBBB; --print-paper: #FFFFFF;
 }
 
 /* ═══ 1 · PACIFIC (default) ═══════════════════════════════════════════════ */
@@ -72,6 +83,7 @@ html[data-theme="pacific"] {
   --gull-cheek: #FF9E8A;
   --gull-line: #0B3540;
   --c1: #0B7A7E; --c2: #FF7A5C; --c3: #FFC94A; --c4: #4FB6D8;
+  /* --masc / --fem are FILL-ONLY (they fail 4.5:1 as text): text uses --masc-text / --fem-text */
   --masc: #3BA7D6;  --masc-text: #12658C;
   --fem:  #FF8A6B;  --fem-text: #B8391C;
   --ta: #C23B1E;
@@ -132,6 +144,7 @@ html[data-theme="andalus"] {
   --gull-cheek: #EF9A80;
   --gull-line: #3A2314;
   --c1: #B5502A; --c2: #3B7A4C; --c3: #2E7D9C; --c4: #E8B048;
+  /* --masc / --fem are FILL-ONLY (they fail 4.5:1 as text): text uses --masc-text / --fem-text */
   --masc: #2E7D9C;  --masc-text: #1F5F78;
   --fem:  #D9776B;  --fem-text: #A3402F;
   --ta: #B5402A;
@@ -192,6 +205,7 @@ html[data-theme="fanous"] {
   --gull-cheek: #F5A38F;
   --gull-line: #0A1530;
   --c1: #F0C463; --c2: #4CC7B9; --c3: #F5A38F; --c4: #7FA8FF;
+  /* --masc / --fem are FILL-ONLY (they fail 4.5:1 as text): text uses --masc-text / --fem-text */
   --masc: #7FB2FF;  --masc-text: #A9CBFF;
   --fem:  #F5A38F;  --fem-text: #F9B9A9;
   --ta: #FFD36B;
@@ -251,6 +265,7 @@ html[data-theme="kurrasa"] {
   --gull-cheek: #F59AA0;
   --gull-line: #1E2A4A;
   --c1: #2B59C3; --c2: #C9343A; --c3: #2F9E44; --c4: #FFD43B;
+  /* --masc / --fem are FILL-ONLY (they fail 4.5:1 as text): text uses --masc-text / --fem-text */
   --masc: #4C7DE0;  --masc-text: #2B59C3;
   --fem:  #E5484D;  --fem-text: #B42A30;
   --ta: #C9343A;
@@ -311,6 +326,7 @@ html[data-theme="mosaic"] {
   --gull-cheek: #FF8FA3;
   --gull-line: #14213D;
   --c1: #2450D8; --c2: #D62F35; --c3: #FFC53D; --c4: #1F9D55;
+  /* --masc / --fem are FILL-ONLY (they fail 4.5:1 as text): text uses --masc-text / --fem-text */
   --masc: #5BC0EB;  --masc-text: #1F56A8;
   --fem:  #FF7AA2;  --fem-text: #B8235A;
   --ta: #D62F35;
@@ -369,6 +385,7 @@ html[data-theme="mihrab"] {
   --gull-cheek: #F5C2B0;
   --gull-line: #5A6373;
   --c1: #3F7A6C; --c2: #F5C2B0; --c3: #BFDDF0; --c4: #F6D98E;
+  /* --masc / --fem are FILL-ONLY (they fail 4.5:1 as text): text uses --masc-text / --fem-text */
   --masc: #8FC1E3;  --masc-text: #2F6A8F;
   --fem:  #F2A7A0;  --fem-text: #A1503A;
   --ta: #B04C35;
@@ -486,10 +503,10 @@ html[data-theme="mosaic"] .btn, html[data-theme="kurrasa"] .btn { border-color: 
 .btn:active { transform: translateY(4px); box-shadow: var(--btn-shadow-press); }
 .btn--accent { --b: var(--accent); --bi: var(--on-accent); }
 .btn--ghost { --b: var(--surface); --bi: var(--ink); border-color: var(--border-c); box-shadow: var(--shadow); }
-.btn--sun { --b: var(--sun); --bi: #1E1A0E; }
+.btn--sun { --b: var(--sun); --bi: var(--on-sun); }
 .btn--sm { min-height: 44px; padding: 4px 16px; font-size: 1rem; }
 .btn svg { width: 22px; height: 22px; flex: none; }
-.btn .en { color: inherit; opacity: .85; font-size: .78em; }
+.btn.btn .en { color: inherit; font-size: .78em; }   /* .btn.btn: beats page rules like `.x .en { color }` so the CTA English keeps the button ink */
 .btn[disabled] { opacity: .45; pointer-events: none; }
 .icon-btn {
   width: 48px; height: 48px; border-radius: 50%;
@@ -513,6 +530,19 @@ html[data-theme="mosaic"] .btn, html[data-theme="kurrasa"] .btn { border-color: 
 .say svg { width: 26px; height: 26px; }
 .say:hover { transform: scale(1.1); } .say--sm { width: 44px; height: 44px; position: relative; } .say--sm::after { content: ""; position: absolute; inset: -7px; border-radius: 50%; }
 .say.is-speaking { animation: pulse 1s ease-in-out infinite; }
+/* KS.speak fallback: no clip, no Arabic voice → the word appears beside the button (+ a soft tone) */
+.ks-say-bubble {
+  position: fixed; z-index: 95; left: 50%; top: 50%; pointer-events: none;
+  transform: translate(-50%, -100%) scale(.9); opacity: 0;
+  width: max-content; max-width: min(90vw, 520px); padding: 8px 22px 12px; border-radius: 22px;
+  background: var(--surface); color: var(--ink); border: 3px solid var(--brand);
+  box-shadow: var(--shadow-hover, 0 12px 30px -10px rgba(0,0,0,.4));
+  font: 700 clamp(1.6rem, 5vw, 2.2rem)/1.7 var(--f-word); text-align: center;
+  transition: opacity .2s, transform .25s var(--ease-pop, ease-out);
+}
+.ks-say-bubble.is-below { transform: translate(-50%, 0) scale(.9); }
+.ks-say-bubble.is-on { opacity: 1; transform: translate(-50%, -100%) scale(1); }
+.ks-say-bubble.is-below.is-on { transform: translate(-50%, 0) scale(1); }
 
 /* ── cards, chips, bubbles ──────────────────────────────────────────────── */
 .card {
@@ -627,6 +657,8 @@ html[data-theme="mosaic"] .btn, html[data-theme="kurrasa"] .btn { border-color: 
 .ks-fab__toggle:hover, .ks-fab__mute:hover { transform: scale(1.06); }
 .ks-fab__toggle svg, .ks-fab__mute svg { width: 26px; height: 26px; }
 .ks-fab__row { display: flex; gap: 10px; align-items: center; }
+.ks-has-fab body { padding-bottom: 88px; }   /* the floating buttons (56 + 16 + gap) never cover the last lines */
+.ks-has-fab .foot { padding-bottom: 16px; }  /* .foot already reserved that room itself */
 .ks-picker {
   display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
   padding: 10px; border-radius: 22px; max-width: calc(100vw - 32px);
@@ -674,6 +706,9 @@ html.ks-js [data-reveal].is-in { opacity: 1; transform: none; }
 /* ── footer ─────────────────────────────────────────────────────────────── */
 .foot { padding: 40px 0 96px; text-align: center; color: var(--ink2); font-size: .95rem; }
 .foot .en { display: block; }
+.foot .btn { margin-block: 6px 16px; }      /* the button's 3-D shadow must not sit on the next line */
+/* parent links in footers: a 44 px hit area on phones (S-023) */
+.foot a:not(.btn), .nb-foot a:not(.btn), .files a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 6px; }
 
 
 /* ── accessibility + interaction states (brief: elayadesign checklist) ─── */
@@ -850,6 +885,18 @@ html[data-theme="fanous"] .wp-stage { --ink: #0E1C42; --ink2: #44577A; --masc: #
 .pic-card .word { font-size: 1.55rem; line-height: 1.9; }
 .pic-card .en { font-size: .8rem; }
 .pic-card .ear { position: absolute; top: 8px; inset-inline-end: 8px; width: 26px; height: 26px; color: var(--brand-text); opacity: .75; }
+/* «أَرِنِي · Show a grown-up» end card (KS.grownupCard, [data-grownup]) */
+.gu-card { margin-block: 28px; padding: 18px clamp(12px, 3vw, 24px) 20px; text-align: center; background: var(--surface); color: var(--ink); border: var(--border-w) solid var(--border-c); border-radius: var(--radius); box-shadow: var(--shadow); }
+.gu-head { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.gu-head .gull { width: 76px; height: 76px; flex: none; }
+.gu-title { margin: 0; font-size: clamp(1.6rem, 5vw, 2.1rem); line-height: 1.5; }
+.gu-title .en { display: block; font-size: .95rem; font-weight: 700; color: var(--ink2); }
+.gu-pics { list-style: none; margin: 12px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.gu-pics .pic-card { width: clamp(104px, 28vw, 150px); padding: 8px; }
+.gu-pics .pic-card .pic { max-height: 96px; }
+.gu-pics .pic-card .word { font-size: clamp(1.15rem, 3.6vw, 1.45rem); }
+p.en.gu-tonight { text-align: center; max-width: 52ch; margin: 0 auto; color: var(--ink); }
+.gu-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 14px; }
 .pic-card.is-speaking { border-color: var(--brand); }
 .pic-card--m { border-top: 7px solid var(--masc); }
 .pic-card--f { border-top: 7px solid var(--fem); }
@@ -916,6 +963,7 @@ html[data-theme="fanous"] .wp-stage { --ink: #0E1C42; --ink2: #44577A; --masc: #
 .qz-opt:focus-visible { outline: 4px solid var(--brand); outline-offset: 3px; }
 .qz-opt[disabled] { cursor: default; color: var(--ink); }
 .qz-opt[disabled]:not(.is-good):not(.is-bad) { opacity: .6; }
+.qz-opt.is-hint { border-color: var(--good); box-shadow: 0 0 0 4px color-mix(in srgb, var(--good) 35%, transparent); animation: pulse 1s ease-in-out 3; }   /* after two misses: the right answer glows (3×, not a loop) */
 .qz-feedback { margin-top: 14px; text-align: center; min-height: 1em; }
 .qz-feedback p { margin: 0; }
 .qz-verdict { font-weight: 800; font-size: 1.3rem; }
@@ -947,6 +995,7 @@ html[data-theme="fanous"] .wp-stage { --ink: #0E1C42; --ink2: #44577A; --masc: #
 @media print {
   .print-only { display: block; }
   .no-print, .ks-fab, .ks-picker, .skip { display: none !important; }
+  .ks-has-fab body { padding-bottom: 0; }
 }
 /* ═══ end LESSONS block ═══════════════════════════════════════════════════ */
 
@@ -962,7 +1011,7 @@ html:not([data-art="svg"]) [data-art-slot]:not(.art-miss) .svg-only { display: n
 .ks-art__btn { flex: 1 1 0; min-height: 52px; min-width: 112px; padding: 4px 10px; border-radius: 16px; cursor: pointer;
   font: 700 .98rem/1.3 var(--f-ui); direction: rtl; background: var(--surface2); color: var(--ink); border: 2px solid color-mix(in srgb, var(--ink) 25%, transparent);
   transition: transform var(--t-tap) var(--ease-pop), background .2s; }
-.ks-art__btn .en { display: block; font: 600 .72rem/1.2 var(--f-latin); opacity: .85; color: inherit; }
+.ks-art__btn .en { display: block; font: 600 .72rem/1.2 var(--f-latin); color: inherit; }
 .ks-art__btn:hover { transform: translateY(-2px); }
 .ks-art__btn:active { transform: scale(.95); }
 .ks-art__btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }

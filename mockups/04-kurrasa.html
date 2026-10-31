@@ -36,8 +36,8 @@ body { background: color-mix(in srgb, var(--surface2) 75%, var(--ink) 6%); }
 .tabs a { --t: var(--c1); display: block; padding: 8px 16px 6px; min-height: 48px; border-radius: 12px 12px 0 0; background: var(--t); color: var(--on-brand);
   font-weight: 700; text-decoration: none; transform: rotate(-1.5deg); transform-origin: bottom; transition: transform .2s var(--ease-pop); }
 .tabs a:nth-child(2) { --t: var(--c2); color: var(--on-accent); transform: rotate(1deg); }
-.tabs a:nth-child(3) { --t: var(--c3); color: #fff; transform: rotate(-.5deg); }
-.tabs a:nth-child(4) { --t: var(--c4); color: #1E1A0E; transform: rotate(1.5deg); }
+.tabs a:nth-child(3) { --t: var(--c3); color: var(--on-sun); transform: rotate(-.5deg); }
+.tabs a:nth-child(4) { --t: var(--c4); color: var(--on-sun); transform: rotate(1.5deg); }
 .tabs a:hover, .tabs a:focus-visible { transform: translateY(-6px) rotate(0); }
 .tabs a:active { transform: translateY(-2px); }
 
@@ -56,7 +56,7 @@ body { background: color-mix(in srgb, var(--surface2) 75%, var(--ink) 6%); }
 .underline { display: block; width: min(360px, 80%); height: 22px; color: var(--accent); margin-top: -14px; }
 .k-hero .tag { font-family: var(--f-word); font-size: 1.6rem; color: var(--brand-text); margin: 14px 0 0; font-weight: 700; }
 .k-hero .cap { font-size: 1.15rem; margin-bottom: 20px; }
-.note-greet { display: inline-block; font-family: var(--f-word); font-size: 1.3rem; padding: 2px 14px; margin-bottom: 8px; background: color-mix(in srgb, var(--sun) 55%, transparent); transform: rotate(-2deg); border-radius: 4px 10px 6px 12px; }
+.note-greet { display: inline-block; font-family: var(--f-word); font-size: 1.3rem; padding: 2px 14px; margin-bottom: 8px; color: var(--on-sun); background: color-mix(in srgb, var(--sun) 55%, var(--print-paper)); transform: rotate(-2deg); border-radius: 4px 10px 6px 12px; }
 .k-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 .photo { position: relative; justify-self: center; width: min(300px, 80vw); padding: 14px 14px 46px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); transform: rotate(3deg); }
 .photo .pic { aspect-ratio: 1; background: linear-gradient(180deg, var(--sky) 0 62%, var(--sand) 62%); display: grid; place-items: center; }
@@ -73,11 +73,11 @@ body { background: color-mix(in srgb, var(--surface2) 75%, var(--ink) 6%); }
 .k-title h2 { margin: 0; position: relative; }
 .k-title h2::after { content: ""; position: absolute; inset-inline: -4px; bottom: 6px; height: 12px; z-index: -1; background: color-mix(in srgb, var(--sun) 60%, transparent); border-radius: 3px 8px 4px 10px; }
 .k-title h2 { isolation: isolate; z-index: 0; }
-.k-title .num { font-family: var(--f-latin); color: var(--accent-text); font-size: 1.4rem; }
+.k-title .num { font-family: var(--f-latin); color: var(--accent-text); font-size: 1.4rem; background: var(--surface); padding-inline: 4px; border-radius: 4px; }   /* the margin rule must not cut the number */
 
 /* sticky notes */
 .notes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-.sticky { --n: color-mix(in srgb, var(--sun) 42%, var(--surface)); position: relative; display: block; text-decoration: none; color: var(--ink); background: var(--n);
+.sticky { --n: color-mix(in srgb, var(--sun) 25%, var(--surface)); position: relative; display: block; text-decoration: none; color: var(--ink); background: var(--n);
   padding: 30px 16px 20px; min-height: 190px; box-shadow: 0 10px 18px -12px rgba(0,0,0,.45); transform: rotate(-2deg); transition: transform .25s var(--ease-pop), box-shadow .25s; text-align: center; }
 .sticky:nth-child(2) { --n: color-mix(in srgb, var(--masc) 30%, var(--surface)); transform: rotate(1.5deg); }
 .sticky:nth-child(3) { --n: color-mix(in srgb, var(--fem) 28%, var(--surface)); transform: rotate(-1deg); }

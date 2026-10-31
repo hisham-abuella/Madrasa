@@ -881,7 +881,7 @@ html[data-theme="mosaic"] .btn, html[data-theme="kurrasa"] .btn { border-color: 
 .btn:active { transform: translateY(4px); box-shadow: var(--btn-shadow-press); }
 .btn--sm { min-height: 44px; padding: 4px 16px; font-size: 1rem; }
 .btn svg { width: 22px; height: 22px; flex: none; }
-.btn .en { color: inherit; opacity: .85; font-size: .78em; }
+.btn.btn .en { color: inherit; font-size: .78em; }   /* .btn.btn: beats page rules like `.x .en { color }` so the CTA English keeps the button ink */
 .btn[disabled] { opacity: .45; pointer-events: none; }
 
 /* deck components */
@@ -1113,7 +1113,7 @@ html[data-theme="keynote-black"],html[data-theme="studio"]{--masc-text:#8FD0F5;-
 <h2 class="inh">هَيَّا نَكْتُبُ: <span class="ta">ة</span>، ثُمَّ <span class="dm">هَذَا</span> وَ<span class="df">هَذِهِ</span></h2>
 <p>ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ.</p>
 <p>افْتَحُوا الْكِتَابَ: صَفَحَاتُ ١٨–٢٨</p>
-<p class="gamelink"><a href="../games/write.html?item=taa-m">تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en">Writing game</span></a></p></div>
+<p class="gamelink"><a href="../games/write.html?item=taa-m">تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en" lang="en">Writing game</span></a></p></div>
 <div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="ة|هَذَا|هَذِهِ" data-lines="3" data-lh="200"></div></div>
 <aside class="notes"><p>أَوَّلًا نَهْدَأُ: «اجْلِسُوا… يَدَانِ عَلَى الرُّكْبَتَيْنِ… نَتَنَفَّسُ ثَلَاثَ مَرَّاتٍ.»</p><p>«هَيَّا نَكْتُبُ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذَا، ثُمَّ هَذِهِ.</p><p>«افْتَحُوا الْكِتَابَ: صَفَحَاتُ ١٨–٢٨.»</p><p dir="ltr" lang="en">Calm down first, after the movement game: sit, hands on knees, three slow breaths, then pencils. Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.</p></aside>
 </section>

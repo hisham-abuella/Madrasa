@@ -39,7 +39,7 @@ body { overflow: hidden; }
 .st-tools { display: flex; gap: 8px; align-items: center; margin-inline-start: auto; }
 .seg { display: inline-flex; padding: 3px; gap: 3px; border-radius: 999px; background: var(--surface2); border: var(--border-w) solid var(--border-c); }
 .seg button { min-height: 56px; min-width: 64px; padding: 0 12px; border-radius: 999px; border: 0; cursor: pointer; background: transparent; color: var(--ink); font: 700 1rem/1.1 var(--f-ui); }
-.seg button .en { display: block; font-size: .68rem; color: inherit; opacity: .8; }
+.seg button .en { display: block; font-size: .68rem; color: inherit; }
 .seg button[aria-pressed="true"] { background: var(--brand); color: var(--on-brand); }
 .seg button:focus-visible { outline: 3px solid var(--ink); outline-offset: 1px; }
 .st-tools > .seg { display: none; }
@@ -110,7 +110,7 @@ body { overflow: hidden; }
 /* little shell with ة */
 .big-shell { position: absolute; left: 50%; bottom: 8%; width: 46%; transform: translateX(-50%); }
 .big-shell .glyph { position: absolute; left: 31%; top: 22%; width: 38%; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; padding-bottom: 6%;
-  background: var(--surface); border: 3px solid var(--fem); font-family: var(--f-word); font-weight: 700; font-size: clamp(2rem, 6vw, 3.6rem); line-height: 1; color: var(--ta); animation: glow 2s ease-in-out infinite; }
+  background: var(--surface); border: 3px solid var(--fem); font-family: var(--f-word); font-weight: 700; font-size: clamp(2rem, 6vw, 3.6rem); line-height: 1; color: var(--ta); animation: glow 2s ease-in-out 3; }
 .pair-line { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; font-family: var(--f-word); font-weight: 700; font-size: clamp(1.6rem, 4.4vw, 2.4rem); }
 
 /* amazing shell rows */
@@ -136,7 +136,7 @@ body { overflow: hidden; }
 /* recap list */
 .recap { list-style: none; margin: 6px 0 12px; padding: 0; display: grid; gap: 6px; }
 .recap li { display: flex; gap: 10px; align-items: flex-start; font-family: var(--f-word); font-weight: 600; font-size: clamp(1.1rem, 2.6vw, 1.35rem); line-height: 1.9; }
-.recap li svg { width: 24px; height: 24px; flex: none; margin-top: 10px; fill: var(--sun); stroke: color-mix(in srgb, var(--sun) 55%, #000); stroke-width: 1.5; }
+.recap li svg { width: 24px; height: 24px; flex: none; margin-top: 10px; fill: var(--sun); stroke: color-mix(in srgb, var(--sun) 55%, var(--print-ink)); stroke-width: 1.5; }
 .end-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 .cover-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; align-items: center; }
 
@@ -528,9 +528,11 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span>بَعْضُ الْمُؤَنَّثِ بِلَا ة: بِنْتٌ، أُمٌّ، شَمْسٌ.</span></li>
           </ul>
           <p class="en">You learned: هَذَا for masculine, هَذِهِ for feminine, the ة “little shell” that usually makes a word feminine, and feminine words without ة. See you soon!</p>
+          <aside data-grownup></aside>
           <div class="end-row">
             <button type="button" class="btn btn--ghost" data-go="0">مِنَ الْبِدَايَةِ <span class="en">Read again</span></button>
             <a class="btn" href="article.html">الْمَقَالَةُ <span class="en">Article</span></a>
+            <a class="btn btn--ghost" href="../index.html">الرَّئِيسَةُ <span class="en">Hub</span></a>
             <a class="btn btn--accent trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
           </div>
         </div>

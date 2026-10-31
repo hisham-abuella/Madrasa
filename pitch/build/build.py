@@ -62,8 +62,12 @@ def notes(i, sources=''):
     s = scripts.get(i)
     if not s:
         return f'<aside class="notes"><p>{sources}</p></aside>'
-    return ('<aside class="notes"><p>' + html.escape(s['en'], quote=False).replace('Foos-ha', 'Fusha') + '</p><p>— مصري —</p><p>' + s['eg'] + '</p>'
-            + (f'<p>Sources: {sources}</p>' if sources else '') + '</aside>')
+    return ('<aside class="notes"><p>' + html.escape(s['en'], quote=False).replace('Foos-ha', 'Fusha') + '</p><p lang="ar-EG" dir="rtl">— مصري —</p><p lang="ar-EG" dir="rtl">' + s['eg'] + '</p>'
+            + (f'<p>Sources: {ar_runs(sources)}</p>' if sources else '') + '</aside>')
+
+_AR_RUN = re.compile(r'[\u0600-\u06FF][\u0600-\u06FF\s«»]*[\u0600-\u06FF]|[\u0600-\u06FF]')
+def ar_runs(t):  # Arabic words inside English text → lang="ar" (WCAG 3.1.2); leaves tags alone
+    return re.sub(r'(<[^>]*>)|' + _AR_RUN.pattern, lambda m: m.group(1) or f'<span lang="ar">{m.group(0)}</span>', t)
 
 def a(href, text, cls=''):
     c = f' class="{cls}"' if cls else ''
@@ -168,7 +172,7 @@ cards = [
  ('story', 'قِصَّةٌ تَفَاعُلِيَّةٌ', 'Noori, Sami and Salma, read aloud in proper Arabic or Egyptian', '../lessons/story.html', 'Open the story', 'Screenshot of the interactive story'),
  ('slides', 'عَرْضٌ لِلصَّفِّ', '19 slides, about 20 min, with games, quizzes and writing', '../lessons/presentation.html', 'Open the slides', 'Screenshot of the classroom slides'),
 ]
-cols = ''.join(f'''<div class="col" data-build="rise"><img src="img/lesson-{k}.png" alt="{alt} ({ar})"><h3>{A(ar)}</h3><p>{d}</p><p>{a(h, t)}</p></div>''' for k, ar, d, h, t, alt in cards)
+cols = ''.join(f'''<div class="col" data-build="rise"><img src="img/lesson-{k}.webp" alt="{alt} ({ar})"><h3>{A(ar)}</h3><p>{d}</p><p>{a(h, t)}</p></div>''' for k, ar, d, h, t, alt in cards)
 slide('lesson', 'two-column', f'''<p class="label">Grade 1–2 · masculine and feminine · the final tā' marbūṭa is Noori's little seashell</p>
 <h2>One lesson, {A("هَذَا وَهَذِهِ")}, is ready three ways: to read, to hear, to present</h2>
 <div class="cols">{cols}</div>''',
@@ -176,7 +180,7 @@ slide('lesson', 'two-column', f'''<p class="label">Grade 1–2 · masculine and 
  ' data-cols="3"')
 
 # 7 write
-slide('write', 'image-left', f'''<figure><img src="img/writing-pad.png" alt="The writing pad in the story lesson: tracing ة, هَذَا and هَذِهِ, then a sentence under a picture; «انْتَهَيْتُ» gives stars and عَمَلٌ رَائِعٌ (great work)"></figure>
+slide('write', 'image-left', f'''<figure><img src="img/writing-pad.webp" alt="The writing pad in the story lesson: tracing ة, هَذَا and هَذِهِ, then a sentence under a picture; «انْتَهَيْتُ» gives stars and عَمَلٌ رَائِعٌ (great work)"></figure>
 <h2>Children write with a finger or an Apple Pencil, and are praised, never marked wrong</h2>
 <ul data-build="list">
 <li>Trace the {A("ة")}, then {A("هَذَا / هَذِهِ")}, then a sentence under a picture</li>
@@ -189,7 +193,7 @@ slide('write', 'image-left', f'''<figure><img src="img/writing-pad.png" alt="The
 
 # 8 book
 P_ = '../book/print/noori-shell-'
-slide('book', 'image-right', f'''<figure class="wide"><img src="img/book-pages.png" alt="All 32 interior pages of the book Noori and the Little Shell">
+slide('book', 'image-right', f'''<figure class="wide"><img src="img/book-pages.webp" alt="All 32 interior pages of the book Noori and the Little Shell">
 <div class="qrrow"><img class="qr" src="img/qr-book.svg" alt="QR code to the web book, hisham-abuella.github.io/Madrasa/book/books/noori-shell.html"><div class="bx-ui listenbtns"><p>Scan, or listen:</p><button type="button" class="lbtn" data-clip="audio/clips/salam-fusha.mp3">{A("عَرَبِيٌّ سَلِيم")}</button> <button type="button" class="lbtn" data-clip="audio/clips/salam-eg.mp3">{A("مَصْرِي")}</button></div></div></figure>
 <h2>A 32-page printed book, and its QR code reads it aloud</h2>
 <ul data-build="list">

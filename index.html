@@ -31,6 +31,10 @@
 .mock { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
 .mock .pv { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface2); border-bottom: var(--border-w) solid var(--border-c); }
 .mock .pv iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 800px; border: 0; transform-origin: 0 0; pointer-events: none; }
+.mock .pv-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }   /* phones: a still card instead of a live page (S-029) */
+.mock .pv iframe:not([src]) { display: none; }
+.mock .pv.is-live .pv-img { display: none; }
+.mock .pv .flag { z-index: 2; }
 .mock .meta { padding: 16px 20px 20px; display: grid; gap: 2px; }
 .mock .num { font: 700 .8rem/1 var(--f-latin); color: var(--ink2); direction: ltr; text-align: right; letter-spacing: .08em; }
 .mock h3 { margin: 4px 0 0; font-family: var(--f-word); font-size: 1.5rem; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
@@ -65,7 +69,7 @@
 /* main slide: the owners' presentation */
 .deck-hero { background: var(--hero-bg); padding: clamp(24px, 4vw, 48px) 0 clamp(20px, 3vw, 36px); border-bottom: var(--border-w) solid var(--border-c); }
 .deck-hero .wrap { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(18px, 3.5vw, 44px); align-items: center; }
-.deck-shot { display: block; position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: var(--border-w) solid var(--border-c); aspect-ratio: 16 / 9; background: #0B3540; transition: transform var(--t-tap) var(--ease-pop); }
+.deck-shot { display: block; position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: var(--border-w) solid var(--border-c); aspect-ratio: 16 / 9; background: var(--deck-bg); transition: transform var(--t-tap) var(--ease-pop); }
 .deck-shot:hover { transform: translateY(-4px); }
 .deck-shot:focus-visible { outline: 4px solid var(--brand); outline-offset: 4px; }
 .deck-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -152,37 +156,37 @@
       </div>
       <div class="gallery">
         <a class="card card--link mock" href="mockups/01-andalus.html" data-reveal style="--i:0">
-          <div class="pv"><iframe src="mockups/01-andalus.html" title="Preview: Andalus mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="pv"><img class="pv-img" src="assets/art/og/andalus.jpg" alt="" loading="lazy" decoding="async"><iframe data-src="mockups/01-andalus.html" title="Preview: Andalus mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
           <div class="meta"><span class="num">01</span><h3>الْأَنْدَلُسُ <span class="en">Andalus garden</span></h3>
             <p class="en">Horseshoe arch over a fountain garden, zellige bands, terracotta + garden green. San Diego’s mission arches, traced back to Al-Andalus.</p>
             <span class="dots" aria-hidden="true"><i style="background:#B5502A"></i><i style="background:#3B7A4C"></i><i style="background:#E8B048"></i><i style="background:#FBF3E4"></i></span></div>
         </a>
         <a class="card card--link mock" href="mockups/02-pacific.html" data-reveal style="--i:1">
-          <div class="pv"><span class="chip chip--accent flag">flagship</span><iframe src="mockups/02-pacific.html" title="Preview: Pacific mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="pv"><span class="chip chip--accent flag">flagship</span><img class="pv-img" src="assets/art/og/pacific.jpg" alt="" loading="lazy" decoding="async"><iframe data-src="mockups/02-pacific.html" title="Preview: Pacific mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
           <div class="meta"><span class="num">02</span><h3>الْمُحِيطُ <span class="en">Pacific coast</span></h3>
             <p class="en">Full-bleed sunset ocean, palms and Noori flying in. The most playful — and the most “San Diego”.</p>
             <span class="dots" aria-hidden="true"><i style="background:#0B7A7E"></i><i style="background:#FF7A5C"></i><i style="background:#FFC94A"></i><i style="background:#FFF9EE"></i></span></div>
         </a>
         <a class="card card--link mock" href="mockups/03-fanous.html" data-reveal style="--i:2">
-          <div class="pv"><iframe src="mockups/03-fanous.html" title="Preview: Fanous mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="pv"><img class="pv-img" src="assets/art/og/fanous.jpg" alt="" loading="lazy" decoding="async"><iframe data-src="mockups/03-fanous.html" title="Preview: Fanous mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
           <div class="meta"><span class="num">03</span><h3>الْفَانُوسُ <span class="en">Night lanterns</span></h3>
             <p class="en">Lapis night, a crescent and gold lanterns that light up when tapped. Calm and a little magical.</p>
             <span class="dots" aria-hidden="true"><i style="background:#0E1C42"></i><i style="background:#F0C463"></i><i style="background:#4CC7B9"></i><i style="background:#FBF5E6"></i></span></div>
         </a>
         <a class="card card--link mock" href="mockups/04-kurrasa.html" data-reveal style="--i:3">
-          <div class="pv"><iframe src="mockups/04-kurrasa.html" title="Preview: Kurrasa mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="pv"><img class="pv-img" src="assets/art/og/kurrasa.jpg" alt="" loading="lazy" decoding="async"><iframe data-src="mockups/04-kurrasa.html" title="Preview: Kurrasa mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
           <div class="meta"><span class="num">04</span><h3>الْكُرَّاسَةُ <span class="en">Madrasa notebook</span></h3>
             <p class="en">The page is a notebook: index tabs, sticky notes, a flashcard, crayon doodles — and a writing pad to trace on.</p>
             <span class="dots" aria-hidden="true"><i style="background:#2B59C3"></i><i style="background:#C9343A"></i><i style="background:#FFD43B"></i><i style="background:#FFFEF6"></i></span></div>
         </a>
         <a class="card card--link mock" href="mockups/05-mosaic.html" data-reveal style="--i:4">
-          <div class="pv"><iframe src="mockups/05-mosaic.html" title="Preview: Mosaic mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="pv"><img class="pv-img" src="assets/art/og/mosaic.jpg" alt="" loading="lazy" decoding="async"><iframe data-src="mockups/05-mosaic.html" title="Preview: Mosaic mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
           <div class="meta"><span class="num">05</span><h3>الْفُسَيْفِسَاءُ <span class="en">Mosaic playground</span></h3>
             <p class="en">A bento grid of chunky tiles, 8-point stars, bold primaries, thick outlines and offset shadows.</p>
             <span class="dots" aria-hidden="true"><i style="background:#2450D8"></i><i style="background:#D62F35"></i><i style="background:#FFC53D"></i><i style="background:#1F9D55"></i></span></div>
         </a>
         <a class="card card--link mock" href="mockups/06-mihrab.html" data-reveal style="--i:5">
-          <div class="pv"><iframe src="mockups/06-mihrab.html" title="Preview: Mihrab mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="pv"><img class="pv-img" src="assets/art/og/mihrab.jpg" alt="" loading="lazy" decoding="async"><iframe data-src="mockups/06-mihrab.html" title="Preview: Mihrab mockup" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
           <div class="meta"><span class="num">06</span><h3>الْمِحْرَابُ <span class="en">Soft mihrab</span></h3>
             <p class="en">White, pastel and quiet: one rounded arch and soft cards. Speaks to parents and older kids.</p>
             <span class="dots" aria-hidden="true"><i style="background:#3F7A6C"></i><i style="background:#F5C2B0"></i><i style="background:#BFDDF0"></i><i style="background:#FBFAF7"></i></span></div>
@@ -219,7 +223,7 @@
           <span class="en">Lesson book · <bdi class="word" dir="rtl">«نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»</bdi> · 14 story pages + 11 writing exercises, narrated in Fusha / Egyptian, write on an iPad. Also printed (Lulu 8.5″ square) and as worksheets.</span>
         </a>
       </div>
-      <p class="en" style="text-align:center;margin-top:22px">Lesson book files:
+      <p class="en files" style="text-align:center;margin-top:22px">Lesson book files:
         <a href="book/print/noori-shell-lulu-interior.pdf" target="_blank" rel="noopener">See the book (PDF)</a> ·
         <a href="book/print/noori-shell-lulu-cover.pdf" target="_blank" rel="noopener">Cover (PDF)</a> ·
         <a href="book/print/noori-shell-home-a5.pdf" target="_blank" rel="noopener">Print at home (A5 booklet)</a> ·
@@ -301,6 +305,11 @@
   // scale the live 1280×800 previews to fit their cards
   (function () {
     var pvs = document.querySelectorAll('.mock .pv');
+    // live previews only on wide screens; phones keep the light still card (6 full pages ≈ 4 MB)
+    var wide = window.matchMedia ? window.matchMedia('(min-width: 701px)') : { matches: true };
+    function live() { if (!wide.matches) return; pvs.forEach(function (pv) { var f = pv.querySelector('iframe[data-src]'); if (f && !f.src) { f.src = f.getAttribute('data-src'); pv.classList.add('is-live'); } }); }
+    live();
+    if (wide.addEventListener) wide.addEventListener('change', live);
     function fit() { pvs.forEach(function (pv) { var f = pv.querySelector('iframe'); f.style.transform = 'scale(' + (pv.clientWidth / 1280) + ')'; }); }
     fit();
     if ('ResizeObserver' in window) { var ro = new ResizeObserver(fit); pvs.forEach(function (p) { ro.observe(p); }); }

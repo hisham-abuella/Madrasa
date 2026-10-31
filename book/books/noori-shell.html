@@ -28,7 +28,7 @@
     --ink2:#3A6470;
     --surround:#0B2F38;
     --surround-2:#124651;
-    --quiet:#5E7E86;
+    --quiet:#4F6F78;
     --rule:rgba(11,53,64,.14);
     --acc:#0E7C86;
     --acc-text:#0A6A72;
@@ -68,6 +68,7 @@
   .pdfmenu summary::-webkit-details-marker{display:none}
   .pdfmenu .pdflinks{position:absolute;z-index:20;inset-inline-start:0;top:calc(100% + 6px);min-width:260px;display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:16px;background:#14363b;border:1px solid rgba(255,253,247,.26);box-shadow:0 14px 30px -10px rgba(0,0,0,.7)}
   .pdfmenu .pdflinks .pill{justify-content:flex-start}
+  .pdfmenu .menu-h{margin:6px 6px 0;font:700 .78rem/1.3 var(--ui);color:#CFE3E3}
   .trial-pill{background:#FF7A5C;border-color:#FF7A5C;color:#3A1006;font-weight:700}
   .home-mark{width:32px;height:32px;border-radius:50%;flex:none;display:block}
 
@@ -217,21 +218,22 @@
   <div class="bar-group">
     <a class="pill home-pill" href="../../index.html" id="homeLink">→ <img class="home-mark" src="../../assets/brand/logo-c1-128.webp" alt="" width="32" height="32"> نَوْرَس <span lang="en">Home</span></a>
     <button class="pill" id="fsBtn" type="button" aria-pressed="false">مِلْءُ الشَّاشَةِ</button>
-    <details class="pdfmenu"><summary class="pill" lang="en">Print / PDF</summary><div class="pdflinks" lang="en">
-      <a class="pill" href="../print/noori-shell-lulu-interior.pdf" target="_blank" rel="noopener">See the book (PDF)</a>
-      <a class="pill" href="../print/noori-shell-lulu-cover.pdf" target="_blank" rel="noopener">Cover (PDF)</a>
-      <a class="pill" href="../print/noori-shell-home-a5.pdf" target="_blank" rel="noopener">Print at home (A5 booklet)</a>
-      <a class="pill" href="../print/noori-shell-worksheets-letter.pdf" target="_blank" rel="noopener">Worksheets (Letter)</a>
-      <a class="pill" href="../print/noori-shell-worksheets-a4.pdf" target="_blank" rel="noopener">Worksheets (A4)</a>
+    <details class="pdfmenu"><summary class="pill">لِلْكِبَارِ <span lang="en">Grown-ups</span></summary><div class="pdflinks">
+      <button class="pill" id="turnBtn" type="button" aria-pressed="false">تَقْلِيبٌ تِلْقَائِيٌّ <span lang="en">Auto-turn</span></button>
+      <button class="pill" id="enBtn" type="button" aria-pressed="true" lang="en">English captions</button>
+      <p class="menu-h" lang="en">Print / PDF</p>
+      <a class="pill" href="../print/noori-shell-lulu-interior.pdf" target="_blank" rel="noopener" lang="en">See the book (PDF)</a>
+      <a class="pill" href="../print/noori-shell-lulu-cover.pdf" target="_blank" rel="noopener" lang="en">Cover (PDF)</a>
+      <a class="pill" href="../print/noori-shell-home-a5.pdf" target="_blank" rel="noopener" lang="en">Print at home (A5 booklet)</a>
+      <a class="pill" href="../print/noori-shell-worksheets-letter.pdf" target="_blank" rel="noopener" lang="en">Worksheets (Letter)</a>
+      <a class="pill" href="../print/noori-shell-worksheets-a4.pdf" target="_blank" rel="noopener" lang="en">Worksheets (A4)</a>
     </div></details>
-    <button class="pill" id="turnBtn" type="button" aria-pressed="false">تَقْلِيبٌ تِلْقَائِيٌّ</button>
   </div>
   <div class="bar-group">
     <div class="seg" id="voices" role="group" aria-label="الرَّاوِي — Narration">
       <button type="button" data-voice="ar" aria-pressed="true">فُصْحَى<small lang="en">Fusha</small></button>
       <button type="button" data-voice="eg" aria-pressed="false" lang="ar-EG">مَصْرِي<small lang="en">Egyptian</small></button>
     </div>
-    <button class="pill" id="enBtn" type="button" aria-pressed="true" lang="en">English</button>
   </div>
 </header>
 
@@ -287,7 +289,7 @@ var BOOK = {
    "title": "السَّلَامُ عَلَيْكُمْ!",
    "tint": "#8FC8E8",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/salam.webp\" alt=\"I am Noori, the little seagull. I fly over the sea of San Diego.\"></div>\n  <div class=\"words\"><h2>السَّلَامُ عَلَيْكُمْ!</h2><p class=\"line\">أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ. أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو.</p><p class=\"sound\">وَعَلَيْكُمُ السَّلَامُ يَا نُورِي!</p><p class=\"en-line\" lang=\"en\">I am Noori, the little seagull. I fly over the sea of San Diego.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>السلام عليكم! أنا نوري، النَّورس الصغير، وبطير فوق بحر سان دييجو.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/salam.webp\" alt=\"أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ. أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو. — I am Noori, the little seagull. I fly over the sea of San Diego.\"></div>\n  <div class=\"words\"><h2>السَّلَامُ عَلَيْكُمْ!</h2><p class=\"line\">أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ. أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو.</p><p class=\"sound\">وَعَلَيْكُمُ السَّلَامُ يَا نُورِي!</p><p class=\"en-line\" lang=\"en\">I am Noori, the little seagull. I fly over the sea of San Diego.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>السلام عليكم! أنا نوري، النَّورس الصغير، وبطير فوق بحر سان دييجو.</p></div>",
    "note": "رُدُّوا التَّحِيَّةَ مَعًا: وَعَلَيْكُمُ السَّلَامُ.<span class=\"en-line\" lang=\"en\">Answer the greeting together in Fusha. The book opens with a greeting so children speak from page one.</span>"
   },
   {
@@ -297,7 +299,7 @@ var BOOK = {
    "title": "صَدِيقَانِ جَدِيدَانِ",
    "tint": "#F4C97A",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/friends.webp\" alt=\"On the beach, Noori met two friends: this is Sami (هَذَا), and this is Salma (هَذِهِ).\"></div>\n  <div class=\"words\"><h2>صَدِيقَانِ جَدِيدَانِ</h2><p class=\"line\">عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ: <span class=\"m\">هَذَا</span> سَامِي، وَ<span class=\"f\">هَذِهِ</span> سَلْمَى.</p><p class=\"sound\">أَهْلًا يَا سَامِي! أَهْلًا يَا سَلْمَى!</p><p class=\"en-line\" lang=\"en\">On the beach, Noori met two friends: this is Sami (<span class=\"m\">هَذَا</span>), and this is Salma (<span class=\"f\">هَذِهِ</span>).</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>على البحر، نوري قابل اتنين صحابه: هذا سامي، وهذهِ سَلْمى.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/friends.webp\" alt=\"عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ: هَذَا سَامِي، وَهَذِهِ سَلْمَى. — On the beach, Noori met two friends: this is Sami (هَذَا), and this is Salma (هَذِهِ).\"></div>\n  <div class=\"words\"><h2>صَدِيقَانِ جَدِيدَانِ</h2><p class=\"line\">عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ: <span class=\"m\">هَذَا</span> سَامِي، وَ<span class=\"f\">هَذِهِ</span> سَلْمَى.</p><p class=\"sound\">أَهْلًا يَا سَامِي! أَهْلًا يَا سَلْمَى!</p><p class=\"en-line\" lang=\"en\">On the beach, Noori met two friends: this is Sami (<span class=\"m\">هَذَا</span>), and this is Salma (<span class=\"f\">هَذِهِ</span>).</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>على البحر، نوري قابل اتنين صحابه: هذا سامي، وهذهِ سَلْمى.</p></div>",
    "note": "أَشِيرُوا وَأَنْتُمْ تَقْرَؤُونَ: <span class=\"m\">هَذَا</span> سَامِي، وَ<span class=\"f\">هَذِهِ</span> سَلْمَى.<span class=\"en-line\" lang=\"en\">Point as you read. Children hear <span class=\"m\">هَذَا</span> for a boy and <span class=\"f\">هَذِهِ</span> for a girl before anyone explains the rule.</span>"
   },
   {
@@ -307,7 +309,7 @@ var BOOK = {
    "title": "هَذَا قَارِبٌ",
    "tint": "#7FC4E8",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/qarib.webp\" alt=\"Noori points his wing at the sea: this is a boat.\"></div>\n  <div class=\"words\"><h2><span class=\"m\">هَذَا</span> قَارِبٌ</h2><p class=\"line\">يُشِيرُ نُورِي بِجَنَاحِهِ إِلَى الْبَحْرِ: <span class=\"m\">هَذَا</span> قَارِبٌ.</p><p class=\"sound\">هَيَّا نَقُولُ مَعًا: <span class=\"m\">هَذَا</span> قَارِبٌ!</p><p class=\"en-line\" lang=\"en\">Noori points his wing at the sea: this is a boat.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري بيشاوِر بجناحه على البحر: هذا قارِبٌ.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/qarib.webp\" alt=\"يُشِيرُ نُورِي بِجَنَاحِهِ إِلَى الْبَحْرِ: هَذَا قَارِبٌ. — Noori points his wing at the sea: this is a boat.\"></div>\n  <div class=\"words\"><h2><span class=\"m\">هَذَا</span> قَارِبٌ</h2><p class=\"line\">يُشِيرُ نُورِي بِجَنَاحِهِ إِلَى الْبَحْرِ: <span class=\"m\">هَذَا</span> قَارِبٌ.</p><p class=\"sound\">هَيَّا نَقُولُ مَعًا: <span class=\"m\">هَذَا</span> قَارِبٌ!</p><p class=\"en-line\" lang=\"en\">Noori points his wing at the sea: this is a boat.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري بيشاوِر بجناحه على البحر: هذا قارِبٌ.</p></div>",
    "note": "قَارِبٌ كَلِمَةٌ مُذَكَّرَةٌ، فَنَقُولُ: <span class=\"m\">هَذَا</span>.<span class=\"en-line\" lang=\"en\">قَارِب (boat) is masculine, so it takes <span class=\"m\">هَذَا</span>. Let your child point and say it.</span>"
   },
   {
@@ -317,7 +319,7 @@ var BOOK = {
    "title": "هَذَا كِتَابٌ",
    "tint": "#F2B48A",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/kitab.webp\" alt=\"Noori reads on the beach. This is a book.\"></div>\n  <div class=\"words\"><h2><span class=\"m\">هَذَا</span> كِتَابٌ</h2><p class=\"line\">يَقْرَأُ نُورِي عَلَى الشَّاطِئِ. <span class=\"m\">هَذَا</span> كِتَابٌ.</p><p class=\"sound\">نَقُولُ «<span class=\"m\">هَذَا</span>» لِلْمُذَكَّرِ.</p><p class=\"en-line\" lang=\"en\">Noori reads on the beach. This is a book.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري بيقرا على البحر. هذا كِتابٌ. في الفُصحى بنقول «هذا» للمُذَكَّر.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/kitab.webp\" alt=\"يَقْرَأُ نُورِي عَلَى الشَّاطِئِ. هَذَا كِتَابٌ. — Noori reads on the beach. This is a book.\"></div>\n  <div class=\"words\"><h2><span class=\"m\">هَذَا</span> كِتَابٌ</h2><p class=\"line\">يَقْرَأُ نُورِي عَلَى الشَّاطِئِ. <span class=\"m\">هَذَا</span> كِتَابٌ.</p><p class=\"sound\">نَقُولُ «<span class=\"m\">هَذَا</span>» لِلْمُذَكَّرِ.</p><p class=\"en-line\" lang=\"en\">Noori reads on the beach. This is a book.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري بيقرا على البحر. هذا كِتابٌ. في الفُصحى بنقول «هذا» للمُذَكَّر.</p></div>",
    "note": "أَشِيرُوا إِلَى أَشْيَاءَ فِي الْبَيْتِ: <span class=\"m\">هَذَا</span> بَابٌ، <span class=\"m\">هَذَا</span> قَلَمٌ.<span class=\"en-line\" lang=\"en\">مُذَكَّر means masculine. At home, point and say: <span class=\"m\">هَذَا</span> بَابٌ (a door), <span class=\"m\">هَذَا</span> قَلَمٌ (a pen).</span>"
   },
   {
@@ -327,7 +329,7 @@ var BOOK = {
    "title": "هَذِهِ سَمَكَةٌ",
    "tint": "#8ED6C8",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/samaka.webp\" alt=\"A fish jumped out of the waves! This is a fish.\"></div>\n  <div class=\"words\"><h2><span class=\"f\">هَذِهِ</span> سَمَكَ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\">قَفَزَتْ سَمَكَ‍<span class=\"ta\">‍ةٌ</span> مِنَ الْمَوْجِ! <span class=\"f\">هَذِهِ</span> سَمَكَ‍<span class=\"ta\">‍ةٌ</span>.</p><p class=\"sound\">هَيَّا نَقُولُ مَعًا: <span class=\"f\">هَذِهِ</span> سَمَكَ‍<span class=\"ta\">‍ةٌ</span>!</p><p class=\"en-line\" lang=\"en\">A fish jumped out of the waves! This is a fish.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سَمَكة نطّت من المَوج! هذهِ سَمَكةٌ.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/samaka.webp\" alt=\"قَفَزَتْ سَمَكَةٌ مِنَ الْمَوْجِ! هَذِهِ سَمَكَةٌ. — A fish jumped out of the waves! This is a fish.\"></div>\n  <div class=\"words\"><h2><span class=\"f\">هَذِهِ</span> سَمَكَ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\">قَفَزَتْ سَمَكَ‍<span class=\"ta\">‍ةٌ</span> مِنَ الْمَوْجِ! <span class=\"f\">هَذِهِ</span> سَمَكَ‍<span class=\"ta\">‍ةٌ</span>.</p><p class=\"sound\">هَيَّا نَقُولُ مَعًا: <span class=\"f\">هَذِهِ</span> سَمَكَ‍<span class=\"ta\">‍ةٌ</span>!</p><p class=\"en-line\" lang=\"en\">A fish jumped out of the waves! This is a fish.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سَمَكة نطّت من المَوج! هذهِ سَمَكةٌ.</p></div>",
    "note": "سَمَكَةٌ كَلِمَةٌ مُؤَنَّثَةٌ، فَنَقُولُ: <span class=\"f\">هَذِهِ</span>.<span class=\"en-line\" lang=\"en\">سَمَكَة (fish) is feminine, so it takes <span class=\"f\">هَذِهِ</span>. Notice the coloured ending — it comes back on page 10.</span>"
   },
   {
@@ -337,7 +339,7 @@ var BOOK = {
    "title": "هَذِهِ نَخْلَةٌ",
    "tint": "#A9D98B",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/nakhla.webp\" alt=\"Noori sits on top of a tall tree. This is a palm tree.\"></div>\n  <div class=\"words\"><h2><span class=\"f\">هَذِهِ</span> نَخْلَ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\">يَجْلِسُ نُورِي فَوْقَ شَجَرَ‍<span class=\"ta\">‍ةٍ</span> عَالِيَةٍ. <span class=\"f\">هَذِهِ</span> نَخْلَ‍<span class=\"ta\">‍ةٌ</span>.</p><p class=\"sound\">نَقُولُ «<span class=\"f\">هَذِهِ</span>» لِلْمُؤَنَّثِ.</p><p class=\"en-line\" lang=\"en\">Noori sits on top of a tall tree. This is a palm tree.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري قاعد فوق شجرة عالية. هذهِ نَخْلةٌ. وبنقول «هذهِ» للمُؤَنَّث.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/nakhla.webp\" alt=\"يَجْلِسُ نُورِي فَوْقَ شَجَرَةٍ عَالِيَةٍ. هَذِهِ نَخْلَةٌ. — Noori sits on top of a tall tree. This is a palm tree.\"></div>\n  <div class=\"words\"><h2><span class=\"f\">هَذِهِ</span> نَخْلَ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\">يَجْلِسُ نُورِي فَوْقَ شَجَرَ‍<span class=\"ta\">‍ةٍ</span> عَالِيَةٍ. <span class=\"f\">هَذِهِ</span> نَخْلَ‍<span class=\"ta\">‍ةٌ</span>.</p><p class=\"sound\">نَقُولُ «<span class=\"f\">هَذِهِ</span>» لِلْمُؤَنَّثِ.</p><p class=\"en-line\" lang=\"en\">Noori sits on top of a tall tree. This is a palm tree.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري قاعد فوق شجرة عالية. هذهِ نَخْلةٌ. وبنقول «هذهِ» للمُؤَنَّث.</p></div>",
    "note": "فِي سَان دِييغُو نَخْلٌ كَثِيرٌ: عُدُّوا النَّخَلَاتِ فِي الطَّرِيقِ.<span class=\"en-line\" lang=\"en\">مُؤَنَّث means feminine. San Diego is full of palm trees: count them on the way home and say <span class=\"f\">هَذِهِ</span> نَخْلَةٌ.</span>"
   },
   {
@@ -347,7 +349,7 @@ var BOOK = {
    "title": "هَذِهِ صَدَفَةٌ",
    "tint": "#F6B8C0",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/sadafa.webp\" alt=\"Noori found something small on the sand. This is a little shell! He gave it to Salma: “Here you are, Salma!”\"></div>\n  <div class=\"words\"><h2><span class=\"f\">هَذِهِ</span> صَدَفَ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\">وَجَدَ نُورِي شَيْئًا صَغِيرًا عَلَى الرَّمْلِ. <span class=\"f\">هَذِهِ</span> صَدَفَ‍<span class=\"ta\">‍ةٌ</span> صَغِيرَ‍<span class=\"ta\">‍ةٌ</span>! قَدَّمَهَا لِسَلْمَى وَقَالَ: تَفَضَّلِي يَا سَلْمَى!</p><p class=\"sound\">شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.</p><p class=\"en-line\" lang=\"en\">Noori found something small on the sand. This is a little shell! He gave it to Salma: “Here you are, Salma!”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري لقى حاجة صغيّرة على الرملة. هذهِ صَدَفةٌ صغيرةٌ! وإدّاها لسَلْمى: تَفَضَّلي يا سَلْمى!</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/sadafa.webp\" alt=\"وَجَدَ نُورِي شَيْئًا صَغِيرًا عَلَى الرَّمْلِ. هَذِهِ صَدَفَةٌ صَغِيرَةٌ! قَدَّمَهَا لِسَلْمَى وَقَالَ: تَفَضَّلِي يَا سَلْمَى! — Noori found something small on the sand. This is a little shell! He gave it to Salma: “Here you are, Salma!”\"></div>\n  <div class=\"words\"><h2><span class=\"f\">هَذِهِ</span> صَدَفَ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\">وَجَدَ نُورِي شَيْئًا صَغِيرًا عَلَى الرَّمْلِ. <span class=\"f\">هَذِهِ</span> صَدَفَ‍<span class=\"ta\">‍ةٌ</span> صَغِيرَ‍<span class=\"ta\">‍ةٌ</span>! قَدَّمَهَا لِسَلْمَى وَقَالَ: تَفَضَّلِي يَا سَلْمَى!</p><p class=\"sound\">شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.</p><p class=\"en-line\" lang=\"en\">Noori found something small on the sand. This is a little shell! He gave it to Salma: “Here you are, Salma!”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري لقى حاجة صغيّرة على الرملة. هذهِ صَدَفةٌ صغيرةٌ! وإدّاها لسَلْمى: تَفَضَّلي يا سَلْمى!</p></div>",
    "note": "أَعْطُوا شَيْئًا وَقُولُوا: تَفَضَّلْ يَا سَامِي، تَفَضَّلِي يَا سَلْمَى. وَرُدُّوا: شُكْرًا، جَزَاكَ اللَّهُ خَيْرًا.<span class=\"en-line\" lang=\"en\">Practise giving and thanking: تَفَضَّلْ (here you are) to a boy, تَفَضَّلِي to a girl, the same masculine/feminine idea. The answer is شُكْرًا، جَزَاكَ اللَّهُ خَيْرًا (thank you, may Allah reward you). On your next beach day, find a real shell and say <span class=\"f\">هَذِهِ</span> صَدَفَةٌ together.</span>"
   },
   {
@@ -357,7 +359,7 @@ var BOOK = {
    "title": "الصَّدَفَةُ الصَّغِيرَةُ",
    "tint": "#F6B8C0",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/ta.webp\" alt=\"Look at the end of the words: سَمَكَة، نَخْلَة، صَدَفَة. This letter looks like a little shell!\"><span class=\"big-ta\" aria-hidden=\"true\">ة</span></div>\n  <div class=\"words\"><h2>الصَّدَفَةُ الصَّغِيرَةُ</h2><p class=\"line\">انْظُرُوا إِلَى آخِرِ الْكَلِمَةِ: سَمَكَ‍<span class=\"ta\">‍ةٌ</span>، نَخْلَ‍<span class=\"ta\">‍ةٌ</span>، صَدَفَ‍<span class=\"ta\">‍ةٌ</span>. <span class=\"m\">هَذَا</span> الْحَرْفُ يُشْبِهُ صَدَفَ‍<span class=\"ta\">‍ةً</span> صَغِيرَ‍<span class=\"ta\">‍ةً</span>!</p><p class=\"sound\">إِنَّهَا التَّاءُ الْمَرْبُوطَةُ!</p><p class=\"en-line\" lang=\"en\">Look at the end of the words: سَمَكَة، نَخْلَة، صَدَفَة. This letter looks like a little shell!</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>بُصّوا على آخر الكلمة: سَمَكة، نَخْلة، صَدَفة. الحرف ده شبه صَدَفة صغيّرة!</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/ta.webp\" alt=\"انْظُرُوا إِلَى آخِرِ الْكَلِمَةِ: سَمَكَةٌ، نَخْلَةٌ، صَدَفَةٌ. هَذَا الْحَرْفُ يُشْبِهُ صَدَفَةً صَغِيرَةً! — Look at the end of the words: سَمَكَة، نَخْلَة، صَدَفَة. This letter looks like a little shell!\"><span class=\"big-ta\" aria-hidden=\"true\">ة</span></div>\n  <div class=\"words\"><h2>الصَّدَفَةُ الصَّغِيرَةُ</h2><p class=\"line\">انْظُرُوا إِلَى آخِرِ الْكَلِمَةِ: سَمَكَ‍<span class=\"ta\">‍ةٌ</span>، نَخْلَ‍<span class=\"ta\">‍ةٌ</span>، صَدَفَ‍<span class=\"ta\">‍ةٌ</span>. <span class=\"m\">هَذَا</span> الْحَرْفُ يُشْبِهُ صَدَفَ‍<span class=\"ta\">‍ةً</span> صَغِيرَ‍<span class=\"ta\">‍ةً</span>!</p><p class=\"sound\">إِنَّهَا التَّاءُ الْمَرْبُوطَةُ!</p><p class=\"en-line\" lang=\"en\">Look at the end of the words: سَمَكَة، نَخْلَة، صَدَفَة. This letter looks like a little shell!</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>بُصّوا على آخر الكلمة: سَمَكة، نَخْلة، صَدَفة. الحرف ده شبه صَدَفة صغيّرة!</p></div>",
    "note": "ارْسُمُوا <span class=\"ta\">ة</span> بِالْإِصْبَعِ فِي الْهَوَاءِ أَوْ عَلَى الرَّمْلِ.<span class=\"en-line\" lang=\"en\">The <span class=\"ta\">ة</span> is the book’s key picture: a little shell at the end of a word. Draw it in the air or in the sand with a finger.</span>"
   },
   {
@@ -367,7 +369,7 @@ var BOOK = {
    "title": "قِطٌّ… قِطَّةٌ",
    "tint": "#F7CF8E",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/qitt.webp\" alt=\"This is a tomcat (هَذَا قِطٌّ), and this is a she-cat (هَذِهِ قِطَّةٌ). The shell at the end of the word tells us: هَذِهِ!\"></div>\n  <div class=\"words\"><h2>قِطٌّ… قِطَّ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\"><span class=\"m\">هَذَا</span> قِطٌّ، وَ<span class=\"f\">هَذِهِ</span> قِطَّ‍<span class=\"ta\">‍ةٌ</span>. الصَّدَفَةُ فِي آخِرِ الْكَلِمَةِ تَقُولُ لَنَا: <span class=\"f\">هَذِهِ</span>!</p><p class=\"sound\">أَضِفِ الصَّدَفَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!</p><p class=\"en-line\" lang=\"en\">This is a tomcat (<span class=\"m\">هَذَا</span> قِطٌّ), and this is a she-cat (<span class=\"f\">هَذِهِ</span> قِطَّةٌ). The shell at the end of the word tells us: <span class=\"f\">هَذِهِ</span>!</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>هذا قِطٌّ، وهذهِ قِطَّةٌ. الصَّدَفة اللي في آخر الكلمة بتقول لنا: هذهِ!</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/qitt.webp\" alt=\"هَذَا قِطٌّ، وَهَذِهِ قِطَّةٌ. الصَّدَفَةُ فِي آخِرِ الْكَلِمَةِ تَقُولُ لَنَا: هَذِهِ! — This is a tomcat (هَذَا قِطٌّ), and this is a she-cat (هَذِهِ قِطَّةٌ). The shell at the end of the word tells us: هَذِهِ!\"></div>\n  <div class=\"words\"><h2>قِطٌّ… قِطَّ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\"><span class=\"m\">هَذَا</span> قِطٌّ، وَ<span class=\"f\">هَذِهِ</span> قِطَّ‍<span class=\"ta\">‍ةٌ</span>. الصَّدَفَةُ فِي آخِرِ الْكَلِمَةِ تَقُولُ لَنَا: <span class=\"f\">هَذِهِ</span>!</p><p class=\"sound\">أَضِفِ الصَّدَفَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!</p><p class=\"en-line\" lang=\"en\">This is a tomcat (<span class=\"m\">هَذَا</span> قِطٌّ), and this is a she-cat (<span class=\"f\">هَذِهِ</span> قِطَّةٌ). The shell at the end of the word tells us: <span class=\"f\">هَذِهِ</span>!</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>هذا قِطٌّ، وهذهِ قِطَّةٌ. الصَّدَفة اللي في آخر الكلمة بتقول لنا: هذهِ!</p></div>",
    "note": "قُولُوا الْكَلِمَتَيْنِ بِبُطْءٍ: قِطٌّ… قِطَّةٌ. هَلْ تَسْمَعُونَ الْفَرْقَ؟<span class=\"en-line\" lang=\"en\">Say both words slowly — قِطّ… قِطَّة — so your child hears the ending as well as sees it.</span>"
   },
   {
@@ -377,7 +379,7 @@ var BOOK = {
    "title": "صَدِيقٌ… صَدِيقَةٌ",
    "tint": "#F4C97A",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/sadiq.webp\" alt=\"Sami is a friend (صَدِيق), and Salma is a friend (صَدِيقَة). They build a sandcastle and help each other.\"></div>\n  <div class=\"words\"><h2>صَدِيقٌ… صَدِيقَ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\">سَامِي صَدِيقٌ، وَسَلْمَى صَدِيقَ‍<span class=\"ta\">‍ةٌ</span>. يَبْنِيَانِ قَصْرًا مِنَ الرَّمْلِ، وَيَتَعَاوَنَانِ.</p><p class=\"sound\">مُعَلِّمٌ… مُعَلِّمَ‍<span class=\"ta\">‍ةٌ</span>! طَالِبٌ… طَالِبَ‍<span class=\"ta\">‍ةٌ</span>!</p><p class=\"en-line\" lang=\"en\">Sami is a friend (صَدِيق), and Salma is a friend (صَدِيقَة). They build a sandcastle and help each other.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سامي صَديقٌ، وسَلْمى صَديقةٌ. بيبنوا قصر من الرملة، وبيساعدوا بعض.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/sadiq.webp\" alt=\"سَامِي صَدِيقٌ، وَسَلْمَى صَدِيقَةٌ. يَبْنِيَانِ قَصْرًا مِنَ الرَّمْلِ، وَيَتَعَاوَنَانِ. — Sami is a friend (صَدِيق), and Salma is a friend (صَدِيقَة). They build a sandcastle and help each other.\"></div>\n  <div class=\"words\"><h2>صَدِيقٌ… صَدِيقَ‍<span class=\"ta\">‍ةٌ</span></h2><p class=\"line\">سَامِي صَدِيقٌ، وَسَلْمَى صَدِيقَ‍<span class=\"ta\">‍ةٌ</span>. يَبْنِيَانِ قَصْرًا مِنَ الرَّمْلِ، وَيَتَعَاوَنَانِ.</p><p class=\"sound\">مُعَلِّمٌ… مُعَلِّمَ‍<span class=\"ta\">‍ةٌ</span>! طَالِبٌ… طَالِبَ‍<span class=\"ta\">‍ةٌ</span>!</p><p class=\"en-line\" lang=\"en\">Sami is a friend (صَدِيق), and Salma is a friend (صَدِيقَة). They build a sandcastle and help each other.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سامي صَديقٌ، وسَلْمى صَديقةٌ. بيبنوا قصر من الرملة، وبيساعدوا بعض.</p></div>",
    "note": "الْعَبُوا: أَقُولُ «مُعَلِّمٌ»، وَأَنْتَ تُضِيفُ الصَّدَفَةَ: «مُعَلِّمَةٌ».<span class=\"en-line\" lang=\"en\">Play “add the shell”: you say مُعَلِّم, your child answers مُعَلِّمَة. Then طَالِب → طَالِبَة.</span>"
   },
   {
@@ -387,7 +389,7 @@ var BOOK = {
    "title": "انْتَبِهُوا!",
    "tint": "#F2A7A0",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/bint.webp\" alt=\"Salma said: “But… I am a girl, and بِنْت (girl) has no shell at the end!”\"></div>\n  <div class=\"words\"><h2>انْتَبِهُوا!</h2><p class=\"line\">قَالَتْ سَلْمَى: لَكِنْ… أَنَا بِنْتٌ، وَ«بِنْتٌ» لَيْسَ فِي آخِرِهَا صَدَفَةٌ!</p><p class=\"sound\">هَلْ نَقُولُ <span class=\"m\">هَذَا</span> أَمْ <span class=\"f\">هَذِهِ</span>؟</p><p class=\"en-line\" lang=\"en\">Salma said: “But… I am a girl, and بِنْت (girl) has no shell at the end!”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سَلْمى قالت: بس… أنا بِنت، وبِنت مافيش في آخرها صَدَفة!</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/bint.webp\" alt=\"قَالَتْ سَلْمَى: لَكِنْ… أَنَا بِنْتٌ، وَ«بِنْتٌ» لَيْسَ فِي آخِرِهَا صَدَفَةٌ! — Salma said: “But… I am a girl, and بِنْت (girl) has no shell at the end!”\"></div>\n  <div class=\"words\"><h2>انْتَبِهُوا!</h2><p class=\"line\">قَالَتْ سَلْمَى: لَكِنْ… أَنَا بِنْتٌ، وَ«بِنْتٌ» لَيْسَ فِي آخِرِهَا صَدَفَةٌ!</p><p class=\"sound\">هَلْ نَقُولُ <span class=\"m\">هَذَا</span> أَمْ <span class=\"f\">هَذِهِ</span>؟</p><p class=\"en-line\" lang=\"en\">Salma said: “But… I am a girl, and بِنْت (girl) has no shell at the end!”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سَلْمى قالت: بس… أنا بِنت، وبِنت مافيش في آخرها صَدَفة!</p></div>",
    "note": "اسْأَلُوا طِفْلَكُمْ قَبْلَ أَنْ تَقْلِبُوا الصَّفْحَةَ.<span class=\"en-line\" lang=\"en\">Ask your child before you turn the page — guessing first makes the next page stick.</span>"
   },
   {
@@ -397,7 +399,7 @@ var BOOK = {
    "title": "مُؤَنَّثٌ بِلَا ة",
    "tint": "#FFD86B",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/shams.webp\" alt=\"Noori said: “Right! Some words are feminine with no ة: this is a girl, this is a mother, this is the sun.”\"></div>\n  <div class=\"words\"><h2>مُؤَنَّثٌ بِلَا <span class=\"ta\">ة</span></h2><p class=\"line\">قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا <span class=\"ta\">ة</span>: <span class=\"f\">هَذِهِ</span> بِنْتٌ، <span class=\"f\">هَذِهِ</span> أُمٌّ، <span class=\"f\">هَذِهِ</span> شَمْسٌ.</p><p class=\"sound\">هَيَّا نُشِيرُ وَنَقُولُ: <span class=\"f\">هَذِهِ</span> بِنْتٌ، <span class=\"f\">هَذِهِ</span> أُمٌّ، <span class=\"f\">هَذِهِ</span> شَمْسٌ!</p><p class=\"en-line\" lang=\"en\">Noori said: “Right! Some words are feminine with no <span class=\"ta\">ة</span>: this is a girl, this is a mother, this is the sun.”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري قال: صحّ! فيه كلمات مؤنَّثة من غير تاء مربوطة: هذهِ بِنتٌ، هذهِ أُمٌّ، هذهِ شَمسٌ.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/shams.webp\" alt=\"قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ. — Noori said: “Right! Some words are feminine with no ة: this is a girl, this is a mother, this is the sun.”\"></div>\n  <div class=\"words\"><h2>مُؤَنَّثٌ بِلَا <span class=\"ta\">ة</span></h2><p class=\"line\">قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا <span class=\"ta\">ة</span>: <span class=\"f\">هَذِهِ</span> بِنْتٌ، <span class=\"f\">هَذِهِ</span> أُمٌّ، <span class=\"f\">هَذِهِ</span> شَمْسٌ.</p><p class=\"sound\">هَيَّا نُشِيرُ وَنَقُولُ: <span class=\"f\">هَذِهِ</span> بِنْتٌ، <span class=\"f\">هَذِهِ</span> أُمٌّ، <span class=\"f\">هَذِهِ</span> شَمْسٌ!</p><p class=\"en-line\" lang=\"en\">Noori said: “Right! Some words are feminine with no <span class=\"ta\">ة</span>: this is a girl, this is a mother, this is the sun.”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري قال: صحّ! فيه كلمات مؤنَّثة من غير تاء مربوطة: هذهِ بِنتٌ، هذهِ أُمٌّ، هذهِ شَمسٌ.</p></div>",
    "note": "افْتَحُوا أَيْدِيَكُمْ: بِلَا صَدَفَةٍ! ثُمَّ أَشِيرُوا وَقُولُوا: <span class=\"f\">هَذِهِ</span> بِنْتٌ، <span class=\"f\">هَذِهِ</span> أُمٌّ، <span class=\"f\">هَذِهِ</span> شَمْسٌ.<span class=\"en-line\" lang=\"en\">The fence: the <span class=\"ta\">ة</span> is a helper, not the rule. بِنْت، أُمّ، شَمْس take <span class=\"f\">هَذِهِ</span> with no <span class=\"ta\">ة</span>. Give them a gesture: open, empty hands for «بِلَا صَدَفَةٍ» (no shell), then point at a girl, think of mum, point at the window. Mother is in the words, not the picture.</span>"
   },
   {
@@ -407,7 +409,7 @@ var BOOK = {
    "title": "وَالصِّفَةُ أَيْضًا!",
    "tint": "#9ED0F0",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/nashit.webp\" alt=\"This is an active boy (وَلَدٌ نَشِيطٌ), and this is an active girl (بِنْتٌ نَشِيطَةٌ).\"></div>\n  <div class=\"words\"><h2>وَالصِّفَةُ أَيْضًا!</h2><p class=\"line\"><span class=\"m\">هَذَا</span> وَلَدٌ نَشِيطٌ، وَ<span class=\"f\">هَذِهِ</span> بِنْتٌ نَشِيطَ‍<span class=\"ta\">‍ةٌ</span>.</p><p class=\"sound\">الصِّفَةُ تَأْخُذُ الصَّدَفَةَ أَيْضًا!</p><p class=\"en-line\" lang=\"en\">This is an active boy (وَلَدٌ نَشِيطٌ), and this is an active girl (بِنْتٌ نَشِيطَةٌ).</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>هذا وَلَدٌ نَشيطٌ، وهذهِ بِنتٌ نَشيطةٌ. والصِّفة كمان بتاخد الصَّدَفة!</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/nashit.webp\" alt=\"هَذَا وَلَدٌ نَشِيطٌ، وَهَذِهِ بِنْتٌ نَشِيطَةٌ. — This is an active boy (وَلَدٌ نَشِيطٌ), and this is an active girl (بِنْتٌ نَشِيطَةٌ).\"></div>\n  <div class=\"words\"><h2>وَالصِّفَةُ أَيْضًا!</h2><p class=\"line\"><span class=\"m\">هَذَا</span> وَلَدٌ نَشِيطٌ، وَ<span class=\"f\">هَذِهِ</span> بِنْتٌ نَشِيطَ‍<span class=\"ta\">‍ةٌ</span>.</p><p class=\"sound\">الصِّفَةُ تَأْخُذُ الصَّدَفَةَ أَيْضًا!</p><p class=\"en-line\" lang=\"en\">This is an active boy (وَلَدٌ نَشِيطٌ), and this is an active girl (بِنْتٌ نَشِيطَةٌ).</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>هذا وَلَدٌ نَشيطٌ، وهذهِ بِنتٌ نَشيطةٌ. والصِّفة كمان بتاخد الصَّدَفة!</p></div>",
    "note": "بِنْتٌ بِلَا <span class=\"ta\">ة</span>، لَكِنَّ صِفَتَهَا تَأْخُذُ <span class=\"ta\">ة</span>: بِنْتٌ نَشِيطَةٌ.<span class=\"en-line\" lang=\"en\">Agreement: بِنْت has no ة, but the adjective after it does — نَشِيطَة. This is the champions’ challenge.</span>"
   },
   {
@@ -417,7 +419,7 @@ var BOOK = {
    "title": "أَحْسَنْتُمْ!",
    "tint": "#F7A98B",
    "audio": true,
-   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-shell/bye.webp\" alt=\"Praise be to Allah, we learned: هَذَا for masculine, هَذِهِ for feminine, and the little shell ة usually makes a word feminine.\"></div>\n  <div class=\"words\"><h2>أَحْسَنْتُمْ!</h2><p class=\"line\">الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: <span class=\"m\">هَذَا</span> لِلْمُذَكَّرِ، وَ<span class=\"f\">هَذِهِ</span> لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ <span class=\"ta\">ة</span> تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَ‍<span class=\"ta\">‍ةً</span> فِي الْغَالِبِ.</p><p class=\"sound\">إِلَى اللِّقَاءِ يَا أَصْدِقَائِي!</p><p class=\"en-line\" lang=\"en\">Praise be to Allah, we learned: <span class=\"m\">هَذَا</span> for masculine, <span class=\"f\">هَذِهِ</span> for feminine, and the little shell <span class=\"ta\">ة</span> usually makes a word feminine.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>الحمد لله، اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، والصَّدَفة الصغيّرة بتخلّي الكلمة مؤنَّثة في الغالب.</p></div>",
+   "html": "<div class=\"stage\"><img src=\"../images-noori-shell/bye.webp\" alt=\"الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ ة تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً فِي الْغَالِبِ. — Praise be to Allah, we learned: هَذَا for masculine, هَذِهِ for feminine, and the little shell ة usually makes a word feminine.\"></div>\n  <div class=\"words\"><h2>أَحْسَنْتُمْ!</h2><p class=\"line\">الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: <span class=\"m\">هَذَا</span> لِلْمُذَكَّرِ، وَ<span class=\"f\">هَذِهِ</span> لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ <span class=\"ta\">ة</span> تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَ‍<span class=\"ta\">‍ةً</span> فِي الْغَالِبِ.</p><p class=\"sound\">إِلَى اللِّقَاءِ يَا أَصْدِقَائِي!</p><p class=\"en-line\" lang=\"en\">Praise be to Allah, we learned: <span class=\"m\">هَذَا</span> for masculine, <span class=\"f\">هَذِهِ</span> for feminine, and the little shell <span class=\"ta\">ة</span> usually makes a word feminine.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>الحمد لله، اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، والصَّدَفة الصغيّرة بتخلّي الكلمة مؤنَّثة في الغالب.</p></div>",
    "note": "الْآنَ إِلَى صَفَحَاتِ التَّمَارِينِ: قَلَمُ رَصَاصٍ، وَنَبْدَأُ مِنَ النُّقْطَةِ الْخَضْرَاءِ.<span class=\"en-line\" lang=\"en\">Now the exercise pages: a pencil, and every tracing starts at the green dot.</span>"
   },
   {
@@ -601,7 +603,7 @@ function wirePage(page){
     [['ة|ـة', 'taa-m'], ['بِنْت', 'bint'], ['هَذِهِ', 'hathihi'], ['هَذَا', 'hatha'], ['ة', 'taa-final']].some(function (m) { if (all.indexOf(m[0]) > -1) { item = m[1]; return true; } return false; });
     var gl = document.createElement('p');
     gl.className = 'game-row';
-    gl.innerHTML = '<a class="game-link" href="../../games/write.html' + (item ? '?item=' + item : '') + '"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg>تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en">Practise stroke by stroke — writing game</span></a>';
+    gl.innerHTML = '<a class="game-link" href="../../games/write.html' + (item ? '?item=' + item : '') + '"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg>تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en" lang="en">Practise stroke by stroke — writing game</span></a>';
     var last = pads[pads.length - 1];
     last.parentNode.insertBefore(gl, last.nextSibling);
   }
@@ -626,12 +628,12 @@ function wirePage(page){
         Array.prototype.forEach.call(group.querySelectorAll('.pick'), function (x) { x.disabled = true; });
         got++;
         if (score) score.innerHTML += KS.star(true);
-        if (hint) { hint.textContent = got === total ? 'أَحْسَنْتَ! كُلُّ الْإِجَابَاتِ صَحِيحَةٌ — Well done!' : 'رَائِعٌ! — Great!'; hint.className = 'hint good'; }
+        if (hint) { hint.textContent = got === total ? 'أَحْسَنْتُمْ! كُلُّ الْإِجَابَاتِ صَحِيحَةٌ — Well done!' : 'رَائِعٌ! — Great!'; hint.className = 'hint good'; }
         if (window.KS && KS.sfx) KS.sfx('good');
         if (got === total && KS.confetti) KS.confetti(24);
       } else {
         b.classList.remove('is-wrong'); void b.offsetWidth; b.classList.add('is-wrong');
-        if (hint) { hint.textContent = group.getAttribute('data-hint') || page.hint || 'حَاوِلْ مَرَّةً أُخْرَى — try again'; hint.className = 'hint'; }
+        if (hint) { hint.textContent = group.getAttribute('data-hint') || page.hint || 'لِنُحَاوِلْ مَرَّةً أُخْرَى — try again'; hint.className = 'hint'; }
         if (window.KS && KS.sfx) KS.sfx('bad');
       }
     });

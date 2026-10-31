@@ -39,9 +39,9 @@ a.tile:active { transform: translate(4px, 4px); box-shadow: var(--btn-shadow-pre
 .t-lv { grid-column: span 3; min-height: 210px; display: flex; flex-direction: column; justify-content: flex-end; }
 .t-lv:nth-of-type(1) { background: var(--brand); color: var(--on-brand); }
 .t-lv:nth-of-type(2) { background: var(--accent); color: var(--on-accent); }
-.t-lv:nth-of-type(3) { background: var(--sun); color: #1E1A0E; }
+.t-lv:nth-of-type(3) { background: var(--sun); color: var(--on-sun); }
 .t-lv:nth-of-type(4) { background: var(--surface2); color: var(--ink); }
-.t-lv .en { color: inherit; opacity: .92; }
+.t-lv .en { color: inherit; }
 .t-lv h3 { font-family: var(--f-word); font-size: 1.55rem; margin: 0; }
 .t-lv .word { margin: 0; font-size: 1.15rem; }
 .t-lv .badge { position: absolute; top: 14px; inset-inline-end: 14px; width: 66px; height: 66px; display: grid; place-items: center; transition: transform .4s var(--ease-pop); }
@@ -79,8 +79,8 @@ a.tile:active { transform: translate(4px, 4px); box-shadow: var(--btn-shadow-pre
 .t-p p { margin: 0 0 6px; }
 .t-cta { grid-column: span 12; background: var(--accent); color: var(--on-accent); display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
 .t-cta h2 { margin: 0; color: var(--on-accent); }
-.t-cta .en { color: var(--on-accent); opacity: .92; }
-.t-cta .btn { --b: var(--sun); --bi: #1E1A0E; }
+.t-cta > div .en, .t-cta > p.en { color: var(--on-accent); }
+.t-cta .btn { --b: var(--sun); --bi: var(--on-sun); }
 
 @media (max-width: 960px) {
   .bento { grid-template-columns: repeat(2, 1fr); gap: 14px; }

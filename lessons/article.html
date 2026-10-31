@@ -69,7 +69,7 @@
 /* ة badge */
 .ta-big { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
 .ta-big .glyph { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--surface); border: 3px solid var(--fem); font-family: var(--f-word); font-weight: 700; font-size: 3.4rem; line-height: 1; color: var(--ta); padding-bottom: 10px; animation: glow 2.4s ease-in-out infinite; }
+  background: var(--surface); border: 3px solid var(--fem); font-family: var(--f-word); font-weight: 700; font-size: 3.4rem; line-height: 1; color: var(--ta); padding-bottom: 10px; animation: glow 2.4s ease-in-out 3; }
 .callout .word { font-size: 1.15em; }
 
 /* secret of ة: morph rows */
@@ -138,39 +138,39 @@
 .end-cta .row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 16px; }
 
 /* ── print: a clean worksheet with writing lines ──────────────────────── */
-.ws-print { font-family: var(--f-word); color: #000; }
+.ws-print { font-family: var(--f-word); color: var(--print-ink); }
 .ws-print h2 { font-family: var(--f-word); font-size: 22pt; margin: 0; }
 .ws-print h3 { font-family: var(--f-word); font-size: 15pt; margin: 14pt 0 4pt; display: flex; gap: 8pt; align-items: baseline; }
-.ws-print h3 .en, .ws-print .en { font-family: "Patrick Hand", "Baloo Bhaijaan 2", sans-serif; font-size: 9.5pt; color: #444; font-weight: 400; }
+.ws-print h3 .en, .ws-print .en { font-family: "Patrick Hand", "Baloo Bhaijaan 2", sans-serif; font-size: 9.5pt; color: var(--print-ink2); font-weight: 400; }
 .ws-print .namebar { display: flex; gap: 24pt; margin: 6pt 0 8pt; font-size: 13pt; }
-.ws-print .namebar span { flex: 1; border-bottom: 1px solid #555; padding-bottom: 2pt; }
+.ws-print .namebar span { flex: 1; border-bottom: 1px solid var(--print-rule); padding-bottom: 2pt; }
 .ws-print .circle-row { display: flex; justify-content: space-around; font-size: 22pt; font-weight: 700; padding: 3pt 0; }
 .ws-print .fill-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10pt; font-size: 19pt; font-weight: 700; }
 .ws-print .fill-row span { display: block; }
-.ws-print .fill-row i { display: inline-block; width: 52%; border-bottom: 1.5px dotted #333; height: 1em; vertical-align: baseline; }
+.ws-print .fill-row i { display: inline-block; width: 52%; border-bottom: 1.5px dotted var(--print-dot); height: 1em; vertical-align: baseline; }
 .ws-print .match { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10pt; text-align: center; }
 .ws-print .match [data-pic] { height: 30mm; display: flex; justify-content: center; align-items: flex-end; }
 .ws-print .match .pic { width: auto; height: 100%; }
 .ws-print .match p { font-size: 17pt; font-weight: 700; margin: 2pt 0 0; }
-.ws-print .match i { display: inline-block; width: 18mm; border-bottom: 1.5px dotted #333; }
+.ws-print .match i { display: inline-block; width: 18mm; border-bottom: 1.5px dotted var(--print-dot); }
 .ws-print .draw { display: grid; grid-template-columns: 1fr; gap: 6pt; }
-.ws-print .draw .box { height: 55mm; border: 1.5px dashed #888; border-radius: 4mm; }
+.ws-print .draw .box { height: 55mm; border: 1.5px dashed var(--print-box); border-radius: 4mm; }
 .ws-print .draw p { font-size: 19pt; font-weight: 700; margin: 0; }
-.ws-print .draw p i { display: inline-block; width: 60%; border-bottom: 1.5px dotted #333; }
+.ws-print .draw p i { display: inline-block; width: 60%; border-bottom: 1.5px dotted var(--print-dot); }
 .ws-print .write-lines { --lh: 13mm; --n: 2; margin-top: 2pt; }
 
 @media print {
   @page { size: auto; margin: 12mm; }
-  html, body { background: #fff !important; color: #000; font-size: 12pt; }
+  html, body { background: var(--print-paper) !important; color: var(--print-ink); font-size: 12pt; }
   body { --pattern: none; }
   .topbar, .l-hero .hero-noori, .hero-cta, .meta, .crumbs, .foot, .end-cta, .parents .acts { display: none !important; }
   .l-hero { background: none; border: 0; padding: 0 0 6pt; }
   .l-hero h1 { font-size: 26pt; }
   .l-body > .l-sec { display: none; }
   .l-body > .l-sec.print-keep { display: block; border: 0; padding: 8pt 0; break-inside: avoid; }
-  .takeaways { border: 1.5px dashed #555; }
-  .takeaways .en { color: #444; }
-  .parents { background: none; border: 1px solid #bbb; break-before: page; }
+  .takeaways { border: 1.5px dashed var(--print-rule); }
+  .takeaways .en { color: var(--print-ink2); }
+  .parents { background: none; border: 1px solid var(--print-line); break-before: page; }
   .ws-print { break-before: page; }
   .ws-print section { break-inside: avoid; }
   * { animation: none !important; transition: none !important; box-shadow: none !important; }
@@ -466,6 +466,8 @@
         </div>
       </div>
     </section>
+
+    <aside class="no-print" data-grownup data-reveal></aside>
 
     <div class="end-cta no-print">
       <div data-gull="cheer" style="width:110px;margin:0 auto" data-gull-label="نُورِي يَفْرَحُ — Noori cheering"></div>

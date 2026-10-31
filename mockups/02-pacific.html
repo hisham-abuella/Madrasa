@@ -121,7 +121,11 @@
 /* ── illustrated artwork (KS.art) ── */
 .o-art { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; object-position: center 70%; }
 html:not([data-art="svg"]) .o-hero:not(.art-miss)::before { content: ""; position: absolute; z-index: -1; inset: 70px 0 auto; height: 460px;
-  background: radial-gradient(ellipse 46% 50% at 50% 45%, color-mix(in srgb, var(--surface) 62%, transparent), transparent 75%); pointer-events: none; }
+  background: radial-gradient(ellipse 46% 50% at 50% 45%, color-mix(in srgb, var(--art-day-surface) 62%, transparent), transparent 75%); pointer-events: none; }
+/* the daylight picture does not change with the theme: its text keeps day colours in every theme */
+html:not([data-art="svg"]) .o-hero:not(.art-miss) { --hero-ink: var(--art-day-ink); --hero-ink2: var(--art-day-ink2); }
+html:not([data-art="svg"]) .topbar .logo { --ink: var(--art-day-ink); --hero-ink2: var(--art-day-ink2); }
+.topbar .logo small { color: var(--hero-ink2); }   /* the top bar sits on the hero sky, not on the page */
 </style>
 </head>
 <body>

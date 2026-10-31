@@ -52,7 +52,7 @@ function body(p) {
         return `<div class="about"><h2>${mark(a.name)}</h2>${a.body.map((x) => `<p>${mark(x)}</p>`).join('')}
   <div class="en-block" lang="en"><h3>${esc(e.name)}</h3>${e.body.map((x) => `<p>${mark(x)}</p>`).join('')}</div></div>`;
     case 'story':
-        return `<div class="stage"><img class="breathe" src="${IMG(p.img)}" alt="${esc(plain(e.line))}">${p.big ? `<span class="big-ta" aria-hidden="true">${esc(p.big)}</span>` : ''}</div>
+        return `<div class="stage"><img src="${IMG(p.img)}" alt="${esc(plain(a.line) + ' — ' + plain(e.line))}">${p.big ? `<span class="big-ta" aria-hidden="true">${esc(p.big)}</span>` : ''}</div>
   <div class="words"><h2>${mark(a.name)}</h2><p class="line">${mark(a.line)}</p><p class="sound">${mark(a.sound)}</p>${en(e.line)}${egLine(p)}</div>`;
     case 'recap':
         return `<div class="words" style="max-width:none"><h2>${mark(a.name)}</h2>${en(e.name)}</div>

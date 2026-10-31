@@ -67,3 +67,39 @@ Fixed this run:
 Notes for next time:
   - overlay: scratchpad/wg/overlay.html; level-3 shots: scratchpad/shots/writegame/L3-static-*.png, L3-watch-*-d.png
 [DONE]
+
+=== 2026-10-31 · frontend-engineer · Fix round 1 batch B (lead): S-002 S-003 S-009 S-010 S-020 S-023 S-024 S-025 S-026 S-027 S-029 S-030 S-034 S-039 S-041 + S-006 leftover ===
+Lead / asked by: coordinator (Fix round 1, batch B); helpers acted inline: ui-designer, kids-ux-designer, accessibility-auditor, motion-and-sound-designer (entries in their logs)
+Files changed: NEW tools/release-check.mjs; assets/kids.css; assets/kids.js; index.html; 404.html (none — fixed via kids.css); guide.html; lessons/article.html; lessons/story.html; games/write.css; mockups/01..06; book/tools/story-template.html + book/tools/new-story.js → book/books/noori-shell.html (new-story.js only); lessons/presentation/build/build.py → lessons/presentation.html (run.sh); pitch/build/{build.py,images.py} → pitch/index.html; pitch/img/{lesson-article,lesson-story,lesson-slides,writing-pad,book-pages}.png → .webp; README.md (one line); claudeteam/suggestions.jsonl (status of 15 items + S-006 note)
+Findings:
+  [MAJOR] [A11Y] CTA English lost to page `.x .en` rules + `.btn .en {opacity:.85}` — 1.52–4.17 rendered — fix: `.btn.btn .en { color: inherit }`, opacity removed (also .ks-art__btn, story .seg, games .wg-seg/.wg-mode, mosaic)
+  [MAJOR] [FIX] KS.speak silent without an Arabic voice — fix: clip → voice → word bubble + pop; watchdog 1.5 s
+  [MAJOR] [FIX] KS.quiz locked after a wrong answer and showed empty stars / "You got 2 of 5" — fix: retry with hint, star on find, «أَحْسَنْتُمْ! كُلُّ النُّجُومِ لَكُمْ»
+  [MAJOR] [BUILD] lessons/presentation/build/build.py copied kids.css by LINE NUMBERS — any kids.css edit broke the deck (55+ check issues) — fix: blk(anchor, offset, n) by unique anchor lines
+  [MAJOR] [RTL] cross-theme: Fanous layout's night picture with dark ink, Pacific layout's day picture with cream ink (reachable from each mockup's picker) — fix: --art-day-* / --art-night-* tokens on the hero in illustrated mode
+  [MINOR] [FIX] web book/deck took ?theme= and postMessage themes though pinned (data-theme-fixed + data-no-picker): book in fanous = cream text on cream page — fix: kids.js ignores both on pinned pages
+  [MINOR] [A11Y] footer CTA 3-D shadow over the next line (2.53) — `.foot .btn { margin-block }`; Andalus odd badges, Mihrab arches, Kurrasa sticky/note/num, Andalus .p-item, Pacific top-bar small, guide .paper code, book --quiet → all pass
+  [MINOR] [PERF] S-029 pitch screenshots PNG 2.79 MB → WebP 0.69 MB (pitch load at 390: 4.7 → 3.0 MB, rest = live iframes); hub at 390: 4.97 MB / 139 req → 1.36 MB / 30 req (still og cards < 701 px, live iframes ≥ 701 px)
+Decisions / judgement calls:
+  - release-check measures contrast from PIXELS: viewport tiles (not fullPage: a full-page capture resizes the viewport and vh blocks move), text made transparent (`:not(svg, svg *){color:transparent; text-shadow:none}` — adding -webkit-text-fill-color or caret-color dropped currentColor fills inside <use>), SVG colours pinned, motion frozen, glyph band 1.2 em, verdict = 10th percentile — why: token tables and ancestor walks missed every real failure found this round
+  - S-034 already satisfied by the template (.pick + data-group + hint + retry) — verified, no code change
+  - S-020: one shared component (KS.grownupCard) on article + story; deck's close slide already carries the home tasks
+  - Grown-ups menu reuses the existing .pdfmenu <details>; English button text "English captions"
+Fixed this run — verified by:
+  - node tools/release-check.mjs (full): 160 runs, 17 pages (incl. deep 404) × 1280 / 820m / 390m + 6 themes + art=svg + reduced motion → err 0, fail 0, img 0, hscr 0, cntr 0, lang 0, rm 0 ("RELEASE CHECK: all hard checks passed"); first quick run had cntr 204 / lang 756
+  - run.sh --themes: presentation 23 slides × 7 themes 0 issues; pitch check.mjs --themes 14 slides × 7 themes 0 issues
+  - rc/func.cjs: quiz wrong→hint→retry→star ×5, 5/5 end text, 22 unique listen names, end card (article + story), book menu + English toggle, 5 book exercise pages miss→all stars — 1280 + 390, 0 page errors
+  - rc/speak.cjs: bubble on no-Arabic-voice / no speechSynthesis / silent voice (1.55 s); none when the voice works; rc/clip.cjs: data-audio plays, missing clip → one TTS call
+  - file://: hub, article, story, deck, book, game, pitch, guide, mosaic open with 0 errors (404 needs Pages, as designed)
+  - writing game: wg/test.cjs (4 items × 3 sizes pass/miss/done, 0 hscroll, 0 small) + wg/test2.cjs (reduced motion, help, dots, file://, links) unchanged
+  - book/books/noori-shell.html diff = menu + .menu-h CSS + --quiet + praise strings + 13 story img (alt Arabic-first, no .breathe); print-book.sh NOT run
+Still open:
+  - S-012 word clips → then list names in WORD_CLIPS (kids.js) — owner: motion-and-sound-designer (audio)
+  - Book PDFs not rebuilt (no print change needed from batch B)
+  - Real iPad + VoiceOver pass of the new lang spans, bubble and end card — owner: qa-lead / accessibility-auditor
+  - Unrelated working-tree changes seen during the run (audio/transcripts/*.json, book/source/noori-shell-{ar,eg}.json, audio/transcripts/words-ar.json) — not mine, left untouched
+Notes for next time:
+  - Any kids.css edit: rebuild the classroom deck (it copies kids.css blocks) and run run.sh --themes
+  - release-check: --quick (1280+390) ≈ 4 min, full ≈ 15 min; RC_DUMP=<prefix> writes the sampled tiles; the sampler canvas is shared between pages (cache reset per call)
+  - Warnings left on purpose: ambient hero loops in mockups (loop), deck chrome 36 px and guide doc links (tap)
+[DONE]

@@ -8,7 +8,8 @@
                                       mood: 'happy' | 'wave' | 'fly' | 'think' | 'cheer' | 'sleep'
                                       opts: { label: 'aria label', cls: 'extra classes' }
      KS.cheer(el)                   make a gull (or the gull inside el) do a happy flap+hop
-     KS.speak(text, btn?)           Arabic speechSynthesis, rate .85; fails silently
+     KS.speak(text, btn?)           recorded clip (btn[data-audio] / KS.clipFor) → Arabic speechSynthesis
+                                      → a visible word bubble + soft tone; never silent
      KS.sfx('good'|'bad'|'pop')     soft WebAudio tones (respects KS.muted)
      KS.mute(bool?)                 get/set mute (saved in localStorage)
      KS.confetti(n?)                burst of themed confetti
@@ -132,14 +133,17 @@
     var saved = store(KEY);
     if (saved && THEMES.indexOf(saved) > -1) root.setAttribute('data-theme', saved);
   }
-  if (THEMES.indexOf(QS.theme) > -1) root.setAttribute('data-theme', QS.theme);   // overrides the page's own theme, not saved
+  // pinned pages (data-theme-fixed + data-no-picker: the web book, the classroom deck) keep their own
+  // colours; their CSS is not written for the other themes
+  var PINNED = root.hasAttribute('data-theme-fixed') && root.hasAttribute('data-no-picker');
+  if (THEMES.indexOf(QS.theme) > -1 && !PINNED) root.setAttribute('data-theme', QS.theme);   // overrides the page's own theme, not saved
   // a parent page (the owners' deck) can switch an embedded page:
   //   postMessage({nawras:'theme', id:'fanous'}) · postMessage({nawras:'art', mode:'svg'|'img'})
   // anything else is ignored; nothing is saved to localStorage.
   window.addEventListener('message', function (e) {
     var d = e && e.data;
     if (!d || typeof d !== 'object') return;
-    if (d.nawras === 'theme' && THEMES.indexOf(d.id) > -1) setTheme(d.id, false);
+    if (d.nawras === 'theme' && THEMES.indexOf(d.id) > -1 && !PINNED) setTheme(d.id, false);
     else if (d.nawras === 'art' && artParam(d.mode)) setArt(artParam(d.mode), false);
   });
 
@@ -205,6 +209,7 @@
     paintMute();
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !picker.hidden) { picker.hidden = true; tog.setAttribute('aria-expanded', 'false'); } });
     document.body.appendChild(fab);
+    root.classList.add('ks-has-fab');
   }
 
   /* ── Noori the seagull ──────────────────────────────────────────────── */
@@ -281,25 +286,75 @@
     pickVoice();
     try { window.speechSynthesis.onvoiceschanged = pickVoice; } catch (e) {}
   }
-  function speak(text, btn) {
+  // A listen tap ALWAYS answers (S-010):
+  //   1. a recorded clip — btn[data-audio], or KS.clipFor(text) (a word listed in WORD_CLIPS below)
+  //   2. else the device's Arabic voice (speechSynthesis)
+  //   3. else — no voice, no Arabic voice, or nothing started within 1.5 s — a bubble with the
+  //      word beside the button + a soft tone. The button pulses (.is-speaking) in every case.
+  var curAudio = null, bubble = null, bubbleT = 0;
+  function sayBubble(text, btn) {
     try {
-      if (!('speechSynthesis' in window) || !text) return;
-      var s = window.speechSynthesis;
-      s.cancel();
-      var u = new SpeechSynthesisUtterance(text);
-      u.lang = (arVoice && arVoice.lang) || 'ar-SA';
-      if (arVoice) u.voice = arVoice;
-      u.rate = 0.85;
-      if (btn) {
-        btn.classList.add('is-speaking');
-        var done = function () { btn.classList.remove('is-speaking'); };
-        u.onend = done; u.onerror = done;
-        setTimeout(done, 6000);
+      if (!bubble) {
+        bubble = document.createElement('div');
+        bubble.className = 'ks-say-bubble';
+        bubble.setAttribute('role', 'status');
+        bubble.setAttribute('lang', 'ar'); bubble.setAttribute('dir', 'rtl');
+        document.body.appendChild(bubble);
       }
-      s.speak(u);
-    } catch (e) { /* fail silently */ }
+      bubble.textContent = text;
+      var r = btn && btn.getBoundingClientRect ? btn.getBoundingClientRect() : null;
+      var x = r ? r.left + r.width / 2 : innerWidth / 2, y = r ? r.top : innerHeight / 2;
+      var hw = bubble.offsetWidth / 2 + 10;              // keep the whole bubble on screen
+      bubble.style.left = Math.max(hw, Math.min(innerWidth - hw, x)) + 'px';
+      bubble.classList.toggle('is-below', y < 110);
+      bubble.style.top = (y < 110 ? (r ? r.bottom : y) + 12 : y - 12) + 'px';
+      bubble.classList.remove('is-on'); void bubble.offsetWidth; bubble.classList.add('is-on');
+      clearTimeout(bubbleT);
+      bubbleT = setTimeout(function () { bubble.classList.remove('is-on'); }, 2600);
+      sfx('pop');
+    } catch (e) {}
   }
-
+  function speak(text, btn) {
+    if (!text) return;
+    var busy = 0, fellBack = false;
+    function on() { if (btn) btn.classList.add('is-speaking'); }
+    function off() { if (btn) btn.classList.remove('is-speaking'); clearTimeout(busy); }
+    function fallback() { if (fellBack) return; fellBack = true; sayBubble(text, btn); clearTimeout(busy); busy = setTimeout(off, 1400); }
+    on();
+    busy = setTimeout(off, 6000);
+    try { if (curAudio) { curAudio.pause(); curAudio = null; } } catch (e) {}
+    var clip = (btn && btn.getAttribute && btn.getAttribute('data-audio')) || (KS.clipFor && KS.clipFor(text));
+    if (clip) {
+      try {
+        var a = new Audio(clip); curAudio = a;
+        a.onended = off;
+        a.onerror = function () { tts(); };
+        var pr = a.play(); if (pr && pr.catch) pr.catch(function () { tts(); });
+        return;
+      } catch (e) { /* fall through to the voice */ }
+    }
+    tts();
+    var voiced = false;
+    function tts() {
+      if (voiced) return; voiced = true;            // a missing clip reports twice (error + play())
+      try {
+        if (!('speechSynthesis' in window)) return fallback();
+        var s = window.speechSynthesis, vs = s.getVoices() || [];
+        if (!arVoice) pickVoice();
+        if (vs.length && !arVoice) return fallback();          // voices known, none Arabic
+        s.cancel();
+        var u = new SpeechSynthesisUtterance(text), started = false;
+        u.lang = (arVoice && arVoice.lang) || 'ar-SA';
+        if (arVoice) u.voice = arVoice;
+        u.rate = 0.85;
+        u.onstart = function () { started = true; };
+        u.onend = off;
+        u.onerror = function () { if (!started) fallback(); else off(); };
+        setTimeout(function () { if (!started && !s.speaking) fallback(); }, 1500);   // nothing came out
+        s.speak(u);
+      } catch (e) { fallback(); }
+    }
+  }
   /* ── sound effects (soft sine tones only) ───────────────────────────── */
   KS.muted = store(MUTE_KEY) === '1';
   function mute(v) {
@@ -550,8 +605,48 @@
   }
 
   /* ── auto-wiring ────────────────────────────────────────────────────── */
+  // .en captions are English: screen readers switch voice (WCAG 3.1.2), also for ones added later
+  // a listen button is named after its word: «اِسْتَمِعْ: قِطَّةٌ — Listen: This is a cat.» (S-025)
+  function sayLabel(word, en) {
+    var e = en ? en.textContent.trim() : '';
+    return 'اِسْتَمِعْ: ' + (word || '') + ' — Listen' + (e ? ': ' + e : '');
+  }
+  KS.sayLabel = sayLabel;
+  function langEn(scope) {
+    var e = (scope || document).querySelectorAll('.en:not([lang])'); for (var k = 0; k < e.length; k++) e[k].setAttribute('lang', 'en');
+    arIslands(scope || document.body);
+  }
+  // Arabic words inside English text (an English caption, or an English page such as guide.html)
+  // get <span lang="ar"> so a screen reader switches voice for them (S-026). Only text in an
+  // English lang context is touched; layout is unchanged (no dir, no isolation added).
+  var AR_RUN = /[\u0600-\u06FF\u200C\u200D](?:[\u0600-\u06FF\u200C\u200D\u064B-\u0652\s«»]*[\u0600-\u06FF\u200C\u200D])?/g;
+  function arIslands(scope) {
+    if (!scope || !document.createTreeWalker) return;
+    var w = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, null), n, todo = [];
+    while ((n = w.nextNode())) {
+      if (!/[\u0600-\u06FF]/.test(n.nodeValue)) continue;
+      var p = n.parentElement;
+      if (!p || p.closest('script, style, textarea, svg, [contenteditable], .ks-say-bubble')) continue;
+      var l = p.closest('[lang]');
+      if (!l || !/^en/i.test(l.getAttribute('lang'))) continue;
+      todo.push(n);
+    }
+    todo.forEach(function (t) {
+      var v = t.nodeValue, out = document.createDocumentFragment(), last = 0, m;
+      AR_RUN.lastIndex = 0;
+      while ((m = AR_RUN.exec(v))) {
+        if (m.index > last) out.appendChild(document.createTextNode(v.slice(last, m.index)));
+        var sp = document.createElement('span'); sp.setAttribute('lang', 'ar'); sp.textContent = m[0];
+        out.appendChild(sp); last = m.index + m[0].length;
+      }
+      if (last < v.length) out.appendChild(document.createTextNode(v.slice(last)));
+      t.parentNode.replaceChild(out, t);
+    });
+  }
   function wire() {
     var i, els;
+    langEn();
+    if ('MutationObserver' in window) new MutationObserver(function (ms) { for (var k = 0; k < ms.length; k++) if (ms[k].addedNodes.length) { langEn(ms[k].target); } }).observe(document.body, { childList: true, subtree: true });
     els = document.querySelectorAll('[data-gull]');
     for (i = 0; i < els.length; i++) {
       if (els[i].querySelector('.gull')) continue;
@@ -569,7 +664,7 @@
     els = document.querySelectorAll('[data-say]');
     for (i = 0; i < els.length; i++) {
       if (!els[i].innerHTML.trim()) els[i].innerHTML = ICON_SPEAK;
-      if (!els[i].getAttribute('aria-label')) els[i].setAttribute('aria-label', 'اِسْتَمِعْ — Listen');
+      if (!els[i].getAttribute('aria-label')) els[i].setAttribute('aria-label', sayLabel(els[i].getAttribute('data-say'), els[i].querySelector('.en')));
     }
     document.addEventListener('click', function (e) {
       var b = e.target.closest && e.target.closest('[data-say]');
@@ -625,12 +720,15 @@
          Children are drawn modest and friendly (long sleeves, long dress, hijab).
      KS.PIC_NAMES                 list of names above
      KS.quiz(el, questions, opts) knowledge check (Wireless101 .qz pattern):
-         options shuffled on every render, answer locks, explanation always
-         shown, gentle feedback (never "wrong!"), a star per right answer.
+         options shuffled on every render; a wrong pick = soft shake + the hint
+         (q.hint, else the explanation) and the child chooses again (that option
+         is set aside; after two misses the right one glows); the star comes when
+         the answer is found, so every child ends with all the stars.
          question = { q:'html', say:'text for speech', en:'English', pic:'cat-f',
                       options:[{ h:'هَذِهِ', ok:true }, { h:'هَذَا' }],
-                      why:'Arabic explanation html', whyEn:'English' }
-         opts = { onDone(right, total), gull:true }
+                      why:'Arabic explanation html', whyEn:'English',
+                      hint:'optional Arabic hint html', hintEn:'English' }
+         opts = { onDone(stars, total), gull:true }   (stars === total always)
          Returns { restart() }.
      KS.arNum(n)                  → Arabic-Indic digits
    Auto-wiring: [data-pic="name"] is filled with KS.pic(name).
@@ -654,6 +752,19 @@
     'fish': 'سَمَكَةٌ — a fish', 'tree': 'شَجَرَةٌ — a tree', 'rose': 'وَرْدَةٌ — a rose',
     'apple': 'تُفَّاحَةٌ — an apple', 'boat': 'قَارِبٌ — a boat', 'sea': 'بَحْرٌ — the sea',
     'shell': 'صَدَفَةٌ — a seashell', 'palm': 'نَخْلَةٌ — a palm tree', 'pen': 'قَلَمٌ — a pencil'
+  };
+  // recorded word clips (audio/words/<name>.mp3): list a name here once its clip exists, and
+  // KS.speak plays it before the device voice. Empty until the clips are recorded (S-012).
+  var WORD_CLIPS = [];
+  var AUDIO_BASE = (KS.artBase || 'assets/art/').replace(/assets\/art\/$/, 'audio/');
+  var bare = function (t) { return String(t || '').replace(/[\u064B-\u0652\u0670\u0640.،؟!\s]/g, ''); };
+  var WORD_KEY = {};
+  function wordOf(name) { return (LABELS[name] || '').split(' — ')[0]; }
+  KS.clipFor = function (text) {
+    if (!WORD_CLIPS.length) return null;
+    if (!WORD_KEY.__built) { Object.keys(LABELS).forEach(function (k) { WORD_KEY[bare(wordOf(k))] = k; }); WORD_KEY.__built = 1; }
+    var k = WORD_KEY[bare(text)];
+    return k && WORD_CLIPS.indexOf(k) > -1 ? AUDIO_BASE + 'words/' + k + '.mp3' : null;
   };
   var CLOTH = { 'f-masc': 'var(--masc)', 'f-fem': 'var(--fem)', 'f-brand': 'var(--brand)', 'f-leaf': '#4CAF6A', 'f-blue': '#4C7DE0', 'f-coral': '#FF8A6B' };
 
@@ -856,12 +967,12 @@
     for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
     return a;
   }
-  var RIGHT = [['أَحْسَنْتَ!', 'Well done!'], ['رَائِعٌ!', 'Great!'], ['مُمْتَازٌ!', 'Excellent!']];
+  var RIGHT = [['أَحْسَنْتُمْ!', 'Well done!'], ['رَائِعٌ!', 'Great!'], ['مُمْتَازٌ!', 'Excellent!']];
 
   function quiz(el, qs, opts) {
     if (!el || !qs || !qs.length) return null;
     opts = opts || {};
-    var n = qs.length, i = 0, results = [], locked = false;
+    var n = qs.length, i = 0, results = [], locked = false, misses = 0;
     el.classList.add('qz');
     el.innerHTML =
       '<div class="qz-head">' +
@@ -898,14 +1009,14 @@
     }
     function render() {
       var q = qs[i];
-      locked = false;
+      locked = false; misses = 0;
       $('.qz-count').innerHTML = 'سُؤَالٌ ' + arNum(i + 1) + ' مِنْ ' + arNum(n) + ' <span class="en">Question ' + (i + 1) + ' of ' + n + '</span>';
       $('.qz-track > i').style.width = (i / n * 100) + '%';
       $('.qz-pic').innerHTML = q.pic ? pic(q.pic, { decorative: true }) : '';
       $('.qz-question').innerHTML = q.q;
       $('.qz-question-en').textContent = q.en || '';
       var sb = $('.qz-say');
-      if (q.say) { sb.hidden = false; sb.setAttribute('data-say', q.say); } else { sb.hidden = true; sb.removeAttribute('data-say'); }
+      if (q.say) { sb.hidden = false; sb.setAttribute('data-say', q.say); sb.setAttribute('aria-label', KS.sayLabel ? KS.sayLabel(q.say) : 'اِسْتَمِعْ — Listen'); } else { sb.hidden = true; sb.removeAttribute('data-say'); }
       opWrap.innerHTML = shuffle(q.options).map(function (o) {
         return '<button type="button" class="qz-opt"' + (o.ok ? ' data-ok="1"' : '') + '>' + o.h + '</button>';
       }).join('');
@@ -915,49 +1026,54 @@
       paintStars();
     }
     function answer(b) {
-      if (locked) return;
-      locked = true;
+      if (locked || b.disabled) return;
       var q = qs[i], ok = b.hasAttribute('data-ok');
-      results[i] = ok;
-      var all = opWrap.querySelectorAll('.qz-opt');
-      for (var k = 0; k < all.length; k++) {
-        all[k].disabled = true;
-        if (all[k].hasAttribute('data-ok')) all[k].classList.add('is-good');
-      }
       var v = $('.qz-verdict');
-      if (ok) {
-        var r = RIGHT[Math.floor(Math.random() * RIGHT.length)];
-        v.innerHTML = r[0] + ' <span class="en">' + r[1] + '</span>';
-        v.className = 'qz-verdict good';
-        KS.sfx('good');
-        var g = el.closest('section, .s, body').querySelector('.gull');
-        if (g) KS.cheer(g);
-      } else {
-        b.classList.add('is-bad');
-        v.innerHTML = 'لَا بَأْسَ، نَتَعَلَّمُ مَعًا! <span class="en">Nice try — let’s learn it together.</span>';
+      if (!ok) {
+        // no lost star: shake, hint, set this option aside, choose again
+        misses++;
+        b.classList.remove('is-bad'); void b.offsetWidth; b.classList.add('is-bad');
+        b.disabled = true;
+        v.innerHTML = 'لَا بَأْسَ، لِنُحَاوِلْ مَرَّةً أُخْرَى! <span class="en">Nice try — have another go!</span>';
         v.className = 'qz-verdict soft';
+        $('.qz-why').innerHTML = q.hint || q.why || '';
+        $('.qz-why-en').textContent = q.hintEn || q.whyEn || '';
+        if (misses >= 2) { var r0 = opWrap.querySelector('.qz-opt[data-ok]'); if (r0) r0.classList.add('is-hint'); }
         KS.sfx('bad');
+        var left = opWrap.querySelector('.qz-opt:not([disabled])');
+        if (left) { try { left.focus({ preventScroll: true }); } catch (e) {} }
+        return;
       }
+      locked = true;
+      results[i] = true;
+      var all = opWrap.querySelectorAll('.qz-opt');
+      for (var k = 0; k < all.length; k++) { all[k].disabled = true; all[k].classList.remove('is-hint'); }
+      b.classList.add('is-good');
+      var r = RIGHT[Math.floor(Math.random() * RIGHT.length)];
+      v.innerHTML = r[0] + ' <span class="en">' + r[1] + '</span>';
+      v.className = 'qz-verdict good';
+      KS.sfx('good');
+      var g = el.closest('section, .s, body').querySelector('.gull');
+      if (g) KS.cheer(g);
       $('.qz-why').innerHTML = q.why || '';
       $('.qz-why-en').textContent = q.whyEn || '';
-      next.innerHTML = i < n - 1 ? 'السُّؤَالُ التَّالِي <span class="en">Next question</span>' : 'النَّتِيجَةُ <span class="en">See my stars</span>';
+      next.innerHTML = i < n - 1 ? 'السُّؤَالُ التَّالِي <span class="en">Next question</span>' : 'النُّجُومُ <span class="en">See my stars</span>';
       next.hidden = false;
       paintStars();
       try { next.focus({ preventScroll: true }); } catch (e) { next.focus(); }
     }
     function finish() {
-      var got = results.filter(function (r) { return r === true; }).length;
       head.hidden = true; body.hidden = true; next.hidden = true;
       res.hidden = false; again.hidden = false;
-      var gw = $('.qz-gull'); if (gw) gw.innerHTML = KS.gull(got === n ? 'cheer' : 'happy');
-      var h = ''; for (var k = 0; k < n; k++) h += KS.star(k < got);
+      var gw = $('.qz-gull'); if (gw) gw.innerHTML = KS.gull('cheer');
+      var h = ''; for (var k = 0; k < n; k++) h += KS.star(true);
       $('.qz-final-stars').innerHTML = h;
-      $('.qz-final').innerHTML = got === n ? 'مُمْتَازٌ! كُلُّ الْأَجْوِبَةِ صَحِيحَةٌ' : (got * 2 >= n ? 'أَحْسَنْتَ! أَنْتَ تَتَعَلَّمُ بِسُرْعَةٍ' : 'أَحْسَنْتَ الْمُحَاوَلَةَ! لِنَتَدَرَّبْ مَعًا');
-      $('.qz-final-en').textContent = 'You got ' + got + ' of ' + n + ' — ' + (got === n ? 'every answer right!' : got * 2 >= n ? 'great learning!' : 'good try — let’s practise together.');
+      $('.qz-final').innerHTML = 'أَحْسَنْتُمْ! كُلُّ النُّجُومِ لَكُمْ';
+      $('.qz-final-en').textContent = 'You found them all — every star is yours!';
       KS.sfx('good');
-      if (got * 2 >= n) KS.confetti(got === n ? 80 : 40);
+      KS.confetti(80);
       try { res.focus({ preventScroll: true }); } catch (e) {}
-      if (typeof opts.onDone === 'function') opts.onDone(got, n);
+      if (typeof opts.onDone === 'function') opts.onDone(n, n);
     }
     function restart() {
       i = 0; results = [];
@@ -975,7 +1091,38 @@
     return { restart: restart };
   }
 
+  /* ── «أَرِنِي · Show a grown-up» end card (S-020) ─────────────────────
+     <aside data-grownup [data-next="story.html" data-next-ar="الْقِصَّةُ" data-next-en="Story"]
+            [data-hub="../index.html"]></aside>
+     Noori + three tap-to-hear pictures the child performs for a grown-up, one English line
+     for the parent (tonight's home task) and, if given, the way on (next / hub). */
+  var GU_PICS = [['cat', 'm', 'هَذَا', 'قِطٌّ', 'a cat (he)'], ['cat-f', 'f', 'هَذِهِ', 'قِطَّةٌ', 'a cat (she)'], ['sun', 'f', 'هَذِهِ', 'شَمْسٌ', 'the sun']];
+  function grownupCard(el) {
+    if (!el || el.__gu) return; el.__gu = true;
+    el.classList.add('gu-card');
+    if (!el.getAttribute('aria-labelledby')) { el.setAttribute('aria-label', 'أَرِنِي — Show a grown-up'); }
+    var pics = GU_PICS.map(function (g) {
+      var say = g[2] + ' ' + g[3], word = g[1] === 'f' ? ta(g[3]) : esc(g[3]);
+      return '<li><button type="button" class="pic-card pic-card--' + g[1] + '" data-say="' + say + '" aria-label="' + esc(KS.sayLabel ? KS.sayLabel(say) + ': ' + g[4] : say) + '">' +
+        pic(g[0], { decorative: true }) + '<span class="word"><span class="dem-' + g[1] + '">' + g[2] + '</span> ' + word + '</span></button></li>';
+    }).join('');
+    var next = el.getAttribute('data-next'), hub = el.getAttribute('data-hub');
+    var acts = (next || hub) ? '<div class="gu-actions">' +
+      (next ? '<a class="btn" href="' + esc(next) + '">' + esc(el.getAttribute('data-next-ar') || 'التَّالِي') + ' <span class="en" lang="en">' + esc(el.getAttribute('data-next-en') || 'Next') + '</span></a>' : '') +
+      (hub ? '<a class="btn btn--ghost" href="' + esc(hub) + '">الرَّئِيسَةُ <span class="en" lang="en">Hub</span></a>' : '') + '</div>' : '';
+    el.innerHTML =
+      '<div class="gu-head">' + KS.gull('cheer', { label: 'نُورِي — Noori' }) +
+        '<p class="gu-title word">أَرِنِي! <span class="en" lang="en">Show a grown-up</span></p></div>' +
+      '<ul class="gu-pics">' + pics + '</ul>' +
+      '<p class="en gu-tonight" lang="en"><b>Tonight:</b> point at 3 things at home and say <span lang="ar" class="dem-m">هَذَا</span> (this, masculine) or <span lang="ar" class="dem-f">هَذِهِ</span> (this, feminine) — like the three pictures above.</p>' +
+      acts;
+  }
+  function ta(w) { return KS.ta ? KS.ta(w) : esc(w); }
+  KS.grownupCard = grownupCard;
+
   function wirePics() {
+    var gu = document.querySelectorAll('[data-grownup]');
+    for (var g = 0; g < gu.length; g++) grownupCard(gu[g]);
     var els = document.querySelectorAll('[data-pic]');
     for (var i = 0; i < els.length; i++) {
       if (els[i].querySelector('.pic')) continue;

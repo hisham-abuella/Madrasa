@@ -78,6 +78,9 @@ Full rebuild instructions: [`book/README.md`](book/README.md).
 - **Narration:** ElevenLabs `eleven_v4` for the book and all 13 story-lesson pages (Fusha: Sarah · Egyptian: Hisham's voice clone). The owners' deck has no narration on purpose.
 - **Decks:** [present-in-html](https://hisham-abuella.github.io/present-in-html/): the classroom lesson
   (`lessons/presentation.html`) and the owners' pitch (`pitch/`), both rebuilt from `*/build/`.
+- **Release sweep:** `node tools/release-check.mjs` (Playwright from `~/.kp-tools`) opens every page at 1280 /
+  820 / 390, in all six themes and both art modes: console errors, failed requests, broken images, sideways
+  scroll, rendered text contrast (pixels behind the text), `lang` on English/Arabic text, reduced motion.
 - **Borrowed patterns:** the "worlds", story slides and knowledge check from Wireless 101; the print, QR and
   narration pipeline from Bedtime Stories.
 

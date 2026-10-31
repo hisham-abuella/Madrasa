@@ -3,9 +3,21 @@ S="/Users/hishamabuella/Work/Presentation_Claude_SKILL/keynote_html_claude_skill
 A="/Users/hishamabuella/Work/Arabic-school/assets/kids.css"
 OUT="/Users/hishamabuella/Work/Arabic-school/lessons/presentation.html"
 kc=open(A,encoding='utf8').read().split('\n')
-def rng(a,b): return '\n'.join(kc[a-1:b])
-copied = '\n'.join([rng(556,589), rng(593,594), rng(711,740), rng(752,752), rng(757,765), rng(799,824), rng(659,664)])
-copied += '\n' + rng(471,486) + '\n' + rng(490,493)
+# kids.css blocks copied into the deck, found by a unique anchor line (offset = lines before the
+# anchor, n = block length), so edits elsewhere in kids.css don't shift them
+def blk(anchor, off, n):
+    assert kc.count(anchor) == 1, ('kids.css anchor not unique / missing', anchor)
+    i = kc.index(anchor) - off
+    return '\n'.join(kc[i:i+n])
+copied = '\n'.join([
+    blk('/* ── Noori the seagull (markup from KS.gull()) ──────────────────────────── */', 0, 34),
+    blk('.star-off { fill: var(--line); }', 0, 2),
+    blk('/* the one parent action on every page */', 1, 30),
+    blk('  --lh: 14mm; --n: 3; height: calc(var(--lh) * var(--n));', 0, 1),
+    blk('@media print { .wp-tools, .wp-msg { display: none; } .wp { box-shadow: none; } }', 1, 9),
+    blk('     .pic-grid / .pic-card       tap-to-hear picture cards (button + data-say)', 0, 26),
+    blk('/* ── confetti (KS.confetti) ─────────────────────────────────────────────── */', 0, 6)])
+copied += '\n' + blk('.btn {', 0, 16) + '\n' + blk('.btn--sm { min-height: 44px; padding: 4px 16px; font-size: 1rem; }', 0, 4)
 
 def ta(w):
     m=re.match(r'^(.*[^\s])(ة[ً-ٰٟ]*)$',w)
@@ -132,7 +144,7 @@ S_('write','two-column',f'''<div class="col bx-text"><p class="label">مَحَط
 <h2 class="inh">هَيَّا نَكْتُبُ: <span class="ta">ة</span>، ثُمَّ {DM()} وَ{DF()}</h2>
 <p>ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ.</p>
 <p>افْتَحُوا الْكِتَابَ: {BOOKP}</p>
-<p class="gamelink"><a href="../games/write.html?item=taa-m">تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en">Writing game</span></a></p></div>
+<p class="gamelink"><a href="../games/write.html?item=taa-m">تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en" lang="en">Writing game</span></a></p></div>
 <div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="ة|هَذَا|هَذِهِ" data-lines="3" data-lh="200"></div></div>''',
 notes(['أَوَّلًا نَهْدَأُ: «اجْلِسُوا… يَدَانِ عَلَى الرُّكْبَتَيْنِ… نَتَنَفَّسُ ثَلَاثَ مَرَّاتٍ.»','«هَيَّا نَكْتُبُ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذَا، ثُمَّ هَذِهِ.',f'«افْتَحُوا الْكِتَابَ: {BOOKP}.»'],
 [f'Calm down first, after the movement game: sit, hands on knees, three slow breaths, then pencils. Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «{BOOKT}»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.']),' data-fit="off" data-demo')

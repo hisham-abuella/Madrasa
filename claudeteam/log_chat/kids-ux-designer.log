@@ -42,3 +42,16 @@ Still open:
 Notes for next time:
   - No storage beyond KS (theme, art, mute); progress stars are per visit.
 [DONE]
+
+=== 2026-10-31 · kids-ux-designer · Fix round 1 batch B: S-003 quiz, S-020 end card, S-034 book taps, S-041 grown-ups menu (helper to frontend-engineer) ===
+Lead / asked by: frontend-engineer (batch B lead)
+Files reviewed: assets/kids.js (KS.quiz), lessons/article.html, lessons/story.html, book/tools/story-template.html, book/tools/new-story.js
+Findings / fixes:
+  [MAJOR] [KIDS] S-003 KS.quiz: a wrong pick no longer locks the question or burns a star — soft shake + «لَا بَأْسَ، لِنُحَاوِلْ مَرَّةً أُخْرَى!» + the hint (q.hint, else the explanation), that option is set aside, the child picks again; after two misses the right option glows 3×; the star comes when found. Finish: «أَحْسَنْتُمْ! كُلُّ النُّجُومِ لَكُمْ» / "You found them all — every star is yours!", always 5/5 stars, no "You got x of n".
+  [MINOR] [KIDS] S-020 shared «أَرِنِي · Show a grown-up» card (KS.grownupCard / [data-grownup]): Noori, three tap-to-hear pictures (هَذَا قِطٌّ · هَذِهِ قِطَّةٌ · هَذِهِ شَمْسٌ), one English line for tonight's home task; on the article (before the end CTA) and story slide 13 (+ a Hub button). The classroom deck keeps its close slide (three home tasks already).
+  [MINOR] [KIDS] S-034: the web book's circle / add-ة / match / fill / adjective pages were already tappable (.pick buttons, hint, retry, stars) — verified a miss then full stars on all five at 1280 and 390.
+  [MINOR] [KIDS] S-041: «English» and «auto-turn» moved into a «لِلْكِبَارِ · Grown-ups» <details> with the Print / PDF links; the 56 px Fusha/Egyptian toggle stays alone in the bar.
+Verified: scratchpad rc/func.cjs — 2 × 24 checks PASS (1280 + 390), 0 page errors.
+Still open:
+  - real-child test of the retry flow and the end card on an iPad — owner: qa-lead / early-childhood-educator
+[DONE]

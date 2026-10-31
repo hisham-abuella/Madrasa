@@ -23,3 +23,22 @@ Notes for next time:
   - Measure button text per span, not per button: the English span can differ from the Arabic.
   - Measure targets after reveals finish: [data-reveal] transitions made 56px tools read 54.9px.
 [DONE]
+
+=== 2026-10-31 · ui-designer · Fix round 1 batch B: S-002 CTA contrast + S-039 tokens (helper to frontend-engineer) ===
+Lead / asked by: frontend-engineer (batch B lead)
+Files reviewed: assets/kids.css, index.html, 404.html, mockups/01..06, lessons/article.html, lessons/story.html, games/write.css, book/tools/story-template.html, guide.html
+Findings (rendered contrast, measured with tools/release-check.mjs: pixels behind the glyphs, 10th percentile):
+  [MAJOR] [CONTRAST] kids.css `.btn .en` lost to page rules → hub "Watch the presentation" 2.64, 404 "Back to the hub" 2.64, Andalus CTA 1.96, Mosaic CTA 1.52 — fix: `.btn.btn .en { color: inherit }`, Andalus `.parents a:not(.btn)`, Mosaic `.t-cta > div .en` — all ≥ 4.5 now
+  [MAJOR] [CONTRAST] `.btn .en { opacity: .85 }` (+ .ks-art__btn, story .seg, games .wg-seg/.wg-mode, mosaic .t-lv/.t-cta .92) took English button captions to 3.88–4.32 — fix: opacity removed
+  [MINOR] [CONTRAST] footer: the CTA's 3-D shadow sat on the next line (hub/games footer 2.53) — fix: `.foot .btn { margin-block: 6px 16px }`
+  [MINOR] [CONTRAST] book --quiet #5E7E86 = 4.30 on the page tile (eyebrow, «لِلْكِبَارِ» notes) — fix: #4F6F78 (5.32)
+  [MAJOR] [CONTRAST] cross-theme (layout × theme, reachable from every mockup's picker): Fanous layout in a light theme put dark ink on the fixed night picture (h1 1.0–1.3); Pacific layout in Fanous put cream ink on the fixed day picture — fix: shared --art-day-* / --art-night-* tokens, applied to the hero only in illustrated mode
+  [MINOR] [CONTRAST] Andalus odd door badges (accent fill, on-brand text) 1.59–2.56 in pacific/mihrab → on-accent; Mihrab mini-arch numbers 2.9–4.25 → --ink, 700; Kurrasa sticky 1 sun 42→25 %, note-greet on a paper-mixed highlight with --on-sun, .num on a surface chip; Andalus .p-item tint white→ink 12 % (4.21 → pass); Pacific top-bar small text → hero-ink2 (4.37 → pass); guide `.paper code` no theme tint
+  [MINOR] [TOKENS] S-039: article print greys → --print-*; hub #0B3540 → --deck-bg; kurrasa/mosaic #1E1A0E/#fff → --on-sun / --on-dark; story #000 → --print-ink; "--masc / --fem are FILL-ONLY" comment above each theme's pair. guide.html and logos/index.html keep their demo/logo-sheet hex (designer pages).
+Decisions / judgement calls:
+  - Fixed-art heroes keep fixed inks in every theme — why: the picture does not change with the theme; tokens stay theme-agnostic by naming the picture (art-day / art-night), not the theme
+Still open:
+  - none from this batch; the full sweep is the regression guard (node tools/release-check.mjs)
+Notes for next time:
+  - token-pair tables miss these: opacity on captions, shadows/margins under text, fixed pictures under theme ink. Always run the rendered scan.
+[DONE]

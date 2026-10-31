@@ -41,3 +41,12 @@ for src, dst in (('assets/art/noori/wave.webp', 'art-noori-wave.webp'), ('assets
 
 # Hub hero card (index.html): the deck's title slide, from the fresh screenshot
 Image.open(R + 'pitch/img/title.png').convert('RGB').resize((1280, 720), Image.LANCZOS).save(R + 'pitch/img/title-1280.webp', 'WEBP', quality=84)
+
+# Phones (S-029): the page screenshots ship as WebP q80, not PNG (≈ 2 MB lighter); title.png stays for og:image
+for k in ('lesson-article', 'lesson-story', 'lesson-slides', 'writing-pad', 'book-pages'):
+    f = R + f'pitch/img/{k}.png'
+    if os.path.exists(f):
+        im = Image.open(f).convert('RGB')
+        if im.width > 1600: im = im.resize((1600, round(im.height * 1600 / im.width)), Image.LANCZOS)
+        im.save(R + f'pitch/img/{k}.webp', 'WEBP', quality=80)
+        os.remove(f)

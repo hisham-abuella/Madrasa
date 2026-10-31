@@ -23,3 +23,20 @@ Notes for next time:
   - Baselines 2026-10-26: tokens tightest 4.99 (mihrab on-brand/brand); 0 missing focus rings on hub/article/story/book/presentation; 0 anims under reduced motion; child targets >=56.
   - color-mix() returns color(srgb 0–1) — parse it, or the scan reports false fails.
 [DONE]
+
+=== 2026-10-31 · accessibility-auditor · Fix round 1 batch B: S-009 / S-025 / S-026 + re-measure (helper to frontend-engineer) ===
+Lead / asked by: frontend-engineer (batch B lead)
+Files reviewed: assets/kids.js, book/tools/story-template.html, book/tools/new-story.js, lessons/presentation/build/build.py, pitch/build/build.py, guide.html
+Fixes:
+  [MAJOR] [LANG] S-009 kids.js: every `.en` gets lang="en" on load and for captions added later (MutationObserver: quiz, pads, bubbles, end card); markup lang="en" added in the book template game link and the deck build.py game link
+  [MINOR] [LANG] S-026 kids.js: Arabic runs inside English text (English captions, guide.html) are wrapped in <span lang="ar"> (no dir/isolation added, layout unchanged); guide's SVG <text> هَذِهِ gets lang="ar"; pitch build.py: Egyptian notes lang="ar-EG" dir="rtl", Arabic in "Sources" lines wrapped; web book story images alt = Arabic line — English line (13 pages, were English-only)
+  [MINOR] [NAME] S-025 listen buttons named after their word: «اِسْتَمِعْ: هَذَا وَلَدٌ — Listen: This is a boy.» (22 on the article, all unique); quiz listen «اِسْتَمِعْ: قِطَّةٌ — Listen»
+  [MINOR] [TARGET] S-023 footer + hub "lesson book files" links: inline-flex, min-height 44 px
+  [MINOR] [MOTION] S-027 ة glow 3 iterations (article, story), book .breathe cover only
+Re-measured (node tools/release-check.mjs, 17 pages incl. deep 404, 1280 / 820 / 390 + 6 themes + art=svg + reduced motion = 160 runs):
+  - lang (.en not English + Arabic not Arabic): before 756 (quick baseline, 34 runs) → after 0
+  - rendered text contrast fails: before 204 (quick baseline) → after 0 in all 160 runs
+  - reduced motion: 0 running animations on every page; sideways scroll 0; console errors 0; failed requests 0
+  - tap warnings left: deck chrome 36 px at 390 (known, decks are TV/iPad), guide inline doc links (designer page), book skip link 42 px (off-screen until focused)
+Not tested: a real VoiceOver pass reading the new lang spans / the word bubble (role=status) on an iPad — owner: accessibility-auditor + qa-lead with a device
+[DONE]
