@@ -21,3 +21,17 @@ Notes for next time:
   - Clean: no Qur'an/hadith text (grep), no prophets/angels, khatam 8-point, pic/ set has under-cap, bint-611 blurred.
   - Any art made by a script other than gen-art.sh must carry $HIJAB — check every gen script, not just the site one.
 [DONE]
+
+=== 2026-10-31 · islamic-studies-advisor · Fix round 1 Batch A: approve S-007 / S-008 wording (pulled in by arabic-language-expert) ===
+Lead / asked by: arabic-language-expert (Batch A lead)
+Files reviewed: book/stories/noori-shell.json p10 sadafa, p13 sadiq, p17 bye; lessons/story.html slides 2, 6, 8, 13; lessons/article.html §3; index.html hub card; lessons/presentation/build/build.py slides 1, 18; pitch/build/build.py adab slide; .claude/skills/topic-book/SKILL.md §0
+Approvals:
+  [MAJOR] [ADAB] S-008 ISA-03 — shell gift lived, not preached: book p10 «قَدَّمَهَا لِسَلْمَى وَقَالَ: تَفَضَّلِي يَا سَلْمَى!» → «شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.»; p13 «وَيَتَعَاوَنَانِ»; p17 «الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا…»; story slide 6 gift at the end of the find game, slide 13 «الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا:». Pitch adab slide now adds "What children practise: salam, sharing, thanking" (true after the story change). Topic-book skill asks "Which value?" first — approved
+  [MAJOR] [ADAB] S-007 ISA-04 — «سِرُّ التَّاءِ» (article §3, EN "The secret of ة"), «الصَّدَفَةُ الْعَجِيبَةُ» / "the amazing shell" (story 8 + transcript titles), hub "secret of ة", parents "The shell game" — approved
+  [MINOR] [ADAB] S-011 ISA-06 — salam reply button «وَعَلَيْكُمُ السَّلَامُ» on story slide 2 — approved; S-021 ISA-07 — optional deck close «الْحَمْدُ لِلَّهِ…» with «اللَّهِ» vocalised, and «بِسْمِ اللَّهِ» vocalised in slide 1 note — approved
+Decisions / judgement calls:
+  - Allah's name in the story find-it closing line («جَزَاكَ اللَّهُ خَيْرًا») is accepted — why: it is Salma's thanks shown after the game, not a mechanic, option or sticker; it is never a wrong answer.
+  - «الْحَمْدُ لِلَّهِ» on printed story page p17 is accepted — why: a story page, not an exercise page children write on.
+Still open:
+  - mockups/06 "manners woven into every lesson" still overstates (one lesson now lives salam, sharing, helping, thanking) — owner: ceo / ui-designer
+[DONE]

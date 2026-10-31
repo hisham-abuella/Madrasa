@@ -203,7 +203,7 @@ slide('book', 'image-right', f'''<figure class="wide"><img src="img/book-pages.p
 # 9 adab + fence
 slide('adab', 'two-column', '''<h2>Every picture follows Islamic adab, and Nawras serves your teachers, never replaces them</h2>
 <div class="cols">
-<div class="col is" data-build="rise"><h3>Our adab rules</h3><ul><li>No pictures of prophets or angels</li><li>No Qur'an verses as decoration or in games</li><li>Modest clothing on every child</li><li>No music, only soft sounds</li></ul></div>
+<div class="col is" data-build="rise"><h3>Our adab rules</h3><ul><li>No pictures of prophets or angels</li><li>No Qur'an verses as decoration or in games</li><li>Modest clothing on every child</li><li>No music, only soft sounds</li><li>What children practise: salam, sharing, thanking</li></ul></div>
 <div class="col not" data-build="rise"><h3>What Nawras is not</h3><ul><li>Not a replacement for the teacher</li><li>Not an app, no subscription for families</li><li>Not auto-grading of handwriting</li><li>Not yet a full curriculum: one lesson so far</li></ul></div>
 </div>''',
  'BRIEF.md, "Respectful content rules" (also: children greet with السَّلَامُ عَلَيْكُمْ; pictures redrawn when not modest, book/README.md Status); BRIEF.md (plain pages, no auto-grading, the teacher presents); lessons/presentation/PLAN.md.')

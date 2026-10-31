@@ -193,6 +193,7 @@ function page(p, n) {
     case 'certificate':
         return `<section class="sheet cert" data-key="certificate"><div class="safe"><div class="frame">
     <div class="gull" data-gull="cheer"></div><h2 class="word">${mark(a.name)}</h2>${en(e.name)}
+    ${a.pick ? `<p class="line pick" style="display:flex;gap:10mm;justify-content:center">${a.pick.map((w) => `<span style="display:inline-flex;align-items:center;gap:2.5mm"><i style="display:inline-block;width:6mm;height:6mm;border:.5mm solid #333;border-radius:1mm"></i><span>${mark(w)}</span></span>`).join('')}</p>${en(e.pick)}` : ''}
     <p class="line">${mark(a.line)}</p>${en(e.line)}
     <div class="stars">${Array.from({ length: 11 }, (_, i) => `<span class="star"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><i>${arNum(i + 1)}</i></span>`).join('')}</div>
     ${en(e.note)}

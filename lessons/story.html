@@ -113,7 +113,9 @@ body { overflow: hidden; }
   background: var(--surface); border: 3px solid var(--fem); font-family: var(--f-word); font-weight: 700; font-size: clamp(2rem, 6vw, 3.6rem); line-height: 1; color: var(--ta); animation: glow 2s ease-in-out infinite; }
 .pair-line { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; font-family: var(--f-word); font-weight: 700; font-size: clamp(1.6rem, 4.4vw, 2.4rem); }
 
-/* magic shell rows */
+/* amazing shell rows */
+.echo-bubble { white-space: normal; max-width: 66%; z-index: 2; }
+.echo-bubble b { color: var(--accent-text); }
 .mrow { display: grid; grid-template-columns: 96px 1fr auto; gap: 6px 14px; align-items: center; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--surface2); border: var(--border-w) solid var(--border-c); }
 .mrow + .mrow { margin-top: 12px; }
 .mrow__pic { width: 96px; }
@@ -226,7 +228,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
       </div>
       <p class="en">Recorded narration on every page (ElevenLabs): Fusha read by Sarah, Egyptian by Hisham’s voice. On-screen words always stay Fusha.</p>
       <h3>الْقِرَاءَةُ التِّلْقَائِيَّةُ <span class="en">Auto-read</span></h3>
-      <p class="en">Reads each page aloud and turns the page when the narration ends. It waits on the activity pages (shell, writing, quiz). Pause any time with the ▶ / ⏸ button or the P key.</p>
+      <p class="en">Reads each page aloud and turns the page when the narration ends. It waits on the activity pages (find-it, shell, writing, quiz). Pause any time with the ▶ / ⏸ button or the P key.</p>
       <h3>الْأَصْوَاتُ <span class="en">Sound effects</span></h3>
       <div class="row"><button type="button" class="btn btn--ghost btn--sm" id="sfxBtn" aria-pressed="true">مُفَعَّلَةٌ <span class="en">On</span></button></div>
       <h3>السِّمَةُ <span class="en">Theme</span></h3>
@@ -244,7 +246,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
           <p class="s-kicker">قِصَّةٌ مُصَوَّرَةٌ <span class="en" style="display:inline">· an illustrated story</span></p>
           <h1 class="s-title">نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ</h1>
           <p class="s-line">قِصَّةٌ عَنْ <b class="dem-m">هَذَا</b> وَ<b class="dem-f">هَذِهِ</b></p>
-          <p class="en">Noori and the Little Shell — a story about “this” for boys’ words and girls’ words. Tap ▶ to have it read aloud, or turn the pages yourself.</p>
+          <p class="en">Noori and the Little Shell — a story about the two words for “this”: هَذَا-words and هَذِهِ-words. Tap ▶ to have it read aloud, or turn the pages yourself.</p>
           <div class="cover-cta">
             <button type="button" class="btn btn--accent" data-go="next">ابْدَأْ <span class="en">Start</span></button>
             <button type="button" class="btn btn--ghost" data-auto-start><svg aria-hidden="true"><use href="#i-auto"/></svg> اقْرَأْ لِي <span class="en">Read it to me</span></button>
@@ -267,6 +269,8 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
           <p class="s-line">السَّلَامُ عَلَيْكُمْ يَا أَصْدِقَائِي الصِّغَارَ!</p>
           <p class="s-line">أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ، أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو.</p>
           <p class="en">Peace be upon you, my little friends! I’m Noori, the little seagull. I fly over the sea of San Diego.</p>
+          <p class="en">Answer Noori’s greeting: tap the button and say it with him.</p>
+          <div class="cover-cta"><button type="button" class="btn btn--accent" data-reply data-say="وَعَلَيْكُمُ السَّلَامُ" aria-label="وَعَلَيْكُمُ السَّلَامُ — and peace be upon you (reply)">وَعَلَيْكُمُ السَّلَامُ <span class="en">Reply</span></button></div>
         </div>
         <div class="s-art s-art--full" data-art-slot>
           <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
@@ -281,18 +285,19 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     </section>
 
     <!-- 3 · MEET SAMI AND SALMA -->
-    <section class="s s--sand" aria-label="٣ — سَامِي وَسَلْمَى · meet Sami and Salma"
+    <section class="s s--sand" aria-label="٣ — سَامِي وَسَلْمَى · meet Sami and Salma" data-echo
       data-narr="عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ. هَذَا سَامِي، وَهَذِهِ سَلْمَى.">
       <div class="s-inner">
         <div class="s-text">
           <p class="s-line">عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ.</p>
           <p class="s-line"><b class="dem-m">هَذَا</b> سَامِي، وَ<b class="dem-f">هَذِهِ</b> سَلْمَى.</p>
-          <p class="en">On the beach, Noori met two friends: this is Sami, and this is Salma. Tap them to say hello.</p>
+          <p class="en">On the beach, Noori met two friends: this is Sami, and this is Salma. Tap them to hear their names, then it’s your turn: say it like Noori.</p>
         </div>
         <div class="s-art s-art--full" data-art-slot data-ill-flip>
           <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
           <img class="scene scene--img ill-only" src="../assets/art/story/s03-friends.webp" alt="سَامِي وَنُورِي وَسَلْمَى عَلَى الشَّاطِئِ — Sami, Noori and Salma on the beach" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
           <div class="noori" data-gull="happy" data-gull-label="نُورِي — Noori"></div>
+          <span class="bubble art-bubble echo-bubble" aria-live="polite" hidden></span>
           <div class="cast">
             <button type="button" class="fig" data-say="هَذَا سَامِي" aria-label="هَذَا سَامِي — this is Sami"><span data-pic="boy" data-pic-decorative></span><span class="tag tag--m">سَامِي</span></button>
             <button type="button" class="fig" data-say="هَذِهِ سَلْمَى" aria-label="هَذِهِ سَلْمَى — this is Salma"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f">سَلْمَى</span></button>
@@ -325,7 +330,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     </section>
 
     <!-- 5 · هَذَا for masculine -->
-    <section class="s s--sea" aria-label="٥ — هَذَا لِلْمُذَكَّرِ · hadha for masculine"
+    <section class="s s--sea" aria-label="٥ — هَذَا لِلْمُذَكَّرِ · hadha for masculine" data-echo
       data-narr="سَامِي يُشِيرُ وَيَقُولُ: هَذَا قَارِبٌ. هَذَا كِتَابٌ. هَذَا قَمَرٌ. نَقُولُ هَذَا لِلْمُذَكَّرِ.">
       <div class="s-inner">
         <div class="s-text">
@@ -333,11 +338,13 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
           <p class="s-line">سَامِي يُشِيرُ وَيَقُولُ:</p>
           <p class="s-line"><b class="dem-m">هَذَا</b> قَارِبٌ. <b class="dem-m">هَذَا</b> كِتَابٌ. <b class="dem-m">هَذَا</b> قَمَرٌ.</p>
           <p class="s-line">نَقُولُ <b class="dem-m">هَذَا</b> لِلْمُذَكَّرِ.</p>
-          <p class="en">Sami points: this is a boat, this is a book, this is a moon. We say هَذَا for masculine words.</p>
+          <p class="en">Sami points: this is a boat, this is a book, this is a moon. We say هَذَا for masculine words. Tap a picture, then it’s your turn: say it like Noori.</p>
         </div>
         <div class="s-art" data-art-slot>
           <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
           <img class="scene scene--img ill-only" src="../assets/art/story/s05-dusk.webp" alt="الشَّاطِئُ فِي الْمَسَاءِ — the beach at dusk" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="noori" data-gull="happy" data-gull-label="نُورِي — Noori"></div>
+          <span class="bubble art-bubble echo-bubble" aria-live="polite" hidden></span>
           <div class="cast">
             <button type="button" class="fig" data-say="هَذَا سَامِي" aria-label="سَامِي — Sami"><span data-pic="boy" data-pic-decorative></span><span class="tag tag--m">سَامِي</span></button>
             <button type="button" class="fig fig--sm" data-say="هَذَا قَارِبٌ" aria-label="هَذَا قَارِبٌ — this is a boat"><span data-pic="boat" data-pic-decorative></span><span class="tag">قَارِبٌ</span></button>
@@ -349,8 +356,8 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     </section>
 
     <!-- 6 · هَذِهِ for feminine -->
-    <section class="s s--sunset" aria-label="٦ — هَذِهِ لِلْمُؤَنَّثِ · hadhihi for feminine"
-      data-narr="وَسَلْمَى تَقُولُ: هَذِهِ سَمَكَةٌ. هَذِهِ نَخْلَةٌ. هَذِهِ صَدَفَةٌ. نَقُولُ هَذِهِ لِلْمُؤَنَّثِ.">
+    <section class="s s--sunset" aria-label="٦ — هَذِهِ لِلْمُؤَنَّثِ · hadhihi for feminine" data-stop data-find
+      data-narr="وَسَلْمَى تَقُولُ: هَذِهِ سَمَكَةٌ. هَذِهِ نَخْلَةٌ. هَذِهِ صَدَفَةٌ. نَقُولُ هَذِهِ لِلْمُؤَنَّثِ. وَالْآنَ… أَيْنَ السَّمَكَةُ؟ اضْغَطْ عَلَيْهَا!">
       <div class="s-inner">
         <div class="s-text">
           <p class="s-kicker"><span class="chip chip--fem">مُؤَنَّثٌ ← هَذِهِ</span></p>
@@ -358,15 +365,19 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
           <p class="s-line"><b class="dem-f">هَذِهِ</b> <span data-ta>سَمَكَةٌ</span>. <b class="dem-f">هَذِهِ</b> <span data-ta>نَخْلَةٌ</span>. <b class="dem-f">هَذِهِ</b> <span data-ta>صَدَفَةٌ</span>.</p>
           <p class="s-line">نَقُولُ <b class="dem-f">هَذِهِ</b> لِلْمُؤَنَّثِ.</p>
           <p class="en">And Salma says: this is a fish, this is a palm tree, this is a seashell. We say هَذِهِ for feminine words.</p>
+          <p class="s-line find-q" aria-live="polite">أَيْنَ السَّمَكَةُ؟ اضْغَطْ عَلَيْهَا!</p>
+          <p class="en find-en" aria-live="polite">Find it! Where is the fish? Tap it.</p>
         </div>
         <div class="s-art" data-art-slot>
           <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
           <img class="scene scene--img ill-only" src="../assets/art/story/s06-sunset.webp" alt="الشَّاطِئُ عِنْدَ الْغُرُوبِ — the beach at sunset" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="noori" data-gull="happy" data-gull-label="نُورِي — Noori"></div>
+          <span class="bubble art-bubble echo-bubble" aria-live="polite" hidden></span>
           <div class="cast">
-            <button type="button" class="fig fig--sm" data-say="هَذِهِ صَدَفَةٌ" aria-label="هَذِهِ صَدَفَةٌ — this is a seashell"><span data-pic="shell" data-pic-decorative></span><span class="tag" data-ta>صَدَفَةٌ</span></button>
-            <button type="button" class="fig fig--sm" data-say="هَذِهِ نَخْلَةٌ" aria-label="هَذِهِ نَخْلَةٌ — this is a palm tree"><span data-pic="palm" data-pic-decorative></span><span class="tag" data-ta>نَخْلَةٌ</span></button>
-            <button type="button" class="fig fig--sm" data-say="هَذِهِ سَمَكَةٌ" aria-label="هَذِهِ سَمَكَةٌ — this is a fish"><span data-pic="fish" data-pic-decorative></span><span class="tag" data-ta>سَمَكَةٌ</span></button>
-            <button type="button" class="fig" data-say="هَذِهِ سَلْمَى" aria-label="سَلْمَى — Salma"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f">سَلْمَى</span></button>
+            <button type="button" class="fig fig--sm" data-find="shell" data-say="هَذِهِ صَدَفَةٌ" aria-label="هَذِهِ صَدَفَةٌ — this is a seashell"><span data-pic="shell" data-pic-decorative></span><span class="tag" data-ta>صَدَفَةٌ</span></button>
+            <button type="button" class="fig fig--sm" data-find="palm" data-say="هَذِهِ نَخْلَةٌ" aria-label="هَذِهِ نَخْلَةٌ — this is a palm tree"><span data-pic="palm" data-pic-decorative></span><span class="tag" data-ta>نَخْلَةٌ</span></button>
+            <button type="button" class="fig fig--sm" data-find="fish" data-say="هَذِهِ سَمَكَةٌ" aria-label="هَذِهِ سَمَكَةٌ — this is a fish"><span data-pic="fish" data-pic-decorative></span><span class="tag" data-ta>سَمَكَةٌ</span></button>
+            <button type="button" class="fig" data-find="salma" data-say="هَذِهِ سَلْمَى" aria-label="سَلْمَى — Salma"><span data-pic="girl" data-pic-decorative></span><span class="tag tag--f">سَلْمَى</span></button>
           </div>
         </div>
       </div>
@@ -392,12 +403,12 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
       </div>
     </section>
 
-    <!-- 8 · MAGIC SHELL (interactive) -->
-    <section class="s s--sand" style="--s-bg:url(../assets/art/story/s08-shells.webp)" aria-label="٨ — الصَّدَفَةُ السِّحْرِيَّةُ · the magic shell" data-stop
+    <!-- 8 · THE AMAZING SHELL (interactive) -->
+    <section class="s s--sand" style="--s-bg:url(../assets/art/story/s08-shells.webp)" aria-label="٨ — الصَّدَفَةُ الْعَجِيبَةُ · the amazing shell" data-stop
       data-narr="ضَعِ الصَّدَفَةَ فِي آخِرِ الْكَلِمَةِ، فَتَصِيرُ مُؤَنَّثَةً: مُعَلِّمٌ… مُعَلِّمَةٌ. طَالِبٌ… طَالِبَةٌ.">
       <div class="s-inner">
         <div class="s-text">
-          <p class="s-kicker">الصَّدَفَةُ السِّحْرِيَّةُ <span class="en" style="display:inline">· the magic shell</span></p>
+          <p class="s-kicker">الصَّدَفَةُ الْعَجِيبَةُ <span class="en" style="display:inline">· the amazing shell</span></p>
           <p class="s-line">ضَعِ الصَّدَفَةَ فِي آخِرِ الْكَلِمَةِ، فَتَصِيرُ مُؤَنَّثَةً!</p>
           <p class="en">Tap the shell to put a ة at the end of the word. Watch هَذَا turn into هَذِهِ.</p>
         </div>
@@ -419,7 +430,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     </section>
 
     <!-- 9 · FENCE -->
-    <section class="s s--sunset" aria-label="٩ — انْتَبِهْ · careful"
+    <section class="s s--sunset" aria-label="٩ — انْتَبِهْ · careful" data-echo
       data-narr="قَالَتْ سَلْمَى: لَكِنْ… بِنْتٌ لَيْسَ فِي آخِرِهَا صَدَفَةٌ! قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا تَاءٍ مَرْبُوطَةٍ: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ.">
       <div class="s-inner">
         <div class="s-text">
@@ -427,11 +438,13 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
           <p class="s-line">قَالَتْ سَلْمَى: لَكِنْ… «بِنْتٌ» لَيْسَ فِي آخِرِهَا صَدَفَةٌ!</p>
           <p class="s-line">قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة:</p>
           <p class="s-line"><b class="dem-f">هَذِهِ</b> بِنْتٌ، <b class="dem-f">هَذِهِ</b> أُمٌّ، <b class="dem-f">هَذِهِ</b> شَمْسٌ.</p>
-          <p class="en">Salma: “But بِنْت (girl) has no shell at the end!” Noori: “Right! Some words are feminine without ة — we still say هَذِهِ.”</p>
+          <p class="en">Salma: “But بِنْت (girl) has no shell at the end!” Noori: “Right! Some words are feminine without ة — we still say هَذِهِ.” Open your empty hands (no shell!), tap a picture, then say it like Noori.</p>
         </div>
         <div class="s-art" data-art-slot>
           <svg class="scene svg-only" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#beach"/></svg>
           <img class="scene scene--img ill-only" src="../assets/art/story/s09-cliffs.webp" alt="شَاطِئٌ تَحْتَ صُخُورٍ ذَهَبِيَّةٍ — a beach below golden cliffs" decoding="async" loading="lazy" onerror="this.parentNode.classList.add('art-miss');this.remove()">
+          <div class="noori" data-gull="happy" data-gull-label="نُورِي — Noori"></div>
+          <span class="bubble art-bubble echo-bubble" aria-live="polite" hidden></span>
           <div class="cast">
             <button type="button" class="fig fig--sm" data-say="هَذِهِ شَمْسٌ" aria-label="هَذِهِ شَمْسٌ — this is the sun"><span data-pic="sun" data-pic-decorative></span><span class="tag tag--f">شَمْسٌ</span></button>
             <button type="button" class="fig" data-say="هَذِهِ أُمٌّ" aria-label="هَذِهِ أُمٌّ — this is a mother"><span data-pic="mother" data-pic-decorative></span><span class="tag tag--f">أُمٌّ</span></button>
@@ -466,11 +479,11 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
 
     <!-- 11 · WRITING -->
     <section class="s s--paper" style="--s-bg:url(../assets/art/story/s11-picnic.webp)" aria-label="١١ — نَكْتُبُ · let's write" data-stop
-      data-narr="هَيَّا نَكْتُبْ! تَتَبَّعْ بِإِصْبَعِكَ: التَّاءَ الْمَرْبُوطَةَ، ثُمَّ هَذَا وَهَذِهِ. ثُمَّ اكْتُبْ جُمْلَةً تَحْتَ الصُّورَةِ. ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ.">
+      data-narr="هَيَّا نَكْتُبُ! تَتَبَّعْ بِإِصْبَعِكَ: التَّاءَ الْمَرْبُوطَةَ، ثُمَّ هَذَا وَهَذِهِ. ثُمَّ اكْتُبْ جُمْلَةً تَحْتَ الصُّورَةِ. ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ.">
       <div class="s-inner s-inner--wide">
         <div class="s-text">
           <p class="s-kicker">مَحَطَّةُ الْكِتَابَةِ <span class="en" style="display:inline">· writing station</span></p>
-          <p class="s-line">هَيَّا نَكْتُبْ! تَتَبَّعْ بِإِصْبَعِكَ: <span class="ta">ة</span>، ثُمَّ <b class="dem-m">هَذَا</b> وَ<b class="dem-f">هَذِهِ</b>.</p>
+          <p class="s-line">هَيَّا نَكْتُبُ! تَتَبَّعْ بِإِصْبَعِكَ: <span class="ta">ة</span>، ثُمَّ <b class="dem-m">هَذَا</b> وَ<b class="dem-f">هَذِهِ</b>.</p>
           <p class="en">Step 1–2: trace ة, then هَذَا and هَذِهِ. Step 3: look at the picture and write a short sentence on the empty line. Finger, Apple Pencil or mouse; start at the green dot — Arabic goes right to left. Tap «انْتَهَيْتُ» when you’re done.</p>
         </div>
         <div class="s-art s-art--plain write-stack" style="padding:0;background:none;border:0;box-shadow:none">
@@ -502,18 +515,18 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
 
     <!-- 13 · CELEBRATION -->
     <section class="s s--sky" aria-label="١٣ — أَحْسَنْتُمْ · well done"
-      data-narr="أَحْسَنْتُمْ يَا أَصْدِقَائِي! تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالتَّاءُ الْمَرْبُوطَةُ صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً. إِلَى اللِّقَاءِ!">
+      data-narr="أَحْسَنْتُمْ يَا أَصْدِقَائِي! الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالتَّاءُ الْمَرْبُوطَةُ صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً فِي الْغَالِبِ. إِلَى اللِّقَاءِ!">
       <div class="s-inner">
         <div class="s-text">
           <h2 class="s-title">أَحْسَنْتُمْ يَا أَصْدِقَائِي!</h2>
-          <p class="s-kicker">مَاذَا تَعَلَّمْنَا؟ <span class="en" style="display:inline">· what you learned</span></p>
+          <p class="s-kicker">الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: <span class="en" style="display:inline">· praise be to Allah, we learned</span></p>
           <ul class="recap">
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span><b class="dem-m">هَذَا</b> لِلْمُذَكَّرِ: هَذَا وَلَدٌ.</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span><b class="dem-f">هَذِهِ</b> لِلْمُؤَنَّثِ: هَذِهِ بِنْتٌ.</span></li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span><span class="ta">ة</span> صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً: قِطٌّ ← <span data-ta>قِطَّةٌ</span>.</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span><span class="ta">ة</span> صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً فِي الْغَالِبِ: قِطٌّ ← <span data-ta>قِطَّةٌ</span>.</span></li>
             <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><span>بَعْضُ الْمُؤَنَّثِ بِلَا ة: بِنْتٌ، أُمٌّ، شَمْسٌ.</span></li>
           </ul>
-          <p class="en">You learned: هَذَا for masculine, هَذِهِ for feminine, the ة “little shell”, and feminine words without ة. See you soon!</p>
+          <p class="en">You learned: هَذَا for masculine, هَذِهِ for feminine, the ة “little shell” that usually makes a word feminine, and feminine words without ة. See you soon!</p>
           <div class="end-row">
             <button type="button" class="btn btn--ghost" data-go="0">مِنَ الْبِدَايَةِ <span class="en">Read again</span></button>
             <a class="btn" href="article.html">الْمَقَالَةُ <span class="en">Article</span></a>
@@ -610,7 +623,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
   /* ── slide engine (clamps at both ends) ── */
   function go(n) {
     if (n < 0 || n >= N) return;
-    stopNarr(); clearTimeout(advT);
+    stopNarr(); clearTimeout(advT); echoClear();
     cur = n;
     slides.forEach(function (s, i) {
       var on = i === n;
@@ -697,7 +710,75 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
     if (f && f.tagName === 'BUTTON') { f.classList.remove('anim-wiggle'); void f.offsetWidth; f.classList.add('anim-wiggle'); }
   });
 
-  /* the magic shell */
+  /* «دَوْرُكَ!» — your turn: Noori models the line (the tap already spoke it), shows «دَوْرُكَ! قُلْ: …»,
+     waits about 3 s for the child to say it, then models it again. No microphone, no grading. */
+  var echoT = [], busy = false;   // busy: the find-it game waits while Noori models a line
+  function echoClear(keepBusy) {
+    echoT.forEach(clearTimeout); echoT = [];
+    if (!keepBusy) busy = false;
+    $$('.echo-bubble').forEach(function (b) { b.hidden = true; });
+  }
+  function echo(slide, text, then) {
+    var b = $('.echo-bubble', slide); if (!b) return;
+    echoClear(true);
+    var wait = Math.max(1600, text.length * 110);
+    echoT.push(setTimeout(function () { b.innerHTML = 'دَوْرُكَ! قُلْ: <b>' + text + '</b>'; b.hidden = false; }, wait));
+    echoT.push(setTimeout(function () { b.innerHTML = 'اسْمَعْ مَرَّةً أُخْرَى: <b>' + text + '</b>'; KS.speak(text); }, wait + 3200));
+    echoT.push(setTimeout(function () { b.hidden = true; if (then) then(); }, wait * 2 + 4200));
+  }
+  slidesEl.addEventListener('click', function (e) {
+    var f = e.target.closest('.fig[data-say]'), sl = f && f.closest('[data-echo]');
+    if (sl) echo(sl, f.getAttribute('data-say'));
+  });
+
+  /* «وَعَلَيْكُمُ السَّلَامُ» — the child answers Noori's greeting (the button speaks it via data-say) */
+  $$('[data-reply]').forEach(function (r) {
+    r.addEventListener('click', function () {
+      var sl = r.closest('.s'), g = $('.gull', sl);
+      KS.sfx('good'); if (g) KS.cheer(g);
+      r.innerHTML = 'وَعَلَيْكُمُ السَّلَامُ <span class="en">Well answered!</span>';
+    });
+  });
+
+  /* find it (slide 6): «أَيْنَ السَّمَكَةُ؟» → tap the right figure; then «دَوْرُكَ!»; the last find is the shell,
+     and Noori gives it to Salma: «تَفَضَّلِي يَا سَلْمَى!» — «شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.» */
+  var findSl = $('[data-find]', slidesEl);
+  if (findSl) {
+    var FIND = [['fish', 'أَيْنَ السَّمَكَةُ؟ اضْغَطْ عَلَيْهَا!', 'Find it! Where is the fish? Tap it.'],
+                ['palm', 'أَيْنَ النَّخْلَةُ؟ اضْغَطْ عَلَيْهَا!', 'Where is the palm tree? Tap it.'],
+                ['shell', 'أَيْنَ الصَّدَفَةُ؟ اضْغَطْ عَلَيْهَا!', 'Where is the seashell? Tap it.']];
+    var fi = 0, fq = $('.find-q', findSl), fen = $('.find-en', findSl);
+    var showFind = function () { fq.textContent = FIND[fi][1]; fen.textContent = FIND[fi][2]; };
+    findSl.addEventListener('click', function (e) {
+      var f = e.target.closest('[data-find]');
+      if (!f || f === findSl || busy || fi >= FIND.length) return;
+      if (f.getAttribute('data-find') !== FIND[fi][0]) {
+        KS.sfx('bad');
+        f.style.animation = 'none'; void f.offsetWidth; f.style.animation = 'shake .4s ease';
+        setTimeout(function () { f.style.animation = ''; }, 450);
+        fq.textContent = 'حَاوِلْ مَرَّةً أُخْرَى: ' + FIND[fi][1].split('؟')[0] + '؟';
+        fen.textContent = 'Not that one, try again!';
+        return;
+      }
+      KS.sfx('good');
+      fq.textContent = 'رَائِعٌ! ' + f.getAttribute('data-say') + '.';
+      fen.textContent = 'Great! Now your turn: say it like Noori.';
+      busy = true;
+      echo(findSl, f.getAttribute('data-say'), function () {
+        busy = false; fi++;
+        if (fi < FIND.length) { showFind(); return; }
+        var b = $('.echo-bubble', findSl);
+        b.innerHTML = 'تَفَضَّلِي يَا سَلْمَى!'; b.hidden = false;
+        fq.textContent = 'قَالَتْ سَلْمَى: شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.';
+        fen.textContent = 'Noori gives Salma the shell: “Here you are, Salma!” Salma: “Thank you, Noori! May Allah reward you with good.”';
+        KS.speak('تَفَضَّلِي يَا سَلْمَى! شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.');
+        var g = $('.gull', findSl); if (g) KS.cheer(g);
+        nextBtn.classList.add('nudge');
+      });
+    });
+  }
+
+  /* the amazing shell */
   $$('.mrow').forEach(function (m) {
     var btn = $('.mrow__btn', m), w = $('.mrow__w', m), dem = $('.dem', m), pic = $('.mrow__pic', m), en = $('.en', m), fem = false;
     btn.addEventListener('click', function () {

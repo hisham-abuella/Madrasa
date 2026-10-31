@@ -35,6 +35,7 @@ Late details mean rewritten pages and redrawn pictures, so ask everything togeth
 
 | Ask | Default if they don't say |
 |---|---|
+| **Which value?** Ask this first: the one akhlaq the characters live on 2–3 pages, with no moral stated (sharing, thanking, honesty, kindness to the cats, keeping the beach clean). Noori's book: salam (p4), giving the shell «تَفَضَّلِي يَا سَلْمَى!» → «شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.» (p10), «يَتَعَاوَنَانِ» on the sandcastle (p13), «الْحَمْدُ لِلَّهِ» at the end (p17) | you propose one, `islamic-studies-advisor` approves |
 | Grammar topic, Arabic + English (e.g. «المُفْرَدُ وَالمُثَنَّى» / singular and dual) | — (required) |
 | Grade | 1–2 |
 | 6–10 example words (with the pair they turn into, if the topic is a change) | you propose, user approves |

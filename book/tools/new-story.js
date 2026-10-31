@@ -88,6 +88,8 @@ function body(p) {
         return `${exHead(p)}<div class="ex-body">${pad([], 3, 120)}${pad([p.start], 1)}</div>`;
     case 'certificate':
         return `<div class="cert"><div class="gull-wrap" data-gull="cheer"></div><h2 class="word" style="margin:0;color:var(--accent-text)">${mark(a.name)}</h2>${en(e.name)}
+  ${a.pick ? `<div class="cert-pick" role="radiogroup" aria-label="${esc(plain(a.pick.join(' · ')))}" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">${a.pick.map((w) =>
+        `<label style="display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:4px 18px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-family:var(--word);font-size:1.35rem;font-weight:700;cursor:pointer"><input type="radio" name="champ" style="width:26px;height:26px;padding:0;margin:0;border:0;accent-color:var(--acc)"><span>${mark(w)}</span></label>`).join('')}</div>${en(e.pick)}` : ''}
   <p class="line">${mark(a.line)}</p>${en(e.line)}<label class="word" for="champName" style="font-size:1.3rem">${esc(a.who)} <span lang="en" style="font-family:var(--ui);font-size:.9rem">Name</span></label>
   <input id="champName" type="text" maxlength="24" autocomplete="off"></div>`;
     default:

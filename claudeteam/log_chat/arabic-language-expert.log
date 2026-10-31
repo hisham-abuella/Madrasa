@@ -25,3 +25,34 @@ Notes for next time:
   - Verified clean: check-spec.js passes; bare-word scan shows only ـة / blanks on lessons, hub and mockups; no lone ة in transcripts.
   - Narration transcripts can drift from screen text after a screen fix (p11) — diff data-narr against transcripts after any lesson edit.
 [DONE]
+
+=== 2026-10-31 · arabic-language-expert · Fix round 1, Batch A lead (S-004 005 006 007 008 011 019 021 022 028 035) ===
+Lead / asked by: fix-round coordinator (user's Fix round 1, BRIEF.md last section)
+Files reviewed/changed: book/stories/noori-shell.json (+ web book, book/source/noori-shell-{ar,eg}.json via new-story.js + make-transcripts.js), book/tools/{new-story,make-print}.js (certificate "pick" only), lessons/{story,article}.html, lessons/presentation/build/build.py + PLAN.md (rebuilt, 23 slides 0 issues), audio/transcripts/story-{ar,eg}.json, guide.html §8, index.html (hub card), pitch/build/build.py (adab line, rebuilt 0 issues), .claude/skills/topic-book/SKILL.md (value-first), claudeteam/suggestions.jsonl (11 statuses)
+Findings fixed (all text; tashkeel full, Fusha):
+  [MAJOR] [GRAMMAR] S-005 ALE-01 — «فِي الْغَالِبِ» added: book bye line + say, story slide 13 recap + data-narr + p13 scripts, article تَذَكَّرْ item 3
+  [MAJOR] [GRAMMAR] S-006 ALE-02 — certificate «شَهَادَةُ بَطَلِ / بَطَلَةِ الصَّدَفَةِ» + pick «أَنَا بَطَلٌ» / «أَنَا [[بَطَلَةٌ]]» (web radios, print boxes), line «أَنَا أَقُولُ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ!», say «أَحْسَنْتَ يَا بَطَلُ! وَأَحْسَنْتِ يَا بَطَلَةُ!»; article end «أَحْسَنْتُمْ!»
+  [MAJOR] [TYPESET] (found this run) certificate pick label in display:inline-flex split «بَطَلَ‍|‍ةٌ» into flex items → visible broken join; fixed by wrapping mark(w) in one <span> (web + print). Rule: never put a KS.ta / [[ ]] word directly in a flex container.
+  [MINOR] [TASHKEEL] S-021 ALE-04/09/11 — «وَالصَّفُّ» (and the .replace hack removed), «بِإِصْبَعٍ وَاحِدَةٍ» / «إِصْبَعٌ وَاحِدَةٌ», "pages 18–28", «بِسْمِ اللَّهِ»
+  [MINOR] [GRAMMAR] S-035 ALE-08 — indicative everywhere: «هَيَّا نَكْتُبُ» (story 11 + p11 «هيّا نَكتُبُ», deck 16), «هَيَّا نَقْرَأُ مَعًا» (article hero)
+  [MINOR] [NARRATION] story p11 drift (my 2026-10-25 finding) — scripts now say هذا وهذهِ + the sentence step
+New Arabic settled (reuse):
+  - «تَفَضَّلِي يَا سَلْمَى!» → «شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.»; book p10 line «… قَدَّمَهَا لِسَلْمَى وَقَالَ: تَفَضَّلِي يَا سَلْمَى!» (قَدَّمَ لِـ chosen over أَعْطَاهَا لِـ / أَعْطَاهَا سَلْمَى)
+  - p13 «يَبْنِيَانِ قَصْرًا مِنَ الرَّمْلِ، وَيَتَعَاوَنَانِ.» (dual agreement); p17 «الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: …»
+  - fence gesture «بِلَا صَدَفَةٍ» + «هَيَّا نُشِيرُ وَنَقُولُ: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ!»; «افْتَحْ يَدَيْكَ فَارِغَتَيْنِ» (يَد feminine)
+  - say-it-back: «دَوْرُكَ! قُلْ: …» / «اسْمَعْ مَرَّةً أُخْرَى: …»; find-it «أَيْنَ السَّمَكَةُ؟ اضْغَطْ عَلَيْهَا!», wrong «حَاوِلْ مَرَّةً أُخْرَى: …», right «رَائِعٌ! …» (gender-free praise)
+  - «سِرُّ التَّاءِ» (article §3), «الصَّدَفَةُ الْعَجِيبَةُ» (story 8); deck close option «الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا الْيَوْمَ مَتَى نَقُولُ هَذَا، وَمَتَى نَقُولُ هَذِهِ!» (avoids «تَعَلَّمْنَا هَذَا» read as object)
+Decisions / judgement calls:
+  - Book shams/bye/sadafa got their own ar.say — why: generated scripts read the bare «بِلَا ة» / «ة» (lone-ة TTS failure); scripts now say «تَاءٍ مَرْبُوطَةٍ» / «التَّاءُ الْمَرْبُوطَةُ».
+  - kids.js praise strings («أَحْسَنْتَ!» in RIGHT, finish()) NOT changed — why: batch B (frontend-engineer) owns kids.js this round; handed off.
+  - Generic masculine imperatives (قُمْ، قُلْ، دَوْرُكَ) kept — textbook convention (2026-10-25 decision).
+Verified: check-spec.js "spec follows the Noori pattern"; lint-transcript --pair clean on book and story pairs; deck run.sh 23 slides 0 issues; pitch check 0 issues; Playwright 390+1280 on story/article/deck/guide/book/hub/pitch: no console errors; find-it, reply, echo flows exercised; grep U+FFFD = 0 on every touched file.
+Still open:
+  - Re-record (when credits): story p06 (find prompt), p11, p13; book sadafa, sadiq, shams, bye, certificate (ar+eg) — owner: motion-and-sound-designer
+  - Print PDFs rebuild with the Salma redraw (S-016) — owner: print-production-specialist (certificate pick boxes are in make-print.js)
+  - kids.js «أَحْسَنْتَ!» → «أَحْسَنْتُمْ!» / gender-free — owner: frontend-engineer
+  - † lines in PLAN.md still unproofread (owner decision #4); new deck notes (calm-down cue, optional الحمد لله) are also †-level until a teacher signs
+Notes for next time:
+  - Book narration drafts come from make-transcripts.js (not polished) — rerun it after any spec edit; build-book.sh does both.
+  - noori-two.json untouched; its certificate is still masculine-only («أَحْسَنْتَ! أَنْتَ تَعْرِفُ…», «بَطَلِ الْمُثَنَّى») — same fix needed there.
+[DONE]

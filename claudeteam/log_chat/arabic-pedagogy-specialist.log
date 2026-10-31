@@ -23,3 +23,19 @@ Notes for next time:
   - Strongest piece: classroom deck (TPR slide 15, chant slide 17, 3 quizzes). Book p4 greeting reply is the model for speak-back.
   - Check every new lesson for a "say it" moment, not only choose/trace.
 [DONE]
+
+=== 2026-10-31 · arabic-pedagogy-specialist · Fix round 1 Batch A: approve activities for S-004 S-011 S-019 S-022 (pulled in by arabic-language-expert) ===
+Lead / asked by: arabic-language-expert (Batch A lead)
+Files reviewed: lessons/story.html (slides 2, 3, 5, 6, 9), lessons/article.html (§1–§5 «دَوْرُكَ!» boxes), book/stories/noori-shell.json p15, lessons/presentation/build/build.py slides 3 + 12
+Findings / approvals:
+  [MAJOR] [PEDAGOGY] S-004 APS-03 — memorising replaced by doing: «بِلَا صَدَفَةٍ» open-empty-hands gesture + «هَيَّا نُشِيرُ وَنَقُولُ: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ!» in book p15 (sound, note, about EN), deck 12 notes, article fence + parents' corner + quiz whyEn — approved
+  [MAJOR] [PEDAGOGY] S-011 APS-01 — echo pattern: model (tap) → «دَوْرُكَ! قُلْ: …» → ~3.2 s → model again; no mic, no grading. Story slides 3/5/9 on any figure tap, slide 6 after each correct find; article one per section (§1 هَذَا بَابٌ, §2 هَذِهِ سَمَكَةٌ, §3 هَذِهِ مُعَلِّمَةٌ with the shell gesture, §4 هَذِهِ شَمْسٌ with empty hands + window, §5 هَذِهِ بِنْتٌ نَشِيطَةٌ); salam reply button on story slide 2 — approved
+  [MINOR] [PEDAGOGY] S-019 APS-04/ECE-07 — story slide 6 "find it" (سَمَكَةٌ → نَخْلَةٌ → صَدَفَةٌ; wrong tap = soft shake + «حَاوِلْ مَرَّةً أُخْرَى» and the tapped word is still heard, so the wrong tap teaches); slide 6 is now data-stop so auto-read waits; article §1 «قُمْ، وَأَشِرْ إِلَى الْبَابِ، وَقُلْ: هَذَا بَابٌ!» — approved
+  [MINOR] [PEDAGOGY] S-022 APS-05 — "هَذَا-words / هَذِهِ-words" in story slide 1 EN and deck slide 3 notes + PLAN — approved
+Decisions / judgement calls:
+  - Echo uses the device voice (KS.speak) like the existing tap-to-hear — why: no new recordings this round; if a device has no Arabic voice it is silent, the bubble still prompts.
+  - Find-it praise is gender-free «رَائِعٌ!» — why: avoids أَحْسَنْتَ for girls (S-006).
+Still open:
+  - Web book (book/books/noori-shell.html) has no «دَوْرُكَ!» yet (APS-01 listed it) — needs story-template.html work — owner: frontend-engineer, later round
+  - Real-child timing check of the 3.2 s pause (iPad pass, S-031 deferred)
+[DONE]

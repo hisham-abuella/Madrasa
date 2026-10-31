@@ -39,12 +39,12 @@ S_('start','title',f'''<p class="label">مَدْرَسَةُ نَوْرَس لِ
 {listen('s1','اسْتَمِعْ إِلَى نُورِي')}
 {gull('wave','gull-box hero-gull')}''',
 notes(['«السَّلَامُ عَلَيْكُمْ يَا أَصْدِقَائِي!» انْتَظِرْ: «وَعَلَيْكُمُ السَّلَامُ».','أَشِرْ إِلَى نُورِي: «هَذَا نُورِي، النَّوْرَسُ الصَّغِيرُ.»','اضْغَطْ زِرَّ السَّمَّاعَةِ لِيُحَيِّيَ نُورِي الصَّفَّ.'],
-['Tap the speaker button to let Noori greet the class (Fusha clip, about 7 seconds; it never plays by itself). If your class opens with بِسْمِ اللهِ, say it here.']))
+['Tap the speaker button to let Noori greet the class (Fusha clip, about 7 seconds; it never plays by itself). If your class opens with بِسْمِ اللَّهِ, say it here.']))
 # 2
 S_('promise','agenda',f'''<h2>{PROM}</h2>
 {AG()}
 {gull('think','gull-box deco-gull')}''',
-notes([f'اقْرَأِ الْعُنْوَانَ ببُطْءٍ والصَّفُّ يُرَدِّدُ: «{PROM}»'.replace('ببُطْءٍ','بِبُطْءٍ'),'أَشِرْ إِلَى الْخُطُوَاتِ الْأَرْبَعِ.'],
+notes([f'اقْرَأِ الْعُنْوَانَ بِبُطْءٍ وَالصَّفُّ يُرَدِّدُ: «{PROM}»','أَشِرْ إِلَى الْخُطُوَاتِ الْأَرْبَعِ.'],
 ['By the end they will use هَذَا and هَذِهِ like a grown-up, and they will write them.']))
 # 3
 def card(n,cls,dem,word,i,w=None):
@@ -54,7 +54,7 @@ S_('masc','two-column',f'''<h2>نَقُولُ هَذَا لِلْمُذَكَّ�
 {card('cat','m',DM(),'قِطٌّ',2)}
 {card('book','m',DM(),'كِتَابٌ',3)}''',
 notes(['اضْغَطْ: تَظْهَرُ الصُّورَةُ. قُلْ «هَذَا وَلَدٌ» وَالصَّفُّ يُكَرِّرُ. وَكَذَلِكَ: قِطٌّ، كِتَابٌ.','ثُمَّ: «نَقُولُ هَذَا لِلْمُذَكَّرِ.»'],
-['Masculine = "boy words". Keep it simple; one click, one word, class repeats.']),' data-cols="3"')
+['Call them هَذَا-words (blue) and هَذِهِ-words (coral), not "boy words" and "girl words": كِتَابٌ is not a boy and شَمْسٌ is not a girl. Keep it simple; one click, one word, class repeats.']),' data-cols="3"')
 # 4
 S_('fem','two-column',f'''<h2>نَقُولُ هَذِهِ لِلْمُؤَنَّثِ</h2>
 {card('cat-f','f',DF(),ta('قِطَّةٌ'),1)}
@@ -111,8 +111,8 @@ def fcard(n,w,i):
 S_('fence','two-column',f'''<p class="label">مُؤَنَّثٌ بِلَا ة</p>
 <h2>انْتَبِهْ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا <span class="ta">ة</span></h2>
 {fcard('girl','بِنْتٌ',1)}{fcard('mother','أُمٌّ',2)}{fcard('sun','شَمْسٌ',3)}''',
-notes(['«انْتَبِهُوا! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة.»','اضْغَطْ كُلَّ بِطَاقَةٍ: «هَذِهِ بِنْتٌ… هَذِهِ أُمٌّ… هَذِهِ شَمْسٌ.» «نَحْفَظُهَا حِفْظًا.»'],
-['No shell, but still هَذِهِ. We learn these three by heart.']),' data-cols="3"')
+notes(['«انْتَبِهُوا! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة.»','افْتَحْ يَدَيْكَ فَارِغَتَيْنِ: «بِلَا صَدَفَةٍ!» وَالصَّفُّ يَفْعَلُ مِثْلَكَ.','اضْغَطْ كُلَّ بِطَاقَةٍ: «هَيَّا نُشِيرُ وَنَقُولُ: هَذِهِ بِنْتٌ… هَذِهِ أُمٌّ… هَذِهِ شَمْسٌ!»'],
+['No shell, but still هَذِهِ. Teach it by doing, not by heart: open, empty hands for «بِلَا صَدَفَةٍ» (no shell), then point at a girl in the room, think of mum, point at the window.']),' data-cols="3"')
 quiz('q-sun','ـــــ شَمْسٌ','انْتَبِهْ!',[('هَذَا',0),('هَذِهِ',1)],'sun',
  notes(['«هَذَا أَمْ هَذِهِ؟… شَمْسٌ!» اضْغَطْ. «شَمْسٌ مُؤَنَّثَةٌ بِلَا ة، فَنَقُولُ: هَذِهِ شَمْسٌ.»']))
 # 14
@@ -123,18 +123,18 @@ notes(['«هَيَّا نَلْعَبُ!» أَشِرْ إِلَى الْخُط�
 # 15
 items=[('door','بَابٌ'),('rose','وَرْدَةٌ'),('pen','قَلَمٌ'),('apple','تُفَّاحَةٌ'),('house','بَيْتٌ'),('palm','نَخْلَةٌ'),('mother','أُمٌّ')]
 S_('play','two-column',f'''<h2>قُومُوا! هَذَا أَمْ هَذِهِ؟</h2>
-<div class="col gest-col"><p class="gest gm">{DM()} ← أَشِرْ بِإِصْبَعٍ وَاحِدٍ</p><p class="gest gf">{DF()} ← اصْنَعْ صَدَفَةً بِيَدَيْكَ</p></div>
+<div class="col gest-col"><p class="gest gm">{DM()} ← أَشِرْ بِإِصْبَعٍ وَاحِدَةٍ</p><p class="gest gf">{DF()} ← اصْنَعْ صَدَفَةً بِيَدَيْكَ</p></div>
 <div class="col"><ol class="picgrid" data-build="list">{''.join(f'<li>{pic(n)}</li>' for n,_ in items)}</ol></div>''',
-notes(['«قُومُوا!» عَلِّمِ الْحَرَكَتَيْنِ: إِصْبَعٌ وَاحِدٌ لِـ هَذَا، وَيَدَانِ مَضْمُومَتَانِ كَصَدَفَةٍ لِـ هَذِهِ.','اضْغَطْ لِكُلِّ صُورَةٍ؛ الصَّفُّ يَفْعَلُ الْحَرَكَةَ وَيَقُولُ الْجُمْلَةَ: «هَذَا بَابٌ / هَذِهِ وَرْدَةٌ / هَذَا قَلَمٌ / هَذِهِ تُفَّاحَةٌ / هَذَا بَيْتٌ / هَذِهِ نَخْلَةٌ / هَذِهِ أُمٌّ».'],
+notes(['«قُومُوا!» عَلِّمِ الْحَرَكَتَيْنِ: إِصْبَعٌ وَاحِدَةٌ لِـ هَذَا، وَيَدَانِ مَضْمُومَتَانِ كَصَدَفَةٍ لِـ هَذِهِ.','اضْغَطْ لِكُلِّ صُورَةٍ؛ الصَّفُّ يَفْعَلُ الْحَرَكَةَ وَيَقُولُ الْجُمْلَةَ: «هَذَا بَابٌ / هَذِهِ وَرْدَةٌ / هَذَا قَلَمٌ / هَذِهِ تُفَّاحَةٌ / هَذَا بَيْتٌ / هَذِهِ نَخْلَةٌ / هَذِهِ أُمٌّ».'],
 ['Children who cannot stand join seated. If time allows, point at real things in the room (الْبَابُ، الْكِتَابُ، الطَّاوِلَةُ). Variant: a sorting game with two baskets هَذَا / هَذِهِ and printed picture cards. Praise every try; nobody is "out". The last picture (أُمٌّ) is the fence again: no ة, still هَذِهِ.']))
 # 16 write: steps 1-2 (trace ة, then هَذَا / هَذِهِ)
 S_('write','two-column',f'''<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ · ١ وَ٢</p>
-<h2 class="inh">هَيَّا نَكْتُبْ: <span class="ta">ة</span>، ثُمَّ {DM()} وَ{DF()}</h2>
+<h2 class="inh">هَيَّا نَكْتُبُ: <span class="ta">ة</span>، ثُمَّ {DM()} وَ{DF()}</h2>
 <p>ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ.</p>
 <p>افْتَحُوا الْكِتَابَ: {BOOKP}</p></div>
 <div class="col bx-stage bx-ui"><div class="padhost" data-pad data-model="ة|هَذَا|هَذِهِ" data-lines="3" data-lh="200"></div></div>''',
-notes(['«هَيَّا نَكْتُبْ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذَا، ثُمَّ هَذِهِ.',f'«افْتَحُوا الْكِتَابَ: {BOOKP}.»'],
-[f'Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «{BOOKT}»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.']),' data-fit="off" data-demo')
+notes(['أَوَّلًا نَهْدَأُ: «اجْلِسُوا… يَدَانِ عَلَى الرُّكْبَتَيْنِ… نَتَنَفَّسُ ثَلَاثَ مَرَّاتٍ.»','«هَيَّا نَكْتُبُ!» اُكْتُبِ الـ ة عَلَى اللَّوْحِ بِبُطْءٍ، مِنَ النُّقْطَةِ الْخَضْرَاءِ، مِنَ الْيَمِينِ إِلَى الْيَسَارِ؛ ثُمَّ هَذَا، ثُمَّ هَذِهِ.',f'«افْتَحُوا الْكِتَابَ: {BOOKP}.»'],
+[f'Calm down first, after the movement game: sit, hands on knees, three slow breaths, then pencils. Walk around; praise effort, never mark handwriting wrong. About 2 minutes; finish at home if needed. The book is «{BOOKT}»; exercises are on pages 18–28. The children write on paper, not on the screen: if the book is not printed yet, use the printable worksheet from article.html (exercise 1, trace and write). The pad works with a finger, Apple Pencil or mouse; tapping «انْتَهَيْتُ» gives a star, never a grade.']),' data-fit="off" data-demo')
 # 16b write a sentence under a picture (step 3)
 S_('write-sentence','two-column',f'''<div class="col bx-text"><p class="label">مَحَطَّةُ الْكِتَابَةِ · ٣</p>
 <h2 class="inh">انْظُرْ وَاكْتُبْ: {DF()} …</h2>
@@ -153,8 +153,8 @@ notes(['«نُرَدِّدُ مَعًا:» اضْغَطْ كُلَّ سَطْر�
 S_('close','closing',f'''<h2>أَنْتُمُ الْآنَ تَقُولُونَ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ!</h2>
 <p class="contact"><span>١ الْكِتَابُ: {BOOKP}</span><span>٢ ابْحَثْ عَنْ ة فِي الْبَيْتِ</span><span>٣ أَشِرْ وَقُلْ لِأَهْلِكَ: هَذَا… هَذِهِ…</span></p>
 {gull('cheer','gull-box close-gull')}''',
-notes(['«أَنْتُمُ الْآنَ تَقُولُونَ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ!» اقْرَأِ الْوَاجِبَاتِ الثَّلَاثَةَ.','خِتَامًا: «أَحْسَنْتُمْ يَا أَبْطَالُ! إِلَى اللِّقَاءِ فِي الدَّرْسِ الْقَادِمِ.»'],
-[f'For parents at pickup: the exercise pages in «{BOOKT}» (page numbers to be added), a ة hunt on food labels at home, and the "This or this?" walk: point at things and say هَذَا or هَذِهِ. End with a salute to the class, not "thank you".']))
+notes(['«أَنْتُمُ الْآنَ تَقُولُونَ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ!» اقْرَأِ الْوَاجِبَاتِ الثَّلَاثَةَ.','خِتَامًا: «أَحْسَنْتُمْ يَا أَبْطَالُ! إِلَى اللِّقَاءِ فِي الدَّرْسِ الْقَادِمِ.»','(اخْتِيَارِيٌّ) «الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا الْيَوْمَ مَتَى نَقُولُ هَذَا، وَمَتَى نَقُولُ هَذِهِ!»'],
+[f'For parents at pickup: the exercise pages in «{BOOKT}» (pages 18–28), a ة hunt on food labels at home, and the "This or this?" walk: point at things and say هَذَا or هَذِهِ. End with a salute to the class, not "thank you".']))
 # backup
 S_('backup','appendix','<h2>لِلْأَبْطَالِ</h2>',notes(['شَرَائِحُ احْتِيَاطِيَّةٌ: تُسْتَعْمَلُ إِذَا بَقِيَ وَقْتٌ. اضْغَطْ G وَاخْتَرِ الشَّرِيحَةَ.'],['Backup only. Press G (overview) and pick a slide if the class is quick.']))
 S_('champions','two-column',f'''<h2>الصِّفَةُ تَتْبَعُ الِاسْمَ</h2>

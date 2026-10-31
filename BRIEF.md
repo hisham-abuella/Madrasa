@@ -166,3 +166,27 @@ so it documents the final tools; validated with a dry run on a second topic (spe
    scrolls inside the slide; keyboard typing in the search box must not trigger deck shortcuts.
    Each JSONL line therefore carries `suggested_by` (the role that first raised it) and `roles` (all who agreed).
 - **Every team member keeps its own persistent log** `claudeteam/log_chat/<name>.log`: read it at the start of a task, append (never overwrite) a dated entry with all analysis, findings, decisions and open items at the end. Committed to git.
+
+## Fix round 1 (owner, 2026-10-31): everything that needs no image/voice generation
+Do all suggestions that need no Draw Things, no TTS and no owner decision. **Deferred:** S-001 Salma redraw,
+S-012/S-015 audio, S-044/S-049 new art, S-031 real-iPad pass, all needs_owner items. **Print PDFs are NOT rebuilt
+in this round** — book text changes go into the spec + web book now; the Lulu/A5/worksheet PDFs are rebuilt once,
+together with the Salma redraw (S-016). Status values in suggestions.jsonl: proposed → done | done-pending-print |
+done-pending-audio | deferred.
+
+## New game (owner, 2026-10-31): «كَيْفَ أَكْتُبُ؟» — watch, then write, step by step
+`games/write.html` (linked from the hub, the three lessons and the web book's exercise pages).
+- **Watch:** a SLOW animation draws a letter or a short word stroke by stroke (SVG paths revealed with
+  stroke-dashoffset, ~1.5–2.5 s per stroke, pause between strokes), right to left, body first, dots/marks last.
+  Each stroke shows a numbered green start dot and a direction arrow; Noori says the step («اِبْدَأْ مِنْ هُنَا…»).
+  Replay, slower/faster, step-by-step (next stroke) controls.
+- **Write:** the child redraws on a canvas over a faint guide, stroke by stroke in the SAME order (finger, Apple
+  Pencil, mouse; Pointer Events, touch-action none). Each stroke is checked gently against its path (start near the
+  start dot, follow the direction, coverage within a generous tolerance); a good stroke turns green and the next
+  start dot appears; an off stroke fades away with a hint and the stroke animation replays — never "wrong", no
+  timer, stars at the end only.
+- **Levels by complexity:** 1 — single letters, isolated forms with few strokes (ا ب ت ث ن ة ه …); 2 — letters with
+  dots/joins and letter positions (ـة, ـهـ); 3 — short words from the lessons (هَذَا، هَذِهِ، قِطَّةٌ، بِنْتٌ), harakat
+  added as the last steps. Stroke data in one JSON (`games/strokes.json`), hand-authored in a Naskh-like model hand,
+  stroke order reviewed by arabic-language-expert + early-childhood-educator. No AI generation needed.
+- Kid UX rules apply (≥ 56 px, reduced motion = show strokes statically with numbers, sound off by default).

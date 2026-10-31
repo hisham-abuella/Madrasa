@@ -699,9 +699,15 @@ cd ~/Work/Whisper-audio/bakeoff &amp;&amp; uv run narrate.py deck &lt;transcript
   <div class="wrap">
     <div class="g-head"><span class="n">8</span><h2 id="h-8">Writing pad &amp; print exercise art</h2><span class="ar" lang="ar">لَوْحُ الْكِتَابَةِ وَالطِّبَاعَةُ</span></div>
     <p class="lede">Every lesson has a writing station: trace the ة, trace <span class="ar" lang="ar">هَذَا</span> / <span class="ar" lang="ar">هَذِهِ</span>, write a short sentence under a picture. On screen it is <code>KS.writePad</code>; in print it is dotted words on ruled lines.</p>
-    <div data-writepad data-model="ة|هَذِهِ" data-lines="2"></div>
-    <div class="code"><button type="button" class="copy">Copy</button><pre>&lt;div data-writepad data-model="<bdi>ة|هَذِهِ</bdi>" data-lines="2"&gt;&lt;/div&gt;
-KS.writePad(el, { model: ['<bdi>ة</bdi>', '<bdi>هَذَا</bdi>'], lines: 2, lineHeight: 140 })   // → { clear, undo, toPNG, redraw }</pre></div>
+    <div data-writepad data-model="ة|هَذَا|هَذِهِ" data-lines="3"></div>
+    <div style="display:flex;align-items:center;gap:14px;margin:12px 0 8px"><span data-pic="fish" data-pic-label="سَمَكَةٌ — a fish" style="width:84px;flex:none"></span><p class="ar" lang="ar" style="margin:0;font-size:1.35rem;font-weight:700">اكْتُبْ: هَذِهِ … <span lang="en" dir="ltr" style="font-size:.85rem;font-weight:400">Step 3: write a sentence under the picture</span></p></div>
+    <div data-writepad data-model="" data-lines="1" data-line-height="120"></div>
+    <div class="code"><button type="button" class="copy">Copy</button><pre>&lt;!-- steps 1–2: trace ة, then هَذَا and هَذِهِ (all three, never fewer) --&gt;
+&lt;div data-writepad data-model="<bdi>ة|هَذَا|هَذِهِ</bdi>" data-lines="3"&gt;&lt;/div&gt;
+&lt;!-- step 3: a sentence under a picture, on an EMPTY line (no model) --&gt;
+&lt;div class="sentence-st"&gt;&lt;span data-pic="fish" data-pic-label="<bdi>سَمَكَةٌ</bdi> — a fish"&gt;&lt;/span&gt;&lt;p&gt;<bdi>اكْتُبْ: هَذِهِ …</bdi>&lt;/p&gt;&lt;/div&gt;
+&lt;div data-writepad data-model="" data-lines="1" data-line-height="120"&gt;&lt;/div&gt;
+KS.writePad(el, { model: ['<bdi>ة</bdi>', '<bdi>هَذَا</bdi>', '<bdi>هَذِهِ</bdi>'], lines: 3, lineHeight: 140 })   // → { clear, undo, toPNG, redraw }</pre></div>
     <div class="grid grid--2">
       <div class="card"><h3>On screen</h3><ul>
         <li>Finger, mouse or Apple Pencil (pressure sets the width); <code>touch-action: none</code>; touches ignored for 1.5s after the pen (palm).</li>

@@ -72,7 +72,7 @@
   background: var(--surface); border: 3px solid var(--fem); font-family: var(--f-word); font-weight: 700; font-size: 3.4rem; line-height: 1; color: var(--ta); padding-bottom: 10px; animation: glow 2.4s ease-in-out infinite; }
 .callout .word { font-size: 1.15em; }
 
-/* magic of ة: morph rows */
+/* secret of ة: morph rows */
 .morph-list { display: grid; gap: 16px; margin-top: 18px; }
 .morph { display: grid; grid-template-columns: 120px 1fr auto; gap: 6px 18px; align-items: center; padding: 14px 20px; }
 .morph__pic { grid-row: span 2; width: 120px; }
@@ -91,6 +91,13 @@
 .l-body .pic-grid { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 560px) { .l-body .pic-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 .takeaways h2 [data-gull] .gull, .end-cta [data-gull] .gull { width: 100%; height: auto; }
+
+/* «دَوْرُكَ!» say-it-back boxes */
+.callout.echo { margin-top: 18px; }
+.echo-row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-top: 10px; }
+.echo-bubble { margin: 0; font-family: var(--f-word); font-size: 1.25rem; line-height: 1.8; padding: 4px 16px; }
+.echo-bubble::after { display: none; }
+.echo-bubble b { color: var(--accent-text); }
 
 /* fence */
 .l-body .fence-grid { grid-template-columns: repeat(3, 1fr); margin-top: 14px; }
@@ -223,7 +230,7 @@
         </div>
       </div>
       <div class="hero-noori">
-        <span class="bubble">هَيَّا نَقْرَأْ مَعًا!</span>
+        <span class="bubble">هَيَّا نَقْرَأُ مَعًا!</span>
         <div data-gull="wave" data-gull-label="نُورِي يُلَوِّحُ — Noori waves hello"></div>
       </div>
     </div>
@@ -268,6 +275,12 @@
         <p class="word" style="margin:0">أَكْثَرُ الْكَلِمَاتِ الْمُذَكَّرَةِ لَيْسَ فِي آخِرِهَا ة.</p>
         <p class="en">Most masculine words do <b>not</b> end in ة.</p>
       </div>
+      <div class="callout echo" data-echo-say="هَذَا بَابٌ" data-reveal>
+        <p class="callout__label">دَوْرُكَ! <span class="en">Your turn — stand up!</span></p>
+        <p class="word" style="margin:0">قُمْ، وَأَشِرْ إِلَى الْبَابِ، وَقُلْ: <span class="dem-m">هَذَا</span> بَابٌ!</p>
+        <p class="en">Stand up, point at a real door and say it. Tap the button: Noori says it, then it’s your turn, then Noori says it again.</p>
+        <div class="echo-row"><button class="btn btn--accent echo-btn" type="button">اسْمَعْ، ثُمَّ قُلْ <span class="en">Listen, then say it</span></button><p class="bubble echo-bubble" aria-live="polite" hidden></p></div>
+      </div>
     </section>
 
     <!-- 2 · هَذِهِ + FEMININE -->
@@ -291,11 +304,17 @@
           <p class="en">This letter comes at the end of a word, and it usually makes the word feminine.</p>
         </div>
       </div>
+      <div class="callout echo" data-echo-say="هَذِهِ سَمَكَةٌ" data-reveal>
+        <p class="callout__label">دَوْرُكَ! <span class="en">Your turn</span></p>
+        <p class="word" style="margin:0">أَشِرْ إِلَى السَّمَكَةِ، وَقُلْ: <span class="dem-f">هَذِهِ</span> <span data-ta>سَمَكَةٌ</span>!</p>
+        <p class="en">Point at the fish and say it. Noori says it first, then you, then Noori again.</p>
+        <div class="echo-row"><button class="btn btn--accent echo-btn" type="button">اسْمَعْ، ثُمَّ قُلْ <span class="en">Listen, then say it</span></button><p class="bubble echo-bubble" aria-live="polite" hidden></p></div>
+      </div>
     </section>
 
-    <!-- 3 · THE MAGIC OF ة -->
+    <!-- 3 · THE SECRET OF ة -->
     <section class="l-sec" id="magic" aria-labelledby="h-magic">
-      <h2 id="h-magic" data-reveal><span class="num">٣</span> سِحْرُ التَّاءِ <span class="en">The magic of ة — add it and the word becomes feminine</span></h2>
+      <h2 id="h-magic" data-reveal><span class="num">٣</span> سِرُّ التَّاءِ <span class="en">The secret of ة — add it and the word becomes feminine</span></h2>
       <p class="lead" data-reveal>أَضِفِ التَّاءَ الْمَرْبُوطَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!</p>
       <p class="en" data-reveal>Tap <b>+ ة</b> and watch the ة fly in. The picture changes too, and هَذَا becomes هَذِهِ.</p>
       <div class="morph-list">
@@ -318,6 +337,12 @@
           <button class="btn btn--accent morph__btn" type="button">+ <span class="word">ة</span></button>
         </div>
       </div>
+      <div class="callout echo" data-echo-say="هَذِهِ مُعَلِّمَةٌ" data-reveal style="margin-top:18px">
+        <p class="callout__label">دَوْرُكَ! <span class="en">Your turn</span></p>
+        <p class="word" style="margin:0">اصْنَعْ صَدَفَةً بِيَدَيْكَ، وَقُلْ: <span class="dem-f">هَذِهِ</span> <span data-ta>مُعَلِّمَةٌ</span>!</p>
+        <p class="en">Cup your two hands like a shell (the هَذِهِ gesture) and say it after Noori.</p>
+        <div class="echo-row"><button class="btn btn--accent echo-btn" type="button">اسْمَعْ، ثُمَّ قُلْ <span class="en">Listen, then say it</span></button><p class="bubble echo-bubble" aria-live="polite" hidden></p></div>
+      </div>
     </section>
 
     <!-- 4 · FENCE: feminine without ة -->
@@ -326,12 +351,18 @@
       <div class="callout callout--warn" data-reveal>
         <p class="callout__label"><svg aria-hidden="true"><use href="#i-alert"/></svg> مُؤَنَّثٌ بِلَا ة <span class="en">Feminine — but no ة</span></p>
         <p class="word" style="margin:0">بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ، وَلَيْسَ فِي آخِرِهَا ة. نَقُولُ مَعَهَا: <span class="dem-f">هَذِهِ</span>.</p>
-        <p class="en">A few words are feminine even though they don’t end in ة. We still say هَذِهِ with them — we learn these by heart.</p>
+        <p class="en">A few words are feminine even though they don’t end in ة. We still say هَذِهِ with them. Their gesture: open, empty hands — «بِلَا صَدَفَةٍ», no shell!</p>
       </div>
       <div class="pic-grid fence-grid">
         <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ بِنْتٌ" data-reveal style="--i:0"><span class="chip no-ta">بِلَا ة</span><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="girl" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> بِنْتٌ</span><span class="en">This is a girl.</span></button>
         <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ أُمٌّ" data-reveal style="--i:1"><span class="chip no-ta">بِلَا ة</span><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="mother" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> أُمٌّ</span><span class="en">This is a mother.</span></button>
         <button class="pic-card pic-card--f" type="button" data-say="هَذِهِ شَمْسٌ" data-reveal style="--i:2"><span class="chip no-ta">بِلَا ة</span><svg class="ear" aria-hidden="true"><use href="#i-ear"/></svg><span data-pic="sun" data-pic-decorative></span><span class="word"><span class="dem-f">هَذِهِ</span> شَمْسٌ</span><span class="en">This is the sun.</span></button>
+      </div>
+      <div class="callout echo" data-echo-say="هَذِهِ شَمْسٌ" data-reveal style="margin-top:18px">
+        <p class="callout__label">دَوْرُكَ! <span class="en">Your turn — point and say</span></p>
+        <p class="word" style="margin:0">افْتَحْ يَدَيْكَ: بِلَا صَدَفَةٍ! ثُمَّ أَشِرْ إِلَى النَّافِذَةِ، وَقُلْ: <span class="dem-f">هَذِهِ</span> شَمْسٌ!</p>
+        <p class="en">Open your empty hands (no shell!), point at the window and say it. Then try the others: point at a girl — هَذِهِ بِنْتٌ; think of mum — هَذِهِ أُمٌّ.</p>
+        <div class="echo-row"><button class="btn btn--accent echo-btn" type="button">اسْمَعْ، ثُمَّ قُلْ <span class="en">Listen, then say it</span></button><p class="bubble echo-bubble" aria-live="polite" hidden></p></div>
       </div>
     </section>
 
@@ -350,6 +381,12 @@
         <p class="callout__label"><svg aria-hidden="true"><use href="#i-bulb"/></svg> انْظُرْ جَيِّدًا <span class="en">Look closely</span></p>
         <p class="word" style="margin:0">«بِنْتٌ» بِلَا ة، وَلَكِنَّ صِفَتَهَا فِيهَا ة: بِنْتٌ <span data-ta>نَشِيطَةٌ</span>.</p>
         <p class="en">بِنْت has no ة, but her describing word still gets one: نَشِيطَة.</p>
+      </div>
+      <div class="callout echo" data-echo-say="هَذِهِ بِنْتٌ نَشِيطَةٌ" data-reveal style="margin-top:18px">
+        <p class="callout__label">دَوْرُكَ! <span class="en">Your turn</span></p>
+        <p class="word" style="margin:0">قُلْ مِثْلَ نُورِي: <span class="dem-f">هَذِهِ</span> بِنْتٌ <span data-ta>نَشِيطَةٌ</span>!</p>
+        <p class="en">Say the whole sentence after Noori.</p>
+        <div class="echo-row"><button class="btn btn--accent echo-btn" type="button">اسْمَعْ، ثُمَّ قُلْ <span class="en">Listen, then say it</span></button><p class="bubble echo-bubble" aria-live="polite" hidden></p></div>
       </div>
     </section>
 
@@ -395,7 +432,7 @@
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">نَقُولُ <span class="dem-m">هَذَا</span> لِلْمُذَكَّرِ: هَذَا وَلَدٌ.</span><span class="en">هَذَا for masculine words.</span></div></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">نَقُولُ <span class="dem-f">هَذِهِ</span> لِلْمُؤَنَّثِ: هَذِهِ بِنْتٌ.</span><span class="en">هَذِهِ for feminine words.</span></div></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">التَّاءُ الْمَرْبُوطَةُ <span class="ta">ة</span> تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً: مُعَلِّمٌ ← <span data-ta>مُعَلِّمَةٌ</span>.</span><span class="en">ة usually makes a word feminine.</span></div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">التَّاءُ الْمَرْبُوطَةُ <span class="ta">ة</span> تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً فِي الْغَالِبِ: مُعَلِّمٌ ← <span data-ta>مُعَلِّمَةٌ</span>.</span><span class="en">ة usually makes a word feminine.</span></div></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة: بِنْتٌ، أُمٌّ، شَمْسٌ.</span><span class="en">A few feminine words have no ة.</span></div></li>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg><div><span class="word">الصِّفَةُ تَتْبَعُ الِاسْمَ: هَذِهِ بِنْتٌ <span data-ta>نَشِيطَةٌ</span>.</span><span class="en">Describing words agree with their noun.</span></div></li>
         </ul>
@@ -411,13 +448,13 @@
           <span class="word" lang="ar">هَذَا</span> (<i>hādhā</i>) for masculine nouns and <span class="word" lang="ar">هَذِهِ</span> (<i>hādhihi</i>) for feminine ones.
           Most feminine nouns end in the <b>tā’ marbūṭa</b> <span class="word" lang="ar">ة</span>, which turns many masculine words feminine
           (<span class="word" lang="ar">مُعَلِّمٌ ← مُعَلِّمَةٌ</span>, teacher). A few common feminine words have no ة —
-          <span class="word" lang="ar">بِنْتٌ</span> girl, <span class="word" lang="ar">أُمٌّ</span> mother, <span class="word" lang="ar">شَمْسٌ</span> sun — and are simply learned by heart.
+          <span class="word" lang="ar">بِنْتٌ</span> girl, <span class="word" lang="ar">أُمٌّ</span> mother, <span class="word" lang="ar">شَمْسٌ</span> sun — and children learn them by doing: open, empty hands for <span class="word" lang="ar">بِلَا صَدَفَةٍ</span> (no shell), then point and say <span class="word" lang="ar">هَذِهِ شَمْسٌ</span>.
           Stronger readers also met agreement: <span class="word" lang="ar">هَذِهِ بِنْتٌ نَشِيطَةٌ</span> (“this is an active girl”).</p>
         <h3>Practise at home — five minutes a day</h3>
         <ol>
           <li><b>“This or this?” walk.</b> Point at things around the house; your child answers with a full sentence: <span class="word" lang="ar">هَذَا بَابٌ</span>, <span class="word" lang="ar">هَذِهِ طَاوِلَةٌ</span>.</li>
           <li><b>ة hunt.</b> In any Arabic book or on a food label, ask your child to find and point to every ة.</li>
-          <li><b>The magic shell.</b> Write <span class="word" lang="ar">مُعَلِّم، طَالِب، قِطّ</span> on cards; your child adds a paper “shell” with ة and reads the new word.</li>
+          <li><b>The shell game.</b> Write <span class="word" lang="ar">مُعَلِّم، طَالِب، قِطّ</span> on cards; your child adds a paper “shell” with ة and reads the new word.</li>
           <li><b>One drawing, one sentence.</b> Your child draws something and writes a sentence under it starting with هَذَا or هَذِهِ.</li>
           <li><b>Read the vowel marks aloud</b>, slowly. Praise effort; never correct handwriting harshly.</li>
         </ol>
@@ -431,7 +468,7 @@
 
     <div class="end-cta no-print">
       <div data-gull="cheer" style="width:110px;margin:0 auto" data-gull-label="نُورِي يَفْرَحُ — Noori cheering"></div>
-      <p class="word" style="font-size:1.5rem;margin:0">أَحْسَنْتَ! إِلَى اللِّقَاءِ فِي الدَّرْسِ الْقَادِمِ.</p>
+      <p class="word" style="font-size:1.5rem;margin:0">أَحْسَنْتُمْ! إِلَى اللِّقَاءِ فِي الدَّرْسِ الْقَادِمِ.</p>
       <p class="en" style="text-align:center">Well done! See you in the next lesson.</p>
       <div class="row">
         <a class="btn btn--accent trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
@@ -508,7 +545,23 @@
     setTimeout(function () { c.classList.remove('ta-glow'); }, 3000);
   });
 
-  /* «سِحْرُ التَّاءِ»: the ة flies in, the picture and هَذَا/هَذِهِ change */
+  /* «دَوْرُكَ!» — Noori models the line, the child says it (about 3 s), Noori models it again.
+     No microphone, no grading (same pattern as story.html). */
+  var echoT = [];
+  document.querySelectorAll('.echo').forEach(function (box) {
+    var btn = box.querySelector('.echo-btn'), b = box.querySelector('.echo-bubble'), text = box.getAttribute('data-echo-say');
+    btn.addEventListener('click', function () {
+      echoT.forEach(clearTimeout); echoT = [];
+      document.querySelectorAll('.echo-bubble').forEach(function (x) { x.hidden = true; });
+      var wait = Math.max(1600, text.length * 110);
+      b.innerHTML = 'اسْمَعْ: <b>' + text + '</b>'; b.hidden = false; KS.speak(text, btn);
+      echoT.push(setTimeout(function () { b.innerHTML = 'دَوْرُكَ! قُلْ: <b>' + text + '</b>'; KS.sfx('pop'); }, wait));
+      echoT.push(setTimeout(function () { b.innerHTML = 'اسْمَعْ مَرَّةً أُخْرَى: <b>' + text + '</b>'; KS.speak(text, btn); }, wait + 3200));
+      echoT.push(setTimeout(function () { b.hidden = true; }, wait * 2 + 4600));
+    });
+  });
+
+  /* «سِرُّ التَّاءِ»: the ة flies in, the picture and هَذَا/هَذِهِ change */
   document.querySelectorAll('.morph').forEach(function (m) {
     var btn = m.querySelector('.morph__btn'), w = m.querySelector('.morph__w'), dem = m.querySelector('.dem');
     var pic = m.querySelector('.morph__pic'), en = m.querySelector('.en');
@@ -561,7 +614,7 @@
       why: 'مُعَلِّمَةٌ فِي آخِرِهَا التَّاءُ الْمَرْبُوطَةُ ة.', whyEn: 'مُعَلِّمَة ends in the ة, so it is the feminine one.' },
     { pic: 'sun', q: B + ' شَمْسٌ', say: 'شَمْسٌ', en: 'Careful! “___ the sun”',
       options: [{ h: 'هَذِهِ', ok: true }, { h: 'هَذَا' }],
-      why: 'شَمْسٌ مُؤَنَّثَةٌ بِلَا ة، فَنَقُولُ: هَذِهِ شَمْسٌ.', whyEn: 'شَمْس has no ة, but it is feminine — one to learn by heart.' },
+      why: 'شَمْسٌ مُؤَنَّثَةٌ بِلَا ة، فَنَقُولُ: هَذِهِ شَمْسٌ.', whyEn: 'شَمْس has no ة, but it is feminine: open empty hands, «بِلَا صَدَفَةٍ», and say هَذِهِ.' },
     { pic: 'girl', q: 'هَذِهِ بِنْتٌ ' + B, say: 'هَذِهِ بِنْتٌ…', en: 'Champions’ question: “This is an active girl.”',
       options: [{ h: KS.ta('نَشِيطَةٌ'), ok: true }, { h: 'نَشِيطٌ' }],
       why: 'الْبِنْتُ مُؤَنَّثَةٌ، فَالصِّفَةُ مُؤَنَّثَةٌ أَيْضًا: بِنْتٌ نَشِيطَةٌ.', whyEn: 'The girl is feminine, so the describing word is too: نَشِيطَة.' }

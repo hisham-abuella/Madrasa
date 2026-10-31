@@ -40,7 +40,7 @@
               "body": [
                 "Noori the seagull teaches one idea from the Nawras grade 1–2 lesson: we say هَذَا (this, masculine) and هَذِهِ (this, feminine).",
                 "The tā’ marbūṭa ة looks like a little seashell. At the end of a word it usually marks the feminine: قِطّ (tomcat) becomes قِطَّة (she-cat).",
-                "The fence: some feminine words have no ة — بِنْت (girl), أُمّ (mother), شَمْس (sun). They still take هَذِهِ. Children learn these by heart.",
+                "The fence: some feminine words have no ة — بِنْت (girl), أُمّ (mother), شَمْس (sun). They still take هَذِهِ. Children learn them by doing: open, empty hands for «بِلَا صَدَفَةٍ» (no shell), then point and say هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ.",
                 "How to use it: read one story page a night aloud, pointing at the picture. Then do the exercise pages (from page 18) with a pencil: tracing starts at the green dot and runs right to left. Praise effort; never mark handwriting wrong.",
                 "Scan the code to hear every page read aloud in Fusha, or explained in Egyptian Arabic, and to write on an iPad."
               ],
@@ -128,15 +128,16 @@
     {
       "key": "sadafa", "type": "story", "img": "sadafa", "tint": "#F6B8C0", "gender": "f",
       "ar": { "name": "هَذِهِ [[صَدَفَةٌ]]",
-              "line": "وَجَدَ نُورِي شَيْئًا صَغِيرًا عَلَى الرَّمْلِ. هَذِهِ [[صَدَفَةٌ]] [[صَغِيرَةٌ]]!",
-              "sound": "مَا أَجْمَلَهَا!",
-              "note": "ابْحَثُوا عَنْ صَدَفَةٍ حَقِيقِيَّةٍ عَلَى الشَّاطِئِ، وَقُولُوا: هَذِهِ صَدَفَةٌ." },
+              "line": "وَجَدَ نُورِي شَيْئًا صَغِيرًا عَلَى الرَّمْلِ. هَذِهِ [[صَدَفَةٌ]] [[صَغِيرَةٌ]]! قَدَّمَهَا لِسَلْمَى وَقَالَ: تَفَضَّلِي يَا سَلْمَى!",
+              "sound": "شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.",
+              "note": "أَعْطُوا شَيْئًا وَقُولُوا: تَفَضَّلْ يَا سَامِي، تَفَضَّلِي يَا سَلْمَى. وَرُدُّوا: شُكْرًا، جَزَاكَ اللَّهُ خَيْرًا.",
+              "say": "[warmly] هَذِهِ صَدَفَةٌ. <break time=\"0.4s\" /> وَجَدَ نُورِي شَيْئًا صَغِيرًا عَلَى الرَّمْلِ. هَذِهِ صَدَفَةٌ صَغِيرَةٌ! <break time=\"0.5s\" /> [gently] قَدَّمَهَا لِسَلْمَى وَقَالَ: تَفَضَّلِي يَا سَلْمَى! <break time=\"0.5s\" /> [happy] شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا." },
       "en": { "name": "This is a shell",
-              "line": "Noori found something small on the sand. This is a little shell!",
-              "sound": "How beautiful it is!",
-              "note": "On your next beach day, find a real shell and say هَذِهِ صَدَفَةٌ together." },
-      "eg": { "line": "نوري لقى حاجة صغيّرة على الرملة. هذهِ صَدَفةٌ صغيرةٌ!",
-              "say": "[curious] نوري لقى حاجة صغيّرة على الرملة… <break time=\"0.4s\" /> [excited] هذهِ صَدَفةٌ صغيرةٌ! <break time=\"0.4s\" /> الله، حلوة قوي!" }
+              "line": "Noori found something small on the sand. This is a little shell! He gave it to Salma: “Here you are, Salma!”",
+              "sound": "Thank you, Noori! May Allah reward you with good.",
+              "note": "Practise giving and thanking: تَفَضَّلْ (here you are) to a boy, تَفَضَّلِي to a girl, the same masculine/feminine idea. The answer is شُكْرًا، جَزَاكَ اللَّهُ خَيْرًا (thank you, may Allah reward you). On your next beach day, find a real shell and say هَذِهِ صَدَفَةٌ together." },
+      "eg": { "line": "نوري لقى حاجة صغيّرة على الرملة. هذهِ صَدَفةٌ صغيرةٌ! وإدّاها لسَلْمى: تَفَضَّلي يا سَلْمى!",
+              "say": "[curious] نوري لقى حاجة صغيّرة على الرملة… <break time=\"0.4s\" /> [excited] هذهِ صَدَفةٌ صغيرةٌ! <break time=\"0.4s\" /> [warmly] وإدّاها لسَلْمى وقال: تَفَضَّلي يا سَلْمى! <break time=\"0.4s\" /> [happy] وسَلْمى قالت: شُكْرًا يا نوري! جَزاكَ اللهُ خَيْرًا." }
     },
     {
       "key": "ta", "type": "story", "img": "ta", "tint": "#F6B8C0", "big": "ة",
@@ -167,15 +168,15 @@
     {
       "key": "sadiq", "type": "story", "img": "sadiq", "tint": "#F4C97A",
       "ar": { "name": "صَدِيقٌ… [[صَدِيقَةٌ]]",
-              "line": "سَامِي صَدِيقٌ، وَسَلْمَى [[صَدِيقَةٌ]]. يَبْنِيَانِ قَصْرًا مِنَ الرَّمْلِ.",
+              "line": "سَامِي صَدِيقٌ، وَسَلْمَى [[صَدِيقَةٌ]]. يَبْنِيَانِ قَصْرًا مِنَ الرَّمْلِ، وَيَتَعَاوَنَانِ.",
               "sound": "مُعَلِّمٌ… [[مُعَلِّمَةٌ]]! طَالِبٌ… [[طَالِبَةٌ]]!",
               "note": "الْعَبُوا: أَقُولُ «مُعَلِّمٌ»، وَأَنْتَ تُضِيفُ الصَّدَفَةَ: «مُعَلِّمَةٌ»." },
       "en": { "name": "Friend… friend",
-              "line": "Sami is a friend (صَدِيق), and Salma is a friend (صَدِيقَة). They build a sandcastle together.",
+              "line": "Sami is a friend (صَدِيق), and Salma is a friend (صَدِيقَة). They build a sandcastle and help each other.",
               "sound": "Teacher (m)… teacher (f)! Student (m)… student (f)!",
               "note": "Play “add the shell”: you say مُعَلِّم, your child answers مُعَلِّمَة. Then طَالِب → طَالِبَة." },
-      "eg": { "line": "سامي صَديقٌ، وسَلْمى صَديقةٌ. بيبنوا قصر من الرملة.",
-              "say": "[warmly] سامي صَديقٌ، <break time=\"0.3s\" /> وسَلْمى صَديقةٌ. <break time=\"0.4s\" /> بيبنوا قصر من الرملة. <break time=\"0.5s\" /> [playfully] مُعَلِّمٌ… مُعَلِّمةٌ! <break time=\"0.3s\" /> طالِبٌ… طالِبةٌ!" }
+      "eg": { "line": "سامي صَديقٌ، وسَلْمى صَديقةٌ. بيبنوا قصر من الرملة، وبيساعدوا بعض.",
+              "say": "[warmly] سامي صَديقٌ، <break time=\"0.3s\" /> وسَلْمى صَديقةٌ. <break time=\"0.4s\" /> بيبنوا قصر من الرملة، وبيساعدوا بعض. <break time=\"0.5s\" /> [playfully] مُعَلِّمٌ… مُعَلِّمةٌ! <break time=\"0.3s\" /> طالِبٌ… طالِبةٌ!" }
     },
     {
       "key": "bint", "type": "story", "img": "bint", "tint": "#F2A7A0",
@@ -194,14 +195,15 @@
       "key": "shams", "type": "story", "img": "shams", "tint": "#FFD86B",
       "ar": { "name": "مُؤَنَّثٌ بِلَا ة",
               "line": "قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ.",
-              "sound": "نَحْفَظُهَا فِي قُلُوبِنَا!",
-              "note": "هَذِهِ الْكَلِمَاتُ الثَّلَاثُ نَحْفَظُهَا: بِنْتٌ، أُمٌّ، شَمْسٌ." },
+              "sound": "هَيَّا نُشِيرُ وَنَقُولُ: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ!",
+              "note": "افْتَحُوا أَيْدِيَكُمْ: بِلَا صَدَفَةٍ! ثُمَّ أَشِيرُوا وَقُولُوا: هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ.",
+              "say": "[warmly] مُؤَنَّثٌ بِلَا تَاءٍ مَرْبُوطَةٍ. <break time=\"0.4s\" /> قَالَ نُورِي: صَحِيحٌ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا تَاءٍ مَرْبُوطَةٍ: <break time=\"0.3s\" /> هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ. <break time=\"0.5s\" /> [cheerful] هَيَّا نُشِيرُ وَنَقُولُ: <break time=\"0.3s\" /> هَذِهِ بِنْتٌ، <break time=\"0.3s\" /> هَذِهِ أُمٌّ، <break time=\"0.3s\" /> هَذِهِ شَمْسٌ!" },
       "en": { "name": "Feminine without ة",
               "line": "Noori said: “Right! Some words are feminine with no ة: this is a girl, this is a mother, this is the sun.”",
-              "sound": "We learn them by heart!",
-              "note": "The fence: the ة is a helper, not the rule. بِنْت، أُمّ، شَمْس take هَذِهِ with no ة. Mother is in the words, not the picture." },
+              "sound": "Let’s point and say: this is a girl, this is a mother, this is the sun!",
+              "note": "The fence: the ة is a helper, not the rule. بِنْت، أُمّ، شَمْس take هَذِهِ with no ة. Give them a gesture: open, empty hands for «بِلَا صَدَفَةٍ» (no shell), then point at a girl, think of mum, point at the window. Mother is in the words, not the picture." },
       "eg": { "line": "نوري قال: صحّ! فيه كلمات مؤنَّثة من غير تاء مربوطة: هذهِ بِنتٌ، هذهِ أُمٌّ، هذهِ شَمسٌ.",
-              "say": "[warmly] نوري قال: صحّ! <break time=\"0.3s\" /> فيه كلمات مؤنَّثة من غير تاء مربوطة: <break time=\"0.4s\" /> هذهِ بِنتٌ، <break time=\"0.3s\" /> هذهِ أُمٌّ، <break time=\"0.3s\" /> هذهِ شَمسٌ. <break time=\"0.5s\" /> [gently] بنحفظهم في قلبنا!" }
+              "say": "[warmly] نوري قال: صحّ! <break time=\"0.3s\" /> فيه كلمات مؤنَّثة من غير تاء مربوطة: <break time=\"0.4s\" /> هذهِ بِنتٌ، <break time=\"0.3s\" /> هذهِ أُمٌّ، <break time=\"0.3s\" /> هذهِ شَمسٌ. <break time=\"0.5s\" /> [playfully] افتحوا إيديكم: من غير صَدَفة! <break time=\"0.3s\" /> ويلّا نشاوِر ونقول: هذهِ بِنتٌ، هذهِ أُمٌّ، هذهِ شَمسٌ!" }
     },
     {
       "key": "nashit", "type": "story", "img": "nashit", "tint": "#9ED0F0",
@@ -219,15 +221,16 @@
     {
       "key": "bye", "type": "story", "img": "bye", "tint": "#F7A98B",
       "ar": { "name": "أَحْسَنْتُمْ!",
-              "line": "تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ ة تَجْعَلُ الْكَلِمَةَ [[مُؤَنَّثَةً]].",
+              "line": "الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، وَالصَّدَفَةُ الصَّغِيرَةُ ة تَجْعَلُ الْكَلِمَةَ [[مُؤَنَّثَةً]] فِي الْغَالِبِ.",
               "sound": "إِلَى اللِّقَاءِ يَا أَصْدِقَائِي!",
-              "note": "الْآنَ إِلَى صَفَحَاتِ التَّمَارِينِ: قَلَمُ رَصَاصٍ، وَنَبْدَأُ مِنَ النُّقْطَةِ الْخَضْرَاءِ." },
+              "note": "الْآنَ إِلَى صَفَحَاتِ التَّمَارِينِ: قَلَمُ رَصَاصٍ، وَنَبْدَأُ مِنَ النُّقْطَةِ الْخَضْرَاءِ.",
+              "say": "[warmly] أَحْسَنْتُمْ! <break time=\"0.4s\" /> الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، <break time=\"0.3s\" /> وَالصَّدَفَةُ الصَّغِيرَةُ، التَّاءُ الْمَرْبُوطَةُ، تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً فِي الْغَالِبِ. <break time=\"0.5s\" /> [softly] إِلَى اللِّقَاءِ يَا أَصْدِقَائِي!" },
       "en": { "name": "Well done!",
-              "line": "We learned: هَذَا for masculine, هَذِهِ for feminine, and the little shell ة makes a word feminine.",
+              "line": "Praise be to Allah, we learned: هَذَا for masculine, هَذِهِ for feminine, and the little shell ة usually makes a word feminine.",
               "sound": "Goodbye, my friends!",
               "note": "Now the exercise pages: a pencil, and every tracing starts at the green dot." },
-      "eg": { "line": "اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، والصَّدَفة الصغيّرة بتخلّي الكلمة مؤنَّثة.",
-              "say": "[happy] برافو عليكم! <break time=\"0.4s\" /> اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، <break time=\"0.3s\" /> والصَّدَفة الصغيّرة بتخلّي الكلمة مؤنَّثة. <break time=\"0.5s\" /> [warmly] مع السلامة يا صحابي!" }
+      "eg": { "line": "الحمد لله، اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، والصَّدَفة الصغيّرة بتخلّي الكلمة مؤنَّثة في الغالب.",
+              "say": "[happy] برافو عليكم! <break time=\"0.4s\" /> الحمد لله، اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، <break time=\"0.3s\" /> والصَّدَفة الصغيّرة بتخلّي الكلمة مؤنَّثة في الغالب. <break time=\"0.5s\" /> [warmly] مع السلامة يا صحابي!" }
     },
 
     {
@@ -348,10 +351,10 @@
     },
     {
       "key": "certificate", "type": "certificate",
-      "ar": { "name": "شَهَادَةُ بَطَلِ الصَّدَفَةِ", "line": "أَحْسَنْتَ! أَنْتَ تَقُولُ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ.", "who": "الِاسْمُ:", "date": "التَّارِيخُ:",
-              "say": "[happy] أَحْسَنْتَ يَا بَطَلُ! <break time=\"0.4s\" /> أَنْتَ تَقُولُ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ. <break time=\"0.4s\" /> [warmly] إِلَى اللِّقَاءِ!" },
-      "en": { "name": "Shell Champion certificate", "line": "Well done! You say هَذَا and هَذِهِ like the grown-ups.", "note": "Colour a star for each exercise page finished." },
-      "eg": { "say": "[happy] برافو عليك يا بطل! <break time=\"0.4s\" /> إنت بتقول هذا وهذهِ زيّ الكبار. <break time=\"0.4s\" /> [warmly] مع السلامة!" }
+      "ar": { "name": "شَهَادَةُ بَطَلِ / بَطَلَةِ الصَّدَفَةِ", "pick": ["أَنَا بَطَلٌ", "أَنَا [[بَطَلَةٌ]]"], "line": "أَنَا أَقُولُ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ!", "who": "الِاسْمُ:", "date": "التَّارِيخُ:",
+              "say": "[happy] أَحْسَنْتَ يَا بَطَلُ! وَأَحْسَنْتِ يَا بَطَلَةُ! <break time=\"0.4s\" /> تَقُولُونَ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ. <break time=\"0.4s\" /> [warmly] إِلَى اللِّقَاءِ!" },
+      "en": { "name": "Shell Champion certificate", "pick": "Tick one: I am a champion (boy) · I am a champion (girl). Choosing the right word is itself the lesson.", "line": "I say هَذَا and هَذِهِ like the grown-ups!", "note": "Colour a star for each exercise page finished." },
+      "eg": { "say": "[happy] برافو عليك يا بطل، وبرافو عليكي يا بطلة! <break time=\"0.4s\" /> إنتو بتقولوا هذا وهذهِ زيّ الكبار. <break time=\"0.4s\" /> [warmly] مع السلامة!" }
     },
     {
       "key": "answers", "type": "answers", "web": false, "audio": false,
