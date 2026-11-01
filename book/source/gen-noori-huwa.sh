@@ -66,4 +66,6 @@ NEG="$NEG, $NEG_SALMA, brown hair, dark hair, black hair, hairline, hair under t
 echo "noori-huwa IMAGES DONE"
 
 # ── REVIEW LOG (every page checked by eye on contact sheets and at full size) ──
-#   (not drawn yet: draw one page at a time with tools/try-seeds.sh, after the voice queue)
+#   2026-11-01: cover 600 · salam 701 (702-704 drew the bag as a blob like an animal) ·
+#   recall 702 (705 lost the book) · kis 706 (703/704 hid Sami, 705 hair under the cap).
+#   Still to draw: zujaja, qitt, umm, clean, hadiya.
