@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="pacific">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أَبْنِي جُمْلَةً — Nawras</title>
+<script>try{var t=localStorage.getItem('nawras-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<meta name="description" content="Nawras Fusha School — Build a sentence: tap هَذَا or هَذِهِ, the word for the picture and صَغِيرٌ or صَغِيرَةٌ, and Noori reads it back. No timer, gentle hints.">
+<meta property="og:title" content="Build a sentence — Nawras picture game">
+<meta property="og:description" content="Under each picture the child taps the tiles هَذَا|هَذِهِ + the word (+ صَغِيرٌ|صَغِيرَةٌ) and Noori reads the sentence back. Gentle hints, no timer.">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/assets/og-nawras.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/games/build.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Reem+Kufi:wght@500;700&family=Lalezar&family=Amiri:wght@400;700&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<link rel="stylesheet" href="play.css">
+</head>
+<body>
+<a class="skip" href="#game">تَخَطَّ إِلَى اللُّعْبَةِ · Skip to the game</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-basket" viewBox="0 0 92 60"><path d="M24 22C24 8 68 8 68 22" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M6 22h80l-9 34H15z" fill="currentColor"/><path d="M14 32h64M17 43h58M30 22l3 34M46 22v34M62 22l-3 34" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="3" fill="none"/></symbol>
+</svg>
+
+<header class="pl-top">
+  <a class="pl-home" href="../index.html" aria-label="نَوْرَس — الرَّئِيسَةُ · back to the hub"><img class="logo-mark" src="../assets/brand/logo-c1-128.webp" alt="" width="48" height="48"></a>
+  <div class="pl-title">
+    <h1>أَبْنِي جُمْلَةً</h1>
+    <span class="en">Build a sentence under the picture</span>
+  </div>
+  <a class="btn btn--ghost btn--sm pl-back" href="kids.html">الْبِدَايَةُ <span class="en">Start screen</span></a>
+</header>
+
+<main id="game" class="pl" tabindex="-1" data-game="build">
+  <div class="pl-coach">
+    <div class="pl-noori" id="noori"></div>
+    <div class="bubble pl-bubble" id="bubble">
+      <p class="pl-say" id="say" aria-live="polite"></p>
+      <p class="en" id="sayEn"></p>
+    </div>
+    <button type="button" class="say" id="listenCoach" data-say="" aria-label="اِسْتَمِعْ إِلَى نُورِي — listen to Noori"></button>
+  </div>
+
+  <div class="pl-progress stars" id="progress" role="img"></div>
+  <div class="pl-stage">
+    <div class="pl-card" id="card" role="group">
+      <div class="pl-card__pic" id="cardPic"></div>
+      <p class="pl-card__word" id="cardWord" hidden></p>
+      <button type="button" class="say" id="cardSay" data-say=""></button>
+    </div>
+    <div>
+      <div class="pl-strip" id="strip" role="status" aria-live="polite"></div>
+      <div class="pl-tiles" id="tiles" role="group" aria-label="اخْتَرْ كَلِمَةً — choose a word tile"></div>
+    </div>
+  </div>
+  <p class="pl-next"><button type="button" class="btn" id="next" hidden></button></p>
+
+  <section class="pl-done" id="done" tabindex="-1" hidden aria-live="polite">
+    <div class="pl-done__gull"></div>
+    <p class="pl-done__msg"></p>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="pl-done__sticker"></div>
+    <div class="pl-done__row">
+      <button type="button" class="btn" id="again">مَرَّةً أُخْرَى <span class="en">Play again</span></button>
+      <a class="btn btn--ghost" href="sort.html">سَلَّةُ هَذَا · سَلَّةُ هَذِهِ <span class="en">Next game: two baskets</span></a>
+    </div>
+  </section>
+
+  <nav class="pl-more" aria-labelledby="h-more">
+    <h2 id="h-more">أَلْعَابٌ أُخْرَى <span class="en">More games</span></h2>
+    <div class="pl-more__row">
+      <a class="game-link" href="sort.html">سَلَّةُ هَذَا · سَلَّةُ هَذِهِ <span class="en">Two baskets</span></a>
+      <a class="game-link" href="listen.html">اِسْمَعْ وَاخْتَرْ <span class="en">Listen and choose</span></a>
+      <a class="game-link" href="write.html">كَيْفَ أَكْتُبُ؟ <span class="en">Writing game</span></a>
+      <a class="game-link" href="../lessons/story.html">الْقِصَّةُ <span class="en">The story</span></a>
+    </div>
+  </nav>
+
+  <details class="pl-parents">
+    <summary>لِلْأَهْلِ وَالْمُعَلِّمِينَ <span class="en">For parents and teachers</span></summary>
+    <p class="en">Eight pictures. Your child builds the sentence under the picture one tile at a time, right to left: first هَذَا or هَذِهِ, then the word for the picture (beside a look-alike such as قِطٌّ / قِطَّةٌ), and in the last four pictures the describing word صَغِيرٌ or صَغِيرَةٌ (small), which agrees with the noun: هَذِهِ بِنْتٌ صَغِيرَةٌ. Noori reads the finished sentence back. A wrong tile shakes gently and Noori gives a hint; after two tries the right tile glows. No timer, every star is earned. It is the “build” step between choosing and writing. Nothing is saved or sent anywhere.</p>
+  </details>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
+    <a class="btn btn--accent btn--sm trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
+    <span class="en">Nawras Fusha School, San Diego · Demo — names, times and contacts are placeholders</span>
+  </div>
+</footer>
+
+<script src="../assets/kids.js"></script>
+<script src="play.js"></script>
+</body>
+</html>

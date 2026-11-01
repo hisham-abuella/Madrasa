@@ -1,18 +1,92 @@
-{ "title": "نوري والصدفة الصغيرة — هذا وهذه (قصة)", "language": "ar",
-  "voice": "EXAVITQu4vr4xnSDxMaL", "model": "eleven_v4", "settings": { "stability": 0.5, "similarity_boost": 0.8 },
-  "page": "lessons/story.html", "note": "One entry per slide, in slide order. p02/p04/p07 already exist as approved samples s1/s2/s3 (audio/samples/ar/) — regenerate only if the wording changes.",
-  "slides": [
-    { "id": "p01", "slide": 1, "title": "الغلاف", "transcript": "[warmly] نُوري والصَّدَفةُ الصَّغيرة. <break time=\"0.6s\" /> قِصّةٌ عن هذا، وهذهِ." },
-    { "id": "p02", "slide": 2, "sample": "s1", "title": "التحية", "transcript": "[warmly] السَّلامُ عَلَيكُم يا أصدِقائي الصِّغار! <break time=\"0.4s\" /> أنا نُوري، النَّورَسُ الصَّغير، أطيرُ فوقَ بَحرِ سان دييغو." },
-    { "id": "p03", "slide": 3, "title": "سامي وسلمى", "transcript": "[cheerful] على الشّاطِئ، الْتَقى نُوري بِصَديقَيْن. <break time=\"0.5s\" /> هذا سامي، <break time=\"0.3s\" /> وهذهِ سَلْمى." },
-    { "id": "p04", "slide": 4, "sample": "s2", "title": "هذا وهذه", "transcript": "[playfully] اُنظُروا مَعي… <break time=\"0.4s\" /> هذا وَلَدٌ، وهذهِ بِنتٌ. <break time=\"0.5s\" /> هذا قِطٌّ، وهذهِ قِطَّةٌ." },
-    { "id": "p05", "slide": 5, "title": "هذا للمذكر", "transcript": "[cheerful] سامي يُشيرُ ويَقول: <break time=\"0.4s\" /> هذا قارِبٌ. <break time=\"0.3s\" /> هذا كِتابٌ. <break time=\"0.3s\" /> هذا قَمَرٌ. <break time=\"0.6s\" /> [gently] نَقولُ هذا، لِلمُذَكَّر." },
-    { "id": "p06", "slide": 6, "title": "هذه للمؤنث", "transcript": "[cheerful] وسَلْمى تَقول: <break time=\"0.4s\" /> هذهِ سَمَكةٌ. <break time=\"0.3s\" /> هذهِ نَخْلةٌ. <break time=\"0.3s\" /> هذهِ صَدَفةٌ. <break time=\"0.6s\" /> [gently] نَقولُ هذهِ، لِلمُؤَنَّث. <break time=\"0.6s\" /> [playfully] والآن… أينَ السَّمَكةُ؟ <break time=\"0.3s\" /> اِضغَطْ عَلَيها!" },
-    { "id": "p07", "slide": 7, "sample": "s3", "title": "التاء المربوطة", "transcript": "[curious] هل سَمِعتُمُ التّاءَ الصَّغيرةَ في آخِرِ الكَلِمة؟ <break time=\"0.5s\" /> [excited] إنَّها التّاءُ المَربوطة! <break time=\"0.3s\" /> قِطٌّ… قِطَّةٌ!" },
-    { "id": "p08", "slide": 8, "title": "الصدفة العجيبة", "transcript": "[playfully] ضَعِ الصَّدَفةَ في آخِرِ الكَلِمة، فَتَصيرُ مُؤَنَّثة! <break time=\"0.6s\" /> مُعَلِّمٌ… <break time=\"0.4s\" /> مُعَلِّمةٌ. <break time=\"0.5s\" /> طالِبٌ… <break time=\"0.4s\" /> طالِبةٌ." },
-    { "id": "p09", "slide": 9, "title": "انتبه", "transcript": "[curious] قالَتْ سَلْمى: لكِنْ… بِنتٌ ليسَ في آخِرِها صَدَفة! <break time=\"0.6s\" /> [warmly] قالَ نُوري: صَحيح! <break time=\"0.3s\" /> بَعضُ الكَلِماتِ مُؤَنَّثةٌ بِلا تاءٍ مَربوطة: <break time=\"0.4s\" /> هذهِ بِنتٌ، هذهِ أُمٌّ، هذهِ شَمسٌ." },
-    { "id": "p10", "slide": 10, "title": "الصفة", "transcript": "[excited] والصِّفةُ تأخُذُ الصَّدَفةَ أيضًا! <break time=\"0.5s\" /> هذا وَلَدٌ نَشيطٌ. <break time=\"0.4s\" /> هذهِ بِنتٌ نَشيطةٌ." },
-    { "id": "p11", "slide": 11, "title": "نكتب", "transcript": "[cheerful] هيّا نَكتُبُ! <break time=\"0.4s\" /> [gently] تَتَبَّعْ بِإصبَعِك: التّاءَ المَربوطة، ثُمَّ هذا، وهذهِ. <break time=\"0.4s\" /> ثُمَّ اُكتُبْ جُملةً تَحتَ الصّورة. <break time=\"0.4s\" /> اِبدَأْ مِنَ النُّقطةِ الخَضراء." },
-    { "id": "p12", "slide": 12, "title": "اختبر نفسك", "transcript": "[playfully] اِختَبِرْ نَفسَك: أربعةُ أسئِلة. <break time=\"0.4s\" /> اِضغَطْ على الجَواب!" },
-    { "id": "p13", "slide": 13, "title": "أحسنتم", "transcript": "[happy] أحسَنتُم يا أصدِقائي! <break time=\"0.5s\" /> الحَمدُ لِلّه، تَعَلَّمْنا: هذا لِلمُذَكَّر، وهذهِ لِلمُؤَنَّث، <break time=\"0.3s\" /> والتّاءُ المَربوطةُ صَدَفةٌ صَغيرة، تَجعَلُ الكَلِمةَ مُؤَنَّثةً في الغالِب. <break time=\"0.6s\" /> [warmly] إلى اللِّقاء!" }
-  ] }
+{
+ "title": "نوري والصدفة الصغيرة — هذا وهذه (قصة)",
+ "language": "ar",
+ "voice": "Hisham (local clone)",
+ "model": "fish-audio-s2-pro-8bit (local)",
+ "page": "lessons/story.html",
+ "note": "One entry per slide, in slide order. Text = the slide's data-narr exactly (full tashkeel), tags and breaks added around it. Re-recorded 2026-10-31 in Hisham's local clone (owner request); the earlier ElevenLabs Sarah cut is in git history. p02/p04/p07 = samples s1/s2/s3.",
+ "slides": [
+  {
+   "id": "p01",
+   "slide": 1,
+   "title": "الغلاف",
+   "transcript": "[warmly] نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ. <break time=\"0.6s\" /> قِصَّةٌ عَنْ هَذَا وَهَذِهِ."
+  },
+  {
+   "id": "p02",
+   "slide": 2,
+   "sample": "s1",
+   "title": "التحية",
+   "transcript": "[warmly] السَّلَامُ عَلَيْكُمْ يَا أَصْدِقَائِي الصِّغَارَ! <break time=\"0.4s\" /> أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ، أَطِيرُ فَوْقَ بَحْرِ سَان دِييغُو."
+  },
+  {
+   "id": "p03",
+   "slide": 3,
+   "title": "سامي وسلمى",
+   "transcript": "[cheerful] عَلَى الشَّاطِئِ، الْتَقَى نُورِي بِصَدِيقَيْنِ. <break time=\"0.5s\" /> هَذَا سَامِي، <break time=\"0.3s\" /> وَهَذِهِ سَلْمَى."
+  },
+  {
+   "id": "p04",
+   "slide": 4,
+   "sample": "s2",
+   "title": "هذا وهذه",
+   "transcript": "[playfully] انْظُرُوا مَعِي… <break time=\"0.4s\" /> هَذَا وَلَدٌ، وَهَذِهِ بِنْتٌ. <break time=\"0.5s\" /> هَذَا قِطٌّ، وَهَذِهِ قِطَّةٌ."
+  },
+  {
+   "id": "p05",
+   "slide": 5,
+   "title": "هذا للمذكر",
+   "transcript": "[cheerful] سَامِي يُشِيرُ وَيَقُولُ: <break time=\"0.4s\" /> هَذَا قَارِبٌ. <break time=\"0.3s\" /> هَذَا كِتَابٌ. <break time=\"0.3s\" /> هَذَا قَمَرٌ. <break time=\"0.6s\" /> [gently] نَقُولُ هَذَا لِلْمُذَكَّرِ."
+  },
+  {
+   "id": "p06",
+   "slide": 6,
+   "title": "هذه للمؤنث",
+   "transcript": "[cheerful] وَسَلْمَى تَقُولُ: <break time=\"0.4s\" /> هَذِهِ سَمَكَةٌ. <break time=\"0.3s\" /> هَذِهِ نَخْلَةٌ. <break time=\"0.3s\" /> هَذِهِ صَدَفَةٌ. <break time=\"0.6s\" /> [gently] نَقُولُ هَذِهِ لِلْمُؤَنَّثِ. <break time=\"0.6s\" /> [playfully] وَالْآنَ… أَيْنَ السَّمَكَةُ؟ <break time=\"0.3s\" /> اضْغَطْ عَلَيْهَا!"
+  },
+  {
+   "id": "p07",
+   "slide": 7,
+   "sample": "s3",
+   "title": "التاء المربوطة",
+   "transcript": "[curious] هَلْ سَمِعْتُمُ التَّاءَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ <break time=\"0.5s\" /> [excited] إِنَّهَا التَّاءُ الْمَرْبُوطَةُ! <break time=\"0.3s\" /> قِطٌّ… قِطَّةٌ!"
+  },
+  {
+   "id": "p08",
+   "slide": 8,
+   "title": "الصدفة العجيبة",
+   "transcript": "[playfully] ضَعِ الصَّدَفَةَ فِي آخِرِ الْكَلِمَةِ، فَتَصِيرُ مُؤَنَّثَةً: <break time=\"0.6s\" /> مُعَلِّمٌ… <break time=\"0.4s\" /> مُعَلِّمَةٌ. <break time=\"0.5s\" /> طَالِبٌ… <break time=\"0.4s\" /> طَالِبَةٌ."
+  },
+  {
+   "id": "p09",
+   "slide": 9,
+   "title": "انتبه",
+   "transcript": "[curious] قَالَتْ سَلْمَى: لَكِنْ… بِنْتٌ لَيْسَ فِي آخِرِهَا صَدَفَةٌ! <break time=\"0.6s\" /> [warmly] قَالَ نُورِي: صَحِيحٌ! <break time=\"0.3s\" /> بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا تَاءٍ مَرْبُوطَةٍ: <break time=\"0.4s\" /> هَذِهِ بِنْتٌ، هَذِهِ أُمٌّ، هَذِهِ شَمْسٌ."
+  },
+  {
+   "id": "p10",
+   "slide": 10,
+   "title": "الصفة",
+   "transcript": "[excited] وَالصِّفَةُ تَأْخُذُ الصَّدَفَةَ أَيْضًا: <break time=\"0.5s\" /> هَذَا وَلَدٌ نَشِيطٌ. <break time=\"0.4s\" /> هَذِهِ بِنْتٌ نَشِيطَةٌ."
+  },
+  {
+   "id": "p11",
+   "slide": 11,
+   "title": "نكتب",
+   "transcript": "[cheerful] هَيَّا نَكْتُبُ! <break time=\"0.4s\" /> [gently] تَتَبَّعْ بِإِصْبَعِكَ: التَّاءَ الْمَرْبُوطَةَ، ثُمَّ هَذَا وَهَذِهِ. <break time=\"0.4s\" /> ثُمَّ اكْتُبْ جُمْلَةً تَحْتَ الصُّورَةِ. <break time=\"0.4s\" /> ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ."
+  },
+  {
+   "id": "p12",
+   "slide": 12,
+   "title": "اختبر نفسك",
+   "transcript": "[playfully] اخْتَبِرْ نَفْسَكَ: أَرْبَعَةُ أَسْئِلَةٍ. <break time=\"0.4s\" /> اضْغَطْ عَلَى الْجَوَابِ."
+  },
+  {
+   "id": "p13",
+   "slide": 13,
+   "title": "أحسنتم",
+   "transcript": "[happy] أَحْسَنْتُمْ يَا أَصْدِقَائِي! <break time=\"0.5s\" /> الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، <break time=\"0.3s\" /> وَالتَّاءُ الْمَرْبُوطَةُ صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً فِي الْغَالِبِ. <break time=\"0.6s\" /> [warmly] إِلَى اللِّقَاءِ!"
+  }
+ ],
+ "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA"
+}

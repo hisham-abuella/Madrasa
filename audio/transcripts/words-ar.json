@@ -1,0 +1,747 @@
+{
+ "title": "Nawras word and phrase clips (Fusha)",
+ "lang": "ar",
+ "voice": "Hisham (local clone)",
+ "engine": "Fish S2-Pro 8-bit (mlx), local, ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA",
+ "about": "Every text that reaches KS.speak(). 'text' = exactly as the page shows it; 'transcript' = what the model reads (guillemets/ellipsis dropped, final stop added).",
+ "slides": [
+  {
+   "id": "boy",
+   "text": "وَلَدٌ",
+   "transcript": "وَلَدٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "girl",
+   "text": "بِنْتٌ",
+   "transcript": "بِنْتٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "teacher-m",
+   "text": "مُعَلِّمٌ",
+   "transcript": "مُعَلِّمٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "teacher-f",
+   "text": "مُعَلِّمَةٌ",
+   "transcript": "مُعَلِّمَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "student-m",
+   "text": "طَالِبٌ",
+   "transcript": "طَالِبٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "student-f",
+   "text": "طَالِبَةٌ",
+   "transcript": "طَالِبَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "mother",
+   "text": "أُمٌّ",
+   "transcript": "أُمٌّ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "cat",
+   "text": "قِطٌّ",
+   "transcript": "قِطٌّ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "cat-f",
+   "text": "قِطَّةٌ",
+   "transcript": "قِطَّةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "book",
+   "text": "كِتَابٌ",
+   "transcript": "كِتَابٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "door",
+   "text": "بَابٌ",
+   "transcript": "بَابٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "house",
+   "text": "بَيْتٌ",
+   "transcript": "بَيْتٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "moon",
+   "text": "قَمَرٌ",
+   "transcript": "قَمَرٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "sun",
+   "text": "شَمْسٌ",
+   "transcript": "شَمْسٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "star",
+   "text": "نَجْمَةٌ",
+   "transcript": "نَجْمَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "fish",
+   "text": "سَمَكَةٌ",
+   "transcript": "سَمَكَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "tree",
+   "text": "شَجَرَةٌ",
+   "transcript": "شَجَرَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "rose",
+   "text": "وَرْدَةٌ",
+   "transcript": "وَرْدَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "apple",
+   "text": "تُفَّاحَةٌ",
+   "transcript": "تُفَّاحَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "boat",
+   "text": "قَارِبٌ",
+   "transcript": "قَارِبٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "sea",
+   "text": "بَحْرٌ",
+   "transcript": "بَحْرٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "shell",
+   "text": "صَدَفَةٌ",
+   "transcript": "صَدَفَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "palm",
+   "text": "نَخْلَةٌ",
+   "transcript": "نَخْلَةٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "pen",
+   "text": "قَلَمٌ",
+   "transcript": "قَلَمٌ.",
+   "source": "kids.js LABELS (picture word)"
+  },
+  {
+   "id": "this-boy",
+   "text": "هَذَا وَلَدٌ",
+   "transcript": "هَذَا وَلَدٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-door",
+   "text": "هَذَا بَابٌ",
+   "transcript": "هَذَا بَابٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-house",
+   "text": "هَذَا بَيْتٌ",
+   "transcript": "هَذَا بَيْتٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-boat",
+   "text": "هَذَا قَارِبٌ",
+   "transcript": "هَذَا قَارِبٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-moon",
+   "text": "هَذَا قَمَرٌ",
+   "transcript": "هَذَا قَمَرٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-cat",
+   "text": "هَذَا قِطٌّ",
+   "transcript": "هَذَا قِطٌّ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-book",
+   "text": "هَذَا كِتَابٌ",
+   "transcript": "هَذَا كِتَابٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-teacher-m",
+   "text": "هَذَا مُعَلِّمٌ",
+   "transcript": "هَذَا مُعَلِّمٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-student-m",
+   "text": "هَذَا طَالِبٌ",
+   "transcript": "هَذَا طَالِبٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-cat-small",
+   "text": "هَذَا قِطٌّ صَغِيرٌ",
+   "transcript": "هَذَا قِطٌّ صَغِيرٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-boy-active",
+   "text": "هَذَا وَلَدٌ نَشِيطٌ",
+   "transcript": "هَذَا وَلَدٌ نَشِيطٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-sea-big",
+   "text": "هَذَا بَحْرٌ كَبِيرٌ",
+   "transcript": "هَذَا بَحْرٌ كَبِيرٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-lantern-bright",
+   "text": "هَذَا فَانُوسٌ مُضِيءٌ",
+   "transcript": "هَذَا فَانُوسٌ مُضِيءٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-sami",
+   "text": "هَذَا سَامِي",
+   "transcript": "هَذَا سَامِي.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-girl",
+   "text": "هَذِهِ بِنْتٌ",
+   "transcript": "هَذِهِ بِنْتٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-mother",
+   "text": "هَذِهِ أُمٌّ",
+   "transcript": "هَذِهِ أُمٌّ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-apple",
+   "text": "هَذِهِ تُفَّاحَةٌ",
+   "transcript": "هَذِهِ تُفَّاحَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-fish",
+   "text": "هَذِهِ سَمَكَةٌ",
+   "transcript": "هَذِهِ سَمَكَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-tree",
+   "text": "هَذِهِ شَجَرَةٌ",
+   "transcript": "هَذِهِ شَجَرَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-sun",
+   "text": "هَذِهِ شَمْسٌ",
+   "transcript": "هَذِهِ شَمْسٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-shell",
+   "text": "هَذِهِ صَدَفَةٌ",
+   "transcript": "هَذِهِ صَدَفَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-cat-f",
+   "text": "هَذِهِ قِطَّةٌ",
+   "transcript": "هَذِهِ قِطَّةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-star",
+   "text": "هَذِهِ نَجْمَةٌ",
+   "transcript": "هَذِهِ نَجْمَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-palm",
+   "text": "هَذِهِ نَخْلَةٌ",
+   "transcript": "هَذِهِ نَخْلَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-rose",
+   "text": "هَذِهِ وَرْدَةٌ",
+   "transcript": "هَذِهِ وَرْدَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-teacher-f",
+   "text": "هَذِهِ مُعَلِّمَةٌ",
+   "transcript": "هَذِهِ مُعَلِّمَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-student-f",
+   "text": "هَذِهِ طَالِبَةٌ",
+   "transcript": "هَذِهِ طَالِبَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-salma",
+   "text": "هَذِهِ سَلْمَى",
+   "transcript": "هَذِهِ سَلْمَى.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-girl-active",
+   "text": "هَذِهِ بِنْتٌ نَشِيطَةٌ",
+   "transcript": "هَذِهِ بِنْتٌ نَشِيطَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-cat-f-small",
+   "text": "هَذِهِ قِطَّةٌ صَغِيرَةٌ",
+   "transcript": "هَذِهِ قِطَّةٌ صَغِيرَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-garden-pretty",
+   "text": "هَذِهِ حَدِيقَةٌ جَمِيلَةٌ",
+   "transcript": "هَذِهِ حَدِيقَةٌ جَمِيلَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-sun-warm",
+   "text": "هَذِهِ شَمْسٌ دَافِئَةٌ",
+   "transcript": "هَذِهِ شَمْسٌ دَافِئَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-notebook-new",
+   "text": "هَذِهِ كُرَّاسَةٌ جَدِيدَةٌ",
+   "transcript": "هَذِهِ كُرَّاسَةٌ جَدِيدَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "this-star-shiny",
+   "text": "هَذِهِ نَجْمَةٌ لَامِعَةٌ",
+   "transcript": "هَذِهِ نَجْمَةٌ لَامِعَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "garden",
+   "text": "حَدِيقَةٌ",
+   "transcript": "حَدِيقَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "lantern",
+   "text": "فَانُوسٌ",
+   "transcript": "فَانُوسٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "notebook",
+   "text": "كُرَّاسَةٌ",
+   "transcript": "كُرَّاسَةٌ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "i-am-noori",
+   "text": "أَنَا نُورِي",
+   "transcript": "أَنَا نُورِي.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "bye-sami",
+   "text": "مَعَ السَّلَامَةِ يَا سَامِي",
+   "transcript": "مَعَ السَّلَامَةِ يَا سَامِي.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "bye-salma",
+   "text": "مَعَ السَّلَامَةِ يَا سَلْمَى",
+   "transcript": "مَعَ السَّلَامَةِ يَا سَلْمَى.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "reply-salam",
+   "text": "وَعَلَيْكُمُ السَّلَامُ",
+   "transcript": "وَعَلَيْكُمُ السَّلَامُ.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "q-which-feminine",
+   "text": "أَيُّ كَلِمَةٍ مُؤَنَّثَةٌ؟",
+   "transcript": "أَيُّ كَلِمَةٍ مُؤَنَّثَةٌ؟",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "q-which-word-picture",
+   "text": "أَيُّ كَلِمَةٍ لِهَذِهِ الصُّورَةِ؟",
+   "transcript": "أَيُّ كَلِمَةٍ لِهَذِهِ الصُّورَةِ؟",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "story-shell-gift",
+   "text": "تَفَضَّلِي يَا سَلْمَى! شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.",
+   "transcript": "تَفَضَّلِي يَا سَلْمَى! شُكْرًا يَا نُورِي! جَزَاكَ اللَّهُ خَيْرًا.",
+   "source": "lessons/mockups/guide/quiz"
+  },
+  {
+   "id": "write-alif",
+   "text": "الْأَلِفُ",
+   "transcript": "الْأَلِفُ.",
+   "source": "games/strokes.json item alif"
+  },
+  {
+   "id": "write-alif-1",
+   "text": "اِبْدَأْ مِنْ أَعْلَى، وَانْزِلْ إِلَى السَّطْرِ.",
+   "transcript": "اِبْدَأْ مِنْ أَعْلَى، وَانْزِلْ إِلَى السَّطْرِ.",
+   "source": "games/strokes.json alif stroke 1"
+  },
+  {
+   "id": "write-baa",
+   "text": "الْبَاءُ",
+   "transcript": "الْبَاءُ.",
+   "source": "games/strokes.json item baa"
+  },
+  {
+   "id": "write-baa-1",
+   "text": "اِبْدَأْ مِنْ هُنَا: اِنْزِلْ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ، وَاصْعَدْ قَلِيلًا.",
+   "transcript": "اِبْدَأْ مِنْ هُنَا: اِنْزِلْ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ، وَاصْعَدْ قَلِيلًا.",
+   "source": "games/strokes.json baa stroke 1"
+  },
+  {
+   "id": "write-baa-2",
+   "text": "ضَعْ نُقْطَةً تَحْتَ الْبَاءِ.",
+   "transcript": "ضَعْ نُقْطَةً تَحْتَ الْبَاءِ.",
+   "source": "games/strokes.json baa stroke 2"
+  },
+  {
+   "id": "write-taa",
+   "text": "التَّاءُ",
+   "transcript": "التَّاءُ.",
+   "source": "games/strokes.json item taa"
+  },
+  {
+   "id": "write-taa-2",
+   "text": "ضَعْ نُقْطَةً فَوْقَ التَّاءِ، عَلَى الْيَمِينِ.",
+   "transcript": "ضَعْ نُقْطَةً فَوْقَ التَّاءِ، عَلَى الْيَمِينِ.",
+   "source": "games/strokes.json taa stroke 2"
+  },
+  {
+   "id": "write-taa-3",
+   "text": "ثُمَّ ضَعْ نُقْطَةً ثَانِيَةً عَلَى الْيَسَارِ.",
+   "transcript": "ثُمَّ ضَعْ نُقْطَةً ثَانِيَةً عَلَى الْيَسَارِ.",
+   "source": "games/strokes.json taa stroke 3"
+  },
+  {
+   "id": "write-thaa",
+   "text": "الثَّاءُ",
+   "transcript": "الثَّاءُ.",
+   "source": "games/strokes.json item thaa"
+  },
+  {
+   "id": "write-thaa-2",
+   "text": "ضَعْ نُقْطَةً فَوْقَ الثَّاءِ، عَلَى الْيَمِينِ.",
+   "transcript": "ضَعْ نُقْطَةً فَوْقَ الثَّاءِ، عَلَى الْيَمِينِ.",
+   "source": "games/strokes.json thaa stroke 2"
+  },
+  {
+   "id": "write-thaa-4",
+   "text": "ثُمَّ ضَعِ النُّقْطَةَ الثَّالِثَةَ فَوْقَهُمَا.",
+   "transcript": "ثُمَّ ضَعِ النُّقْطَةَ الثَّالِثَةَ فَوْقَهُمَا.",
+   "source": "games/strokes.json thaa stroke 4"
+  },
+  {
+   "id": "write-noon",
+   "text": "النُّونُ",
+   "transcript": "النُّونُ.",
+   "source": "games/strokes.json item noon"
+  },
+  {
+   "id": "write-noon-1",
+   "text": "اِبْدَأْ مِنْ هُنَا، وَانْزِلْ مِثْلَ الْوِعَاءِ، ثُمَّ اصْعَدْ.",
+   "transcript": "اِبْدَأْ مِنْ هُنَا، وَانْزِلْ مِثْلَ الْوِعَاءِ، ثُمَّ اصْعَدْ.",
+   "source": "games/strokes.json noon stroke 1"
+  },
+  {
+   "id": "write-noon-2",
+   "text": "ضَعْ نُقْطَةً فِي وَسَطِ النُّونِ.",
+   "transcript": "ضَعْ نُقْطَةً فِي وَسَطِ النُّونِ.",
+   "source": "games/strokes.json noon stroke 2"
+  },
+  {
+   "id": "write-haa",
+   "text": "الْهَاءُ",
+   "transcript": "الْهَاءُ.",
+   "source": "games/strokes.json item haa"
+  },
+  {
+   "id": "write-haa-1",
+   "text": "اِبْدَأْ مِنْ أَعْلَى، وَدُرْ إِلَى الْيَسَارِ حَتَّى تَرْجِعَ، ثُمَّ انْزِلْ قَلِيلًا إِلَى الدَّاخِلِ.",
+   "transcript": "اِبْدَأْ مِنْ أَعْلَى، وَدُرْ إِلَى الْيَسَارِ حَتَّى تَرْجِعَ، ثُمَّ انْزِلْ قَلِيلًا إِلَى الدَّاخِلِ.",
+   "source": "games/strokes.json haa stroke 1"
+  },
+  {
+   "id": "write-taa-m",
+   "text": "التَّاءُ الْمَرْبُوطَةُ",
+   "transcript": "التَّاءُ الْمَرْبُوطَةُ.",
+   "source": "games/strokes.json item taa-m"
+  },
+  {
+   "id": "write-taa-m-1",
+   "text": "اِبْدَأْ مِنْ أَعْلَى، وَدُرْ إِلَى الْيَسَارِ حَتَّى تَرْجِعَ إِلَى الْبِدَايَةِ.",
+   "transcript": "اِبْدَأْ مِنْ أَعْلَى، وَدُرْ إِلَى الْيَسَارِ حَتَّى تَرْجِعَ إِلَى الْبِدَايَةِ.",
+   "source": "games/strokes.json taa-m stroke 1"
+  },
+  {
+   "id": "write-taa-m-2",
+   "text": "ضَعْ نُقْطَةً فَوْقَهَا، عَلَى الْيَمِينِ.",
+   "transcript": "ضَعْ نُقْطَةً فَوْقَهَا، عَلَى الْيَمِينِ.",
+   "source": "games/strokes.json taa-m stroke 2"
+  },
+  {
+   "id": "write-taa-final-1",
+   "text": "اِبْدَأْ مِنَ الْيَمِينِ عَلَى السَّطْرِ، اِصْعَدْ، ثُمَّ انْزِلْ مَائِلًا وَدُرْ حَتَّى تَرْجِعَ.",
+   "transcript": "اِبْدَأْ مِنَ الْيَمِينِ عَلَى السَّطْرِ، اِصْعَدْ، ثُمَّ انْزِلْ مَائِلًا وَدُرْ حَتَّى تَرْجِعَ.",
+   "source": "games/strokes.json taa-final stroke 1"
+  },
+  {
+   "id": "write-haa-mid-1",
+   "text": "اِبْدَأْ مِنَ الْيَمِينِ: اِصْعَدْ إِلَى الرَّأْسِ، اِنْزِلْ وَارْسُمْ حَلْقَةً تَحْتَ السَّطْرِ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ.",
+   "transcript": "اِبْدَأْ مِنَ الْيَمِينِ: اِصْعَدْ إِلَى الرَّأْسِ، اِنْزِلْ وَارْسُمْ حَلْقَةً تَحْتَ السَّطْرِ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ.",
+   "source": "games/strokes.json haa-mid stroke 1"
+  },
+  {
+   "id": "write-baa-taa",
+   "text": "بَاءٌ وَتَاءٌ مَرْبُوطَةٌ",
+   "transcript": "بَاءٌ وَتَاءٌ مَرْبُوطَةٌ.",
+   "source": "games/strokes.json item baa-taa"
+  },
+  {
+   "id": "write-baa-taa-1",
+   "text": "اِبْدَأْ بِسِنِّ الْبَاءِ: اِنْزِلْ، اِمْشِ عَلَى السَّطْرِ، ثُمَّ اصْعَدْ، وَانْزِلْ مَائِلًا وَدُرْ.",
+   "transcript": "اِبْدَأْ بِسِنِّ الْبَاءِ: اِنْزِلْ، اِمْشِ عَلَى السَّطْرِ، ثُمَّ اصْعَدْ، وَانْزِلْ مَائِلًا وَدُرْ.",
+   "source": "games/strokes.json baa-taa stroke 1"
+  },
+  {
+   "id": "write-hatha",
+   "text": "هَذَا",
+   "transcript": "هَذَا.",
+   "source": "games/strokes.json item hatha"
+  },
+  {
+   "id": "write-hatha-1",
+   "text": "اُكْتُبِ الْهَاءَ: اِبْدَأْ مِنْ رَأْسِهَا، دُرْ إِلَى الْيَمِينِ حَتَّى السَّطْرِ، اِصْعَدْ إِلَى الرَّأْسِ، ثُمَّ انْزِلْ وَاذْهَبْ إِلَى الْيَسَارِ.",
+   "transcript": "اُكْتُبِ الْهَاءَ: اِبْدَأْ مِنْ رَأْسِهَا، دُرْ إِلَى الْيَمِينِ حَتَّى السَّطْرِ، اِصْعَدْ إِلَى الرَّأْسِ، ثُمَّ انْزِلْ وَاذْهَبْ إِلَى الْيَسَارِ.",
+   "source": "games/strokes.json hatha stroke 1"
+  },
+  {
+   "id": "write-hatha-2",
+   "text": "اُكْتُبِ الذَّالَ: اِنْزِلْ مِنْ رَأْسِهَا إِلَى السَّطْرِ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ.",
+   "transcript": "اُكْتُبِ الذَّالَ: اِنْزِلْ مِنْ رَأْسِهَا إِلَى السَّطْرِ، ثُمَّ اذْهَبْ إِلَى الْيَسَارِ.",
+   "source": "games/strokes.json hatha stroke 2"
+  },
+  {
+   "id": "write-hatha-3",
+   "text": "اُكْتُبِ الْأَلِفَ مِنْ أَعْلَى إِلَى أَسْفَلَ.",
+   "transcript": "اُكْتُبِ الْأَلِفَ مِنْ أَعْلَى إِلَى أَسْفَلَ.",
+   "source": "games/strokes.json hatha stroke 3"
+  },
+  {
+   "id": "write-hatha-4",
+   "text": "ضَعْ نُقْطَةً فَوْقَ الذَّالِ.",
+   "transcript": "ضَعْ نُقْطَةً فَوْقَ الذَّالِ.",
+   "source": "games/strokes.json hatha stroke 4"
+  },
+  {
+   "id": "write-hatha-5",
+   "text": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الْهَاءِ.",
+   "transcript": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الْهَاءِ.",
+   "source": "games/strokes.json hatha stroke 5"
+  },
+  {
+   "id": "write-hatha-6",
+   "text": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الذَّالِ.",
+   "transcript": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الذَّالِ.",
+   "source": "games/strokes.json hatha stroke 6"
+  },
+  {
+   "id": "write-hathihi",
+   "text": "هَذِهِ",
+   "transcript": "هَذِهِ.",
+   "source": "games/strokes.json item hathihi"
+  },
+  {
+   "id": "write-hathihi-3",
+   "text": "اُكْتُبِ الْهَاءَ الْأَخِيرَةَ: اِبْدَأْ مِنْ رَأْسِهَا، وَدُرْ إِلَى الْيَسَارِ حَتَّى تَرْجِعَ.",
+   "transcript": "اُكْتُبِ الْهَاءَ الْأَخِيرَةَ: اِبْدَأْ مِنْ رَأْسِهَا، وَدُرْ إِلَى الْيَسَارِ حَتَّى تَرْجِعَ.",
+   "source": "games/strokes.json hathihi stroke 3"
+  },
+  {
+   "id": "write-hathihi-6",
+   "text": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الذَّالِ.",
+   "transcript": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الذَّالِ.",
+   "source": "games/strokes.json hathihi stroke 6"
+  },
+  {
+   "id": "write-hathihi-7",
+   "text": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الْهَاءِ.",
+   "transcript": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الْهَاءِ.",
+   "source": "games/strokes.json hathihi stroke 7"
+  },
+  {
+   "id": "write-bint-1",
+   "text": "اِبْدَأْ مِنْ هُنَا: ثَلَاثُ أَسْنَانٍ صَغِيرَةٍ، ثُمَّ قَارِبٌ إِلَى الْيَسَارِ.",
+   "transcript": "اِبْدَأْ مِنْ هُنَا: ثَلَاثُ أَسْنَانٍ صَغِيرَةٍ، ثُمَّ قَارِبٌ إِلَى الْيَسَارِ.",
+   "source": "games/strokes.json bint stroke 1"
+  },
+  {
+   "id": "write-bint-3",
+   "text": "ضَعْ نُقْطَةً فَوْقَ النُّونِ.",
+   "transcript": "ضَعْ نُقْطَةً فَوْقَ النُّونِ.",
+   "source": "games/strokes.json bint stroke 3"
+  },
+  {
+   "id": "write-bint-6",
+   "text": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الْبَاءِ.",
+   "transcript": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الْبَاءِ.",
+   "source": "games/strokes.json bint stroke 6"
+  },
+  {
+   "id": "write-bint-7",
+   "text": "اُكْتُبِ السُّكُونَ فَوْقَ النُّونِ: دَائِرَةٌ صَغِيرَةٌ.",
+   "transcript": "اُكْتُبِ السُّكُونَ فَوْقَ النُّونِ: دَائِرَةٌ صَغِيرَةٌ.",
+   "source": "games/strokes.json bint stroke 7"
+  },
+  {
+   "id": "write-bint-8",
+   "text": "اُكْتُبْ تَنْوِينَ الضَّمِّ فَوْقَ التَّاءِ.",
+   "transcript": "اُكْتُبْ تَنْوِينَ الضَّمِّ فَوْقَ التَّاءِ.",
+   "source": "games/strokes.json bint stroke 8"
+  },
+  {
+   "id": "write-qitta-1",
+   "text": "اُكْتُبِ الْكَلِمَةَ: رَأْسُ الْقَافِ، ثُمَّ السَّطْرُ، ثُمَّ قُبَّةُ الطَّاءِ، ثُمَّ التَّاءُ الْمَرْبُوطَةُ.",
+   "transcript": "اُكْتُبِ الْكَلِمَةَ: رَأْسُ الْقَافِ، ثُمَّ السَّطْرُ، ثُمَّ قُبَّةُ الطَّاءِ، ثُمَّ التَّاءُ الْمَرْبُوطَةُ.",
+   "source": "games/strokes.json qitta stroke 1"
+  },
+  {
+   "id": "write-qitta-2",
+   "text": "اُكْتُبْ عَصَا الطَّاءِ مِنْ أَعْلَى إِلَى أَسْفَلَ.",
+   "transcript": "اُكْتُبْ عَصَا الطَّاءِ مِنْ أَعْلَى إِلَى أَسْفَلَ.",
+   "source": "games/strokes.json qitta stroke 2"
+  },
+  {
+   "id": "write-qitta-3",
+   "text": "ضَعْ نُقْطَةً فَوْقَ الْقَافِ، عَلَى الْيَمِينِ.",
+   "transcript": "ضَعْ نُقْطَةً فَوْقَ الْقَافِ، عَلَى الْيَمِينِ.",
+   "source": "games/strokes.json qitta stroke 3"
+  },
+  {
+   "id": "write-qitta-5",
+   "text": "ضَعْ نُقْطَةً فَوْقَ التَّاءِ الْمَرْبُوطَةِ، عَلَى الْيَمِينِ.",
+   "transcript": "ضَعْ نُقْطَةً فَوْقَ التَّاءِ الْمَرْبُوطَةِ، عَلَى الْيَمِينِ.",
+   "source": "games/strokes.json qitta stroke 5"
+  },
+  {
+   "id": "write-qitta-7",
+   "text": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الْقَافِ.",
+   "transcript": "اُكْتُبِ الْكَسْرَةَ تَحْتَ الْقَافِ.",
+   "source": "games/strokes.json qitta stroke 7"
+  },
+  {
+   "id": "write-qitta-8",
+   "text": "اُكْتُبِ الشَّدَّةَ فَوْقَ الطَّاءِ.",
+   "transcript": "اُكْتُبِ الشَّدَّةَ فَوْقَ الطَّاءِ.",
+   "source": "games/strokes.json qitta stroke 8"
+  },
+  {
+   "id": "write-qitta-9",
+   "text": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الشَّدَّةِ.",
+   "transcript": "اُكْتُبِ الْفَتْحَةَ فَوْقَ الشَّدَّةِ.",
+   "source": "games/strokes.json qitta stroke 9"
+  },
+  {
+   "id": "write-qitta-10",
+   "text": "اُكْتُبْ تَنْوِينَ الضَّمِّ فَوْقَ التَّاءِ الْمَرْبُوطَةِ.",
+   "transcript": "اُكْتُبْ تَنْوِينَ الضَّمِّ فَوْقَ التَّاءِ الْمَرْبُوطَةِ.",
+   "source": "games/strokes.json qitta stroke 10"
+  },
+  {
+   "id": "write-hint-start",
+   "text": "اِبْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ.",
+   "transcript": "اِبْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ.",
+   "source": "games/write.js"
+  },
+  {
+   "id": "write-hint-dir",
+   "text": "اِتَّبِعِ السَّهْمَ.",
+   "transcript": "اِتَّبِعِ السَّهْمَ.",
+   "source": "games/write.js"
+  },
+  {
+   "id": "write-hint-path",
+   "text": "اِمْشِ عَلَى الْخَطِّ الْخَفِيفِ.",
+   "transcript": "اِمْشِ عَلَى الْخَطِّ الْخَفِيفِ.",
+   "source": "games/write.js"
+  },
+  {
+   "id": "write-hint-end",
+   "text": "اِسْتَمِرَّ حَتَّى آخِرِ الْخَطِّ.",
+   "transcript": "اِسْتَمِرَّ حَتَّى آخِرِ الْخَطِّ.",
+   "source": "games/write.js"
+  },
+  {
+   "id": "write-hint-dot",
+   "text": "نُقْطَةٌ صَغِيرَةٌ فَقَطْ، هُنَا.",
+   "transcript": "نُقْطَةٌ صَغِيرَةٌ فَقَطْ، هُنَا.",
+   "source": "games/write.js"
+  },
+  {
+   "id": "write-your-turn",
+   "text": "الْآنَ دَوْرُكَ! اِضْغَطْ «اُكْتُبْ».",
+   "transcript": "الْآنَ دَوْرُكَ! اِضْغَطْ اُكْتُبْ.",
+   "source": "games/write.js"
+  },
+  {
+   "id": "write-help",
+   "text": "سَأُسَاعِدُكَ فِي هَذِهِ الْخُطْوَةِ.",
+   "transcript": "سَأُسَاعِدُكَ فِي هَذِهِ الْخُطْوَةِ.",
+   "source": "games/write.js"
+  },
+  {
+   "id": "write-done",
+   "text": "عَمَلٌ رَائِعٌ!",
+   "transcript": "عَمَلٌ رَائِعٌ!",
+   "source": "games/write.js"
+  }
+ ]
+}

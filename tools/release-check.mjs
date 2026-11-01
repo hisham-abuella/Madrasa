@@ -50,8 +50,11 @@ const flag = (f) => args.includes(f);
 const opt = (f) => { const i = args.indexOf(f); return i > -1 ? args[i + 1] : null; };
 const QUICK = flag('--quick'), VERBOSE = flag('--verbose');
 
-const SKIP = new Set(['book/tools/story-template.html', 'pitch/build/_base.html', 'assets/art/source/og.html']);
+const SKIP = new Set(['book/tools/story-template.html', 'pitch/build/_base.html', 'assets/art/source/og.html', 'assets/art/source/cast-sheet.html']);
+// pages not yet in git (new in a fix round) are swept too
+const NEW_PAGES = ['games/kids.html', 'games/sort.html', 'games/listen.html', 'games/build.html', 'lessons/story.html?kg=1'];
 let pages = execFileSync('git', ['ls-files', '*.html'], { cwd: ROOT }).toString().trim().split('\n').filter((p) => p && !SKIP.has(p));
+for (const p of NEW_PAGES) if (!pages.includes(p)) pages.push(p);
 if (opt('--pages')) pages = opt('--pages').split(',');
 if (!opt('--pages')) pages.push('no/such/deep/page.html');   // GitHub Pages 404 at depth
 const DECKS = new Set(['lessons/presentation.html', 'pitch/index.html']);   // own themes, checked by check.mjs --themes
@@ -286,7 +289,7 @@ async function run(pagePath, view, q, label, reduced, settle) {
   page.on('pageerror', (e) => errs.push('pageerror: ' + String(e.message || e).slice(0, 160)));
   page.on('requestfailed', (r) => { const f = r.failure() && r.failure().errorText; if (!/ERR_ABORTED/.test(f || '') || !/\.(mp3|m4a)$/.test(r.url())) fails.push(r.url().replace(BASE, '') + ' ' + f); });
   page.on('response', (r) => { if (r.status() >= 400 && !(pagePath.startsWith('no/') && r.url().endsWith(pagePath))) fails.push(r.status() + ' ' + r.url().replace(BASE, '')); });
-  const url = BASE + pagePath + (q ? '?' + q : '');
+  const url = BASE + pagePath + (q ? (pagePath.includes('?') ? '&' : '?') + q : '');
   try {
     await page.goto(url, { waitUntil: 'load', timeout: 45000 });
     await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {});
@@ -327,7 +330,7 @@ for (const p of pages) {
   for (const v of VIEWS) await run(p, v, '', v.id, false, v.id === '1280' ? 9000 : 0);   // 1280: wait out 3-iteration loops
   if (QUICK) continue;
   // pinned pages (data-theme-fixed + data-no-picker, e.g. the web book) never take another theme
-  const head = p.startsWith('no/') ? '' : (fs.readFileSync(path.join(ROOT, p), 'utf8').match(/<html[^>]*>/) || [''])[0];
+  const head = p.startsWith('no/') ? '' : (fs.readFileSync(path.join(ROOT, p.split('?')[0]), 'utf8').match(/<html[^>]*>/) || [''])[0];
   const pinned = /data-theme-fixed/.test(head) && /data-no-picker/.test(head);
   if (!DECKS.has(p) && !p.startsWith('no/')) {
     if (!pinned) for (const t of THEMES) await run(p, VIEWS[0], 'theme=' + t, '1280 ' + t);

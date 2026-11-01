@@ -2,14 +2,16 @@
 (function(){
   var sl=document.querySelector('[data-id="team"]'); if(!sl) return;
   var root=sl.querySelector('.team'), body=sl.querySelector('tbody'), inp=sl.querySelector('#tq');
-  var items=[], rowsAll=[], shown=6, open={}, S={q:'',role:'',supp:false,pri:'',own:false,key:'priority',dir:1};
+  var items=[], rowsAll=[], shown=6, open={}, S={q:'',role:'',supp:false,pri:'',st:'',own:false,key:'priority',dir:1};
+  function grp(o){var t=o.status||'proposed'; return t==='done'?'done':/^done-pending/.test(t)?'pending':'open';}
+  var GL={done:'✓ done',pending:'done · waits',open:'open'};
   var PR={now:0,next:1,later:2}, SV={major:0,minor:1,idea:2}, EF={S:0,M:1,L:2};
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function norm(s){return String(s||'').toLowerCase().replace(/[ً-ٰٟۖ-ۭـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي');}
   function parse(txt){var out=[]; String(txt).split(/\r?\n/).forEach(function(l){ l=l.trim(); if(!l) return; try{ var o=JSON.parse(l); if(o&&o.id&&o.title){ o.roles=o.roles||[]; o._s=norm([o.title,o.title_ar,o.detail,o.area,o.ceo_note,o.id].join(' ')); out.push(o);} }catch(e){} }); return out;}
   function inRole(o,r){return o.suggested_by===r || (S.supp && o.roles.indexOf(r)>-1);}
   function base(o){ // everything except the role filter
-    if(S.pri && o.priority!==S.pri) return false; if(S.own && !o.needs_owner) return false;
+    if(S.pri && o.priority!==S.pri) return false; if(S.st && grp(o)!==S.st) return false; if(S.own && !o.needs_owner) return false;
     var t=norm(S.q).split(/\s+/).filter(Boolean); for(var i=0;i<t.length;i++) if(o._s.indexOf(t[i])<0) return false; return true; }
   function val(o,k){ switch(k){case 'priority':return PR[o.priority]; case 'severity':return SV[o.severity]; case 'effort':return EF[o.effort];
     case 'suggestion':return norm(o.title); case 'by':return o.suggested_by; case 'area':return o.area||''; case 'note':return o.ceo_note||''; } return 0;}
@@ -26,7 +28,7 @@
     var rows=rowsAll.slice(0,shown), h='';
     rows.forEach(function(o){
       var sup=o.roles.filter(function(r){return r!==o.suggested_by;});
-      h+='<tr class="item" data-id="'+esc(o.id)+'"><td class="c-p"><span class="tpill chip '+esc(o.priority)+'">'+esc(o.priority)+'</span>'+(o.needs_owner?'<span class="tpill chip own">needs owner</span>':'')+'</td>'
+      h+='<tr class="item" data-id="'+esc(o.id)+'"><td class="c-p"><span class="tpill chip '+esc(o.priority)+'">'+esc(o.priority)+'</span>'+(o.needs_owner?'<span class="tpill chip own">needs owner</span>':'')+'<span class="tpill chip st '+grp(o)+'" title="'+esc(o.status||'proposed')+'">'+GL[grp(o)]+'</span></td>'
        +'<td class="sg"><button type="button" class="tt" aria-expanded="'+(open[o.id]?'true':'false')+'">'+esc(o.title)+'</button>'+(o.title_ar?'<span class="ta"><span class="ar" lang="ar">'+esc(o.title_ar)+'</span></span>':'')+'</td>'
        +'<td class="c-by">'+esc(o.suggested_by)+(sup.length?'<span class="tsup chip" title="'+esc('Also: '+sup.join(', '))+'">+'+sup.length+'</span>':'')+'</td>'
        +'<td class="c-a">'+esc(o.area)+'</td><td class="c-e">'+esc(o.effort)+'</td><td class="c-v">'+esc(o.severity)+'</td><td class="n"><span class="nc">'+esc(o.ceo_note)+'</span></td></tr>';
@@ -53,8 +55,9 @@
     sl.querySelector('#tcount').textContent=rowsAll.length+' of '+items.length;
     sl.querySelectorAll('th').forEach(function(th){ th.setAttribute('aria-sort', th.dataset.key===S.key?(S.dir>0?'ascending':'descending'):'none'); });
     sl.querySelectorAll('[data-pri]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.pri===S.pri);});
+    sl.querySelectorAll('[data-st]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.st===S.st); var n=b.querySelector('b'); if(n) n.textContent=items.filter(function(o){return !b.dataset.st||grp(o)===b.dataset.st;}).length;});
     sl.querySelector('#town').setAttribute('aria-pressed',S.own); sl.querySelector('#tsup').setAttribute('aria-pressed',S.supp);
-    var ls=sl.querySelectorAll('.lede [data-n]'); if(ls.length){ ls[0].textContent=Object.keys(items.reduce(function(m,o){m[o.suggested_by]=1;return m;},{})).length; ls[1].textContent=items.length; }
+    var ls=sl.querySelectorAll('.lede [data-n]'); if(ls.length){ ls[0].textContent=Object.keys(items.reduce(function(m,o){m[o.suggested_by]=1;return m;},{})).length; ls[1].textContent=items.length; if(ls[2]) ls[2].textContent=items.filter(function(o){return grp(o)==='done';}).length; if(ls[3]) ls[3].textContent=items.filter(function(o){return grp(o)==='pending';}).length; }
   }
   function set(txt){ var p=parse(txt); if(p.length){ items=p; render(); return true;} return false; }
   var inline=document.getElementById('team-data'); set(inline?inline.textContent:'');
@@ -69,9 +72,10 @@
     e.stopPropagation(); var t=e.target;
     var c=t.closest('.tchip[data-role]'); if(c){ S.role=c.dataset.role; render(); return; }
     var p=t.closest('[data-pri]'); if(p){ S.pri=p.dataset.pri; render(); return; }
+    var q=t.closest('[data-st]'); if(q){ S.st=q.dataset.st; render(); return; }
     if(t.closest('#town')){ S.own=!S.own; render(); return; }
     if(t.closest('#tsup')){ S.supp=!S.supp; render(); return; }
-    if(t.closest('#treset')){ S={q:'',role:'',supp:false,pri:'',own:false,key:'priority',dir:1}; inp.value=''; open={}; render(); return; }
+    if(t.closest('#treset')){ S={q:'',role:'',supp:false,pri:'',st:'',own:false,key:'priority',dir:1}; inp.value=''; open={}; render(); return; }
     var h=t.closest('th button'); if(h){ var k=h.parentNode.dataset.key; if(S.key===k) S.dir=-S.dir; else {S.key=k;S.dir=1;} render(); return; }
     var r=t.closest('tr.item'); if(r){ var id=r.dataset.id; open[id]=!open[id]; var sc0=sl.querySelector('.tscroll').scrollTop; paint(); sl.querySelector('.tscroll').scrollTop=sc0; var b=body.querySelector('tr.item[data-id="'+id+'"] .tt'); if(b&&t.closest('.tt')) b.focus(); }
   });

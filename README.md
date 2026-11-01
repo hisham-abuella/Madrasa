@@ -34,6 +34,7 @@ returning to the language of the Qur'an. The mascot is **نُورِي Noori** (f
 | 🕊️ | **6 logo concepts**, generated locally, wordmark typeset (recommended: #1 Gull & Crescent, #6 as app icon) | [`logos/`](logos/) |
 | 📖 | **One grammar lesson, three styles**: هَذَا وَهَذِهِ (masculine & feminine) as an article, an illustrated story, and a classroom presentation | [`lessons/`](lessons/) |
 | 🖊️ | **Writing game «كَيْفَ أَكْتُبُ؟»**: watch Noori draw a letter or word stroke by stroke (numbered start dots, arrows, replay / step / speed), then write it on a canvas; each stroke checked gently, never graded wrong. 3 levels: ا ب ت ث ن ه ة · ـة ـهـ بـة · هَذَا هَذِهِ بِنْتٌ قِطَّةٌ (word skeletons traced over Noto Naskh). Stroke data in one JSON (`node games/build-strokes.js` → `strokes.js` for file://) | [`games/write.html`](games/write.html) |
+| 🎲 | **More games**: a start screen for pre-readers, two baskets (هَذَا / هَذِهِ sort), listen and choose, build a sentence; adab stickers as the reward | [`games/`](games/) |
 | ✍️ | **Writing pad** for iPad / Apple Pencil / mouse in every lesson (trace ة, هَذَا, هَذِهِ, write a sentence; praised, never graded) | [`assets/kids.js`](assets/kids.js) `KS.writePad` |
 | 📚 | **Lesson book** «نُورِي وَالصَّدَفَةُ الصَّغِيرَةُ»: 32 pages, Lulu-ready, 11 exercise pages, QR to the web book, narrated | [`book/`](book/) |
 | 🖼️ | **Illustrated artwork set**: 53 local generations + book art, with a simple/illustrated switch and SVG fallback | [`assets/art/`](assets/art/) |
@@ -75,7 +76,7 @@ Full rebuild instructions: [`book/README.md`](book/README.md).
   modest dress, no text inside generated images, soft tones instead of music.
 - **Images:** generated locally with Draw Things (Z-Image Turbo), one fixed character description per
   character, every image checked by eye; prompts and seeds in `logos/source/`, `book/source/`, `assets/art/source/`.
-- **Narration:** ElevenLabs `eleven_v4` for the book and all 13 story-lesson pages (Fusha: Sarah · Egyptian: Hisham's voice clone). The owners' deck has no narration on purpose.
+- **Narration:** every sound is Hisham's cloned voice, recorded locally (Fish S2-Pro + Whisper QA), one clip at a time with `tools/voice/record-one-by-one.sh` (it checks memory and waits for other local model jobs). 123 word and phrase clips live in `audio/words/`; story and book narration were first made with ElevenLabs `eleven_v4` and are being re-recorded locally. The owners' deck has no narration on purpose.
 - **Decks:** [present-in-html](https://hisham-abuella.github.io/present-in-html/): the classroom lesson
   (`lessons/presentation.html`) and the owners' pitch (`pitch/`), both rebuilt from `*/build/`.
 - **Release sweep:** `node tools/release-check.mjs` (Playwright from `~/.kp-tools`) opens every page at 1280 /

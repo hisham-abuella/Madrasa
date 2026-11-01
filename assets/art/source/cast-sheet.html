@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- Cast sheet (S-052): Noori, Sami and Salma side by side, front-on, one scale, from the checked
+     site stickers (assets/art/noori, assets/art/pic). Not a site page. Rendered to cast-sheet.webp:
+       node assets/art/source/make-cast.cjs
+     Every new topic book copies cast-sheet.webp next to its art (.claude/skills/topic-book) and
+     each new picture is checked against it. Re-render after any character redraw (S-001). -->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>Cast sheet — Noori, Sami, Salma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700&family=Noto+Naskh+Arabic:wght@700&display=swap">
+<style>
+  html, body { margin: 0; background: #F4FBFB; color: #0B3540; font-family: "Baloo Bhaijaan 2", system-ui, sans-serif; }
+  .sheet { width: 1800px; padding: 40px 50px 36px; box-sizing: border-box; }
+  h1 { margin: 0 0 4px; font-size: 40px; line-height: 1.3; }
+  h1 span { font-weight: 500; font-size: 26px; color: #2F5965; }
+  .rule { position: relative; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; align-items: end; margin-top: 24px;
+    background: repeating-linear-gradient(0deg, transparent 0 99px, #CBE6E2 99px 100px); border-bottom: 3px solid #0B7A7E; }
+  figure { margin: 0; display: flex; flex-direction: column; align-items: center; }
+  figure img { display: block; object-fit: contain; object-position: bottom; }
+  .kid img { height: 600px; }            /* children: one height */
+  .gull img { height: 400px; }           /* Noori: about two thirds of a child, as in the book */
+  .notes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; margin-top: 18px; }
+  .notes h2 { margin: 0; font: 700 44px/1.5 "Noto Naskh Arabic", serif; }
+  .notes h2 span { font: 700 28px/1 "Baloo Bhaijaan 2", sans-serif; color: #2F5965; margin-inline-start: 10px; }
+  .notes p { margin: 4px 0 0; direction: ltr; text-align: left; font-size: 22px; line-height: 1.4; }
+  .foot { margin-top: 20px; direction: ltr; text-align: left; font-size: 18px; color: #2F5965; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>الشَّخْصِيَّاتُ <span dir="ltr">· Cast sheet — one scale, front-on. Check every new picture against it.</span></h1>
+  <div class="rule">
+    <figure class="gull"><img src="../noori/happy.webp" alt="Noori"></figure>
+    <figure class="kid"><img src="../pic/boy.webp" alt="Sami"></figure>
+    <figure class="kid"><img src="../pic/girl.webp" alt="Salma"></figure>
+  </div>
+  <div class="notes">
+    <div><h2>نُورِي <span>Noori</span></h2><p>A young seagull: round white-cream body, grey wings with dark tips, small orange beak, big kind eyes, pink cheeks, teal scarf, orange feet. Never scary, no text on him, no kufi.</p></div>
+    <div><h2>سَامِي <span>Sami</span></h2><p>A boy of about 7: short black curly hair, uncovered; blue long-sleeved sweater, dark trousers, white trainers. Round face, warm skin.</p></div>
+    <div><h2>سَلْمَى <span>Salma</span></h2><p>A girl of about 7: pink headscarf over a white under-cap, no hair showing; long sleeves; yellow dress over long white trousers, socks and pink shoes. A curious, happy face.</p></div>
+  </div>
+  <p class="foot">Nawras Fusha School · reference for assets/art (site) and book/art-hi (books). Source stickers: assets/art/noori/happy.webp, assets/art/pic/boy.webp, assets/art/pic/girl.webp.</p>
+</div>
+</body>
+</html>

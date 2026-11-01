@@ -8,6 +8,10 @@
 #   print/<slug>-home-a5[-DRAFT].pdf         home booklet, A5, print with "Booklet" in Acrobat
 #   print/<slug>-worksheets-letter[-DRAFT].pdf  the 11 exercise pages alone, US Letter
 #   print/<slug>-worksheets-a4[-DRAFT].pdf      the same on A4
+#   print/<slug>-teacher-pack[-DRAFT].pdf       Letter: QR cover sheet + the 11 worksheets + answers
+#
+# A -DRAFT set is written to print/draft/ (S-043), so a draft never sits next to a
+# real file in Lulu's file picker.
 #
 # The QR codes come from book.config.json -> bookUrl (tools/make-qr.py, rerun every
 # time, so changing the URL is one edit and one command). Until urlConfirmed is
@@ -38,7 +42,8 @@ CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 echo "QR codes from book.config.json…"
 uvx --with segno python tools/make-qr.py "$slug" | tail -1
 
-mkdir -p build print "input/img-hi/images-$slug"
+out=print; [[ -n $draft ]] && out=print/draft   # drafts never sit beside a real file (S-043)
+mkdir -p build "$out" "input/img-hi/images-$slug"
 missing=0
 for key in $(node -e "const s=require('./stories/$slug.json');const k=new Set(['back']);s.pages.forEach(p=>p.img&&k.add(p.img));console.log([...k].join(' '))"); do
   master=art-hi/images-$slug/$key.png
@@ -52,8 +57,8 @@ done
 (( missing )) && { echo "draw them first: DEST=\$PWD/art-hi/images-$slug zsh source/gen-$slug.sh" >&2; exit 1; }
 
 # remove an older set (a DRAFT set once the URL is confirmed, or the other way round)
-for st in lulu-interior lulu-cover home-a5 worksheets-letter worksheets-a4; do   # exact names: one slug may prefix another
-  rm -f "print/$slug-$st.pdf" "print/$slug-$st-DRAFT.pdf"
+for st in lulu-interior lulu-cover home-a5 worksheets-letter worksheets-a4 teacher-pack; do   # exact names: one slug may prefix another
+  rm -f "print/$slug-$st.pdf" "print/$slug-$st-DRAFT.pdf" "print/draft/$slug-$st-DRAFT.pdf"
 done
 
 fail=0
@@ -62,12 +67,12 @@ one() {   # one <stem> <format>
   local stem=$1 fmt=$2
   node tools/make-print.js "$slug" "build/$stem.html" --format "$fmt" | sed 's/^/  /'
   "$CHROME" --headless --no-pdf-header-footer --virtual-time-budget=20000 \
-       --print-to-pdf="print/$stem.pdf" "file://$PWD/build/$stem.html" 2>/dev/null
+       --print-to-pdf="$out/$stem.pdf" "file://$PWD/build/$stem.html" 2>/dev/null
   local over
   over=$("$CHROME" --headless --virtual-time-budget=20000 --dump-dom "file://$PWD/build/$stem.html" 2>/dev/null \
          | grep -o 'data-overflow="[^"]*"' | head -1)
   if [[ $over != 'data-overflow=""' ]]; then echo "  OUTSIDE THE SAFE AREA: $over" >&2; fail=1; fi
-  printf '  %-48s %s\n' "print/$stem.pdf" "$(du -h "print/$stem.pdf" | cut -f1)"
+  printf '  %-48s %s\n' "$out/$stem.pdf" "$(du -h "$out/$stem.pdf" | cut -f1)"
   made+=("$stem")
 }
 one "$slug-lulu-interior$draft" lulu
@@ -75,11 +80,12 @@ one "$slug-lulu-cover$draft" cover
 one "$slug-home-a5$draft" a5
 one "$slug-worksheets-letter$draft" letter
 one "$slug-worksheets-a4$draft" a4
+one "$slug-teacher-pack$draft" pack
 
 echo; echo "checking words and type size…"
 for stem in "${made[@]}"; do
   [[ $stem == *-cover* ]] && continue
-  python3 tools/check-print-text.py "build/$stem.html" "print/$stem.pdf" || fail=1
+  python3 tools/check-print-text.py "build/$stem.html" "$out/$stem.pdf" || fail=1
 done
 echo; echo "checking Lulu's rules…"
 bash tools/check-lulu.sh "$slug" || fail=1

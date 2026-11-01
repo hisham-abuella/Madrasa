@@ -1,6 +1,25 @@
-{ "title": "نوري ودا ودي — عينة", "language": "ar",
-  "slides": [
-    { "id": "s1", "title": "التحية", "transcript": "[warmly] السلام عليكم يا صحابي الصُّغيّرين! <break time=\"0.4s\" /> أنا نوري، النَّورس الصغير، وبطير فوق بحر سان دييجو." },
-    { "id": "s2", "title": "ده ودي", "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت. <break time=\"0.5s\" /> ده قُطّ، ودي قُطّة." },
-    { "id": "s3", "title": "التاء المربوطة", "transcript": "[curious] سِمعتوا الحرف الصغيّر اللي في آخر الكلمة؟ <break time=\"0.5s\" /> [excited] دي التاء المربوطة! <break time=\"0.3s\" /> قُطّ… قُطّة!" }
-  ] }
+{
+ "title": "نوري ودا ودي — عينة",
+ "language": "ar",
+ "slides": [
+  {
+   "id": "s1",
+   "title": "التحية",
+   "transcript": "[warmly] السلام عليكم يا صحابي الصُّغيّرين! <break time=\"0.4s\" /> أنا نوري، النَّورس الصغير، وبطير فوق بحر سان دييجو."
+  },
+  {
+   "id": "s2",
+   "title": "ده ودي",
+   "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت. <break time=\"0.5s\" /> ده قُطّ، ودي قُطّة."
+  },
+  {
+   "id": "s3",
+   "title": "التاء المربوطة",
+   "transcript": "[curious] سِمعتوا الحرف الصغيّر اللي في آخر الكلمة؟ <break time=\"0.5s\" /> [excited] دي التاء المربوطة! <break time=\"0.3s\" /> قُطّ… قُطّة!"
+  }
+ ],
+ "voice": "Hisham (local clone)",
+ "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA",
+ "model": "fish-audio-s2-pro-8bit (local)",
+ "note": "s1/s2/s3 = story-eg p02/p04/p07, same text and the same recording (copied)."
+}

@@ -11,7 +11,7 @@ Also checked, per code: the printed symbol (without its quiet zone) is at least
 
   uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py [slug]
 
-With a slug only that book's PDFs (print/<slug>-*.pdf) are read; without, every PDF.
+With a slug only that book's PDFs (print/<slug>-*.pdf, print/draft/<slug>-*-DRAFT.pdf) are read; without, every PDF.
 """
 import glob, html, json, re, subprocess, sys, tempfile
 from pathlib import Path
@@ -34,8 +34,8 @@ def expected(pdf):
     return [[html.unescape(u) for u in re.findall(r'data-qr="([^"]*)"', p)] for p in parts]
 
 bad, rows, total = [], [], 0
-STEMS = ('-lulu-interior', '-lulu-cover', '-home-a5', '-worksheets-letter', '-worksheets-a4')
-for pdf in sorted(glob.glob(str(ROOT / 'print' / '*.pdf'))):
+STEMS = ('-lulu-interior', '-lulu-cover', '-home-a5', '-worksheets-letter', '-worksheets-a4', '-teacher-pack')
+for pdf in sorted(glob.glob(str(ROOT / 'print' / '*.pdf')) + glob.glob(str(ROOT / 'print' / 'draft' / '*.pdf'))):   # drafts: print/draft/
     name = Path(pdf).stem
     if slug and not any(name in (slug + st, slug + st + '-DRAFT') for st in STEMS):
         continue

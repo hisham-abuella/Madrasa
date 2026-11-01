@@ -753,18 +753,15 @@
     'apple': 'تُفَّاحَةٌ — an apple', 'boat': 'قَارِبٌ — a boat', 'sea': 'بَحْرٌ — the sea',
     'shell': 'صَدَفَةٌ — a seashell', 'palm': 'نَخْلَةٌ — a palm tree', 'pen': 'قَلَمٌ — a pencil'
   };
-  // recorded word clips (audio/words/<name>.mp3): list a name here once its clip exists, and
-  // KS.speak plays it before the device voice. Empty until the clips are recorded (S-012).
-  var WORD_CLIPS = [];
+  // recorded clips (audio/words/<id>.mp3), Hisham's local cloned voice, one per spoken text.
+  // Key = the text without tashkeel, punctuation or spaces. Source: audio/transcripts/words-ar.json.
+  var WORD_CLIPS = {"ولد":"boy","بنت":"girl","معلم":"teacher-m","معلمة":"teacher-f","طالب":"student-m","طالبة":"student-f","أم":"mother","قط":"cat","قطة":"cat-f","كتاب":"book","باب":"door","بيت":"house","قمر":"moon","شمس":"sun","نجمة":"star","سمكة":"fish","شجرة":"tree","وردة":"rose","تفاحة":"apple","قارب":"boat","بحر":"sea","صدفة":"shell","نخلة":"palm","قلم":"pen","هذاولد":"this-boy","هذاباب":"this-door","هذابيت":"this-house","هذاقارب":"this-boat","هذاقمر":"this-moon","هذاقط":"this-cat","هذاكتاب":"this-book","هذامعلم":"this-teacher-m","هذاطالب":"this-student-m","هذاقطصغير":"this-cat-small","هذاولدنشيط":"this-boy-active","هذابحركبير":"this-sea-big","هذافانوسمضيء":"this-lantern-bright","هذاسامي":"this-sami","هذهبنت":"this-girl","هذهأم":"this-mother","هذهتفاحة":"this-apple","هذهسمكة":"this-fish","هذهشجرة":"this-tree","هذهشمس":"this-sun","هذهصدفة":"this-shell","هذهقطة":"this-cat-f","هذهنجمة":"this-star","هذهنخلة":"this-palm","هذهوردة":"this-rose","هذهمعلمة":"this-teacher-f","هذهطالبة":"this-student-f","هذهسلمى":"this-salma","هذهبنتنشيطة":"this-girl-active","هذهقطةصغيرة":"this-cat-f-small","هذهحديقةجميلة":"this-garden-pretty","هذهشمسدافئة":"this-sun-warm","هذهكراسةجديدة":"this-notebook-new","هذهنجمةلامعة":"this-star-shiny","حديقة":"garden","فانوس":"lantern","كراسة":"notebook","أنانوري":"i-am-noori","معالسلامةياسامي":"bye-sami","معالسلامةياسلمى":"bye-salma","وعليكمالسلام":"reply-salam","أيكلمةمؤنثة":"q-which-feminine","أيكلمةلهذهالصورة":"q-which-word-picture","تفضليياسلمىشكرايانوريجزاكاللهخيرا":"story-shell-gift","الألف":"write-alif","ابدأمنأعلىوانزلإلىالسطر":"write-alif-1","الباء":"write-baa","ابدأمنهناانزلثماذهبإلىاليسارواصعدقليلا":"write-baa-1","ضعنقطةتحتالباء":"write-baa-2","التاء":"write-taa","ضعنقطةفوقالتاءعلىاليمين":"write-taa-2","ثمضعنقطةثانيةعلىاليسار":"write-taa-3","الثاء":"write-thaa","ضعنقطةفوقالثاءعلىاليمين":"write-thaa-2","ثمضعالنقطةالثالثةفوقهما":"write-thaa-4","النون":"write-noon","ابدأمنهناوانزلمثلالوعاءثماصعد":"write-noon-1","ضعنقطةفيوسطالنون":"write-noon-2","الهاء":"write-haa","ابدأمنأعلىودرإلىاليسارحتىترجعثمانزلقليلاإلىالداخل":"write-haa-1","التاءالمربوطة":"write-taa-m","ابدأمنأعلىودرإلىاليسارحتىترجعإلىالبداية":"write-taa-m-1","ضعنقطةفوقهاعلىاليمين":"write-taa-m-2","ابدأمناليمينعلىالسطراصعدثمانزلمائلاودرحتىترجع":"write-taa-final-1","ابدأمناليميناصعدإلىالرأسانزلوارسمحلقةتحتالسطرثماذهبإلىاليسار":"write-haa-mid-1","باءوتاءمربوطة":"write-baa-taa","ابدأبسنالباءانزلامشعلىالسطرثماصعدوانزلمائلاودر":"write-baa-taa-1","هذا":"write-hatha","اكتبالهاءابدأمنرأسهادرإلىاليمينحتىالسطراصعدإلىالرأسثمانزلواذهبإلىاليسار":"write-hatha-1","اكتبالذالانزلمنرأسهاإلىالسطرثماذهبإلىاليسار":"write-hatha-2","اكتبالألفمنأعلىإلىأسفل":"write-hatha-3","ضعنقطةفوقالذال":"write-hatha-4","اكتبالفتحةفوقالهاء":"write-hatha-5","اكتبالفتحةفوقالذال":"write-hatha-6","هذه":"write-hathihi","اكتبالهاءالأخيرةابدأمنرأسهاودرإلىاليسارحتىترجع":"write-hathihi-3","اكتبالكسرةتحتالذال":"write-hathihi-6","اكتبالكسرةتحتالهاء":"write-hathihi-7","ابدأمنهناثلاثأسنانصغيرةثمقاربإلىاليسار":"write-bint-1","ضعنقطةفوقالنون":"write-bint-3","اكتبالكسرةتحتالباء":"write-bint-6","اكتبالسكونفوقالنوندائرةصغيرة":"write-bint-7","اكتبتنوينالضمفوقالتاء":"write-bint-8","اكتبالكلمةرأسالقافثمالسطرثمقبةالطاءثمالتاءالمربوطة":"write-qitta-1","اكتبعصاالطاءمنأعلىإلىأسفل":"write-qitta-2","ضعنقطةفوقالقافعلىاليمين":"write-qitta-3","ضعنقطةفوقالتاءالمربوطةعلىاليمين":"write-qitta-5","اكتبالكسرةتحتالقاف":"write-qitta-7","اكتبالشدةفوقالطاء":"write-qitta-8","اكتبالفتحةفوقالشدة":"write-qitta-9","اكتبتنوينالضمفوقالتاءالمربوطة":"write-qitta-10","ابدأمنالنقطةالخضراء":"write-hint-start","اتبعالسهم":"write-hint-dir","امشعلىالخطالخفيف":"write-hint-path","استمرحتىآخرالخط":"write-hint-end","نقطةصغيرةفقطهنا":"write-hint-dot","الآندوركاضغط«اكتب»":"write-your-turn","سأساعدكفيهذهالخطوة":"write-help","عملرائع":"write-done"};
   var AUDIO_BASE = (KS.artBase || 'assets/art/').replace(/assets\/art\/$/, 'audio/');
-  var bare = function (t) { return String(t || '').replace(/[\u064B-\u0652\u0670\u0640.،؟!\s]/g, ''); };
-  var WORD_KEY = {};
-  function wordOf(name) { return (LABELS[name] || '').split(' — ')[0]; }
+  var bare = function (t) { return String(t || '').replace(/[\u064B-\u0652\u0670\u0640.،,؟?!:…\s]/g, ''); };
   KS.clipFor = function (text) {
-    if (!WORD_CLIPS.length) return null;
-    if (!WORD_KEY.__built) { Object.keys(LABELS).forEach(function (k) { WORD_KEY[bare(wordOf(k))] = k; }); WORD_KEY.__built = 1; }
-    var k = WORD_KEY[bare(text)];
-    return k && WORD_CLIPS.indexOf(k) > -1 ? AUDIO_BASE + 'words/' + k + '.mp3' : null;
+    var k = WORD_CLIPS[bare(text)];
+    if (!k) { var w = LABELS[text]; k = w && WORD_CLIPS[bare(w.split(' — ')[0])]; }   // a picture name, e.g. 'boy'
+    return k ? AUDIO_BASE + 'words/' + k + '.mp3' : null;
   };
   var CLOTH = { 'f-masc': 'var(--masc)', 'f-fem': 'var(--fem)', 'f-brand': 'var(--brand)', 'f-leaf': '#4CAF6A', 'f-blue': '#4C7DE0', 'f-coral': '#FF8A6B' };
 
@@ -1120,9 +1117,40 @@
   function ta(w) { return KS.ta ? KS.ta(w) : esc(w); }
   KS.grownupCard = grownupCard;
 
+  /* ── adab sticker: the end-of-lesson reward (S-048) ───────────────────
+     <div data-sticker[="shukran"]></div>  (no value: a different one each visit)
+     One Noori pose + one phrase the child can SAY today, with a listen button and one
+     English line for the parent. A phrase to use, never a score, a collection or a wrong
+     option (islamic-studies-advisor); screen only, never printed. Praise stays plural. */
+  var STICKERS = {
+    salam:   ['wave',  'السَّلَامُ عَلَيْكُمْ', 'السَّلَامُ عَلَيْكُمْ', 'Assalamu alaykum — say it when you come in and when you meet someone.'],
+    shukran: ['happy', 'شُكْرًا!', 'شُكْرًا', 'Thank you — say it when someone gives you something or helps you.'],
+    fadlik:  ['think', 'مِنْ فَضْلِكَ · مِنْ فَضْلِكِ', 'مِنْ فَضْلِكَ، مِنْ فَضْلِكِ', 'Please — مِنْ فَضْلِكَ to a boy or a man, مِنْ فَضْلِكِ to a girl or a woman.'],
+    bismillah: ['fly', 'بِسْمِ اللَّهِ', 'بِسْمِ اللَّهِ', 'Bismillah — say it before you eat and before you start something.'],
+    hamd:    ['cheer', 'الْحَمْدُ لِلَّهِ', 'الْحَمْدُ لِلَّهِ', 'Alhamdulillah — say it after you eat and when something good happens.']
+  };
+  KS.STICKERS = Object.keys(STICKERS);
+  function sticker(el, which) {
+    if (!el || el.__st) return; el.__st = true;
+    var keys = KS.STICKERS, k = which || el.getAttribute('data-sticker');
+    if (!STICKERS[k]) k = keys[Math.floor(Math.random() * keys.length)];
+    var s = STICKERS[k];
+    el.classList.add('adab');
+    el.setAttribute('data-sticker', k);
+    el.innerHTML =
+      '<div class="adab__pic">' + KS.gull(s[0], { label: 'نُورِي — Noori' }) + '</div>' +
+      '<div class="adab__txt"><p class="adab__lab">كَلِمَةٌ طَيِّبَةٌ لِلْيَوْمِ <span class="en" lang="en">Your sticker: a kind word to say today</span></p>' +
+        '<p class="adab__phrase word">' + esc(s[1]) + '</p>' +
+        '<p class="en adab__en" lang="en">' + esc(s[3]) + '</p></div>' +
+      '<button type="button" class="say adab__say" data-say="' + esc(s[2]) + '" aria-label="' + esc(KS.sayLabel(s[2])) + '">' + KS.ICON_SPEAK + '</button>';
+  }
+  KS.sticker = sticker;
+
   function wirePics() {
     var gu = document.querySelectorAll('[data-grownup]');
     for (var g = 0; g < gu.length; g++) grownupCard(gu[g]);
+    var st = document.querySelectorAll('[data-sticker]');
+    for (var t = 0; t < st.length; t++) sticker(st[t]);
     var els = document.querySelectorAll('[data-pic]');
     for (var i = 0; i < els.length; i++) {
       if (els[i].querySelector('.pic')) continue;

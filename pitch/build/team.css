@@ -57,3 +57,5 @@
 .ttable td.sg .ta{line-height:1.25}
 .ttable td.sg .tt[aria-expanded=true]{-webkit-line-clamp:unset}
 .team .ttog.chip{font:500 22px/1.15 var(--f-body);border:3px solid var(--rule);border-radius:999px;padding:3px 12px;background:var(--bg);color:var(--ink)}.team .ttog.chip[aria-pressed=true]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+
+.tpill.st{display:block;width:max-content;margin-top:6px;text-transform:none}.tpill.st.done{--tc:#2E9E5B}.tpill.st.pending{--tc:var(--brand)}.tpill.st.open{--tc:var(--rule)}

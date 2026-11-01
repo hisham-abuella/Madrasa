@@ -3,6 +3,7 @@
 
   python3 assets/art/source/make-web.py            # everything that is missing or older than its master
   python3 assets/art/source/make-web.py --force    # remake all
+  python3 assets/art/source/make-web.py --only level-1   # remake one file (key = file stem)
 
 Masters (1536px PNG) live in assets/art/hi/ and are NEVER referenced by a page.
   hi/pic/*, hi/noori/*, hi/site/level-*, hi/site/wotd-*
@@ -24,6 +25,12 @@ ART = Path(__file__).resolve().parent.parent
 HI = ART / 'hi'
 BOOK = ART.parent.parent / 'book' / 'art-hi' / 'images-noori-shell'
 FORCE = '--force' in sys.argv
+ONLY = sys.argv[sys.argv.index('--only') + 1] if '--only' in sys.argv else None
+# Cream paper on a cool white background (S-040): the plain near-white test also eats the
+# pages and leaves a pale shadow halo, so these files call background only the bluish
+# whites (blue above red) and the mid-grey drop shadow (darker than the paper), then fill
+# the holes inside the subject.
+COOL_BG = {'level-1': 1285}   # key -> x (master px) right of which the lighter shadow is background too
 LIMIT = 150_000
 
 # story slide -> (book picture, vertical crop centre 0..1 of the free height)
@@ -49,10 +56,18 @@ def cut(src: Path) -> Image.Image:
     im = Image.open(src).convert('RGB')
     a = np.asarray(im).astype(int)
     near_white = (a.min(axis=2) > 226) & ((a.max(axis=2) - a.min(axis=2)) < 26)
+    cool = src.stem in COOL_BG
+    if cool:
+        spread, lum = a.max(axis=2) - a.min(axis=2), a.mean(axis=2)
+        near_white = ((a.min(axis=2) > 196) & (spread < 30) & (a[..., 2] - a[..., 0] >= 2)) \
+            | ((spread < 26) & (lum > 100) & (lum < 200))   # + the baked grey drop shadow (the gutter is lighter)
+        near_white[:, COOL_BG[src.stem]:] |= ((spread < 30) & (lum > 100) & (lum < 236))[:, COOL_BG[src.stem]:]   # book-to-pencil gap
     lab, _ = ndimage.label(near_white)
     border = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))) - {0}
     bg = np.isin(lab, list(border))
-    bg = ndimage.binary_dilation(bg, iterations=1)
+    bg = ndimage.binary_dilation(bg, iterations=2 if cool else 1)
+    if cool:
+        bg = ~ndimage.binary_fill_holes(~bg)
     # drop specks: keep only foreground blobs bigger than 0.2% of the picture
     fg = ~bg
     flab, n = ndimage.label(fg)
@@ -88,6 +103,8 @@ def place(sub: Image.Image, key: str) -> Image.Image:
 
 
 def stale(src: Path, out: Path) -> bool:
+    if ONLY:
+        return src.stem == ONLY
     return FORCE or not out.exists() or out.stat().st_mtime < src.stat().st_mtime
 
 

@@ -171,6 +171,14 @@
   body.notes-off .note{display:none}
   .game-row{margin:0;text-align:center}
   body.big .game-row{display:none}
+  /* «دَوْرُكَ!» say-it-back (UI only: the narrated text is unchanged) */
+  .echo{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:center;margin:2px 0 0}
+  .echo-btn{display:inline-flex;align-items:center;gap:8px;min-height:56px;padding:6px 20px;border-radius:999px;border:2px solid var(--acc);background:var(--page);color:var(--acc-text);font-family:var(--word);font-size:1.15rem;font-weight:700;transition:transform .14s ease}
+  .echo-btn span[lang="en"]{font-family:var(--ui);font-weight:400;font-size:.8em;color:var(--ink2)}
+  .echo-btn:hover{transform:translateY(-2px)}
+  .echo-btn:active{transform:scale(.97)}
+  .echo-bubble{margin:0;padding:4px 16px;border-radius:18px;border:2px solid var(--acc);background:var(--page);font-family:var(--word);font-size:1.2rem;line-height:1.8;color:var(--ink)}
+  .echo-bubble b{color:var(--acc-text)}
 
   /* ---------- controls ---------- */
   .controls{width:min(860px,100%);display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -297,7 +305,30 @@ function render(){
 }
 
 /* ---------- exercises: pads, picks, the certificate ---------- */
+var echoT = [];
 function wirePage(page){
+  echoT.forEach(clearTimeout); echoT = [];
+  // «دَوْرُكَ!» — a story page whose sound line asks the child to say something («هَيَّا نَقُولُ مَعًا: …»)
+  // gets a say-it-back button: Noori says the line, «دَوْرُكَ! قُلْ: …» waits about 3 s, Noori says it again.
+  // No microphone, no grading; the page text and its narration stay as they are.
+  var snd = spread.querySelector('.words .sound');
+  if (snd && /\u0646\u064e\u0642\u064f\u0648\u0644\u064f[^:]*:/.test(snd.textContent)) {
+    var line = snd.textContent.replace(/\u200d/g, '').split(':').slice(1).join(':').trim().replace(/[!.\s]+$/, '');
+    var row = document.createElement('div');
+    row.className = 'echo';
+    row.innerHTML = '<button type="button" class="echo-btn">دَوْرُكَ! اِسْمَعْ، ثُمَّ قُلْ <span lang="en">Your turn: listen, then say it</span></button><p class="echo-bubble" aria-live="polite" hidden></p>';
+    snd.parentNode.insertBefore(row, snd.nextSibling);
+    var eb = row.querySelector('.echo-btn'), bub = row.querySelector('.echo-bubble');
+    eb.addEventListener('click', function () {
+      unlocked = true; player.pause();
+      echoT.forEach(clearTimeout); echoT = [];
+      KS.speak(line, eb);
+      var wait = Math.max(1600, line.length * 110);
+      echoT.push(setTimeout(function () { bub.innerHTML = 'دَوْرُكَ! قُلْ: <b></b>'; bub.querySelector('b').textContent = line; bub.hidden = false; }, wait));
+      echoT.push(setTimeout(function () { bub.innerHTML = 'اسْمَعْ مَرَّةً أُخْرَى: <b></b>'; bub.querySelector('b').textContent = line; KS.speak(line, eb); }, wait + 3200));
+      echoT.push(setTimeout(function () { bub.hidden = true; }, wait * 2 + 4200));
+    });
+  }
   Array.prototype.forEach.call(spread.querySelectorAll('[data-writepad]'), function (el) {
     var model = el.getAttribute('data-model');
     KS.writePad(el, { model: model ? model.split('|') : [], lines: +el.getAttribute('data-lines') || 1, lineHeight: +el.getAttribute('data-line-height') || undefined });

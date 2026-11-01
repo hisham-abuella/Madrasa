@@ -21,7 +21,7 @@
 # word on the site is typeset by the page.
 REPO=$(cd "$(dirname "$0")/../../.." && pwd)
 HI=${HI:-$REPO/assets/art/hi}
-CLI=/opt/homebrew/bin/draw-things-cli
+CLI=$HOME/.local/bin/draw-things-cli
 
 # ── from the book, verbatim ──────────────────────────────────────────────────
 NOORI="a cute round chubby cartoon baby seagull named Noori with a round white and cream body, a small orange beak, big kind round dark eyes with a white sparkle, rosy pink cheeks, soft grey wings with grey wing tips, small orange feet, and a tiny teal scarf around his neck"

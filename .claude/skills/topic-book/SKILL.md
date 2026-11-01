@@ -72,7 +72,7 @@ cover is its own file, so the interior is 32):
 | 3–16 | 14 × `story` | same arc as Noori: greeting · friends · first examples · the key mark page (`big`) · pairs · the question page ("انْتَبِهُوا!") · the fence answer · extension (adjective agreement) · goodbye |
 | 17 | `recap` | `masc` / `fem` = the two sides' word lists, `rule`, `fence`; `heads` optional |
 | 18–28 | `trace, trace, trace, write, circle, addta, match, fill, adj, draw, draw` | the same 11 types, numbers 1–11; keys may change (`ex-…`) |
-| 29–32 | `certificate, answers, practice, end` | wording only; answers are generated from the exercises |
+| 29–32 | `certificate, answers, practice, end` | wording only; answers are generated from the exercises. The certificate praises every child: name «شَهَادَةُ بَطَلِ / بَطَلَةِ …», `"pick": ["أَنَا بَطَلٌ", "أَنَا بَطَلَةٌ"]` (the child ticks one) and a plural or both-gender `say` («أَحْسَنْتَ يَا بَطَلُ! وَأَحْسَنْتِ يَا بَطَلَةُ!») |
 
 Keys `cover title about recap certificate answers practice end` are looked up by name:
 keep them. Story keys are free (they name the pictures, audio clips and QR anchors).
@@ -132,6 +132,11 @@ can't colour, any TODO. It warns on thin tashkeel and pictures with no `gen` lin
 
 ## 2. Art: `book/source/gen-<slug>.sh` (local Draw Things, ONE AT A TIME)
 
+**Cast sheet first.** Copy `assets/art/source/cast-sheet.webp` (Noori, Sami, Salma at one scale,
+front-on; re-render with `node assets/art/source/make-cast.cjs` after any redraw) to
+`book/art-hi/images-<slug>/_cast.webp` and check every new picture against it: same faces,
+same clothes, Salma's under-cap and long sleeves, Noori never larger than a child.
+
 **One GPU job at a time** (user rule — two parallel jobs restarted the session).
 Before every Draw Things run, and never in a parallel subagent:
 
@@ -186,7 +191,8 @@ out of `books` so it stays `urlConfirmed: false` and every PDF is named `-DRAFT`
 `"books": { "<slug>": { "bookUrl": "…", "urlConfirmed": true } }` and rebuild. Never
 change the top-level (noori-shell) values. Per book, the tools keep files apart:
 `audio/<slug>/{ar,eg}/`, `input/qr/<slug>/`, `images-<slug>/`, `art-hi/images-<slug>/`,
-`input/img-hi/images-<slug>/`, `print/<slug>-*`.
+`input/img-hi/images-<slug>/`, `print/<slug>-*` (a `-DRAFT` set goes to `print/draft/`, so it never shows
+next to a real file in Lulu's file picker).
 
 ```sh
 zsh tools/build-book.sh <slug>        # books/<slug>.html + source/<slug>-{ar,eg}.json
@@ -204,23 +210,23 @@ answers:en" meant the answer captions (`topic.answersEn`) were too long; a clipp
 page means the line is too long for the page — shorten it. Don't edit `make-print.js` CSS
 for one book: the series must print alike.
 
-Look at it: `pdftoppm -r 40 -png print/<slug>-lulu-interior*.pdf build/look/p` +
+Look at it: `pdftoppm -r 40 -png print/{,draft/}<slug>-lulu-interior*.pdf build/look/p` +
 `tools/contact-sheet.py` for all 32 pages, then the cover, recap, key page and two
 exercise pages larger. In the web book open the recap, a match page and the add-ending
 page at 390px and 1280px wide.
 
-## 4. Narration (ElevenLabs, cloud — only when the user says go)
+## 4. Narration (local, Hisham's cloned voice — one clip at a time, only when the user says go)
 
-The scripts come from the spec (`build-book.sh` rewrites them), so rebuild first.
+The scripts come from the spec (`build-book.sh` rewrites them), so rebuild first. All voices are
+recorded locally in Hisham's cloned voice (owner rule 2026-10-31; no ElevenLabs), one clip at a
+time with the repo script, which waits for no other local model job and ≥ 30% free memory:
 
 ```sh
 node ~/Work/Elevenlabs-voice/lint-transcript.js --pair source/<slug>-ar.json source/<slug>-eg.json   # clean, same ids
-node ~/Work/Elevenlabs-voice/generate.js --usage                # quota: a book is ~9k characters (≈6.5k credits for Noori)
-node ~/Work/Elevenlabs-voice/generate.js source/<slug>-ar.json audio/<slug>/ar \
-  --voice EXAVITQu4vr4xnSDxMaL --model eleven_v4 --stability 0.5 --similarity 0.8     # Fusha: Sarah
-node ~/Work/Elevenlabs-voice/generate.js source/<slug>-eg.json audio/<slug>/eg \
-  --voice pusofH2Ro5Ny4RH6qBEO --model eleven_v4 --stability 0.5 --similarity 0.8     # Egyptian: Hisham's clone
-python3 ~/Work/Elevenlabs-voice/qa-audio.py --pair source/<slug>-ar.json audio/<slug>/ar source/<slug>-eg.json audio/<slug>/eg
+../tools/voice/record-one-by-one.sh source/<slug>-ar.json --lang ar     # Fusha
+../tools/voice/record-one-by-one.sh source/<slug>-eg.json --lang ar     # Egyptian (run after the Fusha one finishes)
+# clips land in ~/Work/Whisper-audio/site-audio/slides/<slug>-{ar,eg}/; copy the passed mp3s
+# (loudnorm I=-16) into audio/<slug>/{ar,eg}/ and read qa.json for flagged pieces
 ```
 
 Audio goes to `audio/<slug>/` (only noori-shell uses `audio/` itself); the web book

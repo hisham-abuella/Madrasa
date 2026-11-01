@@ -19,7 +19,7 @@ REPO=$(cd "$(dirname "$0")/.." && pwd)
 DEST=${DEST:-$REPO/art-hi/images-noori-shell}
 SIZE=${SIZE:-1536}
 mkdir -p "$DEST"
-CLI=/opt/homebrew/bin/draw-things-cli
+CLI=$HOME/.local/bin/draw-things-cli
 
 # ── the characters, in parts. Never retype these in a prompt. ─────────────
 NOORI="a cute round chubby cartoon baby seagull named Noori with a round white and cream body, a small orange beak, big kind round dark eyes with a white sparkle, rosy pink cheeks, soft grey wings with grey wing tips, small orange feet, and a tiny teal scarf around his neck"

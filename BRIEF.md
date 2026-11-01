@@ -139,6 +139,7 @@ reuse the book's art where it already exists.
 Never run Draw Things generations, Fish S2-Pro / Voicebox TTS or Whisper batches in parallel, and never two GPU
 subagents at once. Check `pgrep -fl "draw-things|narrate|mlx|voicebox"` is empty before starting. Parallel runs
 restarted the session once.
+**UPDATE 2026-10-31:** voice is recorded one clip at a time with `tools/voice/record-one-by-one.sh <transcript> --lang ar` (waits for no other local job and ≥ 30% free memory before each clip). All site sounds use Hisham's local cloned voice (no ElevenLabs, no Sarah). See CLAUDE.md.
 
 ## Project skill: new topic book (queued 2026-10-25)
 A project skill at `.claude/skills/topic-book/SKILL.md` that turns a new Arabic grammar topic into a complete

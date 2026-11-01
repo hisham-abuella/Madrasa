@@ -92,6 +92,7 @@ slide('start', 'title', f'''<p class="label">{A("مَدْرَسَةُ نَوْر
 slide('idea', 'statement', '''<p class="label">The idea</p>
 <h2>Proper Arabic has only our hours, so one lesson, written once, reaches the child <em>four ways</em></h2>
 <ul class="chips" data-build="list"><li class="chip">on a screen at home</li><li class="chip">on the classroom TV with the teacher</li><li class="chip">in a printed book they write in</li><li class="chip">read aloud in their ears</li></ul>
+<p class="kid-line">Children use Arabic from the first minute: they point, act, choose, write and say it back.</p>
 <p class="close-line">Teachers teach. Nawras makes it joyful.</p>''',
  'BRIEF.md (one spec feeds the web book, the Lulu PDFs and the narration); lessons/presentation/PLAN.md audience line (many pupils speak English or a dialect at home). No statistics: the owners know their children.')
 
@@ -112,10 +113,10 @@ slide('name', 'image-right', f'''<figure><img src="img/noori-happy.webp" alt="No
 <h2>The seagull flies far and comes home, like our children returning to the language of the Qur'an</h2>
 <ul data-build="list">
 <li>{A("نَوْرَس")} Nawras = the seagull, San Diego's coastal bird</li>
-<li>Mascot {A("نُورِي")} Noori, from {A("نُور")} light: round, kind, never scary</li>
+<li>Mascot {A("نُورِي")} Noori, from {A("نُورٌ")} light: round, kind, never scary</li>
 <li>Tagline: Arabic for little hearts, by the Pacific</li>
 </ul>
-<p class="src">Also prepared: {A("شَاطِئُ الضَّاد")} · {A("لُؤْلُؤَةُ الْفُصْحَى")} · {A("الْأَنْدَلُسُ الصَّغِيرَة")} · {A("هِلَال")}</p>''',
+<p class="src">Also prepared: {A("شَاطِئُ الضَّادِ")} · {A("لُؤْلُؤَةُ الْفُصْحَى")} · {A("الْأَنْدَلُسُ الصَّغِيرَةُ")} · {A("هِلَالٌ")}</p>''',
  'BRIEF.md (name, mascot, tagline, alternate names).')
 
 # 4 logo (interactive)
@@ -194,7 +195,7 @@ slide('write', 'image-left', f'''<figure><img src="img/writing-pad.webp" alt="Th
 # 8 book
 P_ = '../book/print/noori-shell-'
 slide('book', 'image-right', f'''<figure class="wide"><img src="img/book-pages.webp" alt="All 32 interior pages of the book Noori and the Little Shell">
-<div class="qrrow"><img class="qr" src="img/qr-book.svg" alt="QR code to the web book, hisham-abuella.github.io/Madrasa/book/books/noori-shell.html"><div class="bx-ui listenbtns"><p>Scan, or listen:</p><button type="button" class="lbtn" data-clip="audio/clips/salam-fusha.mp3">{A("عَرَبِيٌّ سَلِيم")}</button> <button type="button" class="lbtn" data-clip="audio/clips/salam-eg.mp3">{A("مَصْرِي")}</button></div></div></figure>
+<div class="qrrow"><img class="qr" src="img/qr-book.svg" alt="QR code to the web book, hisham-abuella.github.io/Madrasa/book/books/noori-shell.html"><div class="bx-ui listenbtns"><p>Scan, or listen:</p><button type="button" class="lbtn" data-clip="audio/clips/salam-fusha.mp3">{A("عَرَبِيٌّ سَلِيمٌ")}</button> <button type="button" class="lbtn" data-clip="audio/clips/salam-eg.mp3">{A("مَصْرِي")}</button></div></div></figure>
 <h2>A 32-page printed book, and its QR code reads it aloud</h2>
 <ul data-build="list">
 <li>8.5 × 8.5 in square, full colour, printed on demand by Lulu</li>
@@ -251,15 +252,17 @@ for _l in _raw.splitlines():
         _items.append(json.loads(_l))
     except Exception:
         pass
+N_DONE = sum(x.get('status')=='done' for x in _items); N_PEND = sum(str(x.get('status','')).startswith('done-pending') for x in _items)
 N_SUG = len(_items); N_ROLES = len({x['suggested_by'] for x in _items})
 _data = _raw.replace('</', '<\\/')
 _cols = [('priority', 'Priority', 'c-p'), ('suggestion', 'Suggestion', ''), ('by', 'Suggested by', 'c-by'), ('area', 'Area', 'c-a'), ('effort', 'Effort', 'c-e'), ('severity', 'Severity', 'c-v'), ('note', 'CEO note', 'c-n')]
 _th = ''.join(f'<th scope="col" data-key="{k}" class="{c}" aria-sort="none"><button type="button">{t}</button></th>' for k, t, c in _cols)
 slide('team', 'two-column', f'''<h2>What the team suggests next</h2>
-<p class="lede"><span data-n>{N_ROLES}</span> experts reviewed everything; the CEO ranked their <span data-n>{N_SUG}</span> suggestions.</p>
+<p class="lede"><span data-n>{N_ROLES}</span> experts reviewed everything; the CEO ranked their <span data-n>{N_SUG}</span> suggestions. <b><span data-n>{N_DONE}</span> are done</b>, <span data-n>{N_PEND}</span> more wait only for print or audio.</p>
 <div class="team bx-ui">
 <div class="trow"><input type="search" id="tq" placeholder="Search: title, area, note, Arabic (سلمى)" aria-label="Search suggestions" autocomplete="off" spellcheck="false"><span class="tcount" id="tcount" aria-live="polite"></span>
 <button type="button" class="tchip" data-pri="" aria-pressed="true">Any priority</button><button type="button" class="tchip" data-pri="now" aria-pressed="false">Now</button><button type="button" class="tchip" data-pri="next" aria-pressed="false">Next</button><button type="button" class="tchip" data-pri="later" aria-pressed="false">Later</button>
+<span class="tlab chip">Status</span><button type="button" class="tchip chip" data-st="" aria-pressed="true">All<b></b></button><button type="button" class="tchip chip" data-st="done" aria-pressed="false">Done<b></b></button><button type="button" class="tchip chip" data-st="pending" aria-pressed="false">Waits for print/audio<b></b></button><button type="button" class="tchip chip" data-st="open" aria-pressed="false">Open<b></b></button>
 <button type="button" class="ttog" id="town" aria-pressed="false">Needs owner decision</button><button type="button" class="treset" id="treset">Reset</button></div>
 <div class="trow" style="gap:8px"><span class="tlab chip">Suggested by</span><span id="trole"></span><button type="button" class="ttog chip" id="tsup" aria-pressed="false" title="Also match suggestions this role supported">Include supporters</button></div>
 <div class="tscroll" tabindex="0" role="region" aria-label="Suggestions table"><table class="ttable"><thead><tr>{_th}</tr></thead><tbody></tbody></table></div>
@@ -299,6 +302,7 @@ time .fill{width:3.5em;margin-top:6px}
 ul.chips{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:20px;margin-block-start:48px;font-size:44px}
 ul.chips li.chip{display:inline-block;background:var(--bg2);border-color:var(--brand);font-family:var(--f-body)}
 .close-line{font-weight:600;color:var(--brand-text)!important}
+.kid-line{font-weight:700;margin-block-start:28px}
 /* slide 8 */
 [data-layout="two-column"][data-cols="3"] .col img{width:100%;height:140px;object-fit:cover;object-position:top;border-radius:12px;border:2px solid var(--rule);margin-bottom:20px;display:block}
 [data-layout="two-column"][data-cols="3"] .col h3{margin-bottom:12px}

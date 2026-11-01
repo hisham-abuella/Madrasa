@@ -18,7 +18,7 @@
 # ── WINNERS (picked by eye on logos/contact-sheet.png) ─────────────────────
 #   see the WINNERS block at the bottom of this file (kept in sync with logos/index.html)
 set -u
-CLI=/opt/homebrew/bin/draw-things-cli
+CLI=$HOME/.local/bin/draw-things-cli
 MODEL=z_image_turbo_1.0_q8p.ckpt
 SIZE=1024
 ROOT=$(cd "$(dirname "$0")/.." && pwd)

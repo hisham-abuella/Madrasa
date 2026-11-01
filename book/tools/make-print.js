@@ -14,6 +14,7 @@
  *   a5      home booklet: cover, every page, back; A5 portrait, no bleed, padded to x4
  *   letter  teacher worksheet: the exercise pages alone, US Letter portrait
  *   a4      the same on A4
+ *   pack    teacher pack (S-053): a QR cover sheet, the 11 worksheets and the answers, US Letter
  *
  * The page is finished in the browser by tools/print-pages.js (dotted tracing
  * words with start dots and arrows, KS.pic pictures from ../../assets/kids.js),
@@ -26,8 +27,9 @@ const { ROOT, esc, mark, plain, loadSpec, interiorPages, isExercise, arNum, page
 
 const [, , slug, outPath] = process.argv;
 const arg = (f, d) => { const i = process.argv.indexOf(f); return i > -1 ? process.argv[i + 1] : d; };
-if (!slug || !outPath) { console.error('usage: make-print.js <slug> <out.html> --format lulu|cover|a5|letter|a4'); process.exit(1); }
-const format = arg('--format', 'lulu');
+if (!slug || !outPath) { console.error('usage: make-print.js <slug> <out.html> --format lulu|cover|a5|letter|a4|pack'); process.exit(1); }
+const pack = arg('--format', 'lulu') === 'pack';                     // the teacher pack is a Letter worksheet file
+const format = pack ? 'letter' : arg('--format', 'lulu');
 const { spec, config } = loadSpec(slug);
 const T = topic();
 
@@ -118,7 +120,8 @@ function exercise(p, n) {
     let mid = '';
     switch (p.type) {
     case 'trace':
-        mid = p.rows.map((r) => r.blank ? Array.from({ length: r.blank }, () => ruled()).join('') : ruled(r.model, r.repeat)).join('');
+        mid = p.rows.map((r) => r.blank ? Array.from({ length: r.blank }, () => ruled()).join('') : ruled(r.model, r.repeat)).join('')
+            + (worksheet ? ruled() + ruled() : '');   // Letter / A4 have room for two more practice lines (S-042)
         break;
     case 'write':
         mid = p.items.map((it) => `<div class="write-item">${pcard(it)}
@@ -295,7 +298,22 @@ if (format === 'cover') {
     while ((sheets.length + 1) % 4) { sheets.push('<section class="sheet blank"></section>'); padded++; }
     sheets.push(`<section class="sheet a5back">${deco('band', DECO.ink.cover)}<div class="safe">${backCover()}</div></section>`);
 } else {
+    if (pack) sheets.push(packCover());
     spec.pages.filter(isExercise).forEach((p) => sheets.push(decorate(page(p, 0), p)));
+    if (pack) { const ans = spec.pages.find((p) => p.type === 'answers'); if (ans) sheets.push(decorate(page(ans, 0), ans)); }
+}
+// the teacher pack's first sheet: what is inside, and one QR to the narrated web book
+function packCover() {
+    const c = cover.ar, ce = cover.en, ex = spec.pages.filter(isExercise).length;
+    return decorate(`<section class="sheet packcover" data-key="pack"><div class="safe">
+    <p class="eyebrow word">${mark('حَقِيبَةُ الْمُعَلِّمِ')}</p><h1 class="word">${mark(c.title)}</h1>${en(ce.title, 'big')}
+    <ul class="pack-list" lang="en">
+      <li><b>${ex} worksheets</b>, one per exercise, each with a Name line and a QR code to its writing page on a tablet.</li>
+      <li><b>The answers page</b> at the back: tracing and drawing have no single answer, so praise the effort.</li>
+      <li><b>The web book</b> (scan below): the story read aloud in Fusha or Egyptian Arabic, for the class screen or to send home.</li>
+    </ul>
+    ${qrBlock('qr-book', 'امْسَحْ لِتَفْتَحَ الْكِتَابَ', 'Scan to open the narrated web book', 'pack-qr')}
+    <p class="line school">${mark('مَدْرَسَةُ نَوْرَس لِلْفُصْحَى')}</p></div></section>`, { type: 'about' });
 }
 
 // picture pairs (dual books) only: older books build byte-for-byte as before
@@ -365,6 +383,10 @@ const css = `
   .about .ab-en{font-family:var(--ui);font-size:14pt;line-height:1.3;margin-bottom:1.2mm;color:var(--ink)}
   .about .ab-en .word,.about .ab-en span{font-family:var(--word)}
   .about-qr{margin-top:auto}
+  .packcover .safe{align-items:center;justify-content:center;gap:6mm;text-align:center}
+  .packcover h1{font-size:30pt;line-height:1.5;color:var(--acc);margin:0}
+  .pack-list{direction:ltr;text-align:left;font-family:var(--ui);font-size:14pt;line-height:1.45;max-width:150mm;margin:0;padding-left:6mm;color:var(--ink)}
+  .pack-list li{margin-bottom:2mm}
   .recap h2{font-size:34pt;color:var(--acc)}
   .recap-grid{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin:5mm 0}
   .rcol{border:.6mm solid;border-radius:5mm;padding:2mm 4mm;text-align:center}
