@@ -14,6 +14,9 @@ Read `BRIEF.md` first; it is the binding brief (later sections supersede earlier
   `tools/voice/record-one-by-one.sh <transcript.json> --lang ar`. Before each clip it waits until no
   other local model job runs and at least 30% of memory is free; Whisper QA retries bad takes.
   It is resumable (finished clips are skipped). Do not call `narrate.py` on a whole file directly.
+  The model gives the same take for the same text: to retry a flagged clip, change the delivery
+  (punctuation, a tag, a pause). If a word still fails (ق in «قِطٌّ / قِطَّةٌ»), splice: record the
+  parts around it and drop in a word clip approved by ear (`tools/voice/splice-cat.sh`).
 - **Images:** Draw Things, one picture at a time, only after checking
   `pgrep -fl "draw-things|narrate|mlx|voicebox"` shows nothing running and memory is ≥ 30% free.
 - Run long jobs in the background *alone*, and check memory (`memory_pressure`) while they run.

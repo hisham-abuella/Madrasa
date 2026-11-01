@@ -9,7 +9,7 @@
  * expects, one slide per narrated web page, id = the page key (audio/<lang>/<key>.mp3).
  * The words come from the spec, so the narration cannot drift from the printed page:
  *
- *   ar  Fusha (Sarah). A page's ar.say is used as written; otherwise the page is read
+ *   ar  Fusha (Hisham, local clone; was Sarah on ElevenLabs). A page's ar.say is used as written; otherwise the page is read
  *       as "[tag] heading. <break> line <break> [softly] refrain", the bedtime pattern.
  *   eg  Egyptian (Hisham's clone). Always eg.say: Egyptian that explains, keeping the
  *       Fusha target words (هذا / هذه and the nouns) exactly as on the page.

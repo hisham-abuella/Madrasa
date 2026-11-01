@@ -1,0 +1,32 @@
+{
+ "title": "splice parts (text around the cat words the model cannot say)",
+ "lang": "ar",
+ "voice": "Hisham (local clone)",
+ "about": "2026-11-01: recap, qitt and story-eg p04 / sample-eg s2 are rebuilt as part + approved word clip (audio/words) + part. See tools/voice/splice-cat.sh.",
+ "slides": [
+  {
+   "id": "recap-a",
+   "text": "[warmly] تَذَكَّرْ: <break time=\"0.4s\" /> هَذَا وَلَدٌ، <break time=\"0.2s\" />",
+   "transcript": "[warmly] تَذَكَّرْ: <break time=\"0.4s\" /> هَذَا وَلَدٌ، <break time=\"0.2s\" />",
+   "source": "splice"
+  },
+  {
+   "id": "recap-b",
+   "text": "هَذَا كِتَابٌ. <break time=\"0.5s\" /> هَذِهِ بِنْتٌ، هَذِهِ قِطَّةٌ، هَذِهِ سَمَكَةٌ. <break time=\"0.5s\" /> [gently] وَمُؤَنَّثٌ بِلَا تَاءٍ مَرْبُوطَةٍ: بِنْتٌ، أُمٌّ، شَمْسٌ.",
+   "transcript": "هَذَا كِتَابٌ. <break time=\"0.5s\" /> هَذِهِ بِنْتٌ، هَذِهِ قِطَّةٌ، هَذِهِ سَمَكَةٌ. <break time=\"0.5s\" /> [gently] وَمُؤَنَّثٌ بِلَا تَاءٍ مَرْبُوطَةٍ: بِنْتٌ، أُمٌّ، شَمْسٌ.",
+   "source": "splice"
+  },
+  {
+   "id": "qitt-c",
+   "text": "[warmly] الصَّدَفَةُ فِي آخِرِ الْكَلِمَةِ تَقُولُ لَنَا: هَذِهِ! <break time=\"0.5s\" /> [cheerful] أَضِفِ الصَّدَفَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!",
+   "transcript": "[warmly] الصَّدَفَةُ فِي آخِرِ الْكَلِمَةِ تَقُولُ لَنَا: هَذِهِ! <break time=\"0.5s\" /> [cheerful] أَضِفِ الصَّدَفَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!",
+   "source": "splice"
+  },
+  {
+   "id": "p04-a",
+   "text": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت.",
+   "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت.",
+   "source": "splice"
+  }
+ ]
+}

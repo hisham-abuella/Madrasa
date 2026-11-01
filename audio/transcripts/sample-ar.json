@@ -15,11 +15,12 @@
   {
    "id": "s3",
    "title": "التاء المربوطة",
-   "transcript": "[curious] هَلْ سَمِعْتُمُ التَّاءَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ <break time=\"0.5s\" /> [excited] إِنَّهَا التَّاءُ الْمَرْبُوطَةُ! <break time=\"0.3s\" /> قِطٌّ… قِطَّةٌ!"
+   "transcript": "[curious] هَلْ سَمِعْتُمُ التَّاءَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ <break time=\"0.5s\" /> [excited] إِنَّهَا التَّاءُ الْمَرْبُوطَةُ! <break time=\"0.3s\" /> قِطٌّ، وَقِطَّةٌ!"
   }
  ],
  "voice": "Hisham (local clone)",
  "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA",
  "model": "fish-audio-s2-pro-8bit (local)",
- "note": "s1/s2/s3 = story p02/p04/p07, same text and the same recording (copied)."
+ "note": "s1/s2/s3 = story p02/p04/p07, same text and the same recording (copied).",
+ "local_retakes": "2026-11-01: flagged clips re-recorded with small delivery changes (… → «، وَ», short breaks) because the local model softens ق in short pairs; the page words are unchanged."
 }

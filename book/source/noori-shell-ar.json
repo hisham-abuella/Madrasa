@@ -53,12 +53,12 @@
   {
    "id": "qitt",
    "title": "قِطٌّ… قِطَّةٌ",
-   "transcript": "[warmly] قِطٌّ… قِطَّةٌ. <break time=\"0.4s\" /> هَذَا قِطٌّ، وَهَذِهِ قِطَّةٌ. الصَّدَفَةُ فِي آخِرِ الْكَلِمَةِ تَقُولُ لَنَا: هَذِهِ! <break time=\"0.5s\" /> [cheerful] أَضِفِ الصَّدَفَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!"
+   "transcript": "[cheerful] قِطٌّ… ثُمَّ قِطَّةٌ! <break time=\"0.4s\" /> هَذَا قِطٌّ، وَهَذِهِ قِطَّةٌ. الصَّدَفَةُ فِي آخِرِ الْكَلِمَةِ تَقُولُ لَنَا: هَذِهِ! <break time=\"0.5s\" /> [cheerful] أَضِفِ الصَّدَفَةَ… فَتَصِيرُ الْكَلِمَةُ مُؤَنَّثَةً!"
   },
   {
    "id": "sadiq",
    "title": "صَدِيقٌ… صَدِيقَةٌ",
-   "transcript": "[warmly] صَدِيقٌ… صَدِيقَةٌ. <break time=\"0.4s\" /> سَامِي صَدِيقٌ، وَسَلْمَى صَدِيقَةٌ. يَبْنِيَانِ قَصْرًا مِنَ الرَّمْلِ، وَيَتَعَاوَنَانِ. <break time=\"0.5s\" /> [cheerful] مُعَلِّمٌ… مُعَلِّمَةٌ! طَالِبٌ… طَالِبَةٌ!"
+   "transcript": "[warmly] صَدِيقٌ… صَدِيقَةٌ. <break time=\"0.4s\" /> سَامِي صَدِيقٌ، وَسَلْمَى صَدِيقَةٌ. يَبْنِيَانِ مَعًا قَصْرًا مِنَ الرَّمْلِ، وَيَتَعَاوَنَانِ. <break time=\"0.5s\" /> [cheerful] مُعَلِّمٌ، وَمُعَلِّمَةٌ! <break time=\"0.3s\" /> طَالِبٌ، وَطَالِبَةٌ!"
   },
   {
    "id": "bint",
@@ -83,7 +83,7 @@
   {
    "id": "recap",
    "title": "تَذَكَّرْ",
-   "transcript": "[warmly] تَذَكَّرْ: <break time=\"0.4s\" /> هَذَا وَلَدٌ، هَذَا قِطٌّ، هَذَا كِتَابٌ. <break time=\"0.5s\" /> هَذِهِ بِنْتٌ، هَذِهِ قِطَّةٌ، هَذِهِ سَمَكَةٌ. <break time=\"0.5s\" /> [gently] وَمُؤَنَّثٌ بِلَا تَاءٍ مَرْبُوطَةٍ: بِنْتٌ، أُمٌّ، شَمْسٌ."
+   "transcript": "[warmly] تَذَكَّرْ: <break time=\"0.4s\" /> هَذَا وَلَدٌ، <break time=\"0.2s\" /> هَذَا قِطٌّ! <break time=\"0.2s\" /> هَذَا كِتَابٌ. <break time=\"0.5s\" /> هَذِهِ بِنْتٌ، هَذِهِ قِطَّةٌ، هَذِهِ سَمَكَةٌ. <break time=\"0.5s\" /> [gently] وَمُؤَنَّثٌ بِلَا تَاءٍ مَرْبُوطَةٍ: بِنْتٌ، أُمٌّ، شَمْسٌ."
   },
   {
    "id": "ex-ta",
@@ -113,7 +113,7 @@
   {
    "id": "ex-addta",
    "title": "أَضِفِ الصَّدَفَةَ ة",
-   "transcript": "[playfully] أَضِفِ الصَّدَفَةَ! <break time=\"0.4s\" /> مُعَلِّمٌ… مُعَلِّمَةٌ. <break time=\"0.4s\" /> اكْتُبِ التَّاءَ الْمَرْبُوطَةَ فِي الْمُرَبَّعِ."
+   "transcript": "[cheerful] أَضِفِ الصَّدَفَةَ الصَّغِيرَةَ! <break time=\"0.4s\" /> مُعَلِّمٌ، وَمُعَلِّمَةٌ. <break time=\"0.4s\" /> اكْتُبِ التَّاءَ الْمَرْبُوطَةَ فِي الْمُرَبَّعِ."
   },
   {
    "id": "ex-match",
@@ -146,5 +146,6 @@
    "transcript": "[happy] أَحْسَنْتَ يَا بَطَلُ! وَأَحْسَنْتِ يَا بَطَلَةُ! <break time=\"0.4s\" /> تَقُولُونَ هَذَا وَهَذِهِ مِثْلَ الْكِبَارِ. <break time=\"0.4s\" /> [warmly] إِلَى اللِّقَاءِ!"
   }
  ],
- "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA"
+ "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA",
+ "local_retakes": "2026-11-01: flagged clips re-recorded with small delivery changes (… → «، وَ», short breaks) because the local model softens ق in short pairs; the page words are unchanged."
 }

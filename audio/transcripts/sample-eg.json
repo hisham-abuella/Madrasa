@@ -10,7 +10,7 @@
   {
    "id": "s2",
    "title": "ده ودي",
-   "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت. <break time=\"0.5s\" /> ده قُطّ، ودي قُطّة."
+   "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت. <break time=\"0.5s\" /> ده قِطٌّ، <break time=\"0.3s\" /> ودي قِطَّةٌ."
   },
   {
    "id": "s3",
@@ -21,5 +21,6 @@
  "voice": "Hisham (local clone)",
  "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA",
  "model": "fish-audio-s2-pro-8bit (local)",
- "note": "s1/s2/s3 = story-eg p02/p04/p07, same text and the same recording (copied)."
+ "note": "s1/s2/s3 = story-eg p02/p04/p07, same text and the same recording (copied).",
+ "local_retakes": "2026-11-01: flagged clips re-recorded with small delivery changes (… → «، وَ», short breaks) because the local model softens ق in short pairs; the page words are unchanged."
 }

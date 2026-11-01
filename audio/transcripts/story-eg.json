@@ -30,7 +30,7 @@
    "slide": 4,
    "sample": "s2",
    "title": "ده ودي",
-   "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت. <break time=\"0.5s\" /> ده قُطّ، ودي قُطّة."
+   "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت. <break time=\"0.5s\" /> ده قِطٌّ، <break time=\"0.3s\" /> ودي قِطَّةٌ."
   },
   {
    "id": "p05",
@@ -88,5 +88,6 @@
    "transcript": "[happy] برافو عليكم يا صحابي! <break time=\"0.5s\" /> الحمد لله، اتعلّمنا: هذا للمُذَكَّر، وهذهِ للمُؤَنَّث، <break time=\"0.3s\" /> والتاء المربوطة صَدَفة صغيّرة، بتخلّي الكلمة مؤنَّثة في الغالب. <break time=\"0.6s\" /> [warmly] مع السلامة!"
   }
  ],
- "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA"
+ "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA",
+ "local_retakes": "2026-11-01: flagged clips re-recorded with small delivery changes (… → «، وَ», short breaks) because the local model softens ق in short pairs; the page words are unchanged."
 }

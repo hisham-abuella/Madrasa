@@ -644,15 +644,15 @@ KS.gull('happy', { svg: true })               // always the SVG (logo, animation
     <div class="tbl"><table>
       <thead><tr><th>Voice</th><th>Engine</th><th>ID / where</th><th>Use</th></tr></thead>
       <tbody>
-        <tr><td><b>Fusha: Sarah</b></td><td>ElevenLabs <code>eleven_v4</code></td><td><code>EXAVITQu4vr4xnSDxMaL</code></td><td>the book, lessons, every Fusha line that ships</td></tr>
-        <tr><td><b>Egyptian: Hisham (clone)</b></td><td>ElevenLabs <code>eleven_v4</code></td><td><code>pusofH2Ro5Ny4RH6qBEO</code></td><td>the Egyptian toggle; name vocalised <span class="ar" lang="ar">هِشام أبو العِلا</span></td></tr>
+        <tr><td><b>Fusha: Hisham (local clone)</b></td><td>Fish S2-Pro 8-bit, local, Whisper QA</td><td><code>tools/voice/record-one-by-one.sh</code></td><td>the book, lessons, every Fusha line that ships (since 2026-11-01; was ElevenLabs Sarah)</td></tr>
+        <tr><td><b>Egyptian: Hisham (local clone)</b></td><td>Fish S2-Pro 8-bit, local, Whisper QA</td><td><code>tools/voice/record-one-by-one.sh</code></td><td>the Egyptian toggle; name vocalised <span class="ar" lang="ar">هِشام أبو العِلا</span></td></tr>
         <tr><td><b>English: Hisham</b></td><td>local Fish S2-Pro (8-bit MLX)</td><td><code>~/Work/Whisper-audio/bakeoff/narrate.py</code></td><td>the owners’ deck; no quota; non-commercial licence</td></tr>
         <tr><td>Tap-to-hear words</td><td>browser <code>speechSynthesis</code></td><td><code>KS.speak(text)</code>, rate .85, first <code>ar-*</code> voice</td><td>single words on cards; fails silently</td></tr>
       </tbody>
     </table></div>
     <div class="grid grid--2">
       <div class="card"><h3>Listen: the approved samples</h3>
-        <p class="src">Fusha (Sarah) · <code>audio/samples/ar/s2.mp3</code></p>
+        <p class="src">Fusha (Hisham, local) · <code>audio/samples/ar/s2.mp3</code></p>
         <audio controls preload="none" src="audio/samples/ar/s2.mp3" style="width:100%"></audio>
         <p class="src" style="margin-top:10px">Egyptian (Hisham) · <code>audio/samples/eg/s2.mp3</code></p>
         <audio controls preload="none" src="audio/samples/eg/s2.mp3" style="width:100%"></audio>
@@ -759,7 +759,7 @@ KS.writePad(el, { model: ['<bdi>ة</bdi>', '<bdi>هَذَا</bdi>', '<bdi>هَذ
       </fieldset>
       <fieldset><legend>Audio</legend>
         <label><input type="checkbox"><span>Transcripts linted (<code>lint-transcript.js --pair</code>), tags in English, numbers spelled out</span></label>
-        <label><input type="checkbox"><span>Fusha = Sarah, Egyptian = Hisham clone, <code>eleven_v4</code> 0.5 / 0.8</span></label>
+        <label><input type="checkbox"><span>Fusha and Egyptian = Hisham’s local clone, one clip at a time, Whisper QA passed or checked by ear</span></label>
         <label><input type="checkbox"><span><code>qa-audio.py</code> clean; Fusha checked word by word with Whisper</span></label>
         <label><input type="checkbox"><span>Every clip decodes in the browser; sound effects are soft tones only</span></label>
       </fieldset>

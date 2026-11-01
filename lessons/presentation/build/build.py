@@ -80,7 +80,7 @@ S_('pair','statement',f'''<p class="label">مُذَكَّرٌ وَمُؤَنَّ
 <div class="pair">{pic('cat')}<div data-build="fade" data-order="1">{pic('cat-f')}</div></div>
 {listen('s2','اسْتَمِعْ')}''',
 notes(['«هَذَا قِطٌّ…» (اضْغَطْ) «وَهَذِهِ قِطَّةٌ!» الصَّفُّ يَقُولُ الْجُمْلَتَيْنِ مَعًا.'],
-['This is the whole lesson in one pair. Optional: tap the listen button (the clip also says هَذِهِ بِنْتٌ; that is fine, we come back to بِنْتٌ later). Clip s2 is the recorded Fusha voice (Sarah).']))
+['This is the whole lesson in one pair. Optional: tap the listen button (the clip also says هَذِهِ بِنْتٌ; that is fine, we come back to بِنْتٌ later). Clip s2 is the recorded Fusha voice (Hisham, local).']))
 # quiz helper
 def quiz(id,h2,label,opts,pic_name,nt,extra_pic=True):
     lis=''.join(f'<li{" data-correct" if ok else ""}>{t}</li>' for t,ok in opts)
@@ -101,7 +101,7 @@ S_('ta','image-left',f'''<figure><div class="shell-wrap">{pic('shell','shell')}<
 <div class="chip-row">{''.join(f'<span class="chip" data-build="rise" data-order="{i}">{ta(w)}</span>' for i,w in enumerate(['قِطَّةٌ','سَمَكَةٌ','نَجْمَةٌ'],1))}</div>
 {listen('s3','اسْتَمِعْ')}''',
 notes(['اضْغَطْ «اسْتَمِعْ» (نُورِي يَسْأَلُ عَنِ الْحَرْفِ الصَّغِيرِ).','«هَلْ تَرَوْنَ الصَّدَفَةَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ إِنَّهَا التَّاءُ الْمَرْبُوطَةُ: ة.»','اضْغَطْ لِتَظْهَرَ الْكَلِمَاتُ الثَّلَاثُ، وَالْأَطْفَالُ يُشِيرُونَ إِلَى الـ ة فِي الْهَوَاءِ.','«إِذَا رَأَيْتَ الصَّدَفَةَ ة، فَقُلْ: هَذِهِ!»'],
-['Say "usually": the exceptions come in two slides. Clip s3 is the recorded Fusha voice (Sarah).']))
+['Say "usually": the exceptions come in two slides. Clip s3 is the recorded Fusha voice (Hisham, local).']))
 # 9
 S_('magic-a','image-right',f'''<figure>{pic('teacher-m','tall')}</figure>
 <h2><span data-magic="dem" class="dm">هَذَا</span> <span data-magic="word">مُعَلِّمٌ</span></h2>

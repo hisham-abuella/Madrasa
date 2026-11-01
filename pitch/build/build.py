@@ -200,10 +200,10 @@ slide('book', 'image-right', f'''<figure class="wide"><img src="img/book-pages.w
 <ul data-build="list">
 <li>8.5 × 8.5 in square, full colour, printed on demand by Lulu</li>
 <li>14 story pages, 11 exercises, certificate, answers</li>
-<li>Read aloud in two voices: proper Arabic (Sarah) and Egyptian (Hisham)</li>
+<li>Read aloud in two voices: proper Arabic and Egyptian, both in Hisham’s voice</li>
 </ul>
 <p class="pdfbtns bx-ui">{a(P_+"lulu-interior.pdf", "See the book (PDF)", "pbtn")}{a(P_+"lulu-cover.pdf", "Cover (PDF)", "pbtn")}{a(P_+"home-a5.pdf", "Print at home (A5 booklet)", "pbtn")}{a(P_+"worksheets-letter.pdf", "Worksheets (Letter)", "pbtn")}{a(P_+"worksheets-a4.pdf", "Worksheets (A4)", "pbtn")}{a("../book/books/noori-shell.html", "Web book", "pbtn")}</p>''',
- 'book/README.md (page map, Printing, Status: 56 clips, 28 Fusha by Sarah, 28 Egyptian by Hisham; 12 QR codes, 48 decodes; Lulu 8.5 in square, Premium Color; spine 0.1321 in); book/book.config.json; book/print/*.pdf. Narration credits are covered by the existing ElevenLabs plan.')
+ 'book/README.md (page map, Printing, Status: 56 clips, 28 Fusha + 28 Egyptian in Hisham’s local voice; 12 QR codes, 48 decodes; Lulu 8.5 in square, Premium Color; spine 0.1321 in); book/book.config.json; book/print/*.pdf. Narration credits are covered by the existing ElevenLabs plan.')
 
 # 9 adab + fence
 slide('adab', 'two-column', '''<h2>Every picture follows Islamic adab, and Nawras serves your teachers, never replaces them</h2>

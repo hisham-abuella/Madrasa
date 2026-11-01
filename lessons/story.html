@@ -229,7 +229,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
           <button type="button" data-voice="eg" aria-pressed="false">مَصْرِي<span class="en">Egyptian</span></button>
         </div>
       </div>
-      <p class="en">Recorded narration on every page (ElevenLabs): Fusha read by Sarah, Egyptian by Hisham’s voice. On-screen words always stay Fusha.</p>
+      <p class="en">Recorded narration on every page, in Hisham’s voice recorded locally: Fusha and Egyptian. On-screen words always stay Fusha.</p>
       <h3>الْقِرَاءَةُ التِّلْقَائِيَّةُ <span class="en">Auto-read</span></h3>
       <p class="en">Reads each page aloud and turns the page when the narration ends. It waits on the activity pages (find-it, shell, writing, quiz). Pause any time with the ▶ / ⏸ button or the P key.</p>
       <h3>الْأَصْوَاتُ <span class="en">Sound effects</span></h3>
@@ -597,7 +597,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
   dotsEl.innerHTML = slides.map(function () { return '<i></i>'; }).join('');
   var dots = $$('i', dotsEl);
 
-  /* ── narration: recorded clips audio/story/{ar,eg}/p01–p13.mp3 (ElevenLabs: Sarah Fusha / Hisham Egyptian);
+  /* ── narration: recorded clips audio/story/{ar,eg}/p01–p13.mp3 (Hisham’s local clone, Fusha and Egyptian);
         KS.speak (device voice) only if a clip fails to load ── */
   function clipId(n) { return 'p' + (n < 9 ? '0' : '') + (n + 1); }
   function stopNarr() {

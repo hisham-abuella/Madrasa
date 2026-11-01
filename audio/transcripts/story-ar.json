@@ -42,14 +42,14 @@
    "id": "p06",
    "slide": 6,
    "title": "هذه للمؤنث",
-   "transcript": "[cheerful] وَسَلْمَى تَقُولُ: <break time=\"0.4s\" /> هَذِهِ سَمَكَةٌ. <break time=\"0.3s\" /> هَذِهِ نَخْلَةٌ. <break time=\"0.3s\" /> هَذِهِ صَدَفَةٌ. <break time=\"0.6s\" /> [gently] نَقُولُ هَذِهِ لِلْمُؤَنَّثِ. <break time=\"0.6s\" /> [playfully] وَالْآنَ… أَيْنَ السَّمَكَةُ؟ <break time=\"0.3s\" /> اضْغَطْ عَلَيْهَا!"
+   "transcript": "[cheerful] وَسَلْمَى تَقُولُ: <break time=\"0.4s\" /> [gently] هَذِهِ سَمَكَةٌ. <break time=\"0.3s\" /> هَذِهِ نَخْلَةٌ. <break time=\"0.3s\" /> هَذِهِ صَدَفَةٌ. <break time=\"0.6s\" /> [gently] نَقُولُ هَذِهِ لِلْمُؤَنَّثِ. <break time=\"0.6s\" /> [playfully] وَالْآنَ… أَيْنَ السَّمَكَةُ؟ <break time=\"0.3s\" /> اضْغَطْ عَلَيْهَا!"
   },
   {
    "id": "p07",
    "slide": 7,
    "sample": "s3",
    "title": "التاء المربوطة",
-   "transcript": "[curious] هَلْ سَمِعْتُمُ التَّاءَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ <break time=\"0.5s\" /> [excited] إِنَّهَا التَّاءُ الْمَرْبُوطَةُ! <break time=\"0.3s\" /> قِطٌّ… قِطَّةٌ!"
+   "transcript": "[curious] هَلْ سَمِعْتُمُ التَّاءَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ <break time=\"0.5s\" /> [excited] إِنَّهَا التَّاءُ الْمَرْبُوطَةُ! <break time=\"0.3s\" /> قِطٌّ، وَقِطَّةٌ!"
   },
   {
    "id": "p08",
@@ -88,5 +88,6 @@
    "transcript": "[happy] أَحْسَنْتُمْ يَا أَصْدِقَائِي! <break time=\"0.5s\" /> الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: هَذَا لِلْمُذَكَّرِ، وَهَذِهِ لِلْمُؤَنَّثِ، <break time=\"0.3s\" /> وَالتَّاءُ الْمَرْبُوطَةُ صَدَفَةٌ صَغِيرَةٌ تَجْعَلُ الْكَلِمَةَ مُؤَنَّثَةً فِي الْغَالِبِ. <break time=\"0.6s\" /> [warmly] إِلَى اللِّقَاءِ!"
   }
  ],
- "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA"
+ "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA",
+ "local_retakes": "2026-11-01: flagged clips re-recorded with small delivery changes (… → «، وَ», short breaks) because the local model softens ق in short pairs; the page words are unchanged."
 }

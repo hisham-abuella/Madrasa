@@ -58,7 +58,7 @@
   {
    "id": "sadiq",
    "title": "صَدِيقٌ… صَدِيقَةٌ",
-   "transcript": "[warmly] سامي صَديقٌ، <break time=\"0.3s\" /> وسَلْمى صَديقةٌ. <break time=\"0.4s\" /> بيبنوا قصر من الرملة، وبيساعدوا بعض. <break time=\"0.5s\" /> [playfully] مُعَلِّمٌ… مُعَلِّمةٌ! <break time=\"0.3s\" /> طالِبٌ… طالِبةٌ!"
+   "transcript": "[warmly] سامي صَديقٌ، <break time=\"0.3s\" /> وسَلْمى صَديقةٌ. <break time=\"0.4s\" /> بيبنوا قصر من الرملة، وبيساعدوا بعض. <break time=\"0.5s\" /> [playfully] مُعَلِّمٌ، ومُعَلِّمةٌ! <break time=\"0.3s\" /> طالِبٌ، وطالِبةٌ!"
   },
   {
    "id": "bint",
@@ -146,5 +146,6 @@
    "transcript": "[happy] برافو عليك يا بطل، وبرافو عليكي يا بطلة! <break time=\"0.4s\" /> إنتو بتقولوا هذا وهذهِ زيّ الكبار. <break time=\"0.4s\" /> [warmly] مع السلامة!"
   }
  ],
- "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA"
+ "engine": "Fish S2-Pro 8-bit (mlx), local; ref ~/Work/Whisper-audio/ref/hisham.wav; Whisper large-v3-turbo QA",
+ "local_retakes": "2026-11-01: flagged clips re-recorded with small delivery changes (… → «، وَ», short breaks) because the local model softens ق in short pairs; the page words are unchanged."
 }

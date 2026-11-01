@@ -174,27 +174,7 @@ html[data-theme="studio"]{
 /* /THEME */
 
 /* LIBRARY:THEMES:START */
-/* ---------- 6 schoolyard: school teacher ---------- */
-/* THEME:schoolyard | Schoolyard | #1D4ED8 | https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&display=swap */
-html[data-theme="schoolyard"]{
-  --bg:#FFFFFF; --bg2:#E8F0FF; --ink:#10243E; --ink2:#3B4F69; --rule:#C3D2EA; --rule-strong:#10243E;
-  --brand:#1D4ED8; --brand-text:#1D4ED8; --on-brand:#ffffff;
-  --hero-bg:#FFD23F; --hero-ink:#10243E; --hero-ink2:#2A3E58; --hero-rule:#10243E; --hero-brand:#1D4ED8;
-  --bleed-bg:#1D4ED8; --bleed-ink:#ffffff;
-  --f-display:"Lexend","Trebuchet MS",Verdana,sans-serif; --f-body:"Atkinson Hyperlegible","Trebuchet MS",Verdana,sans-serif; --f-mono:"DM Mono",ui-monospace,Menlo,monospace;
-  --w-display:700; --ls-display:-0.02em; --em-style:normal;
-  --radius:22px; --chart-radius:8px; --rule-w:3px; --letterbox:#08142A;
-  --s1:#1D4ED8; --s2:#C2255C; --s3:#2F9E44; --muted-bar:#C3D2EA; --hot:#C2255C; --hot-text:#C2255C;
-  --code-bg:#10243E; --code-ink:#EAF1FF; --c-kw:#FFD23F; --c-str:#9BE3B5; --c-num:#FFA8C5; --c-com:#9FB4D1; --c-fn:#8EC5FF;
-}
-html[data-theme="schoolyard"] .slide:not(:is([data-layout="title"],[data-layout="section"],[data-layout="closing"],[data-layout="full-bleed"],[data-tone="hero"])){isolation:isolate}
-html[data-theme="schoolyard"] .slide:not(:is([data-layout="title"],[data-layout="section"],[data-layout="closing"],[data-layout="full-bleed"],[data-tone="hero"]))::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:linear-gradient(#E3EBF8 2px,transparent 2px) 0 0/48px 48px,linear-gradient(90deg,#E3EBF8 2px,transparent 2px) 0 0/48px 48px}
-html[data-theme="schoolyard"] .slide:not(:is([data-layout="title"],[data-layout="section"],[data-layout="closing"],[data-layout="full-bleed"],[data-tone="hero"])) > h2::after{content:"";display:block;width:180px;height:16px;border-radius:8px;background:#FFD23F;margin-top:18px}
-html[data-theme="schoolyard"] .slide:not(:is([data-layout="title"],[data-layout="section"],[data-layout="closing"],[data-layout="full-bleed"],[data-tone="hero"])) .kp-foot{border-top:3px solid var(--ink);padding-top:12px}
-html[data-theme="schoolyard"] .slide:is([data-layout="title"],[data-layout="section"],[data-layout="closing"]){isolation:isolate}
-html[data-theme="schoolyard"] .slide:is([data-layout="title"],[data-layout="section"],[data-layout="closing"])::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(#10243E22 2px,transparent 2px) 0 0/48px 48px,linear-gradient(90deg,#10243E22 2px,transparent 2px) 0 0/48px 48px}
-/* /THEME */
+/* Library themes are added per deck from library/themes by tools/add-look.mjs */
 /* LIBRARY:THEMES:END */
 
 /* =====================================================================
@@ -1029,7 +1009,7 @@ html[data-theme="keynote-black"],html[data-theme="studio"]{--masc-text:#8FD0F5;-
 <h2><span class="dm">هَذَا</span> قِطٌّ… <span data-build="fade" data-order="1"><span class="df">وَهَذِهِ</span> قِطَّ&zwj;<span class="ta">&zwj;ةٌ</span>!</span></h2>
 <div class="pair"><div data-pic="cat" class="pic-box "></div><div data-build="fade" data-order="1"><div data-pic="cat-f" class="pic-box "></div></div></div>
 <div class="bx-ui listen-wrap"><button type="button" class="listen" aria-label="اسْتَمِعْ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>اسْتَمِعْ</span></button><audio preload="none" src="../audio/samples/ar/s2.mp3"></audio></div>
-<aside class="notes"><p>«هَذَا قِطٌّ…» (اضْغَطْ) «وَهَذِهِ قِطَّةٌ!» الصَّفُّ يَقُولُ الْجُمْلَتَيْنِ مَعًا.</p><p dir="ltr" lang="en">This is the whole lesson in one pair. Optional: tap the listen button (the clip also says هَذِهِ بِنْتٌ; that is fine, we come back to بِنْتٌ later). Clip s2 is the recorded Fusha voice (Sarah).</p></aside>
+<aside class="notes"><p>«هَذَا قِطٌّ…» (اضْغَطْ) «وَهَذِهِ قِطَّةٌ!» الصَّفُّ يَقُولُ الْجُمْلَتَيْنِ مَعًا.</p><p dir="ltr" lang="en">This is the whole lesson in one pair. Optional: tap the listen button (the clip also says هَذِهِ بِنْتٌ; that is fine, we come back to بِنْتٌ later). Clip s2 is the recorded Fusha voice (Hisham, local).</p></aside>
 </section>
 
 <section class="slide" data-id="q-moon" data-layout="quiz">
@@ -1054,7 +1034,7 @@ html[data-theme="keynote-black"],html[data-theme="studio"]{--masc-text:#8FD0F5;-
 <p>التَّاءُ الْمَرْبُوطَةُ تَأْتِي فِي آخِرِ الْكَلِمَةِ، وَتَجْعَلُهَا مُؤَنَّثَةً فِي الْغَالِبِ.</p>
 <div class="chip-row"><span class="chip" data-build="rise" data-order="1">قِطَّ&zwj;<span class="ta">&zwj;ةٌ</span></span><span class="chip" data-build="rise" data-order="2">سَمَكَ&zwj;<span class="ta">&zwj;ةٌ</span></span><span class="chip" data-build="rise" data-order="3">نَجْمَ&zwj;<span class="ta">&zwj;ةٌ</span></span></div>
 <div class="bx-ui listen-wrap"><button type="button" class="listen" aria-label="اسْتَمِعْ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>اسْتَمِعْ</span></button><audio preload="none" src="../audio/samples/ar/s3.mp3"></audio></div>
-<aside class="notes"><p>اضْغَطْ «اسْتَمِعْ» (نُورِي يَسْأَلُ عَنِ الْحَرْفِ الصَّغِيرِ).</p><p>«هَلْ تَرَوْنَ الصَّدَفَةَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ إِنَّهَا التَّاءُ الْمَرْبُوطَةُ: ة.»</p><p>اضْغَطْ لِتَظْهَرَ الْكَلِمَاتُ الثَّلَاثُ، وَالْأَطْفَالُ يُشِيرُونَ إِلَى الـ ة فِي الْهَوَاءِ.</p><p>«إِذَا رَأَيْتَ الصَّدَفَةَ ة، فَقُلْ: هَذِهِ!»</p><p dir="ltr" lang="en">Say "usually": the exceptions come in two slides. Clip s3 is the recorded Fusha voice (Sarah).</p></aside>
+<aside class="notes"><p>اضْغَطْ «اسْتَمِعْ» (نُورِي يَسْأَلُ عَنِ الْحَرْفِ الصَّغِيرِ).</p><p>«هَلْ تَرَوْنَ الصَّدَفَةَ الصَّغِيرَةَ فِي آخِرِ الْكَلِمَةِ؟ إِنَّهَا التَّاءُ الْمَرْبُوطَةُ: ة.»</p><p>اضْغَطْ لِتَظْهَرَ الْكَلِمَاتُ الثَّلَاثُ، وَالْأَطْفَالُ يُشِيرُونَ إِلَى الـ ة فِي الْهَوَاءِ.</p><p>«إِذَا رَأَيْتَ الصَّدَفَةَ ة، فَقُلْ: هَذِهِ!»</p><p dir="ltr" lang="en">Say "usually": the exceptions come in two slides. Clip s3 is the recorded Fusha voice (Hisham, local).</p></aside>
 </section>
 
 <section class="slide" data-id="magic-a" data-layout="image-right">
