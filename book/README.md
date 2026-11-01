@@ -136,7 +136,7 @@ paperback 8.5″ square premium colour **≈ $8–15 per copy** + shipping ≈ $
 | `print/noori-shell-home-a5.pdf` | A5 booklet: cover, all 32 pages, back (36 pages, 2 blanks before the back). Acrobat → Print → Page Sizing → **Booklet**, double-sided, flip on short edge, fold and staple. |
 | `print/noori-shell-worksheets-letter.pdf` | the 11 exercise pages alone, US Letter, with a Name line and a QR per page |
 | `print/noori-shell-worksheets-a4.pdf` | the same on A4 (trace pages carry two more empty practice lines than the book) |
-| `print/noori-shell-teacher-pack.pdf` | one Letter file for the teacher: a QR cover sheet (the narrated web book), the 11 worksheets and the answers page — *added in code; built with the next print run* |
+| `print/noori-shell-teacher-pack-letter.pdf` | the Friday-night teacher pack (S-053), 13 Letter pages: a cover sheet (what is inside, how to use it on Saturday, QR to the web book), the 11 worksheets, the answers page. `bash tools/make-teacher-pack.sh noori-shell` assembles it from the PDFs above without rebuilding them, and checks it; re-run it after every `print-book.sh`. (`print-book.sh`'s own `pack` format would also write `print/noori-shell-teacher-pack.pdf`; keep only one.) |
 
 Exercise pages are white with thin lines for pencil and crayon; writing lines are 26mm
 (8mm letter body, baseline + dotted mid-line); don't laminate them.

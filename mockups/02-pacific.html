@@ -126,6 +126,13 @@ html:not([data-art="svg"]) .o-hero:not(.art-miss)::before { content: ""; positio
 html:not([data-art="svg"]) .o-hero:not(.art-miss) { --hero-ink: var(--art-day-ink); --hero-ink2: var(--art-day-ink2); }
 html:not([data-art="svg"]) .topbar .logo { --ink: var(--art-day-ink); --hero-ink2: var(--art-day-ink2); }
 .topbar .logo small { color: var(--hero-ink2); }   /* the top bar sits on the hero sky, not on the page */
+/* S-013 parents: fees, home help, class size, call / WhatsApp */
+.p-more { list-style: none; padding: 0; margin: 26px auto 0; max-width: 820px; display: grid; gap: 8px; text-align: center; }
+.p-more b { font-size: 1.15rem; margin-inline-end: 6px; }
+.p-call { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px 14px; margin-top: 12px; }
+.p-call a { display: inline-flex; align-items: center; min-height: var(--tap-min); padding-inline: 10px; font-weight: 700; }
+.sand .p-more { padding: 14px 18px; background: var(--surface); border-radius: var(--radius); }
+.sand .p-call { width: fit-content; max-width: 100%; margin-inline: auto; padding: 0 14px 6px; background: var(--surface); border-radius: var(--radius); }
 </style>
 </head>
 <body>
@@ -294,7 +301,12 @@ html:not([data-art="svg"]) .topbar .logo { --ink: var(--art-day-ink); --hero-ink
         <div class="card pa" data-reveal style="--i:1"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><h3>الْمَكَانُ</h3><p class="en">Community classroom in Mira Mesa, San Diego · 10 min from the 15 / 805</p><span class="placeholder">placeholder</span></div></div>
         <div class="card pa" data-reveal style="--i:2"><svg aria-hidden="true"><use href="#i-mail"/></svg><div><h3>تَوَاصَلُوا مَعَنَا</h3><p class="en">Ustadha Maryam &amp; Ustadh Yusuf · hello@nawras.example · (619) 555-0142</p><span class="placeholder">placeholder</span></div></div>
       </div>
-      <div class="cta-row" data-reveal><a class="btn btn--accent trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a></div>
+      <ul class="p-more" data-reveal>
+        <li><b class="word">الرُّسُومُ</b> <span class="en">Fees: $___ a month · sibling discount · first class free</span> <span class="placeholder">placeholder</span></li>
+        <li><b class="word">لَا عَرَبِيَّةَ فِي الْبَيْتِ؟</b> <span class="en">No Arabic at home? You can still help</span> <span class="placeholder">placeholder</span></li>
+        <li><b class="word">الصُّفُوفُ</b> <span class="en">Small classes (max 10) · parents welcome at the trial</span> <span class="placeholder">placeholder</span></li>
+      </ul>
+      <div class="cta-row" data-reveal><a class="btn btn--accent trial" href="../parents.html#trial">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a><div class="p-call"><a href="tel:+16195550142"><span class="en">Call <bdi dir="ltr">(619) 555-0142</bdi></span></a><a href="https://wa.me/16195550142"><span class="en">WhatsApp</span></a><span class="placeholder">placeholder</span></div></div>
     </div>
   </section>
 </main>
@@ -302,7 +314,7 @@ html:not([data-art="svg"]) .topbar .logo { --ink: var(--art-day-ink); --hero-ink
 <footer class="foot ocean-foot">
   <div class="wrap">
     <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
-    <span class="en">Nawras Fusha School, San Diego · Demo mockup 2 of 6 — “Pacific” · <a href="../index.html">all mockups</a></span>
+    <span class="en">Nawras Fusha School, San Diego · Demo mockup 2 of 6 — “Pacific” · <a href="../index.html">all mockups</a> · <a href="../parents.html">For parents</a> · <a href="../parents.html#access">Accessibility</a></span>
   </div>
 </footer>
 <script src="../assets/kids.js"></script>

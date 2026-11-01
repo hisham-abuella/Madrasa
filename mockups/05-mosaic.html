@@ -102,6 +102,16 @@ a.tile:active { transform: translate(4px, 4px); box-shadow: var(--btn-shadow-pre
 html:not([data-art="svg"]) .t-noori:not(.art-miss) { place-items: end center; padding-bottom: 6%; }
 .t-pimg { grid-column: 1 / -1; }
 .t-pimg .parents-art { margin-block: 0; max-width: 760px; }
+/* S-013 parents: fees, home help, class size, call / WhatsApp */
+.p-more { list-style: none; padding: 0; margin: 26px auto 0; max-width: 820px; display: grid; gap: 8px; text-align: center; }
+.p-more b { font-size: 1.15rem; margin-inline-end: 6px; }
+.p-call { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px 14px; margin-top: 12px; }
+.p-call a { display: inline-flex; align-items: center; min-height: var(--tap-min); padding-inline: 10px; font-weight: 700; }
+.t-more { grid-column: span 12; }
+.t-more .p-more { margin-block: 0; }
+.t-cta .p-call a, .t-cta .p-call .en { color: var(--on-accent); }
+.t-cta .placeholder { color: var(--on-accent); border-color: var(--on-accent); }
+@media (max-width: 960px) { .t-more { grid-column: span 2; } }
 </style>
 </head>
 <body>
@@ -188,16 +198,21 @@ html:not([data-art="svg"]) .t-noori:not(.art-miss) { place-items: end center; pa
   <div class="tile t-p" data-reveal style="--i:0"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg><h3>الْمَوَاعِيدُ</h3><p class="en">Saturdays 9:30 – 12:00 (KG until 11:00) · Wednesday reading club 4:30 – 6:00 pm</p><span class="placeholder">placeholder</span></div>
   <div class="tile t-p" data-reveal style="--i:1"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><h3>الْمَكَانُ</h3><p class="en">Community classroom in Mira Mesa, San Diego · free parking</p><span class="placeholder">placeholder</span></div>
   <div class="tile t-p" data-reveal style="--i:2"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><h3>تَوَاصَلُوا مَعَنَا</h3><p class="en">Ustadha Maryam &amp; Ustadh Yusuf · hello@nawras.example · (619) 555-0142</p><span class="placeholder">placeholder</span></div>
+  <div class="tile t-more" data-reveal><ul class="p-more">
+        <li><b class="word">الرُّسُومُ</b> <span class="en">Fees: $___ a month · sibling discount · first class free</span> <span class="placeholder">placeholder</span></li>
+        <li><b class="word">لَا عَرَبِيَّةَ فِي الْبَيْتِ؟</b> <span class="en">No Arabic at home? You can still help</span> <span class="placeholder">placeholder</span></li>
+        <li><b class="word">الصُّفُوفُ</b> <span class="en">Small classes (max 10) · parents welcome at the trial</span> <span class="placeholder">placeholder</span></li>
+      </ul></div>
   <div class="tile t-cta" data-reveal>
     <div><h2>حِصَّةٌ تَجْرِيبِيَّةٌ مَجَّانِيَّةٌ</h2><span class="en">Come and try a class — small groups, gentle teachers.</span></div>
-    <a class="btn trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
+    <div class="t-cta__go"><a class="btn trial" href="../parents.html#trial">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a><div class="p-call"><a href="tel:+16195550142"><span class="en">Call <bdi dir="ltr">(619) 555-0142</bdi></span></a><a href="https://wa.me/16195550142"><span class="en">WhatsApp</span></a><span class="placeholder">placeholder</span></div></div>
   </div>
 </main>
 
 <footer class="foot">
   <div class="wrap">
     <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
-    <span class="en">Nawras Fusha School, San Diego · Demo mockup 5 of 6 — “Mosaic” · <a href="../index.html">all mockups</a></span>
+    <span class="en">Nawras Fusha School, San Diego · Demo mockup 5 of 6 — “Mosaic” · <a href="../index.html">all mockups</a> · <a href="../parents.html">For parents</a> · <a href="../parents.html#access">Accessibility</a></span>
   </div>
 </footer>
 <script src="../assets/kids.js"></script>

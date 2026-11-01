@@ -156,6 +156,12 @@ body { background: color-mix(in srgb, var(--surface2) 75%, var(--ink) 6%); }
 .photo .pic > [data-gull] { position: relative; z-index: 1; }
 html:not([data-art="svg"]) .photo .pic:not(.art-miss) { place-items: end center; }
 html:not([data-art="svg"]) .photo .pic:not(.art-miss) .gull { position: relative; width: 52%; margin-bottom: 4%; }
+/* S-013 parents: fees, home help, class size, call / WhatsApp */
+.p-more { list-style: none; padding: 0; margin: 26px auto 0; max-width: 820px; display: grid; gap: 8px; text-align: center; }
+.p-more b { font-size: 1.15rem; margin-inline-end: 6px; }
+.p-call { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px 14px; margin-top: 12px; }
+.p-call a { display: inline-flex; align-items: center; min-height: var(--tap-min); padding-inline: 10px; font-weight: 700; }
+.letter .p-call { justify-content: flex-start; }
 </style>
 </head>
 <body>
@@ -262,8 +268,12 @@ html:not([data-art="svg"]) .photo .pic:not(.art-miss) .gull { position: relative
           <dt>الْمَكَانُ</dt><dd class="en">Community classroom in Mira Mesa, San Diego · free parking <span class="placeholder">placeholder</span></dd>
           <dt>الْمُعَلِّمُونَ</dt><dd class="en">Ustadha Maryam (KG – Grade 1) · Ustadh Yusuf (Grades 2 – 3) <span class="placeholder">placeholder</span></dd>
           <dt>تَوَاصَلُوا مَعَنَا</dt><dd class="en">hello@nawras.example · (619) 555-0142 <span class="placeholder">placeholder</span></dd>
+          <dt>الرُّسُومُ</dt><dd class="en">Fees: $___ a month · sibling discount · first class free <span class="placeholder">placeholder</span></dd>
+          <dt>لَا عَرَبِيَّةَ فِي الْبَيْتِ؟</dt><dd class="en">No Arabic at home? You can still help <span class="placeholder">placeholder</span></dd>
+          <dt>الصُّفُوفُ</dt><dd class="en">Small classes (max 10) · parents welcome at the trial <span class="placeholder">placeholder</span></dd>
         </dl>
-        <a class="btn btn--accent trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
+        <a class="btn btn--accent trial" href="../parents.html#trial">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a>
+        <div class="p-call"><a href="tel:+16195550142"><span class="en">Call <bdi dir="ltr">(619) 555-0142</bdi></span></a><a href="https://wa.me/16195550142"><span class="en">WhatsApp</span></a><span class="placeholder">placeholder</span></div>
         <p class="sign" style="margin:18px 0 0">مَعَ التَّحِيَّةِ — نُورِي</p>
       </div>
     </section>
@@ -271,7 +281,7 @@ html:not([data-art="svg"]) .photo .pic:not(.art-miss) .gull { position: relative
 
   <footer class="nb-foot">
     <p class="word" style="margin:0">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p>
-    <span class="en">Nawras Fusha School, San Diego · Demo mockup 4 of 6 — “Kurrasa” · <a href="../index.html">all mockups</a></span>
+    <span class="en">Nawras Fusha School, San Diego · Demo mockup 4 of 6 — “Kurrasa” · <a href="../index.html">all mockups</a> · <a href="../parents.html">For parents</a> · <a href="../parents.html#access">Accessibility</a></span>
   </footer>
 </div>
 <script src="../assets/kids.js"></script>

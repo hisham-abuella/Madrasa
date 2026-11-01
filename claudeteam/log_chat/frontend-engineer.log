@@ -103,3 +103,16 @@ Notes for next time:
   - release-check: --quick (1280+390) ≈ 4 min, full ≈ 15 min; RC_DUMP=<prefix> writes the sampled tiles; the sampler canvas is shared between pages (cache reset per call)
   - Warnings left on purpose: ambient hero loops in mockups (loop), deck chrome 36 px and guide doc links (tap)
 [DONE]
+
+=== 2026-11-01 · frontend-engineer · S-013 parents' next questions on the six mockups ===
+Asked by: coordinator (S-013; parents.html already written by another agent)
+Files changed: mockups/01-andalus.html, 02-pacific.html, 03-fanous.html, 04-kurrasa.html, 05-mosaic.html, 06-mihrab.html (only)
+Changes (each mockup):
+  [FIX] 3 placeholder lines in the parents section: الرُّسُومُ Fees $___ / sibling / first class free · لَا عَرَبِيَّةَ فِي الْبَيْتِ؟ No Arabic at home? You can still help · الصُّفُوفُ Small classes (max 10) / parents welcome at the trial — Arabic labels copied from parents.html headings. ul.p-more under the grid (Andalus, Pacific, Fanous), inside the card (Mihrab), as a full-width tile t-more (Mosaic), as extra dt/dd in the letter (Kurrasa)
+  [PATH] "Book a free trial class" mailto → ../parents.html#trial (text kept); .p-call row beside it: tel:+16195550142 "(619) 555-0142" (bdi ltr) + wa.me/16195550142 + placeholder; links min-height var(--tap-min)
+  [PATH] footer: + "For parents" ../parents.html · "Accessibility" ../parents.html#access
+  [A11Y] Pacific: first run cntr 5 (Call 4.11, placeholder 4.22/4.26 on the dotted sand) — fix: .sand .p-more / .sand .p-call on var(--surface)
+Verified: node tools/release-check.mjs --pages (six mockups): 66 runs → err 0 fail 0 img 0 hscr 0 cntr 0 lang 0 rm 0, tap 0, "RELEASE CHECK: all hard checks passed" (loop warnings = existing ambient heroes). Screenshots 1280 + 390 of every parents section looked right (scratchpad s-*.png). Links grep: 1 trial/tel/wa/access per mockup, 0 mailto left.
+Not verified: real phone tel:/WhatsApp handoff; "Adab every week…" line from S-013 detail not added (task limited to 3 lines; parents.html carries it).
+Open: real fee, number, class cap, sit-in policy — owners (S-013 ceo_note).
+[DONE]

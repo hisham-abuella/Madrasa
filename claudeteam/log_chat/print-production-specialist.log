@@ -24,3 +24,51 @@ Notes for next time:
   - qa command: uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py noori-shell (takes ~1 min).
   - Cover image ppi floor is 331 (not in the earlier baseline) — still >300.
 [DONE]
+
+=== 2026-11-01 · print-production-specialist · S-054 printable A5 masjid flyer ===
+Lead / asked by: coordinator (S-054)
+Files: print/flyer/{build-flyer.js, make-flyer-qr.py, check-flyer-qr.py, qr-parents.svg, flyer-a5.html, nawras-flyer-a5.pdf, preview-a5.png} (new; nothing else touched)
+Checks:
+  [PDF] pdfinfo: 1 page, 420 x 594.96 pt (A5 148x210 mm), @page size, margin 0, no bleed (home/office printing; a print shop needs +3 mm bleed)
+  [PDF] pdffonts: NotoNaskhArabic + BalooBhaijaan2 (book/fonts static 400/700), all emb yes / sub yes / uni yes; no Type 3
+  [PDF] images: logos/img/c1.webp 640px at 768 ppi; assets/art/noori/wave.webp 640px at 325 ppi
+  [SAFE-AREA] build-flyer.js fails if any element leaves the inner box (13 mm inset): clean
+  [QR] https://hisham-abuella.github.io/Madrasa/parents.html, segno Q v5 37 modules; decoded exact from PDF at 300 dpi; symbol 27.9 mm (0.76 mm/module); quiet zone 0 dark px
+  Coral text darkened to #B8432A (5.33:1 on paper); DECO #FF7A5C stays for ornament only
+Findings:
+  [BLOCKER] [QR] the target URL is 404 today: parents.html is untracked (not committed/pushed). Do not print until it is live and the QR has been opened on a phone.
+  [MINOR] assets/brand/logo-c1-128.webp is 128 px (about 150 ppi at 21 mm), so I used logos/img/c1.webp (same logo, 640 px)
+  [DRAFT] 3 placeholder tags (schedule, phone, email) + footnote; DATA.{..}.ph in build-flyer.js; set ph:false and rebuild; the footnote disappears when no tag is left
+Decisions / judgement calls:
+  - Arabic only from the brief or parents.html (school name, tagline, اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً, الْمَوَاعِيدُ), plus الأَعْمَارُ, أَهْلًا وَسَهْلًا, السَّلَامُ عَلَيْكُمْ! أَنَا نُورِي. (needs a sign-off from arabic-language-expert)
+  - Ornament from book/tools/lib.js (decoFrame 'band', decoPattern ink .11), read-only require
+Fixed this run: n/a (new deliverable)
+Still open: parents.html live (blocker); owners' real schedule/contact details; arabic-language-expert check of the new labels
+Notes for next time:
+  - rebuild: node print/flyer/build-flyer.js ; check: uvx --with zxing-cpp --with pillow --with segno python print/flyer/check-flyer-qr.py
+[DONE]
+
+=== 2026-11-01 · print-production-specialist · S-053 Friday-night teacher pack (Letter) ===
+Lead / asked by: coordinator
+Slug: noori-shell
+Files made: book/tools/make-teacher-pack.sh, book/tools/teacher-pack-cover.js, book/print/noori-shell-teacher-pack-letter.pdf (2.3 MB); README row + one line in topic-book SKILL print step
+PDFs checked: print/noori-shell-teacher-pack-letter.pdf (sources print/noori-shell-worksheets-letter.pdf, print/noori-shell-home-a5.pdf p31)
+Checks:
+  [PDF] 13 pages = 1 cover + 11 worksheets + 1 answers; all 612x792 pt
+  [PDF] fonts embedded: 16 objects, all emb=yes; cover = Naskh + Baloo only; LucidaGrande-Bold comes from the worksheets (known arrow fallback, PPS minor)
+  [PDF] check-print-text.py on the manifest build/noori-shell-teacher-pack-letter.html: 13 pages, clean
+  [SAFE-AREA] cover: Playwright element-box check, nothing within 12 px of the edge
+  [QR] check-qr.py (all PDFs): 11 PDFs, 108 codes, pack = 12 codes (cover + 11 worksheets), exact URLs, >=25mm, quiet zone clear; cover QR 36 mm
+  [QR] make-qr.py re-run: input/qr byte-identical (no git diff)
+Decisions / judgement calls:
+  - Assembled only (pypdf via uvx); print-book.sh NOT run, no book PDF rebuilt (owner rule: rebuild once after the redraw).
+  - Answers from the A5 PDF (portrait, no bleed) scaled x1.331 centred on Letter — better fit than the 8.75in square interior page. It keeps its book page number ٣٠ and the "for parents" heading; cover row reads "Answers page (for parents; the teacher's key)".
+  - check-qr.py's slug filter only knows "-teacher-pack", so the script runs it without a slug (~2 min) and greps the pack row; the manifest HTML gives it the expected URL per page.
+  - Cover Arabic reused from spec/make-print (title, exercise names, حَقِيبَةُ الْمُعَلِّمِ, امْسَحْ لِتَفْتَحَ الْكِتَابَ, school name); new: مَا فِي الْحَقِيبَةِ, هَذِهِ الصَّفْحَةُ — for arabic-language-expert to glance at. How-to lines are English only.
+  - Other projects' narrate.py + draw-things were running during the build (not ours; Chrome/Playwright only, no GPU use).
+Still open:
+  - Duplicate: print-book.sh's own `pack` format (make-print.js) will write print/<slug>-teacher-pack.pdf at the next rebuild — keep one (suggest: drop the `pack` format or this script).
+  - No paper proof of the pack.
+Notes for next time:
+  - Re-run: bash tools/make-teacher-pack.sh <slug> after every print-book.sh; drafts go to print/draft/ with -DRAFT.
+[DONE]

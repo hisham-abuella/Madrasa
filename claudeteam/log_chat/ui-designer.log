@@ -42,3 +42,32 @@ Still open:
 Notes for next time:
   - token-pair tables miss these: opacity on captions, shadows/margins under text, fixed pictures under theme ink. Always run the rendered scan.
 [DONE]
+
+=== 2026-11-01 · ui-designer · S-051 brand sheet (proposal): logos/brand.html + link from logos/index.html ===
+Lead / asked by: lead agent (fix round), suggestion S-051
+Files reviewed: BRIEF.md, CLAUDE.md, assets/kids.css (Pacific block), assets/kids.js (theme pinning), logos/index.html, logos/img/v2/c1-*, c6-s, assets/art/noori/*, tools/release-check.mjs
+Built:
+  - logos/brand.html — pinned Pacific (data-theme-fixed data-no-picker), sun banner at the top «اِقْتِرَاحٌ · Proposal — changes when the owners choose a logo and a theme»; sections: logo on light (c1-m) and dark (c1-d on --ink), wordmark spec, clear space (x = 1/4 badge), minimum size (badge 40 px / 15 mm, wordmark 22 px), app icon (apple-touch-icon 180, c6-s 64, favicon 32, tab 16); 6 swatches; type (Naskh / Baloo display / Baloo Latin, do/don't); Noori 6 existing poses + do/don't text; Islamic content rules; footer CTA.
+  - logos/index.html — one btn in the hero: «دَلِيلُ الْهُوِيَّةِ» "Brand sheet (proposal) →" → brand.html
+[CONTRAST] Pacific ratios quoted on the page (WCAG from token hex; bg / surface / surface2):
+  --ink 12.54/13.15/11.64 · --ink2 6.19/6.49/5.74 · on-brand/brand 5.12 · --brand as text 4.89/5.12/4.53 · --brand-text 5.75/6.02/5.33
+  on-accent/accent 6.52 · --accent as text 2.45/2.56/2.27 · --accent-text 5.50/5.77/5.11 · on-sun/sun 11.33 · --sun as text 1.36–1.53 · --on-sun 16.57/17.37/15.37
+  ink/masc 4.81 · --masc as text 2.42–2.73 · --masc-text 6.14/6.43/5.69 · ink/fem 5.70 · --fem as text 2.04–2.31 · --fem-text 5.50/5.77/5.11 · --ta 5.09/5.33/4.72 · bg on ink 12.54 · sky on ink 8.21
+Findings:
+  [MINOR] [BRAND] [TYPE] assets/kids.css:477 `.logo b` sets the site-header wordmark in --f-word (Naskh 700), while the logo sheet lockups and this brand sheet use the theme display font (Baloo Bhaijaan 2 800) — pick one when the owners choose; recommended Baloo (Naskh is reserved for taught words). Not changed (assets/* out of scope this task).
+  [MINOR] [BRAND] assets/art/noori/*.webp — the sticker beaks read wide/duck-ish at 128 px next to the "no duck bill" rule; for art-director to judge, no change.
+Decisions / judgement calls:
+  - The 6 swatches = bg (sand), brand, accent, sun, masc, fem — the fills a page actually uses; sun has no --*-text twin (never text), its on-colour is shown instead; --ta listed with the meaning colours.
+  - Page pinned to Pacific so swatch labels always match the colours shown; no theme pass in the sweep (as intended).
+  - Failing "fill as text" ratios are written as numbers only, never rendered as failing text.
+  - No token changes.
+Fixed this run / verified:
+  - node tools/release-check.mjs --pages logos/brand.html,logos/index.html → "RELEASE CHECK: all hard checks passed" (brand 5 runs, index 11 runs, 0 hard; warnings: index tap 1, unk 1 each — pre-existing/benign)
+  - eye check at 1280 and 390 (screenshots in scratchpad): no overlap, 3×2 swatch grid, LTR islands with Arabic wrapped in <bdi dir="rtl">
+Still open:
+  - final brand sheet once the owners pick a logo + theme — owner decision (S-051 needs_owner)
+  - .logo b wordmark font unification — frontend-engineer / ui-designer
+Notes for next time:
+  - loading="lazy" images come out blank in Playwright fullPage screenshots; removed lazy on the 6 small poses.
+  - Arabic inside an English .en line reorders the neighbouring tokens (the "the ة · --ta" caption flipped) — keep Arabic out of mixed caption lines or wrap it in <bdi>.
+[DONE]

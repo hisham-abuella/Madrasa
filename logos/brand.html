@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="pacific" data-theme-fixed data-no-picker>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نَوْرَس · Brand sheet (proposal)</title>
+<meta name="description" content="Nawras Fusha School, San Diego — brand sheet proposal: the Gull &amp; Crescent logo, the typeset wordmark, the Noori face app icon, the six Pacific colours with their text twins and contrast ratios, type rules, Noori do's and don'ts and the Islamic content rules.">
+<meta property="og:title" content="نَوْرَس — Brand sheet (proposal)">
+<meta property="og:description" content="The Gull &amp; Crescent logo, wordmark, app icon, Pacific colours, type and Noori rules for Nawras Fusha School — a proposal until the owners choose.">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/assets/og-nawras.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/logos/brand.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/kids.css">
+<style>
+/* ── Brand sheet (proposal). Pinned to Pacific: every colour below is a Pacific
+      token from assets/kids.css; the hex values are printed as text only. ─── */
+.prop { background: var(--sun); color: var(--on-sun); border-bottom: var(--border-w) solid var(--border-c); }
+.prop .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 14px; padding-block: 12px; text-align: center; }
+.prop b { font-size: 1.1rem; }
+.prop .en { color: inherit; font-size: .95rem; font-weight: 600; }
+
+.bs-hero { padding: clamp(32px, 6vw, 56px) 0 0; text-align: center; }
+.bs-hero p { max-width: 64ch; margin: 6px auto 0; }
+.bs-hero .en { display: block; text-align: center; }
+.bs-hero .how { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+
+.bs-sec { padding-block: clamp(36px, 6vw, 64px) 0; }
+.bs-sec:last-of-type { padding-bottom: clamp(36px, 6vw, 64px); }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 22px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px; }
+.sw-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.card h3 { margin: 0 0 4px; font-size: 1.25rem; }
+.card > .en, .card p .en { display: block; }
+.card p { margin: 8px 0 0; }
+.tok { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .92em; direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
+
+/* logo panels — inner radius = card radius − card padding gap */
+.pan { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 22px;
+       border-radius: calc(var(--radius) - 12px); padding: 24px 18px; margin-top: 14px; }
+.pan--l { background: var(--bg); border: 1.5px solid var(--line); color: var(--ink); }
+.pan--d { background: var(--ink); color: var(--bg); }
+.pan img { width: 132px; height: 132px; flex: none; }
+.pan--d img { border-radius: 18px; }
+.wm { display: flex; flex-direction: column; min-width: 0; text-align: center; }
+.wm b { font-family: var(--f-display); font-weight: 800; font-size: clamp(2.6rem, 7vw, 3.6rem); line-height: 1.35; letter-spacing: 0; }
+.wm .full { font-family: var(--f-word); font-weight: 600; font-size: 1.05rem; line-height: 1.7; color: var(--brand-text); }
+.pan--d .wm .full { color: var(--sky); }
+.wm .lat { font-family: var(--f-latin); font-size: .88rem; color: var(--ink2); }
+.pan--d .wm .lat { color: var(--sky); }
+.cap { margin-top: 10px; }
+
+/* clear space and minimum size */
+.cs { display: flex; justify-content: center; margin-top: 14px; }
+.cs__box { position: relative; display: flex; align-items: center; gap: 12px; padding: 24px;          /* x = ¼ of the 96 px badge */
+           border: 2px dashed var(--brand-text); border-radius: 6px; background: var(--surface); }
+.cs__box img { width: 96px; height: 96px; flex: none; }
+.cs__box b { font-family: var(--f-display); font-weight: 800; font-size: 2.6rem; line-height: 1.3; color: var(--ink); }
+.cs__x { position: absolute; inset-block-start: 2px; inset-inline-end: 6px; font: 700 .8rem/1 var(--f-latin); color: var(--brand-text); direction: ltr; }
+.sizes { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: 14px 20px; margin-top: 14px; }
+.sizes figure { margin: 0; display: grid; justify-items: center; gap: 4px; }
+.sizes figcaption { font: 600 .8rem/1.3 var(--f-latin); color: var(--ink2); direction: ltr; text-align: center; }
+
+/* app icon */
+.icons { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: 16px 22px; margin-top: 14px; }
+.icons figure { margin: 0; display: grid; justify-items: center; gap: 6px; }
+.icons figcaption { font: 600 .8rem/1.3 var(--f-latin); color: var(--ink2); direction: ltr; text-align: center; }
+.ios { width: 120px; height: 120px; border-radius: 27px; overflow: hidden; box-shadow: 0 10px 20px -12px var(--ink); }
+.ios img { width: 100%; height: 100%; }
+.tab { display: flex; align-items: center; gap: 8px; background: var(--surface2); border: 1.5px solid var(--line); border-radius: 10px 10px 0 0; padding: 8px 12px; direction: ltr; }
+.tab img { width: 16px; height: 16px; }
+.tab span { font: 600 .82rem/1.2 var(--f-latin); color: var(--ink); white-space: nowrap; }
+
+/* colour swatches: the fill on top with its on-colour, the text twin below */
+.sw { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.sw__fill { background: var(--f); color: var(--on); min-height: 128px; padding: 16px 20px; display: flex; flex-direction: column; justify-content: flex-end; }
+.sw__fill b { font-family: var(--f-word); font-weight: 700; font-size: 2rem; line-height: 1.6; }
+.sw__fill .en { color: inherit; font-size: .9rem; font-weight: 700; }
+.sw__body { padding: 16px 20px 20px; display: grid; gap: 6px; }
+.sw__body h3 { margin: 0; font-size: 1.15rem; }
+.sw__twin { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; padding: 8px 12px; border-radius: calc(var(--radius) - 18px); background: var(--bg); border: 1.5px solid var(--line); }
+.sw__twin b { font-family: var(--f-word); font-size: 1.35rem; line-height: 1.6; color: var(--tw); }
+.sw__twin .en { color: var(--ink2); }
+.sw .en { display: block; }
+.meaning { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 18px; }
+.meaning .word { font-size: 2.2rem; }
+.m-masc { color: var(--masc-text); } .m-fem { color: var(--fem-text); }
+.meaning figure { margin: 0; text-align: center; }
+
+/* type */
+.spec { border-radius: calc(var(--radius) - 12px); background: var(--bg); border: 1.5px solid var(--line); padding: 14px 18px; margin-top: 12px; }
+.spec--word { font-family: var(--f-word); font-weight: 700; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.9; letter-spacing: 0; }
+.spec--disp { font-family: var(--f-display); font-weight: 800; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.45; letter-spacing: 0; }
+.spec--lat { font-family: var(--f-latin); font-size: 1.15rem; line-height: 1.5; direction: ltr; text-align: left; }
+
+/* do / don't lists */
+.rules { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.rules li { display: flex; gap: 10px; align-items: flex-start; line-height: 1.6; }
+.rules li::before { content: ""; flex: none; width: 12px; height: 12px; margin-top: .55em; border-radius: 50%; background: var(--good); }
+.rules--no li::before { border-radius: 2px; background: var(--bad); transform: rotate(45deg); }
+.rules .en { display: block; text-align: right; }
+.rules--plain li::before { background: var(--brand); }
+.do-h { color: var(--good-text); } .no-h { color: var(--bad-text); }
+.poses { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; margin-top: 12px; }
+.poses figure { margin: 0; background: var(--surface2); border-radius: calc(var(--radius) - 12px); padding: 8px; display: grid; justify-items: center; gap: 2px; }
+.poses img { width: 100%; max-width: 128px; height: auto; aspect-ratio: 1; }
+.poses figcaption { text-align: center; font-size: .95rem; line-height: 1.4; }
+.poses figcaption .en { display: block; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تَخَطَّ إِلَى الْمُحْتَوَى · Skip to content</a>
+
+<div class="prop" role="note">
+  <div class="wrap"><b>اِقْتِرَاحٌ</b><span class="en">Proposal — changes when the owners choose a logo and a theme</span></div>
+</div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../index.html" aria-label="نَوْرَس — back to the demo hub">
+      <img class="logo-mark" src="../assets/brand/logo-c1-128.webp" alt="" width="56" height="56">
+      <span><b>نَوْرَس</b><small>Nawras Fusha School · San Diego</small></span>
+    </a>
+    <nav class="nav" aria-label="الْقَائِمَةُ">
+      <a href="#logo">الشِّعَارُ</a>
+      <a href="#colours">الْأَلْوَانُ</a>
+      <a href="#type">الْخُطُوطُ</a>
+      <a href="#noori">نُورِي</a>
+      <a href="index.html">كُلُّ الْأَفْكَارِ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="bs-hero">
+    <div class="wrap">
+      <h1>دَلِيلُ هُوِيَّةِ نَوْرَس</h1>
+      <p>شِعَارٌ وَاحِدٌ، وَأَلْوَانٌ وَاحِدَةٌ، وَخُطُوطٌ وَاحِدَةٌ فِي كُلِّ مَكَانٍ: الْمَوْقِعِ وَالْكُتُبِ وَالْعُرُوضِ.</p>
+      <p class="en">The team's recommendation in one page: logo concept 1 <b>Gull &amp; Crescent</b> as the school's sign, concept 6 <b>Noori's face</b> as the app icon, and the flagship <b>Pacific</b> theme. Use it for the website, the books, the decks, signs and print.</p>
+      <div class="how">
+        <span class="chip chip--brand">نَوْرَسُ الْهِلَالِ · Logo 1</span>
+        <span class="chip">وَجْهُ نُورِي · App icon 6</span>
+        <span class="chip">الْمُحِيطُ · Pacific theme</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 · logo ─────────────────────────────────────────────────────────── -->
+  <section class="bs-sec" id="logo">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>الشِّعَارُ</h2>
+        <span class="en">The logo — the Gull &amp; Crescent badge with the typeset wordmark, on light and on dark</span>
+      </div>
+      <div class="grid2">
+        <article class="card">
+          <h3>عَلَى خَلْفِيَّةٍ فَاتِحَةٍ</h3><span class="en">On light — the main badge (<span class="tok">logos/img/v2/c1-m.webp</span>)</span>
+          <div class="pan pan--l">
+            <img src="img/v2/c1-m.webp" width="132" height="132" alt="شِعَارُ نَوْرَسِ الْهِلَالِ — Gull & Crescent badge">
+            <div class="wm"><b>نَوْرَس</b><span class="full">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</span><span class="lat en">Nawras Fusha School · San Diego</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <h3>عَلَى خَلْفِيَّةٍ دَاكِنَةٍ</h3><span class="en">On dark — the dark version (<span class="tok">c1-d.webp</span>) on <span class="tok">--ink</span>; wordmark in <span class="tok">--bg</span> (12.5:1)</span>
+          <div class="pan pan--d">
+            <img src="img/v2/c1-d.webp" width="132" height="132" alt="شِعَارُ نَوْرَسِ الْهِلَالِ لِلْخَلْفِيَّةِ الدَّاكِنَةِ — Gull & Crescent badge, dark version">
+            <div class="wm"><b>نَوْرَس</b><span class="full">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</span><span class="lat en">Nawras Fusha School · San Diego</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid3" style="margin-top:22px">
+        <article class="card">
+          <h3>الِاسْمُ مَكْتُوبٌ</h3><span class="en">The wordmark</span>
+          <p>«نَوْرَس» يُكْتَبُ بِخَطٍّ حَقِيقِيٍّ، وَلَا يُرْسَمُ فِي صُورَةٍ.</p>
+          <p class="en"><b>Baloo Bhaijaan 2, ExtraBold 800</b>, letter-spacing 0, colour <span class="tok">--ink</span> on light and <span class="tok">--bg</span> on dark. The full name «مَدْرَسَةُ نَوْرَس لِلْفُصْحَى» sits under it in Noto Naskh Arabic 600, <span class="tok">--brand-text</span>; the English line in Baloo Bhaijaan 2. Always <b>typeset</b>, never generated; the badge itself never carries text.</p>
+        </article>
+        <article class="card">
+          <h3>الْمَسَافَةُ الْخَالِيَةُ</h3><span class="en">Clear space</span>
+          <div class="cs"><div class="cs__box"><span class="cs__x">x</span><img src="img/v2/c1-m.webp" width="96" height="96" alt=""><b>نَوْرَس</b></div></div>
+          <p class="en">Keep <b>x = ¼ of the badge's height</b> empty on every side of the lockup (dashed line): no text, edge or picture inside it.</p>
+        </article>
+        <article class="card">
+          <h3>أَصْغَرُ حَجْمٍ</h3><span class="en">Minimum size</span>
+          <div class="sizes">
+            <figure><img src="img/v2/c1-m.webp" width="96" height="96" alt=""><figcaption>96 px</figcaption></figure>
+            <figure><img src="img/v2/c1-m.webp" width="56" height="56" alt=""><figcaption>56 px<br>site header</figcaption></figure>
+            <figure><img src="img/v2/c1-m.webp" width="40" height="40" alt=""><figcaption>40 px<br>smallest</figcaption></figure>
+          </div>
+          <p class="en">Badge: at least <b>40 px</b> on screen, <b>15 mm</b> in print. Below that, use the app icon. Wordmark: at least <b>22 px</b> (8 mm tall in print).</p>
+        </article>
+      </div>
+
+      <div class="card" style="margin-top:22px">
+        <h3>أَيْقُونَةُ التَّطْبِيقِ</h3><span class="en">The app icon — Noori's face (concept 6), for favicon, home-screen icon, stickers and stamps</span>
+        <div class="icons">
+          <figure><div class="ios"><img src="../assets/apple-touch-icon.png" width="120" height="120" alt="أَيْقُونَةُ نُورِي — Noori face app icon"></div><figcaption>home screen · 180 px<br><span class="tok">assets/apple-touch-icon.png</span></figcaption></figure>
+          <figure><img src="img/v2/c6-s.webp" width="64" height="64" alt=""><figcaption>64 px</figcaption></figure>
+          <figure><img src="../assets/favicon-32.png" width="32" height="32" alt=""><figcaption>32 px favicon<br><span class="tok">assets/favicon-32.png</span></figcaption></figure>
+          <figure><div class="tab"><img src="../assets/favicon-32.png" width="16" height="16" alt=""><span>نَوْرَس · Nawras</span></div><figcaption>browser tab · 16 px</figcaption></figure>
+        </div>
+        <p class="en cap">The face is the small form of the badge: the same Noori, the same teal scarf. Use it wherever the badge would be smaller than 40 px. Print uses the vector <span class="tok">logos/svg/hilal-badge.svg</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · colours ──────────────────────────────────────────────────────── -->
+  <section class="bs-sec" id="colours">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>الْأَلْوَانُ</h2>
+        <span class="en">Six Pacific colours from <span class="tok">assets/kids.css</span>. Each is a fill; the text on it and its readable “text twin” are shown with the measured WCAG contrast (minimum 4.5:1 for text; measured 2026-11-01 from the token values)</span>
+      </div>
+      <div class="grid3 sw-grid">
+        <article class="card sw" style="--f: var(--bg); --on: var(--ink); --tw: var(--ink2)">
+          <div class="sw__fill"><b>رَمْلٌ</b><span class="en">--ink on --bg · 12.5:1</span></div>
+          <div class="sw__body">
+            <h3>رَمْلُ الشَّاطِئِ</h3>
+            <span class="en">Sand · <span class="tok">--bg #FFF9EE</span> — the page. Text <span class="tok">--ink #0B3540</span>: 12.5 on bg, 13.2 on white, 11.6 on sea foam.</span>
+            <div class="sw__twin"><b>نَصٌّ هَادِئٌ</b><span class="en">twin <span class="tok">--ink2 #3A6470</span> · 6.2 / 6.5 / 5.7</span></div>
+          </div>
+        </article>
+        <article class="card sw" style="--f: var(--brand); --on: var(--on-brand); --tw: var(--brand-text)">
+          <div class="sw__fill"><b>مُحِيطٌ</b><span class="en">--on-brand on --brand · 5.1:1</span></div>
+          <div class="sw__body">
+            <h3>أَزْرَقُ الْمُحِيطِ</h3>
+            <span class="en">Ocean teal · <span class="tok">--brand #0B7A7E</span> — buttons, chips, the brand. As text it is only 4.5 on sea foam, so text uses the twin.</span>
+            <div class="sw__twin"><b>رَابِطٌ</b><span class="en">twin <span class="tok">--brand-text #0B6E72</span> · 5.8 / 6.0 / 5.3</span></div>
+          </div>
+        </article>
+        <article class="card sw" style="--f: var(--accent); --on: var(--on-accent); --tw: var(--accent-text)">
+          <div class="sw__fill"><b>غُرُوبٌ</b><span class="en">--on-accent on --accent · 6.5:1</span></div>
+          <div class="sw__body">
+            <h3>مَرْجَانُ الْغُرُوبِ</h3>
+            <span class="en">Sunset coral · <span class="tok">--accent #FF7A5C</span> — the one accent: it marks one thing per screen (the trial-class button, “recommended”). As text 2.3–2.6: never.</span>
+            <div class="sw__twin"><b>مُهِمٌّ</b><span class="en">twin <span class="tok">--accent-text #B8391C</span> · 5.5 / 5.8 / 5.1</span></div>
+          </div>
+        </article>
+        <article class="card sw" style="--f: var(--sun); --on: var(--on-sun); --tw: var(--on-sun)">
+          <div class="sw__fill"><b>شَمْسٌ</b><span class="en">--on-sun on --sun · 11.3:1</span></div>
+          <div class="sw__body">
+            <h3>شَمْسُ سَان دِييغُو</h3>
+            <span class="en">Sun · <span class="tok">--sun #FFC94A</span> — stars, rewards, highlights, this proposal banner. As text 1.4–1.5: never; it has no text twin, only its on-colour.</span>
+            <div class="sw__twin"><b>نَجْمَةٌ</b><span class="en">on-colour <span class="tok">--on-sun #1E1A0E</span> · 16.6 / 17.4 / 15.4</span></div>
+          </div>
+        </article>
+        <article class="card sw" style="--f: var(--masc); --on: var(--ink); --tw: var(--masc-text)">
+          <div class="sw__fill"><b>هَذَا</b><span class="en">--ink on --masc · 4.8:1</span></div>
+          <div class="sw__body">
+            <h3>أَزْرَقُ الْمُذَكَّرِ</h3>
+            <span class="en">Masculine blue · <span class="tok">--masc #3BA7D6</span> — fill only (2.4–2.7 as text). The same blue for هَذَا in every lesson, book and deck.</span>
+            <div class="sw__twin"><b>مُعَلِّمٌ</b><span class="en">twin <span class="tok">--masc-text #12658C</span> · 6.1 / 6.4 / 5.7</span></div>
+          </div>
+        </article>
+        <article class="card sw" style="--f: var(--fem); --on: var(--ink); --tw: var(--fem-text)">
+          <div class="sw__fill"><b>هَذِهِ</b><span class="en">--ink on --fem · 5.7:1</span></div>
+          <div class="sw__body">
+            <h3>مَرْجَانُ الْمُؤَنَّثِ</h3>
+            <span class="en">Feminine coral · <span class="tok">--fem #FF8A6B</span> — fill only (2.0–2.3 as text). The same coral for هَذِهِ everywhere.</span>
+            <div class="sw__twin"><b>مُعَلِّمَةٌ</b><span class="en">twin <span class="tok">--fem-text #B8391C</span> · 5.5 / 5.8 / 5.1</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="meaning" aria-label="أَلْوَانُ الْمَعْنَى — meaning colours">
+        <figure><span class="word m-masc">هَذَا</span><figcaption class="en">masculine · <span class="tok">--masc-text</span></figcaption></figure>
+        <figure><span class="word m-fem">هَذِهِ</span><figcaption class="en">feminine · <span class="tok">--fem-text</span></figcaption></figure>
+        <figure><span class="word" data-ta>مُعَلِّمَةٌ</span><figcaption class="en">tā’ marbūṭa · <span class="tok">--ta #C23B1E</span> · 5.1 / 5.3 / 4.7</figcaption></figure>
+      </div>
+      <p class="en" style="text-align:center;margin-top:10px">Ratios read: on <span class="tok">--bg</span> / on <span class="tok">--surface</span> (white) / on <span class="tok">--surface2</span> (sea foam). Every colour on a page is a token — no hex in page CSS.</p>
+    </div>
+  </section>
+
+  <!-- 3 · type ─────────────────────────────────────────────────────────── -->
+  <section class="bs-sec" id="type">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>الْخُطُوطُ</h2>
+        <span class="en">Type — three roles, one family feel</span>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <h3>كَلِمَاتُ الْأَطْفَالِ</h3><span class="en">Children's words — Noto Naskh Arabic 700 (<span class="tok">--f-word</span>)</span>
+          <div class="spec spec--word">هَذِهِ قِطَّةٌ صَغِيرَةٌ</div>
+          <p class="en">Every word a child reads or learns is set in Naskh with <b>full tashkeel</b> and a line height of at least 1.9 so the harakat never touch the line above.</p>
+        </article>
+        <article class="card">
+          <h3>الْعَنَاوِينُ</h3><span class="en">Display and UI — Baloo Bhaijaan 2, 600–800 (<span class="tok">--f-display</span>, <span class="tok">--f-ui</span>)</span>
+          <div class="spec spec--disp">أَهْلًا بِكُمْ فِي نَوْرَس</div>
+          <p class="en">Headings, buttons, menus and the wordmark. Round and friendly; never used for a word that is being taught.</p>
+        </article>
+        <article class="card">
+          <h3>لِلْكِبَارِ</h3><span class="en">Latin captions for parents — Baloo Bhaijaan 2 (<span class="tok">--f-latin</span>)</span>
+          <div class="spec spec--lat">Fusha for little hearts, by the Pacific.</div>
+          <p class="en">English lines are small (about 0.82 of the Arabic), in <span class="tok">--ink2</span>, and isolated as left-to-right islands inside the right-to-left page.</p>
+        </article>
+      </div>
+      <div class="grid2" style="margin-top:22px">
+        <article class="card">
+          <h3 class="do-h">نَعَمْ</h3><span class="en">Do</span>
+          <ul class="rules">
+            <li><span>تَشْكِيلٌ كَامِلٌ لِكُلِّ كَلِمَةٍ لِلْأَطْفَالِ.<span class="en">Full tashkeel on every children's word.</span></span></li>
+            <li><span>نُلَوِّنُ التَّاءَ الْمَرْبُوطَةَ وَالْحُرُوفُ مُتَّصِلَةٌ.<span class="en">Colouring the ة: a zero-width joiner on both sides of the split, so the letters stay joined (<span class="tok">KS.ta()</span>).</span></span></li>
+            <li><span>الْأَرْقَامُ فِي النُّصُوصِ الْعَرَبِيَّةِ: «١ مِنْ ١٣».<span class="en">Counters in Arabic read <bdi lang="ar" dir="rtl">«١ مِنْ ١٣»</bdi>, or isolate “1 / 13” as a left-to-right island.</span></span></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="no-h">لَا</h3><span class="en">Don't</span>
+          <ul class="rules rules--no">
+            <li><span>لَا نُبَاعِدُ بَيْنَ الْحُرُوفِ الْعَرَبِيَّةِ أَبَدًا.<span class="en">Never letter-space Arabic — it breaks the joins. letter-spacing is always 0.</span></span></li>
+            <li><span>لَا نَكْتُبُ كَلِمَةَ الدَّرْسِ بِخَطِّ الْعَنَاوِينِ.<span class="en">No taught word in the display font (the book-cover eyebrow mistake).</span></span></li>
+            <li><span>لَا نُمِيلُ الْخَطَّ وَلَا نَمُدُّهُ.<span class="en">No fake italics, no stretched or squashed type, no all-caps English headlines.</span></span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Noori ────────────────────────────────────────────────────────── -->
+  <section class="bs-sec" id="noori">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>نُورِي</h2>
+        <span class="en">Noori, the young seagull — use the existing sticker set in <span class="tok">assets/art/noori/</span></span>
+      </div>
+      <div class="card">
+        <h3 class="do-h">نَعَمْ: هَذَا نُورِي</h3><span class="en">Do — the six approved poses</span>
+        <div class="poses">
+          <figure><img src="../assets/art/noori/happy.webp" width="128" height="128" alt="نُورِي سَعِيدٌ — Noori happy"><figcaption>سَعِيدٌ<span class="en">happy</span></figcaption></figure>
+          <figure><img src="../assets/art/noori/wave.webp" width="128" height="128" alt="نُورِي يُلَوِّحُ — Noori waving"><figcaption>يُلَوِّحُ<span class="en">wave</span></figcaption></figure>
+          <figure><img src="../assets/art/noori/fly.webp" width="128" height="128" alt="نُورِي يَطِيرُ — Noori flying"><figcaption>يَطِيرُ<span class="en">fly</span></figcaption></figure>
+          <figure><img src="../assets/art/noori/think.webp" width="128" height="128" alt="نُورِي يُفَكِّرُ — Noori thinking"><figcaption>يُفَكِّرُ<span class="en">think</span></figcaption></figure>
+          <figure><img src="../assets/art/noori/cheer.webp" width="128" height="128" alt="نُورِي يَفْرَحُ — Noori cheering"><figcaption>يَفْرَحُ<span class="en">cheer</span></figcaption></figure>
+          <figure><img src="../assets/art/noori/sleep.webp" width="128" height="128" alt="نُورِي نَائِمٌ — Noori sleeping"><figcaption>نَائِمٌ<span class="en">sleep</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="grid2" style="margin-top:22px">
+        <article class="card">
+          <h3 class="do-h">نَعَمْ</h3><span class="en">Do</span>
+          <ul class="rules">
+            <li><span>جِسْمٌ أَبْيَضُ مُسْتَدِيرٌ، وَمِنْقَارٌ بُرْتُقَالِيٌّ صَغِيرٌ، وَعُيُونٌ كَبِيرَةٌ.<span class="en">Round white/cream body, a small pointed orange seagull beak, big kind eyes, grey wing tips.</span></span></li>
+            <li><span>الْوِشَاحُ الْأَزْرَقُ الْفَيْرُوزِيُّ دَائِمًا.<span class="en">The tiny teal scarf, always — it is what makes him Noori.</span></span></li>
+            <li><span>نُورِي يُشِيرُ وَيَفْرَحُ وَيُشَجِّعُ.<span class="en">Noori points, cheers and encourages; the words he “says” go in a typeset page bubble beside him.</span></span></li>
+            <li><span>خَلْفِيَّةٌ هَادِئَةٌ: رَمْلٌ أَوْ أَبْيَضُ أَوْ زَبَدُ الْبَحْرِ.<span class="en">Calm backgrounds: sand, white or sea foam, with room around him.</span></span></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="no-h">لَا</h3><span class="en">Don't</span>
+          <ul class="rules rules--no">
+            <li><span>لَا مِنْقَارَ بَطَّةٍ.<span class="en">No duck bill — the model keeps drawing one; Noori has a small pointed gull beak.</span></span></li>
+            <li><span>لَا نَمُدُّهُ وَلَا نَضْغَطُهُ وَلَا نُدِيرُهُ.<span class="en">No stretching, squashing, skewing or cropping his face; scale him evenly.</span></span></li>
+            <li><span>لَا أَلْوَانَ خَارِجَ الرُّمُوزِ.<span class="en">No recolouring outside the tokens (<span class="tok">--gull-*</span>): no pink Noori, no gradients, no new scarf colour.</span></span></li>
+            <li><span>لَا كِتَابَةَ عَلَيْهِ.<span class="en">No text on him or inside his picture — no letters on the scarf, no baked-in speech bubbles.</span></span></li>
+            <li><span>لَا وَجْهَ مُخِيفًا أَوْ غَاضِبًا.<span class="en">Never scary, angry or sad as a punishment; no clothes beyond the scarf, no kufi.</span></span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Islamic content rules ────────────────────────────────────────── -->
+  <section class="bs-sec" id="rules">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>قَوَاعِدُ الْمُحْتَوَى</h2>
+        <span class="en">Islamic content rules, in short — they apply to every picture, page, book and deck</span>
+      </div>
+      <div class="card">
+        <ul class="rules rules--plain">
+          <li><span>لَا صُوَرَ لِلْأَنْبِيَاءِ وَلَا لِلْمَلَائِكَةِ.<span class="en">No depictions of prophets or angels.</span></span></li>
+          <li><span>لَا آيَاتٍ قُرْآنِيَّةً لِلزِّينَةِ أَوْ فِي الْأَلْعَابِ.<span class="en">No Qur'an verses used as decoration or inside games.</span></span></li>
+          <li><span>لِبَاسٌ مُحْتَشِمٌ لِكُلِّ طِفْلٍ فِي الصُّوَرِ، أَوْ حَيَوَانَاتٌ وَأَشْيَاءُ بَدَلًا مِنْهُمْ.<span class="en">Modest clothing on any child figure, or animals and objects instead.</span></span></li>
+          <li><span>لَا مُوسِيقَى: أَصْوَاتٌ هَادِئَةٌ قَصِيرَةٌ فَقَطْ.<span class="en">No music claims — sound effects are soft tones only.</span></span></li>
+          <li><span>التَّحِيَّةُ الْإِسْلَامِيَّةُ جَمِيلَةٌ: «السَّلَامُ عَلَيْكُمْ».<span class="en">Islamic greetings are welcome (<bdi lang="ar" dir="rtl">«السَّلَامُ عَلَيْكُمْ»</bdi>).</span></span></li>
+          <li><span>الزَّخَارِفُ: النَّجْمَةُ الثُّمَانِيَّةُ وَالْهِلَالُ وَالْأَقْوَاسُ وَالْفَانُوسُ، نَاعِمَةً وَمُشْرِقَةً.<span class="en">Ornament: the 8-point star, crescent, arches, lanterns and zellige — softened, rounded and bright; calligraphy only as ornament, never sacred text.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><p class="en" style="text-align:center">Nawras Fusha School, San Diego · demo · brand sheet <b>proposal</b> — it changes when the owners choose a logo and a theme. All six logo concepts: <a href="index.html">logos/index.html</a>.</p><p style="text-align:center;margin:10px 0 0"><a class="btn btn--accent btn--sm trial" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span class="en">Book a free trial class</span></a></p></div>
+</footer>
+
+<script src="../assets/kids.js"></script>
+</body>
+</html>
