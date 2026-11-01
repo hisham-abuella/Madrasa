@@ -92,8 +92,8 @@ book's URL; `tools/placeholder-art.sh` stands in stamped pictures for a dry run 
 | `new-story.js` + `story-template.html` | adapted | Arabic-first, exercise pages, `KS.writePad`, Fusha/مصري narration toggle, English captions toggle, `#page-key` deep links for the QR codes |
 | `build-book.sh` | replaces `build-<slug>.sh` / `build-book.py` | runs new-story + make-transcripts |
 | `make-transcripts.js` | adapted | ar + eg, id = page key, `say` per page |
-| `make-print.js` + `print-pages.js` | adapted | reads the spec; story + exercise layouts; dotted tracing words with green start dots and arrows measured from the real glyphs; formats `lulu`, `cover`, `a5`, `letter`, `a4`, `pack` (teacher pack); safe-area overflow check in the browser |
-| `print-book.sh` | adapted | all six PDFs (`-DRAFT` names, in `print/draft/`, while the URL is unconfirmed), all checks |
+| `make-print.js` + `print-pages.js` | adapted | reads the spec; story + exercise layouts; dotted tracing words with green start dots and arrows measured from the real glyphs; formats `lulu`, `cover`, `a5`, `letter`, `a4`; safe-area overflow check in the browser |
+| `print-book.sh` | adapted | the five book PDFs, all checks, then `make-teacher-pack.sh` for the sixth (the teacher pack) (`-DRAFT` names, in `print/draft/`, while the URL is unconfirmed) |
 | `check-print-text.py` | copied | rejoins up to 8 pdftotext fragments (full tashkeel splits words) |
 | `check-lulu.sh` | copied | globs; spine from the interior page count |
 | `make-qr.py`, `check-qr.py` | adapted | URL from `book.config.json`; checks exact URL per page, symbol ≥ 25mm, quiet zone |
@@ -136,7 +136,7 @@ paperback 8.5″ square premium colour **≈ $8–15 per copy** + shipping ≈ $
 | `print/noori-shell-home-a5.pdf` | A5 booklet: cover, all 32 pages, back (36 pages, 2 blanks before the back). Acrobat → Print → Page Sizing → **Booklet**, double-sided, flip on short edge, fold and staple. |
 | `print/noori-shell-worksheets-letter.pdf` | the 11 exercise pages alone, US Letter, with a Name line and a QR per page |
 | `print/noori-shell-worksheets-a4.pdf` | the same on A4 (trace pages carry two more empty practice lines than the book) |
-| `print/noori-shell-teacher-pack-letter.pdf` | the Friday-night teacher pack (S-053), 13 Letter pages: a cover sheet (what is inside, how to use it on Saturday, QR to the web book), the 11 worksheets, the answers page. `bash tools/make-teacher-pack.sh noori-shell` assembles it from the PDFs above without rebuilding them, and checks it; re-run it after every `print-book.sh`. (`print-book.sh`'s own `pack` format would also write `print/noori-shell-teacher-pack.pdf`; keep only one.) |
+| `print/noori-shell-teacher-pack-letter.pdf` | the Friday-night teacher pack (S-053), 13 Letter pages: a cover sheet (what is inside, how to use it on Saturday, QR to the web book), the 11 worksheets, the answers page. `print-book.sh` makes it as its last step by calling `bash tools/make-teacher-pack.sh noori-shell`, which assembles it from the PDFs above without rebuilding them, and checks it (it can also be run alone). This is the only teacher pack; there is no `print/noori-shell-teacher-pack.pdf`. |
 
 Exercise pages are white with thin lines for pencil and crayon; writing lines are 26mm
 (8mm letter body, baseline + dotted mid-line); don't laminate them.

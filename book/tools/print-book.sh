@@ -8,7 +8,8 @@
 #   print/<slug>-home-a5[-DRAFT].pdf         home booklet, A5, print with "Booklet" in Acrobat
 #   print/<slug>-worksheets-letter[-DRAFT].pdf  the 11 exercise pages alone, US Letter
 #   print/<slug>-worksheets-a4[-DRAFT].pdf      the same on A4
-#   print/<slug>-teacher-pack[-DRAFT].pdf       Letter: QR cover sheet + the 11 worksheets + answers
+#   print/<slug>-teacher-pack-letter[-DRAFT].pdf  Letter: cover sheet + QR, the 11 worksheets, answers
+#                                    (tools/make-teacher-pack.sh, run last; it assembles the PDFs above)
 #
 # A -DRAFT set is written to print/draft/ (S-043), so a draft never sits next to a
 # real file in Lulu's file picker.
@@ -26,6 +27,7 @@
 #   - check-print-text.py: no words clipped, story type 14pt+
 #   - check-lulu.sh: Lulu's size, bleed, spine, page count, 300-600ppi, fonts, marks
 #   - check-qr.py: every QR decodes to exactly its URL, symbol 25mm+, quiet zone
+#   - then make-teacher-pack.sh, with its own checks (pages, Letter, fonts, words, QR)
 set -euo pipefail
 cd "$(dirname "$0")/.."
 slug=${1:-$(node -e "console.log(require('./book.config.json').slug)")}
@@ -56,8 +58,9 @@ for key in $(node -e "const s=require('./stories/$slug.json');const k=new Set(['
 done
 (( missing )) && { echo "draw them first: DEST=\$PWD/art-hi/images-$slug zsh source/gen-$slug.sh" >&2; exit 1; }
 
+# (teacher-pack = the old make-print.js `pack` file, retired: one pack, teacher-pack-letter)
 # remove an older set (a DRAFT set once the URL is confirmed, or the other way round)
-for st in lulu-interior lulu-cover home-a5 worksheets-letter worksheets-a4 teacher-pack; do   # exact names: one slug may prefix another
+for st in lulu-interior lulu-cover home-a5 worksheets-letter worksheets-a4 teacher-pack teacher-pack-letter; do   # exact names: one slug may prefix another
   rm -f "print/$slug-$st.pdf" "print/$slug-$st-DRAFT.pdf" "print/draft/$slug-$st-DRAFT.pdf"
 done
 
@@ -80,7 +83,6 @@ one "$slug-lulu-cover$draft" cover
 one "$slug-home-a5$draft" a5
 one "$slug-worksheets-letter$draft" letter
 one "$slug-worksheets-a4$draft" a4
-one "$slug-teacher-pack$draft" pack
 
 echo; echo "checking words and type size…"
 for stem in "${made[@]}"; do
@@ -93,4 +95,6 @@ echo; echo "checking QR codes…"
 uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py "$slug" | tail -3 || fail=1
 
 (( fail )) && { echo; echo "print-book: a check failed — see above." >&2; exit 1; }
+echo; echo "teacher pack…"
+bash tools/make-teacher-pack.sh "$slug" | sed 's/^/  /' || { echo; echo "print-book: the teacher pack failed — see above." >&2; exit 1; }
 echo; echo "all checks passed${draft:+ (DRAFT: the QR URL is not confirmed yet in book.config.json, or the pictures are placeholders)}"

@@ -8,8 +8,9 @@
 #     pages 2..12   the 11 worksheets, copied as they are from print/<slug>-worksheets-letter.pdf
 #     page 13       the answers page, from print/<slug>-home-a5.pdf, scaled to fit Letter (x1.33, centred)
 #
-# It only ASSEMBLES the PDFs print-book.sh already made; it never rebuilds them, so run it
-# again after every print-book.sh run. The QR codes come from make-qr.py (book.config.json);
+# It only ASSEMBLES the PDFs print-book.sh already made; it never rebuilds them. print-book.sh
+# calls it as its last step (the only teacher pack: make-print.js has no `pack` format); run it
+# alone only to remake the pack from existing PDFs. The QR codes come from make-qr.py (book.config.json);
 # the cover is HTML (tools/teacher-pack-cover.js) printed by Playwright (~/.kp-tools).
 # Checks, stops on a failure: page count = 1 + worksheets + answers, every page Letter,
 # fonts embedded, check-print-text.py and check-qr.py on the finished file.
@@ -66,8 +67,8 @@ nl=$(pdfinfo -f 1 -l "$got" "$out" | grep -c '^Page *[0-9]* size: *612 x 792 pts
 noemb=$(pdffonts "$out" | awk 'NR>2 && $(NF-4)!="yes"' | wc -l | tr -d ' ')
 [[ $noemb == 0 ]] && echo "  fonts embedded ($(pdffonts "$out" | awk 'NR>2' | wc -l | tr -d ' ') font objects)" || { echo "  FONTS NOT EMBEDDED: $noemb" >&2; pdffonts "$out" >&2; fail=1; }
 python3 tools/check-print-text.py "$man" "$out" | sed 's/^/  /' || fail=1
-echo "  QR (check-qr.py reads every print PDF, ~2 min)…"
-qr=$(uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py 2>&1) || true
+echo "  QR (check-qr.py reads this book's print PDFs)…"
+qr=$(uvx --with zxing-cpp --with pillow --with segno python tools/check-qr.py "$slug" 2>&1) || true
 echo "$qr" | grep -E "teacher-pack-letter|PDFs, |PROBLEM|every QR" | sed 's/^/  /'
 echo "$qr" | grep -q "$slug-teacher-pack-letter$draft:" && fail=1
 echo "$qr" | grep -qE "^ +$slug-teacher-pack-letter$draft +$((nws + 1))\$" || { echo "  QR: pack not read, or not $((nws + 1)) codes" >&2; fail=1; }

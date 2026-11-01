@@ -196,8 +196,8 @@ next to a real file in Lulu's file picker).
 
 ```sh
 zsh tools/build-book.sh <slug>        # books/<slug>.html + source/<slug>-{ar,eg}.json
-bash tools/print-book.sh <slug>       # QR codes, 5 PDFs, every check; must end "all checks passed"
-bash tools/make-teacher-pack.sh <slug>   # optional: one Letter teacher pack (cover + QR, worksheets, answers) from those PDFs
+bash tools/print-book.sh <slug>       # QR codes, 5 PDFs, every check, then the teacher pack; must end "all checks passed"
+# (it calls tools/make-teacher-pack.sh <slug> last: print/<slug>-teacher-pack-letter.pdf, the only teacher pack)
 ```
 
 `print-book.sh` makes the Lulu interior (32 pages, 8.5″ + 0.125″ bleed, DECO frames and

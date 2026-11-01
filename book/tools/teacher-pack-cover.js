@@ -69,7 +69,7 @@ ${ansRow}
     </div>
     <figure class="qr">
       <div class="code">${qrSvg}</div>
-      <figcaption><span class="line" lang="ar" dir="rtl">امْسَحْ لِتَفْتَحَ الْكِتَابَ</span><span class="en small">Scan to open the narrated web book</span></figcaption>
+      <figcaption><span class="line" lang="ar" dir="rtl">اِمْسَحْ لِتَفْتَحَ الْكِتَابَ</span><span class="en small">Scan to open the narrated web book</span></figcaption>
     </figure>
   </div>
   <p class="en url">${L.esc(url)}</p>

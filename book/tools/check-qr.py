@@ -34,7 +34,7 @@ def expected(pdf):
     return [[html.unescape(u) for u in re.findall(r'data-qr="([^"]*)"', p)] for p in parts]
 
 bad, rows, total = [], [], 0
-STEMS = ('-lulu-interior', '-lulu-cover', '-home-a5', '-worksheets-letter', '-worksheets-a4', '-teacher-pack')
+STEMS = ('-lulu-interior', '-lulu-cover', '-home-a5', '-worksheets-letter', '-worksheets-a4', '-teacher-pack-letter')
 for pdf in sorted(glob.glob(str(ROOT / 'print' / '*.pdf')) + glob.glob(str(ROOT / 'print' / 'draft' / '*.pdf'))):   # drafts: print/draft/
     name = Path(pdf).stem
     if slug and not any(name in (slug + st, slug + st + '-DRAFT') for st in STEMS):

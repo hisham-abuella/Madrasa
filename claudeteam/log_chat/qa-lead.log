@@ -23,3 +23,36 @@ Notes for next time:
   - Known escape routes to add: (a) page-level `.x .en` overriding `.btn .en` — token check blind; (b) contact-sheet-only art review misses hairline — zoom on every Salma face; (c) data-say buttons with no clip.
   - Measure targets after [data-reveal] transitions end (mid-reveal reads 54.9 for 56).
 [DONE]
+
+=== 2026-11-01 · qa-lead · Functional play-through: kids/sort/listen/build, story ?kg=1, adab sticker, parents form ===
+Lead / asked by: coordinator (independent functional verification; builder stopped before its own tests)
+Files reviewed: HEAD 9986257 (worktree has other agents' uncommitted edits, not touched); games/kids|sort|listen|build.html, games/play.js, assets/kids.js (speak, clipFor, sticker), lessons/story.html?kg=1, parents.html
+Harness: scratchpad/qa/*.js (Playwright ~/.kp-tools, served at /Madrasa/ on 127.0.0.1:8791; Audio/speechSynthesis/Navigation API instrumented); 75 screenshots in scratchpad/qa/shots/
+Findings:
+  [RUN] sort 3 vps: 10/10 all-correct -> done + sticker, baskets 4/6; wrong x1 = shake + hint, x2 = model line + glow, nothing lost; 8 s idle = no change; Play again resets 0/0
+  [RUN] listen 3 vps: 8/8 -> done, 8 stars; miss1 replays clip, miss2 reveals, miss3 glows, stars stay 0 until right; focus -> Next -> Listen
+  [RUN] build 3 vps: 8/8 rounds (4 with adjective) -> done, 8 stars; wrong dem x2 = glow; wrong noun = "قُلْنَا هَذِهِ، فَالْكَلِمَةُ فِيهَا ة" + replay + glow x2
+  [RUN] kids.html 3 vps: 6/6 tiles tap1 = speak + is-picked + stay, tap2 = open (all 200); keyboard Enter/Enter same
+  [RUN] story ?kg=1 3 vps: 7 slides/7 dots, no grammar words visible, find game fish/palm/shell + wrong retry, end sticker, Read again, auto-read stops at p6 (data-stop); deep #7 ok, #12 clamps to 1
+  [RUN] parents 3 vps: empty/space name blocked (focus + aria-invalid); mailto + wa.me bodies exact and encoded; Enter -> mailto; localStorage/sessionStorage/cookies empty before and after
+  [RUN] console 0 / pageerror 0 / failed 0 / 4xx 0 on every load; hscroll 0 at 1280/820/390 (mobile emulation); file:// 6/6 pages 0 errors, clips play from file://; links 221 relative checked, 0 broken (1 JS-built false positive)
+  [MAJOR] games/sort|listen|build.html:34 "Start screen" pl-back = btn--sm, 44 px high (48.2 at 390) on a child-facing nav (kids.css:507) — known escape route #8
+  [MAJOR] audio coverage: kids.html 5/6 tile names + greeting, 5/5 sticker phrases, all coach hints/praise, story KG p5-p7, build adjective read-backs (4/8), هَذَا قَلَمٌ / هَذَا بَحْرٌ have no clip -> device voice; forced no-Arabic-voice = text bubble only (useless to a pre-reader)
+  [MINOR] parents.html:151 empty name shows no visible error text, only focus ring; aria-invalid never cleared after a valid submit
+  [MINOR] games/listen.html:84 parent note still says "recorded word clips are coming" — clips ship
+  [MINOR] sort keyboard: focus stays on the chosen basket; reaching the other basket takes 15 Tabs (Shift+Tab 1); no arrow keys
+  [MINOR] build ROUNDS fixed order and fixed هَذَا/هَذِهِ tile positions (play.js:196) — replay is identical
+Decisions / judgement calls:
+  - Sort's 2 s auto-advance after a right answer is not a timer (no pressure, nothing lost) — accepted.
+  - Story find game ignores taps ~7.5 s while Noori models the line (echo) — by design, not a stuck state.
+  - Parents summary 44 px / footer trial 49 px are parent-facing — minor, as before.
+  - Headless Chromium "speaks" TTS (onstart fired), so the bubble path was proven only by forcing no Arabic voice.
+Fixed this run:
+  - none (read-only)
+Still open:
+  - pl-back 44 px — frontend-engineer; missing clips — motion-and-sound-designer (schedule one-by-one recording); parents error text — frontend-engineer; listen note wording — frontend-engineer
+Notes for next time:
+  - page.goto to same URL with only a new #hash does not reload — use a fresh context for deep-link tests.
+  - Story uses new Audio() then sets src: the 'playing' hook logs "undefined" — read currentSrc instead.
+  - Not checked: reduced-motion on these pages, VoiceOver, real iPad audio, 6 themes on games.
+[DONE]

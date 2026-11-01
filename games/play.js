@@ -52,10 +52,10 @@
   // a gentle clue first (look / listen), never "wrong"
   function clue(k, how) {
     var w = W[k];
-    if (w[2]) return ['انْتَبِهْ! بَعْضُ الْكَلِمَاتِ بِلَا ة، وَنَقُولُ لَهَا: هَذِهِ.', 'Careful! Some words have no ة, and we still say هَذِهِ.'];
-    if (how === 'listen') return ['اسْمَعْ آخِرَ الْكَلِمَةِ مَرَّةً أُخْرَى…', 'Listen to the end of the word again…'];
-    return w[1] === 'f' ? ['انْظُرْ إِلَى آخِرِ الْكَلِمَةِ: هَلْ تَرَى ة؟', 'Look at the end of the word. Do you see the little shell ة?']
-      : ['انْظُرْ إِلَى آخِرِ الْكَلِمَةِ: لَيْسَ فِيهَا ة.', 'Look at the end of the word: there is no ة.'];
+    if (w[2]) return ['اِنْتَبِهْ! بَعْضُ الْكَلِمَاتِ بِلَا ة، وَنَقُولُ مَعَهَا: هَذِهِ.', 'Careful! Some words have no ة, and we still say هَذِهِ.'];
+    if (how === 'listen') return ['اِسْمَعْ آخِرَ الْكَلِمَةِ مَرَّةً أُخْرَى…', 'Listen to the end of the word again…'];
+    return w[1] === 'f' ? ['اُنْظُرْ إِلَى آخِرِ الْكَلِمَةِ: هَلْ تَرَى ة؟', 'Look at the end of the word. Do you see the little shell ة?']
+      : ['اُنْظُرْ إِلَى آخِرِ الْكَلِمَةِ: لَيْسَ فِيهَا ة.', 'Look at the end of the word: there is no ة.'];
   }
   function modelLine(k) { return ['نَقُولُ: ' + sentence(k) + '.', 'We say: ' + DEM[W[k][1]] + ' ' + W[k][0] + ' — ' + W[k][3] + '.']; }
 
@@ -134,6 +134,10 @@
       show();
     }
     bm.addEventListener('click', function () { pick('m', bm); });
+    // arrow keys hop between the two baskets (keyboard / switch users)
+    [bm, bf].forEach(function (b) { b.addEventListener('keydown', function (e) {
+      if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].indexOf(e.key) > -1) { e.preventDefault(); (b === bm ? bf : bm).focus(); }
+    }); });
     bf.addEventListener('click', function () { pick('f', bf); });
     if (againBtn) againBtn.addEventListener('click', function () { KS.sfx('pop'); start(); try { card.scrollIntoView({ block: 'center' }); } catch (e) {} });
     start();
@@ -153,7 +157,7 @@
       card.setAttribute('aria-label', 'صُورَةٌ مَخْفِيَّةٌ — hidden picture (' + (i + 1) + ' / ' + items.length + ')');
       [cm, cf].forEach(function (b) { b.disabled = false; b.classList.remove('is-glow'); });
       next.hidden = true;
-      coach(i === 0 ? ['اسْمَعْ نُورِي، ثُمَّ اخْتَرْ: هَذَا أَمْ هَذِهِ؟', 'Listen to Noori, then choose: هَذَا or هَذِهِ?'] : ['اسْمَعْ… هَذَا أَمْ هَذِهِ؟', 'Listen… هَذَا or هَذِهِ?']);
+      coach(i === 0 ? ['اِسْمَعْ نُورِي، ثُمَّ اخْتَرْ: هَذَا أَمْ هَذِهِ؟', 'Listen to Noori, then choose: هَذَا or هَذِهِ?'] : ['اِسْمَعْ… هَذَا أَمْ هَذِهِ؟', 'Listen… هَذَا or هَذِهِ?']);
       if (unlocked) hearIt();
     }
     function reveal() { card.classList.remove('is-hidden'); card.setAttribute('aria-label', W[items[i]][0] + ' — ' + W[items[i]][3]); }
@@ -201,9 +205,9 @@
     var r, k, g, step, steps, misses, got, slots;
     function stepTiles() {
       var kind = steps[step], opts;
-      if (kind === 'dem') opts = [['m', DEM.m, demHtml('m'), DEM_EN.m], ['f', DEM.f, demHtml('f'), DEM_EN.f]];
+      if (kind === 'dem') opts = shuffle([['m', DEM.m, demHtml('m'), DEM_EN.m], ['f', DEM.f, demHtml('f'), DEM_EN.f]]);
       else if (kind === 'noun') opts = shuffle([[k, W[k][0], word(k), W[k][3]], [ROUNDS[r][1], W[ROUNDS[r][1]][0], word(ROUNDS[r][1]), W[ROUNDS[r][1]][3]]]);
-      else opts = [['m', ADJ.m, esc(ADJ.m), 'small (masculine)'], ['f', ADJ.f, KS.ta(ADJ.f), 'small (feminine)']];
+      else opts = shuffle([['m', ADJ.m, esc(ADJ.m), 'small (masculine)'], ['f', ADJ.f, KS.ta(ADJ.f), 'small (feminine)']]);
       tiles.innerHTML = opts.map(function (o) {
         var cls = kind === 'noun' ? '' : ' pl-tile--' + o[0];
         return '<button type="button" class="pl-tile' + cls + '" data-v="' + esc(o[0]) + '" data-w="' + esc(o[1]) + '" aria-label="' + esc(o[1] + ' — ' + o[3]) + '">' + o[2] + '</button>';
@@ -224,8 +228,8 @@
       strip.setAttribute('aria-label', 'الْجُمْلَةُ — the sentence: …');
       next.hidden = true;
       stepTiles();
-      coach(R[2] ? ['ابْنِ جُمْلَةً طَوِيلَةً: هَذَا أَوْ هَذِهِ، ثُمَّ الْكَلِمَةُ، ثُمَّ صَغِيرٌ أَوْ صَغِيرَةٌ.', 'A longer sentence: هَذَا or هَذِهِ, then the word, then “small”.']
-        : (r === 0 ? ['ابْنِ جُمْلَةً تَحْتَ الصُّورَةِ: اخْتَرْ هَذَا أَوْ هَذِهِ، ثُمَّ الْكَلِمَةَ.', 'Build a sentence for the picture: choose هَذَا or هَذِهِ, then the word.']
+      coach(R[2] ? ['اِبْنِ جُمْلَةً طَوِيلَةً: هَذَا أَوْ هَذِهِ، ثُمَّ الْكَلِمَةُ، ثُمَّ صَغِيرٌ أَوْ صَغِيرَةٌ.', 'A longer sentence: هَذَا or هَذِهِ, then the word, then “small”.']
+        : (r === 0 ? ['اِبْنِ جُمْلَةً تَحْتَ الصُّورَةِ: اخْتَرْ هَذَا أَوْ هَذِهِ، ثُمَّ الْكَلِمَةَ.', 'Build a sentence for the picture: choose هَذَا or هَذِهِ, then the word.']
           : ['جُمْلَةٌ جَدِيدَةٌ: هَذَا أَمْ هَذِهِ؟', 'A new sentence: هَذَا or هَذِهِ?']));
       say(W[k][0], sayBtn);
     }
@@ -256,7 +260,7 @@
       if (kind === 'dem') h = misses === 1 ? clue(k, 'listen') : modelLine(k);
       else if (kind === 'noun') h = (k === alt + '-f' || k.replace(/-f$/, '-m') === alt)     // قِطٌّ / قِطَّةٌ, مُعَلِّمٌ / مُعَلِّمَةٌ
         ? ['قُلْنَا هَذِهِ، فَالْكَلِمَةُ فِيهَا ة.', 'We said هَذِهِ, so the word has the little shell ة.']
-        : ['اسْمَعِ الْكَلِمَةَ، وَانْظُرْ إِلَى الصُّورَةِ.', 'Listen to the word and look at the picture.'];
+        : ['اِسْمَعِ الْكَلِمَةَ، وَانْظُرْ إِلَى الصُّورَةِ.', 'Listen to the word and look at the picture.'];
       else h = g === 'f' ? ['قُلْنَا هَذِهِ، فَالصِّفَةُ فِيهَا ة أَيْضًا.', 'We said هَذِهِ, so “small” takes the ة too: صَغِيرَةٌ.'] : ['قُلْنَا هَذَا، فَالصِّفَةُ بِلَا ة.', 'We said هَذَا, so “small” has no ة: صَغِيرٌ.'];
       coach(h, 'hint', true);
       if (kind === 'noun' && misses === 1) setTimeout(function () { say(W[k][0], sayBtn); }, 1600);
@@ -278,7 +282,10 @@
       if (r < ROUNDS.length) { show(); try { $('.pl-tile', tiles).focus({ preventScroll: true }); } catch (e) {} }
       else { next.hidden = true; done(['أَحْسَنْتُمْ! بَنَيْتُمْ كُلَّ الْجُمَلِ.', 'Well done! You built every sentence — every star is yours.'], ROUNDS.length); }
     });
-    function start() { r = 0; got = 0; hideDone(); progress(prog, ROUNDS.length, 0); show(); }
+    function start() {   // short sentences first, then the longer ones; a new order each time
+      ROUNDS = shuffle(ROUNDS.filter(function (x) { return !x[2]; })).concat(shuffle(ROUNDS.filter(function (x) { return x[2]; })));
+      r = 0; got = 0; hideDone(); progress(prog, ROUNDS.length, 0); show();
+    }
     if (againBtn) againBtn.addEventListener('click', function () { KS.sfx('pop'); start(); try { card.scrollIntoView({ block: 'center' }); } catch (e) {} });
     start();
   }

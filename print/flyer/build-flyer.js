@@ -88,7 +88,7 @@ const html = `<!doctype html>
       <img src="${rel('logos/img/c1.webp')}" alt="">
       <div><div class="ar">مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</div><div class="en">Nawras Fusha School, San Diego</div></div>
     </div>
-    <div class="ar tag">نَتَعَلَّمُ الفُصْحَى بِفَرَحٍ</div>
+    <div class="ar tag">نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ</div>
     <div class="tag-en">Fusha for little hearts, by the Pacific.</div>
     <div class="hero">
       <img src="${rel('assets/art/noori/wave.webp')}" alt="Noori the seagull waving">

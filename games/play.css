@@ -176,3 +176,6 @@ body { padding-bottom: 88px; }            /* room for the floating theme / sound
   .ks-small .ks-go { flex-direction: row; justify-content: center; gap: 12px; min-height: 96px; }
   .ks-small .ks-go__pic { height: 72px; width: 72px; }
 }
+
+/* the way back is for children too: full 56 px target (QA 2026-11-01) */
+.pl-back.btn--sm { min-height: 56px; padding-inline: 20px; }

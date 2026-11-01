@@ -72,3 +72,25 @@ Still open:
 Notes for next time:
   - Re-run: bash tools/make-teacher-pack.sh <slug> after every print-book.sh; drafts go to print/draft/ with -DRAFT.
 [DONE]
+
+=== 2026-11-01 · print-production-specialist · one teacher pack (drop make-print.js `pack`) ===
+Lead / asked by: coordinator
+Slug: noori-shell (tools only; no book PDF rebuilt)
+Files changed: book/tools/print-book.sh, book/tools/make-print.js, book/tools/check-qr.py, book/tools/make-teacher-pack.sh, book/README.md, .claude/skills/topic-book/SKILL.md
+Changes:
+  - print-book.sh: removed `one <slug>-teacher-pack pack`; after all checks pass it runs `bash tools/make-teacher-pack.sh <slug>` (pipefail: a pack failure stops the run before "all checks passed"); the clean-up loop also removes teacher-pack-letter (+ still the retired teacher-pack name); header lists teacher-pack-letter.
+  - make-print.js: `pack` format removed (flag, packCover(), the 2 sheet lines, 4 .packcover/.pack-list CSS lines, usage text). teacher-pack-cover.js has its own HTML/CSS and does not require make-print.js (not touched; another agent is editing it).
+  - check-qr.py: STEMS '-teacher-pack' -> '-teacher-pack-letter', so a slug run includes the pack.
+  - make-teacher-pack.sh: check-qr.py now called with "$slug" (was all PDFs, ~2 min); header says print-book.sh calls it last.
+  - README: make-print formats, print-book row, pack row (only one pack); SKILL step 3 line.
+Checks:
+  [PDF] bash -n print-book.sh, make-teacher-pack.sh: OK; node --check make-print.js OK; check-qr.py parses
+  [PDF] Noori byte-identity: HEAD make-print.js vs new, all 5 formats -> only diff is the 4 dead pack CSS lines (absent from the Oct 25 build too). Note: build/noori-shell-*.html (Oct 25) already differ from HEAD code (e.g. writing-line count) — older changes, not this one; expect that at the planned rebuild.
+  [QR] check-qr.py noori-shell: 6 PDFs, 60 codes (a5 13, cover 1, interior 12, pack-letter 12, ws-a4 11, ws-letter 11), all exact, 25mm+, quiet zone clear; 54 s. make-teacher-pack.sh's row grep matches.
+Decisions:
+  - Did NOT run print-book.sh (owner rule) nor make-teacher-pack.sh (teacher-pack-cover.js is mid-edit by another agent; re-running would bake half-edited text into the hub-linked PDF). Pack PDF unchanged.
+  - check-lulu.sh lists only Lulu files: no change needed.
+Still open:
+  - First real run of the chained print-book.sh happens at the post-redraw rebuild; confirm it ends "all checks passed" with exactly one print/<slug>-teacher-pack-letter.pdf.
+  - SKILL line 244 still says "the five book/print/<slug>-*.pdf links" for the hub (hub-links wording, left as is).
+[DONE]
