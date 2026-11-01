@@ -1,0 +1,297 @@
+{
+ "title": "Nawras game, sticker, start-screen and KG lines (Fusha)",
+ "lang": "ar",
+ "voice": "Hisham (local clone)",
+ "engine": "Fish S2-Pro 8-bit (mlx), local; Whisper large-v3-turbo QA. Record with tools/voice/record-one-by-one.sh audio/transcripts/games-ar.json --lang ar",
+ "about": "Lines KS.speak() reaches that had no clip on 2026-11-01. 'text' = as the page shows it (the WORD_CLIPS key); 'transcript' = what the model reads (a lone ة is spelled out as التَّاءُ الْمَرْبُوطَةُ). Clips go to audio/words/<id>.mp3 (loudnorm I=-16, 64 kbps mono), then add text→id to WORD_CLIPS in assets/kids.js.",
+ "slides": [
+  {
+   "id": "praise-ahsantum",
+   "text": "أَحْسَنْتُمْ!",
+   "transcript": "أَحْسَنْتُمْ!",
+   "source": "play.js PRAISE (joined to the sentence clip)"
+  },
+  {
+   "id": "praise-raei",
+   "text": "رَائِعٌ!",
+   "transcript": "رَائِعٌ!",
+   "source": "play.js PRAISE"
+  },
+  {
+   "id": "praise-mumtaz",
+   "text": "مُمْتَازٌ!",
+   "transcript": "مُمْتَازٌ!",
+   "source": "play.js PRAISE"
+  },
+  {
+   "id": "praise-barak",
+   "text": "بَارَكَ اللَّهُ فِيكُمْ!",
+   "transcript": "بَارَكَ اللَّهُ فِيكُمْ!",
+   "source": "play.js PRAISE"
+  },
+  {
+   "id": "naqul",
+   "text": "نَقُولُ:",
+   "transcript": "نَقُولُ.",
+   "source": "play.js modelLine (joined to the sentence clip)"
+  },
+  {
+   "id": "hint-no-ta",
+   "text": "اِنْتَبِهْ! بَعْضُ الْكَلِمَاتِ بِلَا ة، وَنَقُولُ مَعَهَا: هَذِهِ.",
+   "transcript": "اِنْتَبِهْ! بَعْضُ الْكَلِمَاتِ بِلَا تَاءٍ مَرْبُوطَةٍ، وَنَقُولُ مَعَهَا: هَذِهِ.",
+   "source": "play.js hint · lone ة spelled out for the voice"
+  },
+  {
+   "id": "hint-listen-end",
+   "text": "اِسْمَعْ آخِرَ الْكَلِمَةِ مَرَّةً أُخْرَى…",
+   "transcript": "اِسْمَعْ آخِرَ الْكَلِمَةِ مَرَّةً أُخْرَى.",
+   "source": "play.js hint (listen game)"
+  },
+  {
+   "id": "hint-see-ta",
+   "text": "اُنْظُرْ إِلَى آخِرِ الْكَلِمَةِ: هَلْ تَرَى ة؟",
+   "transcript": "اُنْظُرْ إِلَى آخِرِ الْكَلِمَةِ: هَلْ تَرَى التَّاءَ الْمَرْبُوطَةَ؟",
+   "source": "play.js hint · lone ة spelled out for the voice"
+  },
+  {
+   "id": "hint-no-ta-end",
+   "text": "اُنْظُرْ إِلَى آخِرِ الْكَلِمَةِ: لَيْسَ فِيهَا ة.",
+   "transcript": "اُنْظُرْ إِلَى آخِرِ الْكَلِمَةِ: لَيْسَ فِيهَا تَاءٌ مَرْبُوطَةٌ.",
+   "source": "play.js hint · lone ة spelled out for the voice"
+  },
+  {
+   "id": "sort-ask",
+   "text": "فِي أَيِّ سَلَّةٍ نَضَعُ الصُّورَةَ؟ سَلَّةُ هَذَا أَمْ سَلَّةُ هَذِهِ؟",
+   "transcript": "فِي أَيِّ سَلَّةٍ نَضَعُ الصُّورَةَ؟ سَلَّةُ هَذَا أَمْ سَلَّةُ هَذِهِ؟",
+   "source": "sort game start"
+  },
+  {
+   "id": "sort-next",
+   "text": "وَهَذِهِ الصُّورَةُ؟",
+   "transcript": "وَهَذِهِ الصُّورَةُ؟",
+   "source": "sort game next card"
+  },
+  {
+   "id": "sort-full",
+   "text": "السَّلَّتَانِ مُمْتَلِئَتَانِ!",
+   "transcript": "السَّلَّتَانِ مُمْتَلِئَتَانِ!",
+   "source": "sort game end"
+  },
+  {
+   "id": "sort-done",
+   "text": "أَحْسَنْتُمْ! وَضَعْتُمْ كُلَّ صُورَةٍ فِي سَلَّتِهَا.",
+   "transcript": "أَحْسَنْتُمْ! وَضَعْتُمْ كُلَّ صُورَةٍ فِي سَلَّتِهَا.",
+   "source": "sort game done"
+  },
+  {
+   "id": "listen-ask",
+   "text": "اِسْمَعْ نُورِي، ثُمَّ اخْتَرْ: هَذَا أَمْ هَذِهِ؟",
+   "transcript": "اِسْمَعْ نُورِي، ثُمَّ اخْتَرْ: هَذَا أَمْ هَذِهِ؟",
+   "source": "listen game start"
+  },
+  {
+   "id": "listen-next",
+   "text": "اِسْمَعْ… هَذَا أَمْ هَذِهِ؟",
+   "transcript": "اِسْمَعْ. هَذَا أَمْ هَذِهِ؟",
+   "source": "listen game next word"
+  },
+  {
+   "id": "listen-done",
+   "text": "أَحْسَنْتُمْ! سَمِعْتُمْ كُلَّ الْكَلِمَاتِ.",
+   "transcript": "أَحْسَنْتُمْ! سَمِعْتُمْ كُلَّ الْكَلِمَاتِ.",
+   "source": "listen game done"
+  },
+  {
+   "id": "small-m",
+   "text": "صَغِيرٌ",
+   "transcript": "صَغِيرٌ.",
+   "source": "build game tile"
+  },
+  {
+   "id": "small-f",
+   "text": "صَغِيرَةٌ",
+   "transcript": "صَغِيرَةٌ.",
+   "source": "build game tile"
+  },
+  {
+   "id": "this-sea",
+   "text": "هَذَا بَحْرٌ",
+   "transcript": "هَذَا بَحْرٌ.",
+   "source": "game sentence"
+  },
+  {
+   "id": "this-pen",
+   "text": "هَذَا قَلَمٌ",
+   "transcript": "هَذَا قَلَمٌ.",
+   "source": "game sentence"
+  },
+  {
+   "id": "this-boat-small",
+   "text": "هَذَا قَارِبٌ صَغِيرٌ",
+   "transcript": "هَذَا قَارِبٌ صَغِيرٌ.",
+   "source": "build game long sentence"
+  },
+  {
+   "id": "this-fish-small",
+   "text": "هَذِهِ سَمَكَةٌ صَغِيرَةٌ",
+   "transcript": "هَذِهِ سَمَكَةٌ صَغِيرَةٌ.",
+   "source": "build game long sentence"
+  },
+  {
+   "id": "this-girl-small",
+   "text": "هَذِهِ بِنْتٌ صَغِيرَةٌ",
+   "transcript": "هَذِهِ بِنْتٌ صَغِيرَةٌ.",
+   "source": "build game long sentence"
+  },
+  {
+   "id": "this-house-small",
+   "text": "هَذَا بَيْتٌ صَغِيرٌ",
+   "transcript": "هَذَا بَيْتٌ صَغِيرٌ.",
+   "source": "build game long sentence"
+  },
+  {
+   "id": "build-long",
+   "text": "اِبْنِ جُمْلَةً طَوِيلَةً: هَذَا أَوْ هَذِهِ، ثُمَّ الْكَلِمَةُ، ثُمَّ صَغِيرٌ أَوْ صَغِيرَةٌ.",
+   "transcript": "اِبْنِ جُمْلَةً طَوِيلَةً: هَذَا أَوْ هَذِهِ، ثُمَّ الْكَلِمَةُ، ثُمَّ صَغِيرٌ أَوْ صَغِيرَةٌ.",
+   "source": "build game coach"
+  },
+  {
+   "id": "build-ask",
+   "text": "اِبْنِ جُمْلَةً تَحْتَ الصُّورَةِ: اخْتَرْ هَذَا أَوْ هَذِهِ، ثُمَّ الْكَلِمَةَ.",
+   "transcript": "اِبْنِ جُمْلَةً تَحْتَ الصُّورَةِ: اخْتَرْ هَذَا أَوْ هَذِهِ، ثُمَّ الْكَلِمَةَ.",
+   "source": "build game coach"
+  },
+  {
+   "id": "build-new",
+   "text": "جُمْلَةٌ جَدِيدَةٌ: هَذَا أَمْ هَذِهِ؟",
+   "transcript": "جُمْلَةٌ جَدِيدَةٌ: هَذَا أَمْ هَذِهِ؟",
+   "source": "build game coach"
+  },
+  {
+   "id": "build-next",
+   "text": "رَائِعٌ! وَالْآنَ…",
+   "transcript": "رَائِعٌ! وَالْآنَ.",
+   "source": "build game next tile"
+  },
+  {
+   "id": "build-hint-word-f",
+   "text": "قُلْنَا هَذِهِ، فَالْكَلِمَةُ فِيهَا ة.",
+   "transcript": "قُلْنَا هَذِهِ، فَالْكَلِمَةُ فِيهَا تَاءٌ مَرْبُوطَةٌ.",
+   "source": "build hint · lone ة spelled out for the voice"
+  },
+  {
+   "id": "build-hint-look",
+   "text": "اِسْمَعِ الْكَلِمَةَ، وَانْظُرْ إِلَى الصُّورَةِ.",
+   "transcript": "اِسْمَعِ الْكَلِمَةَ، وَانْظُرْ إِلَى الصُّورَةِ.",
+   "source": "build hint"
+  },
+  {
+   "id": "build-hint-adj-f",
+   "text": "قُلْنَا هَذِهِ، فَالصِّفَةُ فِيهَا ة أَيْضًا.",
+   "transcript": "قُلْنَا هَذِهِ، فَالصِّفَةُ فِيهَا تَاءٌ مَرْبُوطَةٌ أَيْضًا.",
+   "source": "build hint · lone ة spelled out for the voice"
+  },
+  {
+   "id": "build-hint-adj-m",
+   "text": "قُلْنَا هَذَا، فَالصِّفَةُ بِلَا ة.",
+   "transcript": "قُلْنَا هَذَا، فَالصِّفَةُ بِلَا تَاءٍ مَرْبُوطَةٍ.",
+   "source": "build hint · lone ة spelled out for the voice"
+  },
+  {
+   "id": "build-done",
+   "text": "أَحْسَنْتُمْ! بَنَيْتُمْ كُلَّ الْجُمَلِ.",
+   "transcript": "أَحْسَنْتُمْ! بَنَيْتُمْ كُلَّ الْجُمَلِ.",
+   "source": "build game done"
+  },
+  {
+   "id": "kids-hello",
+   "text": "السَّلَامُ عَلَيْكُمْ! مَاذَا نَفْعَلُ الْيَوْمَ؟",
+   "transcript": "السَّلَامُ عَلَيْكُمْ! مَاذَا نَفْعَلُ الْيَوْمَ؟",
+   "source": "games/kids.html greeting"
+  },
+  {
+   "id": "kids-story",
+   "text": "قِصَّةٌ",
+   "transcript": "قِصَّةٌ.",
+   "source": "games/kids.html tile"
+  },
+  {
+   "id": "kids-write",
+   "text": "أَكْتُبُ",
+   "transcript": "أَكْتُبُ.",
+   "source": "games/kids.html tile"
+  },
+  {
+   "id": "kids-baskets",
+   "text": "سَلَّتَانِ",
+   "transcript": "سَلَّتَانِ.",
+   "source": "games/kids.html tile"
+  },
+  {
+   "id": "kids-listen",
+   "text": "اِسْمَعْ وَاخْتَرْ",
+   "transcript": "اِسْمَعْ وَاخْتَرْ.",
+   "source": "games/kids.html tile"
+  },
+  {
+   "id": "kids-build",
+   "text": "أَبْنِي جُمْلَةً",
+   "transcript": "أَبْنِي جُمْلَةً.",
+   "source": "games/kids.html tile"
+  },
+  {
+   "id": "st-salam",
+   "text": "السَّلَامُ عَلَيْكُمْ",
+   "transcript": "السَّلَامُ عَلَيْكُمْ.",
+   "source": "adab sticker"
+  },
+  {
+   "id": "st-shukran",
+   "text": "شُكْرًا",
+   "transcript": "شُكْرًا.",
+   "source": "adab sticker"
+  },
+  {
+   "id": "st-fadlik",
+   "text": "مِنْ فَضْلِكَ، مِنْ فَضْلِكِ",
+   "transcript": "مِنْ فَضْلِكَ، مِنْ فَضْلِكِ.",
+   "source": "adab sticker"
+  },
+  {
+   "id": "st-bismillah",
+   "text": "بِسْمِ اللَّهِ",
+   "transcript": "بِسْمِ اللَّهِ.",
+   "source": "adab sticker"
+  },
+  {
+   "id": "st-hamd",
+   "text": "الْحَمْدُ لِلَّهِ",
+   "transcript": "الْحَمْدُ لِلَّهِ.",
+   "source": "adab sticker"
+  },
+  {
+   "id": "write-turn",
+   "text": "الْآنَ دَوْرُكَ! اِضْغَطْ «اُكْتُبْ».",
+   "transcript": "الْآنَ دَوْرُكَ! اِضْغَطْ: اُكْتُبْ.",
+   "source": "write game"
+  },
+  {
+   "id": "kg-p05",
+   "text": "سَامِي يُشِيرُ وَيَقُولُ: هَذَا قَارِبٌ. هَذَا كِتَابٌ. هَذَا قَمَرٌ.",
+   "transcript": "سَامِي يُشِيرُ وَيَقُولُ: هَذَا قَارِبٌ. هَذَا كِتَابٌ. هَذَا قَمَرٌ.",
+   "source": "story ?kg=1 page 5 (data-kg-narr)"
+  },
+  {
+   "id": "kg-p06",
+   "text": "وَسَلْمَى تَقُولُ: هَذِهِ سَمَكَةٌ. هَذِهِ نَخْلَةٌ. هَذِهِ صَدَفَةٌ. وَالْآنَ… أَيْنَ السَّمَكَةُ؟ اضْغَطْ عَلَيْهَا!",
+   "transcript": "وَسَلْمَى تَقُولُ: هَذِهِ سَمَكَةٌ. هَذِهِ نَخْلَةٌ. هَذِهِ صَدَفَةٌ. وَالْآنَ، أَيْنَ السَّمَكَةُ؟ اضْغَطْ عَلَيْهَا!",
+   "source": "story ?kg=1 page 6 (data-kg-narr)"
+  },
+  {
+   "id": "kg-p13",
+   "text": "أَحْسَنْتُمْ يَا أَصْدِقَائِي! الْحَمْدُ لِلَّهِ. إِلَى اللِّقَاءِ!",
+   "transcript": "أَحْسَنْتُمْ يَا أَصْدِقَائِي! الْحَمْدُ لِلَّهِ. إِلَى اللِّقَاءِ!",
+   "source": "story ?kg=1 page 13 (data-kg-narr)"
+  }
+ ]
+}

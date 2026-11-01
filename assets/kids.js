@@ -323,13 +323,17 @@
     on();
     busy = setTimeout(off, 6000);
     try { if (curAudio) { curAudio.pause(); curAudio = null; } } catch (e) {}
-    var clip = (btn && btn.getAttribute && btn.getAttribute('data-audio')) || (KS.clipFor && KS.clipFor(text));
-    if (clip) {
+    var own = btn && btn.getAttribute && btn.getAttribute('data-audio');
+    var clips = own ? [own] : (KS.clipsFor && KS.clipsFor(text));
+    if (clips) {
       try {
-        var a = new Audio(clip); curAudio = a;
-        a.onended = off;
-        a.onerror = function () { tts(); };
-        var pr = a.play(); if (pr && pr.catch) pr.catch(function () { tts(); });
+        var i = 0;
+        (function next() {                       // play the clips one after another
+          var a = new Audio(clips[i]); curAudio = a;
+          a.onended = function () { if (curAudio !== a) return; if (++i < clips.length) { clearTimeout(busy); busy = setTimeout(off, 6000); next(); } else off(); };
+          a.onerror = function () { if (curAudio === a) tts(); };
+          var pr = a.play(); if (pr && pr.catch) pr.catch(function (e) { if (curAudio === a && (!e || e.name !== 'AbortError')) tts(); });
+        })();
         return;
       } catch (e) { /* fall through to the voice */ }
     }
@@ -762,6 +766,15 @@
     var k = WORD_CLIPS[bare(text)];
     if (!k) { var w = LABELS[text]; k = w && WORD_CLIPS[bare(w.split(' — ')[0])]; }   // a picture name, e.g. 'boy'
     return k ? AUDIO_BASE + 'words/' + k + '.mp3' : null;
+  };
+  /* a line with no clip of its own, e.g. «أَحْسَنْتُمْ! هَذَا وَلَدٌ.»: one clip per sentence part, or null */
+  KS.clipsFor = function (text) {
+    var one = KS.clipFor(text); if (one) return [one];
+    var parts = String(text || '').split(/[.!؟?:]+/).filter(function (p) { return bare(p); });
+    if (parts.length < 2) return null;
+    var out = [];
+    for (var i = 0; i < parts.length; i++) { var c = KS.clipFor(parts[i]); if (!c) return null; out.push(c); }
+    return out;
   };
   var CLOTH = { 'f-masc': 'var(--masc)', 'f-fem': 'var(--fem)', 'f-brand': 'var(--brand)', 'f-leaf': '#4CAF6A', 'f-blue': '#4C7DE0', 'f-coral': '#FF8A6B' };
 

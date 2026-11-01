@@ -25,6 +25,10 @@ CLI=$HOME/.local/bin/draw-things-cli
 NOORI="a cute round chubby cartoon baby seagull named Noori with a round white and cream body, a small orange beak, big kind round dark eyes with a white sparkle, rosy pink cheeks, soft grey wings with grey wing tips, small orange feet, and a tiny teal scarf around his neck"
 SAMI="a cheerful six-year-old cartoon boy with short black curly hair, warm light-brown skin, round soft face, small thin eyebrows, wearing a long-sleeved blue t-shirt, long navy trousers and white sneakers"
 SALMA="a cheerful six-year-old cartoon girl wearing a soft pink headscarf that covers all her hair and neck, warm light-brown skin, round soft face, small thin eyebrows, wearing a long-sleeved yellow dress with long white trousers underneath that cover her legs, white socks and pink shoes"
+# S-001 (2026-11-01): the fringe showed on bint / friends / nashit, so Salma
+# always carries the under-cap line, and her pages add NEG_SALMA.
+HIJAB="no hair visible at all, a snug white under-cap beneath the headscarf covers her whole forehead hairline, only her face shows"
+SALMA="$SALMA, $HIJAB"
 SHELL="a small pale pink scallop seashell"
 STYLE="bright cartoon children's book illustration, bold clean dark navy outlines, flat vibrant colours, simple rounded shapes, soft San Diego beach palette of ocean teal, warm sand, sunset coral and sky blue, gentle and cheerful, simple uncluttered background"
 # What Noori must not become, grown-ups, text, and the house content rules.
@@ -34,6 +38,7 @@ black bird, crow, duck, chicken, penguin, pelican, long neck, \
 idol, statue, cross, church, steeple, temple, pig, alcohol, wine, beer, bottle, revealing clothing, bare shoulders, bare legs, shorts, swimsuit, bikini, sleeveless, short skirt, \
 musical instrument, scary, angry, sharp teeth, crowd, cluttered, blurry, photorealistic, photograph, 3d render, painterly, gouache, watercolour texture"
 
+NEG_SALMA="hair, fringe, bangs, hair strands, bare forearms, bare arms, short sleeves, rolled-up sleeves"
 gen () {   # gen <key> "<prompt>" <seed>
   [[ -f "$DEST/$1.png" ]] && { echo "skip $1"; return; }
   $CLI generate --model z_image_turbo_1.0_q8p.ckpt \
@@ -48,7 +53,9 @@ gen cover "$NOORI standing on warm sand at the edge of a calm turquoise sea, hol
 gen salam "$NOORI flying happily over the calm blue Pacific ocean on a sunny morning, waving one wing at the viewer, small sailboats far away, golden cliffs and palm trees of the San Diego coast in the distance, $STYLE" 601
 # friends: with both children in one clause the model drew only Salma (seeds
 # 602-603, 704-706), so the three are placed left / middle / right explicitly.
-gen friends "three friends standing in a row on a sunny beach, full body view: on the left $SAMI waving, in the middle $NOORI, on the right $SALMA waving, calm sea behind, $STYLE" 804
+# friends 904-907 still drew a strip of brown hair under her cap (small face), so
+# the cap edge is placed at her eyebrows and dark hair is negated on this page.
+NEG="$NEG, $NEG_SALMA, brown hair, dark hair, black hair, hairline, hair under the scarf" gen friends "three friends standing in a row on a sunny beach, full body view: on the left $SAMI waving, in the middle $NOORI standing on the sand, on the right $SALMA waving, her white under-cap comes down to just above her eyebrows so only her face shows inside the pink scarf, calm sea behind, $STYLE" 1004
 gen qarib "$NOORI standing on a wooden post by the sea, pointing with one wing at a small red sailboat with a plain white sail floating on the calm water, $STYLE" 603
 gen kitab "$NOORI sitting on a striped beach towel on the sand, reading a big open picture book with plain blank pages, $STYLE" 604
 gen samaka "a happy little orange fish jumping out of a curling teal wave, and $NOORI watching it with delight from the shore, $STYLE" 605
@@ -66,15 +73,18 @@ NEG="$NEG, bird, seagull, duck, bow, ribbon, hello kitty" gen qitt "two cute car
 # right and Sami's short black hair is repeated.
 gen sadiq "on the left $SAMI with his short black curly hair uncovered, on the right $SALMA, the two children kneeling on the sand building a big sandcastle together, both smiling, full body view, $NOORI standing on top of the sandcastle, $STYLE" 710
 # bint: seed 611 dropped Noori's scarf, so the scarf is repeated on this page.
-gen bint "$SALMA standing on the beach with a curious puzzled face, one finger on her chin, thinking, $NOORI standing next to her looking up at her, his teal scarf clearly visible, full body view, $STYLE" 711
+NEG="$NEG, $NEG_SALMA, worried, sad, frown" gen bint "$SALMA standing on the beach with a curious wondering face and a small smile, one finger on her chin, thinking, $NOORI standing on the sand beside her looking up at her, his teal scarf clearly visible, full body view, $STYLE" 913
 gen shams "a big round smiling yellow sun shining over the calm blue sea, and $NOORI standing on a rock waving at the sun, $STYLE" 612
-gen nashit "$SAMI and $SALMA running happily along the beach side by side, full body view, flying a bright kite together, $NOORI flying above them, $STYLE" 613
+NEG="$NEG, $NEG_SALMA, brown hair, dark hair, black hair, hairline, hair under the scarf" gen nashit "$SAMI and $SALMA running happily along the beach side by side, both in long sleeves down to the wrists, her white under-cap comes down to just above her eyebrows so only her face shows inside the pink scarf, full body view, flying a bright kite together, $NOORI flying in the sky above them, $STYLE" 1013
 gen bye "$NOORI flying over the sea at sunset waving goodbye with one wing, an orange and pink sky, a thin crescent moon rising, $STYLE" 614
 # ── back cover ─────────────────────────────────────────────────────────────
 gen back "$NOORI standing on the sand waving goodbye with one wing, $SHELL at his feet, plain warm sand and sky with lots of empty space, $STYLE" 615
 echo "noori-shell IMAGES DONE"
 
 # ── REVIEW LOG (every page checked by eye on contact sheets and at full size) ──
+#   S-001 redraw 2026-11-01: bint 913 (911-914 all clean), friends 1004 (904-907
+#   showed hair under the cap; fixed by the eyebrow line), nashit 1013 (1014-1016
+#   gave Sami a headscarf). Old masters: build/old-art/.
 #   cover 600 · salam 601 · friends 804 · qarib 603 · kitab 604 · samaka 605
 #   nakhla 706 · sadafa 607 · ta 608 · qitt 810 · sadiq 710 · bint 711
 #   shams 612 · nashit 613 · bye 614 · back 615
