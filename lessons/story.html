@@ -624,7 +624,7 @@ html:not([data-art="svg"]) .s-art .fig .pic--img { filter: drop-shadow(0 4px 4px
       try { KS.speak(text); } catch (e) {}
       safeT = setTimeout(done, Math.max(2600, text.length * 95));
     }
-    if (kgText) { fallback(); return; }   // KG wording: no recorded clip yet (S-033, pending audio) — device voice / bubble
+    if (kgText) { fallback(); return; }   // KG wording: KS.speak plays its recorded clip (audio/words/kg-p05…), else the device voice
     audio.src = '../audio/story/' + voice + '/' + (s.getAttribute('data-audio') || clipId(n)) + '.mp3';
     audio.onended = done; audio.onerror = fallback;
     try { var p = audio.play(); if (p && p.catch) p.catch(function (e) { if (!e || e.name !== 'AbortError') fallback(); }); } catch (e) { fallback(); }

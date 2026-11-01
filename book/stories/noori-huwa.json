@@ -1,0 +1,992 @@
+{
+  "slug": "noori-huwa",
+  "title": "نُورِي وَالشَّاطِئُ النَّظِيفُ — Noori and the Clean Beach",
+  "icon": "🏖️",
+  "accent": "#0E7C86",
+  "desc": "A Nawras lesson book (DRAFT): Noori the seagull and his friends clean the beach and learn هُوَ and هِيَ — he and she for people and things — with the fence words بِنْتٌ، أُمٌّ، شَمْسٌ, plus تَفَضَّلْ / تَفَضَّلِي and أَحْسَنْتَ / أَحْسَنْتِ. Story, exercises and narration in Fusha and Egyptian.",
+  "ogdesc": "Noori and the Clean Beach — a Fusha lesson book on هُوَ and هِيَ for grade 1–2, with page-by-page narration and writing practice.",
+  "_draft": "Book 2 (S-044 + S-049), spec written 2026-11-01 from the approved page plan. No pictures or narration yet: words first, then art one picture at a time. Every page's \"proof\" list marks lines (†) for the teacher.",
+  "_markup": "[[word]] colours the ة at the end of that word (as in noori-shell). هُوَ / هَذَا (blue, m) and هِيَ / هَذِهِ (coral, f) are coloured automatically. Answers say \"m\" (هُوَ) / \"f\" (هِيَ).",
+  "topic": {
+    "auto": [
+      [
+        "هُوَ",
+        "m"
+      ],
+      [
+        "هِيَ",
+        "f"
+      ],
+      [
+        "هَذَا",
+        "m"
+      ],
+      [
+        "هَذِهِ",
+        "f"
+      ]
+    ],
+    "choices": [
+      "هُوَ",
+      "هِيَ"
+    ],
+    "recapFirst": "m",
+    "hint": "هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.",
+    "adjHint": "الصِّفَةُ مِثْلُ الضَّمِيرِ: هِيَ … ة — the describing word matches هُوَ or هِيَ",
+    "fillFence": "تَذَكَّرْ: بِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة)",
+    "answersEn": {
+      "circle": "The هِيَ words (the last two have no ة)",
+      "addta": "Add ة after هِيَ",
+      "match": "هُوَ or هِيَ",
+      "fill": "هُوَ or هِيَ",
+      "adj": "Adjective agreement"
+    },
+    "coverAlt": "نُورِي وَسَامِي وَسَلْمَى عَلَى شَاطِئٍ نَظِيفٍ — Noori, Sami and Salma on a clean beach",
+    "coverAltPrint": "Noori, Sami and Salma on a clean beach",
+    "backLine": "نُورِي، النَّوْرَسُ الصَّغِيرُ، يُعَلِّمُ: هَذَا… هُوَ، وَهَذِهِ… هِيَ. وَمَعًا نُنَظِّفُ الشَّاطِئَ!",
+    "backLineEn": "A Fusha lesson book for grade 1–2: a story in fourteen pages, then eleven pages of writing practice — tracing, circling, matching and drawing."
+  },
+  "pages": [
+    {
+      "key": "cover",
+      "type": "cover",
+      "img": "cover",
+      "tint": "#8FD3D9",
+      "ar": {
+        "eyebrow": "قِصَّةٌ عَنْ هُوَ وَهِيَ",
+        "title": "نُورِي وَالشَّاطِئُ النَّظِيفُ",
+        "line": "كِتَابُ الدَّرْسِ — مَدْرَسَةُ نَوْرَس لِلْفُصْحَى",
+        "note": "اقْرَؤُوا الْقِصَّةَ مَعًا، ثُمَّ اكْتُبُوا فِي صَفَحَاتِ التَّمَارِينِ.",
+        "say": "[warmly] نُورِي وَالشَّاطِئُ النَّظِيفُ. <break time=\"0.5s\" /> قِصَّةٌ عَنْ هُوَ، وَهِيَ."
+      },
+      "en": {
+        "eyebrow": "A story about he and she (هُوَ and هِيَ)",
+        "title": "Noori and the Clean Beach",
+        "line": "A lesson book from Nawras Fusha School, San Diego",
+        "note": "Read the story together first, then do the exercise pages with a pencil. Grade 1–2."
+      },
+      "eg": {
+        "line": "حِكاية عن هُوَ، وهِيَ.",
+        "say": "[warmly] نوري والشاطئ النظيف. <break time=\"0.5s\" /> حِكاية عن هُوَ وهِيَ: الولد هُوَ، والبنت هِيَ."
+      },
+      "proof": [
+        "† title «نُورِي وَالشَّاطِئُ النَّظِيفُ»: confirm the owners like it as book 2 of the series"
+      ]
+    },
+    {
+      "key": "title",
+      "type": "title",
+      "web": false,
+      "audio": false,
+      "ar": {
+        "title": "نُورِي وَالشَّاطِئُ النَّظِيفُ",
+        "line": "قِصَّةٌ وَتَمَارِينُ لِلصَّفِّ الْأَوَّلِ وَالثَّانِي",
+        "school": "مَدْرَسَةُ نَوْرَس لِلْفُصْحَى · سَان دِييغُو",
+        "name": "هَذَا الْكِتَابُ لِـ:"
+      },
+      "en": {
+        "title": "Noori and the Clean Beach",
+        "line": "A story and exercises · Grade 1–2",
+        "school": "Nawras Fusha School · San Diego",
+        "name": "This book belongs to:"
+      }
+    },
+    {
+      "key": "about",
+      "type": "about",
+      "audio": false,
+      "ar": {
+        "name": "عَنْ هَذَا الْكِتَابِ — لِلْأَهْلِ",
+        "body": [
+          "نُورِي، النَّوْرَسُ الصَّغِيرُ، يُعَلِّمُ أَطْفَالَنَا: هُوَ لِلْمُذَكَّرِ، وَهِيَ لِلْمُؤَنَّثِ.",
+          "نَقُولُ: هَذَا قَارِبٌ، هُوَ أَحْمَرُ. وَنَقُولُ: هَذِهِ سَمَكَةٌ، هِيَ صَغِيرَةٌ.",
+          "وَالْكَلِمَاتُ الْمُؤَنَّثَةُ بِلَا ة نَقُولُ مَعَهَا هِيَ أَيْضًا: هَذِهِ شَمْسٌ، هِيَ حَارَّةٌ.",
+          "اقْرَؤُوا الْقِصَّةَ بِصَوْتٍ عَالٍ، ثُمَّ اكْتُبُوا مَعَ طِفْلِكُمْ فِي صَفَحَاتِ التَّمَارِينِ. امْسَحُوا الرَّمْزَ لِتَسْمَعُوا كُلَّ صَفْحَةٍ بِالْفُصْحَى أَوْ بِالْمِصْرِيِّ."
+        ],
+        "scan": "امْسَحْ لِتَسْمَعَ الْقِصَّةَ"
+      },
+      "en": {
+        "name": "About this book — for parents",
+        "body": [
+          "Noori the seagull teaches the next idea after هَذَا / هَذِهِ: the words for “he” and “she”. هُوَ (huwa) points back to a masculine word, هِيَ (hiya) to a feminine one.",
+          "Arabic has no “it”: a boat is هُوَ and a fish is هِيَ, just as with people. هَذَا قَارِبٌ، هُوَ أَحْمَرُ — this is a boat, it (he) is red.",
+          "The fence: feminine words without the little shell ة still take هِيَ — شَمْسٌ (the sun), أُمٌّ (a mother), بِنْتٌ (a girl).",
+          "How to use it: read one story page a night aloud, pointing: هُوَ… هِيَ. Then do the exercise pages (from page 18) with a pencil; tracing starts at the green dot and runs right to left. Praise effort; never mark handwriting wrong.",
+          "Scan the code to hear every page read aloud in Fusha, or explained in Egyptian Arabic, and to write on an iPad."
+        ],
+        "scan": "Scan to listen and to write on a tablet"
+      },
+      "proof": [
+        "† the story also has تَفَضَّلْ / تَفَضَّلِي and أَحْسَنْتَ / أَحْسَنْتِ (speaking to a boy / a girl): introduced by use only, no rule stated — confirm that suits grade 1–2"
+      ]
+    },
+    {
+      "key": "salam",
+      "type": "story",
+      "img": "salam",
+      "tint": "#8FC8E8",
+      "ar": {
+        "name": "السَّلَامُ عَلَيْكُمْ!",
+        "line": "أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ. صَبَاحَ السَّبْتِ أَطِيرُ فَوْقَ الشَّاطِئِ… وَأَرَى عَلَى الرَّمْلِ أَشْيَاءَ لَيْسَ مَكَانُهَا هُنَا.",
+        "sound": "وَعَلَيْكُمُ السَّلَامُ يَا نُورِي!",
+        "note": "رُدُّوا التَّحِيَّةَ مَعًا، ثُمَّ ابْحَثُوا فِي الصُّورَةِ: مَاذَا تَرَوْنَ عَلَى الرَّمْلِ؟"
+      },
+      "en": {
+        "name": "Peace be upon you!",
+        "line": "I am Noori, the little seagull. On Saturday morning I fly over the beach… and on the sand I see things that don’t belong there.",
+        "sound": "And peace be upon you, Noori!",
+        "note": "Answer the greeting together, then look at the picture: what is lying on the sand?"
+      },
+      "eg": {
+        "line": "السلام عليكم! أنا نوري، النَّورس الصغير. يوم السبت الصبح بطير فوق البحر… وبشوف على الرملة حاجات مش مكانها هنا.",
+        "say": "[warmly] السلام عليكم يا صحابي! <break time=\"0.4s\" /> أنا نوري، النَّورس الصغير. <break time=\"0.4s\" /> يوم السبت الصبح بطير فوق البحر. <break time=\"0.4s\" /> [curious] وبشوف على الرملة حاجات… مش مكانها هنا! <break time=\"0.5s\" /> [cheerful] قولوا معايا: وعليكم السلام يا نوري!"
+      }
+    },
+    {
+      "key": "friends",
+      "type": "story",
+      "img": "friends",
+      "tint": "#F4C97A",
+      "ar": {
+        "name": "هُوَ صَدِيقِي، وَهِيَ صَدِيقَتِي",
+        "line": "جَاءَ سَامِي وَسَلْمَى. هَذَا سَامِي، هُوَ صَدِيقِي. وَهَذِهِ سَلْمَى، هِيَ صَدِيقَتِي.",
+        "sound": "أَهْلًا يَا سَامِي! أَهْلًا يَا سَلْمَى!",
+        "note": "أَشِيرُوا إِلَى سَامِي وَقُولُوا: هُوَ. ثُمَّ إِلَى سَلْمَى وَقُولُوا: هِيَ."
+      },
+      "en": {
+        "name": "He is my friend, and she is my friend",
+        "line": "Sami and Salma came. This is Sami, he is my friend. And this is Salma, she is my friend.",
+        "sound": "Hello, Sami! Hello, Salma!",
+        "note": "Point at Sami and say هُوَ (he); point at Salma and say هِيَ (she). That is the whole lesson in two words."
+      },
+      "eg": {
+        "line": "سامي وسَلْمى جُم. هذا سامي، هُوَ صاحبي. وهذهِ سَلْمى، هِيَ صاحبتي.",
+        "say": "[cheerful] سامي وسَلْمى جُم! <break time=\"0.4s\" /> هذا سامي: هُوَ صَدِيقِي. <break time=\"0.4s\" /> وهذهِ سَلْمى: هِيَ صَدِيقَتِي. <break time=\"0.5s\" /> شُفتوا؟ سامي ولد، فبنقول: هُوَ. وسَلْمى بنت، فبنقول: هِيَ."
+      }
+    },
+    {
+      "key": "recall",
+      "type": "story",
+      "img": "recall",
+      "tint": "#7FC4E8",
+      "ar": {
+        "name": "هَلْ تَتَذَكَّرُونَ؟",
+        "line": "قَالَ نُورِي: تَعَلَّمْنَا هَذَا وَهَذِهِ: هَذَا قَارِبٌ، هَذَا كِتَابٌ، هَذِهِ سَمَكَةٌ، هَذِهِ صَدَفَةٌ.",
+        "sound": "هَذَا… وَهَذِهِ!",
+        "note": "اقْرَؤُوا الْكَلِمَاتِ الْأَرْبَعَ مِنَ الْكِتَابِ الْأَوَّلِ، وَأَشِيرُوا إِلَى الصُّوَرِ."
+      },
+      "en": {
+        "name": "Do you remember?",
+        "line": "Noori said: “We learned هَذَا and هَذِهِ: this is a boat, this is a book, this is a fish, this is a shell.”",
+        "sound": "هَذَا… and هَذِهِ!",
+        "note": "Four words from the first Noori book. If your child has not read it, this page is enough: هَذَا for boy-words, هَذِهِ for girl-words."
+      },
+      "eg": {
+        "line": "نوري قال: اتعلّمنا هذا وهذهِ: هذا قارِبٌ، هذا كتابٌ، هذهِ سَمَكةٌ، هذهِ صَدَفةٌ.",
+        "say": "[warmly] فاكرين؟ <break time=\"0.4s\" /> اتعلّمنا هذا وهذهِ. <break time=\"0.4s\" /> هذا قارِبٌ، <break time=\"0.3s\" /> هذا كتابٌ، <break time=\"0.3s\" /> هذهِ سَمَكةٌ، <break time=\"0.3s\" /> هذهِ صَدَفةٌ. <break time=\"0.5s\" /> [cheerful] النهارده هنتعلّم كلمتين جداد!"
+      },
+      "proof": [
+        "† picture: one boat, one book, one fish and one shell together on the sand (a recall scene); check nothing reads as litter"
+      ]
+    },
+    {
+      "key": "huwa",
+      "type": "story",
+      "img": "huwa",
+      "tint": "#7FB8E8",
+      "big": "هُوَ",
+      "ar": {
+        "name": "هُوَ",
+        "line": "يُشِيرُ نُورِي إِلَى الْبَحْرِ: هَذَا قَارِبٌ. هُوَ أَحْمَرُ!",
+        "sound": "هَذَا… هُوَ!",
+        "note": "بَعْدَ هَذَا نَقُولُ: هُوَ. ارْفَعُوا يَدًا وَقُولُوا: هُوَ."
+      },
+      "en": {
+        "name": "He (it)",
+        "line": "Noori points at the sea: “This is a boat. It is red!”",
+        "sound": "هَذَا… هُوَ!",
+        "note": "هُوَ is this book’s first key word. After a هَذَا word we say هُوَ — Arabic says “he” for a boat, there is no “it”."
+      },
+      "eg": {
+        "line": "نوري بيشاوِر على البحر: هذا قارِبٌ. هُوَ أَحمرُ!",
+        "say": "[cheerful] نوري بيشاوِر على البحر. <break time=\"0.4s\" /> هذا قارِبٌ. <break time=\"0.3s\" /> هُوَ أَحمرُ! <break time=\"0.5s\" /> القارِب بنقول عليه هذا… وبعدين: هُوَ."
+      }
+    },
+    {
+      "key": "hiya",
+      "type": "story",
+      "img": "samaka",
+      "tint": "#F6B8C0",
+      "big": "هِيَ",
+      "ar": {
+        "name": "هِيَ",
+        "line": "قَفَزَتْ سَمَكَةٌ مِنَ الْمَوْجِ! هَذِهِ سَمَكَةٌ. هِيَ صَغِيرَةٌ!",
+        "sound": "هَذِهِ… هِيَ!",
+        "note": "بَعْدَ هَذِهِ نَقُولُ: هِيَ. قُولُوا مَعًا: هَذَا… هُوَ، هَذِهِ… هِيَ."
+      },
+      "en": {
+        "name": "She (it)",
+        "line": "A fish jumped out of the waves! “This is a fish. It is small!”",
+        "sound": "هَذِهِ… هِيَ!",
+        "note": "هِيَ is the second key word: after a هَذِهِ word we say هِيَ. Say the pairs together: هَذَا… هُوَ، هَذِهِ… هِيَ."
+      },
+      "eg": {
+        "line": "سَمَكة نطّت من المَوج! هذهِ سَمَكةٌ. هِيَ صغيرةٌ!",
+        "say": "[excited] سَمَكة نطّت من المَوج! <break time=\"0.4s\" /> هذهِ سَمَكةٌ. <break time=\"0.3s\" /> هِيَ صغيرةٌ! <break time=\"0.5s\" /> السَّمَكة بنقول عليها هذهِ… وبعدين: هِيَ."
+      },
+      "proof": [
+        "† reuses the book-1 picture samaka (Noori watching a jumping fish)"
+      ]
+    },
+    {
+      "key": "kis",
+      "type": "story",
+      "img": "kis",
+      "tint": "#A9D98B",
+      "ar": {
+        "name": "تَفَضَّلْ يَا سَامِي!",
+        "line": "قَالَتْ سَلْمَى: هَيَّا نُنَظِّفُ الشَّاطِئَ! تَفَضَّلْ يَا سَامِي. هَذَا كِيسٌ، هُوَ كَبِيرٌ.",
+        "sound": "شُكْرًا يَا سَلْمَى!",
+        "note": "نَقُولُ لِلْوَلَدِ: تَفَضَّلْ. نَاوِلُوا طِفْلَكُمْ شَيْئًا وَقُولُوا: تَفَضَّلْ… أَوْ تَفَضَّلِي."
+      },
+      "en": {
+        "name": "Here you are, Sami!",
+        "line": "Salma said: “Let’s clean the beach! Here you are, Sami. This is a bag; it is big.”",
+        "sound": "Thank you, Salma!",
+        "note": "تَفَضَّلْ (here you are) is said to a boy. Hand your child something and say it — then let them hand it back."
+      },
+      "eg": {
+        "line": "سَلْمى قالت: يلّا ننضّف البحر! اتفضّل يا سامي. هذا كيسٌ، هُوَ كبيرٌ.",
+        "say": "[cheerful] سَلْمى قالت: يلّا ننضّف الشاطئ! <break time=\"0.4s\" /> تَفَضَّلْ يا سامي. <break time=\"0.3s\" /> هذا كيسٌ، هُوَ كبيرٌ. <break time=\"0.5s\" /> [warmly] وسامي قال: شُكرًا يا سَلْمى!"
+      },
+      "proof": [
+        "† picture: Salma handing Sami a big plain blue bag (no print on it)"
+      ]
+    },
+    {
+      "key": "zujaja",
+      "type": "story",
+      "img": "zujaja",
+      "tint": "#8ED6C8",
+      "ar": {
+        "name": "تَفَضَّلِي يَا سَلْمَى!",
+        "line": "وَجَدَ سَامِي شَيْئًا عَلَى الرَّمْلِ: هَذِهِ زُجَاجَةٌ، هِيَ فَارِغَةٌ. تَفَضَّلِي يَا سَلْمَى، ضَعِيهَا فِي الْكِيسِ!",
+        "sound": "شُكْرًا يَا سَامِي!",
+        "note": "نَقُولُ لِلْبِنْتِ: تَفَضَّلِي. وَنَقُولُ: هِيَ، لِأَنَّ الزُّجَاجَةَ مُؤَنَّثَةٌ."
+      },
+      "en": {
+        "name": "Here you are, Salma!",
+        "line": "Sami found something on the sand: “This is a bottle; it is empty. Here you are, Salma — put it in the bag!”",
+        "sound": "Thank you, Sami!",
+        "note": "تَفَضَّلِي is said to a girl. And the bottle (زُجَاجَة, with the little shell ة) is هِيَ."
+      },
+      "eg": {
+        "line": "سامي لقى حاجة على الرملة: هذهِ زُجاجةٌ، هِيَ فاضية. اتفضّلي يا سَلْمى، حُطّيها في الكيس!",
+        "say": "[curious] سامي لقى حاجة على الرملة. <break time=\"0.4s\" /> هذهِ زُجاجةٌ، <break time=\"0.3s\" /> هِيَ فارِغةٌ. <break time=\"0.4s\" /> [cheerful] تَفَضَّلِي يا سَلْمى، حُطّيها في الكيس! <break time=\"0.5s\" /> وسَلْمى قالت: شُكرًا يا سامي!"
+      },
+      "proof": [
+        "† picture: a plain clear water bottle with a blue cap and no label (the book NEG bans bottles: this page needs a page-only override)",
+        "† ضَعِيهَا (put it, to a girl): Arabic checked, correct (ضَعِي + هَا, «هَا» = the bottle, هِيَ). Language expert: keep; it repeats the girl's ي of تَفَضَّلِي. Dropping it is a pedagogy call (load), not a correctness one."
+      ]
+    },
+    {
+      "key": "qitt",
+      "type": "story",
+      "img": "qitt",
+      "tint": "#F7CF8E",
+      "ar": {
+        "name": "هُوَ نَائِمٌ، وَهِيَ تَلْعَبُ",
+        "line": "عَلَى السُّورِ قِطٌّ وَقِطَّةٌ. هَذَا قِطٌّ، هُوَ نَائِمٌ. وَهَذِهِ قِطَّةٌ، هِيَ تَلْعَبُ.",
+        "sound": "هُوَ… وَهِيَ!",
+        "note": "مَثِّلُوا مَعًا: نَنَامُ مِثْلَ الْقِطِّ، ثُمَّ نَلْعَبُ مِثْلَ الْقِطَّةِ."
+      },
+      "en": {
+        "name": "He is asleep, and she is playing",
+        "line": "On the wall are a tomcat and a she-cat. This is the tomcat; he is asleep. And this is the she-cat; she is playing.",
+        "sound": "He… and she!",
+        "note": "Act it out: sleep like the tomcat (هُوَ نَائِمٌ), then play like the she-cat (هِيَ تَلْعَبُ)."
+      },
+      "eg": {
+        "line": "على السور قُطّتين. هذا قِطٌّ، هُوَ نايم. وهذهِ قِطّةٌ، هِيَ بتلعب.",
+        "say": "[playfully] على السور قُطّتين. <break time=\"0.4s\" /> هذا قِطٌّ: هُوَ نائِمٌ. <break time=\"0.4s\" /> وهذهِ قِطّةٌ: هِيَ تَلعبُ. <break time=\"0.5s\" /> يلّا نمثّل: ننام زيّ القُطّ… ونلعب زيّ القُطّة!"
+      }
+    },
+    {
+      "key": "shamsq",
+      "type": "story",
+      "img": "shams",
+      "tint": "#F2A7A0",
+      "ar": {
+        "name": "انْتَبِهُوا!",
+        "line": "نَظَرَتْ سَلْمَى إِلَى السَّمَاءِ: «شَمْسٌ»… لَيْسَ فِي آخِرِهَا ة! هَلْ نَقُولُ هُوَ أَمْ هِيَ؟",
+        "sound": "هُوَ… أَمْ هِيَ؟",
+        "note": "اسْأَلُوا طِفْلَكُمْ قَبْلَ أَنْ تَقْلِبُوا الصَّفْحَةَ.",
+        "say": "[curious] انْتَبِهُوا! <break time=\"0.4s\" /> نَظَرَتْ سَلْمَى إِلَى السَّمَاءِ: شَمْسٌ… <break time=\"0.3s\" /> لَيْسَ فِي آخِرِهَا تَاءٌ مَرْبُوطَةٌ! <break time=\"0.5s\" /> هَلْ نَقُولُ هُوَ، <break time=\"0.3s\" /> أَمْ هِيَ؟"
+      },
+      "en": {
+        "name": "Careful!",
+        "line": "Salma looked up at the sky: “شَمْس (sun)… has no ة at the end! Do we say هُوَ or هِيَ?”",
+        "sound": "هُوَ… or هِيَ?",
+        "note": "Ask your child before you turn the page — guessing first makes the next page stick."
+      },
+      "eg": {
+        "line": "سَلْمى بصّت للسما: «شَمسٌ»… مافيش في آخرها ة! نقول هُوَ ولّا هِيَ؟",
+        "say": "[curious] سَلْمى بصّت للسما. <break time=\"0.4s\" /> شَمسٌ… مافيش في آخرها تاء مربوطة! <break time=\"0.5s\" /> نقول: هُوَ؟ <break time=\"0.3s\" /> ولّا هِيَ؟"
+      }
+    },
+    {
+      "key": "fence",
+      "type": "story",
+      "img": "umm",
+      "tint": "#F7A98B",
+      "ar": {
+        "name": "هِيَ، بِلَا ة",
+        "line": "قَالَ نُورِي: هِيَ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة: هَذِهِ شَمْسٌ، هِيَ حَارَّةٌ. هَذِهِ أُمٌّ، هِيَ لَطِيفَةٌ.",
+        "sound": "شَمْسٌ، أُمٌّ، بِنْتٌ… هِيَ!",
+        "note": "هَذِهِ الْكَلِمَاتُ نَحْفَظُهَا: بِنْتٌ، أُمٌّ، شَمْسٌ — كُلُّهَا هِيَ.",
+        "say": "[warmly] هِيَ، بِلَا تَاءٍ مَرْبُوطَةٍ. <break time=\"0.4s\" /> قَالَ نُورِي: هِيَ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا تَاءٍ مَرْبُوطَةٍ: <break time=\"0.3s\" /> هَذِهِ شَمْسٌ، هِيَ حَارَّةٌ. <break time=\"0.3s\" /> هَذِهِ أُمٌّ، هِيَ لَطِيفَةٌ. <break time=\"0.5s\" /> [cheerful] شَمْسٌ، أُمٌّ، بِنْتٌ… هِيَ!"
+      },
+      "en": {
+        "name": "She — without ة",
+        "line": "Noori said: “هِيَ! Some words are feminine without ة: this is the sun, it is hot. This is a mother, she is kind.”",
+        "sound": "Sun, mother, girl… هِيَ!",
+        "note": "The fence, the same three words as book 1: بِنْت، أُمّ، شَمْس are feminine with no ة, so they take هَذِهِ and هِيَ."
+      },
+      "eg": {
+        "line": "نوري قال: هِيَ! فيه كلمات مُؤَنَّثة من غير ة: هذهِ شَمسٌ، هِيَ حارّةٌ. هذهِ أُمٌّ، هِيَ لطيفةٌ.",
+        "say": "[warmly] نوري قال: هِيَ! <break time=\"0.4s\" /> فيه كلمات مُؤَنَّثة من غير تاء مربوطة. <break time=\"0.4s\" /> هذهِ شَمسٌ: هِيَ حارّةٌ. <break time=\"0.4s\" /> هذهِ أُمٌّ: هِيَ لطيفةٌ. <break time=\"0.5s\" /> [gently] شَمس، أُمّ، بِنت… كلّهم: هِيَ."
+      },
+      "proof": [
+        "† picture: the sun over the sea, and on the sand a sun hat and a picnic basket — no mother drawn (no grown-ups in scenes; she lives in the words)"
+      ]
+    },
+    {
+      "key": "clean",
+      "type": "story",
+      "img": "clean",
+      "tint": "#9ED0F0",
+      "ar": {
+        "name": "الشَّاطِئُ نَظِيفٌ!",
+        "line": "وَضَعَ سَامِي وَسَلْمَى الْكِيسَ فِي سَلَّةِ الْمُهْمَلَاتِ مَعًا. انْظُرُوا! الشَّاطِئُ نَظِيفٌ، هُوَ جَمِيلٌ.",
+        "sound": "الْحَمْدُ لِلَّهِ!",
+        "note": "قُولُوا مَعًا: الشَّاطِئُ… هُوَ جَمِيلٌ. وَالْبَحْرُ… هُوَ أَزْرَقُ."
+      },
+      "en": {
+        "name": "The beach is clean!",
+        "line": "Sami and Salma put the bag in the bin together. Look! The beach is clean; it is beautiful.",
+        "sound": "Praise be to Allah!",
+        "note": "شَاطِئ (beach) and بَحْر (sea) are masculine words, so: هُوَ جَمِيلٌ، هُوَ أَزْرَقُ. At home: whose turn is it to tidy up?"
+      },
+      "eg": {
+        "line": "سامي وسَلْمى حطّوا الكيس في سلّة الزِّبالة سوا. بُصّوا! الشاطئ نظيف، هُوَ جميل.",
+        "say": "[happy] سامي وسَلْمى حطّوا الكيس في السلّة سوا. <break time=\"0.4s\" /> بُصّوا! <break time=\"0.3s\" /> الشاطِئُ نظيفٌ: هُوَ جميلٌ. <break time=\"0.5s\" /> [warmly] الحمد لله!"
+      },
+      "proof": [
+        "† picture: the two children dropping the bag into a plain green bin, clean sand, no writing on the bin"
+      ]
+    },
+    {
+      "key": "ahsanta",
+      "type": "story",
+      "img": "nashit",
+      "tint": "#F4C97A",
+      "ar": {
+        "name": "أَحْسَنْتَ! أَحْسَنْتِ!",
+        "line": "قَالَ نُورِي: أَحْسَنْتَ يَا سَامِي! أَحْسَنْتِ يَا سَلْمَى! هُوَ نَشِيطٌ، وَهِيَ نَشِيطَةٌ.",
+        "sound": "جَزَاكَ اللَّهُ خَيْرًا يَا نُورِي!",
+        "note": "امْدَحُوا طِفْلَكُمْ بِالْفُصْحَى: أَحْسَنْتَ لِلْوَلَدِ، وَأَحْسَنْتِ لِلْبِنْتِ."
+      },
+      "en": {
+        "name": "Well done (boy)! Well done (girl)!",
+        "line": "Noori said: “Well done, Sami! Well done, Salma! He is active, and she is active.”",
+        "sound": "May Allah reward you, Noori!",
+        "note": "أَحْسَنْتَ to a boy, أَحْسَنْتِ to a girl — only the last vowel changes. Use it at home this week whenever your child helps."
+      },
+      "eg": {
+        "line": "نوري قال: أحسنتَ يا سامي! أحسنتِ يا سَلْمى! هُوَ نشيط، وهِيَ نشيطة.",
+        "say": "[happy] نوري قال: أَحْسَنْتَ يا سامي! <break time=\"0.3s\" /> أَحْسَنْتِ يا سَلْمى! <break time=\"0.4s\" /> هُوَ نَشيطٌ، <break time=\"0.3s\" /> وهِيَ نَشيطةٌ. <break time=\"0.5s\" /> [warmly] وهمّا قالوا: جزاكَ اللهُ خيرًا يا نوري!"
+      },
+      "proof": [
+        "† «جَزَاكَ اللَّهُ خَيْرًا» said by both children together to Noori: Arabic checked, correct — the pronoun follows the one addressed (Noori, masculine singular), not the number of speakers. Wording itself: islamic-studies-advisor to confirm."
+      ]
+    },
+    {
+      "key": "share",
+      "type": "story",
+      "img": "hadiya",
+      "tint": "#F6B8C0",
+      "ar": {
+        "name": "هَدِيَّةٌ صَغِيرَةٌ",
+        "line": "وَجَدَتْ سَلْمَى صَدَفَةً جَمِيلَةً، فَأَعْطَتْهَا لِسَامِي: تَفَضَّلْ! هِيَ لَكَ. قَالَ سَامِي: شُكْرًا يَا سَلْمَى!",
+        "sound": "هَذِهِ صَدَفَةٌ… هِيَ جَمِيلَةٌ!",
+        "note": "مَنْ أَعْطَاكُمْ شَيْئًا الْيَوْمَ؟ قُولُوا لَهُ: شُكْرًا!"
+      },
+      "en": {
+        "name": "A little gift",
+        "line": "Salma found a pretty shell and gave it to Sami: “Here you are! It is for you.” Sami said: “Thank you, Salma!”",
+        "sound": "This is a shell… it is pretty!",
+        "note": "Who gave you something today? Say شُكْرًا (thank you) together — and notice the shell is هِيَ."
+      },
+      "eg": {
+        "line": "سَلْمى لقت صَدَفة حلوة، وادّتها لسامي: اتفضّل! هِيَ ليك. سامي قال: شكرًا يا سَلْمى!",
+        "say": "[warmly] سَلْمى لقت صَدَفة حلوة، <break time=\"0.3s\" /> وادّتها لسامي: <break time=\"0.3s\" /> تَفَضَّلْ! هِيَ لَكَ. <break time=\"0.5s\" /> [cheerful] وسامي قال: شُكرًا يا سَلْمى!"
+      },
+      "proof": [
+        "† picture: Salma holding out the pale pink shell to Sami, both smiling, Noori beside them"
+      ]
+    },
+    {
+      "key": "bye",
+      "type": "story",
+      "img": "bye",
+      "tint": "#F7A98B",
+      "ar": {
+        "name": "أَحْسَنْتُمْ!",
+        "line": "الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: هُوَ لِلْمُذَكَّرِ، وَهِيَ لِلْمُؤَنَّثِ. وَالشَّاطِئُ نَظِيفٌ!",
+        "sound": "إِلَى اللِّقَاءِ يَا أَصْدِقَائِي!",
+        "note": "الْآنَ إِلَى صَفَحَاتِ التَّمَارِينِ: قَلَمُ رَصَاصٍ، وَنَبْدَأُ مِنَ النُّقْطَةِ الْخَضْرَاءِ."
+      },
+      "en": {
+        "name": "Well done!",
+        "line": "Praise be to Allah, we learned: هُوَ for masculine words, هِيَ for feminine words. And the beach is clean!",
+        "sound": "Goodbye, my friends!",
+        "note": "Now the exercise pages: a pencil, and every tracing starts at the green dot."
+      },
+      "eg": {
+        "line": "الحمد لله، اتعلّمنا: هُوَ للمُذَكَّر، وهِيَ للمُؤَنَّث. والشاطئ نظيف!",
+        "say": "[happy] برافو عليكم! <break time=\"0.4s\" /> الحمد لله، اتعلّمنا: هُوَ للمُذَكَّر، <break time=\"0.3s\" /> وهِيَ للمُؤَنَّث. <break time=\"0.4s\" /> والشاطئ بقى نظيف! <break time=\"0.5s\" /> [warmly] مع السلامة يا صحابي!"
+      }
+    },
+    {
+      "key": "recap",
+      "type": "recap",
+      "ar": {
+        "name": "تَذَكَّرْ",
+        "masc": [
+          "هُوَ وَلَدٌ",
+          "هُوَ قِطٌّ",
+          "هُوَ قَارِبٌ",
+          "هُوَ كِيسٌ"
+        ],
+        "fem": [
+          "هِيَ بِنْتٌ",
+          "هِيَ [[قِطَّةٌ]]",
+          "هِيَ [[سَمَكَةٌ]]",
+          "هِيَ [[زُجَاجَةٌ]]"
+        ],
+        "rule": "هَذَا… هُوَ، وَهَذِهِ… هِيَ.",
+        "fence": "بِلَا ة، وَنَقُولُ هِيَ: بِنْتٌ، أُمٌّ، شَمْسٌ.",
+        "say": "[warmly] تَذَكَّرْ: <break time=\"0.4s\" /> هُوَ وَلَدٌ، هُوَ قِطٌّ، هُوَ قَارِبٌ. <break time=\"0.5s\" /> هِيَ بِنْتٌ، هِيَ قِطَّةٌ، هِيَ سَمَكَةٌ. <break time=\"0.5s\" /> [gently] وَبِلَا تَاءٍ مَرْبُوطَةٍ نَقُولُ هِيَ: بِنْتٌ، أُمٌّ، شَمْسٌ."
+      },
+      "en": {
+        "name": "Remember",
+        "note": "The whole lesson on one page: هُوَ words on one side, هِيَ words on the other. Keep it open while doing the exercises."
+      },
+      "eg": {
+        "say": "[warmly] افتكر: <break time=\"0.4s\" /> هُوَ وَلَدٌ، هُوَ قِطٌّ، هُوَ قارِبٌ. <break time=\"0.5s\" /> هِيَ بِنتٌ، هِيَ قِطّةٌ، هِيَ سَمَكةٌ. <break time=\"0.5s\" /> [gently] ومن غير تاء مربوطة بنقول هِيَ: بِنت، أُمّ، شَمس."
+      }
+    },
+    {
+      "key": "ex-huwa",
+      "type": "trace",
+      "exercise": 1,
+      "gender": "m",
+      "rows": [
+        {
+          "model": "هُوَ",
+          "repeat": 5
+        },
+        {
+          "model": "هُوَ وَلَدٌ",
+          "repeat": 2
+        },
+        {
+          "blank": 2
+        }
+      ],
+      "pad": [
+        "هُوَ",
+        "هُوَ وَلَدٌ"
+      ],
+      "ar": {
+        "name": "تَتَبَّعْ: هُوَ",
+        "line": "ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، ثُمَّ اكْتُبْ وَحْدَكَ.",
+        "say": "[gently] تَتَبَّعْ: هُوَ. <break time=\"0.4s\" /> ثُمَّ: هُوَ وَلَدٌ. <break time=\"0.4s\" /> ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، <break time=\"0.3s\" /> ثُمَّ اكْتُبْ وَحْدَكَ."
+      },
+      "en": {
+        "name": "Exercise 1 · Trace هُوَ",
+        "line": "Start at the green dot on the right, follow the arrow, then trace هُوَ وَلَدٌ (he is a boy) and write it alone."
+      },
+      "eg": {
+        "say": "[gently] امشي بالقلم على كلمة هُوَ. <break time=\"0.4s\" /> وبعدين: هُوَ وَلَدٌ. <break time=\"0.4s\" /> ابدأ من النقطة الخضرا، وبعدين اكتب لوحدك."
+      }
+    },
+    {
+      "key": "ex-hiya",
+      "type": "trace",
+      "exercise": 2,
+      "gender": "f",
+      "rows": [
+        {
+          "model": "هِيَ",
+          "repeat": 5
+        },
+        {
+          "model": "هِيَ بِنْتٌ",
+          "repeat": 2
+        },
+        {
+          "blank": 2
+        }
+      ],
+      "pad": [
+        "هِيَ",
+        "هِيَ بِنْتٌ"
+      ],
+      "ar": {
+        "name": "تَتَبَّعْ: هِيَ",
+        "line": "نَكْتُبُ مِنَ الْيَمِينِ إِلَى الْيَسَارِ.",
+        "say": "[gently] تَتَبَّعْ: هِيَ. <break time=\"0.4s\" /> ثُمَّ: هِيَ بِنْتٌ. <break time=\"0.4s\" /> نَكْتُبُ مِنَ الْيَمِينِ إِلَى الْيَسَارِ."
+      },
+      "en": {
+        "name": "Exercise 2 · Trace هِيَ",
+        "line": "Arabic is written right to left. Then trace هِيَ بِنْتٌ (she is a girl)."
+      },
+      "eg": {
+        "say": "[gently] امشي بالقلم على كلمة هِيَ. <break time=\"0.4s\" /> وبعدين: هِيَ بِنتٌ. <break time=\"0.4s\" /> بنكتب من اليمين للشمال."
+      }
+    },
+    {
+      "key": "ex-tafaddal",
+      "type": "trace",
+      "exercise": 3,
+      "rows": [
+        {
+          "model": "تَفَضَّلْ",
+          "repeat": 3
+        },
+        {
+          "model": "تَفَضَّلِي",
+          "repeat": 3
+        },
+        {
+          "blank": 2
+        }
+      ],
+      "pad": [
+        "تَفَضَّلْ",
+        "تَفَضَّلِي"
+      ],
+      "ar": {
+        "name": "تَتَبَّعْ: تَفَضَّلْ، تَفَضَّلِي",
+        "line": "تَفَضَّلْ لِلْوَلَدِ، وَتَفَضَّلِي لِلْبِنْتِ.",
+        "say": "[warmly] تَتَبَّعْ: تَفَضَّلْ. <break time=\"0.4s\" /> ثُمَّ: تَفَضَّلِي. <break time=\"0.4s\" /> تَفَضَّلْ لِلْوَلَدِ، وَتَفَضَّلِي لِلْبِنْتِ."
+      },
+      "en": {
+        "name": "Exercise 3 · Trace “here you are”",
+        "line": "تَفَضَّلْ to a boy, تَفَضَّلِي to a girl: the girl’s word ends in ي."
+      },
+      "eg": {
+        "say": "[warmly] امشي بالقلم على: تَفَضَّلْ. <break time=\"0.4s\" /> وبعدين: تَفَضَّلِي. <break time=\"0.4s\" /> تَفَضَّلْ للولد، وتَفَضَّلِي للبنت."
+      },
+      "proof": [
+        "† exercise 3 traces the courtesy pair instead of a third pronoun sentence (S-044) — confirm"
+      ]
+    },
+    {
+      "key": "ex-write",
+      "type": "write",
+      "exercise": 4,
+      "items": [
+        {
+          "pic": "boy",
+          "model": "هُوَ وَلَدٌ",
+          "trace": true
+        },
+        {
+          "pic": "girl",
+          "model": "هِيَ بِنْتٌ",
+          "trace": false
+        }
+      ],
+      "pad": [
+        "هُوَ وَلَدٌ",
+        ""
+      ],
+      "ar": {
+        "name": "انْظُرْ وَاكْتُبْ",
+        "line": "اكْتُبْ جُمْلَةً تَحْتَ كُلِّ صُورَةٍ.",
+        "say": "[warmly] انْظُرْ وَاكْتُبْ. <break time=\"0.4s\" /> تَحْتَ الْوَلَدِ: هُوَ وَلَدٌ. <break time=\"0.4s\" /> وَتَحْتَ الْبِنْتِ… مَاذَا نَكْتُبُ؟"
+      },
+      "en": {
+        "name": "Exercise 4 · Look and write",
+        "line": "Write a sentence next to each picture. The first is dotted to trace; the second is yours (answer: هِيَ بِنْتٌ)."
+      },
+      "eg": {
+        "say": "[warmly] بُصّ واكتب. <break time=\"0.4s\" /> جنب الولد: هُوَ وَلَدٌ. <break time=\"0.4s\" /> وجنب البنت… نكتب إيه؟"
+      }
+    },
+    {
+      "key": "ex-circle",
+      "type": "circle",
+      "exercise": 5,
+      "rows": [
+        [
+          "قِطٌّ",
+          "[[قِطَّةٌ]]"
+        ],
+        [
+          "[[سَمَكَةٌ]]",
+          "قَارِبٌ"
+        ],
+        [
+          "كِيسٌ",
+          "[[زُجَاجَةٌ]]"
+        ],
+        [
+          "[[صَدَفَةٌ]]",
+          "كِتَابٌ"
+        ],
+        [
+          "وَلَدٌ",
+          "بِنْتٌ"
+        ],
+        [
+          "شَمْسٌ",
+          "قَمَرٌ"
+        ]
+      ],
+      "answers": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "ar": {
+        "name": "ضَعْ دَائِرَةً حَوْلَ كَلِمَةِ هِيَ",
+        "line": "فِي كُلِّ سَطْرٍ كَلِمَةٌ نَقُولُ مَعَهَا هِيَ. انْتَبِهْ لِلسَّطْرَيْنِ الْأَخِيرَيْنِ!",
+        "say": "[playfully] ضَعْ دَائِرَةً حَوْلَ الْكَلِمَةِ الَّتِي نَقُولُ مَعَهَا: هِيَ. <break time=\"0.4s\" /> انْتَبِهْ لِلسَّطْرَيْنِ الْأَخِيرَيْنِ: كَلِمَاتٌ مُؤَنَّثَةٌ بِلَا تَاءٍ مَرْبُوطَةٍ!"
+      },
+      "en": {
+        "name": "Exercise 5 · Circle the هِيَ word",
+        "line": "One word in each row takes هِيَ. In the last two rows it has no ة."
+      },
+      "eg": {
+        "say": "[playfully] اعمل دايرة حوالين الكلمة اللي بنقول معاها: هِيَ. <break time=\"0.4s\" /> خلّي بالك من آخر سطرين: كلمات مُؤَنَّثة من غير تاء مربوطة!"
+      }
+    },
+    {
+      "key": "ex-addta",
+      "type": "addta",
+      "exercise": 6,
+      "rows": [
+        [
+          "هُوَ صَدِيقٌ",
+          "هِيَ صَدِيقَـ",
+          "صَدِيقَةٌ"
+        ],
+        [
+          "هُوَ نَشِيطٌ",
+          "هِيَ نَشِيطَـ",
+          "نَشِيطَةٌ"
+        ],
+        [
+          "هُوَ صَغِيرٌ",
+          "هِيَ صَغِيرَـ",
+          "صَغِيرَةٌ"
+        ],
+        [
+          "هُوَ كَبِيرٌ",
+          "هِيَ كَبِيرَـ",
+          "كَبِيرَةٌ"
+        ],
+        [
+          "هُوَ قِطٌّ",
+          "هِيَ قِطَّـ",
+          "قِطَّةٌ"
+        ]
+      ],
+      "pad": [
+        "هِيَ صَدِيقَةٌ",
+        "هِيَ نَشِيطَةٌ"
+      ],
+      "ar": {
+        "name": "هُوَ… وَهِيَ: أَضِفْ ة",
+        "line": "اكْتُبْ ة فِي الْمُرَبَّعِ بَعْدَ هِيَ.",
+        "say": "[playfully] هُوَ صَدِيقٌ… هِيَ صَدِيقَةٌ! <break time=\"0.4s\" /> اكْتُبِ التَّاءَ الْمَرْبُوطَةَ فِي الْمُرَبَّعِ بَعْدَ هِيَ."
+      },
+      "en": {
+        "name": "Exercise 6 · He… and she: add ة",
+        "line": "Write ة in the box so the word matches هِيَ: هُوَ صَدِيقٌ → هِيَ صَدِيقَةٌ."
+      },
+      "eg": {
+        "say": "[playfully] هُوَ صَديقٌ… هِيَ صَديقةٌ! <break time=\"0.4s\" /> اكتب التاء المربوطة في المربّع بعد هِيَ."
+      },
+      "proof": [
+        "† the addta rows here carry «هُوَ … / هِيَ …» before the word: check make-print lays out the longer left/stem cells without clipping",
+        "† Arabic of the five rows checked, correct: stems end in fatha + tatweel (صَدِيقَـ، نَشِيطَـ، صَغِيرَـ، كَبِيرَـ، قِطَّـ) so the ة joins; «هِيَ صَدِيقَةٌ» is the standard form for a girl friend"
+      ]
+    },
+    {
+      "key": "ex-match",
+      "type": "match",
+      "exercise": 7,
+      "items": [
+        {
+          "pic": "boy",
+          "word": "وَلَدٌ",
+          "ans": "m"
+        },
+        {
+          "pic": "fish",
+          "word": "[[سَمَكَةٌ]]",
+          "ans": "f"
+        },
+        {
+          "pic": "boat",
+          "word": "قَارِبٌ",
+          "ans": "m"
+        },
+        {
+          "pic": "mother",
+          "word": "أُمٌّ",
+          "ans": "f"
+        },
+        {
+          "pic": "sun",
+          "word": "شَمْسٌ",
+          "ans": "f"
+        },
+        {
+          "pic": "cat",
+          "word": "قِطٌّ",
+          "ans": "m"
+        }
+      ],
+      "ar": {
+        "name": "صِلْ: هُوَ أَمْ هِيَ؟",
+        "line": "ارْسُمْ خَطًّا مِنْ كُلِّ صُورَةٍ إِلَى هُوَ أَوْ هِيَ.",
+        "say": "[curious] هُوَ، أَمْ هِيَ؟ <break time=\"0.4s\" /> ارْسُمْ خَطًّا مِنْ كُلِّ صُورَةٍ إِلَى الْكَلِمَةِ الصَّحِيحَةِ."
+      },
+      "en": {
+        "name": "Exercise 7 · Match: هُوَ or هِيَ?",
+        "line": "Draw a line from each picture to هُوَ or هِيَ. Careful: the sun and the mother have no ة, but they are هِيَ."
+      },
+      "eg": {
+        "say": "[curious] هُوَ، ولّا هِيَ؟ <break time=\"0.4s\" /> ارسم خط من كل صورة للكلمة الصحّ."
+      }
+    },
+    {
+      "key": "ex-fill",
+      "type": "fill",
+      "exercise": 8,
+      "rows": [
+        {
+          "word": "وَلَدٌ",
+          "ans": "m"
+        },
+        {
+          "word": "بِنْتٌ",
+          "ans": "f"
+        },
+        {
+          "word": "[[قِطَّةٌ]]",
+          "ans": "f"
+        },
+        {
+          "word": "قَارِبٌ",
+          "ans": "m"
+        },
+        {
+          "word": "أُمٌّ",
+          "ans": "f"
+        },
+        {
+          "word": "صَدِيقٌ",
+          "ans": "m"
+        }
+      ],
+      "pad": [
+        "هُوَ وَلَدٌ",
+        "هِيَ بِنْتٌ"
+      ],
+      "ar": {
+        "name": "اكْتُبْ: هُوَ أَوْ هِيَ",
+        "line": "تَذَكَّرْ: بِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة).",
+        "say": "[gently] اكْتُبْ: هُوَ، أَوْ هِيَ. <break time=\"0.4s\" /> تَذَكَّرْ: بِنْتٌ، أُمٌّ، شَمْسٌ… هِيَ."
+      },
+      "en": {
+        "name": "Exercise 8 · Write هُوَ or هِيَ",
+        "line": "Write هُوَ or هِيَ on the line before each word: هُوَ وَلَدٌ (he is a boy), هِيَ بِنْتٌ (she is a girl)."
+      },
+      "eg": {
+        "say": "[gently] اكتب: هُوَ، ولّا هِيَ. <break time=\"0.4s\" /> افتكر: بِنت، أُمّ، شَمس… هِيَ."
+      }
+    },
+    {
+      "key": "ex-adj",
+      "type": "adj",
+      "exercise": 9,
+      "rows": [
+        {
+          "noun": "هُوَ وَلَدٌ",
+          "opts": [
+            "نَشِيطٌ",
+            "[[نَشِيطَةٌ]]"
+          ],
+          "ans": 0
+        },
+        {
+          "noun": "هِيَ بِنْتٌ",
+          "opts": [
+            "نَشِيطٌ",
+            "[[نَشِيطَةٌ]]"
+          ],
+          "ans": 1
+        },
+        {
+          "noun": "هَذِهِ شَمْسٌ، هِيَ",
+          "opts": [
+            "حَارٌّ",
+            "[[حَارَّةٌ]]"
+          ],
+          "ans": 1
+        },
+        {
+          "noun": "هَذَا كِيسٌ، هُوَ",
+          "opts": [
+            "كَبِيرٌ",
+            "[[كَبِيرَةٌ]]"
+          ],
+          "ans": 0
+        }
+      ],
+      "write": "هِيَ سَمَكَةٌ صَغِيرَةٌ",
+      "pad": [
+        "هُوَ وَلَدٌ نَشِيطٌ"
+      ],
+      "ar": {
+        "name": "تَحَدِّي الْأَبْطَالِ: الصِّفَةُ",
+        "line": "ضَعْ دَائِرَةً حَوْلَ الصِّفَةِ الصَّحِيحَةِ، ثُمَّ اكْتُبِ الْجُمْلَةَ.",
+        "say": "[excited] تَحَدِّي الْأَبْطَالِ! <break time=\"0.4s\" /> ضَعْ دَائِرَةً حَوْلَ الصِّفَةِ الصَّحِيحَةِ. <break time=\"0.4s\" /> هَذِهِ شَمْسٌ… هِيَ حَارَّةٌ!"
+      },
+      "en": {
+        "name": "Exercise 9 · Champions’ challenge: the describing word",
+        "line": "Circle the adjective that matches هُوَ or هِيَ, then copy the sentence: هِيَ سَمَكَةٌ صَغِيرَةٌ."
+      },
+      "eg": {
+        "say": "[excited] تحدّي الأبطال! <break time=\"0.4s\" /> اعمل دايرة حوالين الصِّفة الصحّ. <break time=\"0.4s\" /> هذهِ شَمسٌ… هِيَ حارّةٌ!"
+      },
+      "proof": [
+        "† adj rows 3–4 end in the pronoun («هَذِهِ شَمْسٌ، هِيَ …»): check the layout reads as one sentence"
+      ]
+    },
+    {
+      "key": "ex-draw-hiya",
+      "type": "draw",
+      "exercise": 10,
+      "gender": "f",
+      "start": "هِيَ",
+      "ar": {
+        "name": "ارْسُمْ: هِيَ…",
+        "line": "ارْسُمْ فِي الْمُرَبَّعِ، ثُمَّ اكْتُبْ: هِيَ…",
+        "say": "[warmly] ارْسُمْ شَيْئًا نَقُولُ لَهُ هِيَ: <break time=\"0.3s\" /> سَمَكَةً، أَوْ صَدَفَةً، أَوْ شَمْسًا. <break time=\"0.4s\" /> ثُمَّ اكْتُبْ تَحْتَهُ: هِيَ."
+      },
+      "en": {
+        "name": "Exercise 10 · Draw a هِيَ thing",
+        "line": "Draw something feminine in the box (a fish, a shell, the sun), then finish the sentence: هِيَ …"
+      },
+      "eg": {
+        "say": "[warmly] ارسم حاجة بنقول عليها هِيَ: <break time=\"0.3s\" /> سَمَكة، ولّا صَدَفة، ولّا شَمس. <break time=\"0.4s\" /> وبعدين اكتب تحتها: هِيَ."
+      }
+    },
+    {
+      "key": "ex-draw-huwa",
+      "type": "draw",
+      "exercise": 11,
+      "gender": "m",
+      "start": "هُوَ",
+      "ar": {
+        "name": "ارْسُمْ: هُوَ…",
+        "line": "ارْسُمْ فِي الْمُرَبَّعِ، ثُمَّ اكْتُبْ: هُوَ…",
+        "say": "[warmly] ارْسُمْ شَيْئًا نَقُولُ لَهُ هُوَ: <break time=\"0.3s\" /> قَارِبًا، أَوْ كِيسًا، أَوْ قَمَرًا. <break time=\"0.4s\" /> ثُمَّ اكْتُبْ تَحْتَهُ: هُوَ."
+      },
+      "en": {
+        "name": "Exercise 11 · Draw a هُوَ thing",
+        "line": "Draw something masculine in the box (a boat, a bag, the moon), then finish the sentence: هُوَ …"
+      },
+      "eg": {
+        "say": "[warmly] ارسم حاجة بنقول عليها هُوَ: <break time=\"0.3s\" /> قارِب، ولّا كيس، ولّا قمر. <break time=\"0.4s\" /> وبعدين اكتب تحتها: هُوَ."
+      }
+    },
+    {
+      "key": "certificate",
+      "type": "certificate",
+      "ar": {
+        "name": "شَهَادَةُ بَطَلِ / بَطَلَةِ الشَّاطِئِ النَّظِيفِ",
+        "pick": [
+          "أَنَا بَطَلٌ",
+          "أَنَا [[بَطَلَةٌ]]"
+        ],
+        "line": "أَنَا أَقُولُ هُوَ وَهِيَ مِثْلَ الْكِبَارِ!",
+        "who": "الِاسْمُ:",
+        "date": "التَّارِيخُ:",
+        "say": "[happy] أَحْسَنْتَ يَا بَطَلُ! وَأَحْسَنْتِ يَا بَطَلَةُ! <break time=\"0.4s\" /> تَقُولُونَ هُوَ وَهِيَ مِثْلَ الْكِبَارِ. <break time=\"0.4s\" /> [warmly] إِلَى اللِّقَاءِ!"
+      },
+      "en": {
+        "name": "Clean Beach Champion certificate",
+        "pick": "Tick one: I am a champion (boy) · I am a champion (girl).",
+        "line": "I say هُوَ and هِيَ like the grown-ups!",
+        "note": "Colour a star for each exercise page finished."
+      },
+      "eg": {
+        "say": "[happy] برافو عليك يا بطل، وبرافو عليكي يا بطلة! <break time=\"0.4s\" /> إنتو بتقولوا هُوَ وهِيَ زيّ الكبار. <break time=\"0.4s\" /> [warmly] مع السلامة!"
+      }
+    },
+    {
+      "key": "answers",
+      "type": "answers",
+      "web": false,
+      "audio": false,
+      "ar": {
+        "name": "الْإِجَابَاتُ — لِلْأَهْلِ"
+      },
+      "en": {
+        "name": "Answers — for parents",
+        "note": "Tracing and drawing pages have no single answer: praise the effort, never mark handwriting wrong."
+      }
+    },
+    {
+      "key": "practice",
+      "type": "practice",
+      "web": false,
+      "audio": false,
+      "ar": {
+        "name": "صَفْحَتِي لِلْكِتَابَةِ",
+        "line": "اكْتُبْ جُمَلًا تَبْدَأُ بِـ هُوَ أَوْ هِيَ."
+      },
+      "en": {
+        "name": "My writing page",
+        "line": "Write sentences that start with هُوَ or هِيَ."
+      }
+    },
+    {
+      "key": "end",
+      "type": "end",
+      "web": false,
+      "audio": false,
+      "ar": {
+        "name": "إِلَى اللِّقَاءِ!",
+        "line": "نَتَعَلَّمُ الْفُصْحَى بِفَرَحٍ",
+        "school": "مَدْرَسَةُ نَوْرَس لِلْفُصْحَى · سَان دِييغُو"
+      },
+      "en": {
+        "name": "Goodbye!",
+        "line": "Fusha for little hearts, by the Pacific.",
+        "credits": "Story and exercises: Nawras Fusha School (draft, not yet proofread by a teacher). Pictures: drawn locally with Z-Image Turbo. Narration: Hisham’s voice, recorded locally (Fusha and Egyptian). Set in Noto Naskh Arabic and Baloo Bhaijaan 2."
+      }
+    }
+  ]
+}

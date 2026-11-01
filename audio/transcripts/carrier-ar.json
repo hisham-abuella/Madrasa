@@ -1,0 +1,14 @@
+{
+ "title": "carrier takes for short words",
+ "lang": "ar",
+ "voice": "Hisham (local clone)",
+ "about": "A lone short word the model garbles is recorded inside a sentence, then cut out with ffmpeg (as cat-f).",
+ "slides": [
+  {
+   "id": "kids-story-carrier",
+   "text": "هَذِهِ قِصَّةٌ",
+   "transcript": "هَذِهِ قِصَّةٌ.",
+   "source": "carrier for kids-story (cut from the second word)"
+  }
+ ]
+}

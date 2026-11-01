@@ -213,7 +213,8 @@
    "id": "kids-story",
    "text": "قِصَّةٌ",
    "transcript": "قِصَّةٌ.",
-   "source": "games/kids.html tile"
+   "source": "games/kids.html tile",
+   "note": "Single word garbled in all 4 takes (one sounded rude): the tile plays the carrier sentence «هَذِهِ قِصَّةٌ» (audio/transcripts/carrier-ar.json)."
   },
   {
    "id": "kids-write",

@@ -1,6 +1,6 @@
 #!/bin/zsh
 # Record narration clips ONE AT A TIME in Hisham's cloned voice (local Fish S2-Pro + Whisper QA),
-# checking memory and the GPU before every clip. This is the only way local voice runs in this repo.
+# checking memory, the GPU and Ollama before every clip. This is the only way local voice runs in this repo.
 #
 # Usage:  tools/voice/record-one-by-one.sh <transcript.json> [--lang ar] [--min-free 30]
 #   transcript.json: {"slides":[{"id":..., "transcript":...}, ...]}  (see audio/transcripts/)
@@ -14,7 +14,9 @@ LANG_QA=ar; MIN_FREE=30
 while (( $# )); do case $1 in --lang) LANG_QA=$2; shift 2;; --min-free) MIN_FREE=$2; shift 2;; *) echo "unknown: $1"; exit 1;; esac; done
 NARRATE=~/Work/Whisper-audio/bakeoff
 OUT=~/Work/Whisper-audio/site-audio/slides/${${T:t:r}%-en}
-free_pct() { memory_pressure | awk -F': ' '/free percentage/{print $2+0}'; }
+# free RAM as the shared gate sees it (~/.local/share/ramgate); memory_pressure if ram-gate is missing
+free_pct() { if command -v ram-gate >/dev/null; then ram-gate status | awk '/^free RAM:/{gsub("%","",$3); print $3+0}'; else memory_pressure | awk -F': ' '/free percentage/{print $2+0}'; fi; }
+ollama_busy() { command -v ram-gate >/dev/null && ram-gate status | grep -q '^ollama loaded:' && ! ram-gate status | grep -q '^ollama loaded: none'; }
 
 cd $NARRATE || exit 1
 ids=($(python3 -c "import json,sys;print(' '.join(s['id'] for s in json.load(open(sys.argv[1]))['slides']))" $T))
@@ -24,6 +26,7 @@ for id in $ids; do
   [[ -f $OUT/$id.mp3 ]] && { echo "[$n/${#ids}] $id: already done"; continue; }
   # never two local model jobs at once (Draw Things, another narrate/mlx run, Voicebox)
   while pgrep -f "draw-things-cli|narrate.py|voicebox" >/dev/null; do echo "  waiting: another local model job is running"; sleep 60; done
+  while ollama_busy; do echo "  waiting: an Ollama model is loaded (no voice beside a big Ollama load)"; sleep 60; done
   free=$(free_pct)
   while (( free < MIN_FREE )); do echo "  waiting: memory free ${free}% < ${MIN_FREE}%"; sleep 60; free=$(free_pct); done
   echo "[$n/${#ids}] $id (memory free ${free}%)"

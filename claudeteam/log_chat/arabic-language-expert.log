@@ -122,3 +122,26 @@ Still open:
 Notes for next time:
   - Other agents had uncommitted edits in book/tools (make-print.js, check-qr.py, print-book.sh, make-teacher-pack.sh) during this run; the pack re-render used them.
 [DONE]
+
+=== 2026-11-01 · arabic-language-expert · Arabic review of book 2 spec «نُورِي وَالشَّاطِئُ النَّظِيفُ» (book/stories/noori-huwa.json, هُوَ / هِيَ) ===
+Lead / asked by: coordinator (new draft spec, before art and narration)
+Files reviewed: book/stories/noori-huwa.json (all ar.*, eg.*, rows/models/opts, topic hints, backLine); compared with book/stories/noori-shell.json; book/tools/make-transcripts.js (ar falls back to name+line+sound when no ar.say)
+Findings:
+  [MINOR] [TASHKEEL] recall ar.note — «وَأَشِيرُوا إِلَى الصُّورِ» (plural of صُورَة is صُوَر) — fixed → «إِلَى الصُّوَرِ»
+  [MINOR] [TASHKEEL] ex-addta ar.name — «أَضِفِ ة»: the helping kasra only belongs before a wasl (book 1 «أَضِفِ الصَّدَفَةَ»); before ة (read تَاءً) it is sukun — fixed → «أَضِفْ ة»
+  [MAJOR] [NARRATION] shamsq and fence had no ar.say, so make-transcripts would read the bare ة in «لَيْسَ فِي آخِرِهَا ة» / «بِلَا ة» (lone-ة TTS failure) — fixed: added ar.say on both («لَيْسَ فِي آخِرِهَا تَاءٌ مَرْبُوطَةٌ» — اسم ليس مرفوع; «بِلَا تَاءٍ مَرْبُوطَةٍ» — مجرور), same words as the page
+  [PROOF-NEEDED] zujaja ضَعِيهَا — correct; recommend keep (echoes the ي of تَفَضَّلِي); load is pedagogy's call — proof line updated
+  [PROOF-NEEDED] ahsanta «جَزَاكَ اللَّهُ خَيْرًا» from two children to Noori — correct (pronoun follows the addressee); wording to islamic-studies-advisor — proof line updated
+  [DONE] ex-addta rows «هُوَ صَدِيقٌ / هِيَ صَدِيقَـ» etc. — correct (fatha + tatweel stems) — proof line added; layout proof left for print
+OK (no change): agreement throughout (هُوَ أَحْمَرُ / أَزْرَقُ diptotes, أَشْيَاءَ, أَصْدِقَائِي); وَضَعَ سَامِي وَسَلْمَى (verb first, mixed subject → masc sg); يَا بَطَلُ / يَا بَطَلَةُ (نكرة مقصودة); الْكَلِمَاتِ الْأَرْبَعَ; fence words بِنْتٌ، أُمٌّ، شَمْسٌ all هِيَ, circle answers 1,0,1,0,1,0 right; match/fill/adj answers right; draw-page accusatives (سَمَكَةً، شَمْسًا، قَارِبًا…); eg lines natural Egyptian, Fusha targets kept, voice tags all from the list.
+Decisions / judgement calls:
+  - Wasl alifs left unmarked (اكْتُبْ، انْظُرْ، ارْسُمْ، امْسَحْ، اقْرَؤُوا) — why: book 1 spec writes them the same way; consistency within the series. (Site pages use اِمْسَحْ/اُكْتُبْ — a series-wide pass is a separate decision.)
+  - «هَيَّا نُنَظِّفُ» kept marfu' — why: book 1 «هَيَّا نُشِيرُ»; raf' (استئناف) is correct, jazm also possible.
+  - ex-addta line «… فِي الْمُرَبَّعِ بَعْدَ هِيَ» kept — style only; clearer option «… لِأَنَّنَا نَقُولُ: هِيَ».
+  - ex-circle say «كَلِمَاتٌ مُؤَنَّثَةٌ» for two words kept — style.
+Fixed this run: 4 items above — verified: JSON parses; U+FFFD grep 0; check-spec → "spec follows the Noori pattern" (7 warnings, all missing picture gen lines, none Arabic)
+Still open:
+  - Teacher sign-off on all † lines; ضَعِيهَا keep/drop → arabic-pedagogy-specialist; جَزَاكَ اللَّهُ خَيْرًا → islamic-studies-advisor
+Notes for next time:
+  - Any story page whose name/line/sound contains a lone ة needs its own ar.say (make-transcripts falls back to the screen text).
+[DONE]
