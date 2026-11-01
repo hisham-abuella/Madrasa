@@ -45,24 +45,25 @@ gen () {   # gen <key> "<prompt>" <seed>
 # Seeds: first draw 600 up in page order; a redraw adds 100 (7xx, 8xx, 9xx).
 # refuse to draw while a prompt is still a TODO (a "TODO" picture costs 90s of GPU and proves nothing)
 grep -qE '^[^#]*gen +[A-Za-z0-9_-]+ +"TODO' "$0" && { echo "write the TODO prompts in $0 first" >&2; exit 1; }
-# ── cover and story (TODO: one prompt per page, built from $NOORI $SAMI $SALMA $SHELL + $STYLE) ──
-gen cover "TODO $NOORI …, $STYLE" 600
-gen salam "TODO $NOORI …, $STYLE" 601
-gen friends "TODO $NOORI …, $STYLE" 602
-gen qarib "TODO $NOORI …, $STYLE" 603
-gen kitab "TODO $NOORI …, $STYLE" 604
-gen samaka "TODO $NOORI …, $STYLE" 605
-gen nakhla "TODO $NOORI …, $STYLE" 606
-gen sadafa "TODO $NOORI …, $STYLE" 607
-gen ta "TODO $NOORI …, $STYLE" 608
-gen qitt "TODO $NOORI …, $STYLE" 609
-gen sadiq "TODO $NOORI …, $STYLE" 610
-gen bint "TODO $NOORI …, $STYLE" 611
-gen shams "TODO $NOORI …, $STYLE" 612
-gen nashit "TODO $NOORI …, $STYLE" 613
-gen bye "TODO $NOORI …, $STYLE" 614
-gen back "TODO $NOORI …, $STYLE" 615
+# ── reused from book 1 (copied masters, not redrawn; the series looks like one hand) ──
+#   friends, qarib (page huwa), samaka (page hiya), shams (page shamsq), nashit (page ahsanta),
+#   bye, back:  for k in friends qarib samaka shams nashit bye back; do
+#                 cp -n art-hi/images-noori-shell/$k.png art-hi/images-noori-huwa/; done
+# ── new pages. Salma's pages carry NEG_SALMA and the eyebrow cap line (S-001 lesson:
+#    a small face otherwise grows a strip of hair under the cap). ─────────────────
+NEG="$NEG, $NEG_SALMA, brown hair, dark hair, black hair, hairline, hair under the scarf" gen cover "on the left $SAMI with his short black curly hair uncovered, in the middle $NOORI standing on the sand, on the right $SALMA, her white under-cap comes down to just above her eyebrows so only her face shows inside the pink scarf, the three friends standing together smiling on a clean sunny San Diego beach, Sami holding a plain blue bag, calm turquoise sea and one palm tree behind, $STYLE" 600
+# salam: the litter is plain and small (no bottle on this page: NEG bans bottles; S-049 bottle comes on zujaja)
+gen salam "$NOORI flying over a sunny San Diego beach in the morning, looking down with a curious face, on the sand below a crumpled plain white paper cup and a plain blue plastic bag lying near the water, calm turquoise sea, $STYLE" 701
+gen recall "close view of smooth sand at the beach with four things in a neat row: a small red sailboat toy with a plain white sail, a closed blue book with a plain cover, a happy little orange fish in a small puddle, and $SHELL, $NOORI standing behind them smiling, $STYLE" 702
+NEG="$NEG, $NEG_SALMA, brown hair, dark hair, black hair, hairline, hair under the scarf" gen kis "on the right $SALMA, her white under-cap comes down to just above her eyebrows so only her face shows inside the pink scarf, holding out a big plain blue bag with no print on it to the boy on the left, $SAMI with his short black curly hair uncovered taking it with a smile, full body view, sunny beach, $NOORI standing on the sand beside them, $STYLE" 703
+# zujaja: the book NEG bans "bottle" (alcohol rule); this page swaps it for an explicit plain-water-bottle negative set (islamic-studies-advisor, 2026-11-01)
+NEG="${NEG//bottle, /}, $NEG_SALMA, brown hair, dark hair, black hair, hairline, hair under the scarf, glass bottle, wine bottle, beer bottle, brown bottle, green bottle, label, liquid" gen zujaja "$SAMI with his short black curly hair uncovered bending down and picking up an empty clear plastic water bottle with a blue cap from the sand, on the right $SALMA, her white under-cap comes down to just above her eyebrows so only her face shows inside the pink scarf, holding open a big plain blue bag, full body view, sunny beach, $NOORI watching, $STYLE" 704
+NEG="$NEG, bird, seagull, duck, bow, ribbon, hello kitty" gen qitt "two cute cartoon cats on a low stone beach wall, on the left a big orange striped tabby tomcat curled up fast asleep with closed eyes, on the right a smaller calico she-cat with white, orange and grey patches and a little pink collar playfully batting a small ball of string, calm sea behind, $STYLE" 705
+# umm (page fence): the mother lives in the words; the picture shows the sun and her things, no person, no hands
+NEG="$NEG, person, people, child, hands, arms" gen umm "a big round smiling yellow sun shining over the calm blue sea, and on the sand below a wide straw sun hat and a woven picnic basket with bread and apples, a striped beach towel, lots of empty sand, $STYLE" 706
+NEG="$NEG, $NEG_SALMA, brown hair, dark hair, black hair, hairline, hair under the scarf" gen clean "on the left $SAMI with his short black curly hair uncovered and on the right $SALMA, her white under-cap comes down to just above her eyebrows so only her face shows inside the pink scarf, together dropping a full plain blue bag into a plain green bin with no writing on it, both smiling, full body view, a clean sunny beach with smooth empty sand, $NOORI flying above them, $STYLE" 707
+NEG="$NEG, $NEG_SALMA, brown hair, dark hair, black hair, hairline, hair under the scarf" gen hadiya "on the right $SALMA, her white under-cap comes down to just above her eyebrows so only her face shows inside the pink scarf, holding out an empty pale pink scallop seashell in her open hand to the boy on the left, $SAMI with his short black curly hair uncovered smiling, full body view, sunny beach, $NOORI standing on the sand beside them, $STYLE" 708
 echo "noori-huwa IMAGES DONE"
 
 # ── REVIEW LOG (every page checked by eye on contact sheets and at full size) ──
-#   <page> <seed> · …   Redrawn: <page> (<old seeds> <why>).   Accepted drift: …
+#   (not drawn yet: draw one page at a time with tools/try-seeds.sh, after the voice queue)

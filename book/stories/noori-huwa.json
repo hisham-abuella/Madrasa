@@ -192,7 +192,7 @@
     {
       "key": "huwa",
       "type": "story",
-      "img": "huwa",
+      "img": "qarib",
       "tint": "#7FB8E8",
       "big": "هُوَ",
       "ar": {
@@ -400,7 +400,7 @@
         "name": "Well done (boy)! Well done (girl)!",
         "line": "Noori said: “Well done, Sami! Well done, Salma! He is active, and she is active.”",
         "sound": "May Allah reward you, Noori!",
-        "note": "أَحْسَنْتَ to a boy, أَحْسَنْتِ to a girl — only the last vowel changes. Use it at home this week whenever your child helps."
+        "note": "أَحْسَنْتَ to a boy, أَحْسَنْتِ to a girl — only the last vowel changes. Use it at home this week whenever your child helps. جَزَاكَ اللَّهُ خَيْرًا is how we thank someone for a kindness; the reply is وَإِيَّاكَ."
       },
       "eg": {
         "line": "نوري قال: أحسنتَ يا سامي! أحسنتِ يا سَلْمى! هُوَ نشيط، وهِيَ نشيطة.",
@@ -432,7 +432,7 @@
         "say": "[warmly] سَلْمى لقت صَدَفة حلوة، <break time=\"0.3s\" /> وادّتها لسامي: <break time=\"0.3s\" /> تَفَضَّلْ! هِيَ لَكَ. <break time=\"0.5s\" /> [cheerful] وسامي قال: شُكرًا يا سَلْمى!"
       },
       "proof": [
-        "† picture: Salma holding out the pale pink shell to Sami, both smiling, Noori beside them"
+        "† picture: Salma holding out an empty pale pink shell (no living animal inside) to Sami, both smiling, Noori beside them — we do not encourage collecting shells (protected beaches)"
       ]
     },
     {

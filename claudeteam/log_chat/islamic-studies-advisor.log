@@ -35,3 +35,27 @@ Decisions / judgement calls:
 Still open:
   - mockups/06 "manners woven into every lesson" still overstates (one lesson now lives salam, sharing, helping, thanking) — owner: ceo / ui-designer
 [DONE]
+
+=== 2026-11-01 · islamic-studies-advisor · Book 2 spec review: book/stories/noori-huwa.json (S-049 clean beach, هُوَ / هِيَ) (read-only) ===
+Lead / asked by: book-2 lead (spec review before art and narration)
+Files reviewed: book/stories/noori-huwa.json (all pages, ar/en/eg/proof), book/stories/noori-shell.json (compare), book/source/gen-noori-huwa.sh (NEG, $HIJAB, gen()), claudeteam/suggestions.jsonl S-049, assets/art/source/gen-art.sh $HIJAB
+Verdict: APPROVE with minor changes. No veto.
+Findings:
+  [RULING] [ADAB] ahsanta — «جَزَاكَ اللَّهُ خَيْرًا يَا نُورِي!» said by both children to Noori: wording correct and respectful; it is the established thanks for a kindness (Noori's praise and teaching), masculine singular follows the addressee. EN "May Allah reward you" correct. Allah's name is in a spoken story line, not a mechanic/option/sticker — accepted. Optional: EN note could add "we say it to thank someone for a kindness; the reply is وَإِيَّاكَ / وَإِيَّاكُمْ" — not required.
+  [ADAB] lived, not preached: kis (Salma offers bag «تَفَضَّلْ» → «شُكْرًا»), zujaja (Sami «تَفَضَّلِي» → «شُكْرًا»), clean (bin together, «الْحَمْدُ لِلَّهِ»), ahsanta (praise → du'a), share (shell gift → «شُكْرًا»), bye («الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا»). No moralising line, no blame for whoever littered, no fear talk. Good. One core value (clean beach / care for creation) with courtesy words that serve the grammar; shell gift echoes book 1 — acceptable.
+  [MINOR] [ADAB] share — in a care-for-creation book, the shell Salma picks up should be clearly empty (no living creature); SD has marine protected areas where taking even shells is banned. Fix: proof/prompt "an empty shell lying on the sand"; optionally the EN note avoids encouraging collecting from tide pools.
+  [MINOR] [HALAL] zujaja — bottle override must drop only "bottle" from NEG for this page and keep "alcohol, wine, beer"; add "glass bottle, wine bottle, beer bottle, brown bottle, green bottle, label, liquid"; prompt "an empty clear plastic water bottle with a blue cap". Owner: art-director.
+  [MINOR] [HALAL] fence — picnic basket: keep the full NEG (bottle stays banned), contents fruit/bread only; sun hat lying on the sand, not on a figure; no adult hands. Mother lives only in words — fine. Proof item approved.
+  [MINOR] [ADAB] qitt — the she-cat must not get a bow / branded look (qitt 709/710 lesson); keep calico. Owner: art-director.
+  [MAJOR] [MODESTY] book/source/gen-noori-huwa.sh — still the book-1 scaffold: page keys do not match the spec (kis, zujaja, recall, huwa, umm, clean, hadiya missing), and gen() always uses $NEG, so NEG_SALMA (fringe, bare forearms) is defined but never applied. Fix before any drawing: gen() takes an optional neg argument; every Salma page passes "$NEG, $NEG_SALMA". Check every headscarf at full size. Owner: art-director.
+  Clean: no prophets/angels, no Qur'an/hadith text, no Allah's name in any exercise/answer/certificate; no grown-ups drawn (ex-match "mother" and ex-write "girl" are the allowed word pictures); bag, bin, bottle, hat, basket all plain with no writing; Saturday outing takes no side; greetings «السَّلَامُ عَلَيْكُمْ / وَعَلَيْكُمُ السَّلَامُ» correct; «هَذِهِ أُمٌّ، هِيَ لَطِيفَةٌ» honours mothers; nothing culture-as-religion.
+Decisions / judgement calls:
+  - Two «الْحَمْدُ لِلَّهِ» (clean sound, bye line) close together: accepted — natural, story pages, not exercises.
+  - Children making du'a for a talking seagull: accepted — Noori is the teacher-friend in a fiction; du'a for any one who does good is fine.
+Fixed this run:
+  - none (read-only)
+Still open:
+  - gen-noori-huwa.sh page list + NEG_SALMA wiring (art-director, before any GPU run); bottle/basket/cat prompt notes (art-director); optional share "empty shell" + ahsanta EN note (book lead / arabic-language-expert)
+Notes for next time:
+  - When art arrives: check Salma on kis, zujaja, clean, ahsanta, share, cover, friends at full size (hairline, neck, wrists, ankles); check zujaja reads as water, not a drink.
+[DONE]
