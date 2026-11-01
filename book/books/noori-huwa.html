@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="pacific" data-theme-fixed data-no-picker>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="description" content="A Nawras lesson book (DRAFT): Noori the seagull and his friends clean the beach and learn هُوَ and هِيَ — he and she for people and things — with the fence words بِنْتٌ، أُمٌّ، شَمْسٌ, plus تَفَضَّلْ / تَفَضَّلِي and أَحْسَنْتَ / أَحْسَنْتِ. Story, exercises and narration in Fusha and Egyptian.">
+<meta property="og:title" content="نُورِي وَالشَّاطِئُ النَّظِيفُ — Noori and the Clean Beach">
+<meta property="og:description" content="Noori and the Clean Beach — a Fusha lesson book on هُوَ and هِيَ for grade 1–2, with page-by-page narration and writing practice.">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://hisham-abuella.github.io/Madrasa/book/images-noori-huwa/cover.jpg">
+<meta property="og:url" content="https://hisham-abuella.github.io/Madrasa/book/books/noori-huwa.html">
+<meta name="twitter:card" content="summary_large_image">
+<title>نُورِي وَالشَّاطِئُ النَّظِيفُ — Noori and the Clean Beach</title>
+<!-- Built by tools/new-story.js from stories/noori-huwa.json — do not edit by hand. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Noto+Naskh+Arabic:wght@400..700&display=swap">
+<link rel="stylesheet" href="../../assets/kids.css">
+<style>
+  /* the same fonts, shipped beside the book, so it reads offline and from file:// */
+  @font-face{font-family:"Noto Naskh Arabic";src:url("../fonts/NotoNaskhArabic.ttf") format("truetype");font-weight:400 700;font-display:swap}
+  @font-face{font-family:"Baloo Bhaijaan 2";src:url("../fonts/BalooBhaijaan2.ttf") format("truetype");font-weight:400 800;font-display:swap}
+  :root{
+    --page:#FFFDF7;
+    --ink:#0B3540;
+    --ink2:#3A6470;
+    --surround:#0B2F38;
+    --surround-2:#124651;
+    --quiet:#4F6F78;
+    --rule:rgba(11,53,64,.14);
+    --acc:#0E7C86;
+    --acc-text:#0A6A72;
+    --m:#12658C; --m-fill:#3BA7D6;
+    --f:#B8391C; --f-fill:#FF8A6B;
+    --ta-c:#C23B1E;
+    --good:#1E7A32; --good-bg:#E6F7EA;
+    --tint:transparent;
+    --word:"Noto Naskh Arabic","Geeza Pro","Times New Roman",serif;
+    --ui:"Baloo Bhaijaan 2","Geeza Pro",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;min-height:100vh;
+    background:radial-gradient(120% 80% at 50% 0%, var(--surround-2) 0%, var(--surround) 62%);
+    color:var(--page);font-family:var(--ui);font-size:17px;line-height:1.5;
+    padding:16px 16px 36px;display:flex;flex-direction:column;align-items:center;gap:14px;
+  }
+  .skip{position:absolute;inset-inline-start:-999px;top:8px;background:var(--page);color:var(--ink);padding:8px 14px;border-radius:999px;z-index:20}
+  .skip:focus{inset-inline-start:12px}
+
+  /* ---------- top bar ---------- */
+  .bar{width:min(860px,100%);display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  .bar-group{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .seg{display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,253,247,.08);border:1px solid rgba(255,253,247,.16)}
+  .seg button{background:transparent;border:none;color:#CFE3E3;font-family:var(--ui);font-size:.95rem;padding:8px 14px;border-radius:999px;min-height:56px;transition:background .18s ease,color .18s ease}
+  .seg button[aria-pressed="true"]{background:var(--page);color:var(--ink);font-weight:700}
+  .seg button:hover:not([aria-pressed="true"]){color:var(--page)}
+  .seg button small{display:block;font-size:.66rem;line-height:1;opacity:.75}
+  .pill{background:transparent;border:1px solid rgba(255,253,247,.26);color:#CFE3E3;border-radius:999px;padding:8px 14px;min-height:44px;font-family:var(--ui);font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .pill:hover{border-color:rgba(255,253,247,.6);color:var(--page)}
+  .pill[aria-pressed="true"]{border-color:var(--page);color:var(--page);background:rgba(255,253,247,.08)}
+  .pill:active{transform:scale(.97)}
+  /* print / PDF menu */
+  .pdfmenu{position:relative}
+  .pdfmenu summary{list-style:none;cursor:pointer}
+  .pdfmenu summary::-webkit-details-marker{display:none}
+  .pdfmenu .pdflinks{position:absolute;z-index:20;inset-inline-start:0;top:calc(100% + 6px);min-width:260px;display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:16px;background:#14363b;border:1px solid rgba(255,253,247,.26);box-shadow:0 14px 30px -10px rgba(0,0,0,.7)}
+  .pdfmenu .pdflinks .pill{justify-content:flex-start}
+  .pdfmenu .menu-h{margin:6px 6px 0;font:700 .78rem/1.3 var(--ui);color:#CFE3E3}
+  .trial-pill{background:#FF7A5C;border-color:#FF7A5C;color:#3A1006;font-weight:700}
+  .home-mark{width:32px;height:32px;border-radius:50%;flex:none;display:block}
+
+  /* ---------- the book ---------- */
+  .book{width:min(860px,100%);background:var(--page);color:var(--ink);border-radius:18px;box-shadow:0 26px 60px -24px rgba(0,0,0,.85);overflow:hidden;position:relative}
+  /* the printed book's ornament, lightly (shapes + colours: tools/lib.js -> DECO):
+     a faint tile of 8-point stars, shells and waves, a thin teal frame and gold
+     rosettes in the corners. Exercise pages keep plain paper (.book.plain). */
+  .book{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'104'%20height%3D'104'%20viewBox%3D'0%200%2026%2026'%3E%3Cdefs%3E%3Cg%20id%3D'w-star'%3E%3Cpath%20d%3D'M0%20-2.1L0.615%20-1.485L1.485%20-1.485L1.485%20-0.615L2.1%200L1.485%200.615L1.485%201.485L0.615%201.485L0%202.1L-0.615%201.485L-1.485%201.485L-1.485%200.615L-2.1%200L-1.485%20-0.615L-1.485%20-1.485L-0.615%20-1.485Z'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.55'%20fill%3D'%230B7A7E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-shell'%20fill%3D'none'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M0%201.9L-2.2%20-.2A2.25%202.25%200%200%201%202.2%20-.2Z'%2F%3E%3Cpath%20d%3D'M0%201.9L-1.15%20-1.75M0%201.9L0%20-2.05M0%201.9L1.15%20-1.75'%2F%3E%3Cpath%20d%3D'M-.7%201.55L-1%202.25H1L.7%201.55'%2F%3E%3C%2Fg%3E%3Cpath%20id%3D'w-wave'%20d%3D'M-3%200q1.5%20-1.4%203%200t3%200'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%2F%3E%3Cg%20id%3D'w-spark'%3E%3Cpath%20d%3D'M0.44%20-1.062L0.622%20-0.622L1.062%20-0.44L0.88%200L1.062%200.44L0.622%200.622L0.44%201.062L0%200.88L-0.44%201.062L-0.622%200.622L-1.062%200.44L-0.88%200L-1.062%20-0.44L-0.622%20-0.622L-0.44%20-1.062L0%20-0.88Z'%20fill%3D'%23D99A1E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-tile'%3E%3Cuse%20href%3D'%23w-star'%20x%3D'6.5'%20y%3D'6.5'%2F%3E%3Cuse%20href%3D'%23w-wave'%20x%3D'19.5'%20y%3D'6.8'%2F%3E%3Cuse%20href%3D'%23w-shell'%20x%3D'19.5'%20y%3D'19.3'%2F%3E%3Cuse%20href%3D'%23w-spark'%20x%3D'6.5'%20y%3D'19.5'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-rose'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFC94A'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.09'%20stroke-linejoin%3D'round'%2F%3E%3Cpath%20d%3D'M0.23%20-0.554L0.325%20-0.325L0.554%20-0.23L0.459%200L0.554%200.23L0.325%200.325L0.23%200.554L0%200.459L-0.23%200.554L-0.325%200.325L-0.554%200.23L-0.459%200L-0.554%20-0.23L-0.325%20-0.325L-0.23%20-0.554L0%20-0.459Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.07'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.22'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-bstar'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.16'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.3'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3C!--tile%2026mm--%3E%3C%2Fdefs%3E%3Cg%20opacity%3D'0.12'%3E%3Cuse%20href%3D'%23w-tile'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") 0 0 / 104px 104px,var(--page)}
+  .book.plain{background:var(--page)}
+  .book::before,.book::after{content:"";position:absolute;pointer-events:none;border-radius:12px}
+  .book::before{inset:12px;border:1.5px solid rgba(11,122,126,.32)}
+  .book::after{inset:1px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'26'%20height%3D'26'%20viewBox%3D'-1.05%20-1.05%202.1%202.1'%3E%3Cdefs%3E%3Cg%20id%3D'w-star'%3E%3Cpath%20d%3D'M0%20-2.1L0.615%20-1.485L1.485%20-1.485L1.485%20-0.615L2.1%200L1.485%200.615L1.485%201.485L0.615%201.485L0%202.1L-0.615%201.485L-1.485%201.485L-1.485%200.615L-2.1%200L-1.485%20-0.615L-1.485%20-1.485L-0.615%20-1.485Z'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.55'%20fill%3D'%230B7A7E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-shell'%20fill%3D'none'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M0%201.9L-2.2%20-.2A2.25%202.25%200%200%201%202.2%20-.2Z'%2F%3E%3Cpath%20d%3D'M0%201.9L-1.15%20-1.75M0%201.9L0%20-2.05M0%201.9L1.15%20-1.75'%2F%3E%3Cpath%20d%3D'M-.7%201.55L-1%202.25H1L.7%201.55'%2F%3E%3C%2Fg%3E%3Cpath%20id%3D'w-wave'%20d%3D'M-3%200q1.5%20-1.4%203%200t3%200'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%2F%3E%3Cg%20id%3D'w-spark'%3E%3Cpath%20d%3D'M0.44%20-1.062L0.622%20-0.622L1.062%20-0.44L0.88%200L1.062%200.44L0.622%200.622L0.44%201.062L0%200.88L-0.44%201.062L-0.622%200.622L-1.062%200.44L-0.88%200L-1.062%20-0.44L-0.622%20-0.622L-0.44%20-1.062L0%20-0.88Z'%20fill%3D'%23D99A1E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-tile'%3E%3Cuse%20href%3D'%23w-star'%20x%3D'6.5'%20y%3D'6.5'%2F%3E%3Cuse%20href%3D'%23w-wave'%20x%3D'19.5'%20y%3D'6.8'%2F%3E%3Cuse%20href%3D'%23w-shell'%20x%3D'19.5'%20y%3D'19.3'%2F%3E%3Cuse%20href%3D'%23w-spark'%20x%3D'6.5'%20y%3D'19.5'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-rose'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFC94A'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.09'%20stroke-linejoin%3D'round'%2F%3E%3Cpath%20d%3D'M0.23%20-0.554L0.325%20-0.325L0.554%20-0.23L0.459%200L0.554%200.23L0.325%200.325L0.23%200.554L0%200.459L-0.23%200.554L-0.325%200.325L-0.554%200.23L-0.459%200L-0.554%20-0.23L-0.325%20-0.325L-0.23%20-0.554L0%20-0.459Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.07'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.22'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-bstar'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.16'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.3'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3C!--tile%2026mm--%3E%3C%2Fdefs%3E%3Cuse%20href%3D'%23w-rose'%20transform%3D'rotate(22.5)'%2F%3E%3C%2Fsvg%3E") left top / 22px no-repeat,url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'26'%20height%3D'26'%20viewBox%3D'-1.05%20-1.05%202.1%202.1'%3E%3Cdefs%3E%3Cg%20id%3D'w-star'%3E%3Cpath%20d%3D'M0%20-2.1L0.615%20-1.485L1.485%20-1.485L1.485%20-0.615L2.1%200L1.485%200.615L1.485%201.485L0.615%201.485L0%202.1L-0.615%201.485L-1.485%201.485L-1.485%200.615L-2.1%200L-1.485%20-0.615L-1.485%20-1.485L-0.615%20-1.485Z'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.55'%20fill%3D'%230B7A7E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-shell'%20fill%3D'none'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M0%201.9L-2.2%20-.2A2.25%202.25%200%200%201%202.2%20-.2Z'%2F%3E%3Cpath%20d%3D'M0%201.9L-1.15%20-1.75M0%201.9L0%20-2.05M0%201.9L1.15%20-1.75'%2F%3E%3Cpath%20d%3D'M-.7%201.55L-1%202.25H1L.7%201.55'%2F%3E%3C%2Fg%3E%3Cpath%20id%3D'w-wave'%20d%3D'M-3%200q1.5%20-1.4%203%200t3%200'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%2F%3E%3Cg%20id%3D'w-spark'%3E%3Cpath%20d%3D'M0.44%20-1.062L0.622%20-0.622L1.062%20-0.44L0.88%200L1.062%200.44L0.622%200.622L0.44%201.062L0%200.88L-0.44%201.062L-0.622%200.622L-1.062%200.44L-0.88%200L-1.062%20-0.44L-0.622%20-0.622L-0.44%20-1.062L0%20-0.88Z'%20fill%3D'%23D99A1E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-tile'%3E%3Cuse%20href%3D'%23w-star'%20x%3D'6.5'%20y%3D'6.5'%2F%3E%3Cuse%20href%3D'%23w-wave'%20x%3D'19.5'%20y%3D'6.8'%2F%3E%3Cuse%20href%3D'%23w-shell'%20x%3D'19.5'%20y%3D'19.3'%2F%3E%3Cuse%20href%3D'%23w-spark'%20x%3D'6.5'%20y%3D'19.5'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-rose'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFC94A'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.09'%20stroke-linejoin%3D'round'%2F%3E%3Cpath%20d%3D'M0.23%20-0.554L0.325%20-0.325L0.554%20-0.23L0.459%200L0.554%200.23L0.325%200.325L0.23%200.554L0%200.459L-0.23%200.554L-0.325%200.325L-0.554%200.23L-0.459%200L-0.554%20-0.23L-0.325%20-0.325L-0.23%20-0.554L0%20-0.459Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.07'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.22'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-bstar'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.16'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.3'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3C!--tile%2026mm--%3E%3C%2Fdefs%3E%3Cuse%20href%3D'%23w-rose'%20transform%3D'rotate(22.5)'%2F%3E%3C%2Fsvg%3E") right top / 22px no-repeat,url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'26'%20height%3D'26'%20viewBox%3D'-1.05%20-1.05%202.1%202.1'%3E%3Cdefs%3E%3Cg%20id%3D'w-star'%3E%3Cpath%20d%3D'M0%20-2.1L0.615%20-1.485L1.485%20-1.485L1.485%20-0.615L2.1%200L1.485%200.615L1.485%201.485L0.615%201.485L0%202.1L-0.615%201.485L-1.485%201.485L-1.485%200.615L-2.1%200L-1.485%20-0.615L-1.485%20-1.485L-0.615%20-1.485Z'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.55'%20fill%3D'%230B7A7E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-shell'%20fill%3D'none'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M0%201.9L-2.2%20-.2A2.25%202.25%200%200%201%202.2%20-.2Z'%2F%3E%3Cpath%20d%3D'M0%201.9L-1.15%20-1.75M0%201.9L0%20-2.05M0%201.9L1.15%20-1.75'%2F%3E%3Cpath%20d%3D'M-.7%201.55L-1%202.25H1L.7%201.55'%2F%3E%3C%2Fg%3E%3Cpath%20id%3D'w-wave'%20d%3D'M-3%200q1.5%20-1.4%203%200t3%200'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%2F%3E%3Cg%20id%3D'w-spark'%3E%3Cpath%20d%3D'M0.44%20-1.062L0.622%20-0.622L1.062%20-0.44L0.88%200L1.062%200.44L0.622%200.622L0.44%201.062L0%200.88L-0.44%201.062L-0.622%200.622L-1.062%200.44L-0.88%200L-1.062%20-0.44L-0.622%20-0.622L-0.44%20-1.062L0%20-0.88Z'%20fill%3D'%23D99A1E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-tile'%3E%3Cuse%20href%3D'%23w-star'%20x%3D'6.5'%20y%3D'6.5'%2F%3E%3Cuse%20href%3D'%23w-wave'%20x%3D'19.5'%20y%3D'6.8'%2F%3E%3Cuse%20href%3D'%23w-shell'%20x%3D'19.5'%20y%3D'19.3'%2F%3E%3Cuse%20href%3D'%23w-spark'%20x%3D'6.5'%20y%3D'19.5'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-rose'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFC94A'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.09'%20stroke-linejoin%3D'round'%2F%3E%3Cpath%20d%3D'M0.23%20-0.554L0.325%20-0.325L0.554%20-0.23L0.459%200L0.554%200.23L0.325%200.325L0.23%200.554L0%200.459L-0.23%200.554L-0.325%200.325L-0.554%200.23L-0.459%200L-0.554%20-0.23L-0.325%20-0.325L-0.23%20-0.554L0%20-0.459Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.07'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.22'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-bstar'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.16'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.3'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3C!--tile%2026mm--%3E%3C%2Fdefs%3E%3Cuse%20href%3D'%23w-rose'%20transform%3D'rotate(22.5)'%2F%3E%3C%2Fsvg%3E") left bottom / 22px no-repeat,url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'26'%20height%3D'26'%20viewBox%3D'-1.05%20-1.05%202.1%202.1'%3E%3Cdefs%3E%3Cg%20id%3D'w-star'%3E%3Cpath%20d%3D'M0%20-2.1L0.615%20-1.485L1.485%20-1.485L1.485%20-0.615L2.1%200L1.485%200.615L1.485%201.485L0.615%201.485L0%202.1L-0.615%201.485L-1.485%201.485L-1.485%200.615L-2.1%200L-1.485%20-0.615L-1.485%20-1.485L-0.615%20-1.485Z'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.55'%20fill%3D'%230B7A7E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-shell'%20fill%3D'none'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%20stroke-linejoin%3D'round'%3E%3Cpath%20d%3D'M0%201.9L-2.2%20-.2A2.25%202.25%200%200%201%202.2%20-.2Z'%2F%3E%3Cpath%20d%3D'M0%201.9L-1.15%20-1.75M0%201.9L0%20-2.05M0%201.9L1.15%20-1.75'%2F%3E%3Cpath%20d%3D'M-.7%201.55L-1%202.25H1L.7%201.55'%2F%3E%3C%2Fg%3E%3Cpath%20id%3D'w-wave'%20d%3D'M-3%200q1.5%20-1.4%203%200t3%200'%20fill%3D'none'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.42'%20stroke-linecap%3D'round'%2F%3E%3Cg%20id%3D'w-spark'%3E%3Cpath%20d%3D'M0.44%20-1.062L0.622%20-0.622L1.062%20-0.44L0.88%200L1.062%200.44L0.622%200.622L0.44%201.062L0%200.88L-0.44%201.062L-0.622%200.622L-1.062%200.44L-0.88%200L-1.062%20-0.44L-0.622%20-0.622L-0.44%20-1.062L0%20-0.88Z'%20fill%3D'%23D99A1E'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-tile'%3E%3Cuse%20href%3D'%23w-star'%20x%3D'6.5'%20y%3D'6.5'%2F%3E%3Cuse%20href%3D'%23w-wave'%20x%3D'19.5'%20y%3D'6.8'%2F%3E%3Cuse%20href%3D'%23w-shell'%20x%3D'19.5'%20y%3D'19.3'%2F%3E%3Cuse%20href%3D'%23w-spark'%20x%3D'6.5'%20y%3D'19.5'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-rose'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFC94A'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.09'%20stroke-linejoin%3D'round'%2F%3E%3Cpath%20d%3D'M0.23%20-0.554L0.325%20-0.325L0.554%20-0.23L0.459%200L0.554%200.23L0.325%200.325L0.23%200.554L0%200.459L-0.23%200.554L-0.325%200.325L-0.554%200.23L-0.459%200L-0.554%20-0.23L-0.325%20-0.325L-0.23%20-0.554L0%20-0.459Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%23FF7A5C'%20stroke-width%3D'.07'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.22'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3Cg%20id%3D'w-bstar'%3E%3Cpath%20d%3D'M0%20-1L0.293%20-0.707L0.707%20-0.707L0.707%20-0.293L1%200L0.707%200.293L0.707%200.707L0.293%200.707L0%201L-0.293%200.707L-0.707%200.707L-0.707%200.293L-1%200L-0.707%20-0.293L-0.707%20-0.707L-0.293%20-0.707Z'%20fill%3D'%23FFFDF7'%20stroke%3D'%230B7A7E'%20stroke-width%3D'.16'%20stroke-linejoin%3D'round'%2F%3E%3Ccircle%20r%3D'.3'%20fill%3D'%23FF7A5C'%2F%3E%3C%2Fg%3E%3C!--tile%2026mm--%3E%3C%2Fdefs%3E%3Cuse%20href%3D'%23w-rose'%20transform%3D'rotate(22.5)'%2F%3E%3C%2Fsvg%3E") right bottom / 22px no-repeat}
+  .book>.spread{position:relative;z-index:1}
+  .spread{padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px;animation:settle .42s ease both}
+  @keyframes settle{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .stage{position:relative;width:100%;aspect-ratio:1/1;max-height:min(54vh,470px);margin-inline:auto;display:grid;place-items:center;border-radius:14px;background:var(--tint);overflow:hidden}
+  .stage img{width:100%;height:100%;object-fit:contain;display:block;border-radius:14px}
+  .breathe{animation:breathe 6s ease-in-out infinite;transform-origin:50% 62%}
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+  .big-ta{position:absolute;inset-inline-start:6%;top:4%;font-family:var(--word);font-size:clamp(4rem,16vw,8rem);line-height:1.2;color:var(--ta-c);background:rgba(255,253,247,.88);border-radius:24px;padding:0 .3em;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)}
+
+  /* ---------- words ---------- */
+  .words{display:flex;flex-direction:column;gap:8px;text-align:center;max-width:36ch;margin-inline:auto;width:100%}
+  .word,.words h1,.words h2,.line,.sound{font-family:var(--word)}
+  .words h2{font-weight:700;font-size:clamp(1.9rem,7vw,2.7rem);line-height:1.5;margin:0;color:var(--acc-text)}
+  .line{font-size:clamp(1.35rem,4.6vw,1.75rem);line-height:1.9;margin:0}
+  .sound{font-size:clamp(1.3rem,4.6vw,1.6rem);font-weight:700;color:var(--acc-text);margin:0}
+  .m{color:var(--m);font-weight:700}
+  .f{color:var(--f);font-weight:700}
+  .ta{color:var(--ta-c)}
+  .eg-line{font-family:var(--ui);font-size:1rem;color:var(--ink2);margin:0;border-top:1px dashed var(--rule);padding-top:8px}
+  .eg-line b{font-size:.75rem;color:var(--quiet);margin-inline-end:6px}
+  .en-line{font-family:var(--ui);direction:ltr;unicode-bidi:isolate;font-size:.98rem;line-height:1.45;color:var(--ink2);margin:0}
+  .en-line .m,.en-line .f,.en-line .ta,.about .en-block .m,.about .en-block .f{font-family:var(--word);unicode-bidi:isolate}
+  body:not(.show-en) .en-line{display:none}
+  body:not(.show-eg) .eg-line{display:none}
+
+  /* ---------- cover ---------- */
+  .cover h1{font-weight:700;font-size:clamp(2.1rem,8vw,3.2rem);line-height:1.45;margin:0;color:var(--ink)}
+  .eyebrow{font-family:var(--word);font-size:1.05rem;color:var(--quiet);margin:0}
+  .cover-rule{height:6px;background:var(--acc);width:72px;margin:2px auto;border-radius:4px}
+
+  /* ---------- about ---------- */
+  .about{text-align:start;max-width:62ch;margin-inline:auto;display:grid;gap:14px}
+  .about h2{font-family:var(--word);color:var(--acc-text);margin:0;font-size:1.7rem;line-height:1.5}
+  .about p{margin:0;font-family:var(--word);font-size:1.2rem;line-height:1.9}
+  .about .en-block{direction:ltr;text-align:left;border-top:1px solid var(--rule);padding-top:12px}
+  .about .en-block p{font-family:var(--ui);font-size:1rem;line-height:1.55}
+  .about .en-block h3{margin:0 0 6px;font-size:1.15rem}
+
+  /* ---------- exercise pages: white and light, like the printed ones ---------- */
+  .ex-head{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap}
+  .ex-num{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;font-size:1.3rem;flex:none}
+  .ex-head h2{margin:0}
+  .ex-body{display:grid;gap:14px}
+  .ex-body .wp{--radius:18px}
+  .pics{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .pic-card{display:grid;gap:6px;justify-items:center;background:#fff;border:2px solid var(--rule);border-radius:16px;padding:10px 14px}
+  .pic-card svg{width:96px;height:96px}
+  .rows{display:grid;gap:10px}
+  .row{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;background:#fff;border:1px solid var(--rule);border-radius:14px;padding:8px 10px}
+  .row .pic{width:64px;height:64px}
+  .pick{font-family:var(--word);font-size:1.6rem;line-height:1.6;min-height:56px;min-width:96px;padding:2px 18px;border-radius:999px;border:2px solid var(--rule);background:#fff;color:var(--ink);cursor:pointer;transition:transform .14s ease,border-color .2s,background .2s}
+  .pick:hover{transform:translateY(-2px);border-color:var(--acc)}
+  .pick:active{transform:scale(.96)}
+  .pick:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+  .pick.is-right{border-color:var(--good);background:var(--good-bg);box-shadow:0 0 0 4px rgba(30,122,50,.18)}
+  .pick.is-wrong{animation:shake .45s ease}
+  .pick:disabled{cursor:default}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(3px)}}
+  .noun{font-family:var(--word);font-size:1.7rem;line-height:1.6;min-width:4ch;text-align:center}
+  .hint{font-family:var(--ui);font-size:1rem;color:var(--ink2);min-height:1.5em;margin:0;text-align:center}
+  .hint.good{color:var(--good);font-weight:700}
+  .score{display:flex;justify-content:center;gap:4px;min-height:34px}
+  .score svg{width:30px;height:30px}
+  .score .star-on{fill:#FFC94A;stroke:#B07F00;stroke-width:1}
+  .recap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .recap-col{background:#fff;border:2px solid var(--rule);border-radius:16px;padding:10px;text-align:center}
+  .recap-col h3{font-family:var(--word);font-size:2rem;margin:0;line-height:1.6}
+  .recap-col.mcol{border-color:var(--m-fill)} .recap-col.fcol{border-color:var(--f-fill)}
+  .recap-col p{font-family:var(--word);font-size:1.45rem;margin:0;line-height:1.8}
+  .rule-box{font-family:var(--word);font-size:1.4rem;line-height:1.8;background:#FFF4EE;border-radius:14px;padding:8px 12px;margin:0;text-align:center}
+  .cert{text-align:center;display:grid;gap:10px;justify-items:center;border:4px double var(--acc);border-radius:20px;padding:18px}
+  .cert .gull-wrap{width:140px;height:140px}
+  .cert input{font:inherit;font-family:var(--word);font-size:1.4rem;padding:6px 14px;border:2px solid var(--ink);border-radius:12px;text-align:center;width:min(18ch,100%);background:#fff;color:var(--ink)}
+  .cert input:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+
+  /* ---------- listen ---------- */
+  .listen{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  .play{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--ink);background:var(--ink);color:var(--page);border-radius:999px;padding:10px 22px;min-height:52px;font-family:var(--ui);font-size:1.05rem;font-weight:700;cursor:pointer;transition:transform .14s ease}
+  .play:hover{transform:translateY(-2px)}
+  .play:active{transform:scale(.97)}
+  .play[data-state="playing"]{background:var(--acc);border-color:var(--acc)}
+  .play[disabled]{opacity:.45;cursor:default;transform:none}
+  .play .ico{width:15px;height:17px;flex:none}
+  .note{border-top:1px solid var(--rule);padding-top:11px;display:flex;gap:10px;align-items:flex-start;font-size:.98rem;line-height:1.6;color:#2F4F57;text-align:start}
+  .note b{font-weight:700;font-size:.78rem;color:var(--quiet);padding-top:.25em;white-space:nowrap;flex:none}
+  .note .en-line{display:block;margin-top:4px}
+  body.notes-off .note{display:none}
+  .game-row{margin:0;text-align:center}
+  body.big .game-row{display:none}
+  /* «دَوْرُكَ!» say-it-back (UI only: the narrated text is unchanged) */
+  .echo{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:center;margin:2px 0 0}
+  .echo-btn{display:inline-flex;align-items:center;gap:8px;min-height:56px;padding:6px 20px;border-radius:999px;border:2px solid var(--acc);background:var(--page);color:var(--acc-text);font-family:var(--word);font-size:1.15rem;font-weight:700;transition:transform .14s ease}
+  .echo-btn span[lang="en"]{font-family:var(--ui);font-weight:400;font-size:.8em;color:var(--ink2)}
+  .echo-btn:hover{transform:translateY(-2px)}
+  .echo-btn:active{transform:scale(.97)}
+  .echo-bubble{margin:0;padding:4px 16px;border-radius:18px;border:2px solid var(--acc);background:var(--page);font-family:var(--word);font-size:1.2rem;line-height:1.8;color:var(--ink)}
+  .echo-bubble b{color:var(--acc-text)}
+
+  /* ---------- controls ---------- */
+  .controls{width:min(860px,100%);display:flex;align-items:center;justify-content:space-between;gap:12px}
+  button{font:inherit;cursor:pointer}
+  .turn{display:inline-flex;align-items:center;gap:8px;background:var(--page);color:var(--ink);border:none;border-radius:999px;padding:12px 20px;min-height:56px;font-family:var(--ui);font-weight:700;font-size:1rem;box-shadow:0 8px 20px -10px rgba(0,0,0,.9);transition:transform .14s ease}
+  .turn:hover{transform:translateY(-2px)}
+  .turn:active{transform:scale(.97)}
+  .turn[disabled]{opacity:.3;cursor:default;transform:none}
+  :focus-visible{outline:3px solid #FFC94A;outline-offset:3px}
+  .dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:52%;pointer-events:none}
+  .dots button{width:12px;height:12px;min-height:0;padding:0;border:none;border-radius:50%;background:rgba(255,253,247,.3);transition:background .2s,transform .2s}
+  .dots button.ex{border-radius:3px}
+  .dots button.on{background:var(--page);transform:scale(1.35)}
+  .footer{width:min(860px,100%);display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+
+  /* ---------- full screen ---------- */
+  body.big{padding:8px 0 0;gap:8px;justify-content:flex-start;height:100vh;height:100dvh;min-height:0;overflow:hidden}
+  body.big .bar{width:min(1000px,96%);flex:none}
+  body.big .book{width:100%;max-width:none;border-radius:0;box-shadow:none;flex:1 1 auto;min-height:0;overflow-y:auto}
+  body.big .spread{width:min(1000px,100%);margin-inline:auto;padding:12px 24px 104px}
+  body.big .stage{max-height:min(50dvh,820px)}
+  body.big .note,body.big .footer{display:none}
+  body.big .controls{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:min(1000px,96%);z-index:5}
+
+  @media (min-width:900px){
+    .spread.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:30px;row-gap:14px;align-items:center}
+    .spread.story .stage{grid-row:1 / span 2;max-height:min(70vh,520px)}
+    .spread.story .listen,.spread.story .note{grid-column:1 / -1}
+  }
+  @media (max-width:430px){
+    .turn{padding:11px 14px;font-size:.94rem}
+    .spread{padding:18px 14px 16px}
+    .book::before{inset:7px}
+    .book::after{inset:-3px}
+    .controls{gap:8px}
+    .pick{min-width:80px;font-size:1.4rem}
+  }
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body class="show-en">
+<a class="skip" href="#spread">تَخَطَّ إِلَى الْكِتَابِ · Skip to the book</a>
+<header class="bar">
+  <div class="bar-group">
+    <a class="pill home-pill" href="../../index.html" id="homeLink">→ <img class="home-mark" src="../../assets/brand/logo-c1-128.webp" alt="" width="32" height="32"> نَوْرَس <span lang="en">Home</span></a>
+    <button class="pill" id="fsBtn" type="button" aria-pressed="false">مِلْءُ الشَّاشَةِ</button>
+    <details class="pdfmenu"><summary class="pill">لِلْكِبَارِ <span lang="en">Grown-ups</span></summary><div class="pdflinks">
+      <button class="pill" id="turnBtn" type="button" aria-pressed="false">تَقْلِيبٌ تِلْقَائِيٌّ <span lang="en">Auto-turn</span></button>
+      <button class="pill" id="enBtn" type="button" aria-pressed="true" lang="en">English captions</button>
+      <p class="menu-h" lang="en">Print / PDF</p>
+      <a class="pill" href="../print/noori-huwa-lulu-interior.pdf" target="_blank" rel="noopener" lang="en">See the book (PDF)</a>
+      <a class="pill" href="../print/noori-huwa-lulu-cover.pdf" target="_blank" rel="noopener" lang="en">Cover (PDF)</a>
+      <a class="pill" href="../print/noori-huwa-home-a5.pdf" target="_blank" rel="noopener" lang="en">Print at home (A5 booklet)</a>
+      <a class="pill" href="../print/noori-huwa-worksheets-letter.pdf" target="_blank" rel="noopener" lang="en">Worksheets (Letter)</a>
+      <a class="pill" href="../print/noori-huwa-worksheets-a4.pdf" target="_blank" rel="noopener" lang="en">Worksheets (A4)</a>
+    </div></details>
+  </div>
+  <div class="bar-group">
+    <div class="seg" id="voices" role="group" aria-label="الرَّاوِي — Narration">
+      <button type="button" data-voice="ar" aria-pressed="true">فُصْحَى<small lang="en">Fusha</small></button>
+      <button type="button" data-voice="eg" aria-pressed="false" lang="ar-EG">مَصْرِي<small lang="en">Egyptian</small></button>
+    </div>
+  </div>
+</header>
+
+<main class="book" aria-live="polite"><section class="spread" id="spread" tabindex="-1"></section></main>
+
+<nav class="controls" aria-label="الصَّفَحَاتُ — pages">
+  <button class="turn" id="prev" type="button"><span aria-hidden="true">→</span><span>السَّابِقَةُ</span></button>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+  <button class="turn" id="next" type="button"><span id="nextLabel">اقْلِبِ الصَّفْحَةَ</span><span aria-hidden="true">←</span></button>
+</nav>
+
+<footer class="footer">
+  <button class="pill" id="autoBtn" type="button" aria-pressed="true"></button>
+  <button class="pill" id="notesBtn" type="button" aria-pressed="true"></button>
+  <button class="pill" id="startBtn" type="button">الْغِلَافُ <span lang="en">Cover</span></button>
+  <a class="pill trial-pill" href="mailto:hello@nawras.example?subject=Free%20trial%20class">اِحْجِزْ حِصَّةً تَجْرِيبِيَّةً <span lang="en">Book a free trial class</span></a>
+</footer>
+
+<audio id="player" preload="none"></audio>
+
+<script src="../../assets/kids.js"></script>
+<script>
+/* ============================================================
+   The book — every page pre-rendered from stories/noori-huwa.json
+   ============================================================ */
+var BOOK = {
+ "title": "نُورِي وَالشَّاطِئُ النَّظِيفُ — Noori and the Clean Beach",
+ "pages": [
+  {
+   "key": "cover",
+   "type": "cover",
+   "exercise": 0,
+   "title": "نُورِي وَالشَّاطِئُ النَّظِيفُ",
+   "tint": "#8FD3D9",
+   "audio": true,
+   "html": "<div class=\"stage\"><img class=\"breathe\" src=\"../images-noori-huwa/cover.webp\" alt=\"نُورِي وَسَامِي وَسَلْمَى عَلَى شَاطِئٍ نَظِيفٍ — Noori, Sami and Salma on a clean beach\"></div>\n  <div class=\"words\"><p class=\"eyebrow\">قِصَّةٌ عَنْ <span class=\"m\">هُوَ</span> وَ<span class=\"f\">هِيَ</span></p><h1 class=\"word\">نُورِي وَالشَّاطِئُ النَّظِيفُ</h1><div class=\"cover-rule\"></div>\n  <p class=\"line\" style=\"font-size:1.15rem\">كِتَابُ الدَّرْسِ — مَدْرَسَةُ نَوْرَس لِلْفُصْحَى</p><p class=\"en-line\" lang=\"en\">Noori and the Clean Beach</p><p class=\"en-line\" lang=\"en\">A lesson book from Nawras Fusha School, San Diego</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>حِكاية عن هُوَ، وهِيَ.</p></div>",
+   "note": "اقْرَؤُوا الْقِصَّةَ مَعًا، ثُمَّ اكْتُبُوا فِي صَفَحَاتِ التَّمَارِينِ.<span class=\"en-line\" lang=\"en\">Read the story together first, then do the exercise pages with a pencil. Grade 1–2.</span>"
+  },
+  {
+   "key": "about",
+   "type": "about",
+   "exercise": 0,
+   "title": "عَنْ هَذَا الْكِتَابِ — لِلْأَهْلِ",
+   "tint": "",
+   "audio": false,
+   "html": "<div class=\"about\"><h2>عَنْ <span class=\"m\">هَذَا</span> الْكِتَابِ — لِلْأَهْلِ</h2><p>نُورِي، النَّوْرَسُ الصَّغِيرُ، يُعَلِّمُ أَطْفَالَنَا: <span class=\"m\">هُوَ</span> لِلْمُذَكَّرِ، وَ<span class=\"f\">هِيَ</span> لِلْمُؤَنَّثِ.</p><p>نَقُولُ: <span class=\"m\">هَذَا</span> قَارِبٌ، <span class=\"m\">هُوَ</span> أَحْمَرُ. وَنَقُولُ: <span class=\"f\">هَذِهِ</span> سَمَكَةٌ، <span class=\"f\">هِيَ</span> صَغِيرَةٌ.</p><p>وَالْكَلِمَاتُ الْمُؤَنَّثَةُ بِلَا <span class=\"ta\">ة</span> نَقُولُ مَعَهَا <span class=\"f\">هِيَ</span> أَيْضًا: <span class=\"f\">هَذِهِ</span> شَمْسٌ، <span class=\"f\">هِيَ</span> حَارَّةٌ.</p><p>اقْرَؤُوا الْقِصَّةَ بِصَوْتٍ عَالٍ، ثُمَّ اكْتُبُوا مَعَ طِفْلِكُمْ فِي صَفَحَاتِ التَّمَارِينِ. امْسَحُوا الرَّمْزَ لِتَسْمَعُوا كُلَّ صَفْحَةٍ بِالْفُصْحَى أَوْ بِالْمِصْرِيِّ.</p>\n  <div class=\"en-block\" lang=\"en\"><h3>About this book — for parents</h3><p>Noori the seagull teaches the next idea after <span class=\"m\">هَذَا</span> / <span class=\"f\">هَذِهِ</span>: the words for “he” and “she”. <span class=\"m\">هُوَ</span> (huwa) points back to a masculine word, <span class=\"f\">هِيَ</span> (hiya) to a feminine one.</p><p>Arabic has no “it”: a boat is <span class=\"m\">هُوَ</span> and a fish is <span class=\"f\">هِيَ</span>, just as with people. <span class=\"m\">هَذَا</span> قَارِبٌ، <span class=\"m\">هُوَ</span> أَحْمَرُ — this is a boat, it (he) is red.</p><p>The fence: feminine words without the little shell <span class=\"ta\">ة</span> still take <span class=\"f\">هِيَ</span> — شَمْسٌ (the sun), أُمٌّ (a mother), بِنْتٌ (a girl).</p><p>How to use it: read one story page a night aloud, pointing: <span class=\"m\">هُوَ</span>… <span class=\"f\">هِيَ</span>. Then do the exercise pages (from page 18) with a pencil; tracing starts at the green dot and runs right to left. Praise effort; never mark handwriting wrong.</p><p>Scan the code to hear every page read aloud in Fusha, or explained in Egyptian Arabic, and to write on an iPad.</p></div></div>",
+   "note": ""
+  },
+  {
+   "key": "salam",
+   "type": "story",
+   "exercise": 0,
+   "title": "السَّلَامُ عَلَيْكُمْ!",
+   "tint": "#8FC8E8",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/salam.webp\" alt=\"أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ. صَبَاحَ السَّبْتِ أَطِيرُ فَوْقَ الشَّاطِئِ… وَأَرَى عَلَى الرَّمْلِ أَشْيَاءَ لَيْسَ مَكَانُهَا هُنَا. — I am Noori, the little seagull. On Saturday morning I fly over the beach… and on the sand I see things that don’t belong there.\"></div>\n  <div class=\"words\"><h2>السَّلَامُ عَلَيْكُمْ!</h2><p class=\"line\">أَنَا نُورِي، النَّوْرَسُ الصَّغِيرُ. صَبَاحَ السَّبْتِ أَطِيرُ فَوْقَ الشَّاطِئِ… وَأَرَى عَلَى الرَّمْلِ أَشْيَاءَ لَيْسَ مَكَانُهَا هُنَا.</p><p class=\"sound\">وَعَلَيْكُمُ السَّلَامُ يَا نُورِي!</p><p class=\"en-line\" lang=\"en\">I am Noori, the little seagull. On Saturday morning I fly over the beach… and on the sand I see things that don’t belong there.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>السلام عليكم! أنا نوري، النَّورس الصغير. يوم السبت الصبح بطير فوق البحر… وبشوف على الرملة حاجات مش مكانها هنا.</p></div>",
+   "note": "رُدُّوا التَّحِيَّةَ مَعًا، ثُمَّ ابْحَثُوا فِي الصُّورَةِ: مَاذَا تَرَوْنَ عَلَى الرَّمْلِ؟<span class=\"en-line\" lang=\"en\">Answer the greeting together, then look at the picture: what is lying on the sand?</span>"
+  },
+  {
+   "key": "friends",
+   "type": "story",
+   "exercise": 0,
+   "title": "هُوَ صَدِيقِي، وَهِيَ صَدِيقَتِي",
+   "tint": "#F4C97A",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/friends.webp\" alt=\"جَاءَ سَامِي وَسَلْمَى. هَذَا سَامِي، هُوَ صَدِيقِي. وَهَذِهِ سَلْمَى، هِيَ صَدِيقَتِي. — Sami and Salma came. This is Sami, he is my friend. And this is Salma, she is my friend.\"></div>\n  <div class=\"words\"><h2><span class=\"m\">هُوَ</span> صَدِيقِي، وَ<span class=\"f\">هِيَ</span> صَدِيقَتِي</h2><p class=\"line\">جَاءَ سَامِي وَسَلْمَى. <span class=\"m\">هَذَا</span> سَامِي، <span class=\"m\">هُوَ</span> صَدِيقِي. وَ<span class=\"f\">هَذِهِ</span> سَلْمَى، <span class=\"f\">هِيَ</span> صَدِيقَتِي.</p><p class=\"sound\">أَهْلًا يَا سَامِي! أَهْلًا يَا سَلْمَى!</p><p class=\"en-line\" lang=\"en\">Sami and Salma came. This is Sami, he is my friend. And this is Salma, she is my friend.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سامي وسَلْمى جُم. هذا سامي، هُوَ صاحبي. وهذهِ سَلْمى، هِيَ صاحبتي.</p></div>",
+   "note": "أَشِيرُوا إِلَى سَامِي وَقُولُوا: <span class=\"m\">هُوَ</span>. ثُمَّ إِلَى سَلْمَى وَقُولُوا: <span class=\"f\">هِيَ</span>.<span class=\"en-line\" lang=\"en\">Point at Sami and say <span class=\"m\">هُوَ</span> (he); point at Salma and say <span class=\"f\">هِيَ</span> (she). That is the whole lesson in two words.</span>"
+  },
+  {
+   "key": "recall",
+   "type": "story",
+   "exercise": 0,
+   "title": "هَلْ تَتَذَكَّرُونَ؟",
+   "tint": "#7FC4E8",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/recall.webp\" alt=\"قَالَ نُورِي: تَعَلَّمْنَا هَذَا وَهَذِهِ: هَذَا قَارِبٌ، هَذَا كِتَابٌ، هَذِهِ سَمَكَةٌ، هَذِهِ صَدَفَةٌ. — Noori said: “We learned هَذَا and هَذِهِ: this is a boat, this is a book, this is a fish, this is a shell.”\"></div>\n  <div class=\"words\"><h2>هَلْ تَتَذَكَّرُونَ؟</h2><p class=\"line\">قَالَ نُورِي: تَعَلَّمْنَا <span class=\"m\">هَذَا</span> وَ<span class=\"f\">هَذِهِ</span>: <span class=\"m\">هَذَا</span> قَارِبٌ، <span class=\"m\">هَذَا</span> كِتَابٌ، <span class=\"f\">هَذِهِ</span> سَمَكَةٌ، <span class=\"f\">هَذِهِ</span> صَدَفَةٌ.</p><p class=\"sound\"><span class=\"m\">هَذَا</span>… وَ<span class=\"f\">هَذِهِ</span>!</p><p class=\"en-line\" lang=\"en\">Noori said: “We learned <span class=\"m\">هَذَا</span> and <span class=\"f\">هَذِهِ</span>: this is a boat, this is a book, this is a fish, this is a shell.”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري قال: اتعلّمنا هذا وهذهِ: هذا قارِبٌ، هذا كتابٌ، هذهِ سَمَكةٌ، هذهِ صَدَفةٌ.</p></div>",
+   "note": "اقْرَؤُوا الْكَلِمَاتِ الْأَرْبَعَ مِنَ الْكِتَابِ الْأَوَّلِ، وَأَشِيرُوا إِلَى الصُّوَرِ.<span class=\"en-line\" lang=\"en\">Four words from the first Noori book. If your child has not read it, this page is enough: <span class=\"m\">هَذَا</span> for boy-words, <span class=\"f\">هَذِهِ</span> for girl-words.</span>"
+  },
+  {
+   "key": "huwa",
+   "type": "story",
+   "exercise": 0,
+   "title": "هُوَ",
+   "tint": "#7FB8E8",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/qarib.webp\" alt=\"يُشِيرُ نُورِي إِلَى الْبَحْرِ: هَذَا قَارِبٌ. هُوَ أَحْمَرُ! — Noori points at the sea: “This is a boat. It is red!”\"><span class=\"big-ta\" aria-hidden=\"true\">هُوَ</span></div>\n  <div class=\"words\"><h2><span class=\"m\">هُوَ</span></h2><p class=\"line\">يُشِيرُ نُورِي إِلَى الْبَحْرِ: <span class=\"m\">هَذَا</span> قَارِبٌ. <span class=\"m\">هُوَ</span> أَحْمَرُ!</p><p class=\"sound\"><span class=\"m\">هَذَا</span>… <span class=\"m\">هُوَ</span>!</p><p class=\"en-line\" lang=\"en\">Noori points at the sea: “This is a boat. It is red!”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري بيشاوِر على البحر: هذا قارِبٌ. هُوَ أَحمرُ!</p></div>",
+   "note": "بَعْدَ <span class=\"m\">هَذَا</span> نَقُولُ: <span class=\"m\">هُوَ</span>. ارْفَعُوا يَدًا وَقُولُوا: <span class=\"m\">هُوَ</span>.<span class=\"en-line\" lang=\"en\"><span class=\"m\">هُوَ</span> is this book’s first key word. After a <span class=\"m\">هَذَا</span> word we say <span class=\"m\">هُوَ</span> — Arabic says “he” for a boat, there is no “it”.</span>"
+  },
+  {
+   "key": "hiya",
+   "type": "story",
+   "exercise": 0,
+   "title": "هِيَ",
+   "tint": "#F6B8C0",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/samaka.webp\" alt=\"قَفَزَتْ سَمَكَةٌ مِنَ الْمَوْجِ! هَذِهِ سَمَكَةٌ. هِيَ صَغِيرَةٌ! — A fish jumped out of the waves! “This is a fish. It is small!”\"><span class=\"big-ta\" aria-hidden=\"true\">هِيَ</span></div>\n  <div class=\"words\"><h2><span class=\"f\">هِيَ</span></h2><p class=\"line\">قَفَزَتْ سَمَكَةٌ مِنَ الْمَوْجِ! <span class=\"f\">هَذِهِ</span> سَمَكَةٌ. <span class=\"f\">هِيَ</span> صَغِيرَةٌ!</p><p class=\"sound\"><span class=\"f\">هَذِهِ</span>… <span class=\"f\">هِيَ</span>!</p><p class=\"en-line\" lang=\"en\">A fish jumped out of the waves! “This is a fish. It is small!”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سَمَكة نطّت من المَوج! هذهِ سَمَكةٌ. هِيَ صغيرةٌ!</p></div>",
+   "note": "بَعْدَ <span class=\"f\">هَذِهِ</span> نَقُولُ: <span class=\"f\">هِيَ</span>. قُولُوا مَعًا: <span class=\"m\">هَذَا</span>… <span class=\"m\">هُوَ</span>، <span class=\"f\">هَذِهِ</span>… <span class=\"f\">هِيَ</span>.<span class=\"en-line\" lang=\"en\"><span class=\"f\">هِيَ</span> is the second key word: after a <span class=\"f\">هَذِهِ</span> word we say <span class=\"f\">هِيَ</span>. Say the pairs together: <span class=\"m\">هَذَا</span>… <span class=\"m\">هُوَ</span>، <span class=\"f\">هَذِهِ</span>… <span class=\"f\">هِيَ</span>.</span>"
+  },
+  {
+   "key": "kis",
+   "type": "story",
+   "exercise": 0,
+   "title": "تَفَضَّلْ يَا سَامِي!",
+   "tint": "#A9D98B",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/kis.webp\" alt=\"قَالَتْ سَلْمَى: هَيَّا نُنَظِّفُ الشَّاطِئَ! تَفَضَّلْ يَا سَامِي. هَذَا كِيسٌ، هُوَ كَبِيرٌ. — Salma said: “Let’s clean the beach! Here you are, Sami. This is a bag; it is big.”\"></div>\n  <div class=\"words\"><h2>تَفَضَّلْ يَا سَامِي!</h2><p class=\"line\">قَالَتْ سَلْمَى: هَيَّا نُنَظِّفُ الشَّاطِئَ! تَفَضَّلْ يَا سَامِي. <span class=\"m\">هَذَا</span> كِيسٌ، <span class=\"m\">هُوَ</span> كَبِيرٌ.</p><p class=\"sound\">شُكْرًا يَا سَلْمَى!</p><p class=\"en-line\" lang=\"en\">Salma said: “Let’s clean the beach! Here you are, Sami. This is a bag; it is big.”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سَلْمى قالت: يلّا ننضّف البحر! اتفضّل يا سامي. هذا كيسٌ، هُوَ كبيرٌ.</p></div>",
+   "note": "نَقُولُ لِلْوَلَدِ: تَفَضَّلْ. نَاوِلُوا طِفْلَكُمْ شَيْئًا وَقُولُوا: تَفَضَّلْ… أَوْ تَفَضَّلِي.<span class=\"en-line\" lang=\"en\">تَفَضَّلْ (here you are) is said to a boy. Hand your child something and say it — then let them hand it back.</span>"
+  },
+  {
+   "key": "zujaja",
+   "type": "story",
+   "exercise": 0,
+   "title": "تَفَضَّلِي يَا سَلْمَى!",
+   "tint": "#8ED6C8",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/zujaja.webp\" alt=\"وَجَدَ سَامِي شَيْئًا عَلَى الرَّمْلِ: هَذِهِ زُجَاجَةٌ، هِيَ فَارِغَةٌ. تَفَضَّلِي يَا سَلْمَى، ضَعِيهَا فِي الْكِيسِ! — Sami found something on the sand: “This is a bottle; it is empty. Here you are, Salma — put it in the bag!”\"></div>\n  <div class=\"words\"><h2>تَفَضَّلِي يَا سَلْمَى!</h2><p class=\"line\">وَجَدَ سَامِي شَيْئًا عَلَى الرَّمْلِ: <span class=\"f\">هَذِهِ</span> زُجَاجَةٌ، <span class=\"f\">هِيَ</span> فَارِغَةٌ. تَفَضَّلِي يَا سَلْمَى، ضَعِيهَا فِي الْكِيسِ!</p><p class=\"sound\">شُكْرًا يَا سَامِي!</p><p class=\"en-line\" lang=\"en\">Sami found something on the sand: “This is a bottle; it is empty. Here you are, Salma — put it in the bag!”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سامي لقى حاجة على الرملة: هذهِ زُجاجةٌ، هِيَ فاضية. اتفضّلي يا سَلْمى، حُطّيها في الكيس!</p></div>",
+   "note": "نَقُولُ لِلْبِنْتِ: تَفَضَّلِي. وَنَقُولُ: <span class=\"f\">هِيَ</span>، لِأَنَّ الزُّجَاجَةَ مُؤَنَّثَةٌ.<span class=\"en-line\" lang=\"en\">تَفَضَّلِي is said to a girl. And the bottle (زُجَاجَة, with the little shell <span class=\"ta\">ة</span>) is <span class=\"f\">هِيَ</span>.</span>"
+  },
+  {
+   "key": "qitt",
+   "type": "story",
+   "exercise": 0,
+   "title": "هُوَ نَائِمٌ، وَهِيَ تَلْعَبُ",
+   "tint": "#F7CF8E",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/qitt.webp\" alt=\"عَلَى السُّورِ قِطٌّ وَقِطَّةٌ. هَذَا قِطٌّ، هُوَ نَائِمٌ. وَهَذِهِ قِطَّةٌ، هِيَ تَلْعَبُ. — On the wall are a tomcat and a she-cat. This is the tomcat; he is asleep. And this is the she-cat; she is playing.\"></div>\n  <div class=\"words\"><h2><span class=\"m\">هُوَ</span> نَائِمٌ، وَ<span class=\"f\">هِيَ</span> تَلْعَبُ</h2><p class=\"line\">عَلَى السُّورِ قِطٌّ وَقِطَّةٌ. <span class=\"m\">هَذَا</span> قِطٌّ، <span class=\"m\">هُوَ</span> نَائِمٌ. وَ<span class=\"f\">هَذِهِ</span> قِطَّةٌ، <span class=\"f\">هِيَ</span> تَلْعَبُ.</p><p class=\"sound\"><span class=\"m\">هُوَ</span>… وَ<span class=\"f\">هِيَ</span>!</p><p class=\"en-line\" lang=\"en\">On the wall are a tomcat and a she-cat. This is the tomcat; he is asleep. And this is the she-cat; she is playing.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>على السور قُطّتين. هذا قِطٌّ، هُوَ نايم. وهذهِ قِطّةٌ، هِيَ بتلعب.</p></div>",
+   "note": "مَثِّلُوا مَعًا: نَنَامُ مِثْلَ الْقِطِّ، ثُمَّ نَلْعَبُ مِثْلَ الْقِطَّةِ.<span class=\"en-line\" lang=\"en\">Act it out: sleep like the tomcat (<span class=\"m\">هُوَ</span> نَائِمٌ), then play like the she-cat (<span class=\"f\">هِيَ</span> تَلْعَبُ).</span>"
+  },
+  {
+   "key": "shamsq",
+   "type": "story",
+   "exercise": 0,
+   "title": "انْتَبِهُوا!",
+   "tint": "#F2A7A0",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/shams.webp\" alt=\"نَظَرَتْ سَلْمَى إِلَى السَّمَاءِ: «شَمْسٌ»… لَيْسَ فِي آخِرِهَا ة! هَلْ نَقُولُ هُوَ أَمْ هِيَ؟ — Salma looked up at the sky: “شَمْس (sun)… has no ة at the end! Do we say هُوَ or هِيَ?”\"></div>\n  <div class=\"words\"><h2>انْتَبِهُوا!</h2><p class=\"line\">نَظَرَتْ سَلْمَى إِلَى السَّمَاءِ: «شَمْسٌ»… لَيْسَ فِي آخِرِهَا <span class=\"ta\">ة</span>! هَلْ نَقُولُ <span class=\"m\">هُوَ</span> أَمْ <span class=\"f\">هِيَ</span>؟</p><p class=\"sound\"><span class=\"m\">هُوَ</span>… أَمْ <span class=\"f\">هِيَ</span>؟</p><p class=\"en-line\" lang=\"en\">Salma looked up at the sky: “شَمْس (sun)… has no <span class=\"ta\">ة</span> at the end! Do we say <span class=\"m\">هُوَ</span> or <span class=\"f\">هِيَ</span>?”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سَلْمى بصّت للسما: «شَمسٌ»… مافيش في آخرها ة! نقول هُوَ ولّا هِيَ؟</p></div>",
+   "note": "اسْأَلُوا طِفْلَكُمْ قَبْلَ أَنْ تَقْلِبُوا الصَّفْحَةَ.<span class=\"en-line\" lang=\"en\">Ask your child before you turn the page — guessing first makes the next page stick.</span>"
+  },
+  {
+   "key": "fence",
+   "type": "story",
+   "exercise": 0,
+   "title": "هِيَ، بِلَا ة",
+   "tint": "#F7A98B",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/umm.webp\" alt=\"قَالَ نُورِي: هِيَ! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا ة: هَذِهِ شَمْسٌ، هِيَ حَارَّةٌ. هَذِهِ أُمٌّ، هِيَ لَطِيفَةٌ. — Noori said: “هِيَ! Some words are feminine without ة: this is the sun, it is hot. This is a mother, she is kind.”\"></div>\n  <div class=\"words\"><h2><span class=\"f\">هِيَ</span>، بِلَا <span class=\"ta\">ة</span></h2><p class=\"line\">قَالَ نُورِي: <span class=\"f\">هِيَ</span>! بَعْضُ الْكَلِمَاتِ مُؤَنَّثَةٌ بِلَا <span class=\"ta\">ة</span>: <span class=\"f\">هَذِهِ</span> شَمْسٌ، <span class=\"f\">هِيَ</span> حَارَّةٌ. <span class=\"f\">هَذِهِ</span> أُمٌّ، <span class=\"f\">هِيَ</span> لَطِيفَةٌ.</p><p class=\"sound\">شَمْسٌ، أُمٌّ، بِنْتٌ… <span class=\"f\">هِيَ</span>!</p><p class=\"en-line\" lang=\"en\">Noori said: “<span class=\"f\">هِيَ</span>! Some words are feminine without <span class=\"ta\">ة</span>: this is the sun, it is hot. This is a mother, she is kind.”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري قال: هِيَ! فيه كلمات مُؤَنَّثة من غير ة: هذهِ شَمسٌ، هِيَ حارّةٌ. هذهِ أُمٌّ، هِيَ لطيفةٌ.</p></div>",
+   "note": "<span class=\"f\">هَذِهِ</span> الْكَلِمَاتُ نَحْفَظُهَا: بِنْتٌ، أُمٌّ، شَمْسٌ — كُلُّهَا <span class=\"f\">هِيَ</span>.<span class=\"en-line\" lang=\"en\">The fence, the same three words as book 1: بِنْت، أُمّ، شَمْس are feminine with no ة, so they take <span class=\"f\">هَذِهِ</span> and <span class=\"f\">هِيَ</span>.</span>"
+  },
+  {
+   "key": "clean",
+   "type": "story",
+   "exercise": 0,
+   "title": "الشَّاطِئُ نَظِيفٌ!",
+   "tint": "#9ED0F0",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/clean.webp\" alt=\"وَضَعَ سَامِي وَسَلْمَى الْكِيسَ فِي سَلَّةِ الْمُهْمَلَاتِ مَعًا. انْظُرُوا! الشَّاطِئُ نَظِيفٌ، هُوَ جَمِيلٌ. — Sami and Salma put the bag in the bin together. Look! The beach is clean; it is beautiful.\"></div>\n  <div class=\"words\"><h2>الشَّاطِئُ نَظِيفٌ!</h2><p class=\"line\">وَضَعَ سَامِي وَسَلْمَى الْكِيسَ فِي سَلَّةِ الْمُهْمَلَاتِ مَعًا. انْظُرُوا! الشَّاطِئُ نَظِيفٌ، <span class=\"m\">هُوَ</span> جَمِيلٌ.</p><p class=\"sound\">الْحَمْدُ لِلَّهِ!</p><p class=\"en-line\" lang=\"en\">Sami and Salma put the bag in the bin together. Look! The beach is clean; it is beautiful.</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سامي وسَلْمى حطّوا الكيس في سلّة الزِّبالة سوا. بُصّوا! الشاطئ نظيف، هُوَ جميل.</p></div>",
+   "note": "قُولُوا مَعًا: الشَّاطِئُ… <span class=\"m\">هُوَ</span> جَمِيلٌ. وَالْبَحْرُ… <span class=\"m\">هُوَ</span> أَزْرَقُ.<span class=\"en-line\" lang=\"en\">شَاطِئ (beach) and بَحْر (sea) are masculine words, so: <span class=\"m\">هُوَ</span> جَمِيلٌ، <span class=\"m\">هُوَ</span> أَزْرَقُ. At home: whose turn is it to tidy up?</span>"
+  },
+  {
+   "key": "ahsanta",
+   "type": "story",
+   "exercise": 0,
+   "title": "أَحْسَنْتَ! أَحْسَنْتِ!",
+   "tint": "#F4C97A",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/nashit.webp\" alt=\"قَالَ نُورِي: أَحْسَنْتَ يَا سَامِي! أَحْسَنْتِ يَا سَلْمَى! هُوَ نَشِيطٌ، وَهِيَ نَشِيطَةٌ. — Noori said: “Well done, Sami! Well done, Salma! He is active, and she is active.”\"></div>\n  <div class=\"words\"><h2>أَحْسَنْتَ! أَحْسَنْتِ!</h2><p class=\"line\">قَالَ نُورِي: أَحْسَنْتَ يَا سَامِي! أَحْسَنْتِ يَا سَلْمَى! <span class=\"m\">هُوَ</span> نَشِيطٌ، وَ<span class=\"f\">هِيَ</span> نَشِيطَةٌ.</p><p class=\"sound\">جَزَاكَ اللَّهُ خَيْرًا يَا نُورِي!</p><p class=\"en-line\" lang=\"en\">Noori said: “Well done, Sami! Well done, Salma! He is active, and she is active.”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>نوري قال: أحسنتَ يا سامي! أحسنتِ يا سَلْمى! هُوَ نشيط، وهِيَ نشيطة.</p></div>",
+   "note": "امْدَحُوا طِفْلَكُمْ بِالْفُصْحَى: أَحْسَنْتَ لِلْوَلَدِ، وَأَحْسَنْتِ لِلْبِنْتِ.<span class=\"en-line\" lang=\"en\">أَحْسَنْتَ to a boy, أَحْسَنْتِ to a girl — only the last vowel changes. Use it at home this week whenever your child helps. جَزَاكَ اللَّهُ خَيْرًا is how we thank someone for a kindness; the reply is وَإِيَّاكَ.</span>"
+  },
+  {
+   "key": "share",
+   "type": "story",
+   "exercise": 0,
+   "title": "هَدِيَّةٌ صَغِيرَةٌ",
+   "tint": "#F6B8C0",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/hadiya.webp\" alt=\"وَجَدَتْ سَلْمَى صَدَفَةً جَمِيلَةً، فَأَعْطَتْهَا لِسَامِي: تَفَضَّلْ! هِيَ لَكَ. قَالَ سَامِي: شُكْرًا يَا سَلْمَى! — Salma found a pretty shell and gave it to Sami: “Here you are! It is for you.” Sami said: “Thank you, Salma!”\"></div>\n  <div class=\"words\"><h2>هَدِيَّةٌ صَغِيرَةٌ</h2><p class=\"line\">وَجَدَتْ سَلْمَى صَدَفَةً جَمِيلَةً، فَأَعْطَتْهَا لِسَامِي: تَفَضَّلْ! <span class=\"f\">هِيَ</span> لَكَ. قَالَ سَامِي: شُكْرًا يَا سَلْمَى!</p><p class=\"sound\"><span class=\"f\">هَذِهِ</span> صَدَفَةٌ… <span class=\"f\">هِيَ</span> جَمِيلَةٌ!</p><p class=\"en-line\" lang=\"en\">Salma found a pretty shell and gave it to Sami: “Here you are! It is for you.” Sami said: “Thank you, Salma!”</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>سَلْمى لقت صَدَفة حلوة، وادّتها لسامي: اتفضّل! هِيَ ليك. سامي قال: شكرًا يا سَلْمى!</p></div>",
+   "note": "مَنْ أَعْطَاكُمْ شَيْئًا الْيَوْمَ؟ قُولُوا لَهُ: شُكْرًا!<span class=\"en-line\" lang=\"en\">Who gave you something today? Say شُكْرًا (thank you) together — and notice the shell is <span class=\"f\">هِيَ</span>.</span>"
+  },
+  {
+   "key": "bye",
+   "type": "story",
+   "exercise": 0,
+   "title": "أَحْسَنْتُمْ!",
+   "tint": "#F7A98B",
+   "audio": true,
+   "html": "<div class=\"stage\"><img src=\"../images-noori-huwa/bye.webp\" alt=\"الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: هُوَ لِلْمُذَكَّرِ، وَهِيَ لِلْمُؤَنَّثِ. وَالشَّاطِئُ نَظِيفٌ! — Praise be to Allah, we learned: هُوَ for masculine words, هِيَ for feminine words. And the beach is clean!\"></div>\n  <div class=\"words\"><h2>أَحْسَنْتُمْ!</h2><p class=\"line\">الْحَمْدُ لِلَّهِ، تَعَلَّمْنَا: <span class=\"m\">هُوَ</span> لِلْمُذَكَّرِ، وَ<span class=\"f\">هِيَ</span> لِلْمُؤَنَّثِ. وَالشَّاطِئُ نَظِيفٌ!</p><p class=\"sound\">إِلَى اللِّقَاءِ يَا أَصْدِقَائِي!</p><p class=\"en-line\" lang=\"en\">Praise be to Allah, we learned: <span class=\"m\">هُوَ</span> for masculine words, <span class=\"f\">هِيَ</span> for feminine words. And the beach is clean!</p><p class=\"eg-line\" lang=\"ar-EG\"><b>بِالْمِصْرِيِّ</b>الحمد لله، اتعلّمنا: هُوَ للمُذَكَّر، وهِيَ للمُؤَنَّث. والشاطئ نظيف!</p></div>",
+   "note": "الْآنَ إِلَى صَفَحَاتِ التَّمَارِينِ: قَلَمُ رَصَاصٍ، وَنَبْدَأُ مِنَ النُّقْطَةِ الْخَضْرَاءِ.<span class=\"en-line\" lang=\"en\">Now the exercise pages: a pencil, and every tracing starts at the green dot.</span>"
+  },
+  {
+   "key": "recap",
+   "type": "recap",
+   "exercise": 0,
+   "title": "تَذَكَّرْ",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"words\" style=\"max-width:none\"><h2>تَذَكَّرْ</h2><p class=\"en-line\" lang=\"en\">Remember</p></div>\n  <div class=\"recap-grid\"><div class=\"recap-col mcol\"><h3 class=\"m\">هُوَ</h3><p><span class=\"m\">هُوَ</span> وَلَدٌ</p><p><span class=\"m\">هُوَ</span> قِطٌّ</p><p><span class=\"m\">هُوَ</span> قَارِبٌ</p><p><span class=\"m\">هُوَ</span> كِيسٌ</p></div>\n  <div class=\"recap-col fcol\"><h3 class=\"f\">هِيَ</h3><p><span class=\"f\">هِيَ</span> بِنْتٌ</p><p><span class=\"f\">هِيَ</span> قِطَّ‍<span class=\"ta\">‍ةٌ</span></p><p><span class=\"f\">هِيَ</span> سَمَكَ‍<span class=\"ta\">‍ةٌ</span></p><p><span class=\"f\">هِيَ</span> زُجَاجَ‍<span class=\"ta\">‍ةٌ</span></p></div></div>\n  <p class=\"rule-box\"><span class=\"m\">هَذَا</span>… <span class=\"m\">هُوَ</span>، وَ<span class=\"f\">هَذِهِ</span>… <span class=\"f\">هِيَ</span>.</p><p class=\"rule-box\">بِلَا <span class=\"ta\">ة</span>، وَنَقُولُ <span class=\"f\">هِيَ</span>: بِنْتٌ، أُمٌّ، شَمْسٌ.</p>",
+   "note": "<span class=\"en-line\" lang=\"en\">The whole lesson on one page: <span class=\"m\">هُوَ</span> words on one side, <span class=\"f\">هِيَ</span> words on the other. Keep it open while doing the exercises.</span>"
+  },
+  {
+   "key": "ex-huwa",
+   "type": "trace",
+   "exercise": 1,
+   "title": "تَتَبَّعْ: هُوَ",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">١</span><h2 class=\"word\">تَتَبَّعْ: <span class=\"m\">هُوَ</span></h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">ابْدَأْ مِنَ النُّقْطَةِ الْخَضْرَاءِ، ثُمَّ اكْتُبْ وَحْدَكَ.</p><p class=\"en-line\" lang=\"en\">Exercise 1 · Trace <span class=\"m\">هُوَ</span></p><p class=\"en-line\" lang=\"en\">Start at the green dot on the right, follow the arrow, then trace <span class=\"m\">هُوَ</span> وَلَدٌ (he is a boy) and write it alone.</p><div class=\"ex-body\"><div data-writepad data-model=\"هُوَ|هُوَ وَلَدٌ\" data-lines=\"3\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-hiya",
+   "type": "trace",
+   "exercise": 2,
+   "title": "تَتَبَّعْ: هِيَ",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">٢</span><h2 class=\"word\">تَتَبَّعْ: <span class=\"f\">هِيَ</span></h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">نَكْتُبُ مِنَ الْيَمِينِ إِلَى الْيَسَارِ.</p><p class=\"en-line\" lang=\"en\">Exercise 2 · Trace <span class=\"f\">هِيَ</span></p><p class=\"en-line\" lang=\"en\">Arabic is written right to left. Then trace <span class=\"f\">هِيَ</span> بِنْتٌ (she is a girl).</p><div class=\"ex-body\"><div data-writepad data-model=\"هِيَ|هِيَ بِنْتٌ\" data-lines=\"3\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-tafaddal",
+   "type": "trace",
+   "exercise": 3,
+   "title": "تَتَبَّعْ: تَفَضَّلْ، تَفَضَّلِي",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">٣</span><h2 class=\"word\">تَتَبَّعْ: تَفَضَّلْ، تَفَضَّلِي</h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">تَفَضَّلْ لِلْوَلَدِ، وَتَفَضَّلِي لِلْبِنْتِ.</p><p class=\"en-line\" lang=\"en\">Exercise 3 · Trace “here you are”</p><p class=\"en-line\" lang=\"en\">تَفَضَّلْ to a boy, تَفَضَّلِي to a girl: the girl’s word ends in ي.</p><div class=\"ex-body\"><div data-writepad data-model=\"تَفَضَّلْ|تَفَضَّلِي\" data-lines=\"3\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-write",
+   "type": "write",
+   "exercise": 4,
+   "title": "انْظُرْ وَاكْتُبْ",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">٤</span><h2 class=\"word\">انْظُرْ وَاكْتُبْ</h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">اكْتُبْ جُمْلَةً تَحْتَ كُلِّ صُورَةٍ.</p><p class=\"en-line\" lang=\"en\">Exercise 4 · Look and write</p><p class=\"en-line\" lang=\"en\">Write a sentence next to each picture. The first is dotted to trace; the second is yours (answer: <span class=\"f\">هِيَ</span> بِنْتٌ).</p><div class=\"ex-body\"><div class=\"pics\"><div class=\"pic-card\"><span data-pic=\"boy\"></span></div><div class=\"pic-card\"><span data-pic=\"girl\"></span></div></div>\n  <div data-writepad data-model=\"هُوَ وَلَدٌ|\" data-lines=\"2\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-circle",
+   "type": "circle",
+   "exercise": 5,
+   "title": "ضَعْ دَائِرَةً حَوْلَ كَلِمَةِ هِيَ",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">٥</span><h2 class=\"word\">ضَعْ دَائِرَةً حَوْلَ كَلِمَةِ <span class=\"f\">هِيَ</span></h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">فِي كُلِّ سَطْرٍ كَلِمَةٌ نَقُولُ مَعَهَا <span class=\"f\">هِيَ</span>. انْتَبِهْ لِلسَّطْرَيْنِ الْأَخِيرَيْنِ!</p><p class=\"en-line\" lang=\"en\">Exercise 5 · Circle the <span class=\"f\">هِيَ</span> word</p><p class=\"en-line\" lang=\"en\">One word in each row takes <span class=\"f\">هِيَ</span>. In the last two rows it has no <span class=\"ta\">ة</span>.</p><div class=\"ex-body\"><div class=\"rows\"><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\"><button type=\"button\" class=\"pick\" data-ok=\"0\">قِطٌّ</button><button type=\"button\" class=\"pick\" data-ok=\"1\">قِطَّ‍<span class=\"ta\">‍ةٌ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\"><button type=\"button\" class=\"pick\" data-ok=\"1\">سَمَكَ‍<span class=\"ta\">‍ةٌ</span></button><button type=\"button\" class=\"pick\" data-ok=\"0\">قَارِبٌ</button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\"><button type=\"button\" class=\"pick\" data-ok=\"0\">كِيسٌ</button><button type=\"button\" class=\"pick\" data-ok=\"1\">زُجَاجَ‍<span class=\"ta\">‍ةٌ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\"><button type=\"button\" class=\"pick\" data-ok=\"1\">صَدَفَ‍<span class=\"ta\">‍ةٌ</span></button><button type=\"button\" class=\"pick\" data-ok=\"0\">كِتَابٌ</button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\"><button type=\"button\" class=\"pick\" data-ok=\"0\">وَلَدٌ</button><button type=\"button\" class=\"pick\" data-ok=\"1\">بِنْتٌ</button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\"><button type=\"button\" class=\"pick\" data-ok=\"1\">شَمْسٌ</button><button type=\"button\" class=\"pick\" data-ok=\"0\">قَمَرٌ</button></div></div><div class=\"score\" aria-live=\"polite\"></div><p class=\"hint\" role=\"status\"></p></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-addta",
+   "type": "addta",
+   "exercise": 6,
+   "title": "هُوَ… وَهِيَ: أَضِفْ ة",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">٦</span><h2 class=\"word\"><span class=\"m\">هُوَ</span>… وَ<span class=\"f\">هِيَ</span>: أَضِفْ <span class=\"ta\">ة</span></h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">اكْتُبْ <span class=\"ta\">ة</span> فِي الْمُرَبَّعِ بَعْدَ <span class=\"f\">هِيَ</span>.</p><p class=\"en-line\" lang=\"en\">Exercise 6 · He… and she: add <span class=\"ta\">ة</span></p><p class=\"en-line\" lang=\"en\">Write <span class=\"ta\">ة</span> in the box so the word matches <span class=\"f\">هِيَ</span>: <span class=\"m\">هُوَ</span> صَدِيقٌ → <span class=\"f\">هِيَ</span> صَدِيقَةٌ.</p><div class=\"ex-body\"><div class=\"rows\"><div class=\"row\" data-group data-hint=\"ة — اضْغَطْ عَلَى الصَّدَفَةِ\">\n    <span class=\"noun\"><span class=\"m\">هُوَ</span> صَدِيقٌ</span><span aria-hidden=\"true\">←</span><span class=\"noun\"><span class=\"slot\">هِيَ صَدِيقَـ…</span></span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"صَدِيقَ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\" aria-label=\"أَضِفْ ة — add ة\"><span class=\"ta\">ة</span></button></div><div class=\"row\" data-group data-hint=\"ة — اضْغَطْ عَلَى الصَّدَفَةِ\">\n    <span class=\"noun\"><span class=\"m\">هُوَ</span> نَشِيطٌ</span><span aria-hidden=\"true\">←</span><span class=\"noun\"><span class=\"slot\">هِيَ نَشِيطَـ…</span></span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"نَشِيطَ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\" aria-label=\"أَضِفْ ة — add ة\"><span class=\"ta\">ة</span></button></div><div class=\"row\" data-group data-hint=\"ة — اضْغَطْ عَلَى الصَّدَفَةِ\">\n    <span class=\"noun\"><span class=\"m\">هُوَ</span> صَغِيرٌ</span><span aria-hidden=\"true\">←</span><span class=\"noun\"><span class=\"slot\">هِيَ صَغِيرَـ…</span></span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"صَغِيرَ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\" aria-label=\"أَضِفْ ة — add ة\"><span class=\"ta\">ة</span></button></div><div class=\"row\" data-group data-hint=\"ة — اضْغَطْ عَلَى الصَّدَفَةِ\">\n    <span class=\"noun\"><span class=\"m\">هُوَ</span> كَبِيرٌ</span><span aria-hidden=\"true\">←</span><span class=\"noun\"><span class=\"slot\">هِيَ كَبِيرَـ…</span></span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"كَبِيرَ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\" aria-label=\"أَضِفْ ة — add ة\"><span class=\"ta\">ة</span></button></div><div class=\"row\" data-group data-hint=\"ة — اضْغَطْ عَلَى الصَّدَفَةِ\">\n    <span class=\"noun\"><span class=\"m\">هُوَ</span> قِطٌّ</span><span aria-hidden=\"true\">←</span><span class=\"noun\"><span class=\"slot\">هِيَ قِطَّـ…</span></span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"قِطَّ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\" aria-label=\"أَضِفْ ة — add ة\"><span class=\"ta\">ة</span></button></div></div><div class=\"score\" aria-live=\"polite\"></div><p class=\"hint\" role=\"status\"></p>\n  <div data-writepad data-model=\"هِيَ صَدِيقَةٌ|هِيَ نَشِيطَةٌ\" data-lines=\"2\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-match",
+   "type": "match",
+   "exercise": 7,
+   "title": "صِلْ: هُوَ أَمْ هِيَ؟",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">٧</span><h2 class=\"word\">صِلْ: <span class=\"m\">هُوَ</span> أَمْ <span class=\"f\">هِيَ</span>؟</h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">ارْسُمْ خَطًّا مِنْ كُلِّ صُورَةٍ إِلَى <span class=\"m\">هُوَ</span> أَوْ <span class=\"f\">هِيَ</span>.</p><p class=\"en-line\" lang=\"en\">Exercise 7 · Match: <span class=\"m\">هُوَ</span> or <span class=\"f\">هِيَ</span>?</p><p class=\"en-line\" lang=\"en\">Draw a line from each picture to <span class=\"m\">هُوَ</span> or <span class=\"f\">هِيَ</span>. Careful: the sun and the mother have no ة, but they are <span class=\"f\">هِيَ</span>.</p><div class=\"ex-body\"><div class=\"rows\"><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span data-pic=\"boy\" class=\"pic-slot\" style=\"width:64px;height:64px\"></span><span class=\"noun\">وَلَدٌ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"0\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span data-pic=\"fish\" class=\"pic-slot\" style=\"width:64px;height:64px\"></span><span class=\"noun\">سَمَكَ‍<span class=\"ta\">‍ةٌ</span></span>\n    <button type=\"button\" class=\"pick\" data-ok=\"0\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"1\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span data-pic=\"boat\" class=\"pic-slot\" style=\"width:64px;height:64px\"></span><span class=\"noun\">قَارِبٌ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"0\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span data-pic=\"mother\" class=\"pic-slot\" style=\"width:64px;height:64px\"></span><span class=\"noun\">أُمٌّ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"0\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"1\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span data-pic=\"sun\" class=\"pic-slot\" style=\"width:64px;height:64px\"></span><span class=\"noun\">شَمْسٌ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"0\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"1\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span data-pic=\"cat\" class=\"pic-slot\" style=\"width:64px;height:64px\"></span><span class=\"noun\">قِطٌّ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"0\"><span class=\"f\">هِيَ</span></button></div></div><div class=\"score\" aria-live=\"polite\"></div><p class=\"hint\" role=\"status\"></p></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-fill",
+   "type": "fill",
+   "exercise": 8,
+   "title": "اكْتُبْ: هُوَ أَوْ هِيَ",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">٨</span><h2 class=\"word\">اكْتُبْ: <span class=\"m\">هُوَ</span> أَوْ <span class=\"f\">هِيَ</span></h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">تَذَكَّرْ: بِنْتٌ، أُمٌّ، شَمْسٌ ← <span class=\"f\">هِيَ</span> (بِلَا <span class=\"ta\">ة</span>).</p><p class=\"en-line\" lang=\"en\">Exercise 8 · Write <span class=\"m\">هُوَ</span> or <span class=\"f\">هِيَ</span></p><p class=\"en-line\" lang=\"en\">Write <span class=\"m\">هُوَ</span> or <span class=\"f\">هِيَ</span> on the line before each word: <span class=\"m\">هُوَ</span> وَلَدٌ (he is a boy), <span class=\"f\">هِيَ</span> بِنْتٌ (she is a girl).</p><div class=\"ex-body\"><div class=\"rows\"><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span class=\"noun\"><span class=\"slot\">…</span> وَلَدٌ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"&lt;span class=&quot;m&quot;&gt;هُوَ&lt;/span&gt;\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"&lt;span class=&quot;f&quot;&gt;هِيَ&lt;/span&gt;\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span class=\"noun\"><span class=\"slot\">…</span> بِنْتٌ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"&lt;span class=&quot;m&quot;&gt;هُوَ&lt;/span&gt;\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"&lt;span class=&quot;f&quot;&gt;هِيَ&lt;/span&gt;\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span class=\"noun\"><span class=\"slot\">…</span> قِطَّ‍<span class=\"ta\">‍ةٌ</span></span>\n    <button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"&lt;span class=&quot;m&quot;&gt;هُوَ&lt;/span&gt;\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"&lt;span class=&quot;f&quot;&gt;هِيَ&lt;/span&gt;\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span class=\"noun\"><span class=\"slot\">…</span> قَارِبٌ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"&lt;span class=&quot;m&quot;&gt;هُوَ&lt;/span&gt;\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"&lt;span class=&quot;f&quot;&gt;هِيَ&lt;/span&gt;\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span class=\"noun\"><span class=\"slot\">…</span> أُمٌّ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"&lt;span class=&quot;m&quot;&gt;هُوَ&lt;/span&gt;\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"&lt;span class=&quot;f&quot;&gt;هِيَ&lt;/span&gt;\"><span class=\"f\">هِيَ</span></button></div><div class=\"row\" data-group data-hint=\"هَذَا ← هُوَ، هَذِهِ ← هِيَ. وَبِنْتٌ، أُمٌّ، شَمْسٌ ← هِيَ (بِلَا ة). — هَذَا words take هُوَ, هَذِهِ words take هِيَ.\">\n    <span class=\"noun\"><span class=\"slot\">…</span> صَدِيقٌ</span>\n    <button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"&lt;span class=&quot;m&quot;&gt;هُوَ&lt;/span&gt;\"><span class=\"m\">هُوَ</span></button><button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"&lt;span class=&quot;f&quot;&gt;هِيَ&lt;/span&gt;\"><span class=\"f\">هِيَ</span></button></div></div><div class=\"score\" aria-live=\"polite\"></div><p class=\"hint\" role=\"status\"></p>\n  <div data-writepad data-model=\"هُوَ وَلَدٌ|هِيَ بِنْتٌ\" data-lines=\"2\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-adj",
+   "type": "adj",
+   "exercise": 9,
+   "title": "تَحَدِّي الْأَبْطَالِ: الصِّفَةُ",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">٩</span><h2 class=\"word\">تَحَدِّي الْأَبْطَالِ: الصِّفَةُ</h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">ضَعْ دَائِرَةً حَوْلَ الصِّفَةِ الصَّحِيحَةِ، ثُمَّ اكْتُبِ الْجُمْلَةَ.</p><p class=\"en-line\" lang=\"en\">Exercise 9 · Champions’ challenge: the describing word</p><p class=\"en-line\" lang=\"en\">Circle the adjective that matches <span class=\"m\">هُوَ</span> or <span class=\"f\">هِيَ</span>, then copy the sentence: <span class=\"f\">هِيَ</span> سَمَكَةٌ صَغِيرَةٌ.</p><div class=\"ex-body\"><div class=\"rows\"><div class=\"row\" data-group data-hint=\"الصِّفَةُ مِثْلُ الضَّمِيرِ: هِيَ … ة — the describing word matches هُوَ or هِيَ\">\n    <span class=\"noun\"><span class=\"m\">هُوَ</span> وَلَدٌ <span class=\"slot\">…</span></span><button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"نَشِيطٌ\">نَشِيطٌ</button><button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"نَشِيطَ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\">نَشِيطَ‍<span class=\"ta\">‍ةٌ</span></button></div><div class=\"row\" data-group data-hint=\"الصِّفَةُ مِثْلُ الضَّمِيرِ: هِيَ … ة — the describing word matches هُوَ or هِيَ\">\n    <span class=\"noun\"><span class=\"f\">هِيَ</span> بِنْتٌ <span class=\"slot\">…</span></span><button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"نَشِيطٌ\">نَشِيطٌ</button><button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"نَشِيطَ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\">نَشِيطَ‍<span class=\"ta\">‍ةٌ</span></button></div><div class=\"row\" data-group data-hint=\"الصِّفَةُ مِثْلُ الضَّمِيرِ: هِيَ … ة — the describing word matches هُوَ or هِيَ\">\n    <span class=\"noun\"><span class=\"f\">هَذِهِ</span> شَمْسٌ، <span class=\"f\">هِيَ</span> <span class=\"slot\">…</span></span><button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"حَارٌّ\">حَارٌّ</button><button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"حَارَّ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\">حَارَّ‍<span class=\"ta\">‍ةٌ</span></button></div><div class=\"row\" data-group data-hint=\"الصِّفَةُ مِثْلُ الضَّمِيرِ: هِيَ … ة — the describing word matches هُوَ or هِيَ\">\n    <span class=\"noun\"><span class=\"m\">هَذَا</span> كِيسٌ، <span class=\"m\">هُوَ</span> <span class=\"slot\">…</span></span><button type=\"button\" class=\"pick\" data-ok=\"1\" data-fill=\"كَبِيرٌ\">كَبِيرٌ</button><button type=\"button\" class=\"pick\" data-ok=\"0\" data-fill=\"كَبِيرَ‍&lt;span class=&quot;ta&quot;&gt;‍ةٌ&lt;/span&gt;\">كَبِيرَ‍<span class=\"ta\">‍ةٌ</span></button></div></div><div class=\"score\" aria-live=\"polite\"></div><p class=\"hint\" role=\"status\"></p>\n  <div data-writepad data-model=\"هُوَ وَلَدٌ نَشِيطٌ\" data-lines=\"2\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-draw-hiya",
+   "type": "draw",
+   "exercise": 10,
+   "title": "ارْسُمْ: هِيَ…",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">١٠</span><h2 class=\"word\">ارْسُمْ: <span class=\"f\">هِيَ</span>…</h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">ارْسُمْ فِي الْمُرَبَّعِ، ثُمَّ اكْتُبْ: <span class=\"f\">هِيَ</span>…</p><p class=\"en-line\" lang=\"en\">Exercise 10 · Draw a <span class=\"f\">هِيَ</span> thing</p><p class=\"en-line\" lang=\"en\">Draw something feminine in the box (a fish, a shell, the sun), then finish the sentence: <span class=\"f\">هِيَ</span> …</p><div class=\"ex-body\"><div data-writepad data-model=\"\" data-lines=\"3\" data-line-height=\"120\"></div><div data-writepad data-model=\"هِيَ\" data-lines=\"1\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "ex-draw-huwa",
+   "type": "draw",
+   "exercise": 11,
+   "title": "ارْسُمْ: هُوَ…",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"ex-head\"><span class=\"ex-num\" aria-hidden=\"true\">١١</span><h2 class=\"word\">ارْسُمْ: <span class=\"m\">هُوَ</span>…</h2></div>\n  <p class=\"line\" style=\"font-size:1.3rem\">ارْسُمْ فِي الْمُرَبَّعِ، ثُمَّ اكْتُبْ: <span class=\"m\">هُوَ</span>…</p><p class=\"en-line\" lang=\"en\">Exercise 11 · Draw a <span class=\"m\">هُوَ</span> thing</p><p class=\"en-line\" lang=\"en\">Draw something masculine in the box (a boat, a bag, the moon), then finish the sentence: <span class=\"m\">هُوَ</span> …</p><div class=\"ex-body\"><div data-writepad data-model=\"\" data-lines=\"3\" data-line-height=\"120\"></div><div data-writepad data-model=\"هُوَ\" data-lines=\"1\"></div></div>",
+   "note": ""
+  },
+  {
+   "key": "certificate",
+   "type": "certificate",
+   "exercise": 0,
+   "title": "شَهَادَةُ بَطَلِ / بَطَلَةِ الشَّاطِئِ النَّظِيفِ",
+   "tint": "",
+   "audio": true,
+   "html": "<div class=\"cert\"><div class=\"gull-wrap\" data-gull=\"cheer\"></div><h2 class=\"word\" style=\"margin:0;color:var(--accent-text)\">شَهَادَةُ بَطَلِ / بَطَلَةِ الشَّاطِئِ النَّظِيفِ</h2><p class=\"en-line\" lang=\"en\">Clean Beach Champion certificate</p>\n  <div class=\"cert-pick\" role=\"radiogroup\" aria-label=\"أَنَا بَطَلٌ · أَنَا بَطَلَةٌ\" style=\"display:flex;flex-wrap:wrap;gap:10px;justify-content:center\"><label style=\"display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:4px 18px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-family:var(--word);font-size:1.35rem;font-weight:700;cursor:pointer\"><input type=\"radio\" name=\"champ\" style=\"width:26px;height:26px;padding:0;margin:0;border:0;accent-color:var(--acc)\"><span>أَنَا بَطَلٌ</span></label><label style=\"display:inline-flex;align-items:center;gap:10px;min-height:56px;padding:4px 18px;border:2px solid var(--ink);border-radius:999px;background:#fff;font-family:var(--word);font-size:1.35rem;font-weight:700;cursor:pointer\"><input type=\"radio\" name=\"champ\" style=\"width:26px;height:26px;padding:0;margin:0;border:0;accent-color:var(--acc)\"><span>أَنَا بَطَلَ‍<span class=\"ta\">‍ةٌ</span></span></label></div><p class=\"en-line\" lang=\"en\">Tick one: I am a champion (boy) · I am a champion (girl).</p>\n  <p class=\"line\">أَنَا أَقُولُ <span class=\"m\">هُوَ</span> وَ<span class=\"f\">هِيَ</span> مِثْلَ الْكِبَارِ!</p><p class=\"en-line\" lang=\"en\">I say <span class=\"m\">هُوَ</span> and <span class=\"f\">هِيَ</span> like the grown-ups!</p><label class=\"word\" for=\"champName\" style=\"font-size:1.3rem\">الِاسْمُ: <span lang=\"en\" style=\"font-family:var(--ui);font-size:.9rem\">Name</span></label>\n  <input id=\"champName\" type=\"text\" maxlength=\"24\" autocomplete=\"off\"></div>",
+   "note": "<span class=\"en-line\" lang=\"en\">Colour a star for each exercise page finished.</span>"
+  }
+ ]
+};
+var AUDIO_DIR = { ar:'../audio/noori-huwa/ar/', eg:'../audio/noori-huwa/eg/' };
+
+/* ============================================================
+   Wiring (after bedtime-stories' story-template)
+   ============================================================ */
+var spread = document.getElementById('spread'), dots = document.getElementById('dots');
+var prevBtn = document.getElementById('prev'), nextBtn = document.getElementById('next');
+var player = document.getElementById('player');
+var at = 0, voice = 'ar', autoplay = true, unlocked = false, big = false, autoturn = false, turnTimer = null;
+var TURN_PAUSE = 5000;
+var pages = BOOK.pages;
+
+function store(k, v){ try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+function render(){
+  var page = pages[at];
+  spread.className = 'spread ' + page.type + (page.exercise ? ' exercise' : '');
+  spread.parentNode.classList.toggle('plain', !!page.exercise);
+  spread.style.setProperty('--tint', page.tint ? page.tint + '33' : 'transparent');
+  var html = page.html;
+  html += '<div class="listen"><button class="play" id="playBtn" type="button"' + (page.audio ? '' : ' disabled') + '>' +
+    '<svg class="ico" viewBox="0 0 15 17" aria-hidden="true" style="transform:scaleX(-1)"><path d="M1 1 L14 8.5 L1 16 Z" fill="currentColor"/></svg>' +
+    '<span id="playLabel">' + (page.audio ? 'اقْرَأْ لِي' : 'بِلَا صَوْتٍ') + '</span><span lang="en" style="font-weight:400;font-size:.85em;opacity:.8">' + (page.audio ? 'Read to me' : 'No narration') + '</span></button></div>';
+  if (page.note) html += '<p class="note"><b>لِلْكِبَارِ<br><span lang="en">Grown-ups</span></b><span>' + page.note + '</span></p>';
+  spread.innerHTML = html;
+  wirePage(page);
+  document.getElementById('playBtn').addEventListener('click', togglePlay);
+  prevBtn.disabled = at === 0;
+  nextBtn.disabled = at === pages.length - 1;
+  document.getElementById('nextLabel').textContent = at === 0 ? 'ابْدَأْ' : 'اقْلِبِ الصَّفْحَةَ';
+  Array.prototype.forEach.call(dots.children, function (d, n) { d.classList.toggle('on', n === at); d.setAttribute('aria-current', n === at ? 'page' : 'false'); });
+  try { history.replaceState(null, '', '#' + page.key); } catch (e) {}
+  document.title = page.title + ' · ' + BOOK.title;
+  loadAudio();
+}
+
+/* ---------- exercises: pads, picks, the certificate ---------- */
+var echoT = [];
+function wirePage(page){
+  echoT.forEach(clearTimeout); echoT = [];
+  // «دَوْرُكَ!» — a story page whose sound line asks the child to say something («هَيَّا نَقُولُ مَعًا: …»)
+  // gets a say-it-back button: Noori says the line, «دَوْرُكَ! قُلْ: …» waits about 3 s, Noori says it again.
+  // No microphone, no grading; the page text and its narration stay as they are.
+  var snd = spread.querySelector('.words .sound');
+  if (snd && /\u0646\u064e\u0642\u064f\u0648\u0644\u064f[^:]*:/.test(snd.textContent)) {
+    var line = snd.textContent.replace(/\u200d/g, '').split(':').slice(1).join(':').trim().replace(/[!.\s]+$/, '');
+    var row = document.createElement('div');
+    row.className = 'echo';
+    row.innerHTML = '<button type="button" class="echo-btn">دَوْرُكَ! اِسْمَعْ، ثُمَّ قُلْ <span lang="en">Your turn: listen, then say it</span></button><p class="echo-bubble" aria-live="polite" hidden></p>';
+    snd.parentNode.insertBefore(row, snd.nextSibling);
+    var eb = row.querySelector('.echo-btn'), bub = row.querySelector('.echo-bubble');
+    eb.addEventListener('click', function () {
+      unlocked = true; player.pause();
+      echoT.forEach(clearTimeout); echoT = [];
+      KS.speak(line, eb);
+      var wait = Math.max(1600, line.length * 110);
+      echoT.push(setTimeout(function () { bub.innerHTML = 'دَوْرُكَ! قُلْ: <b></b>'; bub.querySelector('b').textContent = line; bub.hidden = false; }, wait));
+      echoT.push(setTimeout(function () { bub.innerHTML = 'اسْمَعْ مَرَّةً أُخْرَى: <b></b>'; bub.querySelector('b').textContent = line; KS.speak(line, eb); }, wait + 3200));
+      echoT.push(setTimeout(function () { bub.hidden = true; }, wait * 2 + 4200));
+    });
+  }
+  Array.prototype.forEach.call(spread.querySelectorAll('[data-writepad]'), function (el) {
+    var model = el.getAttribute('data-model');
+    KS.writePad(el, { model: model ? model.split('|') : [], lines: +el.getAttribute('data-lines') || 1, lineHeight: +el.getAttribute('data-line-height') || undefined });
+  });
+  // a pad page links the stroke-by-stroke writing game, opened on the closest letter or word
+  var pads = spread.querySelectorAll('[data-writepad]');
+  if (pads.length) {
+    var all = Array.prototype.map.call(pads, function (el) { return el.getAttribute('data-model') || ''; }).join('|'), item = '';
+    [['ة|ـة', 'taa-m'], ['بِنْت', 'bint'], ['هَذِهِ', 'hathihi'], ['هَذَا', 'hatha'], ['ة', 'taa-final']].some(function (m) { if (all.indexOf(m[0]) > -1) { item = m[1]; return true; } return false; });
+    var gl = document.createElement('p');
+    gl.className = 'game-row';
+    gl.innerHTML = '<a class="game-link" href="../../games/write.html' + (item ? '?item=' + item : '') + '"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg>تَدَرَّبْ عَلَى الْكِتَابَةِ <span class="en" lang="en">Practise stroke by stroke — writing game</span></a>';
+    var last = pads[pads.length - 1];
+    last.parentNode.insertBefore(gl, last.nextSibling);
+  }
+  Array.prototype.forEach.call(spread.querySelectorAll('[data-pic]'), function (el) {
+    el.innerHTML = KS.pic(el.getAttribute('data-pic'), { decorative: true });
+  });
+  Array.prototype.forEach.call(spread.querySelectorAll('[data-gull]'), function (el) {
+    el.innerHTML = KS.gull(el.getAttribute('data-gull'));
+  });
+  var picks = spread.querySelectorAll('.pick');
+  var score = spread.querySelector('.score'), hint = spread.querySelector('.hint');
+  var got = 0, total = spread.querySelectorAll('[data-group]').length;
+  Array.prototype.forEach.call(picks, function (b) {
+    b.addEventListener('click', function () {
+      unlocked = true;
+      var group = b.closest('[data-group]');
+      if (b.getAttribute('data-ok') === '1') {
+        b.classList.add('is-right');
+        if (b.hasAttribute('data-fill')) {
+          var slot = group.querySelector('.slot'); if (slot) slot.innerHTML = b.getAttribute('data-fill');
+        }
+        Array.prototype.forEach.call(group.querySelectorAll('.pick'), function (x) { x.disabled = true; });
+        got++;
+        if (score) score.innerHTML += KS.star(true);
+        if (hint) { hint.textContent = got === total ? 'أَحْسَنْتُمْ! كُلُّ الْإِجَابَاتِ صَحِيحَةٌ — Well done!' : 'رَائِعٌ! — Great!'; hint.className = 'hint good'; }
+        if (window.KS && KS.sfx) KS.sfx('good');
+        if (got === total && KS.confetti) KS.confetti(24);
+      } else {
+        b.classList.remove('is-wrong'); void b.offsetWidth; b.classList.add('is-wrong');
+        if (hint) { hint.textContent = group.getAttribute('data-hint') || page.hint || 'لِنُحَاوِلْ مَرَّةً أُخْرَى — try again'; hint.className = 'hint'; }
+        if (window.KS && KS.sfx) KS.sfx('bad');
+      }
+    });
+  });
+  var nameIn = spread.querySelector('#champName');
+  if (nameIn) {
+    nameIn.value = store('noori-huwa-name') || '';
+    nameIn.addEventListener('input', function () { store('noori-huwa-name', nameIn.value.trim()); });
+  }
+}
+
+function buildDots(){
+  dots.innerHTML = '';
+  pages.forEach(function (p, n) {
+    var d = document.createElement('button');
+    d.type = 'button'; d.tabIndex = -1;
+    if (p.exercise) d.className = 'ex';
+    d.setAttribute('aria-label', 'صَفْحَةُ ' + (n + 1) + ' — ' + p.title);
+    d.addEventListener('click', function () { show(n); });
+    dots.appendChild(d);
+  });
+}
+
+/* ---------- audio ---------- */
+function loadAudio(){
+  player.pause();
+  var page = pages[at];
+  if (page.audio) player.src = AUDIO_DIR[voice] + page.key + '.mp3';
+  else player.removeAttribute('src');
+  setPlayState(false);
+}
+function setPlayState(playing){
+  var btn = document.getElementById('playBtn');
+  if (!btn) return;
+  btn.dataset.state = playing ? 'playing' : 'idle';
+  if (pages[at].audio) document.getElementById('playLabel').textContent = playing ? 'إِيقَافٌ' : 'اقْرَأْ لِي';
+}
+function togglePlay(){
+  unlocked = true;
+  if (!pages[at].audio) return;
+  if (player.paused) player.play().then(function () { setPlayState(true); }).catch(function () { setPlayState(false); });
+  else { player.pause(); setPlayState(false); }
+}
+
+/* ---------- turning the pages by itself (waits after the narration; never on an exercise) ---------- */
+function stopTurning(){ if (turnTimer) { clearTimeout(turnTimer); turnTimer = null; } }
+function queueTurn(){
+  stopTurning();
+  if (!autoturn || at >= pages.length - 1 || pages[at].exercise) return;
+  if (!player.paused && !player.ended) return;
+  turnTimer = setTimeout(function () { if (autoturn && at < pages.length - 1) show(at + 1); }, TURN_PAUSE);
+}
+player.addEventListener('ended', function () { setPlayState(false); queueTurn(); });
+player.addEventListener('pause', function () { setPlayState(false); stopTurning(); });
+
+function show(i){
+  stopTurning();
+  at = Math.max(0, Math.min(pages.length - 1, i));
+  render();
+  if (autoplay && unlocked && pages[at].audio) {
+    player.play().then(function () { setPlayState(true); }).catch(function () { queueTurn(); });
+  } else queueTurn();
+  document.querySelector('.book').scrollIntoView({ block: 'nearest' });
+}
+
+/* ---------- chrome ---------- */
+nextBtn.addEventListener('click', function () { unlocked = true; show(at + 1); });
+prevBtn.addEventListener('click', function () { show(at - 1); });
+document.getElementById('startBtn').addEventListener('click', function () { show(0); });
+
+var notesBtn = document.getElementById('notesBtn'), autoBtn = document.getElementById('autoBtn'), turnBtn = document.getElementById('turnBtn');
+function paintChrome(){
+  var off = document.body.classList.contains('notes-off');
+  notesBtn.innerHTML = (off ? 'إِظْهَارُ مُلَاحَظَاتِ الْكِبَارِ' : 'إِخْفَاءُ مُلَاحَظَاتِ الْكِبَارِ') + ' <span lang="en">' + (off ? 'Show notes' : 'Hide notes') + '</span>';
+  notesBtn.setAttribute('aria-pressed', String(!off));
+  autoBtn.innerHTML = 'تَشْغِيلٌ تِلْقَائِيٌّ: ' + (autoplay ? 'نَعَمْ' : 'لَا') + ' <span lang="en">Auto-play ' + (autoplay ? 'on' : 'off') + '</span>';
+  autoBtn.setAttribute('aria-pressed', String(autoplay));
+  turnBtn.setAttribute('aria-pressed', String(autoturn));
+  document.getElementById('fsBtn').setAttribute('aria-pressed', String(big));
+}
+notesBtn.addEventListener('click', function () { document.body.classList.toggle('notes-off'); paintChrome(); });
+autoBtn.addEventListener('click', function () { autoplay = !autoplay; paintChrome(); });
+turnBtn.addEventListener('click', function () { autoturn = !autoturn; paintChrome(); if (autoturn) queueTurn(); else stopTurning(); });
+document.getElementById('enBtn').addEventListener('click', function () {
+  var on = document.body.classList.toggle('show-en');
+  this.setAttribute('aria-pressed', String(on));
+  store('noori-huwa-en', on ? '1' : '0');
+});
+document.getElementById('voices').addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  voice = b.getAttribute('data-voice');
+  Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+  document.body.classList.toggle('show-eg', voice === 'eg');
+  store('noori-huwa-voice', voice);
+  loadAudio();
+});
+document.getElementById('fsBtn').addEventListener('click', function () {
+  big = !big;
+  document.body.classList.toggle('big', big);
+  if (big && document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(function () {});
+  else if (!big && document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(function () {});
+  paintChrome();
+});
+document.addEventListener('fullscreenchange', function () {
+  if (!document.fullscreenElement && big) { big = false; document.body.classList.remove('big'); paintChrome(); }
+});
+document.addEventListener('keydown', function (e) {
+  if (/INPUT|TEXTAREA/.test(e.target.tagName)) return;
+  if (e.key === 'ArrowLeft') show(at + 1);     // right to left: forward is to the left
+  if (e.key === 'ArrowRight') show(at - 1);
+});
+var x0 = null, book = document.querySelector('.book');
+book.addEventListener('touchstart', function (e) { x0 = e.target.closest('.wp-stage') ? null : e.changedTouches[0].clientX; }, { passive: true });
+book.addEventListener('touchend', function (e) {
+  if (x0 === null) return;
+  var dx = e.changedTouches[0].clientX - x0;
+  if (Math.abs(dx) > 60) show(at + (dx > 0 ? 1 : -1));
+  x0 = null;
+}, { passive: true });
+
+if (store('noori-huwa-en') === '0') { document.body.classList.remove('show-en'); document.getElementById('enBtn').setAttribute('aria-pressed', 'false'); }
+if (store('noori-huwa-voice') === 'eg') document.querySelector('#voices [data-voice="eg"]').click();
+var fromHash = location.hash.slice(1);
+pages.forEach(function (p, n) { if (p.key === fromHash) at = n; });
+window.addEventListener('hashchange', function () {
+  var k = location.hash.slice(1);
+  pages.forEach(function (p, n) { if (p.key === k && n !== at) show(n); });
+});
+buildDots();
+paintChrome();
+render();
+</script>
+</body>
+</html>
