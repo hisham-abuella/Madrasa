@@ -5,5 +5,10 @@
   "urlConfirmed": true,
   "_books": "Every other topic book (.claude/skills/topic-book): add \"<slug>\": { \"bookUrl\": …, \"urlConfirmed\": true } under books once its URL is live and checked. A book with no entry gets urlPattern with <slug> filled in and urlConfirmed false, so its print files are -DRAFT. Its audio lives in audio/<slug>/ and its QR codes in input/qr/<slug>/ (tools/lib.js bookConfig).",
   "urlPattern": "https://hisham-abuella.github.io/Madrasa/book/books/<slug>.html",
-  "books": {}
+  "books": {
+    "noori-huwa": {
+      "bookUrl": "https://hisham-abuella.github.io/Madrasa/book/books/noori-huwa.html",
+      "urlConfirmed": true
+    }
+  }
 }

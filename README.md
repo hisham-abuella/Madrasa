@@ -12,6 +12,7 @@
 **[Owners' presentation](https://hisham-abuella.github.io/Madrasa/pitch/index.html)** ·
 **[Web book](https://hisham-abuella.github.io/Madrasa/book/books/noori-shell.html)** ·
 **[Book PDF](https://hisham-abuella.github.io/Madrasa/book/print/noori-shell-lulu-interior.pdf)** ·
+**[Book 2: web](https://hisham-abuella.github.io/Madrasa/book/books/noori-huwa.html)** · **[Book 2 PDF](https://hisham-abuella.github.io/Madrasa/book/print/noori-huwa-lulu-interior.pdf)** ·
 **[GitHub repo (public)](https://github.com/hisham-abuella/Madrasa)**
 
 </div>
