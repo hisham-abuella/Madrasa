@@ -27,6 +27,42 @@
    "text": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت.",
    "transcript": "[playfully] بُصّوا معايا… <break time=\"0.4s\" /> ده وَلَد، ودي بِنت.",
    "source": "splice"
+  },
+  {
+   "id": "huwa-recap-ar-a",
+   "text": "[warmly] تَذَكَّرْ: <break time=\"0.4s\" /> هُوَ وَلَدٌ، هُوَ",
+   "transcript": "[warmly] تَذَكَّرْ: <break time=\"0.4s\" /> هُوَ وَلَدٌ، هُوَ",
+   "source": "splice for book 2 recap"
+  },
+  {
+   "id": "huwa-recap-ar-b",
+   "text": "هُوَ قَارِبٌ. <break time=\"0.5s\" /> هِيَ بِنْتٌ، هِيَ",
+   "transcript": "هُوَ قَارِبٌ. <break time=\"0.5s\" /> هِيَ بِنْتٌ، هِيَ",
+   "source": "splice for book 2 recap"
+  },
+  {
+   "id": "huwa-recap-ar-c",
+   "text": "هِيَ سَمَكَةٌ. <break time=\"0.5s\" /> [gently] وَبِلَا تَاءٍ مَرْبُوطَةٍ نَقُولُ هِيَ: بِنْتٌ، أُمٌّ، شَمْسٌ.",
+   "transcript": "هِيَ سَمَكَةٌ. <break time=\"0.5s\" /> [gently] وَبِلَا تَاءٍ مَرْبُوطَةٍ نَقُولُ هِيَ: بِنْتٌ، أُمٌّ، شَمْسٌ.",
+   "source": "splice for book 2 recap"
+  },
+  {
+   "id": "huwa-recap-eg-a",
+   "text": "[warmly] افتكر: <break time=\"0.4s\" /> هُوَ وَلَدٌ، هُوَ",
+   "transcript": "[warmly] افتكر: <break time=\"0.4s\" /> هُوَ وَلَدٌ، هُوَ",
+   "source": "splice for book 2 recap"
+  },
+  {
+   "id": "huwa-recap-eg-b",
+   "text": "هُوَ قَارِبٌ. <break time=\"0.5s\" /> هِيَ بِنتٌ، هِيَ",
+   "transcript": "هُوَ قَارِبٌ. <break time=\"0.5s\" /> هِيَ بِنتٌ، هِيَ",
+   "source": "splice for book 2 recap"
+  },
+  {
+   "id": "huwa-recap-eg-c",
+   "text": "هِيَ سَمَكةٌ. <break time=\"0.5s\" /> [gently] ومن غير تاء مربوطة بنقول هِيَ: بِنت، أُمّ، شَمس.",
+   "transcript": "هِيَ سَمَكةٌ. <break time=\"0.5s\" /> [gently] ومن غير تاء مربوطة بنقول هِيَ: بِنت، أُمّ، شَمس.",
+   "source": "splice for book 2 recap"
   }
  ]
 }

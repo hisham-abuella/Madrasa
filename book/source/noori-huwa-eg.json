@@ -27,7 +27,7 @@
   {
    "id": "recall",
    "title": "هَلْ تَتَذَكَّرُونَ؟",
-   "transcript": "[warmly] فاكرين؟ <break time=\"0.4s\" /> اتعلّمنا هذا وهذهِ. <break time=\"0.4s\" /> هذا قارِبٌ، <break time=\"0.3s\" /> هذا كتابٌ، <break time=\"0.3s\" /> هذهِ سَمَكةٌ، <break time=\"0.3s\" /> هذهِ صَدَفةٌ. <break time=\"0.5s\" /> [cheerful] النهارده هنتعلّم كلمتين جداد!"
+   "transcript": "[warmly] فاكرين؟ <break time=\"0.4s\" /> اتعلّمنا هذا وهذهِ. <break time=\"0.4s\" /> هذا قارِبٌ، <break time=\"0.3s\" /> هذا كتابٌ، <break time=\"0.3s\" /> هَذِهِ سَمَكَةٌ، <break time=\"0.3s\" /> هذهِ صَدَفةٌ. <break time=\"0.5s\" /> [cheerful] النهارده هنتعلّم كلمتين جداد!"
   },
   {
    "id": "huwa",
@@ -132,7 +132,7 @@
   {
    "id": "ex-adj",
    "title": "تَحَدِّي الْأَبْطَالِ: الصِّفَةُ",
-   "transcript": "[excited] تحدّي الأبطال! <break time=\"0.4s\" /> اعمل دايرة حوالين الصِّفة الصحّ. <break time=\"0.4s\" /> هذهِ شَمسٌ… هِيَ حارّةٌ!"
+   "transcript": "[excited] تحدّي الأبطال! <break time=\"0.4s\" /> اعمل دايرة حوالين الصِّفة الصحّ. <break time=\"0.4s\" /> هَذِهِ شَمْسٌ، <break time=\"0.3s\" /> هِيَ حَارَّةٌ!"
   },
   {
    "id": "ex-draw-hiya",

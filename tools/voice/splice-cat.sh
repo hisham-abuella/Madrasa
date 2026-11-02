@@ -26,4 +26,7 @@ join book/audio/ar/recap.mp3  $P/recap-a.wav 0.25 $W/this-cat.mp3 0.25 $P/recap-
 join book/audio/ar/qitt.mp3   $W/cat.mp3 0.35 $W/cat-f.mp3 0.5 $W/this-cat.mp3 0.25 $W/this-cat-f.mp3 0.4 $P/qitt-c.wav
 join audio/story/eg/p04.mp3   $P/p04-a.wav 0.5 $W/this-cat.mp3 0.3 $W/this-cat-f.mp3
 join audio/samples/eg/s2.mp3  $P/p04-a.wav 0.5 $W/this-cat.mp3 0.3 $W/this-cat-f.mp3
+# book 2 (noori-huwa) recap: «هُوَ قِطٌّ … هِيَ قِطَّةٌ»
+join book/audio/noori-huwa/ar/recap.mp3 $P/huwa-recap-ar-a.wav 0.12 $W/cat.mp3 0.25 $P/huwa-recap-ar-b.wav 0.12 $W/cat-f.mp3 0.25 $P/huwa-recap-ar-c.wav
+join book/audio/noori-huwa/eg/recap.mp3 $P/huwa-recap-eg-a.wav 0.12 $W/cat.mp3 0.25 $P/huwa-recap-eg-b.wav 0.12 $W/cat-f.mp3 0.25 $P/huwa-recap-eg-c.wav
 rm -rf $TMP
