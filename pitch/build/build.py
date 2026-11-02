@@ -17,7 +17,7 @@ plan = open(P + 'PLAN.md', encoding='utf-8').read()
 scripts = {}
 for m in re.finditer(r'### \d+ · (\w+)\n\*\*EN\*\*: (.*?)\n\n\*\*EG\*\*: (.*?)\n', plan, re.S):
     scripts[m.group(1)] = {'en': m.group(2).strip(), 'eg': m.group(3).strip()}
-assert len(scripts) == 14, len(scripts)
+assert len(scripts) == 15, len(scripts)
 
 TITLES = {
  'start': 'Nawras: Arabic for little hearts, by the Pacific',
@@ -31,6 +31,7 @@ TITLES = {
  'book': 'The 32-page printed book',
  'adab': 'Islamic adab, and what Nawras is not',
  'grow': 'The five steps of every new lesson',
+ 'done': '50 of 55 team suggestions are done',
  'ask': 'Five decisions',
  'close': 'What your school has now',
  'team': 'What the team suggests next',
@@ -47,6 +48,7 @@ TITLES_AR = {
  'book': 'الكتاب المطبوع، اتنين وتلاتين صفحة',
  'adab': 'الأدب الإسلامي، واللي نَوْرَس مش هو',
  'grow': 'الخمس خطوات لكل درس جديد',
+ 'done': 'خمسين من خمسة وخمسين اقتراح خلصوا',
  'ask': 'خمس قرارات',
  'close': 'اللي عند مدرستكم دلوقتي',
  'team': 'اللي الفريق بيقترحه بعد كده',
@@ -202,14 +204,14 @@ slide('book', 'image-right', f'''<figure class="wide"><img src="img/book-pages.w
 <li>14 story pages, 11 exercises, certificate, answers</li>
 <li>Read aloud in two voices: proper Arabic and Egyptian, both in Hisham’s voice</li>
 </ul>
-<p class="pdfbtns bx-ui">{a(P_+"lulu-interior.pdf", "See the book (PDF)", "pbtn")}{a(P_+"lulu-cover.pdf", "Cover (PDF)", "pbtn")}{a(P_+"home-a5.pdf", "Print at home (A5 booklet)", "pbtn")}{a(P_+"worksheets-letter.pdf", "Worksheets (Letter)", "pbtn")}{a(P_+"worksheets-a4.pdf", "Worksheets (A4)", "pbtn")}{a("../book/books/noori-shell.html", "Web book", "pbtn")}</p>''',
- 'book/README.md (page map, Printing, Status: 56 clips, 28 Fusha + 28 Egyptian in Hisham’s local voice; 12 QR codes, 48 decodes; Lulu 8.5 in square, Premium Color; spine 0.1321 in); book/book.config.json; book/print/*.pdf. Narration credits are covered by the existing ElevenLabs plan.')
+<p class="pdfbtns bx-ui">{a(P_+"lulu-interior.pdf", "See the book (PDF)", "pbtn")}{a(P_+"lulu-cover.pdf", "Cover (PDF)", "pbtn")}{a(P_+"home-a5.pdf", "Print at home (A5 booklet)", "pbtn")}{a(P_+"worksheets-letter.pdf", "Worksheets (Letter)", "pbtn")}{a(P_+"worksheets-a4.pdf", "Worksheets (A4)", "pbtn")}{a("../book/books/noori-shell.html", "Web book", "pbtn")}{a("../book/print/noori-huwa-lulu-interior.pdf", "Book 2 (PDF)", "pbtn")}</p>''',
+ 'book/README.md (page map, Printing, Status: 56 clips, 28 Fusha + 28 Egyptian in Hisham’s local voice; 12 QR codes, 48 decodes; Lulu 8.5 in square, Premium Color; spine 0.1321 in); book/book.config.json; book/print/*.pdf. Book 2 (noori-huwa) has the same files under book/print/noori-huwa-*.')
 
 # 9 adab + fence
 slide('adab', 'two-column', '''<h2>Every picture follows Islamic adab, and Nawras serves your teachers, never replaces them</h2>
 <div class="cols">
 <div class="col is" data-build="rise"><h3>Our adab rules</h3><ul><li>No pictures of prophets or angels</li><li>No Qur'an verses as decoration or in games</li><li>Modest clothing on every child</li><li>No music, only soft sounds</li><li>What children practise: salam, sharing, thanking</li></ul></div>
-<div class="col not" data-build="rise"><h3>What Nawras is not</h3><ul><li>Not a replacement for the teacher</li><li>Not an app, no subscription for families</li><li>Not auto-grading of handwriting</li><li>Not yet a full curriculum: one lesson so far</li></ul></div>
+<div class="col not" data-build="rise"><h3>What Nawras is not</h3><ul><li>Not a replacement for the teacher</li><li>Not an app, no subscription for families</li><li>Not auto-grading of handwriting</li><li>Not yet a full curriculum: two lesson books so far</li></ul></div>
 </div>''',
  'BRIEF.md, "Respectful content rules" (also: children greet with السَّلَامُ عَلَيْكُمْ; pictures redrawn when not modest, book/README.md Status); BRIEF.md (plain pages, no auto-grading, the teacher presents); lessons/presentation/PLAN.md.')
 
@@ -224,6 +226,28 @@ slide('grow', 'process', f'''<h2>Every new lesson follows the same five steps, f
 </ol>
 <div class="artgrid"><img src="img/art-noori-wave.webp" alt="Noori waving (نُورِي)"><img src="img/art-noori-think.webp" alt="Noori thinking (نُورِي)"><img src="img/art-story-friends.webp" alt="Story scene: Noori meets Sami and Salma on the beach"><img src="img/art-pic-cat-f.webp" alt="Word picture: a cat (قِطَّةٌ)"><img src="img/art-pic-teacher-f.webp" alt="Word picture: a teacher (مُعَلِّمَةٌ)"><img src="img/art-hero-pacific.webp" alt="Homepage hero: the Pacific coast at sunset"><p class="artcap">{ART} pictures, made locally, every one checked by eye</p></div>''',
  'BRIEF.md (The lesson book; Illustrated artwork pass); book/README.md (Rebuild everything); assets/art/source/gen-art.sh. Picture count = web copies in assets/art at build time; the six pictures are web copies from assets/art (noori, story, pic, site). The image and animation guide is guide.html.')
+
+# 12 done (what the team's suggestions became), from claudeteam/suggestions.jsonl
+_all = [json.loads(_l) for _l in open(R + 'claudeteam/suggestions.jsonl', encoding='utf-8') if _l.strip()]
+_n = lambda *areas: sum(1 for x in _all if x.get('status') == 'done' and x['area'] in areas)
+_open = [x for x in _all if x.get('status') != 'done']
+GROUPS = [
+ (('Kids UX',), 'For children', f'Four small games, and a picture start screen'),
+ (('Pedagogy',), 'Teaching', f'A KG story, and book 2: {A("هُوَ وَهِيَ")}'),
+ (('Islamic adab',), 'Adab', 'Salma in full hijab; adab stickers; a beach clean-up'),
+ (('Motion & sound',), 'Sound', 'Every word and page read in Hisham’s voice'),
+ (('Parents',), 'Parents', 'A parents’ page with a free trial, and a flyer'),
+ (('Print',), 'Print', 'A teacher pack and more practice lines'),
+ (('Arabic',), 'Arabic', f'{A("أَحْسَنْتِ")} and {A("بَطَلَةٌ")}: girls are praised as girls'),
+ (('Accessibility', 'UI', 'Frontend', 'Art', 'QA', 'Vision'), 'Look and quality', 'Readable in six themes; one release check'),
+]
+_cards = ''.join(f'<div class="dcard" data-build="rise"><b class="dn">{_n(*ar)}</b><h3>{t}</h3><p>{d}</p></div>' for ar, t, d in GROUPS)
+_SHORT = {'S-017': 'Proof copy', 'S-031': 'iPad check', 'S-036': 'Noori’s beak', 'S-037': 'One theme', 'S-038': 'Logo files'}
+_chips = ''.join(f'<span class="chip">{_SHORT.get(x["id"], x["title"])}</span> ' for x in _open)
+slide('done', 'two-column', f'''<h2>{sum(x.get("status")=="done" for x in _all)} of {len(_all)} team suggestions are done</h2>
+<div class="donegrid">{_cards}</div>
+<p class="strip openrow"><b>Still open, for you:</b> {_chips}</p>''',
+ 'claudeteam/suggestions.jsonl at build time (status "done"); counts per area, Look and quality = Accessibility + UI + Frontend + Art + QA + Vision. The full list is the searchable table after the close (press Done).')
 
 # 11 ask (cost, timeline, decisions)
 slide('ask', 'ask', f'''<h2>Five decisions today let one class start</h2>
@@ -258,7 +282,7 @@ _data = _raw.replace('</', '<\\/')
 _cols = [('priority', 'Priority', 'c-p'), ('suggestion', 'Suggestion', ''), ('by', 'Suggested by', 'c-by'), ('area', 'Area', 'c-a'), ('effort', 'Effort', 'c-e'), ('severity', 'Severity', 'c-v'), ('note', 'CEO note', 'c-n')]
 _th = ''.join(f'<th scope="col" data-key="{k}" class="{c}" aria-sort="none"><button type="button">{t}</button></th>' for k, t, c in _cols)
 slide('team', 'two-column', f'''<h2>What the team suggests next</h2>
-<p class="lede"><span data-n>{N_ROLES}</span> experts reviewed everything; the CEO ranked their <span data-n>{N_SUG}</span> suggestions. <b><span data-n>{N_DONE}</span> are done</b>, <span data-n>{N_PEND}</span> more wait only for print or audio.</p>
+<p class="lede"><span data-n>{N_ROLES}</span> experts reviewed everything; the CEO ranked their <span data-n>{N_SUG}</span> suggestions. <b><span data-n>{N_DONE}</span> are done</b>; <span data-n>{N_SUG - N_DONE - N_PEND}</span> are open and wait for you.</p>
 <div class="team bx-ui">
 <div class="trow"><input type="search" id="tq" placeholder="Search: title, area, note, Arabic (سلمى)" aria-label="Search suggestions" autocomplete="off" spellcheck="false"><span class="tcount" id="tcount" aria-live="polite"></span>
 <button type="button" class="tchip" data-pri="" aria-pressed="true">Any priority</button><button type="button" class="tchip" data-pri="now" aria-pressed="false">Now</button><button type="button" class="tchip" data-pri="next" aria-pressed="false">Next</button><button type="button" class="tchip" data-pri="later" aria-pressed="false">Later</button>
@@ -272,6 +296,14 @@ slide('team', 'two-column', f'''<h2>What the team suggests next</h2>
 
 # ---------- CSS ----------
 CSS = r'''
+
+/* done slide: what the team's suggestions became */
+.donegrid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px;margin-bottom:48px}
+.dcard{background:var(--bg2);border:2px solid var(--rule);border-radius:20px;padding:24px 26px}
+.dcard .dn{display:block;font-family:var(--f-display);font-size:64px;line-height:1;color:var(--brand-text)}
+.dcard h3{font-size:32px;margin:8px 0 6px}
+.dcard p{font-size:28px;line-height:1.35;margin:0;color:var(--ink2)}
+.openrow{grid-column:1/-1;margin-top:56px;font-size:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 html[data-theme="trainer"]{
   --brand:#0B7A7E; --brand-text:#0B6E72; --on-brand:#FFFFFF;
   --s1:#0B7A7E; --bleed-bg:#0B7A7E;
